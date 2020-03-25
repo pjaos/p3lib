@@ -1,7 +1,7 @@
 import setuptools
 
 MODULE_NAME="p3lib"                                                             #The python module name
-VERSION = "1.0"                                                                 #The version of the application
+VERSION = "1.1"                                                                 #The version of the application
 AUTHOR  = "Paul Austen"                                                         #The name of the applications author
 AUTHOR_EMAIL = "pausten.os@gmail.com"                                           #The email address of the author
 DESCRIPTION = "A number of python3 library modules."                            # A short description of the application
