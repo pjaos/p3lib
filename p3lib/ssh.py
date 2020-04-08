@@ -29,6 +29,7 @@ import  logging
 import  threading
 import  socketserver
 import  select
+
 from    getpass import getuser, getpass
 
 class SSHError(Exception):
@@ -38,6 +39,9 @@ class SSHError(Exception):
 
 class ExtendedSSHClient(SSHClient):
     """@brief The ssh client class"""
+
+    CMD_POLL_SECONDS = 0.1
+
     @staticmethod
     def GetLines(bytes):
         """@brief Split the text into lines.
@@ -89,6 +93,20 @@ class ExtendedSSHClient(SSHClient):
         stderr = chan.makefile_stderr('rb', bufsize)
         exitStatus = chan.recv_exit_status()
         return stdin, stdout, stderr, exitStatus
+
+    def startCmd(self, command ):
+        """
+        Start executing a executing a command on the SSH server.  A new L{Channel} is opened and
+        the requested command is executed.
+
+        @param command: The command to execute.
+        @return The SSH channel session with the command executing in it (it is up to the caller to read data from this
+                channel in a timely manner).
+        @raise SSHException: if the server fails to execute the command
+        """
+        chan = self._transport.open_session()
+        chan.exec_command(command)
+        return chan
 
     def runCmd(self, cmd, throwError=True):
         """Run a command over an ssh session and return a tuple with the following threee elements
@@ -286,7 +304,8 @@ class SSH(object):
         return self._ssh.get_transport()
 
     def runCmd(self, cmd, throwError = True):
-        """Run a command over an ssh session and return a tuple with the following threee elements
+        """@brief Run a command over an ssh session.
+           @return A tuple with the following three elements when the command is complete.
           0 - the return code/exit status of the command
           1 - Lines of text from stdout
           2 - lines of text from stderr
@@ -295,6 +314,20 @@ class SSH(object):
           SSHError will be thrown
         """
         return self._ssh.runCmd(cmd, throwError=throwError)
+
+    def startCmd(self, cmd):
+        """@brief Start executing a command. This will return after starting the command and before the command has completed.
+                    The following methods maybe called to interrogate the command executions
+                        channel.exit_status_ready()
+                        channel.recv_ready()
+                            channel.channel.recv(len(channel.in_buffer))
+                        channel.recv_stderr_ready()
+                            channel.recv_stderr(len(channel.in_stderr_buffer))
+
+                        When the command is complete the caller should call channel.close()
+           @return A channel instance in which the command is executing.
+           """
+        return self._ssh.startCmd(cmd)
 
     def connect(self, enableAutoLoginSetup=False, connectSFTPSession=False):
         """@brief Connect the ssh connection

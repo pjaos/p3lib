@@ -1,7 +1,7 @@
 #!/bin/sh/env python3d
 
 from os.path import join, isfile, expanduser, getmtime, basename, isdir
-from helper import getDict, saveDict
+from .helper import getDict, saveDict
 from shutil import copyfile
 import datetime
 import sys
@@ -533,6 +533,10 @@ class ConfigManager(object):
         for attr in attrList:
             padding = " "*(maxAttLen-len(attr))
             uio.info("%s%s = %s" % (attr, padding, self.getAttr(attr)) )
+
+    def getConfigDict(self):
+        """@return the dict holding the configuration."""
+        return self._configDict
 
 class ConfigAttrDetails(object):
     """@brief Responsible for holding config attribute meta data."""

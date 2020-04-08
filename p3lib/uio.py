@@ -24,7 +24,7 @@
 import sys
 import traceback
 from   getpass import getpass
-
+from   time import strftime, localtime
 
 class UIO(object):
     """@brief responsible for user output and input via stdout/stdin"""
@@ -57,10 +57,6 @@ class UIO(object):
 
     DISPLAY_RESET_ESCAPE_SEQ    = "\x1b[0m"
 
-    def __init__(self, debug=False, colour=True):
-        self._debug  = debug
-        self._colour = colour
-
     @staticmethod
     def GetInfoEscapeSeq():
         """@return the info level escape sequence."""
@@ -81,43 +77,57 @@ class UIO(object):
         """@return the warning level escape sequence."""
         return "\x1b[{:01d};{:02d}m".format(UIO.DISPLAY_ATTR_FG_RED, UIO.DISPLAY_ATTR_BLINK)
 
+    def __init__(self, debug=False, colour=True):
+        self._debug     = debug
+        self._colour    = colour
+        self._logFile   = None
+
     def enableDebug(self, enabled):
         """@brief Enable/Disable debugging
            @param enabled If True then debugging is enabled"""
         self._debug = enabled
 
+    def isDebugEnabled(self):
+        """@return True if debuggin is eenabled."""
+        return self._debug
+
     def info(self, text):
         """@brief Present an info level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
-            print('INFO:  {}'.format(text))
+            self._print('INFO:  {}'.format(text))
 
     def debug(self, text):
         """@brief Present a debug level message to the user if debuging is enabled.
            @param text The line of text to be presented to the user."""
         if self._debug:
             if self._colour:
-                print('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+                self._print('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
             else:
-                print('DEBUG: {}'.format(text))
+                self._print('DEBUG: {}'.format(text))
 
     def warn(self, text):
         """@brief Present a warning level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            self._print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
-            print('WARN:  {}'.format(text))
+            self._print('WARN:  {}'.format(text))
 
     def error(self, text):
         """@brief Present an error level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            self._print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
-            print('ERROR: {}'.format(text))
+            self._print('ERROR: {}'.format(text))
+
+    def _print(self, text):
+        """@brief Print text to stdout"""
+        self.storeToLog(text)
+        print(text)
 
     def getInput(self, prompt, noEcho=False, stripEOL=True):
         """@brief Get a line of text from the user.
@@ -126,22 +136,31 @@ class UIO(object):
            @return The line of text entered by the user."""
         if self._colour:
             if noEcho:
-                response = getpass("{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": ", sys.stdout)
+                prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
+                self.storeToLog(prompt, False)
+                response = getpass(prompt, sys.stdout)
 
             else:
-                response = input("{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": ")
+                prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
+                self.storeToLog(prompt, False)
+                response = input(prompt)
 
         else:
             if noEcho:
-                response = getpass("INPUT: " + prompt + ": ", sys.stdout)
+                prompt = "INPUT: " + prompt + ": "
+                self.storeToLog(prompt, False)
+                response = getpass(prompt, sys.stdout)
 
             else:
-                response = input("INPUT: " + prompt + ": ")
+                prompt = "INPUT: " + prompt + ": "
+                self.storeToLog(prompt, False)
+                response = input(prompt)
 
         if stripEOL:
             response = response.rstrip('\n')
             response = response.rstrip('\r')
 
+        self.storeToLog(response)
         return response
 
     def getBoolInput(self, prompt, allowQuit=True):
@@ -183,3 +202,25 @@ class UIO(object):
            @param prompt The user prompt.
            @return The password entered."""
         return self.getInput(prompt, noEcho=True)
+
+    def setLogFile(self, logFile):
+        """@brief Set a logfile for all output.
+           @param logFile The file to send all output to.
+           @return None"""
+        self._logFile=logFile
+
+    def storeToLog(self, text, addLF=True, addDateTime=True):
+        """@brief Save the text to the log file if one is defined.
+           @param text The text to be saved.
+           @param addLF If True then a line feed is added to the output in the log file.
+           @return None"""
+        if self._logFile:
+            if addDateTime:
+                text = "{}: {}".format(strftime("%d/%m/%Y-%H:%M:%S", localtime()).lower(), text)
+
+            fd = open(self._logFile, 'a')
+            if addLF:
+                fd.write("{}\n".format(text))
+            else:
+                fd.write(text)
+            fd.close()
