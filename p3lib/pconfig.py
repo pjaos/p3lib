@@ -1,6 +1,7 @@
 #!/bin/sh/env python3d
 
-from os.path import join, isfile, expanduser, getmtime, basename, isdir
+from os import remove
+from os.path import join, isfile, expanduser, getmtime, basename, isdir, isfile
 from .helper import getDict, saveDict
 from shutil import copyfile
 import datetime
@@ -240,7 +241,7 @@ class ConfigManager(object):
         self._modifiedTime = self._getModifiedTime()
 
     def _getConfigFile(self):
-        """@brief Get the calibration file."""
+        """@brief Get the config file."""
         if not self._cfgFilename.startswith("."):
 
             cfgFilename=".%s" % (self._cfgFilename)
@@ -537,6 +538,17 @@ class ConfigManager(object):
     def getConfigDict(self):
         """@return the dict holding the configuration."""
         return self._configDict
+
+    def setDefaultConfig(self):
+        """@brief Set the default configuration by removing the existing configuration file and re loading."""
+        configFile = self._getConfigFile()
+        if isfile(configFile):
+            self._uio.info(configFile)
+            deleteFile = self._uio.getBoolInput("Are you sure you wish to delete the above file [y]/[n]")
+            if deleteFile:
+                remove(configFile)
+                self._uio.info("{} has been removed.".format(configFile))
+                self._uio.info("The default configuration will be loaded next time..")
 
 class ConfigAttrDetails(object):
     """@brief Responsible for holding config attribute meta data."""
