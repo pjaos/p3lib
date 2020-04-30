@@ -57,6 +57,8 @@ class UIO(object):
 
     DISPLAY_RESET_ESCAPE_SEQ    = "\x1b[0m"
 
+    PROG_BAR_LENGTH             =   40
+
     @staticmethod
     def GetInfoEscapeSeq():
         """@return the info level escape sequence."""
@@ -78,9 +80,17 @@ class UIO(object):
         return "\x1b[{:01d};{:02d}m".format(UIO.DISPLAY_ATTR_FG_RED, UIO.DISPLAY_ATTR_BLINK)
 
     def __init__(self, debug=False, colour=True):
-        self._debug     = debug
-        self._colour    = colour
-        self._logFile   = None
+        self._debug                         = debug
+        self._colour                        = colour
+        self._logFile                       = None
+        self._progBarSize                   = 0
+        self._progBarGrow                   = True
+        self._debugLogEnabled               = False
+        self._debugLogFile                  = None
+
+    def logAll(self, enabled):
+        """@brief Turn on/off the logging of all output including debug output even if debuggin is off."""
+        self._debugLogEnabled = enabled
 
     def enableDebug(self, enabled):
         """@brief Enable/Disable debugging
@@ -107,6 +117,11 @@ class UIO(object):
                 self._print('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
             else:
                 self._print('DEBUG: {}'.format(text))
+        elif self._debugLogEnabled and self._debugLogFile:
+            if self._colour:
+                self.storeToDebugLog('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            else:
+                self.storeToDebugLog('DEBUG: {}'.format(text))
 
     def warn(self, text):
         """@brief Present a warning level message to the user.
@@ -127,6 +142,8 @@ class UIO(object):
     def _print(self, text):
         """@brief Print text to stdout"""
         self.storeToLog(text)
+        if self._debugLogEnabled and self._debugLogFile:
+            self.storeToDebugLog(text)
         print(text)
 
     def getInput(self, prompt, noEcho=False, stripEOL=True):
@@ -208,19 +225,60 @@ class UIO(object):
            @param logFile The file to send all output to.
            @return None"""
         self._logFile=logFile
+        self._debugLogFile = "{}.debug.txt".format(self._logFile)
 
     def storeToLog(self, text, addLF=True, addDateTime=True):
-        """@brief Save the text to the log file if one is defined.
+        """@brief Save the text to the main log file if one is defined.
            @param text The text to be saved.
            @param addLF If True then a line feed is added to the output in the log file.
            @return None"""
-        if self._logFile:
+        self._storeToLog(text, self._logFile, addLF=addLF, addDateTime=addDateTime)
+
+    def storeToDebugLog(self, text, addLF=True, addDateTime=True):
+        """@brief Save the text to the debug log file if one is defined. This file holds all the
+                  data from the main log file plus debug data even if debugging is not enabled.
+           @param text The text to be saved.
+           @param addLF If True then a line feed is added to the output in the log file.
+           @return None"""
+        self._storeToLog(text, self._debugLogFile, addLF=addLF, addDateTime=addDateTime)
+
+    def _storeToLog(self, text, logFile, addLF=True, addDateTime=True):
+        """@brief Save the text to the log file if one is defined.
+           @param text The text to be saved.
+           @param logFile The logFile to save data to.
+           @param addLF If True then a line feed is added to the output in the log file.
+           @return None"""
+        if logFile:
             if addDateTime:
                 text = "{}: {}".format(strftime("%d/%m/%Y-%H:%M:%S", localtime()).lower(), text)
 
-            fd = open(self._logFile, 'a')
+            fd = open(logFile, 'a')
             if addLF:
                 fd.write("{}\n".format(text))
             else:
                 fd.write(text)
             fd.close()
+
+    def showProgBar(self, barChar='*'):
+        """@brief Show a bar that grows and shrinks to indicate an activity is occuring."""
+        if self._progBarGrow:
+            sys.stdout.write(barChar)
+            self._progBarSize+=1
+            if self._progBarSize > UIO.PROG_BAR_LENGTH:
+                self._progBarGrow=False
+        else:
+            sys.stdout.write('\b')
+            sys.stdout.write(' ')
+            sys.stdout.write('\b')
+            self._progBarSize-=1
+            if self._progBarSize == 0:
+                self._progBarGrow=True
+
+        sys.stdout.flush()
+
+    def clearProgBar(self):
+        """@brief Clear any progress characters that maybe present"""
+        sys.stdout.write('\b' * UIO.PROG_BAR_LENGTH)
+        sys.stdout.write(' '*UIO.PROG_BAR_LENGTH)
+        sys.stdout.write('\r')
+        sys.stdout.flush()
