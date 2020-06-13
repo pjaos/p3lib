@@ -28,7 +28,7 @@ import sys
 import os
 import platform
 import json
-
+import traceback
 
 def initArgs(parser, lastCmdLineArg=None, checkHostArg=True):
     """This method is responsible for
@@ -343,3 +343,13 @@ def printDict(uio, theDict, indent=0):
             printDict(uio, value, indent + 1)
         else:
             uio.info('\t' * (indent + 1) + str(value))
+
+def logTraceBack(uio):
+    """@brief Log a traceback using the uio instance to the debug file.
+       @param uio A UIO instance
+       @return None"""
+    # Always store the exception traceback in the logfile as this makes
+    # it easier to diagnose problems with the testing
+    lines = traceback.format_exc().split("\n")
+    for line in lines:
+        uio.storeToDebugLog(line)
