@@ -22,6 +22,7 @@
 ################################################################################
 
 import sys
+import os
 import traceback
 from   getpass import getpass
 from   time import strftime, localtime
@@ -58,6 +59,9 @@ class UIO(object):
     DISPLAY_RESET_ESCAPE_SEQ    = "\x1b[0m"
 
     PROG_BAR_LENGTH             =   40
+
+    USER_LOG_SYM_LINK           = "log.txt"
+    DEBUG_LOG_SYM_LINK          = "debug_log.txt"
 
     @staticmethod
     def GetInfoEscapeSeq():
@@ -101,11 +105,14 @@ class UIO(object):
         """@return True if debuggin is eenabled."""
         return self._debug
 
-    def info(self, text):
+    def info(self, text, highlight=False):
         """@brief Present an info level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            if highlight:
+                self._print('{}INFO:  {}{}'.format(UIO.GetInfoEscapeSeq(), text, UIO.DISPLAY_RESET_ESCAPE_SEQ))
+            else:
+                self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('INFO:  {}'.format(text))
 
@@ -240,17 +247,25 @@ class UIO(object):
            @param text The text to be saved.
            @param addLF If True then a line feed is added to the output in the log file.
            @return None"""
-        self._storeToLog(text, self._debugLogFile, addLF=addLF, addDateTime=addDateTime)
+        self._storeToLog(text, self._debugLogFile, addLF=addLF, addDateTime=addDateTime, symLinkFile=UIO.DEBUG_LOG_SYM_LINK)
 
-    def _storeToLog(self, text, logFile, addLF=True, addDateTime=True):
+    def _storeToLog(self, text, logFile, addLF=True, addDateTime=True, symLinkFile=USER_LOG_SYM_LINK):
         """@brief Save the text to the log file if one is defined.
            @param text The text to be saved.
            @param logFile The logFile to save data to.
            @param addLF If True then a line feed is added to the output in the log file.
+           @param addDateTime If True add the date and time to the logfile.
+           @param symLinkFile The name of the fixed symlink file to point to the latest log file.
            @return None"""
+        createSymLink = False
         if logFile:
             if addDateTime:
                 text = "{}: {}".format(strftime("%d/%m/%Y-%H:%M:%S", localtime()).lower(), text)
+
+            # If the log file is about to be created then we will create a symlink
+            # to the file.
+            if not os.path.isfile(logFile):
+                createSymLink = True
 
             fd = open(logFile, 'a')
             if addLF:
@@ -258,6 +273,16 @@ class UIO(object):
             else:
                 fd.write(text)
             fd.close()
+
+            if createSymLink:
+                #This is helpful as the link will point to the latest log file
+                #which can be useful when debugging. I.E  no need to find the
+                #name of the latest file.
+                dirName = os.path.dirname(logFile)
+                absSymLink = os.path.join(dirName, symLinkFile)
+                if os.path.lexists(absSymLink):
+                    os.remove(absSymLink)
+                os.symlink(logFile, absSymLink)
 
     def showProgBar(self, barChar='*'):
         """@brief Show a bar that grows and shrinks to indicate an activity is occuring."""
@@ -282,3 +307,12 @@ class UIO(object):
         sys.stdout.write(' '*UIO.PROG_BAR_LENGTH)
         sys.stdout.write('\r')
         sys.stdout.flush()
+
+    def getLogFile(self):
+        """@return the name of the user output log file or None if not set"""
+        return self._logFile
+
+    def getDebugLogFile(self):
+        """@return The name of the debug log file or None if not set."""
+        return self._debugLogFile
+
