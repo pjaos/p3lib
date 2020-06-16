@@ -29,6 +29,7 @@ import os
 import platform
 import json
 import traceback
+import  socket
 
 def initArgs(parser, lastCmdLineArg=None, checkHostArg=True):
     """This method is responsible for
@@ -353,3 +354,18 @@ def logTraceBack(uio):
     lines = traceback.format_exc().split("\n")
     for line in lines:
         uio.storeToDebugLog(line)
+
+def GetFreeTCPPort():
+    """@brief Get a free port and return to the client. If no port is available
+              then -1 is returned.
+       @return the free TCP port number or -1 if no port is available."""
+    tcpPort=-1
+    try:
+        #Bind to a local port to find a free TTCP port
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.bind(('', 0))
+        tcpPort = sock.getsockname()[1]
+        sock.close()
+    except socket.error:
+        pass
+    return tcpPort
