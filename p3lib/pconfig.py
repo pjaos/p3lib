@@ -1,11 +1,16 @@
 #!/bin/sh/env python3d
 
-from os import remove
-from os.path import join, isfile, expanduser, getmtime, basename, isdir, isfile
-from .helper import getDict, saveDict
-from shutil import copyfile
-import datetime
-import sys
+import  os
+import base64
+import  datetime
+import  sys
+import  json
+
+from    shutil import copyfile
+from    cryptography.fernet import Fernet
+
+from    os.path import join, expanduser, getmtime, basename, isdir, isfile
+from    .helper import getHomePath
 
 class ConfigManager(object):
     """@brief Responsible for storing and loading configuration.
@@ -16,7 +21,8 @@ class ConfigManager(object):
     DECIMAL_INT_NUMBER_TYPE     = 0
     HEXADECIMAL_INT_NUMBER_TYPE = 1
     FLOAT_NUMBER_TYPE           = 2
-
+    SSH_FOLDER                  = ".ssh"
+    PRIVATE_SSH_KEY_FILENAME    = "id_rsa"
 
     @staticmethod
     def GetString(uio, prompt, previousValue, allowEmpty=True):
@@ -227,35 +233,99 @@ class ConfigManager(object):
 
       return ConfigManager._GetNumber(uio, prompt, previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.FLOAT_NUMBER_TYPE)
 
-    def __init__(self, uio, cfgFilename, defaultConfig):
+    @staticmethod
+    def GetPrivateKeyFile():
+        """@brief Get the private key file."""
+        homePath = getHomePath()
+        folder = os.path.join(homePath, ConfigManager.SSH_FOLDER)
+        pubKeyFile = os.path.join(folder, ConfigManager.PRIVATE_SSH_KEY_FILENAME)
+        if not os.path.isfile(pubKeyFile):
+            raise Exception("%s file not found" % (pubKeyFile) )
+        return pubKeyFile
+
+    @staticmethod
+    def GetPrivateSSHKeyFileContents():
+        """@brief Get the private ssh key file.
+           @return The key file contents"""
+        privateRSAKeyFile = ConfigManager.GetPrivateKeyFile()
+        fd = open(privateRSAKeyFile, 'r')
+        fileContents = fd.read()
+        fd.close()
+        return fileContents
+
+    @staticmethod
+    def GetCrypter():
+        """@brief Get the object responsible for encrypting and decrypting strings."""
+        keyString = ConfigManager.GetPrivateSSHKeyFileContents()
+        keyString = keyString[60:92]
+        priKeyBytes = bytes(keyString, 'utf-8')
+        priKeyBytesB64 = base64.b64encode(priKeyBytes)
+        return Fernet(priKeyBytesB64)
+
+    @staticmethod
+    def Encrypt(inputString):
+        """@brief Encrypt the string.
+           @param inputString The string to encrypt.
+           @return The encrypted string"""
+        crypter = ConfigManager.GetCrypter()
+        token = crypter.encrypt(bytes(inputString, 'utf-8'))
+        return token.decode('utf-8')
+
+    @staticmethod
+    def Decrypt(inputString):
+        """@brief Decrypt the string.
+           @param inputString  The string to decrypt.
+           return The decrypted string"""
+        crypter = ConfigManager.GetCrypter()
+        token = inputString.encode('utf-8')
+        decryptedBytes = crypter.decrypt(token)
+        return decryptedBytes.decode('utf-8')
+
+    def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False):
         """@brief Constructor
            @param uio A UIO (User Inpu Output) instance.
            @param cfgFilename   The name of the config file.
-           @param defaultConfig A default config instance containg all the default key-value pairs."""
-        self._uio           = uio
-        self._cfgFilename   = cfgFilename
-        self._defaultConfig = defaultConfig
-        self._configDict    = {}
+           @param defaultConfig A default config instance containg all the default key-value pairs.
+           @param addDotToFilename If True (default) then a . is added to the start of the filename. This hides the file in normal cases.
+           @param encrypt If True then data will be encrypted in the saved files.
+                          The encryption uses part of the the local SSH RSA private key.
+                          This is not secure but assuming the private key has not been compromised it's
+                          probably the best we can do. Therefore if encrypt is set True then the
+                          an ssh key must be present in the ~/.ssh folder named id_rsa."""
+        self._uio               = uio
+        self._cfgFilename       = cfgFilename
+        self._defaultConfig     = defaultConfig
+        self._addDotToFilename  = addDotToFilename
+        self._encrypt            = encrypt
+        self._configDict        = {}
 
         self._cfgFile = self._getConfigFile()
         self._modifiedTime = self._getModifiedTime()
 
     def _getConfigFile(self):
         """@brief Get the config file."""
-        if not self._cfgFilename.startswith("."):
 
-            cfgFilename=".%s" % (self._cfgFilename)
+        if not self._cfgFilename:
+            raise Exception("No config filename defined.")
 
-        else:
+        cfgFilename = self._cfgFilename
+        if self._addDotToFilename:
+            if not self._cfgFilename.startswith("."):
 
-            cfgFilename=self._cfgFilename
+                cfgFilename=".%s" % (self._cfgFilename)
 
-        userPath = expanduser("~")
-        userPath = userPath.strip()
-        #If no user is known then default to root user.
-        #This occurs on Omega2 startup apps.
-        if len(userPath) == 0 or userPath == '/':
-            userPath="/root"
+            else:
+
+                cfgFilename=self._cfgFilename
+
+        #If an absolute path is set then don't try to put the file in the users home dir
+        if not self._cfgFilename.startswith("/"):
+            userPath = expanduser("~")
+            userPath = userPath.strip()
+            #If no user is known then default to root user.
+            #This occurs on Omega2 startup apps.
+            if len(userPath) == 0 or userPath == '/':
+                userPath="/root"
 
         return join( userPath, cfgFilename )
 
@@ -282,15 +352,36 @@ class ConfigManager(object):
 
         return self._configDict[key]
 
+    def _saveDict(self, dictToSave):
+      """@brief Save dict to a file.
+         @param dictToSave The dictionary to save."""
+
+      try:
+
+          if self._encrypt:
+              stringToSave = json.dumps(dictToSave, sort_keys=True)
+              stringToSave = ConfigManager.Encrypt(stringToSave)
+              fd = open(self._cfgFile, "w")
+              fd.write(stringToSave)
+              fd.close()
+          else:
+              json.dump(dictToSave, open(self._cfgFile, "w"), sort_keys=True)
+
+          if self._uio:
+              self._uio.info("Saved config to %s" % (self._cfgFile) )
+
+      except IOError as i:
+        raise IOError(i.errno, 'Failed to write file \'%s\': %s'
+            % (self._cfgFile, i.strerror), i.filename).with_traceback(i)
+
     def store(self, copyToRoot=False):
         """@brief Store the config to the config file.
            @param copyToRoot If True copy the config to the root user (Linux only)
                              if not running with root user config path. If True
                              on non Linux system config will only be saved in
                              the users home path. Default = False."""
-        saveDict(self._configDict, self._cfgFile, jsonFmt=True)
-        if self._uio:
-            self._uio.info("Saved config to %s." % (self._cfgFile) )
+        self._saveDict(self._configDict)
+
         self.updateModifiedTime()
 
         if copyToRoot and not self._cfgFile.startswith("/root/") and isdir("/root"):
@@ -299,6 +390,25 @@ class ConfigManager(object):
             copyfile(self._cfgFile, rootCfgFile)
             if self._uio:
                 self._uio.info("Also updated service list in %s" % (rootCfgFile))
+
+    def _getDict(self):
+      """@brief Load dict from file
+         @return Return the dict loaded from the file."""
+      dictLoaded = {}
+
+      if self._encrypt:
+          fd = open(self._cfgFile, "r")
+          encryptedData = fd.read()
+          fd.close()
+          decryptedString = ConfigManager.Decrypt(encryptedData)
+          dictLoaded = json.loads(decryptedString)
+      else:
+
+          fp = open(self._cfgFile, 'r')
+          dictLoaded = json.load(fp)
+          fp.close()
+
+      return dictLoaded
 
     def load(self, showLoadedMsg=True):
         """@brief Load the config."""
@@ -311,7 +421,7 @@ class ConfigManager(object):
 
         else:
 
-            self._configDict = getDict(self._cfgFile, jsonFmt=True)
+            self._configDict = self._getDict()
 
             #If the expected keys have changed use the default
             expectedKeys = self._defaultConfig.keys()
@@ -546,7 +656,7 @@ class ConfigManager(object):
             self._uio.info(configFile)
             deleteFile = self._uio.getBoolInput("Are you sure you wish to delete the above file [y]/[n]")
             if deleteFile:
-                remove(configFile)
+                os.remove(configFile)
                 self._uio.info("{} has been removed.".format(configFile))
                 self._uio.info("The default configuration will be loaded next time..")
 
