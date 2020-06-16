@@ -69,6 +69,29 @@ def example2():
 
     configManager.store()
 
+def example3():
+    """@brief This example uses a lower level interface and stores encrypted data in the fiel.
+              Note that this is not secure only obfuscated as the key to the data is stored locally as well."""
+    uio = UIO()
+
+    LOW_CHARGE_BAT_VOLTAGE="LOW_CHARGE_BAT_VOLTAGE"
+    A_STRING_VALUE="A_STRING_VALUE"
+
+    defaultConfig = {
+        LOW_CHARGE_BAT_VOLTAGE: 12.2,
+        A_STRING_VALUE: "ANYSTRING"
+    }
+
+    configManager = ConfigManager(uio, "example_3_config.txt", defaultConfig, encrypt=True)
+    configManager.load()
+    configManager.inputFloat(LOW_CHARGE_BAT_VOLTAGE, "Enter the low charge battery voltage", minValue=10.0,
+                                           maxValue=15.0)
+
+    configManager.inputStr(A_STRING_VALUE, "Enter a string", True)
+
+    configManager.store()
+
 if __name__ == '__main__':
-    example1()
+    #example1()
     #example2()
+    example3()
