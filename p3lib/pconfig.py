@@ -238,10 +238,10 @@ class ConfigManager(object):
         """@brief Get the private key file."""
         homePath = getHomePath()
         folder = os.path.join(homePath, ConfigManager.SSH_FOLDER)
-        pubKeyFile = os.path.join(folder, ConfigManager.PRIVATE_SSH_KEY_FILENAME)
-        if not os.path.isfile(pubKeyFile):
-            raise Exception("%s file not found" % (pubKeyFile) )
-        return pubKeyFile
+        priKeyFile = os.path.join(folder, ConfigManager.PRIVATE_SSH_KEY_FILENAME)
+        if not os.path.isfile(priKeyFile):
+            raise Exception("%s file not found" % (priKeyFile) )
+        return priKeyFile
 
     @staticmethod
     def GetPrivateSSHKeyFileContents():
