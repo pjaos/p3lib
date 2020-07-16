@@ -336,13 +336,17 @@ class SSH(object):
                   is copied to the server.
            @param connectSFTPSession If True then just after the ssh connection
                   is built an SFT session will be built ready for file transfer.
-           @return a ref to the SSHClient object"""
+           @return True if connected without setting up auto login. False if auto 
+                   login was setup for connection to succeed."""
+        setupAutoLogin = False
         try:
             self._connect(connectSFTPSession=connectSFTPSession)
 
         except AuthenticationException:
             self._setupAutologin()
             self._connect(connectSFTPSession=connectSFTPSession)
+            setupAutoLogin = True
+        return setupAutoLogin
 
     def _setupAutologin(self):
         """Setup autologin on the ssh server."""
@@ -511,16 +515,18 @@ class SSH(object):
         remove = False
         previousAuthKeysFile = self.getAuthKeyBackupFile()
         publicKeyID = self._getPublicKeyID(publicKey)
+        self._info("Public ssh key ID: {}".format(publicKeyID))
         authKeysFile = self.getRemoteAuthorisedKeyFile()
         tmpAuthKeysFile = "%s.tmp" % (authKeysFile)
         retCode, publicKeyList, _ = self.runCmd("cat {}".format(authKeysFile), throwError=False)
         if retCode == 0:
             newAuthKeysList = []
             for publicKey in publicKeyList:
-                if publicKeyID not in publicKey:
-                    newAuthKeysList.append(publicKey)
-                else:
+                if publicKey.find(publicKeyID) >= 0:
+                    self._info("Found {} public key on ssh server.".format(publicKeyID))
                     remove = True
+                else:
+                    newAuthKeysList.append(publicKey)
 
         if remove:
             # Remove any pre existing tmp auth keys file
@@ -538,6 +544,9 @@ class SSH(object):
             # Move the current auth keys file to the old one and the tmp to the current one
             self.runCmd("mv %s %s" % (authKeysFile, previousAuthKeysFile))
             self.runCmd("mv %s %s" % (tmpAuthKeysFile, authKeysFile))
+            self._info("Removed {} public key from the ssh server.".format(publicKeyID))
+        else:
+            self._info("{} public key not found in ssh server authorised keys file.".format(publicKeyID))
 
         return remove
 

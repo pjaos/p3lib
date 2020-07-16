@@ -26,6 +26,7 @@ import os
 import traceback
 from   getpass import getpass
 from   time import strftime, localtime
+from   datetime import datetime
 
 class UIO(object):
     """@brief responsible for user output and input via stdout/stdin"""
@@ -260,7 +261,8 @@ class UIO(object):
         createSymLink = False
         if logFile:
             if addDateTime:
-                text = "{}: {}".format(strftime("%d/%m/%Y-%H:%M:%S", localtime()).lower(), text)
+                timeStr = datetime.now().strftime("%d/%m/%Y-%H:%M:%S.%f")
+                text = "{}: {}".format(strftime(timeStr, localtime()).lower(), text)
 
             # If the log file is about to be created then we will create a symlink
             # to the file.
