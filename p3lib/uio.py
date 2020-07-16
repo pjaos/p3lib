@@ -92,6 +92,7 @@ class UIO(object):
         self._progBarGrow                   = True
         self._debugLogEnabled               = False
         self._debugLogFile                  = None
+        self._symLinkDir                    = None
 
     def logAll(self, enabled):
         """@brief Turn on/off the logging of all output including debug output even if debuggin is off."""
@@ -228,6 +229,12 @@ class UIO(object):
            @return The password entered."""
         return self.getInput(prompt, noEcho=True)
 
+    def setSymLinkDir(self, symLinkDir):
+        """@brief Set a shortcut location for symLink.
+           @param symLinkDir The directory to create the simlink.
+           @return None"""
+        self._symLinkDir=symLinkDir
+
     def setLogFile(self, logFile):
         """@brief Set a logfile for all output.
            @param logFile The file to send all output to.
@@ -280,7 +287,10 @@ class UIO(object):
                 #This is helpful as the link will point to the latest log file
                 #which can be useful when debugging. I.E  no need to find the
                 #name of the latest file.
-                dirName = os.path.dirname(logFile)
+                dirName = self._symLinkDir
+                # if the simlink has not been set then default to the logging file
+                if dirName is None:
+                    dirName = os.path.dirname(logFile)
                 absSymLink = os.path.join(dirName, symLinkFile)
                 if os.path.lexists(absSymLink):
                     os.remove(absSymLink)
