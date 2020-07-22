@@ -8,7 +8,7 @@ from    subprocess import check_call, DEVNULL, STDOUT
 from    datetime import datetime
 
 class BootManager(object):
-    """Responsible for adding and removing startup processes when the computer boots.
+    """Responsible for adding and removing startup processes (python programs) when the computer boots.
        Currently supports the following platforms
        Linux"""
 
@@ -247,24 +247,3 @@ class LinuxBootManager(object):
             self._log("Removed {}".format(serviceFile))
         else:
             self._info("{} service not found".format(appName))
-
-"""
-Example of how to use the boot manager
-
-The /usr/local/bin/hw_loop script contents is
-#!/bin/sh
-
-while [ 1 ]
-do
-	sleep 123
-done
-
- The python code to test adding/removing the above hw_loop program
-if __name__ == '__main__':
-    from uio import UIO
-    uio = UIO()
-    bootManager = BootManager(uio)
-    #bootManager.add("/usr/local/bin/hw_loop", user="AUSERNAME")
-    bootManager.remove("/usr/local/bin/hw_loop")
-
-"""
