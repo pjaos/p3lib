@@ -125,11 +125,38 @@ class NetPlotlyDemo(object):
         self._netPlotly.save(fig, autoOpen=True)
         self._netPlotly.upload()
 
+    def subPlots4Types(self):
+        fig = make_subplots(
+            rows=2, cols=2,
+            specs=[[{"type": "bar"}, {"type": "barpolar"}],
+                   [{"type": "pie"}, {"type": "scatter3d"}]],
+            subplot_titles=("1", "2", "3", "4")
+        )
+
+        fig.add_trace(go.Bar(y=[2, 3, 1]),
+                      row=1, col=1)
+
+        fig.add_trace(go.Barpolar(theta=[0, 45, 90], r=[2, 3, 1]),
+                      row=1, col=2)
+
+        fig.add_trace(go.Pie(values=[2, 3, 1]),
+                      row=2, col=1)
+
+        fig.add_trace(go.Scatter3d(x=[2, 3, 1], y=[0, 0, 0],
+                                   z=[0.5, 1, 2], mode="lines"),
+                      row=2, col=2)
+
+        fig.update_layout(height=700, showlegend=True)
+        fig.update_layout(title_text="5 different subplots")
+        self._netPlotly.save(fig, autoOpen=True)
+        self._netPlotly.upload()
+
     def demo(self):
         """@brief show the demo of all features."""
         self.singleTimeSeries()
         self.threeTracesTwoPlot()
         self.subPlotsSharedAxis()
+        self.subPlots4Types()
 
     def listPlots(self):
         """@brief List the available plots."""
