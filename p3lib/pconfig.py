@@ -281,7 +281,7 @@ class ConfigManager(object):
         decryptedBytes = crypter.decrypt(token)
         return decryptedBytes.decode('utf-8')
 
-    def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False):
+    def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
         """@brief Constructor
            @param uio A UIO (User Inpu Output) instance.
            @param cfgFilename   The name of the config file.
@@ -291,12 +291,15 @@ class ConfigManager(object):
                           The encryption uses part of the the local SSH RSA private key.
                           This is not secure but assuming the private key has not been compromised it's
                           probably the best we can do. Therefore if encrypt is set True then the
-                          an ssh key must be present in the ~/.ssh folder named id_rsa."""
+                          an ssh key must be present in the ~/.ssh folder named id_rsa.
+           @param cfgPath The config path when the config file will be stored. By default this is unset and the 
+                          current users home folder is the location of the config file."""
         self._uio               = uio
         self._cfgFilename       = cfgFilename
         self._defaultConfig     = defaultConfig
         self._addDotToFilename  = addDotToFilename
-        self._encrypt            = encrypt
+        self._encrypt           = encrypt
+        self._cfgPath           = cfgPath
         self._configDict        = {}
 
         self._cfgFile = self._getConfigFile()
@@ -318,16 +321,23 @@ class ConfigManager(object):
 
                 cfgFilename=self._cfgFilename
 
-        #If an absolute path is set then don't try to put the file in the users home dir
-        if not self._cfgFilename.startswith("/"):
-            userPath = expanduser("~")
-            userPath = userPath.strip()
-            #If no user is known then default to root user.
-            #This occurs on Omega2 startup apps.
-            if len(userPath) == 0 or userPath == '/':
-                userPath="/root"
+        #The the config path has been set then use it
+        if self._cfgPath:
+            configPath = self._cfgPath
 
-        return join( userPath, cfgFilename )
+        else:
+            configPath=""
+            #If an absolute path is set for the config file then don't try to 
+            #put the file in the users home dir
+            if not self._cfgFilename.startswith("/"):
+                configPath = expanduser("~")
+                configPath = configPath.strip()
+                #If no user is known then default to root user.
+                #This occurs on Omega2 startup apps.
+                if len(configPath) == 0 or configPath == '/':
+                    configPath="/root"
+
+        return join( configPath, cfgFilename )
 
     def addAttr(self, key, value):
         """@brief Add an attribute value to the config.
