@@ -1,10 +1,11 @@
 #!/bin/sh/env python3d
 
 import  os
-import base64
+import  base64
 import  datetime
 import  sys
 import  json
+import  copy
 
 from    shutil import copyfile
 from    cryptography.fernet import Fernet
@@ -430,24 +431,22 @@ class ConfigManager(object):
             self.store()
 
         else:
+            #Get the config from the stored config file.
+            loadedConfig = self._getDict()
+            #Get list of all the keys from the config file loaded.
+            loadedConfigKeys = loadedConfig.keys()
+            #Get the default config
+            self._configDict = copy.deepcopy( self._defaultConfig )
+            #Ensure that the config we use has all the values from the file we just loaded and any other values
+            #not in the config file loaded but defined in the default config are set to default values.
+            for key in loadedConfigKeys:
+                if key in self._configDict:
+                    self._configDict[key] = loadedConfig[key]
+                    self._uio.debug("{} = {}".format(key, self._configDict[key]))
+                else:
+                    self._uio.debug("----------> DROPPED FROM CONFIG: {} = {}".format(key, loadedConfig[key]))
 
-            self._configDict = self._getDict()
-
-            #If the expected keys have changed use the default
-            expectedKeys = self._defaultConfig.keys()
-            for expectedKey in expectedKeys:
-                if not expectedKey in self._configDict:
-                    missingKey=True
-                    break
-
-            if missingKey:
-                self._configDict = self._defaultConfig
-                self.store()
-                if self._uio:
-                    self._uio.warn("Failed to load config. Using default configuration.")
-
-        if showLoadedMsg and not missingKey and self._uio:
-            self._uio.info("Loaded config from %s" % (self._cfgFile) )
+        self._uio.info("Loaded config from %s" % (self._cfgFile) )
 
     def inputFloat(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):
         """@brief Input a float value into the config.
