@@ -77,67 +77,70 @@ class NetIF(object):
         
         self._ifDict = None
         
-    def getIFDict(self, readNow=False):
+    def getIFDict(self, readNow=False, includeNoIPIF = False):
         """@param readNow If True the read the current network interface 
                           state now regardless of wether we have read it previously.
                           If False and we have read the state of the network 
                           interfaces previously then return the previous state.
-        
-        always @return A dict of the IP network interfaces on this platform.
+           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.
+           @return A dict of the IP network interfaces on this platform.
                        key   = name of interface
-                       value = <IP ADDRESS>:<NET MASK>"""
+                       value = A list of <IP ADDRESS>/<NET MASK BIT COUNT>"""
         if self._ifDict and not readNow:
             return self._ifDict
                    
         if self._osName.find(NetIF.LINUX_OS_NAME) >= 0 :
-            self._ifDict = self.getLinuxIFDict()
+            self._ifDict = self.getLinuxIFDict(includeNoIPIF=includeNoIPIF)
                    
         return self._ifDict
     
-    def getLinuxIFDict(self):
+    def getLinuxIFDict(self, includeNoIPIF = False):
         """@brief Get a dic that contains the local interface details.
+           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.
            @return A dict of the IP network interfaces on this platform.
                        key   = name of interface
-                       value = <IP ADDRESS>:<NET MASK>"""
+                       value = A list of <IP ADDRESS>/<NET MASK BIT COUNT>"""
         netIFDict = {}
         ifName = None
         
         cmdOutput = check_output(['/sbin/ip','a'] ).decode()
-        netIFDict = self._getLinuxIFDict(cmdOutput)
-        return netIFDict 
-        
-    def _getLinuxIFDict(self, cmdOutput):
+        netIFDict = self._getLinuxIFDict(cmdOutput, includeNoIPIF=includeNoIPIF)
+        return netIFDict
+
+    def _getLinuxIFDict(self, cmdOutput, includeNoIPIF=False):
         """@brief Get a dic that contains the local interface details.
            @param cmdOutput The ip a command output.
+           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.
            @return A dict of the IP network interfaces on this platform.
                        key   = name of interface
-                       value = <IP ADDRESS>/<NET MASK BIT COUNT>"""        
+                       value = A list of <IP ADDRESS>/<NET MASK BIT COUNT>"""
         netIFDict = {}
         lines = cmdOutput.lower().split('\n')
         interfaceID = 1
         ifName = None
-        ifAddress = None
+        ifAddressList = []
         for line in lines:
-            idStr = "{}: ".format(interfaceID)
-            if line.startswith(idStr):
-                elems = line.split()
+            elems = line.split(":")
+            try:
+                #If first element is the IF ID
+                #Note that the IF ID may not be sequential
+                int(elems[0])
+                #Extract the if name
                 if len(elems) > 1:
-                    ifName = elems[1]
+                    ifName = elems[1].strip()
                     ifName = ifName.replace(":", "")
-                    ifAddress = None
-                    netmask   = None
-                    ipAddress = None
-                    interfaceID = interfaceID +1
-            else:
+                    ifAddressList = []
+                    if includeNoIPIF:
+                        netIFDict[ifName] = ifAddressList
+            except:
                 line = line.strip()
                 if line.startswith("inet "):
                     elems = line.split()
                     if len(elems) > 1:
                         ipAddress = elems[1]
-                            
-            if ifName and ipAddress:
-                netIFDict[ifName]=ipAddress
-                
+                        ifAddressList.append(ipAddress)
+                        netIFDict[ifName] = ifAddressList
+
         return netIFDict
 
     def getIFName(self, ipAddress):
@@ -151,34 +154,37 @@ class NetIF(object):
         ifNames = list(ifDict.keys())
         ifNames.sort()
         for ifName in ifNames:
-            ipDetails = ifDict[ifName]
-            elems = ipDetails.split(NetIF.IP_NETMASK_SEP)
-            if len(elems) == 2:
-                ipAddr     = elems[0]
-                netMaskBits= int(elems[1])
-                netMask = NetIF.BitCountToNetMask(netMaskBits)
-                ipAddrInt  = NetIF.IPStr2int(ipAddr)
-                netMaskInt = NetIF.IPStr2int(netMask)
-                network = ipAddrInt&netMaskInt
-                networkStr = socket.inet_ntoa(struct.pack("!I", network))
-                netMaskInt=24        
-                if NetIF.IsAddressInNetwork(ipAddress, "%s/%s" % ( networkStr, netMaskInt) ):
-                    return ifName
+            ipDetailsList = ifDict[ifName]
+            for ipDetails in ipDetailsList:
+                elems = ipDetails.split(NetIF.IP_NETMASK_SEP)
+                if len(elems) == 2:
+                    ipAddr     = elems[0]
+                    netMaskBits= int(elems[1])
+                    netMask = NetIF.BitCountToNetMask(netMaskBits)
+                    ipAddrInt  = NetIF.IPStr2int(ipAddr)
+                    netMaskInt = NetIF.IPStr2int(netMask)
+                    network = ipAddrInt&netMaskInt
+                    networkStr = socket.inet_ntoa(struct.pack("!I", network))
+                    netMaskInt=24
+                    if NetIF.IsAddressInNetwork(ipAddress, "%s/%s" % ( networkStr, netMaskInt) ):
+                        return ifName
 
         return None
     
     def _getIFDetails(self, ifName):
         """@brief Get the details of the network interface on this machine given the interface name.
            @param ifName The name of the interface.
-           @return A tuple containing the
+           @return A tuple containing the tuples that contain
                   0: IP address
                   1: Netmask"""
         self.getIFDict()
         if ifName in self._ifDict:
-            ifDetails = self._ifDict[ifName]
-            elems = ifDetails.split(NetIF.IP_NETMASK_SEP)
-            if len(elems) == 2:
-                return elems
+            ifDetailsList = self._ifDict[ifName]
+            for ifDetails in ifDetailsList:
+                if ifDetails:
+                    elems = ifDetails.split(NetIF.IP_NETMASK_SEP)
+                    if len(elems) == 2:
+                        return elems
         return None
     
     def getIFIPAddress(self, ifName):
