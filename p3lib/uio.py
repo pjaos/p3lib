@@ -95,7 +95,7 @@ class UIO(object):
         self._symLinkDir                    = None
 
     def logAll(self, enabled):
-        """@brief Turn on/off the logging of all output including debug output even if debuggin is off."""
+        """@brief Turn on/off the logging of all output including debug output even if debugging is off."""
         self._debugLogEnabled = enabled
 
     def enableDebug(self, enabled):
