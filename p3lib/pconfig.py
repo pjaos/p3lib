@@ -669,6 +669,45 @@ class ConfigManager(object):
                 self._uio.info("{} has been removed.".format(configFile))
                 self._uio.info("The default configuration will be loaded next time..")
 
+    def configure(self, editConfigMethod):
+        """@brief A helper method to edit the dictionary config.
+           @param editConfigMethod The method to call to edit configuration.
+           @return None"""
+        running=True
+        while running:
+            idKeyDict=self.show()
+            response = self._uio.getInput("Enter 'E' to edit a parameter, 'S' to save and quit or 'Q' to quit")
+            response=response.upper()
+            if response == 'E':
+                id = self._uio.getIntInput("Enter the ID of the parameter to change")
+                if id not in idKeyDict:
+                    self._uio.error("Configuration ID {} is invalid.".format(id))
+                else:
+                    key=idKeyDict[id]
+                    editConfigMethod(key)
+            elif response == 'S':
+                self.store()
+                running = False
+            elif response == 'Q':
+                running = False
+
+    def show(self):
+        """@brief A helper method to show the dictionary config to the user.
+           @return A dictionary mapping the attribute ID's (keys) to dictionary keys (values)."""
+        maxIDLen = 3
+        maxKeyLen=10
+        for key in self._configDict:
+            if len(key) > maxKeyLen:
+                maxKeyLen = len(key)
+        self._uio.info("ID  PARAMETER"+" "*(maxKeyLen-8)+" VALUE")
+        id=1
+        idKeyDict = {}
+        for key in self._configDict:
+            idKeyDict[id]=key
+            self._uio.info("{:<3d} {:<{}} {}".format(id, key, maxKeyLen+1, self._configDict[key]))
+            id=id+1
+        return idKeyDict
+
 class ConfigAttrDetails(object):
     """@brief Responsible for holding config attribute meta data."""
 
