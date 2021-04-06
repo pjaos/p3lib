@@ -369,3 +369,30 @@ def GetFreeTCPPort():
     except socket.error:
         pass
     return tcpPort
+
+def appendCreateFile(uio, aFile, quiet=False):
+    """@brief USer interaction to append or create a file.
+       @param uio A UIO instance.
+       @param quiet If True do not show uio messages (apart from overwrite prompt. 
+       @param aFile The file to append or delete."""
+    createFile = False
+    if os.path.isfile(aFile):
+        if uio.getBoolInput("Overwrite {} y/n".format(aFile)):
+            os.remove(aFile)
+            if not quiet:
+                uio.info("Deleted {}".format(aFile))
+            createFile = True
+        else:
+            if not quiet:
+                uio.info("Appending to {}".format(aFile))                        
+
+    else:
+        createFile = True      
+
+    if createFile:
+        fd = open(aFile, 'w')
+        fd.close()
+        if not quiet:
+            uio.info("Created {}".format(aFile))
+            
+            
