@@ -1,3 +1,2 @@
 # A Python3 library
-Based on the open source pjalib library (Python2). Over time I intend
-to convert modules from pjalib to p3lib.
+A group of python modules for networking, plotting data, config storage, automating boot scripts, ssh access and user input output.
