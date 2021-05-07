@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 import random
-from time import sleep
-import  threading
+from   time import sleep
+import threading
 
-from time_series_plot import TimeSeriesPlotter
+from   p3lib.time_series_plot import TimeSeriesPlotter
 
 class TimeSeriesPlotExample(object):
     """An example that shows five separate plots/figures.

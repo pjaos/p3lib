@@ -1,28 +1,8 @@
 #!/usr/bin/env python3
 
-################################################################################
-#
-# Copyright (c) 2010, Paul Austen. All rights reserved.
-#
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
-# License as published by the Free Software Foundation; either
-# version 2.1 of the License, or (at your option) any later version.
-#
-# This library is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
-#
-# You should have received a copy of the GNU Lesser General Public
-# License along with this library; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301  USA
-#
-################################################################################
-
 import sys
 import os
+import re
 import traceback
 from   getpass import getpass
 from   time import strftime, localtime
@@ -66,23 +46,31 @@ class UIO(object):
 
     @staticmethod
     def GetInfoEscapeSeq():
-        """@return the info level escape sequence."""
+        """@return the info level ANSI escape sequence."""
         return "\x1b[{:01d};{:02d}m".format(UIO.DISPLAY_ATTR_FG_GREEN, UIO.DISPLAY_ATTR_BRIGHT)
 
     @staticmethod
     def GetDebugEscapeSeq():
-        """@return the debug level escape sequence."""
+        """@return the debug level ANSI escape sequence."""
         return "\x1b[{:01d};{:02d};{:02d}m".format(UIO.DISPLAY_ATTR_FG_BLACK, UIO.DISPLAY_ATTR_BG_WHITE, UIO.DISPLAY_ATTR_BRIGHT)
 
     @staticmethod
     def GetWarnEscapeSeq():
-        """@return the warning level escape sequence."""
+        """@return the warning level ANSI escape sequence."""
         return "\x1b[{:01d};{:02d}m".format(UIO.DISPLAY_ATTR_FG_RED, UIO.DISPLAY_ATTR_BRIGHT)
 
     @staticmethod
     def GetErrorEscapeSeq():
-        """@return the warning level escape sequence."""
+        """@return the warning level ANSI escape sequence."""
         return "\x1b[{:01d};{:02d}m".format(UIO.DISPLAY_ATTR_FG_RED, UIO.DISPLAY_ATTR_BLINK)
+
+    @staticmethod
+    def RemoveEscapeSeq(text):
+        """@brief Remove ANSI escape sequences that maybe present in text.
+           @param text A string that may contain ANSI escape sequences.
+           @return The text with any ANSI escape sequences removed."""
+        escapeSeq =re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
+        return escapeSeq.sub('', line)
 
     def __init__(self, debug=False, colour=True):
         self._debug                         = debug
@@ -327,4 +315,3 @@ class UIO(object):
     def getDebugLogFile(self):
         """@return The name of the debug log file or None if not set."""
         return self._debugLogFile
-

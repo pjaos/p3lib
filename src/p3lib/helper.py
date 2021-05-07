@@ -1,26 +1,5 @@
 #!/usr/bin/env python3
 
-################################################################################
-#
-# Copyright (c) 2016, Paul Austen. All rights reserved.
-#
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
-# License as published by the Free Software Foundation; either
-# version 2.1 of the License, or (at your option) any later version.
-#
-# This library is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
-#
-# You should have received a copy of the GNU Lesser General Public
-# License along with this library; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301  USA
-#
-################################################################################
-
 """This file is responsible for providing general helper functionality not
    associated with particular objects"""
 
@@ -373,7 +352,7 @@ def GetFreeTCPPort():
 def appendCreateFile(uio, aFile, quiet=False):
     """@brief USer interaction to append or create a file.
        @param uio A UIO instance.
-       @param quiet If True do not show uio messages (apart from overwrite prompt. 
+       @param quiet If True do not show uio messages (apart from overwrite prompt.
        @param aFile The file to append or delete."""
     createFile = False
     if os.path.isfile(aFile):
@@ -384,15 +363,13 @@ def appendCreateFile(uio, aFile, quiet=False):
             createFile = True
         else:
             if not quiet:
-                uio.info("Appending to {}".format(aFile))                        
+                uio.info("Appending to {}".format(aFile))
 
     else:
-        createFile = True      
+        createFile = True
 
     if createFile:
         fd = open(aFile, 'w')
         fd.close()
         if not quiet:
             uio.info("Created {}".format(aFile))
-            
-            

@@ -9,8 +9,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from   plotly.subplots import make_subplots
 
-from   uio import UIO
-from   netplotly import NetPlotly
+from   p3lib.uio import UIO
+from   p3lib.netplotly import NetPlotly
 
 class NetPlotlyDemo(object):
     """@brief Responsible for demonstrating the capabilities of the NetPlotly tool."""

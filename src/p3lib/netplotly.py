@@ -36,14 +36,6 @@ class NetPlotly(object):
            @return The abs file path"""
         return os.path.join( tempfile.gettempdir(), "netplotly.tgz" )
 
-    @staticmethod
-    def GetAssetsIndexHtml():
-        """@brief Get the abs path of the index html file in the assets folder"""
-        thisFilePath = Path(__file__)
-        indexHtml = os.path.join( thisFilePath.parent, NetPlotly.ASSETS_FOLDER )
-        indexHtml = os.path.join(indexHtml, NetPlotly.INDEX_HTML_FILE)
-        return indexHtml
-
     def __init__(self, localRoot=DEFAULT_LOCAL_ROOT, serverRoot=DEFAULT_LOCAL_ROOT, host=None, username=None, password=None, port=22, uio=None):
         """@brief Constructor
            @param localRoot The local folder to store the plots in.
@@ -64,7 +56,6 @@ class NetPlotly(object):
         self._password  = password
         self._port      = port
         self._uio       = uio
-
         self._ssh       = None
 
         self._updateLocalRoot()
@@ -145,10 +136,6 @@ class NetPlotly(object):
 
         plotName = htmlFile.replace(".html", "")
         self._updatePlotList(plotName)
-
-        #We always copy the index html to keep it up to date.
-        assetsIndexHtml = NetPlotly.GetAssetsIndexHtml()
-        shutil.copy(assetsIndexHtml, self._localRoot)
 
         fileToSave = os.path.join(self._localRoot, htmlFile)
         plotly.offline.plot(fig, filename=fileToSave, auto_open = autoOpen)
@@ -234,5 +221,3 @@ class NetPlotly(object):
                   correctly before calling this method.
            @return None"""
         shutil.rmtree(self._localRoot)
-
-

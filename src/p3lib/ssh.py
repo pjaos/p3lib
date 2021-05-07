@@ -1,26 +1,4 @@
 #!/usr/bin/env python3
-#
-# ssh related classes and methods library
-################################################################################
-#
-# Copyright (c) 2010, Paul Austen. All rights reserved.
-#
-# This library is free software; you can redistribute it and/or
-# modify it under the terms of the GNU Lesser General Public
-# License as published by the Free Software Foundation; either
-# version 2.1 of the License, or (at your option) any later version.
-#
-# This library is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
-#
-# You should have received a copy of the GNU Lesser General Public
-# License along with this library; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-# MA 02110-1301  USA
-#
-################################################################################
 
 import  os
 import  socket
@@ -336,7 +314,7 @@ class SSH(object):
                   is copied to the server.
            @param connectSFTPSession If True then just after the ssh connection
                   is built an SFT session will be built ready for file transfer.
-           @return True if connected without setting up auto login. False if auto 
+           @return True if connected without setting up auto login. False if auto
                    login was setup for connection to succeed."""
         setupAutoLogin = False
         try:

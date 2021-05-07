@@ -6,10 +6,12 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+pytest = "*"
 cryptography = "*"
 paramiko = "*"
 plotly = "*"
 pandas = "*"
+bokeh = "*"
 
 [requires]
 python_version = "3.8"
