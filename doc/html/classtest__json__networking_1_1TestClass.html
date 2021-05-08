@@ -110,7 +110,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Test the json_networking class byt setting up a server sending data to is and checking the data we get back
-          what we sent.</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
+          what we sent.</pre> 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00019">19</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ade3c0fc0baf8211ef7a96fa81f15c39a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade3c0fc0baf8211ef7a96fa81f15c39a">&#9670;&nbsp;</a></span>setup_class()</h2>
 
@@ -127,6 +129,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00030">30</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">def </span>setup_class(cls):</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        server = JSONServer((TestClass.HOST, TestClass.PORT), ServerSessionHandler)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        serverThread = threading.Thread(target=server.serve_forever)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        serverThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        serverThread.start()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af121a4e6c8a14b12421ab088a169e497"></a>
@@ -145,6 +155,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00036">36</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">def </span>test_connect(self):</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        client = JSONClient(TestClass.HOST, TestClass.PORT)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a731d7c19f16ca30619a3866ac825d771"></a>
@@ -163,6 +178,19 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00044">44</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">def </span>test_rx(self):</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        client = JSONClient(TestClass.HOST, TestClass.PORT)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        txDict = {<span class="stringliteral">&quot;password&quot;</span>: TestClass.APASSWORD}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        client.tx(txDict)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        rxDict = client.rx()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        assert( <span class="stringliteral">&quot;password&quot;</span> <span class="keywordflow">in</span> rxDict)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        value = rxDict[<span class="stringliteral">&quot;password&quot;</span>]</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        assert( value == TestClass.APASSWORD )</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a86ac01312311d14dd4755ef2aa0def93"></a>
@@ -181,6 +209,25 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00068">68</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">def </span>test_rx_multiple(self):</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        client = JSONClient(TestClass.HOST, TestClass.PORT)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        txThread = threading.Thread(target=self.txThread, args=(client,) )</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        txThread.start()</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        expectedID=TestClass.MIN_ID</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            rxDict = client.rx()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            assert(TestClass.ID_STR <span class="keywordflow">in</span> rxDict)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            id = rxDict[TestClass.ID_STR]</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            assert( id  == expectedID )</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            expectedID=expectedID+1</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordflow">if</span> expectedID == TestClass.MAX_ID:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        client.close()</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a5baa90135c80a30bceceeaaa0c11b484"></a>
@@ -199,6 +246,25 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00085">85</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">def </span>test_rx_multiple_non_blocking(self):</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        client = JSONClient(TestClass.HOST, TestClass.PORT)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        txThread = threading.Thread(target=self.txThread, args=(client,))</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        txThread.start()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        expectedID = TestClass.MIN_ID</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            rxDict = client.rx(blocking=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> rxDict:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                <span class="keyword">assert</span> (TestClass.ID_STR <span class="keywordflow">in</span> rxDict)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                id = rxDict[TestClass.ID_STR]</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keyword">assert</span> (id == expectedID)</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                expectedID = expectedID + 1</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <span class="keywordflow">if</span> expectedID == TestClass.MAX_ID:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        client.close()</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa2c4e6b01edd78414c67d6d89137b4b8"></a>
@@ -217,6 +283,13 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00039">39</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">def </span>test_tx(self):</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        client = JSONClient(TestClass.HOST, TestClass.PORT)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        txDict = {<span class="stringliteral">&quot;password&quot;</span>: <span class="stringliteral">&quot;apassword&quot;</span>}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        client.tx(txDict)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a43a8f983f18923fd17a718f6929f896b"></a>
@@ -235,6 +308,16 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00060">60</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">def </span>test_tx_multiple(self):</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        client = JSONClient(TestClass.HOST, TestClass.PORT)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">#txThread = threading.Thread(target=self.txThread, args=(client,) )</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">#txThread.start()</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">for</span> id <span class="keywordflow">in</span> range(TestClass.MIN_ID, TestClass.MAX_ID):</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            txDict = {TestClass.ID_STR: id}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            client.tx(txDict)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a29a7d279f600919c64ef72469de11704"></a>
@@ -263,6 +346,13 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00055">55</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">def </span>txThread(self, client):</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span> id <span class="keywordflow">in</span> range(TestClass.MIN_ID, TestClass.MAX_ID):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            txDict = {TestClass.ID_STR: id}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            client.tx(txDict)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -286,6 +376,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00024">24</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+
 </div>
 </div>
 <a id="a95501495fd3e887417007057b8802654"></a>
@@ -307,6 +399,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00022">22</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
 
 </div>
 </div>
@@ -330,6 +424,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00027">27</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+
 </div>
 </div>
 <a id="aad578ab8e738672b90b27ef717dea14d"></a>
@@ -351,6 +447,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00026">26</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
 
 </div>
 </div>
@@ -374,6 +472,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00025">25</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+
 </div>
 </div>
 <a id="a78dc8eaa9905715367e9beb76bf4b5f7"></a>
@@ -396,10 +496,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00023">23</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>tests/<a class="el" href="test__json__networking_8py.html">test_json_networking.py</a></li>
+<li>tests/<a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

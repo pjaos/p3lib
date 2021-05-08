@@ -107,7 +107,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:ae78383b94991c6415600f680d05b4c0f inherit pub_static_attribs_classp3lib_1_1json__networking_1_1JsonServerHandler"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1json__networking_1_1JsonServerHandler.html#ae78383b94991c6415600f680d05b4c0f">LEN_FIELD</a> = 4</td></tr>
 <tr class="separator:ae78383b94991c6415600f680d05b4c0f inherit pub_static_attribs_classp3lib_1_1json__networking_1_1JsonServerHandler"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00007">7</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a049dc97a131320f96b1e73d91e4ebb2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a049dc97a131320f96b1e73d91e4ebb2f">&#9670;&nbsp;</a></span>handle()</h2>
 
@@ -126,6 +129,18 @@ Additional Inherited Members</h2></td></tr>
 <pre class="fragment">@brief Handle connections to the server.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1json__networking_1_1JsonServerHandler.html#a049dc97a131320f96b1e73d91e4ebb2f">JsonServerHandler</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00009">9</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">def </span>handle(self):</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;            <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                <span class="comment"># self.request is the TCP socket connected to the client</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                self.data = self.request.recv(4096).strip()</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                <span class="comment"># just send back the same data</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                self.request.sendall(self.data)</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -141,10 +156,12 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="test__json__networking_8py_source.html#l00013">13</a> of file <a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>tests/<a class="el" href="test__json__networking_8py.html">test_json_networking.py</a></li>
+<li>tests/<a class="el" href="test__json__networking_8py_source.html">test_json_networking.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

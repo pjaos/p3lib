@@ -89,7 +89,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a049dc97a131320f96b1e73d91e4ebb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">@brief handler for ssh port forwarding connections.</pre> </div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><pre class="fragment">@brief handler for ssh port forwarding connections.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00720">720</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a049dc97a131320f96b1e73d91e4ebb2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a049dc97a131320f96b1e73d91e4ebb2f">&#9670;&nbsp;</a></span>handle()</h2>
 
@@ -106,10 +108,47 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00723">723</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="keyword">def </span>handle(self):</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;            chan = self.ssh_transport.open_channel(<span class="stringliteral">&#39;direct-tcpip&#39;</span>,</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                                                   (self.chain_host, self.chain_port),</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                                                   self.request.getpeername())</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            self.uo.error(<span class="stringliteral">&#39;Incoming request to %s:%d failed: %s&#39;</span> % (self.chain_host,</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                                                                    self.chain_port,</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;                                                                    repr(e)))</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;        <span class="keywordflow">if</span> chan <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;            self.uo.error(<span class="stringliteral">&#39;Incoming request to %s:%d was rejected by the SSH server.&#39;</span> %</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                          (self.chain_host, self.chain_port))</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;            <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160; </div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        self.uo.info(<span class="stringliteral">&#39;Connected!  Tunnel open %r -&gt; %r -&gt; %r&#39;</span> % (self.request.getpeername(),</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;                                                                 chan.getpeername(),</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;                                                                 (self.chain_host, self.chain_port)))</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;            r, w, x = select.select([self.request, chan], [], [])</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;            <span class="keywordflow">if</span> self.request <span class="keywordflow">in</span> r:</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;                data = self.request.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                <span class="keywordflow">if</span> len(data) == 0:</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;                chan.send(data)</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;            <span class="keywordflow">if</span> chan <span class="keywordflow">in</span> r:</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;                data = chan.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;                <span class="keywordflow">if</span> len(data) == 0:</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                self.request.send(data)</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; </div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        peername = self.request.getpeername()</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        chan.close()</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;        self.request.close()</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        self.uo.info(<span class="stringliteral">&#39;Tunnel closed from %r&#39;</span> % (peername,))</div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="ssh_8py.html">ssh.py</a></li>
+<li>src/p3lib/<a class="el" href="ssh_8py_source.html">ssh.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

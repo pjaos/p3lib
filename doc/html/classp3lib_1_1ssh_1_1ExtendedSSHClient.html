@@ -107,7 +107,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:a9a547c8051a3979f45abde32c7ddd961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">@brief The ssh client class</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><pre class="fragment">@brief The ssh client class</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00018">18</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae64f0875afe3067b97ba370b354b9213"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae64f0875afe3067b97ba370b354b9213">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -124,6 +126,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00047">47</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">def </span>__init__(self):</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        super(ExtendedSSHClient, self).__init__()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        self.set_missing_host_key_policy(AutoAddPolicy())</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -153,6 +161,19 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Split the text into lines.
    @param bytes The bytes containing text to be split into lines of text.
    @return A List of lines of text.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00024">24</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">def </span>GetLines(bytes):</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Split the text into lines.</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">           @param bytes The bytes containing text to be split into lines of text.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">           @return A List of lines of text.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        text = bytes.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        lines = []</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> len(text) &gt; 0:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            elems = text.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            lines = ExtendedSSHClient.StripEOL(elems)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">return</span> lines</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a41dac4ea11498ce5d8bd7fae5b791901"></a>
@@ -194,6 +215,25 @@ Static Public Attributes</h2></td></tr>
   If throwError is true and the exit status of the copmmand is not 0 then an
   SSHError will be thrown
 </pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00089">89</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">def </span>runCmd(self, cmd, throwError=True):</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Run a command over an ssh session and return a tuple with the following threee elements</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">          0 - the return code/exit status of the command</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">          1 - Lines of text from stdout</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">          2 - lines of text from stderr</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">          If throwError is true and the exit status of the copmmand is not 0 then an</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">          SSHError will be thrown</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        stdin, stdout, stderr, exitStatus = self.__exec_command(cmd)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span> throwError <span class="keywordflow">and</span> exitStatus != 0:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            errorText = stderr.read()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span> len(errorText) &gt; 0:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">raise</span> SSHError(errorText)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;The cmd &#39;%s&#39; return the error code: %d&quot;</span> % (cmd, exitStatus))</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> [exitStatus, ExtendedSSHClient.GetLines(stdout.read()), ExtendedSSHClient.GetLines(stderr.read())]</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a8635c8dfaeffa72dfc99b52eddac76cb"></a>
@@ -229,6 +269,22 @@ the requested command is executed.
 channel in a timely manner).
 @raise SSHException: if the server fails to execute the command
 </pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00075">75</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">def </span>startCmd(self, command ):</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">        Start executing a executing a command on the SSH server.  A new L{Channel} is opened and</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">        the requested command is executed.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">        @param command: The command to execute.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">        @return The SSH channel session with the command executing in it (it is up to the caller to read data from this</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">                channel in a timely manner).</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">        @raise SSHException: if the server fails to execute the command</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        chan = self._transport.open_session()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        chan.exec_command(command)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> chan</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3b8b4ae547766a20c7f29dc61d227b83"></a>
@@ -257,6 +313,19 @@ channel in a timely manner).
 <pre class="fragment">@brief Strip the end of line characters from the list of lines of text.
    @param lines A list of lines of text.
    @return The same list of lines of text with EOL removed.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00036">36</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">def </span>StripEOL(lines):</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Strip the end of line characters from the list of lines of text.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="stringliteral">           @param lines A list of lines of text.</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="stringliteral">           @return The same list of lines of text with EOL removed.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        noEOLLines = []</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            l = l.rstrip(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            l = l.rstrip(<span class="stringliteral">&quot;\r&quot;</span>)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            noEOLLines.append(l)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">return</span> noEOLLines</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -280,10 +349,12 @@ channel in a timely manner).
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00021">21</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="ssh_8py.html">ssh.py</a></li>
+<li>src/p3lib/<a class="el" href="ssh_8py_source.html">ssh.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

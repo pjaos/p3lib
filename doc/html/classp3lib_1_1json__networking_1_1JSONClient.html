@@ -102,7 +102,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a6a3f56dbe4f7361619f2460bae197f03"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1json__networking_1_1JSONClient.html#a6a3f56dbe4f7361619f2460bae197f03">RX_BUFFER_SIZE</a> = 2048</td></tr>
 <tr class="separator:a6a3f56dbe4f7361619f2460bae197f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00057">57</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3fb887bf5b6be3e03c79a7b07b95cb5b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3fb887bf5b6be3e03c79a7b07b95cb5b">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -160,6 +163,34 @@ Static Public Attributes</h2></td></tr>
    @param keepAliveActSec Activate the keepalive failure this many seconds after it is triggered.
    @param keepAliveTxSec Send a TCP keepalive periodically. This defines the period in seconds.
    @param keepAliveFailTriggerCount Trigger a keepalive failure when this many keepalives fail consecutively.</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00062">62</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">def </span>__init__(self, address, port, keepAliveActSec=1, keepAliveTxSec=15, keepAliveFailTriggerCount=8):</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Connect to a JSONServer socket.</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="stringliteral">                  If on a Linux system then the connection will apply a keepalive to the TCP connection.</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="stringliteral">                  By default this is 2 minutes.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">           @param address The address of the JSONServer.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral">           @param The port on the JSON server to connect to.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="stringliteral">           @param keepAliveActSec Activate the keepalive failure this many seconds after it is triggered.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="stringliteral">           @param keepAliveTxSec Send a TCP keepalive periodically. This defines the period in seconds.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">           @param keepAliveFailTriggerCount Trigger a keepalive failure when this many keepalives fail consecutively.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        self._socket = socket.socket()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        self._socket.connect( (address, port) )</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">if</span> hasattr(socket, <span class="stringliteral">&#39;SOL_SOCKET&#39;</span>) <span class="keywordflow">and</span>\</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;           hasattr(socket, <span class="stringliteral">&#39;SO_KEEPALIVE&#39;</span>) <span class="keywordflow">and</span>\</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;           hasattr(socket, <span class="stringliteral">&#39;IPPROTO_TCP&#39;</span>) <span class="keywordflow">and</span>\</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;           hasattr(socket, <span class="stringliteral">&#39;TCP_KEEPIDLE&#39;</span>) <span class="keywordflow">and</span>\</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;           hasattr(socket, <span class="stringliteral">&#39;TCP_KEEPINTVL&#39;</span>) <span class="keywordflow">and</span>\</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;           hasattr(socket, <span class="stringliteral">&#39;TCP_KEEPCNT&#39;</span>):        </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            self._socket.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            self._socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPIDLE, keepAliveActSec)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            self._socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPINTVL, keepAliveTxSec)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            self._socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPCNT, keepAliveFailTriggerCount)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        self._socket.setblocking(<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        self._rxBuffer = bytearray()</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -179,6 +210,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Close the socket connection to the server.</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00170">170</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keyword">def </span>close(self):</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Close the socket connection to the server.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">if</span> self._socket:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            self._socket.close()</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="acde7a74ea974dce15e24feb760ce3ca2"></a>
@@ -216,6 +253,35 @@ Static Public Attributes</h2></td></tr>
    @param blocking If True block until complete message is received.
    @param If blocking wait for this period in seconds between checking for RX data.
    @return A received dictionary of None if not blocking and no dictionary is available.</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00143">143</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">def </span>rx(self, blocking=True, pollPeriodSeconds=DEFAULT_RX_POLL_SECS):</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get a python dictionary object from the server.</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="stringliteral">           @param blocking If True block until complete message is received.</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="stringliteral">           @param If blocking wait for this period in seconds between checking for RX data.</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="stringliteral">           @return A received dictionary of None if not blocking and no dictionary is available.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">while</span> <span class="keywordflow">not</span> self._msgAvail(self._rxBuffer):</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                rxd = self._socket.recv(JSONClient.RX_BUFFER_SIZE)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">if</span> len(rxd) &gt; 0:</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    self._rxBuffer = self._rxBuffer + rxd</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;Socket closed&quot;</span>)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> blocking:</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keywordflow">except</span> BlockingIOError:</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> blocking:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> blocking:</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                sleep(pollPeriodSeconds)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> self._getDict()</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa5bf585b835d0fbe6e91a413256022cc"></a>
@@ -254,6 +320,22 @@ Static Public Attributes</h2></td></tr>
    @param throwError If True then an exception will be thrown if an error occurs.
               If False then this method will fail silentley.
    @return True on success. False on failure if throwError = False</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00088">88</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">def </span>tx(self, theDict, throwError=True):</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief send a python dictionary object to the server via json</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">           @param theDict The dictionary to send</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">           @param throwError If True then an exception will be thrown if an error occurs.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">                              If False then this method will fail silentley.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">           @return True on success. False on failure if throwError = False&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            JsonServerHandler.TX(self._socket, theDict)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">if</span> throwError:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -277,6 +359,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00059">59</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+
 </div>
 </div>
 <a id="a6a3f56dbe4f7361619f2460bae197f03"></a>
@@ -299,10 +383,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00060">60</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="json__networking_8py.html">json_networking.py</a></li>
+<li>src/p3lib/<a class="el" href="json__networking_8py_source.html">json_networking.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

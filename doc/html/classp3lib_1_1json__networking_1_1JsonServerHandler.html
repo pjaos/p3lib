@@ -104,7 +104,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:ae78383b94991c6415600f680d05b4c0f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1json__networking_1_1JsonServerHandler.html#ae78383b94991c6415600f680d05b4c0f">LEN_FIELD</a> = 4</td></tr>
 <tr class="separator:ae78383b94991c6415600f680d05b4c0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00018">18</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa8c5da68f36767d7e18d42c386ef35fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8c5da68f36767d7e18d42c386ef35fc">&#9670;&nbsp;</a></span>DictToJSON()</h2>
 
@@ -131,6 +134,14 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief convert a python dictionary into JSON text
    @param aDict The python dictionary to be converted
    @return The JSON text representing aDict</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00023">23</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">def </span>DictToJSON(aDict):</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief convert a python dictionary into JSON text</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral">           @param aDict The python dictionary to be converted</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">           @return The JSON text representing aDict&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span> json.dumps(aDict)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a049dc97a131320f96b1e73d91e4ebb2f"></a>
@@ -151,6 +162,12 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Handle connections to the server.</pre> 
 <p>Reimplemented in <a class="el" href="classtest__json__networking_1_1ServerSessionHandler.html#a049dc97a131320f96b1e73d91e4ebb2f">ServerSessionHandler</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00053">53</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">def </span>handle(self):</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Handle connections to the server.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">raise</span> JSONNetworking(<span class="stringliteral">&quot;!!! You must override this method in a subclass !!!&quot;</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad1be85c3df1c8712a73f0cc7596af26f"></a>
@@ -180,6 +197,15 @@ Static Public Attributes</h2></td></tr>
   if the text is formatted incorrectly.
    @param jsonText The JSON text to be converted to a dict
    @return a python dict object</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00030">30</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">def </span>JSONToDict(jsonText):</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Convert from JSON text to a python dict. Throws a ValueError</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">                  if the text is formatted incorrectly.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral">           @param jsonText The JSON text to be converted to a dict</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="stringliteral">           @return a python dict object&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> json.loads(jsonText)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1a4d26055c26805941830f2589736499"></a>
@@ -218,6 +244,23 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Write the dict to the socket as json text
    @param request The request object passed from the handle() method.
    @theDict The python dictionary to send.</pre> 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00038">38</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">def </span>TX(request, theDict):</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Write the dict to the socket as json text</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="stringliteral">           @param request The request object passed from the handle() method.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="stringliteral">           @theDict The python dictionary to send.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span> request:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            msg = JsonServerHandler.DictToJSON(theDict).encode()</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            sFmt = <span class="stringliteral">&quot;&gt;%ds&quot;</span> % len(msg)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            body = pack(sFmt, msg)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            bodyLen = pack(<span class="stringliteral">&#39;&gt;I&#39;</span>, len(body))</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            txBuf = bodyLen + body</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            request.send(txBuf)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">raise</span> RuntimeError(<span class="stringliteral">&quot;TX socket error&quot;</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -241,10 +284,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="json__networking_8py_source.html#l00020">20</a> of file <a class="el" href="json__networking_8py_source.html">json_networking.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="json__networking_8py.html">json_networking.py</a></li>
+<li>src/p3lib/<a class="el" href="json__networking_8py_source.html">json_networking.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

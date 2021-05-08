@@ -120,7 +120,10 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a2b6c992dd64ecc8d92581dfb9a9f9285 inherit pub_static_attribs_classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a2b6c992dd64ecc8d92581dfb9a9f9285">RESPONSE_DICT_KEY</a> = &quot;RESPONSE&quot;</td></tr>
 <tr class="separator:a2b6c992dd64ecc8d92581dfb9a9f9285 inherit pub_static_attribs_classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00080">80</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a006f8420c7dd411533ab5ddf935550fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a006f8420c7dd411533ab5ddf935550fd">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -170,10 +173,28 @@ Additional Inherited Members</h2></td></tr>
     options.port = The port number to connect to the MQTT server
     options.keepalive = The keepalive period in seconds
    @param rpcMethodProviderList A list/tuple of class instances that provide the RPC methods.</pre> 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00082">82</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keyword">def </span>__init__(self, uo, options, rpcMethodProviderList):</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Responsible for providing RPC functionality via an MQTT server.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">                  MQTTRPCProviderClient instances implement the RPC at the destination/remote side</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">                  and return the results to the caller side.</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">           @param uo A UO instance that implements the info(text) and error(text) methods</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">                     to send information to the user.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">           @param options An options instance.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="stringliteral">                    options.sid = A number to uniquely identify the server</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">                    options.cid = A number to uniquely identify the client receiving responses from the server.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">                    options.server = The host address of the MQTT server</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">                    options.port = The port number to connect to the MQTT server</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">                    options.keepalive = The keepalive period in seconds</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">           @param rpcMethodProviderList A list/tuple of class instances that provide the RPC methods.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        MQTTRPCClient.__init__(self, uo, options)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        self._rpcMethodProviderList=rpcMethodProviderList</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="mqtt__rpc_8py.html">mqtt_rpc.py</a></li>
+<li>src/p3lib/<a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

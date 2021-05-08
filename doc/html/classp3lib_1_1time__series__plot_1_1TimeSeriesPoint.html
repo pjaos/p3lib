@@ -99,7 +99,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:afcc7a4b78ecd8fa7e713f8cfa0f51017"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">@brief Resonsible for holding a time series point on a trace.</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><pre class="fragment">@brief Resonsible for holding a time series point on a trace.</pre> 
+<p class="definition">Definition at line <a class="el" href="time__series__plot_8py_source.html#l00019">19</a> of file <a class="el" href="time__series__plot_8py_source.html">time_series_plot.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1f11446131f1ece27ee558d5c35d8cdf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f11446131f1ece27ee558d5c35d8cdf">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -144,6 +146,23 @@ Public Attributes</h2></td></tr>
              on TimeSeriesPlotter instances.
    @param value The Y value
    @param timeStamp The x Value.</pre> 
+<p class="definition">Definition at line <a class="el" href="time__series__plot_8py_source.html#l00021">21</a> of file <a class="el" href="time__series__plot_8py_source.html">time_series_plot.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">def </span>__init__(self, traceIndex, value, timeStamp=None):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="stringliteral">           @param traceIndex The index of the trace this reading should be applied to.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="stringliteral">                             The trace index starts at 0 for the top left plot (first</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="stringliteral">                             trace added) and increments with each call to addTrace()</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="stringliteral">                             on TimeSeriesPlotter instances.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">           @param value The Y value</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral">           @param timeStamp The x Value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        self.traceIndex = traceIndex</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> timeStamp:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            self.time = timeStamp</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            self.time = datetime.now()</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        self.value = value</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -159,6 +178,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="time__series__plot_8py_source.html#l00031">31</a> of file <a class="el" href="time__series__plot_8py_source.html">time_series_plot.py</a>.</p>
+
 </div>
 </div>
 <a id="acd74bb10b583bd9dd57c7371685da492"></a>
@@ -172,6 +193,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="time__series__plot_8py_source.html#l00029">29</a> of file <a class="el" href="time__series__plot_8py_source.html">time_series_plot.py</a>.</p>
 
 </div>
 </div>
@@ -187,10 +210,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="time__series__plot_8py_source.html#l00034">34</a> of file <a class="el" href="time__series__plot_8py_source.html">time_series_plot.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="time__series__plot_8py.html">time_series_plot.py</a></li>
+<li>src/p3lib/<a class="el" href="time__series__plot_8py_source.html">time_series_plot.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

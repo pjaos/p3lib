@@ -120,7 +120,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a2b6c992dd64ecc8d92581dfb9a9f9285"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a2b6c992dd64ecc8d92581dfb9a9f9285">RESPONSE_DICT_KEY</a> = &quot;RESPONSE&quot;</td></tr>
 <tr class="separator:a2b6c992dd64ecc8d92581dfb9a9f9285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00013">13</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab15a0a823ec4aab5c5ff7b2eabef5e6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab15a0a823ec4aab5c5ff7b2eabef5e6d">&#9670;&nbsp;</a></span>__init__()</h2>
 
@@ -164,6 +167,30 @@ Static Public Attributes</h2></td></tr>
 
    The MQTTRPCClient class can only be a base class and should be extended. Child classes must
    implement/override the _onMessage() method.</pre> 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00039">39</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">def </span>__init__(self, uo, options):</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Responsible fopr providing RPC functionality via an MQTT server.</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="stringliteral">           @param uo A UO instance that implements the info(text) and error(text) methods</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">                       to send information to the user.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">           @param options An options instance.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="stringliteral">                    options.sid = A number to uniquely identify the server</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="stringliteral">                    options.cid = A number to uniquely identify the client</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="stringliteral">                    options.server = The host address of the MQTT server</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="stringliteral">                    options.port = The port number to connect to the MQTT server</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral">                    options.keepalive = The keepalive period in seconds</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">           The MQTTRPCClient class can only be a base class and should be extended. Child classes must</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="stringliteral">           implement/override the _onMessage() method.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        self._uo = uo</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        self._options = options</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        self._serverRPCTopic = MQTTRPCClient.GetServerRPCTopic(idNumber=self._options.sid)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        self._client = mqtt.Client()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        self._client.on_connect = self._onConnect</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        self._client.on_message = self._onMessage</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -183,6 +210,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Connect to the MQTT server</pre> 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00061">61</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">def </span>connect(self):</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Connect to the MQTT server&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        self._client.connect(self._options.server, self._options.port, self._options.keepalive)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="abc62a99317cc3ddc9b5ee0ff143f556b"></a>
@@ -211,6 +244,14 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Responsible for getting a client ID string.
    @param id The unique id of the MQTT client.
    @return A string that represents the unique client ID.</pre> 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00033">33</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">def </span>GetClientID(id=1):</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Responsible for getting a client ID string.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="stringliteral">           @param id The unique id of the MQTT client.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="stringliteral">           @return A string that represents the unique client ID.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;client%s/RPC&quot;</span> % ( str(id) )</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a25f03c8089d96c115aeccd057c827e99"></a>
@@ -239,6 +280,14 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Responsible for getting the Server RPC topic string.
    @param idNumber The idNumber of the RPC server that RPC messages can be sent to.
    @return A string that represents the RPC server topic.</pre> 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00026">26</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">def </span>GetServerRPCTopic(idNumber=1):</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Responsible for getting the Server RPC topic string.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral">           @param idNumber The idNumber of the RPC server that RPC messages can be sent to.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="stringliteral">           @return A string that represents the RPC server topic.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> <span class="stringliteral">&quot;server%d/RPC&quot;</span> % (idNumber)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1166f0ac95cf4b029e15c2b3cb457fa6"></a>
@@ -257,6 +306,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Wait here to service messages after a successfll connection.</pre> 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00065">65</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">def </span>loopForever(self):</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Wait here to service messages after a successfll connection.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        self._client.loop_forever()</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -280,6 +335,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00022">22</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+
 </div>
 </div>
 <a id="a7e85b7c95fd811a25dce70f2b4ea8aba"></a>
@@ -301,6 +358,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00020">20</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
 
 </div>
 </div>
@@ -324,6 +383,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00015">15</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+
 </div>
 </div>
 <a id="a6848708c0e9977d92e038180e5324e22"></a>
@@ -345,6 +406,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00017">17</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
 
 </div>
 </div>
@@ -368,6 +431,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00016">16</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+
 </div>
 </div>
 <a id="a30433a1ca0d625781b714991c2dedaae"></a>
@@ -389,6 +454,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00018">18</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
 
 </div>
 </div>
@@ -412,6 +479,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00021">21</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+
 </div>
 </div>
 <a id="a2b6c992dd64ecc8d92581dfb9a9f9285"></a>
@@ -434,10 +503,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="mqtt__rpc_8py_source.html#l00023">23</a> of file <a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/p3lib/<a class="el" href="mqtt__rpc_8py.html">mqtt_rpc.py</a></li>
+<li>src/p3lib/<a class="el" href="mqtt__rpc_8py_source.html">mqtt_rpc.py</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
