@@ -123,28 +123,28 @@ class TimeSeriesPlotter(object):
            @param doc The document to add the plot to."""
         self._doc = doc
         self._doc.title = self._docTitle
-        grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
-        checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1])
+        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+        checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1], max_width=70)
         checkbox1.on_change('active', self._checkboxHandler)
 
         saveButton = Button(label="Save", button_type="success", width=50)
         saveButton.on_click(self._savePlot)
 
-        self._inputFileToSave = TextInput()
+        self._fileToSave = TextInput(title="File to save", max_width=150)
 
-        ctrlPanel = row(checkbox1, saveButton, self._inputFileToSave)
+        ctrlPanel = row(checkbox1, saveButton, self._fileToSave)
 
         if self._pageTitle:
             text1 = Div(text="""<h1 style="color:blue">{}</h1>""".format(self._pageTitle), width=900, height=50)
             if self._topCtrlPanel:
-                self._layout = column(text1, ctrlPanel, row(grid))
+                self._layout = column(text1, ctrlPanel, row(self._grid))
             else:
-                self._layout = column(text1, row(grid))
+                self._layout = column(text1, row(self._grid))
         else:
             if self._topCtrlPanel:
-                self._layout = column(ctrlPanel, grid)
+                self._layout = column(ctrlPanel, self._grid)
             else:
-                self._layout = column(grid)
+                self._layout = column(self._grid)
 
         self._doc.add_root(self._layout)
         self._doc.add_periodic_callback(self._update, 100)
@@ -180,5 +180,13 @@ class TimeSeriesPlotter(object):
     def _savePlot(self):
         """@brief Save plot to a single html file. This allows the plots to be
                   analysed later."""
-        output_file(self._inputFileToSave.value)
-        save(self._layout)
+        if self._fileToSave.value:
+            if self._fileToSave.value.endswith(".html"):
+                filename = self._fileToSave.value
+            else:
+                filename = self._fileToSave.value + ".html"
+            output_file(filename)
+            # Save all the plots in the grid to an html file that allows 
+            # display in a browser and plot manipulation.
+            save( self._grid )
+            
