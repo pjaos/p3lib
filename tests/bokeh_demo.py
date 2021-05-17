@@ -197,17 +197,23 @@ class BokehDemoA(TimeSeriesGUI):
            @param doc The document to add the plot to."""
         self._doc = doc
         self._doc.title = self._docTitle
-        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
 
-        self._addPlotTab()
-        self._addDemoWidgetsTab()
-        self._addTextTab()
+        plotPanel = self._getPlotPanel()
+        demoWidgetsTab = self._getDemoWidgetsTab()
+        textTab = self._getTextTab()
+
+        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
+        self._tabList.append( Panel(child=demoWidgetsTab,  title="Demo Widets") )
+        self._tabList.append( Panel(child=textTab,  title="Text Panel") )
 
         self._doc.add_root( Tabs(tabs=self._tabList) )
+
         self._doc.add_periodic_callback(self._update, 100)
 
-    def _addPlotTab(self):
+    def _getPlotPanel(self):
         """@brief Add tab that shows plot data updates."""
+        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+
         checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
         checkbox1.on_change('active', self._checkboxHandler)
 
@@ -221,7 +227,7 @@ class BokehDemoA(TimeSeriesGUI):
 
         plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave])
         plotPanel = column([plotRowCtrl, self._grid, statusPanel])
-        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
+        return plotPanel
 
     def _savePlot(self):
         """@brief Save plot to a single html file. This allows the plots to be
@@ -237,7 +243,7 @@ class BokehDemoA(TimeSeriesGUI):
             save( self._grid )
             self._statusAreaInput.value = "Saved {}".format(filename)
 
-    def _addDemoWidgetsTab(self):
+    def _getDemoWidgetsTab(self):
         """@brief Add tab that shows some widgets."""
         messageButton = Button(label="Call JS alert(msg)", button_type="success", width=50)
         #This doen't seem very useful as clicking a button to display a dialog is not something
@@ -312,10 +318,9 @@ class BokehDemoA(TimeSeriesGUI):
                           column([select, checkbox_button_group, checkbox_group, colorPicker, date_picker]),\
                           column([date_range_slider, password_input, multi_choice, multi_select, range_slider]),\
                           column([spinner, toggle]))
+        return ctrlPanel
 
-        self._tabList.append( Panel(child=ctrlPanel,  title="Demo Widets") )
-
-    def _addTextTab(self):
+    def _getTextTab(self):
         """@brief Add tab that shows some text."""
         #Text panel stuff
         p = Paragraph(text="""Your text is initialized with the 'text' argument.  The
@@ -354,7 +359,7 @@ class BokehDemoA(TimeSeriesGUI):
 
         infoPanel = row(  column([div, data_table, p]),\
                            column(pre, text_area_input))
-        self._tabList.append( Panel(child=infoPanel,  title="Text Panel") )
+        return infoPanel
 
     def _checkboxHandler(self, attr, old, new):
         """@brief Called when the checkbox is clicked."""
@@ -395,15 +400,17 @@ class BokehDemoB(TimeSeriesGUI):
            @param doc The document to add the plot to."""
         self._doc = doc
         self._doc.title = self._docTitle
-        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
 
-        self._addPlotTab()
+        plotPanel = self._getPlotPanel()
 
+        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
         self._doc.add_root( Tabs(tabs=self._tabList) )
         self._doc.add_periodic_callback(self._update, 100)
 
-    def _addPlotTab(self):
+    def _getPlotPanel(self):
         """@brief Add tab that shows plot data updates."""
+        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+
         checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
         checkbox1.on_change('active', self._checkboxHandler)
 
@@ -417,7 +424,7 @@ class BokehDemoB(TimeSeriesGUI):
 
         plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave])
         plotPanel = column([plotRowCtrl, self._grid, statusPanel])
-        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
+        return plotPanel
 
     def _savePlot(self):
         """@brief Save plot to a single html file. This allows the plots to be
