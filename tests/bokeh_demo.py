@@ -181,9 +181,9 @@ class TimeSeriesGUI(object):
     def runBokehServer(self):
         """@brief Run the bokeh server. This is a blocking method."""
         apps = {'/': Application(FunctionHandler(self._createPlot))}
-        server = Server(apps, port=9000)
-        server.show("/")
-        server.run_until_shutdown()
+        self._server = Server(apps, port=9000)
+        self._server.show("/")
+        self._server.run_until_shutdown()
 
 class BokehDemoA(TimeSeriesGUI):
     """@brief Responsible for plotting data on tab 0. Other tabs show how some widgets can be used."""
@@ -461,9 +461,9 @@ def updatePlots(plotter):
 def main():
 
     # Two different demos are shown.
-    plotter = BokehDemoA("DOC TITLE")
+    plotter = BokehDemoA("Bokeh Real Time Plot And Widgets Demo")
     # A cut down version of the above
-    # plotter = BokehDemoB("DOC TITLE")
+    #plotter = BokehDemoB("Bokeh Real Time Plot Demo")
 
     fig1 = TimeSeriesGUI.GetFigure("PLOT 1", "PLOT 1 Y Range")
     #Trace index 0
