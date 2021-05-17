@@ -13,6 +13,7 @@ import  threading
 import  random
 from    time import sleep
 
+from bokeh.plotting import curdoc
 from bokeh.server.server import Server
 from bokeh.application import Application
 from bokeh.application.handlers.function import FunctionHandler
@@ -180,7 +181,7 @@ class TimeSeriesGUI(object):
 
     def runBokehServer(self):
         """@brief Run the bokeh server. This is a blocking method."""
-        apps = {'/': Application(FunctionHandler(self._createPlot))}
+        apps = {'/': Application(FunctionHandler(self.createPlot))}
         self._server = Server(apps, port=9000)
         self._server.show("/")
         self._server.run_until_shutdown()
@@ -192,7 +193,7 @@ class BokehDemoA(TimeSeriesGUI):
         """@Constructor"""
         super().__init__(docTitle, topCtrlPanel=topCtrlPanel, bokehPort=bokehPort)
 
-    def _createPlot(self, doc, ):
+    def createPlot(self, doc, ):
         """@brief create a plot figure.
            @param doc The document to add the plot to."""
         self._doc = doc
@@ -395,7 +396,7 @@ class BokehDemoB(TimeSeriesGUI):
         super().__init__(docTitle, topCtrlPanel=topCtrlPanel, bokehPort=bokehPort)
         self._statusAreaInput = None
 
-    def _createPlot(self, doc, ):
+    def createPlot(self, doc, ):
         """@brief create a plot figure.
            @param doc The document to add the plot to."""
         self._doc = doc
@@ -444,8 +445,10 @@ class BokehDemoB(TimeSeriesGUI):
         """@brief Called when the checkbox is clicked."""
         if 0 in list(new):  # Is first checkbox selected
             self._plottingEnabled = True
+            self._statusAreaInput.value = "Plotting enabled"
         else:
             self._plottingEnabled = False
+            self._statusAreaInput.value = "Plotting disabled"
 
 def updatePlots(plotter):
     min=0
@@ -461,9 +464,9 @@ def updatePlots(plotter):
 def main():
 
     # Two different demos are shown.
-    plotter = BokehDemoA("Bokeh Real Time Plot And Widgets Demo")
+    #plotter = BokehDemoA("Bokeh Real Time Plot And Widgets Demo")
     # A cut down version of the above
-    #plotter = BokehDemoB("Bokeh Real Time Plot Demo")
+    plotter = BokehDemoB("Bokeh Real Time Plot Demo")
 
     fig1 = TimeSeriesGUI.GetFigure("PLOT 1", "PLOT 1 Y Range")
     #Trace index 0
@@ -500,8 +503,16 @@ def main():
     plotUpdateThread.setDaemon(True)
     plotUpdateThread.start()
 
-    #This method blocks
+    # If running using the 'bokeh serve --show bokeh_demo.py' command then
+    # uncomment the following line. Multiple clients will be able to connect
+    # to the server if this is used.
+    #plotter.createPlot( curdoc() )
+
+    # If called using the 'python bokeh_demo.py' command then uncomment
+    # the following line. Only a single client will be able to connect
+    # to the server if this is used.
     plotter.runBokehServer()
 
-if __name__== '__main__':
-    main()
+# Don't wrap this in "if __name__== '__main__':" or the bokeh
+# server command won't work
+main()
