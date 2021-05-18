@@ -461,7 +461,9 @@ def updatePlots(plotter):
             plotter.addValue(traceIndex, value)
         sleep(1)
 
-def main():
+def main(runServer):
+    """@brief program entry point
+       @runServer If True then run the bokeh server directly as a python program."""
 
     # Two different demos are shown.
     #plotter = BokehDemoA("Bokeh Real Time Plot And Widgets Demo")
@@ -503,16 +505,22 @@ def main():
     plotUpdateThread.setDaemon(True)
     plotUpdateThread.start()
 
-    # If running using the 'bokeh serve --show bokeh_demo.py' command then
-    # uncomment the following line. Multiple clients will be able to connect
-    # to the server if this is used.
-    #plotter.createPlot( curdoc() )
+    if runServer:
+        # If called using the 'python bokeh_demo.py' command then uncomment
+        # the following line. Only a single client will be able to connect
+        # to the server if this is used.
+        plotter.runBokehServer()
+    else:
+        # If running using the 'bokeh serve --show bokeh_demo.py' command then
+        # uncomment the following line. Multiple clients will be able to connect
+        # to the server if this is used.
+        plotter.createPlot( curdoc() )
 
-    # If called using the 'python bokeh_demo.py' command then uncomment
-    # the following line. Only a single client will be able to connect
-    # to the server if this is used.
-    plotter.runBokehServer()
 
-# Don't wrap this in "if __name__== '__main__':" or the bokeh
-# server command won't work
-main()
+
+if __name__== '__main__':
+    #If running as a python program we need to start the bokeh server
+    main(True)
+else:
+    # If running using the 'bokeh serve --show bokeh_demo.py'
+    main(False)
