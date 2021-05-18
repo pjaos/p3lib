@@ -105,7 +105,6 @@ class TimeSeriesGUI(object):
         self._docTitle=docTitle
         self._topCtrlPanel=topCtrlPanel
         self._bokehPort=bokehPort
-        self._figTable=[[]]
         self._srcList = []
         self._evtLoop = None
         self._colors = itertools.cycle(palette)
@@ -116,15 +115,6 @@ class TimeSeriesGUI(object):
         self._grid = None
         self._tabList = []
         self._server = None
-
-    def addRow(self):
-        """@brief Add an empty row to the figures."""
-        self._figTable.append([])
-
-    def addToRow(self, fig):
-        """@brief Add a figure to the end of the current row of figues.
-           @param fig The figure to add."""
-        self._figTable[-1].append(fig)
 
     def addTrace(self, fig, legend_label, line_color=None, line_width=1):
         """@brief Add a trace to a figure.
@@ -192,6 +182,16 @@ class BokehDemoA(TimeSeriesGUI):
     def __init__(self, docTitle, topCtrlPanel=True, bokehPort=5001):
         """@Constructor"""
         super().__init__(docTitle, topCtrlPanel=topCtrlPanel, bokehPort=bokehPort)
+        self._figTable=[[]]
+
+    def addRow(self):
+        """@brief Add an empty row to the figures."""
+        self._figTable.append([])
+
+    def addToRow(self, fig):
+        """@brief Add a figure to the end of the current row of figues.
+           @param fig The figure to add."""
+        self._figTable[-1].append(fig)
 
     def createPlot(self, doc, ):
         """@brief create a plot figure.
@@ -395,6 +395,16 @@ class BokehDemoB(TimeSeriesGUI):
         """@Constructor"""
         super().__init__(docTitle, topCtrlPanel=topCtrlPanel, bokehPort=bokehPort)
         self._statusAreaInput = None
+        self._figTable=[[]]
+
+    def addRow(self):
+        """@brief Add an empty row to the figures."""
+        self._figTable.append([])
+
+    def addToRow(self, fig):
+        """@brief Add a figure to the end of the current row of figues.
+           @param fig The figure to add."""
+        self._figTable[-1].append(fig)
 
     def createPlot(self, doc, ):
         """@brief create a plot figure.
@@ -466,9 +476,9 @@ def main(runServer):
        @runServer If True then run the bokeh server directly as a python program."""
 
     # Two different demos are shown.
-    #plotter = BokehDemoA("Bokeh Real Time Plot And Widgets Demo")
+    plotter = BokehDemoA("Bokeh Real Time Plot And Widgets Demo")
     # A cut down version of the above
-    plotter = BokehDemoB("Bokeh Real Time Plot Demo")
+    #plotter = BokehDemoB("Bokeh Real Time Plot Demo")
 
     fig1 = TimeSeriesGUI.GetFigure("PLOT 1", "PLOT 1 Y Range")
     #Trace index 0
