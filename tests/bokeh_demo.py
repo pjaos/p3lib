@@ -2,6 +2,7 @@
 
 # A demo running a bokeh app showing real time plotting and a number of the bokeh widgets.
 
+import  sys
 import  queue
 from    datetime import datetime
 import  asyncio
@@ -116,6 +117,10 @@ class TimeSeriesGUI(object):
         self._tabList = []
         self._server = None
 
+    def stopServer(self):
+        """@brief Stop the bokeh server"""
+        sys.exit()
+
     def addTrace(self, fig, legend_label, line_color=None, line_width=1):
         """@brief Add a trace to a figure.
            @param fig The figure to add the trace to.
@@ -223,10 +228,13 @@ class BokehDemoA(TimeSeriesGUI):
         saveButton = Button(label="Save", button_type="success", width=50)
         saveButton.on_click(self._savePlot)
 
+        shutDownButton = Button(label="Quit", button_type="success", width=50)
+        shutDownButton.on_click(self.stopServer)
+
         self._statusAreaInput = TextAreaInput(value="", width_policy="max")
         statusPanel = row([self._statusAreaInput])
 
-        plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave])
+        plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave, shutDownButton])
         plotPanel = column([plotRowCtrl, self._grid, statusPanel])
         return plotPanel
 
@@ -430,10 +438,13 @@ class BokehDemoB(TimeSeriesGUI):
         saveButton = Button(label="Save", button_type="success", width=50)
         saveButton.on_click(self._savePlot)
 
+        shutDownButton = Button(label="Quit", button_type="success", width=50)
+        shutDownButton.on_click(self.stopServer)
+
         self._statusAreaInput = TextAreaInput(value="", width_policy="max")
         statusPanel = row([self._statusAreaInput])
 
-        plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave])
+        plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave, shutDownButton])
         plotPanel = column([plotRowCtrl, self._grid, statusPanel])
         return plotPanel
 
