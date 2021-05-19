@@ -78,6 +78,8 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ab96ddc3348e82d9feacd2788415fb5b3"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetime__series__plot__example.html#ab96ddc3348e82d9feacd2788415fb5b3">main</a> ()</td></tr>
 <tr class="separator:ab96ddc3348e82d9feacd2788415fb5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c72e2ed8464d879b70f77f19ec4bf7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetime__series__plot__example.html#a40c72e2ed8464d879b70f77f19ec4bf7">updatePlots</a> (plotter)</td></tr>
+<tr class="separator:a40c72e2ed8464d879b70f77f19ec4bf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ab96ddc3348e82d9feacd2788415fb5b3"></a>
@@ -95,16 +97,48 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="time__series__plot__example_8py_source.html#l00068">68</a> of file <a class="el" href="time__series__plot__example_8py_source.html">time_series_plot_example.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceuio__test.html#ae0eaf8293c08d82b9cf47c406b3122c8">main</a>():</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    timeSeriesPlotExample = TimeSeriesPlotExample()</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    timeSeriesPlotExample.run()</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="time__series__plot__example_8py_source.html#l00067">67</a> of file <a class="el" href="time__series__plot__example_8py_source.html">time_series_plot_example.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceuio__test.html#ae0eaf8293c08d82b9cf47c406b3122c8">main</a>():</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    timeSeriesPlotExample = TimeSeriesPlotExample()</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    timeSeriesPlotExample.run()</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a40c72e2ed8464d879b70f77f19ec4bf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40c72e2ed8464d879b70f77f19ec4bf7">&#9670;&nbsp;</a></span>updatePlots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def time_series_plot_example.updatePlots </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>plotter</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="time__series__plot__example_8py_source.html#l00056">56</a> of file <a class="el" href="time__series__plot__example_8py_source.html">time_series_plot_example.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">def </span><a class="code" href="namespacetime__series__plot__example.html#a40c72e2ed8464d879b70f77f19ec4bf7">updatePlots</a>(plotter):</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    min=0</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    max=100</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="comment">#Trace indexes from 0-5 are valid</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,6):</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            value = min + (max-min)*random.random()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            plotter.addValue(traceIndex, value)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        sleep(1)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        </div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <div class="ttc" id="anamespaceuio__test_html_ae0eaf8293c08d82b9cf47c406b3122c8"><div class="ttname"><a href="namespaceuio__test.html#ae0eaf8293c08d82b9cf47c406b3122c8">uio_test.main</a></div><div class="ttdeci">def main()</div><div class="ttdef"><b>Definition:</b> <a href="uio__test_8py_source.html#l00164">uio_test.py:164</a></div></div>
+<div class="ttc" id="anamespacetime__series__plot__example_html_a40c72e2ed8464d879b70f77f19ec4bf7"><div class="ttname"><a href="namespacetime__series__plot__example.html#a40c72e2ed8464d879b70f77f19ec4bf7">time_series_plot_example.updatePlots</a></div><div class="ttdeci">def updatePlots(plotter)</div><div class="ttdef"><b>Definition:</b> <a href="time__series__plot__example_8py_source.html#l00056">time_series_plot_example.py:56</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -15,10 +15,10 @@ class TimeSeriesPlotExample(object):
         self._plotter = None
 
     def run(self):
+        plotPaneWidth = 800
+        self._plotter = TimeSeriesPlotter("DOC TITLE")
 
-        self._plotter = TimeSeriesPlotter("DOC TITLE", pageTitle="Page title")
-
-        fig1 = TimeSeriesPlotter.GetFigure("PLOT 1", "PLOT 1 Y Range")
+        fig1 = TimeSeriesPlotter.GetFigure("PLOT 1", "PLOT 1 Y Range", width=plotPaneWidth)
         #Trace index 0
         self._plotter.addTrace(fig1, "Volts")
         #Trace index 1
@@ -26,45 +26,44 @@ class TimeSeriesPlotExample(object):
         #Trace index 2
         self._plotter.addTrace(fig1, "Watts")
 
-        fig2 = TimeSeriesPlotter.GetFigure("PLOT 2", "PLOT 2 Y Range")
+        fig2 = TimeSeriesPlotter.GetFigure("PLOT 2", "PLOT 2 Y Range", width=plotPaneWidth)
         #Trace index 3
         self._plotter.addTrace(fig2, "Distance")
 
-        fig3 = TimeSeriesPlotter.GetFigure("PLOT 3", "PLOT 3 Y Range")
+        fig3 = TimeSeriesPlotter.GetFigure("PLOT 3", "PLOT 3 Y Range", width=plotPaneWidth)
         #Trace index 4
         self._plotter.addTrace(fig3, "Height")
 
-        fig4 = TimeSeriesPlotter.GetFigure("PLOT 4", "PLOT 4 Y Range")
+        fig4 = TimeSeriesPlotter.GetFigure("PLOT 4", "PLOT 4 Y Range", width=plotPaneWidth)
         #Trace index 5
         self._plotter.addTrace(fig4, "Trains")
-
-        fig5 = TimeSeriesPlotter.GetFigure("PLOT 4", "PLOT 4 Y Range")
-        #Trace index 6
-        self._plotter.addTrace(fig5, "Busses")
 
         self._plotter.addToRow(fig1)
         self._plotter.addToRow(fig2)
         self._plotter.addRow()
         self._plotter.addToRow(fig3)
         self._plotter.addToRow(fig4)
-        self._plotter.addToRow(fig5)
 
-        #The bokeh server runs in a separate thread.
-        bt = threading.Thread(target=self._plotter.runBokehServer)
-        bt.setDaemon(True)
-        bt.start()
+        plotUpdateThread = threading.Thread(target=updatePlots, args=(self._plotter,))
+        plotUpdateThread.setDaemon(True)
+        plotUpdateThread.start()
 
-        min=0
-        max=100
-        #Server started now we send data to the server to be plotted.
-        while True:
-            #Trace indexes from 0-6 are valid
-            for traceIndex in range(0,7):
-                value = min + (max-min)*random.random()
-                self._plotter.addValue(traceIndex, value)
-            sleep(1)
-        bt.join()
+        # If called using the 'python bokeh_demo.py' command then uncomment
+        # the following line. Only a single client will be able to connect
+        # to the server if this is used.
+        self._plotter.runBokehServer()
 
+def updatePlots(plotter):
+    min=0
+    max=100
+    #Server started now we send data to the server to be plotted.
+    while plotter.isServerRunning():
+        #Trace indexes from 0-5 are valid
+        for traceIndex in range(0,6):
+            value = min + (max-min)*random.random()
+            plotter.addValue(traceIndex, value)
+        sleep(1)
+        
 def main():
     timeSeriesPlotExample = TimeSeriesPlotExample()
     timeSeriesPlotExample.run()

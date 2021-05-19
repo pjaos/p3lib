@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['netplotly_5fdemo_404',['netplotly_demo',['../namespacenetplotly__demo.html',1,'']]]
+  ['bokeh_5fdemo_420',['bokeh_demo',['../namespacebokeh__demo.html',1,'']]]
 ];

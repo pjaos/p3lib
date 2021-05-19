@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
 
+import  sys
 import  queue
 from    datetime import datetime
-import  asyncio
 import  itertools
 
 from bokeh.server.server import Server
 from bokeh.application import Application
 from bokeh.application.handlers.function import FunctionHandler
-from bokeh.plotting import figure, ColumnDataSource, save, output_file
+from bokeh.plotting import figure, ColumnDataSource
 from bokeh.models import Range1d
-from bokeh.layouts import gridplot, column, row
 from bokeh.palettes import Category20_20 as palette
-from bokeh.models.widgets import CheckboxGroup, Div
+
+from bokeh.plotting import save, output_file
+from bokeh.layouts import gridplot, column, row
+from bokeh.models.widgets import CheckboxGroup
 from bokeh.models.widgets.buttons import Button
 from bokeh.models.widgets import TextInput
+from bokeh.models import TextAreaInput
+from bokeh.models import Panel, Tabs
 
 class TimeSeriesPoint(object):
     """@brief Resonsible for holding a time series point on a trace."""
@@ -33,18 +37,20 @@ class TimeSeriesPoint(object):
             self.time = datetime.now()
         self.value = value
 
-class TimeSeriesPlotter(object):
-    """@brief Responsible for plotting the values."""
+class TabbedGUI(object):
+    """@brief A Generalised class responsible for plotting real time data."""
 
     @staticmethod
-    def GetFigure(title=None, yAxisName=None, yRangeLimits=None):
-        """@brief A Factory method for a figure instance. A figure is a
-                  single plot area.
+    def GetFigure(title=None, yAxisName=None, yRangeLimits=None, width=400, height=400):
+        """@brief A Factory method to obtain a figure instance.
+                  A figure is a single plot area that can contain multiple traces.
            @param title The title of the figure.
            @param yAxisName The name of the Y axis.
-           @param yRangeLimits If None then the Y zxis will auto range.
+           @param yRangeLimits If None then the Y azxis will auto range.
                                If a list of two numerical values then this
                                defines the min and max Y axis range values.
+           @param width The width of the plot area in pixels.
+           @param height The height of the plot area in pixels.
            @return A figure instance."""
         if yRangeLimits and len(yRangeLimits) == 2:
             yrange = Range1d(yRangeLimits[0], yRangeLimits[1])
@@ -54,39 +60,31 @@ class TimeSeriesPlotter(object):
         fig = figure(title=title,
                      x_axis_type="datetime",
                      x_axis_location="below",
-                     y_range=yrange)
+                     y_range=yrange,
+                     plot_width=width,
+                     plot_height=height)
         fig.yaxis.axis_label = yAxisName
         return fig
 
-    def __init__(self, docTitle, pageTitle=None, topCtrlPanel=True, bokehPort=5001):
+    def __init__(self, docTitle, topCtrlPanel=True, bokehPort=9090):
         """@brief Constructor.
            @param docTitle The document title.
-           @param pageTitle The title displayed at the top of the web page.
            @param topCtrlPanel If True then a control panel is displayed at the top of the plot.
-           @param label The label associated with the trace to plot.
-           @param yRangeLimits Limits of the Y axis. By default auto range.
-           @param bokehPort The TCP IP port for the bokeh server."""
+           @param bokehPort The port to run the server on."""
         self._docTitle=docTitle
-        self._pageTitle=pageTitle
         self._topCtrlPanel=topCtrlPanel
         self._bokehPort=bokehPort
-        self._figTable=[[]]
         self._srcList = []
-        self._evtLoop = None
         self._colors = itertools.cycle(palette)
         self._queue = queue.Queue()
         self._doc = None
         self._plottingEnabled = True
-        self._layout = None
+        self._tabList = []
+        self._server = None
 
-    def addRow(self):
-        """@brief Add an empty row to the figures."""
-        self._figTable.append([])
-
-    def addToRow(self, fig):
-        """@brief Add a figure to the end of the current row of figues.
-           @param fig The figure to add."""
-        self._figTable[-1].append(fig)
+    def stopServer(self):
+        """@brief Stop the bokeh server"""
+        sys.exit()
 
     def addTrace(self, fig, legend_label, line_color=None, line_width=1):
         """@brief Add a trace to a figure.
@@ -106,51 +104,8 @@ class TimeSeriesPlotter(object):
                  line_width = line_width)
         self._srcList.append(src)
 
-    def runBokehServer(self):
-        """@brief Run the bokeh server. This is a blocking method."""
-        apps = {'/': Application(FunctionHandler(self._createPlot))}
-        #As this gets run in a thread we need to start an event loop
-        evtLoop = asyncio.new_event_loop()
-        asyncio.set_event_loop(evtLoop)
-        server = Server(apps, port=self._bokehPort)
-        server.start()
-        #Show the server in a web browser window
-        server.io_loop.add_callback(server.show, "/")
-        server.io_loop.start()
-
-    def _createPlot(self, doc, ):
-        """@brief create a plot figure.
-           @param doc The document to add the plot to."""
-        self._doc = doc
-        self._doc.title = self._docTitle
-        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
-        checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1], max_width=70)
-        checkbox1.on_change('active', self._checkboxHandler)
-
-        saveButton = Button(label="Save", button_type="success", width=50)
-        saveButton.on_click(self._savePlot)
-
-        self._fileToSave = TextInput(title="File to save", max_width=150)
-
-        ctrlPanel = row(checkbox1, saveButton, self._fileToSave)
-
-        if self._pageTitle:
-            text1 = Div(text="""<h1 style="color:blue">{}</h1>""".format(self._pageTitle), width=900, height=50)
-            if self._topCtrlPanel:
-                self._layout = column(text1, ctrlPanel, row(self._grid))
-            else:
-                self._layout = column(text1, row(self._grid))
-        else:
-            if self._topCtrlPanel:
-                self._layout = column(ctrlPanel, self._grid)
-            else:
-                self._layout = column(self._grid)
-
-        self._doc.add_root(self._layout)
-        self._doc.add_periodic_callback(self._update, 100)
-
     def _update(self):
-        """@brief called periodically to update the plot trace."""
+        """@brief called periodically to update the plot traces."""
         if self._plottingEnabled:
             while not self._queue.empty():
                 timeSeriesPoint = self._queue.get()
@@ -170,23 +125,100 @@ class TimeSeriesPlotter(object):
         timeSeriesPoint = TimeSeriesPoint(traceIndex, value, timeStamp=timeStamp)
         self._queue.put(timeSeriesPoint)
 
-    def _checkboxHandler(self, attr, old, new):
-        """@brief Called when the checkbox is clicked."""
-        if 0 in list(new):  # Is first checkbox selected
-            self._plottingEnabled = True
-        else:
-            self._plottingEnabled = False
+    def isServerRunning(self):
+        """@brief Check if the server is running.
+           @param True if the server is running. It may take some time (~ 20 seconds)
+                  after the browser is closed before the server session shuts down."""
+        serverSessions = "not started"
+        if self._server:
+            serverSessions = self._server.get_sessions()
+
+        serverRunning = True
+        if not serverSessions:
+                serverRunning = False
+
+        return serverRunning
+
+    def runBokehServer(self):
+        """@brief Run the bokeh server. This is a blocking method."""
+        apps = {'/': Application(FunctionHandler(self.createPlot))}
+        self._server = Server(apps, port=9000)
+        self._server.show("/")
+        self._server.run_until_shutdown()
+
+                
+class TimeSeriesPlotter(TabbedGUI):
+    """@brief Responsible for plotting data on tab 0 with no other tabs."""
+
+    def __init__(self, docTitle, bokehPort=5001):
+        """@Constructor"""
+        super().__init__(docTitle, bokehPort=bokehPort)
+        self._statusAreaInput = None
+        self._figTable=[[]]
+        self._grid = None
+
+    def addRow(self):
+        """@brief Add an empty row to the figures."""
+        self._figTable.append([])
+
+    def addToRow(self, fig):
+        """@brief Add a figure to the end of the current row of figues.
+           @param fig The figure to add."""
+        self._figTable[-1].append(fig)
+
+    def createPlot(self, doc, ):
+        """@brief create a plot figure.
+           @param doc The document to add the plot to."""
+        self._doc = doc
+        self._doc.title = self._docTitle
+
+        plotPanel = self._getPlotPanel()
+
+        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
+        self._doc.add_root( Tabs(tabs=self._tabList) )
+        self._doc.add_periodic_callback(self._update, 100)
+
+    def _getPlotPanel(self):
+        """@brief Add tab that shows plot data updates."""
+        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+
+        checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
+        checkbox1.on_change('active', self._checkboxHandler)
+
+        self.fileToSave = TextInput(title="File to save", max_width=150)
+
+        saveButton = Button(label="Save", button_type="success", width=50)
+        saveButton.on_click(self._savePlot)
+
+        shutDownButton = Button(label="Quit", button_type="success", width=50)
+        shutDownButton.on_click(self.stopServer)
+
+        self._statusAreaInput = TextAreaInput(value="", width_policy="max")
+        statusPanel = row([self._statusAreaInput])
+
+        plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave, shutDownButton])
+        plotPanel = column([plotRowCtrl, self._grid, statusPanel])
+        return plotPanel
 
     def _savePlot(self):
         """@brief Save plot to a single html file. This allows the plots to be
                   analysed later."""
-        if self._fileToSave.value:
-            if self._fileToSave.value.endswith(".html"):
-                filename = self._fileToSave.value
+        if self.fileToSave.value:
+            if self.fileToSave.value.endswith(".html"):
+                filename = self.fileToSave.value
             else:
-                filename = self._fileToSave.value + ".html"
+                filename = self.fileToSave.value + ".html"
             output_file(filename)
-            # Save all the plots in the grid to an html file that allows 
+            # Save all the plots in the grid to an html file that allows
             # display in a browser and plot manipulation.
             save( self._grid )
-            
+            self._statusAreaInput.value = "Saved {}".format(filename)
+
+    def _checkboxHandler(self, attr, old, new):
+        """@brief Called when the checkbox is clicked."""
+        if 0 in list(new):  # Is first checkbox selected
+            self._plottingEnabled = True
+            self._statusAreaInput.value = "Plotting enabled"
+        else:
+            self._plottingEnabled = False
+            self._statusAreaInput.value = "Plotting disabled"
