@@ -7,5 +7,5 @@ digraph "TabbedGUI"
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="object",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="TimeSeriesPlotter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1time__series__plot_1_1TimeSeriesPlotter.html",tooltip=" "];
+  Node3 [label="TimeSeriesPlotter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html",tooltip=" "];
 }

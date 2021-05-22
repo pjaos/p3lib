@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['jsonclient_395',['JSONClient',['../classp3lib_1_1json__networking_1_1JSONClient.html',1,'p3lib::json_networking']]],
-  ['jsonnetworking_396',['JSONNetworking',['../classp3lib_1_1json__networking_1_1JSONNetworking.html',1,'p3lib::json_networking']]],
-  ['jsonserver_397',['JSONServer',['../classp3lib_1_1json__networking_1_1JSONServer.html',1,'p3lib::json_networking']]],
-  ['jsonserverhandler_398',['JsonServerHandler',['../classp3lib_1_1json__networking_1_1JsonServerHandler.html',1,'p3lib::json_networking']]]
+  ['forwardinghandler_405',['ForwardingHandler',['../classp3lib_1_1ssh_1_1ForwardingHandler.html',1,'p3lib::ssh']]],
+  ['forwardingserver_406',['ForwardingServer',['../classp3lib_1_1ssh_1_1ForwardingServer.html',1,'p3lib::ssh']]]
 ];

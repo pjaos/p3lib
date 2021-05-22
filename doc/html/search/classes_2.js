@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['databaseif_389',['DatabaseIF',['../classp3lib_1_1database__if_1_1DatabaseIF.html',1,'p3lib::database_if']]],
-  ['databaseiferror_390',['DatabaseIFError',['../classp3lib_1_1database__if_1_1DatabaseIFError.html',1,'p3lib::database_if']]],
-  ['dbconfig_391',['DBConfig',['../classp3lib_1_1database__if_1_1DBConfig.html',1,'p3lib::database_if']]]
+  ['configattrdetails_399',['ConfigAttrDetails',['../classp3lib_1_1pconfig_1_1ConfigAttrDetails.html',1,'p3lib::pconfig']]],
+  ['configmanager_400',['ConfigManager',['../classp3lib_1_1pconfig_1_1ConfigManager.html',1,'p3lib::pconfig']]]
 ];

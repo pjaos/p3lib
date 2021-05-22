@@ -4,7 +4,7 @@ import random
 from   time import sleep
 import threading
 
-from   p3lib.time_series_plot import TimeSeriesPlotter
+from   p3lib.bokeh_gui import TimeSeriesPlotter
 
 class TimeSeriesPlotExample(object):
     """An example that shows five separate plots/figures.
