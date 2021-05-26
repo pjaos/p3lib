@@ -254,7 +254,7 @@ class StatusBarWrapper(object):
         
 class ReadOnlyTableWrapper(object):
     """@brief Responsible for presenting a table of values that can be updated dynamically."""    
-    def __init__(self, columnNameList, height=400, heightPolicy="auto", showLastRows=0):
+    def __init__(self, columnNameList, height=400, heightPolicy="auto", showLastRows=0, index_position=None):
         """@brief Constructor
            @param columnNameList A List of strings denoting each column in the 2 dimensional table.
            @param height The hieght of the table viewport in pixels.
@@ -262,7 +262,9 @@ class ReadOnlyTableWrapper(object):
            @param showLastRows The number of rows to show in the table. If set to 2 then only
                   the last two rows in the table are displayed but they ate scrolled into view. 
                   The default=0 which will display all rows and will not scroll the latest 
-                  into view.."""
+                  into view..
+           @param index_position The position of the index column in the table. 0 = the first 
+                  column. Default is None which does not display the index column."""
         self._columnNameList = columnNameList
         self._dataDict = {}
         self._columns = []
@@ -272,7 +274,7 @@ class ReadOnlyTableWrapper(object):
             
         self._source = ColumnDataSource(self._dataDict)
 
-        self._dataTable = DataTable(source=self._source, columns=self._columns, height=height, height_policy=heightPolicy, frozen_rows=-showLastRows)
+        self._dataTable = DataTable(source=self._source, columns=self._columns, height=height, height_policy=heightPolicy, frozen_rows=-showLastRows, index_position=index_position)
         
     def getWidget(self):
         """@brief return an instance of the table widget to be added to a layout."""
