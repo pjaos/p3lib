@@ -8,7 +8,6 @@ import  json
 import  copy
 
 from    shutil import copyfile
-from    cryptography.fernet import Fernet
 
 from    os.path import join, expanduser, getmtime, basename, isdir, isfile
 from    .helper import getHomePath
@@ -257,6 +256,9 @@ class ConfigManager(object):
     @staticmethod
     def GetCrypter():
         """@brief Get the object responsible for encrypting and decrypting strings."""
+        # Only import the cryptography module if it is used so as to avoid the
+        # necessity of having the  cryptography module to use the pconfig module.
+        from    cryptography.fernet import Fernet
         keyString = ConfigManager.GetPrivateSSHKeyFileContents()
         keyString = keyString[60:92]
         priKeyBytes = bytes(keyString, 'utf-8')
