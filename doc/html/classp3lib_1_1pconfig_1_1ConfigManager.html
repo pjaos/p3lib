@@ -180,7 +180,7 @@ Static Public Attributes</h2></td></tr>
 <div class="textblock"><pre class="fragment">@brief Responsible for storing and loading configuration.
           Also responsible for providing methods that allow users to enter
           configuration.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00016">16</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00015">15</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3f38ae18f81334f3733ba5c46578ab8b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f38ae18f81334f3733ba5c46578ab8b">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -249,31 +249,31 @@ Static Public Attributes</h2></td></tr>
           an ssh key must be present in the ~/.ssh folder named id_rsa.
    @param cfgPath The config path when the config file will be stored. By default this is unset and the 
           current users home folder is the location of the config file.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00285">285</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keyword">def </span>__init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="stringliteral">           @param uio A UIO (User Inpu Output) instance.</span></div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="stringliteral">           @param cfgFilename   The name of the config file.</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="stringliteral">           @param defaultConfig A default config instance containg all the default key-value pairs.</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="stringliteral">           @param addDotToFilename If True (default) then a . is added to the start of the filename. This hides the file in normal cases.</span></div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="stringliteral">           @param encrypt If True then data will be encrypted in the saved files.</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="stringliteral">                          The encryption uses part of the the local SSH RSA private key.</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="stringliteral">                          This is not secure but assuming the private key has not been compromised it&#39;s</span></div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="stringliteral">                          probably the best we can do. Therefore if encrypt is set True then the</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="stringliteral">                          an ssh key must be present in the ~/.ssh folder named id_rsa.</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="stringliteral">           @param cfgPath The config path when the config file will be stored. By default this is unset and the </span></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="stringliteral">                          current users home folder is the location of the config file.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        self._uio               = uio</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        self._cfgFilename       = cfgFilename</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        self._defaultConfig     = defaultConfig</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        self._addDotToFilename  = addDotToFilename</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        self._encrypt           = encrypt</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        self._cfgPath           = cfgPath</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        self._configDict        = {}</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        self._cfgFile = self._getConfigFile()</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        self._modifiedTime = self._getModifiedTime()</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00287">287</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keyword">def </span>__init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="stringliteral">           @param uio A UIO (User Inpu Output) instance.</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="stringliteral">           @param cfgFilename   The name of the config file.</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="stringliteral">           @param defaultConfig A default config instance containg all the default key-value pairs.</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="stringliteral">           @param addDotToFilename If True (default) then a . is added to the start of the filename. This hides the file in normal cases.</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="stringliteral">           @param encrypt If True then data will be encrypted in the saved files.</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="stringliteral">                          The encryption uses part of the the local SSH RSA private key.</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="stringliteral">                          This is not secure but assuming the private key has not been compromised it&#39;s</span></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="stringliteral">                          probably the best we can do. Therefore if encrypt is set True then the</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="stringliteral">                          an ssh key must be present in the ~/.ssh folder named id_rsa.</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="stringliteral">           @param cfgPath The config path when the config file will be stored. By default this is unset and the </span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="stringliteral">                          current users home folder is the location of the config file.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        self._uio               = uio</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        self._cfgFilename       = cfgFilename</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        self._defaultConfig     = defaultConfig</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        self._addDotToFilename  = addDotToFilename</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        self._encrypt           = encrypt</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        self._cfgPath           = cfgPath</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        self._configDict        = {}</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        self._cfgFile = self._getConfigFile()</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        self._modifiedTime = self._getModifiedTime()</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -312,13 +312,13 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Add an attribute value to the config.
    @param key The key to store the value against.
    @param value The value to be stored.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00343">343</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">def </span>addAttr(self, key, value):</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add an attribute value to the config.</span></div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="stringliteral">           @param key The key to store the value against.</span></div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="stringliteral">           @param value The value to be stored.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        self._configDict[key]=value</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00345">345</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keyword">def </span>addAttr(self, key, value):</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add an attribute value to the config.</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="stringliteral">           @param key The key to store the value against.</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="stringliteral">           @param value The value to be stored.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        self._configDict[key]=value</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -350,29 +350,29 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief A helper method to edit the dictionary config.
    @param editConfigMethod The method to call to edit configuration.
    @return None</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00672">672</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <span class="keyword">def </span>configure(self, editConfigMethod):</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to edit the dictionary config.</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;<span class="stringliteral">           @param editConfigMethod The method to call to edit configuration.</span></div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;<span class="stringliteral">           @return None&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        running=<span class="keyword">True</span></div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        <span class="keywordflow">while</span> running:</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;            idKeyDict=self.show()</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;            response = self._uio.getInput(<span class="stringliteral">&quot;Enter &#39;E&#39; to edit a parameter, &#39;S&#39; to save and quit or &#39;Q&#39; to quit&quot;</span>)</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;            response=response.upper()</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;            <span class="keywordflow">if</span> response == <span class="stringliteral">&#39;E&#39;</span>:</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;                id = self._uio.getIntInput(<span class="stringliteral">&quot;Enter the ID of the parameter to change&quot;</span>)</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;                <span class="keywordflow">if</span> id <span class="keywordflow">not</span> <span class="keywordflow">in</span> idKeyDict:</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                    self._uio.error(<span class="stringliteral">&quot;Configuration ID {} is invalid.&quot;</span>.format(id))</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                    key=idKeyDict[id]</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                    editConfigMethod(key)</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;S&#39;</span>:</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                self.store()</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;                running = <span class="keyword">False</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;Q&#39;</span>:</div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00674">674</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    <span class="keyword">def </span>configure(self, editConfigMethod):</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to edit the dictionary config.</span></div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="stringliteral">           @param editConfigMethod The method to call to edit configuration.</span></div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="stringliteral">           @return None&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;        running=<span class="keyword">True</span></div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <span class="keywordflow">while</span> running:</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;            idKeyDict=self.show()</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;            response = self._uio.getInput(<span class="stringliteral">&quot;Enter &#39;E&#39; to edit a parameter, &#39;S&#39; to save and quit or &#39;Q&#39; to quit&quot;</span>)</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;            response=response.upper()</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;            <span class="keywordflow">if</span> response == <span class="stringliteral">&#39;E&#39;</span>:</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;                id = self._uio.getIntInput(<span class="stringliteral">&quot;Enter the ID of the parameter to change&quot;</span>)</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;                <span class="keywordflow">if</span> id <span class="keywordflow">not</span> <span class="keywordflow">in</span> idKeyDict:</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;                    self._uio.error(<span class="stringliteral">&quot;Configuration ID {} is invalid.&quot;</span>.format(id))</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;                    key=idKeyDict[id]</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;                    editConfigMethod(key)</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;S&#39;</span>:</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;                self.store()</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;                running = <span class="keyword">False</span></div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160; </div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;Q&#39;</span>:</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;                running = <span class="keyword">False</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -402,16 +402,16 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Decrypt the string.
    @param inputString  The string to decrypt.
    return The decrypted string</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00276">276</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keyword">def </span>Decrypt(inputString):</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Decrypt the string.</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="stringliteral">           @param inputString  The string to decrypt.</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="stringliteral">           return The decrypted string&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        crypter = ConfigManager.GetCrypter()</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        token = inputString.encode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        decryptedBytes = crypter.decrypt(token)</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">return</span> decryptedBytes.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00278">278</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">def </span>Decrypt(inputString):</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Decrypt the string.</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="stringliteral">           @param inputString  The string to decrypt.</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="stringliteral">           return The decrypted string&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        crypter = ConfigManager.GetCrypter()</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        token = inputString.encode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        decryptedBytes = crypter.decrypt(token)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span> decryptedBytes.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -444,63 +444,63 @@ Static Public Attributes</h2></td></tr>
    @param configAttrDetailsDict A dict that holds configAttrDetails
   instances, each of which provide data required for the
   user to enter the configuration parameter.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00586">586</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="keyword">def </span>edit(self, configAttrDetailsDict):</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A high level method to allow user to edit all config attributes.</span></div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="stringliteral">           @param configAttrDetailsDict A dict that holds configAttrDetails</span></div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;<span class="stringliteral">                  instances, each of which provide data required for the</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="stringliteral">                  user to enter the configuration parameter.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">if</span> len(self._configDict.keys()) == 0:</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            self.load(showLoadedMsg=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        keyList = list(self._configDict.keys())</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        keyList.sort()</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        index = 0</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <span class="keywordflow">while</span> index &lt; len(keyList):</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160; </div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            <span class="keywordflow">try</span>:</div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00588">588</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="keyword">def </span>edit(self, configAttrDetailsDict):</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A high level method to allow user to edit all config attributes.</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="stringliteral">           @param configAttrDetailsDict A dict that holds configAttrDetails</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="stringliteral">                  instances, each of which provide data required for the</span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;<span class="stringliteral">                  user to enter the configuration parameter.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160; </div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="keywordflow">if</span> len(self._configDict.keys()) == 0:</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;            self.load(showLoadedMsg=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        keyList = list(self._configDict.keys())</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        keyList.sort()</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        index = 0</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="keywordflow">while</span> index &lt; len(keyList):</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;                key = keyList[index]</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            <span class="keywordflow">try</span>:</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                configAttrDetails = self._getConfigAttDetails(key, configAttrDetailsDict)</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                key = keyList[index]</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160; </div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                <span class="keywordflow">if</span> key.endswith(<span class="stringliteral">&quot;_FLOAT&quot;</span>):</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                configAttrDetails = self._getConfigAttDetails(key, configAttrDetailsDict)</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                    self.inputFloat(key, configAttrDetails.prompt, minValue=configAttrDetails.minValue, maxValue=configAttrDetails.maxValue)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                <span class="keywordflow">if</span> key.endswith(<span class="stringliteral">&quot;_FLOAT&quot;</span>):</div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160; </div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                <span class="keywordflow">elif</span> key.endswith(<span class="stringliteral">&quot;_INT&quot;</span>):</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;                    self.inputFloat(key, configAttrDetails.prompt, minValue=configAttrDetails.minValue, maxValue=configAttrDetails.maxValue)</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                    self.inputDecInt(key, configAttrDetails.prompt, minValue=configAttrDetails.minValue, maxValue=configAttrDetails.maxValue)</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;                <span class="keywordflow">elif</span> key.endswith(<span class="stringliteral">&quot;_INT&quot;</span>):</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;                <span class="keywordflow">elif</span> key.endswith(<span class="stringliteral">&quot;_HEXINT&quot;</span>):</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;                    self.inputDecInt(key, configAttrDetails.prompt, minValue=configAttrDetails.minValue, maxValue=configAttrDetails.maxValue)</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                    self.inputHexInt(key, configAttrDetails.prompt, minValue=configAttrDetails.minValue, maxValue=configAttrDetails.maxValue)</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                <span class="keywordflow">elif</span> key.endswith(<span class="stringliteral">&quot;_HEXINT&quot;</span>):</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                <span class="keywordflow">elif</span> key.endswith(<span class="stringliteral">&quot;_STR&quot;</span>):</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                    self.inputHexInt(key, configAttrDetails.prompt, minValue=configAttrDetails.minValue, maxValue=configAttrDetails.maxValue)</div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160; </div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                    self.inputStr(key, configAttrDetails.prompt, configAttrDetails.allowEmpty)</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;                <span class="keywordflow">elif</span> key.endswith(<span class="stringliteral">&quot;_STR&quot;</span>):</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                index = index + 1</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;                    self.inputStr(key, configAttrDetails.prompt, configAttrDetails.allowEmpty)</div>
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <span class="keywordflow">except</span> KeyboardInterrupt:</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;                index = index + 1</div>
 <div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160; </div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                <span class="keywordflow">if</span> index &gt; 0:</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                    index=index-1</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                    print(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160; </div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;                    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;                        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                            print(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                            <span class="keywordflow">if</span> self.getYesNo(<span class="stringliteral">&quot;Quit ?&quot;</span>):</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                                sys.exit(0)</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                            <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                        <span class="keywordflow">except</span> KeyboardInterrupt:</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                            <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        self.store()</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;            <span class="keywordflow">except</span> KeyboardInterrupt:</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                <span class="keywordflow">if</span> index &gt; 0:</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                    index=index-1</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                    print(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;                    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                            print(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                            <span class="keywordflow">if</span> self.getYesNo(<span class="stringliteral">&quot;Quit ?&quot;</span>):</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                                sys.exit(0)</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                            <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;                        <span class="keywordflow">except</span> KeyboardInterrupt:</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;                            <span class="keywordflow">pass</span></div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        self.store()</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -530,15 +530,15 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Encrypt the string.
    @param inputString The string to encrypt.
    @return The encrypted string</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00267">267</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keyword">def </span>Encrypt(inputString):</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Encrypt the string.</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="stringliteral">           @param inputString The string to encrypt.</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="stringliteral">           @return The encrypted string&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        crypter = ConfigManager.GetCrypter()</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        token = crypter.encrypt(bytes(inputString, <span class="stringliteral">&#39;utf-8&#39;</span>))</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">return</span> token.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00269">269</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">def </span>Encrypt(inputString):</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Encrypt the string.</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="stringliteral">           @param inputString The string to encrypt.</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="stringliteral">           @return The encrypted string&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        crypter = ConfigManager.GetCrypter()</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        token = crypter.encrypt(bytes(inputString, <span class="stringliteral">&#39;utf-8&#39;</span>))</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">return</span> token.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -577,20 +577,20 @@ Static Public Attributes</h2></td></tr>
    @param key The key for the value we're after.
    @param allowModify If True and the configuration has been modified
   since the last read by the caller then the config will be reloaded.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00353">353</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keyword">def </span>getAttr(self, key, allowModify=True):</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get an attribute value.</span></div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="stringliteral">           @param key The key for the value we&#39;re after.</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="stringliteral">           @param allowModify If True and the configuration has been modified</span></div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="stringliteral">                  since the last read by the caller then the config will be reloaded.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="comment">#If the config file has been modified then read the config to get the updated state.</span></div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;        <span class="keywordflow">if</span> allowModify <span class="keywordflow">and</span> self.isModified():</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            self.load(showLoadedMsg=<span class="keyword">False</span>)</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            self.updateModifiedTime()</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        <span class="keywordflow">return</span> self._configDict[key]</div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00355">355</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keyword">def </span>getAttr(self, key, allowModify=True):</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get an attribute value.</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="stringliteral">           @param key The key for the value we&#39;re after.</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="stringliteral">           @param allowModify If True and the configuration has been modified</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="stringliteral">                  since the last read by the caller then the config will be reloaded.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="comment">#If the config file has been modified then read the config to get the updated state.</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        <span class="keywordflow">if</span> allowModify <span class="keywordflow">and</span> self.isModified():</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            self.load(showLoadedMsg=<span class="keyword">False</span>)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            self.updateModifiedTime()</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <span class="keywordflow">return</span> self._configDict[key]</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -610,11 +610,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@return A list of attribute names that are stored.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00349">349</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keyword">def </span>getAttrList(self):</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@return A list of attribute names that are stored.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">return</span> self._configDict.keys()</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00351">351</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keyword">def </span>getAttrList(self):</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@return A list of attribute names that are stored.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">return</span> self._configDict.keys()</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -634,11 +634,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@return the dict holding the configuration.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00657">657</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keyword">def </span>getConfigDict(self):</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@return the dict holding the configuration.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;        <span class="keywordflow">return</span> self._configDict</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00659">659</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="keyword">def </span>getConfigDict(self):</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@return the dict holding the configuration.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        <span class="keywordflow">return</span> self._configDict</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -665,15 +665,18 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the object responsible for encrypting and decrypting strings.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00258">258</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">def </span>GetCrypter():</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the object responsible for encrypting and decrypting strings.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        keyString = ConfigManager.GetPrivateSSHKeyFileContents()</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        keyString = keyString[60:92]</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        priKeyBytes = bytes(keyString, <span class="stringliteral">&#39;utf-8&#39;</span>)</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        priKeyBytesB64 = base64.b64encode(priKeyBytes)</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> Fernet(priKeyBytesB64)</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00257">257</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">def </span>GetCrypter():</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the object responsible for encrypting and decrypting strings.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="comment"># Only import the cryptography module if it is used so as to avoid the</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="comment"># necessity of having the  cryptography module to use the pconfig module.</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keyword">from</span>    cryptography.fernet <span class="keyword">import</span> Fernet</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        keyString = ConfigManager.GetPrivateSSHKeyFileContents()</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        keyString = keyString[60:92]</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        priKeyBytes = bytes(keyString, <span class="stringliteral">&#39;utf-8&#39;</span>)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        priKeyBytesB64 = base64.b64encode(priKeyBytes)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span> Fernet(priKeyBytesB64)</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -723,17 +726,17 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Input a date in the format DAY:MONTH:YEAR</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00094">94</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">def </span>GetDate(uio, prompt, previousValue, allowEmpty=True):</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a date in the format DAY:MONTH:YEAR&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> ConfigManager.IsValidDate(previousValue):</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            today =  datetime.date.today()</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            previousValue = today.strftime(<span class="stringliteral">&quot;%d/%m/%Y&quot;</span>)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            newValue = ConfigManager.GetString(uio, prompt, previousValue, allowEmpty=allowEmpty)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span> ConfigManager.IsValidDate(newValue):</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">return</span> newValue</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00093">93</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">def </span>GetDate(uio, prompt, previousValue, allowEmpty=True):</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a date in the format DAY:MONTH:YEAR&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> ConfigManager.IsValidDate(previousValue):</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            today =  datetime.date.today()</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            previousValue = today.strftime(<span class="stringliteral">&quot;%d/%m/%Y&quot;</span>)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            newValue = ConfigManager.GetString(uio, prompt, previousValue, allowEmpty=allowEmpty)</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">if</span> ConfigManager.IsValidDate(newValue):</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">return</span> newValue</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -795,18 +798,18 @@ Static Public Attributes</h2></td></tr>
    @param previousValue The previous number value.
    @param minValue     The minimum acceptable value.
    @param maxValue     The maximum acceptable value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00202">202</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">def </span>GetDecInt(uio, prompt, previousValue=UNSET_VALUE, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a decimal integer number from the user.</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="stringliteral">         @param previousValue The previous number value.</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="stringliteral">         @param minValue     The minimum acceptable value.</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="stringliteral">         @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="keywordflow">return</span> ConfigManager._GetNumber(uio, prompt, previousValue=previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.DECIMAL_INT_NUMBER_TYPE)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00201">201</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">def </span>GetDecInt(uio, prompt, previousValue=UNSET_VALUE, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a decimal integer number from the user.</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="stringliteral">         @param previousValue The previous number value.</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="stringliteral">         @param minValue     The minimum acceptable value.</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="stringliteral">         @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">return</span> ConfigManager._GetNumber(uio, prompt, previousValue=previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.DECIMAL_INT_NUMBER_TYPE)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -868,18 +871,18 @@ Static Public Attributes</h2></td></tr>
    @param previousValue The previous number value.
    @param minValue     The minimum acceptable value.
    @param maxValue     The maximum acceptable value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00226">226</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keyword">def </span>GetFloat(uio, prompt, previousValue=UNSET_VALUE, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a float number from the user.</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="stringliteral">         @param previousValue The previous number value.</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="stringliteral">         @param minValue     The minimum acceptable value.</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="stringliteral">         @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      <span class="keywordflow">return</span> ConfigManager._GetNumber(uio, prompt, previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.FLOAT_NUMBER_TYPE)</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00225">225</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">def </span>GetFloat(uio, prompt, previousValue=UNSET_VALUE, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a float number from the user.</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="stringliteral">         @param previousValue The previous number value.</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="stringliteral">         @param minValue     The minimum acceptable value.</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="stringliteral">         @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="keywordflow">return</span> ConfigManager._GetNumber(uio, prompt, previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.FLOAT_NUMBER_TYPE)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -941,18 +944,18 @@ Static Public Attributes</h2></td></tr>
    @param previousValue The previous number value.
    @param minValue     The minimum acceptable value.
    @param maxValue     The maximum acceptable value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00214">214</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">def </span>GetHexInt(uio, prompt, previousValue=UNSET_VALUE, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a decimal integer number from the user.</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="stringliteral">         @param previousValue The previous number value.</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="stringliteral">         @param minValue     The minimum acceptable value.</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="stringliteral">         @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="keywordflow">return</span> ConfigManager._GetNumber(uio, prompt, previousValue=previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.HEXADECIMAL_INT_NUMBER_TYPE)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00213">213</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keyword">def </span>GetHexInt(uio, prompt, previousValue=UNSET_VALUE, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a decimal integer number from the user.</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="stringliteral">         @param previousValue The previous number value.</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="stringliteral">         @param minValue     The minimum acceptable value.</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="stringliteral">         @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="keywordflow">return</span> ConfigManager._GetNumber(uio, prompt, previousValue=previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.HEXADECIMAL_INT_NUMBER_TYPE)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -979,16 +982,16 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the private key file.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00238">238</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keyword">def </span>GetPrivateKeyFile():</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the private key file.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        homePath = <a class="code" href="namespacep3lib_1_1helper.html#a8a51630a9157dd78a7a0d762f690293f">getHomePath</a>()</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        folder = os.path.join(homePath, ConfigManager.SSH_FOLDER)</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        priKeyFile = os.path.join(folder, ConfigManager.PRIVATE_SSH_KEY_FILENAME)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(priKeyFile):</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;%s file not found&quot;</span> % (priKeyFile) )</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span> priKeyFile</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00237">237</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keyword">def </span>GetPrivateKeyFile():</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the private key file.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        homePath = <a class="code" href="namespacep3lib_1_1helper.html#a8a51630a9157dd78a7a0d762f690293f">getHomePath</a>()</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        folder = os.path.join(homePath, ConfigManager.SSH_FOLDER)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        priKeyFile = os.path.join(folder, ConfigManager.PRIVATE_SSH_KEY_FILENAME)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(priKeyFile):</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;%s file not found&quot;</span> % (priKeyFile) )</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordflow">return</span> priKeyFile</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1016,16 +1019,16 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the private ssh key file.
    @return The key file contents</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00248">248</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">def </span>GetPrivateSSHKeyFileContents():</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the private ssh key file.</span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="stringliteral">           @return The key file contents&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        privateRSAKeyFile = ConfigManager.GetPrivateKeyFile()</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        fd = open(privateRSAKeyFile, <span class="stringliteral">&#39;r&#39;</span>)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        fileContents = fd.read()</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        fd.close()</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">return</span> fileContents</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00247">247</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="keyword">def </span>GetPrivateSSHKeyFileContents():</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the private ssh key file.</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="stringliteral">           @return The key file contents&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        privateRSAKeyFile = ConfigManager.GetPrivateKeyFile()</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        fd = open(privateRSAKeyFile, <span class="stringliteral">&#39;r&#39;</span>)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        fileContents = fd.read()</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        fd.close()</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">return</span> fileContents</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1080,54 +1083,54 @@ Static Public Attributes</h2></td></tr>
                  the float value.
    @param previousValue The previous value of the string.
    @param allowEmpty   If True then allow the string to be empty.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00029">29</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">def </span>GetString(uio, prompt, previousValue, allowEmpty=True):</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a string from the the user.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="stringliteral">         @param previousValue The previous value of the string.</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="stringliteral">         @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      _prompt = prompt</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;          prompt = <span class="stringliteral">&quot;%s (%s)&quot;</span> % (prompt, previousValue)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          prompt = <span class="stringliteral">&quot;%s&quot;</span> % (prompt)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        response = uio.getInput(<span class="stringliteral">&quot;%s&quot;</span> % (prompt))</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">if</span> len(response) == 0:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> allowEmpty:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">if</span> len(previousValue) &gt; 0:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    booleanResponse = uio.getInput(<span class="stringliteral">&quot;Do you wish to enter the previous value &#39;%s&#39; y/n: &quot;</span> % (previousValue) )</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    booleanResponse=booleanResponse.lower()</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    <span class="keywordflow">if</span> booleanResponse == <span class="stringliteral">&#39;y&#39;</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        response = previousValue</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                booleanResponse = uio.getInput(<span class="stringliteral">&quot;Do you wish to clear &#39;%s&#39; y/n: &quot;</span> % (_prompt) )</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                booleanResponse=booleanResponse.lower()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">if</span> booleanResponse == <span class="stringliteral">&#39;y&#39;</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                    <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    uio.info(<span class="stringliteral">&quot;A value is required. Please enter a value.&quot;</span>)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                booleanResponse = uio.getInput(<span class="stringliteral">&quot;Do you wish to enter the previous value of %s y/n: &quot;</span> % (previousValue) )</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                booleanResponse=booleanResponse.lower()</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">if</span> booleanResponse == <span class="stringliteral">&#39;y&#39;</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    response = previousValue</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">break</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keywordflow">return</span> response</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00028">28</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">def </span>GetString(uio, prompt, previousValue, allowEmpty=True):</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      <span class="stringliteral">&quot;&quot;&quot;@brief              Get a string from the the user.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">         @param uio          A UIO (User Inpu Output) instance.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="stringliteral">         @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral">         @param previousValue The previous value of the string.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="stringliteral">         @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      _prompt = prompt</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;          prompt = <span class="stringliteral">&quot;%s (%s)&quot;</span> % (prompt, previousValue)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          prompt = <span class="stringliteral">&quot;%s&quot;</span> % (prompt)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        response = uio.getInput(<span class="stringliteral">&quot;%s&quot;</span> % (prompt))</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> len(response) == 0:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> allowEmpty:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">if</span> len(previousValue) &gt; 0:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    booleanResponse = uio.getInput(<span class="stringliteral">&quot;Do you wish to enter the previous value &#39;%s&#39; y/n: &quot;</span> % (previousValue) )</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    booleanResponse=booleanResponse.lower()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordflow">if</span> booleanResponse == <span class="stringliteral">&#39;y&#39;</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                        response = previousValue</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                booleanResponse = uio.getInput(<span class="stringliteral">&quot;Do you wish to clear &#39;%s&#39; y/n: &quot;</span> % (_prompt) )</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                booleanResponse=booleanResponse.lower()</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <span class="keywordflow">if</span> booleanResponse == <span class="stringliteral">&#39;y&#39;</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    uio.info(<span class="stringliteral">&quot;A value is required. Please enter a value.&quot;</span>)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                booleanResponse = uio.getInput(<span class="stringliteral">&quot;Do you wish to enter the previous value of %s y/n: &quot;</span> % (previousValue) )</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                booleanResponse=booleanResponse.lower()</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="keywordflow">if</span> booleanResponse == <span class="stringliteral">&#39;y&#39;</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                    response = previousValue</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">break</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">return</span> response</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1177,17 +1180,17 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Input a time in the format HOUR:MINUTE:SECOND</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00122">122</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">def </span>GetTime(uio, prompt, previousValue, allowEmpty=True):</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a time in the format HOUR:MINUTE:SECOND&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> ConfigManager.IsValidTime(previousValue):</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            today =  datetime.datetime.now()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            previousValue = today.strftime(<span class="stringliteral">&quot;%H:%M:%S&quot;</span>)</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            newValue = ConfigManager.GetString(uio, prompt, previousValue, allowEmpty=allowEmpty)</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">if</span> ConfigManager.IsValidTime(newValue):</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordflow">return</span> newValue</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00121">121</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">def </span>GetTime(uio, prompt, previousValue, allowEmpty=True):</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a time in the format HOUR:MINUTE:SECOND&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> ConfigManager.IsValidTime(previousValue):</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            today =  datetime.datetime.now()</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            previousValue = today.strftime(<span class="stringliteral">&quot;%H:%M:%S&quot;</span>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            newValue = ConfigManager.GetString(uio, prompt, previousValue, allowEmpty=allowEmpty)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">if</span> ConfigManager.IsValidTime(newValue):</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                <span class="keywordflow">return</span> newValue</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1227,29 +1230,29 @@ Static Public Attributes</h2></td></tr>
          the float value.
    @param allowEmpty   If True then allow the string to be empty.
    @return True if Yes, False if No.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00532">532</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keyword">def </span>getYesNo(self, prompt, previousValue=0):</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input yes no response.</span></div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="stringliteral">                         the float value.</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="stringliteral">           @return True if Yes, False if No.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160; </div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        _prompt = <span class="stringliteral">&quot;%s y/n&quot;</span> % (prompt)</div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00534">534</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="keyword">def </span>getYesNo(self, prompt, previousValue=0):</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input yes no response.</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="stringliteral">                         the float value.</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="stringliteral">           @return True if Yes, False if No.&quot;&quot;&quot;</span></div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <span class="keywordflow">if</span> previousValue:</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;            prevValue=<span class="stringliteral">&#39;y&#39;</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            prevValue=<span class="stringliteral">&#39;n&#39;</span></div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;            value = ConfigManager.GetString(self._uio, _prompt, prevValue)</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;            value=value.lower()</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;            <span class="keywordflow">if</span> value == <span class="stringliteral">&#39;n&#39;</span>:</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;            <span class="keywordflow">elif</span> value == <span class="stringliteral">&#39;y&#39;</span>:</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        _prompt = <span class="stringliteral">&quot;%s y/n&quot;</span> % (prompt)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160; </div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">if</span> previousValue:</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            prevValue=<span class="stringliteral">&#39;y&#39;</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            prevValue=<span class="stringliteral">&#39;n&#39;</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;            value = ConfigManager.GetString(self._uio, _prompt, prevValue)</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;            value=value.lower()</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;            <span class="keywordflow">if</span> value == <span class="stringliteral">&#39;n&#39;</span>:</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;            <span class="keywordflow">elif</span> value == <span class="stringliteral">&#39;y&#39;</span>:</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1288,20 +1291,20 @@ Static Public Attributes</h2></td></tr>
    @param key The key to store this value in the config.
    @param prompt The prompt presented to the user in order to enter
          the boolean (Yes/No) value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00519">519</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keyword">def </span>inputBool(self, key, prompt):</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a boolean value.</span></div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="stringliteral">                         the boolean (Yes/No) value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        previousValue=self._getValue(key)</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        yes = self.getYesNo(prompt, previousValue=previousValue)</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="keywordflow">if</span> yes:</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;            value=1</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            value=0</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00521">521</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="keyword">def </span>inputBool(self, key, prompt):</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a boolean value.</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="stringliteral">                         the boolean (Yes/No) value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        previousValue=self._getValue(key)</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        yes = self.getYesNo(prompt, previousValue=previousValue)</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        <span class="keywordflow">if</span> yes:</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            value=1</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;            value=0</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1347,16 +1350,16 @@ Static Public Attributes</h2></td></tr>
    @param prompt The prompt presented to the user in order to enter
          the float value.
    @param allowEmpty   If True then allow the string to be empty.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00501">501</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keyword">def </span>inputDate(self, key, prompt, allowEmpty):</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a date into the config.</span></div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="stringliteral">                         the float value.</span></div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        value = ConfigManager.GetDate(self._uio, prompt, previousValue=self._getValue(key), allowEmpty=allowEmpty )</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00503">503</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="keyword">def </span>inputDate(self, key, prompt, allowEmpty):</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a date into the config.</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="stringliteral">                         the float value.</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        value = ConfigManager.GetDate(self._uio, prompt, previousValue=self._getValue(key), allowEmpty=allowEmpty )</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1409,17 +1412,17 @@ Static Public Attributes</h2></td></tr>
              the float value.
    @param minValue     The minimum acceptable value.
    @param maxValue     The maximum acceptable value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00461">461</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keyword">def </span>inputDecInt(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a decimal integer value into the config.</span></div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="stringliteral">           @key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="stringliteral">           @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="stringliteral">           @param minValue     The minimum acceptable value.</span></div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="stringliteral">           @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        value = ConfigManager.GetDecInt(self._uio, prompt, previousValue=self._getValue(key), minValue=minValue, maxValue=maxValue)</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00463">463</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keyword">def </span>inputDecInt(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a decimal integer value into the config.</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="stringliteral">           @key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="stringliteral">           @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="stringliteral">           @param minValue     The minimum acceptable value.</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="stringliteral">           @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        value = ConfigManager.GetDecInt(self._uio, prompt, previousValue=self._getValue(key), minValue=minValue, maxValue=maxValue)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1472,17 +1475,17 @@ Static Public Attributes</h2></td></tr>
              the float value.
    @param minValue     The minimum acceptable value.
    @param maxValue     The maximum acceptable value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00451">451</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keyword">def </span>inputFloat(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a float value into the config.</span></div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="stringliteral">           @key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="stringliteral">           @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="stringliteral">           @param minValue     The minimum acceptable value.</span></div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="stringliteral">           @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        value = ConfigManager.GetFloat(self._uio, prompt, previousValue=self._getValue(key), minValue=minValue, maxValue=maxValue)</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00453">453</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keyword">def </span>inputFloat(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a float value into the config.</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;<span class="stringliteral">           @key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="stringliteral">           @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;<span class="stringliteral">           @param minValue     The minimum acceptable value.</span></div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;<span class="stringliteral">           @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        value = ConfigManager.GetFloat(self._uio, prompt, previousValue=self._getValue(key), minValue=minValue, maxValue=maxValue)</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1535,17 +1538,17 @@ Static Public Attributes</h2></td></tr>
              the float value.
    @param minValue     The minimum acceptable value.
    @param maxValue     The maximum acceptable value.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00471">471</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keyword">def </span>inputHexInt(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a hexadecimal integer value into the config.</span></div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;<span class="stringliteral">           @key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="stringliteral">           @param prompt       The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="stringliteral">                             the float value.</span></div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="stringliteral">           @param minValue     The minimum acceptable value.</span></div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="stringliteral">           @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        value = ConfigManager.GetHexInt(self._uio, prompt, previousValue=self._getValue(key), minValue=minValue, maxValue=maxValue)</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00473">473</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keyword">def </span>inputHexInt(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a hexadecimal integer value into the config.</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="stringliteral">           @key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="stringliteral">           @param prompt       The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;<span class="stringliteral">                             the float value.</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="stringliteral">           @param minValue     The minimum acceptable value.</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="stringliteral">           @param maxValue     The maximum acceptable value.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        value = ConfigManager.GetHexInt(self._uio, prompt, previousValue=self._getValue(key), minValue=minValue, maxValue=maxValue)</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1591,16 +1594,16 @@ Static Public Attributes</h2></td></tr>
    @param prompt The prompt presented to the user in order to enter
          the float value.
    @param allowEmpty   If True then allow the string to be empty.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00492">492</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="keyword">def </span>inputStr(self, key, prompt, allowEmpty):</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a string value into the config.</span></div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="stringliteral">                         the float value.</span></div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        value = ConfigManager.GetString(self._uio, prompt, previousValue=self._getValue(key), allowEmpty=allowEmpty )</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00494">494</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keyword">def </span>inputStr(self, key, prompt, allowEmpty):</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a string value into the config.</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<span class="stringliteral">                         the float value.</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        value = ConfigManager.GetString(self._uio, prompt, previousValue=self._getValue(key), allowEmpty=allowEmpty )</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1646,16 +1649,16 @@ Static Public Attributes</h2></td></tr>
    @param prompt The prompt presented to the user in order to enter
          the float value.
    @param allowEmpty   If True then allow the string to be empty.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00510">510</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="keyword">def </span>inputTime(self, key, prompt, allowEmpty):</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a date into the config.</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="stringliteral">                         the float value.</span></div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        value = ConfigManager.GetTime(self._uio, prompt, previousValue=self._getValue(key), allowEmpty=allowEmpty )</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        self.addAttr(key, value)</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00512">512</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    <span class="keyword">def </span>inputTime(self, key, prompt, allowEmpty):</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Input a date into the config.</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;<span class="stringliteral">           @param key The key to store this value in the config.</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="stringliteral">           @param prompt The prompt presented to the user in order to enter</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;<span class="stringliteral">                         the float value.</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="stringliteral">           @param allowEmpty   If True then allow the string to be empty.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        value = ConfigManager.GetTime(self._uio, prompt, previousValue=self._getValue(key), allowEmpty=allowEmpty )</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        self.addAttr(key, value)</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1675,14 +1678,14 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@Return True if the config file has been updated.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00571">571</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keyword">def </span>isModified(self):</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@Return True if the config file has been updated.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        mTime = self._getModifiedTime()</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="keywordflow">if</span> mTime != self._modifiedTime:</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00573">573</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keyword">def </span>isModified(self):</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@Return True if the config file has been updated.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        mTime = self._getModifiedTime()</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keywordflow">if</span> mTime != self._modifiedTime:</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1711,23 +1714,23 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief determine if the string is a valid date.
    @param date in the form DAY/MONTH/YEAR (02:01:2018)</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00077">77</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">def </span>IsValidDate(date):</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief determine if the string is a valid date.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral">           @param date in the form DAY/MONTH/YEAR (02:01:2018)&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        validDate = <span class="keyword">False</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> len(date) &gt;= 8:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            elems = date.split(<span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                day = int(elems[0])</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                month = int(elems[1])</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                year = int(elems[2])</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                datetime.date(year, month, day)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                validDate = <span class="keyword">True</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> validDate</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00076">76</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">def </span>IsValidDate(date):</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief determine if the string is a valid date.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">           @param date in the form DAY/MONTH/YEAR (02:01:2018)&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        validDate = <span class="keyword">False</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> len(date) &gt;= 8:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            elems = date.split(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                day = int(elems[0])</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                month = int(elems[1])</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                year = int(elems[2])</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                datetime.date(year, month, day)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                validDate = <span class="keyword">True</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> validDate</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1756,23 +1759,23 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief determine if the string is a valid time.
    @param theTime in the form HOUR:MINUTE:SECOND (12:56:01)</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00105">105</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">def </span>IsValidTime(theTime):</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief determine if the string is a valid time.</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="stringliteral">           @param theTime in the form HOUR:MINUTE:SECOND (12:56:01)&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        validTime = <span class="keyword">False</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> len(theTime) &gt;= 5:</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            elems = theTime.split(<span class="stringliteral">&quot;:&quot;</span>)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                hour = int(elems[0])</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                minute = int(elems[1])</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                second = int(elems[2])</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                datetime.time(hour, minute, second)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                validTime = <span class="keyword">True</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keywordflow">pass</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> validTime</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00104">104</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">def </span>IsValidTime(theTime):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief determine if the string is a valid time.</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="stringliteral">           @param theTime in the form HOUR:MINUTE:SECOND (12:56:01)&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        validTime = <span class="keyword">False</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> len(theTime) &gt;= 5:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            elems = theTime.split(<span class="stringliteral">&quot;:&quot;</span>)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                hour = int(elems[0])</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                minute = int(elems[1])</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                second = int(elems[2])</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                datetime.time(hour, minute, second)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                validTime = <span class="keyword">True</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">pass</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> validTime</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1802,34 +1805,34 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Load the config.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00424">424</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">def </span>load(self, showLoadedMsg=True):</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Load the config.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        missingKey= <span class="keyword">False</span></div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> isfile(self._cfgFile):</div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00426">426</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keyword">def </span>load(self, showLoadedMsg=True):</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Load the config.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        missingKey= <span class="keyword">False</span></div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            self._configDict = self._defaultConfig</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            self.store()</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="comment">#Get the config from the stored config file.</span></div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            loadedConfig = self._getDict()</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            <span class="comment">#Get list of all the keys from the config file loaded.</span></div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            loadedConfigKeys = loadedConfig.keys()</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            <span class="comment">#Get the default config</span></div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            self._configDict = copy.deepcopy( self._defaultConfig )</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            <span class="comment">#Ensure that the config we use has all the values from the file we just loaded and any other values</span></div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            <span class="comment">#not in the config file loaded but defined in the default config are set to default values.</span></div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <span class="keywordflow">for</span> key <span class="keywordflow">in</span> loadedConfigKeys:</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;                <span class="keywordflow">if</span> key <span class="keywordflow">in</span> self._configDict:</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                    self._configDict[key] = loadedConfig[key]</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                    self._uio.debug(<span class="stringliteral">&quot;{} = {}&quot;</span>.format(key, self._configDict[key]))</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                    self._uio.debug(<span class="stringliteral">&quot;----------&gt; DROPPED FROM CONFIG: {} = {}&quot;</span>.format(key, loadedConfig[key]))</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        self._uio.info(<span class="stringliteral">&quot;Loaded config from %s&quot;</span> % (self._cfgFile) )</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> isfile(self._cfgFile):</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            self._configDict = self._defaultConfig</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            self.store()</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            <span class="comment">#Get the config from the stored config file.</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            loadedConfig = self._getDict()</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;            <span class="comment">#Get list of all the keys from the config file loaded.</span></div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            loadedConfigKeys = loadedConfig.keys()</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            <span class="comment">#Get the default config</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;            self._configDict = copy.deepcopy( self._defaultConfig )</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <span class="comment">#Ensure that the config we use has all the values from the file we just loaded and any other values</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            <span class="comment">#not in the config file loaded but defined in the default config are set to default values.</span></div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;            <span class="keywordflow">for</span> key <span class="keywordflow">in</span> loadedConfigKeys:</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                <span class="keywordflow">if</span> key <span class="keywordflow">in</span> self._configDict:</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                    self._configDict[key] = loadedConfig[key]</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                    self._uio.debug(<span class="stringliteral">&quot;{} = {}&quot;</span>.format(key, self._configDict[key]))</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                    self._uio.debug(<span class="stringliteral">&quot;----------&gt; DROPPED FROM CONFIG: {} = {}&quot;</span>.format(key, loadedConfig[key]))</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        self._uio.info(<span class="stringliteral">&quot;Loaded config from %s&quot;</span> % (self._cfgFile) )</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1849,18 +1852,18 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the default configuration by removing the existing configuration file and re loading.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00661">661</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="keyword">def </span>setDefaultConfig(self):</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Set the default configuration by removing the existing configuration file and re loading.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        configFile = self._getConfigFile()</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="keywordflow">if</span> isfile(configFile):</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;            self._uio.info(configFile)</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;            deleteFile = self._uio.getBoolInput(<span class="stringliteral">&quot;Are you sure you wish to delete the above file [y]/[n]&quot;</span>)</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;            <span class="keywordflow">if</span> deleteFile:</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;                os.remove(configFile)</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;                self._uio.info(<span class="stringliteral">&quot;{} has been removed.&quot;</span>.format(configFile))</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                self._uio.info(<span class="stringliteral">&quot;The default configuration will be loaded next time..&quot;</span>)</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00663">663</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keyword">def </span>setDefaultConfig(self):</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Set the default configuration by removing the existing configuration file and re loading.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;        configFile = self._getConfigFile()</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;        <span class="keywordflow">if</span> isfile(configFile):</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;            self._uio.info(configFile)</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;            deleteFile = self._uio.getBoolInput(<span class="stringliteral">&quot;Are you sure you wish to delete the above file [y]/[n]&quot;</span>)</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;            <span class="keywordflow">if</span> deleteFile:</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;                os.remove(configFile)</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;                self._uio.info(<span class="stringliteral">&quot;{} has been removed.&quot;</span>.format(configFile))</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                self._uio.info(<span class="stringliteral">&quot;The default configuration will be loaded next time..&quot;</span>)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1881,24 +1884,24 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief A helper method to show the dictionary config to the user.
    @return A dictionary mapping the attribute ID's (keys) to dictionary keys (values).</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00694">694</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keyword">def </span>show(self):</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to show the dictionary config to the user.</span></div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="stringliteral">           @return A dictionary mapping the attribute ID&#39;s (keys) to dictionary keys (values).&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        maxIDLen = 3</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        maxKeyLen=10</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;            <span class="keywordflow">if</span> len(key) &gt; maxKeyLen:</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;                maxKeyLen = len(key)</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;        self._uio.info(<span class="stringliteral">&quot;ID  PARAMETER&quot;</span>+<span class="stringliteral">&quot; &quot;</span>*(maxKeyLen-8)+<span class="stringliteral">&quot; VALUE&quot;</span>)</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;        id=1</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        idKeyDict = {}</div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            idKeyDict[id]=key</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            self._uio.info(<span class="stringliteral">&quot;{:&lt;3d} {:&lt;{}} {}&quot;</span>.format(id, key, maxKeyLen+1, self._configDict[key]))</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            id=id+1</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        <span class="keywordflow">return</span> idKeyDict</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00696">696</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keyword">def </span>show(self):</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to show the dictionary config to the user.</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;<span class="stringliteral">           @return A dictionary mapping the attribute ID&#39;s (keys) to dictionary keys (values).&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;        maxIDLen = 3</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        maxKeyLen=10</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;            <span class="keywordflow">if</span> len(key) &gt; maxKeyLen:</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                maxKeyLen = len(key)</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;        self._uio.info(<span class="stringliteral">&quot;ID  PARAMETER&quot;</span>+<span class="stringliteral">&quot; &quot;</span>*(maxKeyLen-8)+<span class="stringliteral">&quot; VALUE&quot;</span>)</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        id=1</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;        idKeyDict = {}</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            idKeyDict[id]=key</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;            self._uio.info(<span class="stringliteral">&quot;{:&lt;3d} {:&lt;{}} {}&quot;</span>.format(id, key, maxKeyLen+1, self._configDict[key]))</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;            id=id+1</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        <span class="keywordflow">return</span> idKeyDict</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1929,22 +1932,22 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Show the state of configuration parameters.
    @param uio The UIO instance to use to show the parameters.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00642">642</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keyword">def </span>show(self, uio):</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Show the state of configuration parameters.</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="stringliteral">           @param uio The UIO instance to use to show the parameters.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        attrList = self.getAttrList()</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        attrList.sort()</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;        maxAttLen=0</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;        <span class="keywordflow">for</span> attr <span class="keywordflow">in</span> attrList:</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;            <span class="keywordflow">if</span> len(attr) &gt; maxAttLen:</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                maxAttLen=len(attr)</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160; </div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;        <span class="keywordflow">for</span> attr <span class="keywordflow">in</span> attrList:</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;            padding = <span class="stringliteral">&quot; &quot;</span>*(maxAttLen-len(attr))</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;            uio.info(<span class="stringliteral">&quot;%s%s = %s&quot;</span> % (attr, padding, self.getAttr(attr)) )</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00644">644</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keyword">def </span>show(self, uio):</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Show the state of configuration parameters.</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="stringliteral">           @param uio The UIO instance to use to show the parameters.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;        attrList = self.getAttrList()</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;        attrList.sort()</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        maxAttLen=0</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        <span class="keywordflow">for</span> attr <span class="keywordflow">in</span> attrList:</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;            <span class="keywordflow">if</span> len(attr) &gt; maxAttLen:</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;                maxAttLen=len(attr)</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;        <span class="keywordflow">for</span> attr <span class="keywordflow">in</span> attrList:</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;            padding = <span class="stringliteral">&quot; &quot;</span>*(maxAttLen-len(attr))</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;            uio.info(<span class="stringliteral">&quot;%s%s = %s&quot;</span> % (attr, padding, self.getAttr(attr)) )</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1978,24 +1981,24 @@ Static Public Attributes</h2></td></tr>
              if not running with root user config path. If True
              on non Linux system config will only be saved in
              the users home path. Default = False.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00388">388</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    <span class="keyword">def </span>store(self, copyToRoot=False):</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Store the config to the config file.</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="stringliteral">           @param copyToRoot If True copy the config to the root user (Linux only)</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="stringliteral">                             if not running with root user config path. If True</span></div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="stringliteral">                             on non Linux system config will only be saved in</span></div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="stringliteral">                             the users home path. Default = False.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        self._saveDict(self._configDict)</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        self.updateModifiedTime()</div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00390">390</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keyword">def </span>store(self, copyToRoot=False):</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Store the config to the config file.</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="stringliteral">           @param copyToRoot If True copy the config to the root user (Linux only)</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="stringliteral">                             if not running with root user config path. If True</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="stringliteral">                             on non Linux system config will only be saved in</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="stringliteral">                             the users home path. Default = False.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        self._saveDict(self._configDict)</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordflow">if</span> copyToRoot <span class="keywordflow">and</span> <span class="keywordflow">not</span> self._cfgFile.startswith(<span class="stringliteral">&quot;/root/&quot;</span>) <span class="keywordflow">and</span> isdir(<span class="stringliteral">&quot;/root&quot;</span>):</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;            fileN = basename(self._cfgFile)</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            rootCfgFile = join(<span class="stringliteral">&quot;/root&quot;</span>, fileN)</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            copyfile(self._cfgFile, rootCfgFile)</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            <span class="keywordflow">if</span> self._uio:</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                self._uio.info(<span class="stringliteral">&quot;Also updated service list in %s&quot;</span> % (rootCfgFile))</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        self.updateModifiedTime()</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">if</span> copyToRoot <span class="keywordflow">and</span> <span class="keywordflow">not</span> self._cfgFile.startswith(<span class="stringliteral">&quot;/root/&quot;</span>) <span class="keywordflow">and</span> isdir(<span class="stringliteral">&quot;/root&quot;</span>):</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            fileN = basename(self._cfgFile)</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            rootCfgFile = join(<span class="stringliteral">&quot;/root&quot;</span>, fileN)</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            copyfile(self._cfgFile, rootCfgFile)</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            <span class="keywordflow">if</span> self._uio:</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;                self._uio.info(<span class="stringliteral">&quot;Also updated service list in %s&quot;</span> % (rootCfgFile))</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2015,11 +2018,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Update the modified time held as an attr in this nistance with the current modified time of the file.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00567">567</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keyword">def </span>updateModifiedTime(self):</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Update the modified time held as an attr in this nistance with the current modified time of the file.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        self._modifiedTime = self._getModifiedTime()</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00569">569</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keyword">def </span>updateModifiedTime(self):</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Update the modified time held as an attr in this nistance with the current modified time of the file.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        self._modifiedTime = self._getModifiedTime()</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2044,7 +2047,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00022">22</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00021">21</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 
 </div>
 </div>
@@ -2068,7 +2071,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00024">24</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00023">23</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 
 </div>
 </div>
@@ -2092,7 +2095,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00023">23</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00022">22</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 
 </div>
 </div>
@@ -2116,7 +2119,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00026">26</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00025">25</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 
 </div>
 </div>
@@ -2140,7 +2143,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00025">25</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00024">24</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 
 </div>
 </div>
@@ -2164,7 +2167,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00021">21</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00020">20</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 
 </div>
 </div>
