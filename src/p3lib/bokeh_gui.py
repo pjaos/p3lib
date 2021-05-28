@@ -69,7 +69,7 @@ class TabbedGUI(object):
         fig.yaxis.axis_label = yAxisName
         return fig
 
-    
+
     def __init__(self, docTitle, topCtrlPanel=True, bokehPort=9090):
         """@brief Constructor.
            @param docTitle The document title.
@@ -150,16 +150,22 @@ class TabbedGUI(object):
         self._server.show("/")
         self._server.run_until_shutdown()
 
-                
+
 class TimeSeriesPlotter(TabbedGUI):
     """@brief Responsible for plotting data on tab 0 with no other tabs."""
 
-    def __init__(self, docTitle, bokehPort=5001):
-        """@Constructor"""
+    def __init__(self, docTitle, showCtrl=True, bokehPort=5001):
+        """@Constructor
+           @param docTitle  The web page title that will appear in the browser tab.
+           @param showCtrl  Show the control panel at the top of the plot. Only
+                            really useful if the plot is real time.
+           @param bokehPort The TCP server port for the bokeh server."""
         super().__init__(docTitle, bokehPort=bokehPort)
         self._statusAreaInput = None
         self._figTable=[[]]
         self._grid = None
+        self._showCtrl = showCtrl
+        self._fileToSave = None
 
     def addRow(self):
         """@brief Add an empty row to the figures."""
@@ -181,33 +187,34 @@ class TimeSeriesPlotter(TabbedGUI):
         self._tabList.append( Panel(child=plotPanel,  title="Plots") )
         self._doc.add_root( Tabs(tabs=self._tabList) )
         self._doc.add_periodic_callback(self._update, 100)
-            
+
     def _getPlotPanel(self):
         """@brief Add tab that shows plot data updates."""
         self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
 
-        checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
-        checkbox1.on_change('active', self._checkboxHandler)
+        if self._showCtrl:
+            checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
+            checkbox1.on_change('active', self._checkboxHandler)
 
-        self.fileToSave = TextInput(title="File to save", max_width=150)
+            self._fileToSave = TextInput(title="File to save", max_width=150)
 
-        saveButton = Button(label="Save", button_type="success", width=50)
-        saveButton.on_click(self._savePlot)
+            saveButton = Button(label="Save", button_type="success", width=50)
+            saveButton.on_click(self._savePlot)
 
-        shutDownButton = Button(label="Quit", button_type="success", width=50)
-        shutDownButton.on_click(self.stopServer)
+            shutDownButton = Button(label="Quit", button_type="success", width=50)
+            shutDownButton.on_click(self.stopServer)
 
-        self._statusAreaInput = TextAreaInput(value="", width_policy="max")
-        statusPanel = row([self._statusAreaInput])
+            plotRowCtrl = row(children=[checkbox1, saveButton, self._fileToSave, shutDownButton])
+            plotPanel = column([plotRowCtrl, self._grid])
+        else:
+            plotPanel = column([self._grid])
 
-        plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave, shutDownButton])
-        plotPanel = column([plotRowCtrl, self._grid, statusPanel])
         return plotPanel
 
     def _savePlot(self):
         """@brief Save plot to a single html file. This allows the plots to be
                   analysed later."""
-        if self.fileToSave.value:
+        if self._fileToSave and self._fileToSave.value:
             if self.fileToSave.value.endswith(".html"):
                 filename = self.fileToSave.value
             else:
@@ -216,54 +223,51 @@ class TimeSeriesPlotter(TabbedGUI):
             # Save all the plots in the grid to an html file that allows
             # display in a browser and plot manipulation.
             save( self._grid )
-            self._statusAreaInput.value = "Saved {}".format(filename)
 
     def _checkboxHandler(self, attr, old, new):
         """@brief Called when the checkbox is clicked."""
         if 0 in list(new):  # Is first checkbox selected
             self._plottingEnabled = True
-            self._statusAreaInput.value = "Plotting enabled"
         else:
             self._plottingEnabled = False
-            self._statusAreaInput.value = "Plotting disabled"
-            
-            
-        
+
+
+
 class StatusBarWrapper(object):
-    """@brief Responsible for presenting a single status line of text in a GUI 
-              that runs the width of the page (normally at the bottom)."""    
+    """@brief Responsible for presenting a single status line of text in a GUI
+              that runs the width of the page (normally at the bottom)."""
     def __init__(self):
         data = dict(
             status = [],
         )
         self.source = ColumnDataSource(data)
-    
+
         columns = [
                 TableColumn(field="status", title="status"),
             ]
         self.statusBar = DataTable(source=self.source, columns=columns, height_policy="fixed", height=50, header_row=False, index_position=None)
-        
+
     def getWidget(self):
         """@brief return an instance of the status bar widget to be added to a layout."""
         return self.statusBar
-    
+
     def setStatus(self, msg):
         """@brief Set the message iun the status bar.
            @param The message to be displayed."""
         self.source.data = {"status": [msg]}
-        
+
 class ReadOnlyTableWrapper(object):
-    """@brief Responsible for presenting a table of values that can be updated dynamically."""    
+    """@brief Responsible for presenting a table of values that can be updated dynamically."""
     def __init__(self, columnNameList, height=400, heightPolicy="auto", showLastRows=0, index_position=None):
         """@brief Constructor
            @param columnNameList A List of strings denoting each column in the 2 dimensional table.
            @param height The hieght of the table viewport in pixels.
            @param heightPolicy The height policy (auto, fixed, fit, min, max). default=fixed.
            @param showLastRows The number of rows to show in the table. If set to 2 then only
-                  the last two rows in the table are displayed but they ate scrolled into view. 
-                  The default=0 which will display all rows and will not scroll the latest 
+                  the last two rows in the table are displayed but they ate scrolled into view.
+                  The default=0 which will display all rows and will not scroll the latest
                   into view..
-           @param index_position The position of the index column in the table. 0 = the first 
+           @param index_position The position of the index column in the table. 0 = the first
                   column. Default is None which does not display the index column."""
         self._columnNameList = columnNameList
         self._dataDict = {}
@@ -271,15 +275,15 @@ class ReadOnlyTableWrapper(object):
         for columnName in columnNameList:
             self._dataDict[columnName]=[]
             self._columns.append( TableColumn(field=columnName, title=columnName) )
-            
+
         self._source = ColumnDataSource(self._dataDict)
 
         self._dataTable = DataTable(source=self._source, columns=self._columns, height=height, height_policy=heightPolicy, frozen_rows=-showLastRows, index_position=index_position)
-        
+
     def getWidget(self):
         """@brief return an instance of the table widget to be added to a layout."""
         return self._dataTable
-    
+
     def setRows(self, rowList):
         """@brief Set the rows in the table.
            @param rowList A list of rows of data. Each row must contain a list of values for each column in the table."""
@@ -293,10 +297,10 @@ class ReadOnlyTableWrapper(object):
             for row in rowList:
                 valueList.append( row[colIndex] )
             dataDict[columnName]=valueList
-                
+
             colIndex = colIndex + 1
         self._source.data = dataDict
-        
+
     def appendRow(self, row):
         """@brief Set the rows in the table.
            @param rowList A list of rows of data. Each row must contain a list of values for each column in the table."""
@@ -304,18 +308,18 @@ class ReadOnlyTableWrapper(object):
         colIndex = 0
         for columnName in self._columnNameList:
             valueList = [row[colIndex]]
-            dataDict[columnName]=valueList               
+            dataDict[columnName]=valueList
             colIndex = colIndex + 1
-        self._source.stream(dataDict) 
-    
+        self._source.stream(dataDict)
+
 class AlertButtonWrapper(object):
-    """@brief Responsible for presenting a button that when clicked displayed an alert dialog."""    
+    """@brief Responsible for presenting a button that when clicked displayed an alert dialog."""
     def __init__(self, buttonLabel, alertMessage, buttonType="default", onClickMethod=None):
         """@brief Constructor
-           @param buttonLabel The text displayed on the button. 
+           @param buttonLabel The text displayed on the button.
            @param alertMessage The message displayed in the alert dialog when clicked.
            @param buttonType The type of button to display (default, primary, success, warning, danger, light)).
-           @param onClickMethod An optional method that is called when the alert OK button has been clicked.  
+           @param onClickMethod An optional method that is called when the alert OK button has been clicked.
         """
         self._button = Button(label=buttonLabel, button_type=buttonType)
         if onClickMethod:
@@ -327,21 +331,21 @@ class AlertButtonWrapper(object):
             alert(msg);
         """)
         self._button.js_on_event(events.ButtonClick, callback1)
-        
+
     def addOnClickMethod(self, onClickMethod):
         """@brief Add a method that is called after the alert dialog has been displayed.
            @param onClickMethod The method that is called."""
-        self._button.on_click(onClickMethod)      
-        
+        self._button.on_click(onClickMethod)
+
     def getWidget(self):
         """@brief return an instance of the button widget to be added to a layout."""
         return self._button
-        
+
 class ShutdownButtonWrapper(object):
-    """@brief Responsible for presenting a shutdown button. When the button is clicked 
+    """@brief Responsible for presenting a shutdown button. When the button is clicked
               an alert message is displayed instructing the user to close the browser
               window. When the OK button in the alert dialog is clicked the
-              application is shutdown."""    
+              application is shutdown."""
     def __init__(self, shutDownMethod):
         """@brief Constructor
            @param shutDownMethod The method that is called to shutdown the application.
@@ -349,10 +353,8 @@ class ShutdownButtonWrapper(object):
         self._alertButtonWrapper = AlertButtonWrapper("Quit",\
                                                       "The application is shutting down. Please close the browser window",\
                                                       buttonType="danger",\
-                                                      onClickMethod=shutDownMethod)   
-        
+                                                      onClickMethod=shutDownMethod)
+
     def getWidget(self):
         """@brief return an instance of the shutdown button widget to be added to a layout."""
         return self._alertButtonWrapper.getWidget()
-    
-    
