@@ -62,7 +62,7 @@ def updatePlots(plotter):
         for traceIndex in range(0,6):
             value = min + (max-min)*random.random()
             plotter.addValue(traceIndex, value)
-        sleep(1)
+        sleep(0.5)
         
 def main():
     timeSeriesPlotExample = TimeSeriesPlotExample()
