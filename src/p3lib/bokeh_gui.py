@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
-import  sys
+import sys
 import  queue
 from    datetime import datetime
 import  itertools
+import  threading
+from    functools import partial
 
 from bokeh.server.server import Server
 from bokeh.application import Application
@@ -22,6 +24,24 @@ from bokeh.models import Panel, Tabs
 from bokeh.models import DataTable, TableColumn
 from bokeh.models import CustomJS
 from bokeh import events
+
+class UpdateEvent(object):
+    """@brief Responsible for holding the state of an event sent from a non GUI thread
+              to the GUI thread context in order to update the GUI. The details of these
+              updates will be specific to the GUI implemented. Therefore this class should
+              be extended to include the events that are specific to the GUI implemented."""
+
+    UPDATE_STATUS_TEXT = 1 # This is an example of an event. It is intended to be used to
+                           # update the status line in the GUI to provide the user with
+                           # some feedback as to the current state of the GUI.
+
+    def __init__(self, id, argList=None):
+        """@brief Constructor
+           @param id An integer event ID
+           @param argList A list of arguments associated with the event"""
+        #As this is esentially a holding class we don't attempt to indicate provate attributes
+        self.id = id
+        self.argList = argList
 
 class TimeSeriesPoint(object):
     """@brief Resonsible for holding a time series point on a trace."""
@@ -69,26 +89,85 @@ class TabbedGUI(object):
         fig.yaxis.axis_label = yAxisName
         return fig
 
-
-    def __init__(self, docTitle, topCtrlPanel=True, bokehPort=9090):
+    def __init__(self, docTitle, bokehPort=9090):
         """@brief Constructor.
            @param docTitle The document title.
-           @param topCtrlPanel If True then a control panel is displayed at the top of the plot.
            @param bokehPort The port to run the server on."""
         self._docTitle=docTitle
-        self._topCtrlPanel=topCtrlPanel
         self._bokehPort=bokehPort
-        self._srcList = []
-        self._colors = itertools.cycle(palette)
-        self._queue = queue.Queue()
         self._doc = None
-        self._plottingEnabled = True
         self._tabList = []
         self._server = None
 
     def stopServer(self):
         """@brief Stop the bokeh server"""
         sys.exit()
+
+    def isServerRunning(self):
+        """@brief Check if the server is running.
+           @param True if the server is running. It may take some time (~ 20 seconds)
+                  after the browser is closed before the server session shuts down."""
+        serverSessions = "not started"
+        if self._server:
+            serverSessions = self._server.get_sessions()
+
+        serverRunning = True
+        if not serverSessions:
+                serverRunning = False
+
+        return serverRunning
+
+    def runBokehServer(self):
+        """@brief Run the bokeh server. This is a blocking method."""
+        apps = {'/': Application(FunctionHandler(self.createPlot))}
+        self._server = Server(apps, port=self._bokehPort)
+        self._server.show("/")
+        self._server.run_until_shutdown()
+
+    def _run(self, method, args=[]):
+        """@brief Run a method in a separate thread. This is useful when
+                  methods are called from gui events that take some time to execute.
+                  For such methods the gui callback should call this method to execute
+                  the time consuming methods in another thread.
+           @param method The method to execute.
+           @param A tuple of arguments to pass to the method.
+                  If no arguments are required then an empty tuple should be passed."""
+        thread = threading.Thread(target=method, args=args)
+        thread.start()
+
+    def _sendUpdateEvent(self, updateEvent):
+        """@brief Send an event to the GUI context to update the GUI. When methods
+                  are executing outside the gui thread but need to update the state
+                  of the GUI, events must be sent to the gui context in order to update
+                  the gui elements when they have the correct locks.
+           @param updateEvent An UpdateEvent instance."""
+        self._doc.add_next_tick_callback( partial(self._rxUpdateEvent, updateEvent)  )
+
+    def _rxUpdateEvent(self, updateEvent):
+        """@brief Receive an event into the GUI context to update the GUI.
+           @param updateEvent An PSUGUIUpdateEvent instance. This method will
+                              be specific to the GUI implemented and must therefore
+                              be overridden in child classes."""
+        raise Exception("BUG: The _rxUpdateEvent() method must be implemented by classes that are children of the TabbedGUI class.")
+
+class TimeSeriesPlotter(TabbedGUI):
+    """@brief Responsible for plotting data on tab 0 with no other tabs."""
+
+    def __init__(self, docTitle, bokehPort=9091, topCtrlPanel=True):
+        """@Constructor
+           @param docTitle The document title.
+           @param bokehPort The port to run the server on.
+           @param topCtrlPanel If True then a control panel is displayed at the top of the plot.
+           """
+        super().__init__(docTitle, bokehPort=bokehPort)
+        self._statusAreaInput = None
+        self._figTable=[[]]
+        self._grid = None
+        self._topCtrlPanel=topCtrlPanel
+        self._srcList = []
+        self._colors = itertools.cycle(palette)
+        self._queue = queue.Queue()
+        self._plottingEnabled = True
 
     def addTrace(self, fig, legend_label, line_color=None, line_width=1):
         """@brief Add a trace to a figure.
@@ -129,44 +208,6 @@ class TabbedGUI(object):
         timeSeriesPoint = TimeSeriesPoint(traceIndex, value, timeStamp=timeStamp)
         self._queue.put(timeSeriesPoint)
 
-    def isServerRunning(self):
-        """@brief Check if the server is running.
-           @param True if the server is running. It may take some time (~ 20 seconds)
-                  after the browser is closed before the server session shuts down."""
-        serverSessions = "not started"
-        if self._server:
-            serverSessions = self._server.get_sessions()
-
-        serverRunning = True
-        if not serverSessions:
-                serverRunning = False
-
-        return serverRunning
-
-    def runBokehServer(self):
-        """@brief Run the bokeh server. This is a blocking method."""
-        apps = {'/': Application(FunctionHandler(self.createPlot))}
-        self._server = Server(apps, port=9000)
-        self._server.show("/")
-        self._server.run_until_shutdown()
-
-
-class TimeSeriesPlotter(TabbedGUI):
-    """@brief Responsible for plotting data on tab 0 with no other tabs."""
-
-    def __init__(self, docTitle, showCtrl=True, bokehPort=5001):
-        """@Constructor
-           @param docTitle  The web page title that will appear in the browser tab.
-           @param showCtrl  Show the control panel at the top of the plot. Only
-                            really useful if the plot is real time.
-           @param bokehPort The TCP server port for the bokeh server."""
-        super().__init__(docTitle, bokehPort=bokehPort)
-        self._statusAreaInput = None
-        self._figTable=[[]]
-        self._grid = None
-        self._showCtrl = showCtrl
-        self._fileToSave = None
-
     def addRow(self):
         """@brief Add an empty row to the figures."""
         self._figTable.append([])
@@ -192,7 +233,7 @@ class TimeSeriesPlotter(TabbedGUI):
         """@brief Add tab that shows plot data updates."""
         self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
 
-        if self._showCtrl:
+        if self._topCtrlPanel:
             checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
             checkbox1.on_change('active', self._checkboxHandler)
 
@@ -204,8 +245,10 @@ class TimeSeriesPlotter(TabbedGUI):
             shutDownButton = Button(label="Quit", button_type="success", width=50)
             shutDownButton.on_click(self.stopServer)
 
+            self._statusBarWrapper = StatusBarWrapper()
+
             plotRowCtrl = row(children=[checkbox1, saveButton, self._fileToSave, shutDownButton])
-            plotPanel = column([plotRowCtrl, self._grid])
+            plotPanel = column([plotRowCtrl, self._grid, self._statusBarWrapper.getWidget()])
         else:
             plotPanel = column([self._grid])
 
@@ -215,22 +258,24 @@ class TimeSeriesPlotter(TabbedGUI):
         """@brief Save plot to a single html file. This allows the plots to be
                   analysed later."""
         if self._fileToSave and self._fileToSave.value:
-            if self.fileToSave.value.endswith(".html"):
-                filename = self.fileToSave.value
+            if self._fileToSave.value.endswith(".html"):
+                filename = self._fileToSave.value
             else:
-                filename = self.fileToSave.value + ".html"
+                filename = self._fileToSave.value + ".html"
             output_file(filename)
             # Save all the plots in the grid to an html file that allows
             # display in a browser and plot manipulation.
             save( self._grid )
+            self._statusBarWrapper.setStatus("Saved {}".format(filename))
 
     def _checkboxHandler(self, attr, old, new):
         """@brief Called when the checkbox is clicked."""
         if 0 in list(new):  # Is first checkbox selected
             self._plottingEnabled = True
+            self._statusBarWrapper.setStatus("Plotting enabled")
         else:
             self._plottingEnabled = False
-
+            self._statusBarWrapper.setStatus("Plotting disabled")
 
 
 class StatusBarWrapper(object):
@@ -287,27 +332,27 @@ class ReadOnlyTableWrapper(object):
     def setRows(self, rowList):
         """@brief Set the rows in the table.
            @param rowList A list of rows of data. Each row must contain a list of values for each column in the table."""
-        for row in rowList:
-            if len(row) != len(self._columnNameList):
-                raise Exception("{} row should have {} values.".format(row, len(self._columnNameList)))
+        for _row in rowList:
+            if len(_row) != len(self._columnNameList):
+                raise Exception("{} row should have {} values.".format(_row, len(self._columnNameList)))
         dataDict = {}
         colIndex = 0
         for columnName in self._columnNameList:
             valueList = []
-            for row in rowList:
-                valueList.append( row[colIndex] )
+            for _row in rowList:
+                valueList.append( _row[colIndex] )
             dataDict[columnName]=valueList
 
             colIndex = colIndex + 1
         self._source.data = dataDict
 
-    def appendRow(self, row):
+    def appendRow(self, _row):
         """@brief Set the rows in the table.
            @param rowList A list of rows of data. Each row must contain a list of values for each column in the table."""
         dataDict = {}
         colIndex = 0
         for columnName in self._columnNameList:
-            valueList = [row[colIndex]]
+            valueList = [_row[colIndex]]
             dataDict[columnName]=valueList
             colIndex = colIndex + 1
         self._source.stream(dataDict)
