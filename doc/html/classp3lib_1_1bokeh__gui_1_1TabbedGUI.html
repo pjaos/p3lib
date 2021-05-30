@@ -102,7 +102,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief A Generalised class responsible for plotting real time data.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00063">63</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00064">64</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af81bb450552171074e6743de5b5389ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af81bb450552171074e6743de5b5389ae">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -138,17 +138,17 @@ Static Public Member Functions</h2></td></tr>
 <pre class="fragment">@brief Constructor.
    @param docTitle The document title.
    @param bokehPort The port to run the server on.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00092">92</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">def </span>__init__(self, docTitle, bokehPort=9090):</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">           @param docTitle The document title.</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">           @param bokehPort The port to run the server on.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        self._docTitle=docTitle</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        self._bokehPort=bokehPort</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        self._doc = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        self._tabList = []</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        self._server = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00093">93</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">def </span>__init__(self, docTitle, bokehPort=9090):</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">           @param docTitle The document title.</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">           @param bokehPort The port to run the server on.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        self._docTitle=docTitle</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        self._bokehPort=bokehPort</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        self._doc = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        self._tabList = []</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        self._server = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -214,32 +214,32 @@ Static Public Member Functions</h2></td></tr>
    @param width The width of the plot area in pixels.
    @param height The height of the plot area in pixels.
    @return A figure instance.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00067">67</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">def </span>GetFigure(title=None, yAxisName=None, yRangeLimits=None, width=400, height=400):</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A Factory method to obtain a figure instance.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="stringliteral">                  A figure is a single plot area that can contain multiple traces.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">           @param title The title of the figure.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">           @param yAxisName The name of the Y axis.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">           @param yRangeLimits If None then the Y azxis will auto range.</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">                               If a list of two numerical values then this</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">                               defines the min and max Y axis range values.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">           @param width The width of the plot area in pixels.</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral">           @param height The height of the plot area in pixels.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">           @return A figure instance.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">if</span> yRangeLimits <span class="keywordflow">and</span> len(yRangeLimits) == 2:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            yrange = Range1d(yRangeLimits[0], yRangeLimits[1])</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            yrange = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        fig = figure(title=title,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                     x_axis_type=<span class="stringliteral">&quot;datetime&quot;</span>,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                     x_axis_location=<span class="stringliteral">&quot;below&quot;</span>,</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                     y_range=yrange,</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                     plot_width=width,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                     plot_height=height)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        fig.yaxis.axis_label = yAxisName</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> fig</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00068">68</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">def </span>GetFigure(title=None, yAxisName=None, yRangeLimits=None, width=400, height=400):</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A Factory method to obtain a figure instance.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">                  A figure is a single plot area that can contain multiple traces.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">           @param title The title of the figure.</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">           @param yAxisName The name of the Y axis.</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">           @param yRangeLimits If None then the Y azxis will auto range.</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">                               If a list of two numerical values then this</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">                               defines the min and max Y axis range values.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral">           @param width The width of the plot area in pixels.</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">           @param height The height of the plot area in pixels.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">           @return A figure instance.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">if</span> yRangeLimits <span class="keywordflow">and</span> len(yRangeLimits) == 2:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            yrange = Range1d(yRangeLimits[0], yRangeLimits[1])</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            yrange = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        fig = figure(title=title,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                     x_axis_type=<span class="stringliteral">&quot;datetime&quot;</span>,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                     x_axis_location=<span class="stringliteral">&quot;below&quot;</span>,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                     y_range=yrange,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                     plot_width=width,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                     plot_height=height)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        fig.yaxis.axis_label = yAxisName</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> fig</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -261,21 +261,21 @@ Static Public Member Functions</h2></td></tr>
 <pre class="fragment">@brief Check if the server is running.
    @param True if the server is running. It may take some time (~ 20 seconds)
   after the browser is closed before the server session shuts down.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00106">106</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keyword">def </span>isServerRunning(self):</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Check if the server is running.</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="stringliteral">           @param True if the server is running. It may take some time (~ 20 seconds)</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral">                  after the browser is closed before the server session shuts down.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        serverSessions = <span class="stringliteral">&quot;not started&quot;</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">if</span> self._server:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            serverSessions = self._server.get_sessions()</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        serverRunning = <span class="keyword">True</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> serverSessions:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                serverRunning = <span class="keyword">False</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> serverRunning</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00107">107</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">def </span>isServerRunning(self):</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Check if the server is running.</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral">           @param True if the server is running. It may take some time (~ 20 seconds)</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="stringliteral">                  after the browser is closed before the server session shuts down.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        serverSessions = <span class="stringliteral">&quot;not started&quot;</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> self._server:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            serverSessions = self._server.get_sessions()</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        serverRunning = <span class="keyword">True</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> serverSessions:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                serverRunning = <span class="keyword">False</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> serverRunning</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -295,14 +295,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Run the bokeh server. This is a blocking method.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00120">120</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">def </span>runBokehServer(self):</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This is a blocking method.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(self.createPlot))}</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        self._server = Server(apps, port=self._bokehPort)</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        self._server.show(<span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        self._server.run_until_shutdown()</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00121">121</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">def </span>runBokehServer(self):</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This is a blocking method.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(self.createPlot))}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        self._server = Server(apps, port=self._bokehPort)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        self._server.show(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        self._server.run_until_shutdown()</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -322,11 +322,11 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop the bokeh server</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00102">102</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">def </span>stopServer(self):</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Stop the bokeh server&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        sys.exit()</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00103">103</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">def </span>stopServer(self):</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Stop the bokeh server&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        sys.exit()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

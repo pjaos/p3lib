@@ -11,6 +11,7 @@ var searchData=
   ['run_273',['run',['../classtime__series__plot__example_1_1TimeSeriesPlotExample.html#ad22709b2e67308af35f55680d5a026e0',1,'time_series_plot_example::TimeSeriesPlotExample']]],
   ['runbokehserver_274',['runBokehServer',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#ae5692d3062aba89041db4817b39b3bc4',1,'p3lib.bokeh_gui.TabbedGUI.runBokehServer()'],['../classbokeh__demo_1_1TimeSeriesGUI.html#ae5692d3062aba89041db4817b39b3bc4',1,'bokeh_demo.TimeSeriesGUI.runBokehServer()']]],
   ['runcmd_275',['runCmd',['../classp3lib_1_1ssh_1_1ExtendedSSHClient.html#a41dac4ea11498ce5d8bd7fae5b791901',1,'p3lib.ssh.ExtendedSSHClient.runCmd()'],['../classp3lib_1_1ssh_1_1SSH.html#a41dac4ea11498ce5d8bd7fae5b791901',1,'p3lib.ssh.SSH.runCmd()']]],
-  ['rx_276',['rx',['../classp3lib_1_1json__networking_1_1JSONClient.html#acde7a74ea974dce15e24feb760ce3ca2',1,'p3lib::json_networking::JSONClient']]],
-  ['rx_5fbuffer_5fsize_277',['RX_BUFFER_SIZE',['../classp3lib_1_1json__networking_1_1JSONClient.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib.json_networking.JSONClient.RX_BUFFER_SIZE()'],['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib.ssh.SSHTunnelManager.RX_BUFFER_SIZE()']]]
+  ['runnonblockingbokehserver_276',['runNonBlockingBokehServer',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#afe9d7f32963ba0f0ea500a3a8698a0f9',1,'p3lib::bokeh_gui::TimeSeriesPlotter']]],
+  ['rx_277',['rx',['../classp3lib_1_1json__networking_1_1JSONClient.html#acde7a74ea974dce15e24feb760ce3ca2',1,'p3lib::json_networking::JSONClient']]],
+  ['rx_5fbuffer_5fsize_278',['RX_BUFFER_SIZE',['../classp3lib_1_1json__networking_1_1JSONClient.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib.json_networking.JSONClient.RX_BUFFER_SIZE()'],['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib.ssh.SSHTunnelManager.RX_BUFFER_SIZE()']]]
 ];

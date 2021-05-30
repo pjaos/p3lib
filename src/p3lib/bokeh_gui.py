@@ -6,6 +6,7 @@ from    datetime import datetime
 import  itertools
 import  threading
 from    functools import partial
+import  asyncio
 
 from bokeh.server.server import Server
 from bokeh.application import Application
@@ -277,6 +278,25 @@ class TimeSeriesPlotter(TabbedGUI):
             self._plottingEnabled = False
             self._statusBarWrapper.setStatus("Plotting disabled")
 
+    def runNonBlockingBokehServer(self):
+        """@brief Run the bokeh server in a separate thread. This is useful
+                  if the we want to load realtime data into the plot from the
+                  main thread."""
+        self._serverThread = threading.Thread(target=self._runBokehServer)
+        self._serverThread.setDaemon(True)
+        self._serverThread.start()
+
+    def _runBokehServer(self):
+        """@brief Run the bokeh server. This is called when the bokeh server is executed in a thread."""
+        apps = {'/': Application(FunctionHandler(self.createPlot))}
+        #As this gets run in a thread we need to start an event loop
+        evtLoop = asyncio.new_event_loop()
+        asyncio.set_event_loop(evtLoop)
+        self._server = Server(apps, port=self._bokehPort)
+        self._server.start()
+        #Show the server in a web browser window
+        self._server.io_loop.add_callback(self._server.show, "/")
+        self._server.io_loop.start()
 
 class StatusBarWrapper(object):
     """@brief Responsible for presenting a single status line of text in a GUI
