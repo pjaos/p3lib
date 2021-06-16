@@ -315,3 +315,38 @@ class UIO(object):
     def getDebugLogFile(self):
         """@return The name of the debug log file or None if not set."""
         return self._debugLogFile
+
+class ConsoleMenu(object):
+    """@brief Responsible for presenting a list of options to the user on a
+              console/terminal interface and allowing the user to select 
+              the options as required."""
+    def __init__(self, uio):
+        """@brief Constructor
+           @param uio A UIO instance."""
+        self._uio = uio
+        self._menuList = []
+        
+    def add(self, menuStr, menuMethod, args=None):
+        """@brief Add a menu option.
+           @param menuStr The String displayed as the menu option.
+           @param menuMethod The method to be called when this option is selected.
+           @param args An optional list or tuple of arguments to pass to the method."""
+        self._menuList.append( (menuStr, menuMethod, args) )
+        
+    def show(self, showSelectedOption=False):
+        """@brief Show the menu to the user and allow the user to interact with it.
+           @param showSelectedOption If True then the option selected is displayed before executing the method."""
+        while True:
+            selectorId = 1
+            for menuStr, _, _ in self._menuList:
+                self._uio.info("{: >2}: {}".format(selectorId, menuStr))
+                selectorId = selectorId + 1
+            selectedID = self._uio.getIntInput("Select a menu option")
+            if selectedID >= 1 and selectedID <= len(self._menuList):
+                menuStr, selectedMethod, args = self._menuList[selectedID-1]
+                if showSelectedOption:
+                    self._uio.info(menuStr)
+                if not args:
+                    selectedMethod()
+                else:
+                    selectedMethod(*args)
