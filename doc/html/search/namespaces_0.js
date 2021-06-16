@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bokeh_5fdemo_441',['bokeh_demo',['../namespacebokeh__demo.html',1,'']]]
+  ['bokeh_5fdemo_443',['bokeh_demo',['../namespacebokeh__demo.html',1,'']]]
 ];
