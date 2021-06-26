@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['response_5fdict_5fkey_780',['RESPONSE_DICT_KEY',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a2b6c992dd64ecc8d92581dfb9a9f9285',1,'p3lib::mqtt_rpc::MQTTRPCClient']]],
-  ['rx_5fbuffer_5fsize_781',['RX_BUFFER_SIZE',['../classp3lib_1_1json__networking_1_1JSONClient.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib.json_networking.JSONClient.RX_BUFFER_SIZE()'],['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib.ssh.SSHTunnelManager.RX_BUFFER_SIZE()']]]
+  ['net_5fif_836',['NET_IF',['../namespacetest__netif.html#a95e9d4f830fd93682d37d6a3f777d087',1,'test_netif']]],
+  ['netmask_837',['NETMASK',['../namespacetest__netif.html#ac56a4697e5a8bf9467d06318e7f7f5bc',1,'test_netif']]],
+  ['news_838',['NEWS',['../classp3lib_1_1syslogger_1_1FACILITY.html#accb66e8647a5c0137dfca45f875c6fdf',1,'p3lib.syslogger.FACILITY.NEWS()'],['../classp3lib_1_1uio_1_1FACILITY.html#accb66e8647a5c0137dfca45f875c6fdf',1,'p3lib.uio.FACILITY.NEWS()']]],
+  ['notice_839',['NOTICE',['../classp3lib_1_1syslogger_1_1PRIORITY.html#ac281a75cef19fe84c6e2b17d0badb709',1,'p3lib.syslogger.PRIORITY.NOTICE()'],['../classp3lib_1_1uio_1_1PRIORITY.html#ac281a75cef19fe84c6e2b17d0badb709',1,'p3lib.uio.PRIORITY.NOTICE()']]]
 ];
