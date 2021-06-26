@@ -190,14 +190,15 @@ class UIO(object):
             elif allowQuit and response.lower() == 'q':
                 sys.exit(0)
 
-    def getIntInput(self, prompt, allowQuit=True):
+    def getIntInput(self, prompt, allowQuit=True, radix=10):
       """@brief Get a decimal int number from the user.
          @param allowQuit If True and the user enters q then the program will exit.
+         @param radix The radix of the number entered (default=10).
          @return True or False"""
       while True:
         response = self.getInput(prompt=prompt)
         try:
-          return int(response)
+          return int(response, radix)
         except ValueError:
           self.warn("%s is not a valid integer value." % (response))
 
