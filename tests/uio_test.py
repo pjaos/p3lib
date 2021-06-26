@@ -5,6 +5,8 @@ import unittest
 import  sys
 from    p3lib.uio import UIO
 
+SYSLOG_SERVER = "192.168.0.8"
+
 class UIOTester(unittest.TestCase):
     """@brief Unit tests for the UIO class"""
 
@@ -20,6 +22,8 @@ class UIOTester(unittest.TestCase):
 
     def setUp(self):
         self._uio = UIO(colour=False)
+        if SYSLOG_SERVER:
+            self._uio.enableSyslog(True, host=SYSLOG_SERVER)
         self._orgStdout = None
 
     def tearDown(self):

@@ -4,10 +4,12 @@ import sys
 import os
 import re
 import traceback
-from   getpass import getpass
+from   threading import Lock
+from   socket import socket, AF_INET, SOCK_DGRAM
+from   getpass import getpass, getuser
 from   time import strftime, localtime
 from   datetime import datetime
-
+        
 class UIO(object):
     """@brief responsible for user output and input via stdout/stdin"""
 
@@ -43,7 +45,7 @@ class UIO(object):
 
     USER_LOG_SYM_LINK           = "log.txt"
     DEBUG_LOG_SYM_LINK          = "debug_log.txt"
-
+  
     @staticmethod
     def GetInfoEscapeSeq():
         """@return the info level ANSI escape sequence."""
@@ -70,7 +72,7 @@ class UIO(object):
            @param text A string that may contain ANSI escape sequences.
            @return The text with any ANSI escape sequences removed."""
         escapeSeq =re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
-        return escapeSeq.sub('', line)
+        return escapeSeq.sub('', text)
 
     def __init__(self, debug=False, colour=True):
         self._debug                         = debug
@@ -81,6 +83,8 @@ class UIO(object):
         self._debugLogEnabled               = False
         self._debugLogFile                  = None
         self._symLinkDir                    = None
+        self._sysLogEnabled                 = False
+        self._sysLogHost                    = None
 
     def logAll(self, enabled):
         """@brief Turn on/off the logging of all output including debug output even if debugging is off."""
@@ -105,6 +109,7 @@ class UIO(object):
                 self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('INFO:  {}'.format(text))
+        self._update_syslog(PRIORITY.INFO, text)
 
     def debug(self, text):
         """@brief Present a debug level message to the user if debuging is enabled.
@@ -119,7 +124,8 @@ class UIO(object):
                 self.storeToDebugLog('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
             else:
                 self.storeToDebugLog('DEBUG: {}'.format(text))
-
+        self._update_syslog(PRIORITY.DEBUG, text)
+        
     def warn(self, text):
         """@brief Present a warning level message to the user.
            @param text The line of text to be presented to the user."""
@@ -127,7 +133,8 @@ class UIO(object):
             self._print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('WARN:  {}'.format(text))
-
+        self._update_syslog(PRIORITY.WARNING, text)
+        
     def error(self, text):
         """@brief Present an error level message to the user.
            @param text The line of text to be presented to the user."""
@@ -135,6 +142,7 @@ class UIO(object):
             self._print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('ERROR: {}'.format(text))
+        self._update_syslog(PRIORITY.ERROR, text)
 
     def _print(self, text):
         """@brief Print text to stdout"""
@@ -142,7 +150,7 @@ class UIO(object):
         if self._debugLogEnabled and self._debugLogFile:
             self.storeToDebugLog(text)
         print(text)
-
+      
     def getInput(self, prompt, noEcho=False, stripEOL=True):
         """@brief Get a line of text from the user.
            @param noEcho If True then * are printed when each character is pressed.
@@ -251,7 +259,6 @@ class UIO(object):
            @param text The text to be saved.
            @param logFile The logFile to save data to.
            @param addLF If True then a line feed is added to the output in the log file.
-           @param addDateTime If True add the date and time to the logfile.
            @param symLinkFile The name of the fixed symlink file to point to the latest log file.
            @return None"""
         createSymLink = False
@@ -317,6 +324,48 @@ class UIO(object):
         """@return The name of the debug log file or None if not set."""
         return self._debugLogFile
 
+    def getCurrentUsername(self):
+        """Get the current users username or return unknown_user if not able to read it.
+           This is required as getpass.getuser() does not always work on windows platforms."""
+        username="unknown_user"
+        try:
+            username=getuser()
+        except:
+            pass
+        return username
+
+    def enableSyslog(self, enabled, host="localhost"):
+        """@brief Enable/disable syslog.
+           @param enabled If True then syslog is enabled."""
+        self._sysLogEnabled = enabled
+        self._sysLogHost = host
+      
+    def _update_syslog(self, pri, msg):
+        """Send a message to syslog is syslog is enabled
+        Syslog messages will have the following components
+        0 = time/date stamp
+        1 = hostname
+        2 = main python file name
+        3 = PID
+        4 = username under which the program is being executed
+        5 = The syslog message
+
+        The syslog messages will be prefixed withj the application name
+        """
+        if self._sysLogEnabled:
+            aMsg=msg
+            #Ensure we have no zero characters in the message. 
+            # syslog will throw an error if it finds any
+            if "\x00" in aMsg:
+                aMsg=aMsg.replace("\x00", "")
+
+            try:
+                #send aMsg to syslog with the current process ID and username
+                syslog(pri, "%d %s: %s" % (os.getpid(), str(self.getCurrentUsername()), str(aMsg) ), host=self._sysLogHost )
+            #Ignore if se can't resolve address. We don't really syslog want errors to stop the user interface
+            except:
+                pass
+
 class ConsoleMenu(object):
     """@brief Responsible for presenting a list of options to the user on a
               console/terminal interface and allowing the user to select 
@@ -351,3 +400,63 @@ class ConsoleMenu(object):
                     selectedMethod()
                 else:
                     selectedMethod(*args)
+
+# -------------------------------------------------------------------
+# @brief An implementation to allow syslog messages to be generated.
+# 
+class FACILITY:
+  KERN=0
+  USER=1
+  MAIL=2
+  DAEMON=3
+  AUTH=4
+  SYSLOG=5
+  LPR=6
+  NEWS=7
+  UUCP=8
+  CRON=9
+  AUTHPRIV=10
+  FTP=11
+  LOCAL0=16
+  LOCAL1=17
+  LOCAL2=18
+  LOCAL3=19
+  LOCAL4=20
+  LOCAL5=21
+  LOCAL6=22
+  LOCAL7=23
+ 
+class PRIORITY:
+  EMERG=0
+  ALERT=1
+  CRIT=2
+  ERROR=3
+  WARNING=4
+  NOTICE=5
+  INFO=6
+  DEBUG=7
+
+syslogSocket=None
+lock = Lock()
+  
+def syslog(priority, message, facility=FACILITY.LOCAL0, host='localhost', port=514):
+    """
+	  @brief Send a syslog message.
+      @param priority The syslog priority level.
+      @param message The text message to be sent.
+      @param facility The syslog facility 
+      @param host The host address for the systlog server.
+      @param port The syslog port.
+	"""
+    global lock, timer, syslogSocket
+	
+    try:
+        lock.acquire()
+        if not syslogSocket:
+            syslogSocket = socket(AF_INET, SOCK_DGRAM)
+
+        smsg = '<%05d>%s' % ( (priority + facility*8), message )
+        syslogSocket.sendto(smsg.encode('ascii', 'ignore'), (host, port))
+
+    finally:
+        lock.release()
