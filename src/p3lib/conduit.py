@@ -4,7 +4,7 @@ from queue import Queue
 
 class Conduit(object):
 	"""@brief A generalised conduit implementation. A conduit is used for 
-	          communication between tow processes. Each Conduit has an A 
+	          communication between two processes. Each Conduit has an A 
 	          and a B end. Messages can be pushed into each end and 
 	          pulled from each end.	
 	"""
