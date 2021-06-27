@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="PRIORITY",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1syslogger_1_1PRIORITY.html",tooltip=" "];
+  Node0 [label="PRIORITY",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1uio_1_1PRIORITY.html",tooltip=" "];
 }
