@@ -6,6 +6,7 @@ pipenv run uio_test.py
 pipenv run python -m pytest  test_json_networking.py
 pipenv run python -m pytest -s test_netif.py
 pipenv run python -m pytest -s test_ssh.py
+pipenv run python -m pytest -s test_conduit.py
 echo "Open browser and display static graphs using plotly."
 pipenv run netplotly_demo
 echo "Open browser and show real time plots using bokeh."
