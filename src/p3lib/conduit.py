@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from queue import Queue
+from queue import Queue, Empty
 
 class Conduit(object):
 	"""@brief A generalised conduit implementation. A conduit is used for 
@@ -116,7 +116,7 @@ class QueueConduit(Conduit):
 		   @return The data from the queue or None of no data is available."""
 		try:
 			return self._bToAQueue.get(block=self._readBlock, timeout=self._readBlockTimeoutSeconds)
-		except Queue.Empty:
+		except Empty:
 			return None
 						
 	def getB(self, block=True, timeoutSeconds=0.0):
@@ -126,7 +126,7 @@ class QueueConduit(Conduit):
 		   @return The data from the queue or None of no data is available."""
 		try:
 			return self._aToBQueue.get(block=self._readBlock, timeout=self._readBlockTimeoutSeconds)
-		except Queue.Empty:
+		except Empty:
 			return None
 		
 	def aReadAvailable(self):
