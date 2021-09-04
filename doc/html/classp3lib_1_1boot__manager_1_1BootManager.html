@@ -90,6 +90,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a581a1dc5afb95f62a1bd87d1f39c076a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4da29f21b0fe6338b441b70ab4eb9d7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7">add</a> (self, user, argString=None, enableSyslog=False)</td></tr>
 <tr class="separator:af4da29f21b0fe6338b441b70ab4eb9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd32ccbb4b7eee6ac681f607136f402a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#abd32ccbb4b7eee6ac681f607136f402a">getStatus</a> (self)</td></tr>
+<tr class="separator:abd32ccbb4b7eee6ac681f607136f402a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a43f90adda88930568c035f1247f36a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#a8a43f90adda88930568c035f1247f36a">remove</a> (self)</td></tr>
 <tr class="separator:a8a43f90adda88930568c035f1247f36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -227,6 +229,36 @@ Static Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="abd32ccbb4b7eee6ac681f607136f402a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd32ccbb4b7eee6ac681f607136f402a">&#9670;&nbsp;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def getStatus </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Get a status report.
+   @return Lines of text indicating the status of a previously started process.</pre> 
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00054">54</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">def </span>getStatus(self):</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        statusLines = []</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            statusLines = self._platformBootManager.getStatusLines()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> statusLines</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a8a43f90adda88930568c035f1247f36a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a43f90adda88930568c035f1247f36a">&#9670;&nbsp;</a></span>remove()</h2>
 
@@ -252,7 +284,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> self._platformBootManager:</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            self._platformBootManager.remove()</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            </div>
 </div><!-- fragment -->
 </div>
 </div>
