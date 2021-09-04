@@ -214,9 +214,12 @@ class LinuxBootManager(object):
         lines.append("Type=simple")
         lines.append("Restart=always")
         lines.append("RestartSec=1")
+        lines.append("StandardOutput=syslog")
+        lines.append("StandardError=syslog")
         lines.append("User={}".format(user))
-        # We add the home path env var so that config files (if stored in/under 
-        # the users home dir) can be found by the program.
+
+        #We add the home path env var so that config files (if stored in/under 
+        # the users home dir) can be found by the prgram.
         if user and len(user) > 0:
             lines.append('Environment="HOME=/home/{}"'.format(user))
         if argString:
