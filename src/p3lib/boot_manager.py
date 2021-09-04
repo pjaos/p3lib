@@ -35,13 +35,14 @@ class BootManager(object):
         else:
             raise Exception("{} is an unsupported OS.".format(self._osName) )
 
-    def add(self, user, argString=None):
+    def add(self, user, argString=None, enableSyslog=False):
         """@brief Add an executable file to the processes started at boot time.
            @param exeFile The file/program to be executed. This should be an absolute path.
            @param user The user that will run the executable file.
-           @param argString The argument string that the program is to be launched with."""
+           @param argString The argument string that the program is to be launched with.
+           @param enableSyslog If True enable stdout and stderr to be sent to syslog."""
         if self._platformBootManager:
-            self._platformBootManager.add(user, argString)
+            self._platformBootManager.add(user, argString, enableSyslog)
 
     def remove(self):
         """@brief Remove an executable file to the processes started at boot time.
@@ -190,7 +191,7 @@ class LinuxBootManager(object):
         serviceFile = os.path.join(LinuxBootManager.SERVICE_FOLDER, serviceName)
         return serviceFile
 
-    def add(self, user, argString=None):
+    def add(self, user, argString=None, enableSyslog=False):
         """@brief Add an executable file to the processes started at boot time.
                   This will also start the process. The executable file must be
                   named the same as the python file executed without the .py suffix.
@@ -199,7 +200,8 @@ class LinuxBootManager(object):
                        to non root user paths on Linux systems and the startup
                        script should then be executed with the same username in
                        order that the same config file is used.
-           @param argString The argument string that the program is to be launched with."""
+           @param argString The argument string that the program is to be launched with.
+           @param enableSyslog If True enable stdout and stderr to be sent to syslog."""
 
         appName, absApp = self._getApp()
 
@@ -214,8 +216,12 @@ class LinuxBootManager(object):
         lines.append("Type=simple")
         lines.append("Restart=always")
         lines.append("RestartSec=1")
-        lines.append("StandardOutput=syslog")
-        lines.append("StandardError=syslog")
+        if enableSyslog:
+            lines.append("StandardOutput=syslog")
+            lines.append("StandardError=syslog")
+        else:
+            lines.append("StandardOutput=null")
+            lines.append("StandardError=journal")
         lines.append("User={}".format(user))
 
         #We add the home path env var so that config files (if stored in/under 
