@@ -77,19 +77,32 @@ class LinuxBootManager(object):
                   named the same as the python file executed without the .py suffix.
            @return The startup script file (absolute path)."""""
         startupScript=None
-        pythonFile = sys.argv[0] #The python file excuted at program startup
+        pythonFile = sys.argv[0] # The python file executed at program startup
         if pythonFile.startswith("./"):
             pythonFile=pythonFile[2:]
-
+            
         envPaths = self._getPaths()
 
+        # Search first for a file that does not have the .py suffix as 
+        # this may be installed via a deb/rpm installation.
+        exeFile=os.path.basename( pythonFile.replace(".py", "") )
         if envPaths and len(envPaths) > 0:
             for envPath in envPaths:
-                _startupScript = os.path.join(envPath, pythonFile)
-                if os.path.isfile(_startupScript):
-                    startupScript=_startupScript
-                    break
+                _exeStartupScript = os.path.join(envPath, exeFile)
+                if os.path.isfile(_exeStartupScript):
+                    startupScript=_exeStartupScript
+                    break 
 
+        # If the script file has not been found then search for a file with 
+        # the .py suffix.       
+        if not startupScript:
+            if envPaths and len(envPaths) > 0:
+                for envPath in envPaths:
+                    _startupScript = os.path.join(envPath, pythonFile)
+                    if os.path.isfile(_startupScript):
+                        startupScript=_startupScript
+                        break     
+                      
         if not startupScript:
             paths = self._getPaths()
             if len(paths):
@@ -202,6 +215,10 @@ class LinuxBootManager(object):
         lines.append("Restart=always")
         lines.append("RestartSec=1")
         lines.append("User={}".format(user))
+        # We add the home path env var so that config files (if stored in/under 
+        # the users home dir) can be found by the program.
+        if user and len(user) > 0:
+            lines.append('Environment="HOME=/home/{}"'.format(user))
         if argString:
             lines.append("ExecStart={} {}".format(absApp, argString))
         else:
