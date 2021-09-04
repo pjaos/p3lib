@@ -88,8 +88,8 @@ Collaboration diagram for BootManager:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a581a1dc5afb95f62a1bd87d1f39c076a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#a581a1dc5afb95f62a1bd87d1f39c076a">__init__</a> (self, uio=None, allowRootUser=False)</td></tr>
 <tr class="separator:a581a1dc5afb95f62a1bd87d1f39c076a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1ace407968a0aee3d6cdba9613d4f61"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#ae1ace407968a0aee3d6cdba9613d4f61">add</a> (self, user, argString=None)</td></tr>
-<tr class="separator:ae1ace407968a0aee3d6cdba9613d4f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4da29f21b0fe6338b441b70ab4eb9d7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7">add</a> (self, user, argString=None, enableSyslog=False)</td></tr>
+<tr class="separator:af4da29f21b0fe6338b441b70ab4eb9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a43f90adda88930568c035f1247f36a"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#a8a43f90adda88930568c035f1247f36a">remove</a> (self)</td></tr>
 <tr class="separator:a8a43f90adda88930568c035f1247f36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -172,8 +172,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae1ace407968a0aee3d6cdba9613d4f61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1ace407968a0aee3d6cdba9613d4f61">&#9670;&nbsp;</a></span>add()</h2>
+<a id="af4da29f21b0fe6338b441b70ab4eb9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4da29f21b0fe6338b441b70ab4eb9d7">&#9670;&nbsp;</a></span>add()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +194,13 @@ Static Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>argString</em> = <code>None</code>&#160;</td>
+          <td class="paramname"><em>argString</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>enableSyslog</em> = <code>False</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -206,16 +212,18 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Add an executable file to the processes started at boot time.
    @param exeFile The file/program to be executed. This should be an absolute path.
    @param user The user that will run the executable file.
-   @param argString The argument string that the program is to be launched with.</pre> 
+   @param argString The argument string that the program is to be launched with.
+   @param enableSyslog If True enable stdout and stderr to be sent to syslog.</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00038">38</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">def </span>add(self, user, argString=None):</div>
+<div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">def </span>add(self, user, argString=None, enableSyslog=False):</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add an executable file to the processes started at boot time.</span></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="stringliteral">           @param exeFile The file/program to be executed. This should be an absolute path.</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="stringliteral">           @param user The user that will run the executable file.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">           @param argString The argument string that the program is to be launched with.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">if</span> self._platformBootManager:</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            self._platformBootManager.add(user, argString)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral">           @param argString The argument string that the program is to be launched with.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">           @param enableSyslog If True enable stdout and stderr to be sent to syslog.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            self._platformBootManager.add(user, argString, enableSyslog)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -237,14 +245,14 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Remove an executable file to the processes started at boot time.
    @param exeFile The file/program to be removed. This should be an absolute path.
    @param user The Linux user that will run the executable file.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00046">46</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">def </span>remove(self):</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Remove an executable file to the processes started at boot time.</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="stringliteral">           @param exeFile The file/program to be removed. This should be an absolute path.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">if</span> self._platformBootManager:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            self._platformBootManager.remove()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00047">47</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">def </span>remove(self):</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Remove an executable file to the processes started at boot time.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="stringliteral">           @param exeFile The file/program to be removed. This should be an absolute path.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            self._platformBootManager.remove()</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

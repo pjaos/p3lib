@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add_2',['add',['../classp3lib_1_1boot__manager_1_1BootManager.html#ae1ace407968a0aee3d6cdba9613d4f61',1,'p3lib.boot_manager.BootManager.add()'],['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#ae1ace407968a0aee3d6cdba9613d4f61',1,'p3lib.boot_manager.LinuxBootManager.add()'],['../classp3lib_1_1uio_1_1ConsoleMenu.html#a77313afaf744addde2846ba568f6ab0e',1,'p3lib.uio.ConsoleMenu.add()']]],
+  ['add_2',['add',['../classp3lib_1_1boot__manager_1_1BootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7',1,'p3lib.boot_manager.BootManager.add()'],['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7',1,'p3lib.boot_manager.LinuxBootManager.add()'],['../classp3lib_1_1uio_1_1ConsoleMenu.html#a77313afaf744addde2846ba568f6ab0e',1,'p3lib.uio.ConsoleMenu.add()']]],
   ['addattr_3',['addAttr',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a606a4e65cd8947da945856f81cd5e45e',1,'p3lib::pconfig::ConfigManager']]],
   ['addonclickmethod_4',['addOnClickMethod',['../classp3lib_1_1bokeh__gui_1_1AlertButtonWrapper.html#aac39f4578284b4162de465ea0fd0c063',1,'p3lib::bokeh_gui::AlertButtonWrapper']]],
   ['addrow_5',['addRow',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#a0a200b541ba66bf353d8956a290327f6',1,'p3lib.bokeh_gui.TimeSeriesPlotter.addRow()'],['../classbokeh__demo_1_1BokehDemoA.html#a0a200b541ba66bf353d8956a290327f6',1,'bokeh_demo.BokehDemoA.addRow()'],['../classbokeh__demo_1_1BokehDemoB.html#a0a200b541ba66bf353d8956a290327f6',1,'bokeh_demo.BokehDemoB.addRow()']]],
