@@ -4,7 +4,7 @@ import  os
 import  sys
 import  platform
 
-from    subprocess import check_call, DEVNULL, STDOUT
+from    subprocess import check_call, DEVNULL, STDOUT, Popen, PIPE
 from    datetime import datetime
 
 class BootManager(object):
@@ -50,6 +50,15 @@ class BootManager(object):
            @param user The Linux user that will run the executable file."""
         if self._platformBootManager:
             self._platformBootManager.remove()
+            
+    def getStatus(self):
+        """@brief Get a status report.
+           @return Lines of text indicating the status of a previously started process."""
+        statusLines = []
+        if self._platformBootManager:
+            statusLines = self._platformBootManager.getStatusLines()
+        return statusLines
+        
 
 class LinuxBootManager(object):
     """@brief Responsible for adding/removing Linux services using systemd."""
@@ -273,3 +282,18 @@ class LinuxBootManager(object):
             self._log("Removed {}".format(serviceFile))
         else:
             self._info("{} service not found".format(appName))
+
+    def getStatusLines(self):
+        """@brief Get a status report.
+           @return Lines of text indicating the status of a previously started process."""
+        statusLines = []
+        appName, _ = self._getApp()
+        cmd = "{} status {}".format(LinuxBootManager.SYSTEM_CTL, appName)
+        p = Popen([LinuxBootManager.SYSTEM_CTL, 'status', appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        output, err = p.communicate(b"input data that is passed to subprocess' stdin")
+        response = output.decode() + "\n" + err.decode()
+        lines = response.split("\n")
+        return lines
+            
+            
+            
