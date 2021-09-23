@@ -114,6 +114,7 @@ class SSH(object):
     DROPBEAR_AUTH_KEYS_FILE             = "%s/authorized_keys" % (DROPBEAR_DIR)
     SSH_COPY_PROG                       = "/usr/bin/ssh-copy-id"
     SERVER_AUTHORISED_KEYS_FILE         = "~/.ssh/authorized_keys"
+    DEFAULT_SSH_CONNECTION_TIMEOUT      = 20
 
     @staticmethod
     def GetPublicKeyFile():
@@ -241,16 +242,17 @@ class SSH(object):
         if self._uio:
             self._uio.warn(text)
 
-    def _connect(self, connectSFTPSession=False):
+    def _connect(self, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):
         """@brief Connect the ssh connection
            @param connectSFTPSession If True then just after the ssh connection
                   is built an SFT session will be built ready for file transfer.
+           @param timeout The connection timeout in seconds.
            @return a ref to the SSHClient object"""
         if not self._ssh:
             self._ssh = ExtendedSSHClient()
 
         self._ssh.connect(self._host, username=self._username, password=self._password, port=self._port,
-                          pkey=self._sshPrivateKey)
+                          pkey=self._sshPrivateKey, timeout=timeout)
         # It can be usefull to know what local IP address was used to reach the ssh server
         self._localAddress = self._ssh.get_transport().sock.getsockname()[0]
         self._ssh.get_transport().use_compression(self.useCompression)
@@ -307,27 +309,29 @@ class SSH(object):
            """
         return self._ssh.startCmd(cmd)
 
-    def connect(self, enableAutoLoginSetup=False, connectSFTPSession=False):
+    def connect(self, enableAutoLoginSetup=False, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):
         """@brief Connect the ssh connection
            @param enableAutoLoginSetup If True and auto login is not setup the
                   user is prompted for the password and the local ssh public key
                   is copied to the server.
            @param connectSFTPSession If True then just after the ssh connection
                   is built an SFT session will be built ready for file transfer.
+           @param timeout The connection timeout in seconds.
            @return True if connected without setting up auto login. False if auto
                    login was setup for connection to succeed."""
         setupAutoLogin = False
         try:
-            self._connect(connectSFTPSession=connectSFTPSession)
+            self._connect(connectSFTPSession=connectSFTPSession, timeout=timeout)
 
         except AuthenticationException:
-            self._setupAutologin()
-            self._connect(connectSFTPSession=connectSFTPSession)
+            self._setupAutologin(timeout)
+            self._connect(connectSFTPSession=connectSFTPSession, timeout=timeout)
             setupAutoLogin = True
         return setupAutoLogin
 
-    def _setupAutologin(self):
-        """Setup autologin on the ssh server."""
+    def _setupAutologin(self, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):
+        """@brief Setup autologin on the ssh server.
+           @param timeout The connection timeout in seconds."""
 
         publicKeyFilename = "{}.pub".format(self._privateKeyFile)
         publicKeyFile = os.path.join(SSH.LOCAL_SSH_CONFIG_PATH, publicKeyFilename)
