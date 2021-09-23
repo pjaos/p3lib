@@ -1,3 +1,3 @@
 #!/bin/sh
 export PIPENV_VENV_IN_PROJECT=enabled 
-pipenv --three install
+python3.8 -m pipenv --python 3.8 install

@@ -2,12 +2,12 @@
 
 export PATH=$PATH:.
 
-pipenv run uio_test.py
-pipenv run python -m pytest  test_json_networking.py
-pipenv run python -m pytest -s test_netif.py
-pipenv run python -m pytest -s test_ssh.py
-pipenv run python -m pytest -s test_conduit.py
+python3.8 -m pipenv run uio_test.py
+python3.8 -m pipenv run python -m pytest  test_json_networking.py
+python3.8 -m pipenv run python -m pytest -s test_netif.py
+python3.8 -m pipenv run python -m pytest -s test_ssh.py
+python3.8 -m pipenv run python -m pytest -s test_conduit.py
 echo "Open browser and display static graphs using plotly."
-pipenv run netplotly_demo
+python3.8 -m pipenv run netplotly_demo
 echo "Open browser and show real time plots using bokeh."
-pipenv run time_series_plot_example
+python3.8 -m pipenv run time_series_plot_example
