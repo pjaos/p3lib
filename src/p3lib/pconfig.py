@@ -337,7 +337,7 @@ class ConfigManager(object):
                 configPath = configPath.strip()
                 #If no user is known then default to root user.
                 #This occurs on Omega2 startup apps.
-                if len(configPath) == 0 or configPath == '/':
+                if len(configPath) == 0 or configPath == '/' or configPath == '/root':
                     configPath="/root"
 
         return join( configPath, cfgFilename )
