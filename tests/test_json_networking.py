@@ -9,10 +9,9 @@ class ServerSessionHandler(JsonServerHandler):
     def handle(self):
         try:
             while True:
-                # self.request is the TCP socket connected to the client
-                self.data = self.request.recv(4096).strip()
-                # just send back the same data
-                self.request.sendall(self.data)
+                rxDict = self.rx()
+                self.tx(self.request, rxDict)
+
         except:
             pass
 
@@ -59,8 +58,8 @@ class TestClass:
 
     def test_tx_multiple(self):
         client = JSONClient(TestClass.HOST, TestClass.PORT)
-        #txThread = threading.Thread(target=self.txThread, args=(client,) )
-        #txThread.start()
+        txThread = threading.Thread(target=self.txThread, args=(client,) )
+        txThread.start()
         for id in range(TestClass.MIN_ID, TestClass.MAX_ID):
             txDict = {TestClass.ID_STR: id}
             client.tx(txDict)
