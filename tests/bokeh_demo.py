@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # A demo running a bokeh app showing real time plotting and a number of the bokeh widgets.
 
@@ -386,8 +387,8 @@ class BokehDemoA(TimeSeriesGUI):
         print("event.item={}".format(event.item))
 
     def _file_input_handler(self, attr, old, new):
-        #Browsers will not reveal the file path, as a security policy. There’s nothing we can do about that.
-        #The data from the file is returned
+        """Browsers will not reveal the file path, as a security policy. There’s nothing we can do about that.
+           The data from the file is returned."""
         textStr = base64.b64decode(new).decode()
         print("File contents={}".format(textStr))
 
