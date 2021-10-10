@@ -12,12 +12,13 @@ var searchData=
   ['allow_5freuse_5faddress_11',['allow_reuse_address',['../classp3lib_1_1json__networking_1_1JSONServer.html#af0e49f4ce6fba974c2ff426c0d4485d0',1,'p3lib.json_networking.JSONServer.allow_reuse_address()'],['../classp3lib_1_1ssh_1_1ForwardingServer.html#af0e49f4ce6fba974c2ff426c0d4485d0',1,'p3lib.ssh.ForwardingServer.allow_reuse_address()']]],
   ['allowempty_12',['allowEmpty',['../classp3lib_1_1pconfig_1_1ConfigAttrDetails.html#ac8ddb3bacdd7a35015f6573d6ea6eba4',1,'p3lib::pconfig::ConfigAttrDetails']]],
   ['apassword_13',['APASSWORD',['../classtest__json__networking_1_1TestClass.html#a050e9c033a81bc2cf01b536bb07c3b0e',1,'test_json_networking::TestClass']]],
-  ['appendcreatefile_14',['appendCreateFile',['../namespacep3lib_1_1helper.html#a9258ea737b62f7c8a6397b2e0a7e9734',1,'p3lib::helper']]],
-  ['appendrow_15',['appendRow',['../classp3lib_1_1bokeh__gui_1_1ReadOnlyTableWrapper.html#a121210640dbd9f50f876b48c45c18c2d',1,'p3lib::bokeh_gui::ReadOnlyTableWrapper']]],
-  ['areadavailable_16',['aReadAvailable',['../classp3lib_1_1conduit_1_1Conduit.html#a4eb530d04adaeffce8a1441b4c8a1399',1,'p3lib.conduit.Conduit.aReadAvailable()'],['../classp3lib_1_1conduit_1_1QueueConduit.html#a4eb530d04adaeffce8a1441b4c8a1399',1,'p3lib.conduit.QueueConduit.aReadAvailable()']]],
-  ['arglist_17',['argList',['../classp3lib_1_1bokeh__gui_1_1UpdateEvent.html#a0d4e8b26bafe8e9c61a8d35716dd6d81',1,'p3lib::bokeh_gui::UpdateEvent']]],
-  ['args_5fdict_5fkey_18',['ARGS_DICT_KEY',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a261d3e61e848d86ad22168ee4246e976',1,'p3lib::mqtt_rpc::MQTTRPCClient']]],
-  ['assets_5ffolder_19',['ASSETS_FOLDER',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a89e796e405417d15fb7a5782af578fae',1,'p3lib::netplotly::NetPlotly']]],
-  ['auth_20',['AUTH',['../classp3lib_1_1uio_1_1FACILITY.html#ab23b0509436c20d8ebf077b1c091e8fb',1,'p3lib::uio::FACILITY']]],
-  ['authpriv_21',['AUTHPRIV',['../classp3lib_1_1uio_1_1FACILITY.html#a387433d48b63934020aa0bc2a6c640f6',1,'p3lib::uio::FACILITY']]]
+  ['app_14',['app',['../classexample__multiple__app__server_1_1ExampleAppServer.html#a8005a39a7e82245ea5a5f534b1aaa285',1,'example_multiple_app_server::ExampleAppServer']]],
+  ['appendcreatefile_15',['appendCreateFile',['../namespacep3lib_1_1helper.html#a9258ea737b62f7c8a6397b2e0a7e9734',1,'p3lib::helper']]],
+  ['appendrow_16',['appendRow',['../classp3lib_1_1bokeh__gui_1_1ReadOnlyTableWrapper.html#a121210640dbd9f50f876b48c45c18c2d',1,'p3lib::bokeh_gui::ReadOnlyTableWrapper']]],
+  ['areadavailable_17',['aReadAvailable',['../classp3lib_1_1conduit_1_1Conduit.html#a4eb530d04adaeffce8a1441b4c8a1399',1,'p3lib.conduit.Conduit.aReadAvailable()'],['../classp3lib_1_1conduit_1_1QueueConduit.html#a4eb530d04adaeffce8a1441b4c8a1399',1,'p3lib.conduit.QueueConduit.aReadAvailable()']]],
+  ['arglist_18',['argList',['../classp3lib_1_1bokeh__gui_1_1UpdateEvent.html#a0d4e8b26bafe8e9c61a8d35716dd6d81',1,'p3lib::bokeh_gui::UpdateEvent']]],
+  ['args_5fdict_5fkey_19',['ARGS_DICT_KEY',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a261d3e61e848d86ad22168ee4246e976',1,'p3lib::mqtt_rpc::MQTTRPCClient']]],
+  ['assets_5ffolder_20',['ASSETS_FOLDER',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a89e796e405417d15fb7a5782af578fae',1,'p3lib::netplotly::NetPlotly']]],
+  ['auth_21',['AUTH',['../classp3lib_1_1uio_1_1FACILITY.html#ab23b0509436c20d8ebf077b1c091e8fb',1,'p3lib::uio::FACILITY']]],
+  ['authpriv_22',['AUTHPRIV',['../classp3lib_1_1uio_1_1FACILITY.html#a387433d48b63934020aa0bc2a6c640f6',1,'p3lib::uio::FACILITY']]]
 ];

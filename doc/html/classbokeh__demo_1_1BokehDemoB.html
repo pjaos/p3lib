@@ -119,7 +119,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Responsible for plotting data on tab 0 with no other tabs.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00399">399</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00400">400</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a169c6618d4a29936ec2639848d1f40b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a169c6618d4a29936ec2639848d1f40b6">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -161,13 +161,13 @@ Additional Inherited Members</h2></td></tr>
 <pre class="fragment">@Constructor</pre> 
 <p>Reimplemented from <a class="el" href="classbokeh__demo_1_1TimeSeriesGUI.html#a169c6618d4a29936ec2639848d1f40b6">TimeSeriesGUI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00402">402</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keyword">def </span>__init__(self, docTitle, topCtrlPanel=True, bokehPort=5001):</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@Constructor&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        super().__init__(docTitle, topCtrlPanel=topCtrlPanel, bokehPort=bokehPort)</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        self._statusAreaInput = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        self._figTable=[[]]</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00403">403</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">def </span>__init__(self, docTitle, topCtrlPanel=True, bokehPort=5001):</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@Constructor&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        super().__init__(docTitle, topCtrlPanel=topCtrlPanel, bokehPort=bokehPort)</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        self._statusAreaInput = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        self._figTable=[[]]</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -188,11 +188,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add an empty row to the figures.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00408">408</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">def </span>addRow(self):</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add an empty row to the figures.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        self._figTable.append([])</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00409">409</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">def </span>addRow(self):</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add an empty row to the figures.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        self._figTable.append([])</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -223,12 +223,12 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add a figure to the end of the current row of figues.
    @param fig The figure to add.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00412">412</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">def </span>addToRow(self, fig):</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add a figure to the end of the current row of figues.</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="stringliteral">           @param fig The figure to add.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        self._figTable[-1].append(fig)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00413">413</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">def </span>addToRow(self, fig):</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add a figure to the end of the current row of figues.</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="stringliteral">           @param fig The figure to add.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        self._figTable[-1].append(fig)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -259,19 +259,19 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief create a plot figure.
    @param doc The document to add the plot to.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00417">417</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keyword">def </span>createPlot(self, doc, ):</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief create a plot figure.</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        self._doc = doc</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        self._doc.title = self._docTitle</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        plotPanel = self._getPlotPanel()</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        self._tabList.append( Panel(child=plotPanel,  title=<span class="stringliteral">&quot;Plots&quot;</span>) )</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        self._doc.add_root( Tabs(tabs=self._tabList) )</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        self._doc.add_periodic_callback(self._update, 100)</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00418">418</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">def </span>createPlot(self, doc, ):</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief create a plot figure.</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        self._doc = doc</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        self._doc.title = self._docTitle</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        plotPanel = self._getPlotPanel()</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        self._tabList.append( Panel(child=plotPanel,  title=<span class="stringliteral">&quot;Plots&quot;</span>) )</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        self._doc.add_root( Tabs(tabs=self._tabList) )</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        self._doc.add_periodic_callback(self._update, 100)</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -288,7 +288,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00436">436</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00437">437</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
 
 </div>
 </div>
