@@ -346,7 +346,7 @@ class ReadOnlyTableWrapper(object):
         self._dataTable = DataTable(source=self._source, columns=self._columns, height=height, height_policy=heightPolicy, frozen_rows=-showLastRows, index_position=index_position)
 
     def getWidget(self):
-        """@brief return an instance of the table widget to be added to a layout."""
+        """@brief Return an instance of the DataTable widget to be added to a layout."""
         return self._dataTable
 
     def setRows(self, rowList):
@@ -423,3 +423,66 @@ class ShutdownButtonWrapper(object):
     def getWidget(self):
         """@brief return an instance of the shutdown button widget to be added to a layout."""
         return self._alertButtonWrapper.getWidget()
+
+class SingleAppServer(object):
+    """@brief Responsible for running a bokeh server containing a single app.
+              The server may be started by calling either a blocking or a non
+              blocking method. This provides a basic parennt class with
+              the freedom to define your app as required."""
+
+    @staticmethod
+    def GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress="localhost"):
+        """@brief Get the first unused above the base port.
+           @param basePort The port to start checking for available ports.
+           @param maxPort The highest port number to check.
+           @param bindAddress The address to bind to.
+           @return The TCP port or -1 if no port is available."""
+        port = basePort
+        while True:
+            try:
+                sock = socket.socket()
+                sock.bind((bindAddress, port))
+                sock.close()
+                break
+            except:
+                port = port + 1
+                if port > maxPort:
+                    port = -1
+                    break
+
+        return port
+
+    def __init__(self, bokehPort=0):
+        """@Constructor
+           @param bokehPort The TCP port to run the server on. If left at the default
+                  of 0 then a spare TCP port will be used.
+           """
+        if bokehPort == 0:
+            bokehPort = SingleAppServer.GetNextUnusedPort()
+        self._bokehPort=bokehPort
+
+    def getServerPort(self):
+        """@return The bokeh server port."""
+        return self._bokehPort
+
+    def runBlockingBokehServer(self, appMethod):
+        """@brief Run the bokeh server. This method will only return when the server shuts down.
+           @param appMethod The method called to create the app."""
+        apps = {'/': Application(FunctionHandler(appMethod))}
+        #As this gets run in a thread we need to start an event loop
+        evtLoop = asyncio.new_event_loop()
+        asyncio.set_event_loop(evtLoop)
+        self._server = Server(apps, port=self._bokehPort)
+        self._server.start()
+        #Show the server in a web browser window
+        self._server.io_loop.add_callback(self._server.show, "/")
+        self._server.io_loop.start()
+
+    def runNonBlockingBokehServer(self, appMethod):
+        """@brief Run the bokeh server in a separate thread. This is useful
+                  if the we want to load realtime data into the plot from the
+                  main thread.
+           @param appMethod The method called to create the app."""
+        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethod,))
+        self._serverThread.setDaemon(True)
+        self._serverThread.start()
