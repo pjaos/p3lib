@@ -7,6 +7,7 @@ import  itertools
 import  threading
 from    functools import partial
 import  asyncio
+import  socket
 
 from bokeh.server.server import Server
 from bokeh.application import Application
