@@ -19,6 +19,7 @@ from bokeh.models import Panel
 from bokeh.layouts import column, row, gridplot
 from bokeh.plotting import figure, ColumnDataSource
 from bokeh.models import DataTable, TableColumn, Div
+from bokeh.io.output import output_file
 
 class ExampleAppServer(SingleAppServer):
     """@brief An example of a bokeh server running a single app with specialised functionality."""
@@ -41,6 +42,7 @@ class ExampleAppServer(SingleAppServer):
            @param doc The document to add the plot to."""
         self._doc = doc
         self._doc.title = self._pageTitle
+        #self._doc.theme = "dark_minimal"
         # The status bar can be added to the bottom of the window showing status information.
         self._statusBar = StatusBarWrapper()
         #Setup the callback through which all updates to the GUI will be performed.
@@ -60,13 +62,26 @@ class ExampleAppServer(SingleAppServer):
         rows.append(["10","12","13","14",15,16])
         rows.append(["","","30","40",50,60])
         infoTable.setRows(rows)
-        infoTable.getWidget().height=100
         infoTable.getWidget().header_row=False
+        infoTable.getWidget().height=50
         # Add the title dic above the table
         titledTable = column(div, infoTable.getWidget(), sizing_mode="scale_both")
 
         #Add table at the top of the page
         self._figTable.append([titledTable])
+
+    def _getTable(self):
+        infoTable = ReadOnlyTableWrapper(["1", "2"])
+        rows = []
+        rows.append(["MIN",     "1"])
+        rows.append(["MAX",     "2"])
+        rows.append(["RANGE",   "3"])
+        rows.append(["AVG",     "4"])
+        infoTable.setRows(rows)
+        infoTable.getWidget().width=200
+        infoTable.getWidget().sizing_mode = 'stretch_height'
+        infoTable.getWidget().header_row=False
+        return infoTable.getWidget()
 
     def _update(self):
         """@brief called periodically to update the plot traces."""
@@ -75,17 +90,22 @@ class ExampleAppServer(SingleAppServer):
             self._addTableHeader()
 
             #Single column of plots the width of the page
-            self._figTable.append([self._getPlotPanel(75)])
-            self._figTable.append([self._getPlotPanel(75)])
-            self._figTable.append([self._getPlotPanel(200)])
-            self._figTable.append([self._getPlotPanel(75)])
-            self._figTable.append([self._getPlotPanel(75)])
-            self._figTable.append([self._getPlotPanel(75)])
+            t = self._getTable()
+            r = row(self._getPlotPanel(), t, height=200)
+            self._figTable.append([r])
+            t = self._getTable()
+            r = row(self._getPlotPanel(), t, height=200)
+            self._figTable.append([r])
+            t = self._getTable()
+            r = row(self._getPlotPanel(), t, height=200)
+            self._figTable.append([r])
+
             self._figTable.append([self._statusBar.getWidget()])
 
             self._statusBar.setStatus("STATUS BAR TEXT **************************************************************************************************************************************")
 
-            self._doc.add_root( gridplot( children = self._figTable, sizing_mode = 'scale_width', toolbar_location="above") )
+            gp = gridplot( children = self._figTable, sizing_mode='stretch_width', toolbar_location="above")
+            self._doc.add_root( gp )
 
             # Only init the app once
             self._appInitComplete = True
@@ -95,7 +115,7 @@ class ExampleAppServer(SingleAppServer):
             self._statusBar.setStatus("Update {}".format(self._updateCount))
             self._updateCount = self._updateCount + 1
 
-    def _getPlotPanel(self, height):
+    def _getPlotPanel(self):
         """@brief Add tab that shows plot data updates."""
         # Set up data
         N = 200
@@ -106,7 +126,7 @@ class ExampleAppServer(SingleAppServer):
         # Set up plot
         plot = figure(title="my sine wave",
                       x_range=[0, 4*np.pi], y_range=[-2.5, 2.5],
-                      height=height)
+                      sizing_mode = 'stretch_both')
 
         plot.line('x', 'y', source=source, line_width=3, line_alpha=0.6)
 
@@ -133,7 +153,6 @@ def main():
         delaySecs = 10
         while True:
             exampleAppServer = ExampleAppServer("PAGE TITLE")
-#            exampleAppServer.runBlockingBokehServer(exampleAppServer.app)
             exampleAppServer.runNonBlockingBokehServer(exampleAppServer.app)
             uio.info("Started server on port {}".format(exampleAppServer.getServerPort()))
             sleep(delaySecs)
