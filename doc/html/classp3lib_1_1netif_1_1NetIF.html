@@ -99,6 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7f5026b0a142ee7669e1f19e2cd26169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebc13f419aa199075425f3670af1b5ce"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1netif_1_1NetIF.html#aebc13f419aa199075425f3670af1b5ce">getLinuxIFDict</a> (self, includeNoIPIF=False)</td></tr>
 <tr class="separator:aebc13f419aa199075425f3670af1b5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80adcd1184a5313f4bb78ea366273582"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1netif_1_1NetIF.html#a80adcd1184a5313f4bb78ea366273582">getLocalNetworkAddress</a> (self)</td></tr>
+<tr class="separator:a80adcd1184a5313f4bb78ea366273582"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -244,24 +246,24 @@ Static Public Attributes</h2></td></tr>
    @return A dict of the IP network interfaces on this platform.
        key   = name of interface
        value = A list of &lt;IP ADDRESS&gt;/&lt;NET MASK BIT COUNT&gt;</pre> 
-<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00080">80</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">def </span>getIFDict(self, readNow=False, includeNoIPIF = False):</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@param readNow If True the read the current network interface </span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">                          state now regardless of wether we have read it previously.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">                          If False and we have read the state of the network </span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">                          interfaces previously then return the previous state.</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">           @return A dict of the IP network interfaces on this platform.</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">                       key   = name of interface</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral">                       value = A list of &lt;IP ADDRESS&gt;/&lt;NET MASK BIT COUNT&gt;&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> self._ifDict <span class="keywordflow">and</span> <span class="keywordflow">not</span> readNow:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">return</span> self._ifDict</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                   </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span> self._osName.find(NetIF.LINUX_OS_NAME) &gt;= 0 :</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            self._ifDict = self.getLinuxIFDict(includeNoIPIF=includeNoIPIF)</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                   </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> self._ifDict</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    </div>
+<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00091">91</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">def </span>getIFDict(self, readNow=False, includeNoIPIF = False):</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@param readNow If True the read the current network interface </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">                          state now regardless of wether we have read it previously.</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">                          If False and we have read the state of the network </span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">                          interfaces previously then return the previous state.</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">           @return A dict of the IP network interfaces on this platform.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="stringliteral">                       key   = name of interface</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">                       value = A list of &lt;IP ADDRESS&gt;/&lt;NET MASK BIT COUNT&gt;&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">if</span> self._ifDict <span class="keywordflow">and</span> <span class="keywordflow">not</span> readNow:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">return</span> self._ifDict</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                   </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">if</span> self._osName.find(NetIF.LINUX_OS_NAME) &gt;= 0 :</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            self._ifDict = self.getLinuxIFDict(includeNoIPIF=includeNoIPIF)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                   </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> self._ifDict</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -293,17 +295,17 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Get the IP address of the network interface on this machine given the interface name.
    @param ifName The name of the interface.
    @return The IP address oft heinterface of None if unknown.</pre> 
-<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00190">190</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keyword">def </span>getIFIPAddress(self, ifName):</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the IP address of the network interface on this machine given the interface name.</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="stringliteral">           @param ifName The name of the interface.</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="stringliteral">           @return The IP address oft heinterface of None if unknown.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        ifDetails = self._getIFDetails(ifName)</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">if</span> ifDetails <span class="keywordflow">and</span> len(ifDetails) == 2:</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">return</span> ifDetails[0]</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    </div>
+<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00201">201</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">def </span>getIFIPAddress(self, ifName):</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the IP address of the network interface on this machine given the interface name.</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="stringliteral">           @param ifName The name of the interface.</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="stringliteral">           @return The IP address oft heinterface of None if unknown.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        ifDetails = self._getIFDetails(ifName)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">if</span> ifDetails <span class="keywordflow">and</span> len(ifDetails) == 2:</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">return</span> ifDetails[0]</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -338,35 +340,35 @@ Static Public Attributes</h2></td></tr>
    key == Interface name
    value = Interface address.
    @return The name of the local network interface or None if not found.</pre> 
-<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00146">146</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">def </span>getIFName(self, ipAddress):</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the name of the interface which the ip address can be reached directly (not via an IP gateway)</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="stringliteral">           @param ipAddress The IP address that should be out on an interface.</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="stringliteral">           @return The dict entry for the interface.</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="stringliteral">                   key == Interface name</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="stringliteral">                   value = Interface address.</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="stringliteral">           @return The name of the local network interface or None if not found.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        ifDict = self.getIFDict()</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        ifNames = list(ifDict.keys())</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        ifNames.sort()</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordflow">for</span> ifName <span class="keywordflow">in</span> ifNames:</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            ipDetailsList = ifDict[ifName]</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">for</span> ipDetails <span class="keywordflow">in</span> ipDetailsList:</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                elems = ipDetails.split(NetIF.IP_NETMASK_SEP)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">if</span> len(elems) == 2:</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    ipAddr     = elems[0]</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                    netMaskBits= int(elems[1])</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    netMask = NetIF.BitCountToNetMask(netMaskBits)</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                    ipAddrInt  = NetIF.IPStr2int(ipAddr)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                    netMaskInt = NetIF.IPStr2int(netMask)</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                    network = ipAddrInt&amp;netMaskInt</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                    networkStr = socket.inet_ntoa(struct.pack(<span class="stringliteral">&quot;!I&quot;</span>, network))</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                    netMaskInt=24</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                    <span class="keywordflow">if</span> NetIF.IsAddressInNetwork(ipAddress, <span class="stringliteral">&quot;%s/%s&quot;</span> % ( networkStr, netMaskInt) ):</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                        <span class="keywordflow">return</span> ifName</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    </div>
+<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00157">157</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">def </span>getIFName(self, ipAddress):</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the name of the interface which the ip address can be reached directly (not via an IP gateway)</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="stringliteral">           @param ipAddress The IP address that should be out on an interface.</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="stringliteral">           @return The dict entry for the interface.</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="stringliteral">                   key == Interface name</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="stringliteral">                   value = Interface address.</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="stringliteral">           @return The name of the local network interface or None if not found.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        ifDict = self.getIFDict()</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        ifNames = list(ifDict.keys())</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        ifNames.sort()</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">for</span> ifName <span class="keywordflow">in</span> ifNames:</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            ipDetailsList = ifDict[ifName]</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">for</span> ipDetails <span class="keywordflow">in</span> ipDetailsList:</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                elems = ipDetails.split(NetIF.IP_NETMASK_SEP)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <span class="keywordflow">if</span> len(elems) == 2:</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                    ipAddr     = elems[0]</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                    netMaskBits= int(elems[1])</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    netMask = NetIF.BitCountToNetMask(netMaskBits)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    ipAddrInt  = NetIF.IPStr2int(ipAddr)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    netMaskInt = NetIF.IPStr2int(netMask)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                    network = ipAddrInt&amp;netMaskInt</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                    networkStr = socket.inet_ntoa(struct.pack(<span class="stringliteral">&quot;!I&quot;</span>, network))</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                    netMaskInt=24</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                    <span class="keywordflow">if</span> NetIF.IsAddressInNetwork(ipAddress, <span class="stringliteral">&quot;%s/%s&quot;</span> % ( networkStr, netMaskInt) ):</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                        <span class="keywordflow">return</span> ifName</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -398,18 +400,18 @@ Static Public Attributes</h2></td></tr>
 <pre class="fragment">@brief Get the netmask of the network interface on this machine given the interface name.
    @param ifName The name of the interface.
    @return The IP address of the interface of None if unknown.</pre> 
-<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00200">200</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">def </span>getIFNetmask(self, ifName):</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the netmask of the network interface on this machine given the interface name.</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="stringliteral">           @param ifName The name of the interface.</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="stringliteral">           @return The IP address of the interface of None if unknown.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        ifDetails = self._getIFDetails(ifName)</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">if</span> ifDetails <span class="keywordflow">and</span> len(ifDetails) == 2:</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            netMaskBitCount = int(ifDetails[1])</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">return</span> NetIF.BitCountToNetMask(netMaskBitCount)</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    </div>
+<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00211">211</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">def </span>getIFNetmask(self, ifName):</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the netmask of the network interface on this machine given the interface name.</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="stringliteral">           @param ifName The name of the interface.</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="stringliteral">           @return The IP address of the interface of None if unknown.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        ifDetails = self._getIFDetails(ifName)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">if</span> ifDetails <span class="keywordflow">and</span> len(ifDetails) == 2:</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            netMaskBitCount = int(ifDetails[1])</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keywordflow">return</span> NetIF.BitCountToNetMask(netMaskBitCount)</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -443,20 +445,53 @@ Static Public Attributes</h2></td></tr>
    @return A dict of the IP network interfaces on this platform.
        key   = name of interface
        value = A list of &lt;IP ADDRESS&gt;/&lt;NET MASK BIT COUNT&gt;</pre> 
-<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00097">97</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">def </span>getLinuxIFDict(self, includeNoIPIF = False):</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get a dic that contains the local interface details.</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="stringliteral">           @return A dict of the IP network interfaces on this platform.</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="stringliteral">                       key   = name of interface</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="stringliteral">                       value = A list of &lt;IP ADDRESS&gt;/&lt;NET MASK BIT COUNT&gt;&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        netIFDict = {}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        ifName = <span class="keywordtype">None</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        cmdOutput = check_output([<span class="stringliteral">&#39;/sbin/ip&#39;</span>,<span class="stringliteral">&#39;a&#39;</span>] ).decode()</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        netIFDict = self._getLinuxIFDict(cmdOutput, includeNoIPIF=includeNoIPIF)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">return</span> netIFDict</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00108">108</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">def </span>getLinuxIFDict(self, includeNoIPIF = False):</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get a dic that contains the local interface details.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="stringliteral">           @param includeNoIPIF If True then interfaces with no IPaddress are included in the results.</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="stringliteral">           @return A dict of the IP network interfaces on this platform.</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="stringliteral">                       key   = name of interface</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="stringliteral">                       value = A list of &lt;IP ADDRESS&gt;/&lt;NET MASK BIT COUNT&gt;&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        netIFDict = {}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        ifName = <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        cmdOutput = check_output([<span class="stringliteral">&#39;/sbin/ip&#39;</span>,<span class="stringliteral">&#39;a&#39;</span>] ).decode()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        netIFDict = self._getLinuxIFDict(cmdOutput, includeNoIPIF=includeNoIPIF)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> netIFDict</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a80adcd1184a5313f4bb78ea366273582"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80adcd1184a5313f4bb78ea366273582">&#9670;&nbsp;</a></span>getLocalNetworkAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def getLocalNetworkAddress </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Get the IP address of the local interface that has the default route.
+  The IP address will be the source IP address for packets are sent over the default route from this machine.
+  This works on Windows, Linux, Android</pre> 
+<p class="definition">Definition at line <a class="el" href="netif_8py_source.html#l00080">80</a> of file <a class="el" href="netif_8py_source.html">netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">def </span>getLocalNetworkAddress(self):</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get the IP address of the local interface that has the default route.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">                  The IP address will be the source IP address for packets are sent over the default route from this machine.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">                  This works on Windows, Linux, Android&quot;&quot;&quot;</span> </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        sock.connect((<span class="stringliteral">&#39;&lt;broadcast&gt;&#39;</span>, 0))</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        netIPAddr = sock.getsockname()[0]</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        sock.close()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">return</span> netIPAddr</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

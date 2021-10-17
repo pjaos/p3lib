@@ -7,5 +7,5 @@ digraph "SingleAppServer"
   Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="object",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="ExampleAppServer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classexample__multiple__app__server_1_1ExampleAppServer.html",tooltip=" "];
+  Node3 [label="ExampleAppServer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classexample__run__multiple__bokeh__servers_1_1ExampleAppServer.html",tooltip=" "];
 }

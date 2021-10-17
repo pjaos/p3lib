@@ -85,6 +85,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5fbaaa240a93cc1fdd2d012cd2f94e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16ec17c9af82248d0f23f6f5c1ccbe5e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest__netif_1_1TestClass.html#a16ec17c9af82248d0f23f6f5c1ccbe5e">test_getIFNetmask</a> (self)</td></tr>
 <tr class="separator:a16ec17c9af82248d0f23f6f5c1ccbe5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6e4687453d07f7801dea4bb8912b44"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest__netif_1_1TestClass.html#afb6e4687453d07f7801dea4bb8912b44">test_getLocalNetworkAddress</a> (self)</td></tr>
+<tr class="separator:afb6e4687453d07f7801dea4bb8912b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc65cbfafef679334a18c0c7fe9edddf"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest__netif_1_1TestClass.html#adc65cbfafef679334a18c0c7fe9edddf">test_Int2IPStr_0</a> (self)</td></tr>
 <tr class="separator:adc65cbfafef679334a18c0c7fe9edddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dd6648104a673ac32426293e0300782"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtest__netif_1_1TestClass.html#a3dd6648104a673ac32426293e0300782">test_Int2IPStr_f</a> (self)</td></tr>
@@ -175,10 +177,9 @@ Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="test__netif_8py_source.html#l00070">70</a> of file <a class="el" href="test__netif_8py_source.html">test_netif.py</a>.</p>
 <div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">def </span>test_getIFIPAddress(self):</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        netif = NetIF()</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">#This requires the machine has an interface named MACHINE_NET_IF with the</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">#IP addrress 192.168.0.248</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        ipAddr = netif.getIFIPAddress(NET_IF)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        assert( ipAddr == IP_ADDRESS )</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        ipAddr = netif.getIFIPAddress(NET_IF)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        assert( ipAddr == IP_ADDRESS )</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -234,6 +235,31 @@ Public Member Functions</h2></td></tr>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        nm = netif.getIFNetmask(NET_IF)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        assert( nm == NETMASK )</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afb6e4687453d07f7801dea4bb8912b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb6e4687453d07f7801dea4bb8912b44">&#9670;&nbsp;</a></span>test_getLocalNetworkAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def test_getLocalNetworkAddress </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="test__netif_8py_source.html#l00075">75</a> of file <a class="el" href="test__netif_8py_source.html">test_netif.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">def </span>test_getLocalNetworkAddress(self):</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        netif = NetIF()</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ipAddr = netif.getLocalNetworkAddress()</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        assert( ipAddr == IP_ADDRESS )</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        </div>
 </div><!-- fragment -->
 </div>
 </div>
