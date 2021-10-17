@@ -10,6 +10,8 @@ from   getpass import getpass, getuser
 from   time import strftime, localtime
 from   datetime import datetime
         
+from   p3lib.netif import NetIF
+
 class UIO(object):
     """@brief responsible for user output and input via stdout/stdin"""
 
@@ -358,10 +360,18 @@ class UIO(object):
             # syslog will throw an error if it finds any
             if "\x00" in aMsg:
                 aMsg=aMsg.replace("\x00", "")
+                
+            #Attempt to get the src IP address for syslog messages.
+            srcIP = ""
+            try:
+                netIF = NetIF()
+                srcIP = netIF.getLocalNetworkAddress()
+            except:
+                pass
 
             try:
                 #send aMsg to syslog with the current process ID and username
-                syslog(pri, "%d %s: %s" % (os.getpid(), str(self.getCurrentUsername()), str(aMsg) ), host=self._sysLogHost )
+                syslog(pri, "%s %d %s: %s" % (srcIP, os.getpid(), str(self.getCurrentUsername()), str(aMsg) ), host=self._sysLogHost )
             #Ignore if se can't resolve address. We don't really syslog want errors to stop the user interface
             except:
                 pass
