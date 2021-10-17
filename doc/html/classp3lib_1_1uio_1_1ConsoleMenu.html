@@ -96,7 +96,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><pre class="fragment">@brief Responsible for presenting a list of options to the user on a
           console/terminal interface and allowing the user to select 
           the options as required.</pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00369">369</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00379">379</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2798afdc6591a71bc4cc49817aabb0cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2798afdc6591a71bc4cc49817aabb0cc">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -125,13 +125,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Constructor
    @param uio A UIO instance.</pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00373">373</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">def </span>__init__(self, uio):</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="stringliteral">           @param uio A UIO instance.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        self._uio = uio</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        self._menuList = []</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        </div>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00383">383</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="keyword">def </span>__init__(self, uio):</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;<span class="stringliteral">           @param uio A UIO instance.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        self._uio = uio</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        self._menuList = []</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -177,14 +177,14 @@ Public Member Functions</h2></td></tr>
    @param menuStr The String displayed as the menu option.
    @param menuMethod The method to be called when this option is selected.
    @param args An optional list or tuple of arguments to pass to the method.</pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00379">379</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">def </span>add(self, menuStr, menuMethod, args=None):</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add a menu option.</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="stringliteral">           @param menuStr The String displayed as the menu option.</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="stringliteral">           @param menuMethod The method to be called when this option is selected.</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="stringliteral">           @param args An optional list or tuple of arguments to pass to the method.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;        self._menuList.append( (menuStr, menuMethod, args) )</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;        </div>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00389">389</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keyword">def </span>add(self, menuStr, menuMethod, args=None):</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add a menu option.</span></div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;<span class="stringliteral">           @param menuStr The String displayed as the menu option.</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="stringliteral">           @param menuMethod The method to be called when this option is selected.</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="stringliteral">           @param args An optional list or tuple of arguments to pass to the method.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        self._menuList.append( (menuStr, menuMethod, args) )</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -215,28 +215,28 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Show the menu to the user and allow the user to interact with it.
    @param showSelectedOption If True then the option selected is displayed before executing the method.</pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00386">386</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keyword">def </span>show(self, showSelectedOption=False):</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Show the menu to the user and allow the user to interact with it.</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="stringliteral">           @param showSelectedOption If True then the option selected is displayed before executing the method.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;            selectorId = 1</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;            <span class="keywordflow">for</span> menuStr, _, _ <span class="keywordflow">in</span> self._menuList:</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                self._uio.info(<span class="stringliteral">&quot;{: &gt;2}: {}&quot;</span>.format(selectorId, menuStr))</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                selectorId = selectorId + 1</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;            selectedID = self._uio.getIntInput(<span class="stringliteral">&quot;Select a menu option&quot;</span>)</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            <span class="keywordflow">if</span> selectedID &gt;= 1 <span class="keywordflow">and</span> selectedID &lt;= len(self._menuList):</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                menuStr, selectedMethod, args = self._menuList[selectedID-1]</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                <span class="keywordflow">if</span> showSelectedOption:</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;                    self._uio.info(menuStr)</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> args:</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;                    selectedMethod()</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                    selectedMethod(*args)</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="comment"># -------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment"># @brief An implementation to allow syslog messages to be generated.</span></div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="comment"># </span></div>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00396">396</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keyword">def </span>show(self, showSelectedOption=False):</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Show the menu to the user and allow the user to interact with it.</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="stringliteral">           @param showSelectedOption If True then the option selected is displayed before executing the method.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            selectorId = 1</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;            <span class="keywordflow">for</span> menuStr, _, _ <span class="keywordflow">in</span> self._menuList:</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;                self._uio.info(<span class="stringliteral">&quot;{: &gt;2}: {}&quot;</span>.format(selectorId, menuStr))</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                selectorId = selectorId + 1</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;            selectedID = self._uio.getIntInput(<span class="stringliteral">&quot;Select a menu option&quot;</span>)</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;            <span class="keywordflow">if</span> selectedID &gt;= 1 <span class="keywordflow">and</span> selectedID &lt;= len(self._menuList):</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;                menuStr, selectedMethod, args = self._menuList[selectedID-1]</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;                <span class="keywordflow">if</span> showSelectedOption:</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;                    self._uio.info(menuStr)</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> args:</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                    selectedMethod()</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                    selectedMethod(*args)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="comment"># -------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment"># @brief An implementation to allow syslog messages to be generated.</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment"># </span></div>
 </div><!-- fragment -->
 </div>
 </div>
