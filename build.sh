@@ -1,6 +1,15 @@
 #!/bin/sh
-rm -rf dist
-rm -rf doc
+
+set -e
+
+if [ -d "dist" ]; then
+    sudo rm -rf dist
+fi
+
+if [ -d "doc" ]; then
+    sudo rm -rf doc
+fi
+
 doxygen
 python3 -m pip install --upgrade build
 python3 -m build
