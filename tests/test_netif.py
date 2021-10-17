@@ -69,7 +69,11 @@ class TestClass:
 
     def test_getIFIPAddress(self):
         netif = NetIF()
-        #This requires the machine has an interface named MACHINE_NET_IF with the
-        #IP addrress 192.168.0.248
         ipAddr = netif.getIFIPAddress(NET_IF)
         assert( ipAddr == IP_ADDRESS )
+        
+    def test_getLocalNetworkAddress(self):
+        netif = NetIF()
+        ipAddr = netif.getLocalNetworkAddress()
+        assert( ipAddr == IP_ADDRESS )
+        

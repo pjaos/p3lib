@@ -77,6 +77,17 @@ class NetIF(object):
         
         self._ifDict = None
         
+    def getLocalNetworkAddress(self):
+        """@brief Get the IP address of the local interface that has the default route.
+                  The IP address will be the source IP address for packets are sent over the default route from this machine.
+                  This works on Windows, Linux, Android""" 
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        sock.connect(('<broadcast>', 0))
+        netIPAddr = sock.getsockname()[0]
+        sock.close()
+        return netIPAddr
+
     def getIFDict(self, readNow=False, includeNoIPIF = False):
         """@param readNow If True the read the current network interface 
                           state now regardless of wether we have read it previously.
