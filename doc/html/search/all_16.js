@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['warn_462',['warn',['../classp3lib_1_1uio_1_1UIO.html#a32632feeba36506bc455ad31ab73660f',1,'p3lib::uio::UIO']]],
-  ['warning_463',['WARNING',['../classp3lib_1_1uio_1_1PRIORITY.html#a6d56d31dc98daa7e6566f14350e580f9',1,'p3lib::uio::PRIORITY']]]
+  ['valid_5fdirs_509',['VALID_DIRS',['../classp3lib_1_1smotor_1_1SMotor.html#a00c9d7c171cc03b281f91d3ff736c1d4',1,'p3lib::smotor::SMotor']]],
+  ['valid_5fstep_5fmodes_510',['VALID_STEP_MODES',['../classp3lib_1_1smotor_1_1SMotor.html#ad05c10e4aa656a8c9a8ec46c732ac83e',1,'p3lib::smotor::SMotor']]],
+  ['value_511',['value',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'p3lib.bokeh_gui.TimeSeriesPoint.value()'],['../classbokeh__demo_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'bokeh_demo.TimeSeriesPoint.value()']]]
 ];
