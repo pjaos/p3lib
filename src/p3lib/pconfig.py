@@ -286,7 +286,7 @@ class ConfigManager(object):
 
     def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
         """@brief Constructor
-           @param uio A UIO (User Inpu Output) instance.
+           @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
            @param cfgFilename   The name of the config file.
            @param defaultConfig A default config instance containg all the default key-value pairs.
            @param addDotToFilename If True (default) then a . is added to the start of the filename. This hides the file in normal cases.
@@ -307,6 +307,18 @@ class ConfigManager(object):
 
         self._cfgFile = self._getConfigFile()
         self._modifiedTime = self._getModifiedTime()
+        
+    def _info(self, msg):
+        """@brief Display an info message if we have a UIO instance.
+           @param msg The message to be displayed."""
+        if self._uio:
+            self._uio.info(msg)
+
+    def _debug(self, msg):
+        """@brief Display a debug message if we have a UIO instance.
+           @param msg The message to be displayed."""
+        if self._uio:
+            self._uio.debug(msg)
 
     def _getConfigFile(self):
         """@brief Get the config file."""
@@ -380,8 +392,7 @@ class ConfigManager(object):
           else:
               json.dump(dictToSave, open(self._cfgFile, "w"), sort_keys=True)
 
-          if self._uio:
-              self._uio.info("Saved config to %s" % (self._cfgFile) )
+          self._info("Saved config to %s" % (self._cfgFile) )
 
       except IOError as i:
         raise IOError(i.errno, 'Failed to write file \'%s\': %s'
@@ -401,8 +412,7 @@ class ConfigManager(object):
             fileN = basename(self._cfgFile)
             rootCfgFile = join("/root", fileN)
             copyfile(self._cfgFile, rootCfgFile)
-            if self._uio:
-                self._uio.info("Also updated service list in %s" % (rootCfgFile))
+            self._info("Also updated service list in %s" % (rootCfgFile))
 
     def _getDict(self):
       """@brief Load dict from file
@@ -425,7 +435,6 @@ class ConfigManager(object):
 
     def load(self, showLoadedMsg=True):
         """@brief Load the config."""
-        missingKey= False
 
         if not isfile(self._cfgFile):
 
@@ -444,11 +453,11 @@ class ConfigManager(object):
             for key in loadedConfigKeys:
                 if key in self._configDict:
                     self._configDict[key] = loadedConfig[key]
-                    self._uio.debug("{} = {}".format(key, self._configDict[key]))
+                    self._debug("{} = {}".format(key, self._configDict[key]))
                 else:
-                    self._uio.debug("----------> DROPPED FROM CONFIG: {} = {}".format(key, loadedConfig[key]))
+                    self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(key, loadedConfig[key]))
 
-        self._uio.info("Loaded config from %s" % (self._cfgFile) )
+        self._info("Loaded config from %s" % (self._cfgFile) )
 
     def inputFloat(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):
         """@brief Input a float value into the config.
@@ -641,21 +650,6 @@ class ConfigManager(object):
 
         self.store()
 
-    def show(self, uio):
-        """@brief Show the state of configuration parameters.
-           @param uio The UIO instance to use to show the parameters."""
-        attrList = self.getAttrList()
-        attrList.sort()
-
-        maxAttLen=0
-        for attr in attrList:
-            if len(attr) > maxAttLen:
-                maxAttLen=len(attr)
-
-        for attr in attrList:
-            padding = " "*(maxAttLen-len(attr))
-            uio.info("%s%s = %s" % (attr, padding, self.getAttr(attr)) )
-
     def getConfigDict(self):
         """@return the dict holding the configuration."""
         return self._configDict
@@ -664,12 +658,12 @@ class ConfigManager(object):
         """@brief Set the default configuration by removing the existing configuration file and re loading."""
         configFile = self._getConfigFile()
         if isfile(configFile):
-            self._uio.info(configFile)
+            self._info(configFile)
             deleteFile = self._uio.getBoolInput("Are you sure you wish to delete the above file [y]/[n]")
             if deleteFile:
                 os.remove(configFile)
-                self._uio.info("{} has been removed.".format(configFile))
-                self._uio.info("The default configuration will be loaded next time..")
+                self._info("{} has been removed.".format(configFile))
+                self._info("The default configuration will be loaded next time..")
 
     def configure(self, editConfigMethod):
         """@brief A helper method to edit the dictionary config.
@@ -696,17 +690,16 @@ class ConfigManager(object):
     def show(self):
         """@brief A helper method to show the dictionary config to the user.
            @return A dictionary mapping the attribute ID's (keys) to dictionary keys (values)."""
-        maxIDLen = 3
         maxKeyLen=10
         for key in self._configDict:
             if len(key) > maxKeyLen:
                 maxKeyLen = len(key)
-        self._uio.info("ID  PARAMETER"+" "*(maxKeyLen-8)+" VALUE")
+        self._info("ID  PARAMETER"+" "*(maxKeyLen-8)+" VALUE")
         id=1
         idKeyDict = {}
         for key in self._configDict:
             idKeyDict[id]=key
-            self._uio.info("{:<3d} {:<{}} {}".format(id, key, maxKeyLen+1, self._configDict[key]))
+            self._info("{:<3d} {:<{}} {}".format(id, key, maxKeyLen+1, self._configDict[key]))
             id=id+1
         return idKeyDict
 
