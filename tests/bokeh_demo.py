@@ -257,7 +257,7 @@ class BokehDemoA(TimeSeriesGUI):
         """@brief Add tab that shows some widgets."""
         messageButton = Button(label="Call JS alert(msg)", button_type="success", width=50)
         #This doen't seem very useful as clicking a button to display a dialog is not something
-        #thats particularly useful but it shows how javascripot is called.
+        #thats particularly useful but it shows how javascript is called.
         msg = "A message from Python"
         source = {"msg": msg}
         callback1 = CustomJS(args=dict(source=source), code="""
