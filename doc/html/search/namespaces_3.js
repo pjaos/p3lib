@@ -1,20 +1,4 @@
 var searchData=
 [
-  ['bokeh_5fgui_573',['bokeh_gui',['../namespacep3lib_1_1bokeh__gui.html',1,'p3lib']]],
-  ['boot_5fmanager_574',['boot_manager',['../namespacep3lib_1_1boot__manager.html',1,'p3lib']]],
-  ['conduit_575',['conduit',['../namespacep3lib_1_1conduit.html',1,'p3lib']]],
-  ['database_5fif_576',['database_if',['../namespacep3lib_1_1database__if.html',1,'p3lib']]],
-  ['helper_577',['helper',['../namespacep3lib_1_1helper.html',1,'p3lib']]],
-  ['json_5fnetworking_578',['json_networking',['../namespacep3lib_1_1json__networking.html',1,'p3lib']]],
-  ['mqtt_5frpc_579',['mqtt_rpc',['../namespacep3lib_1_1mqtt__rpc.html',1,'p3lib']]],
-  ['netif_580',['netif',['../namespacep3lib_1_1netif.html',1,'p3lib']]],
-  ['netplotly_581',['netplotly',['../namespacep3lib_1_1netplotly.html',1,'p3lib']]],
-  ['p3lib_582',['p3lib',['../namespacep3lib.html',1,'']]],
-  ['pconfig_583',['pconfig',['../namespacep3lib_1_1pconfig.html',1,'p3lib']]],
-  ['pconfig_5fexample_584',['pconfig_example',['../namespacepconfig__example.html',1,'']]],
-  ['pytest3_585',['pytest3',['../namespacepytest3.html',1,'']]],
-  ['smotor_586',['smotor',['../namespacep3lib_1_1smotor.html',1,'p3lib']]],
-  ['ssh_587',['ssh',['../namespacep3lib_1_1ssh.html',1,'p3lib']]],
-  ['stepit_588',['stepit',['../namespacep3lib_1_1stepit.html',1,'p3lib']]],
-  ['uio_589',['uio',['../namespacep3lib_1_1uio.html',1,'p3lib']]]
+  ['netplotly_5fdemo_596',['netplotly_demo',['../namespacenetplotly__demo.html',1,'']]]
 ];

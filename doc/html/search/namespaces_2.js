@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['netplotly_5fdemo_572',['netplotly_demo',['../namespacenetplotly__demo.html',1,'']]]
+  ['guimodel_5fa_5fexample_595',['GUIModel_A_example',['../namespaceGUIModel__A__example.html',1,'']]]
 ];
