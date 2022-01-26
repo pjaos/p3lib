@@ -2,12 +2,17 @@
 
 import sys
 import  queue
-from    datetime import datetime
 import  itertools
 import  threading
-from    functools import partial
 import  asyncio
 import  socket
+import  os
+
+from    datetime import datetime
+from    functools import partial
+from    time import time
+
+from    p3lib.helper import getHomePath
 
 from bokeh.server.server import Server
 from bokeh.application import Application
@@ -21,7 +26,6 @@ from bokeh.layouts import gridplot, column, row
 from bokeh.models.widgets import CheckboxGroup
 from bokeh.models.widgets.buttons import Button
 from bokeh.models.widgets import TextInput
-from bokeh.models import TextAreaInput
 from bokeh.models import Panel, Tabs
 from bokeh.models import DataTable, TableColumn
 from bokeh.models import CustomJS
@@ -309,9 +313,9 @@ class StatusBarWrapper(object):
         self.source = ColumnDataSource(data)
 
         columns = [
-                TableColumn(field="status", title="status"),
+                TableColumn(field="status", title="Status"),
             ]
-        self.statusBar = DataTable(source=self.source, columns=columns, height_policy="fixed", height=50, header_row=False, index_position=None)
+        self.statusBar = DataTable(source=self.source, columns=columns, header_row=True, index_position=None)
 
     def getWidget(self):
         """@brief return an instance of the status bar widget to be added to a layout."""
@@ -466,9 +470,11 @@ class SingleAppServer(object):
         """@return The bokeh server port."""
         return self._bokehPort
 
-    def runBlockingBokehServer(self, appMethod):
+    def runBlockingBokehServer(self, appMethod=None):
         """@brief Run the bokeh server. This method will only return when the server shuts down.
            @param appMethod The method called to create the app."""
+        if appMethod is None:
+            appMethod = self.app
         apps = {'/': Application(FunctionHandler(appMethod))}
         #As this gets run in a thread we need to start an event loop
         evtLoop = asyncio.new_event_loop()
@@ -479,11 +485,209 @@ class SingleAppServer(object):
         self._server.io_loop.add_callback(self._server.show, "/")
         self._server.io_loop.start()
 
-    def runNonBlockingBokehServer(self, appMethod):
+    def runNonBlockingBokehServer(self, appMethod=None):
         """@brief Run the bokeh server in a separate thread. This is useful
                   if the we want to load realtime data into the plot from the
                   main thread.
            @param appMethod The method called to create the app."""
+        if appMethod is None:
+            appMethod = self.app
         self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethod,))
         self._serverThread.setDaemon(True)
         self._serverThread.start()
+        
+    def app(self, doc):
+        """@brief Start the process of creating an app.
+           @param doc The document to add the plot to."""
+        raise NotImplementedError("app() method not implemented by {}".format(self.__class__.__name__))
+    
+class GUIModel_A(SingleAppServer):
+    """@brief This class is responsible for providing a mechanism for creating a GUI as
+              simply as possible with some common features that can be updated dynamically.
+
+              These common features are currently.
+              1 - A widget at the bottom of the page for saving the state of the page to an
+                HTML file. This is useful when saving the states of plots as the HTML files
+                can be distributed and when recieved opened by users with their web browser.
+                When opened the plots can be manipulated (zoom etc).
+              2 - A status bar at the bottom of the page."""
+
+    UPDATE_POLL_MSECS               = 100
+    BOKEH_THEME_CALIBER             = "caliber"
+    BOKEH_THEME_DARK_MINIMAL        = "dark_minimal"
+    BOKEH_THEME_LIGHT_MINIMAL       = "light_minimal"
+    BOKEH_THEME_NIGHT_SKY           = "night_sky"
+    BOKEH_THEME_CONTRAST            = "contrast"
+    BOKEH_THEME_NAMES               = (BOKEH_THEME_CALIBER,
+                                       BOKEH_THEME_DARK_MINIMAL,
+                                       BOKEH_THEME_DARK_MINIMAL,
+                                       BOKEH_THEME_NIGHT_SKY,
+                                       BOKEH_THEME_CONTRAST)
+    DEFAULT_BOKEH_THEME             = BOKEH_THEME_NAMES[0]
+
+    def __init__(self, docTitle, 
+                 bokehServerPort=SingleAppServer.GetNextUnusedPort(),
+                 includeSaveHTML=True,
+                 theme=DEFAULT_BOKEH_THEME,
+                 updatePollPeriod=UPDATE_POLL_MSECS):
+        """@Constructor.
+           @param docTitle The title of the HTML doc page.
+           @param includeSaveHTML If True include widgets at the bottom of the web page for saving it as an HTML file.
+           @param theme The theme that defines the colours used by the GUI (default=caliber). BOKEH_THEME_NAMES defines the
+                        available themes.
+           @param updatePollPeriod The GUI update poll period in milli seconds. 
+           @param bokehServerPort The TCP port to bind the server to."""
+        super().__init__(bokehPort=bokehServerPort)
+        self._docTitle              = docTitle          # The HTML page title shown in the browser window.
+        self._includeSaveHTML       = includeSaveHTML   # If True then the save HTML page is displayed at the bottom of the web page.
+        self._theme                 = theme             # The theme that defines the colors used by the GUI.
+        self._updatePollPeriod      = updatePollPeriod  # The GUI poll time in milli seconds.
+        self._appInitComplete       = False             # True when the app is initialised
+        self._lastUpdateTime        = time()            # A timer used to show the user the status of the data plot as it can take a while for bokeh to render it on the server.
+        self._plotDataQueue         = queue.Queue()     # The queue holding rows of data to be plotted and other messages passed into the GUI thread inside _update() method.
+        self._guiTable              = []                # A two dimensional table that holds the GUI components in a grid.
+        self._uio                   = None              # A UIO instance for displaying update messages on stdout. If left at None then no messages are displayed.
+        self._updateStatus          = True              # Flag to indicate if the status bar should be updated.
+        self._htmlFileName          = "plot.html"       # The default HTML file to save.
+
+    def send(self, theDict):
+        """@brief Send a dict to the GUI. This method must be used to send data to the GUI
+                  thread as all actions that change GUI components must be performed inside
+                  the GUI thread. The dict passed here is the same dict that gets passed
+                  to the self._processDict(). This allows subclasses to receive these
+                  dicts and update the GUI based on the contents.
+           @param theDict A Dict containing data to update the GUI."""
+        self._plotDataQueue.put(theDict)
+
+    def setUIO(self, uio):
+        """@brief Set a UIO instance to display info and debug messages on std out."""
+        self._uio = uio
+
+    def setHTMLSaveFileName(self, defaultHTMLFileName):
+        """@brief Set the HTML filename to save.
+           @param defaultHTMLFileName The default HTML filename to save."""
+        self._htmlFileName = defaultHTMLFileName
+
+    def app(self, doc):
+        """@brief Start the process of creating an app.
+           @param doc The document to add the plot to."""
+        self._doc = doc
+        self._doc.title = self._docTitle
+        self._doc.theme = self._theme
+        # The status bar can be added to the bottom of the window showing status information.
+        self._statusBar = StatusBarWrapper()
+        #Setup the callback through which all updates to the GUI will be performed.
+        self._doc.add_periodic_callback(self._update, self._updatePollPeriod)
+
+    def _info(self, msg):
+        """@brief Display an info level message on the UIO instance if we have one."""
+        if self._uio:
+            self._uio.info(msg)
+
+    def _debug(self, msg):
+        """@brief Display a debug level message on the UIO instance if we have one."""
+        if self._uio:
+            self._uio.debug(msg)
+
+    def _internalInitGUI(self):
+        """@brief Perform the GUI initalisation if not already performed."""
+        if not self._appInitComplete:
+            self._initGUI()
+            if self._includeSaveHTML:
+                self._addHTMLSaveWidgets()
+            self._guiTable.append([self._statusBar.getWidget()])
+            gp = gridplot( children = self._guiTable, sizing_mode='stretch_width', toolbar_location="above", merge_tools=True)
+            self._doc.add_root( gp )
+            self._appInitComplete = True
+
+    def _initGUI(self):
+        """@brief Setup the GUI before the save HTML controls and status bar are added.
+           This should be implemented in a subclass to setup the GUI before it's updated.
+           The subclass must add GUI components/widgets to self._guiTable as this is added
+           to a gridplot before adding to the root pane."""
+        raise NotImplementedError("_initGUI() method not implemented by {}".format(self.__class__.__name__))
+
+    def _processDict(self, theDict):
+        """@brief Process a dict received from the self._plotDataQueue inside the GUI thread.
+                  This should be implemented in a subclass to update the GUI. Typically to add
+                  data to a plot in realtime. """
+        raise NotImplementedError("_processDict() method not implemented by {}".format(self.__class__.__name__))
+
+    def _update(self, maxBlockSecs=1):
+        """@brief called periodically to update the plot traces.
+           @param maxBlockSecs The maximum time before this method returns."""
+        callTime = time()
+
+        self._internalInitGUI()
+
+        self._showStats()
+
+        #While we have data to process
+        while not self._plotDataQueue.empty():
+
+            #Don't block the bokeh thread for to long while we process dicts from the queue or it will crash.
+            if time() > callTime+maxBlockSecs:
+                self._debug("Exit _update() with {} outstanding messages after {:.1f} seconds.".format( self._plotDataQueue.qsize(), time()-callTime ))
+                break
+
+            objReceived = self._plotDataQueue.get()
+
+            if isinstance(objReceived, dict):
+                self._processDict(objReceived)
+
+        #If we have left some actions unprocessed we'll handle them next time we get called.
+        if self._plotDataQueue.qsize() > 0:
+            self._setStatus( "Outstanding GUI updates: {}".format(self._plotDataQueue.qsize()) )
+            self._updateStatus = True
+
+        elif self._updateStatus:
+            self._setStatus( "Outstanding GUI updates: 0" )
+            self._updateStatus = False
+
+    def _addHTMLSaveWidgets(self):
+        """@brief Add the HTML save field and button to the bottom of the GUI."""
+        saveButton = Button(label="Save HTML File", button_type="success", width=50)
+        saveButton.on_click(self._savePlot)
+
+        self.fileToSave = TextInput(title="HTML file to save")
+
+        self.fileToSave.value = os.path.join(getHomePath(), self._htmlFileName)
+
+        self._guiTable.append([self.fileToSave])
+        self._guiTable.append([saveButton])
+
+    def _savePlot(self):
+        """@brief Save an html file with the current GUI state."""
+        try:
+            if len(self.fileToSave.value) > 0:
+                fileBasename = os.path.basename(self.fileToSave.value)
+                filePath = self.fileToSave.value.replace(fileBasename, "")
+                if os.path.isdir(filePath):
+                    if os.access(filePath, os.W_OK):
+                        msg = "Saving {}. Please wait...".format(self.fileToSave.value)
+                        self._info(msg)
+                        self._setStatus(msg)
+                        output_file(filename=self.fileToSave.value, title="LPTest Static HTML file")
+                        save(self._doc)
+                        self._setStatus( "Saved {}".format(self.fileToSave.value) )
+                    else:
+                        self._setStatus( "{} exists but no write access.".format(filePath) )
+                else:
+                    self._setStatus( "{} path not found.".format(filePath) )
+            else:
+                self._statusBar.setStatus("Please enter the html file to save.")
+        except Exception as ex:
+            self._statusBar.setStatus( str(ex) )
+
+    def _setStatus(self, msg):
+        """@brief Set the display message in the status bar at the bottom of the GUI.
+           @param msg The message to be displayed."""
+        self._statusMsg = msg
+        self._statusBar.setStatus(self._statusMsg)
+
+    def _showStats(self):
+        """@brief Show the current outstanding message count so that user user is aware if the GUI
+                  is taking some time to update."""
+        if time() > self._lastUpdateTime+10:
+            self._debug("Updating GUI: Outstanding messages = {}".format( self._plotDataQueue.qsize()) )
+            self._lastUpdateTime = time()
