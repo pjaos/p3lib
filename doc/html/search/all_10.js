@@ -16,7 +16,7 @@ var searchData=
   ['pconfig_2epy_338',['pconfig.py',['../pconfig_8py.html',1,'']]],
   ['pconfig_5fexample_339',['pconfig_example',['../namespacepconfig__example.html',1,'']]],
   ['pconfig_5fexample_2epy_340',['pconfig_example.py',['../pconfig__example_8py.html',1,'']]],
-  ['plot_5fdata_5fkey_341',['PLOT_DATA_KEY',['../classGUIModel__A__example_1_1ExtendedGUIModel__A.html#a0342c7cde0b17952fd9ba424b9045b51',1,'GUIModel_A_example::ExtendedGUIModel_A']]],
+  ['plot_5fdata_5fkey_341',['PLOT_DATA_KEY',['../classGUIModel__A__example_1_1DynamicPlotExample.html#a0342c7cde0b17952fd9ba424b9045b51',1,'GUIModel_A_example::DynamicPlotExample']]],
   ['plot_5flist_5ffile_342',['PLOT_LIST_FILE',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a15c740b3be04fdad3f9a2eac011c3a24',1,'p3lib::netplotly::NetPlotly']]],
   ['port_343',['PORT',['../classtest__json__networking_1_1TestClass.html#a78dc8eaa9905715367e9beb76bf4b5f7',1,'test_json_networking::TestClass']]],
   ['printdict_344',['printDict',['../namespacep3lib_1_1helper.html#aca3193f01cd390ac9c20ba26126d5a46',1,'p3lib::helper']]],
