@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['save_751',['save',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a41bf680ff38271bbaf9dac7ac0c41143',1,'p3lib::netplotly::NetPlotly']]],
+  ['save_751',['save',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#a30385ba7057d79e35be129176fc3b9d3',1,'p3lib.bokeh_gui.GUIModel_A.save()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#a41bf680ff38271bbaf9dac7ac0c41143',1,'p3lib.netplotly.NetPlotly.save()']]],
   ['savedict_752',['saveDict',['../namespacep3lib_1_1helper.html#a8f4d4c4acd1e70a8ab7b2559c5466db7',1,'p3lib::helper']]],
   ['send_753',['send',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#af34d0fac5d6d965b0f5b8b6663669213',1,'p3lib::bokeh_gui::GUIModel_A']]],
   ['setdefaultconfig_754',['setDefaultConfig',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a64c82d60296f6cc7ab8d334b783d0fad',1,'p3lib::pconfig::ConfigManager']]],
