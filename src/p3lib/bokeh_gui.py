@@ -268,7 +268,7 @@ class TimeSeriesPlotter(TabbedGUI):
                 filename = self._fileToSave.value
             else:
                 filename = self._fileToSave.value + ".html"
-            output_file(filename)
+            output_file(filename, suppress_callback_warning=True)
             # Save all the plots in the grid to an html file that allows
             # display in a browser and plot manipulation.
             save( self._grid )
@@ -667,7 +667,7 @@ class GUIModel_A(SingleAppServer):
                         msg = "Saving {}. Please wait...".format(self.fileToSave.value)
                         self._info(msg)
                         self._setStatus(msg)
-                        output_file(filename=self.fileToSave.value, title="LPTest Static HTML file")
+                        output_file(filename=self.fileToSave.value, title="LPTest Static HTML file", suppress_callback_warning=True)
                         save(self._doc)
                         self._setStatus( "Saved {}".format(self.fileToSave.value) )
                     else:
