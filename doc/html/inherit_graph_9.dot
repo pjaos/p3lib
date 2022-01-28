@@ -70,19 +70,13 @@ digraph "Graphical Class Hierarchy"
   Node11 -> Node43 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node43 [label="ConfigManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1pconfig_1_1ConfigManager.html",tooltip=" "];
   Node11 -> Node44 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node44 [label="SMotor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1smotor_1_1SMotor.html",tooltip=" "];
+  Node44 [label="SSH",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1ssh_1_1SSH.html",tooltip=" "];
   Node11 -> Node45 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node45 [label="SMotorPinout",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1smotor_1_1SMotorPinout.html",tooltip=" "];
+  Node45 [label="SSHTunnelManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1ssh_1_1SSHTunnelManager.html",tooltip=" "];
   Node11 -> Node46 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node46 [label="SSH",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1ssh_1_1SSH.html",tooltip=" "];
+  Node46 [label="ConsoleMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1uio_1_1ConsoleMenu.html",tooltip=" "];
   Node11 -> Node47 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node47 [label="SSHTunnelManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1ssh_1_1SSHTunnelManager.html",tooltip=" "];
+  Node47 [label="UIO",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1uio_1_1UIO.html",tooltip=" "];
   Node11 -> Node48 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node48 [label="StepIt",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1stepit_1_1StepIt.html",tooltip=" "];
-  Node11 -> Node49 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node49 [label="ConsoleMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1uio_1_1ConsoleMenu.html",tooltip=" "];
-  Node11 -> Node50 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node50 [label="UIO",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1uio_1_1UIO.html",tooltip=" "];
-  Node11 -> Node51 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node51 [label="TimeSeriesPlotExample",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classtime__series__plot__example_1_1TimeSeriesPlotExample.html",tooltip=" "];
+  Node48 [label="TimeSeriesPlotExample",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classtime__series__plot__example_1_1TimeSeriesPlotExample.html",tooltip=" "];
 }
