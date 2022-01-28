@@ -20,6 +20,8 @@ from bokeh.application.handlers.function import FunctionHandler
 from bokeh.plotting import figure, ColumnDataSource
 from bokeh.models import Range1d
 from bokeh.palettes import Category20_20 as palette
+from bokeh.resources import Resources
+from bokeh.embed import file_html
 
 from bokeh.plotting import save, output_file
 from bokeh.layouts import gridplot, column, row
@@ -667,8 +669,8 @@ class GUIModel_A(SingleAppServer):
                         msg = "Saving {}. Please wait...".format(self.fileToSave.value)
                         self._info(msg)
                         self._setStatus(msg)
-                        output_file(filename=self.fileToSave.value, title="Static HTML file")
-                        save(self._doc)
+                        # Static appears in the web browser tab to indicate a static HTML file to the user.
+                        self.save(self.fileToSave.value, title="Static: {}".format(self._doc.title))
                         self._setStatus( "Saved {}".format(self.fileToSave.value) )
                     else:
                         self._setStatus( "{} exists but no write access.".format(filePath) )
@@ -678,6 +680,29 @@ class GUIModel_A(SingleAppServer):
                 self._statusBar.setStatus("Please enter the html file to save.")
         except Exception as ex:
             self._statusBar.setStatus( str(ex) )
+
+    def save(self, filename, title=None, theme=None):
+        """@brief Save the state of the document to an HTML file.
+                  This was written to allow the suppression of Javascript warnings
+                  as previously the bokeh save method was called.
+           @param filename The filename to save.
+           @param title The document title. If left as Non then the title of the current page is used.
+           @param theme The bokeh theme. If left as None then the theme used by the current page is used."""
+        if theme is None:
+            theme = self._doc.theme
+            
+        if title is None:
+            title = self._doc.title
+            
+        html = file_html(self._doc,
+                         Resources(mode=None),
+                         title=title,
+                         template=None,
+                         theme=theme,
+                         suppress_callback_warning=True)
+
+        with open(filename, mode="w", encoding="utf-8") as f:
+            f.write(html)
 
     def _setStatus(self, msg):
         """@brief Set the display message in the status bar at the bottom of the GUI.
