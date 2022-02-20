@@ -189,10 +189,15 @@ class TimeSeriesPlotter(TabbedGUI):
         if not line_color:
             line_color = next(self._colors)
 
-        fig.line(source=src,
-                 line_color = line_color,
-                 legend_label = legend_label,
-                 line_width = line_width)
+        if legend_label is not None and len(legend_label) > 0:
+                fig.line(source=src,
+		         line_color = line_color,
+                         legend_label = legend_label,
+                         line_width = line_width)
+        else:
+                fig.line(source=src,
+                         line_color = line_color,
+                         line_width = line_width)
         self._srcList.append(src)
 
     def _update(self):
@@ -497,12 +502,12 @@ class SingleAppServer(object):
         self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethod,))
         self._serverThread.setDaemon(True)
         self._serverThread.start()
-        
+
     def app(self, doc):
         """@brief Start the process of creating an app.
            @param doc The document to add the plot to."""
         raise NotImplementedError("app() method not implemented by {}".format(self.__class__.__name__))
-    
+
 class GUIModel_A(SingleAppServer):
     """@brief This class is responsible for providing a mechanism for creating a GUI as
               simply as possible with some common features that can be updated dynamically.
@@ -527,7 +532,7 @@ class GUIModel_A(SingleAppServer):
                                        BOKEH_THEME_CONTRAST)
     DEFAULT_BOKEH_THEME             = BOKEH_THEME_NAMES[0]
 
-    def __init__(self, docTitle, 
+    def __init__(self, docTitle,
                  bokehServerPort=SingleAppServer.GetNextUnusedPort(),
                  includeSaveHTML=True,
                  theme=DEFAULT_BOKEH_THEME,
@@ -537,7 +542,7 @@ class GUIModel_A(SingleAppServer):
            @param includeSaveHTML If True include widgets at the bottom of the web page for saving it as an HTML file.
            @param theme The theme that defines the colours used by the GUI (default=caliber). BOKEH_THEME_NAMES defines the
                         available themes.
-           @param updatePollPeriod The GUI update poll period in milli seconds. 
+           @param updatePollPeriod The GUI update poll period in milli seconds.
            @param bokehServerPort The TCP port to bind the server to."""
         super().__init__(bokehPort=bokehServerPort)
         self._docTitle              = docTitle          # The HTML page title shown in the browser window.
@@ -690,10 +695,10 @@ class GUIModel_A(SingleAppServer):
            @param theme The bokeh theme. If left as None then the theme used by the current page is used."""
         if theme is None:
             theme = self._doc.theme
-            
+
         if title is None:
             title = self._doc.title
-            
+
         html = file_html(self._doc,
                          Resources(mode=None),
                          title=title,
