@@ -95,7 +95,7 @@ Public Member Functions</h2></td></tr>
           an alert message is displayed instructing the user to close the browser
           window. When the OK button in the alert dialog is clicked the
           application is shutdown.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00416">416</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00421">421</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afda0e18775df63931ac335bf981d35ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afda0e18775df63931ac335bf981d35ac">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -125,16 +125,16 @@ Public Member Functions</h2></td></tr>
 <pre class="fragment">@brief Constructor
    @param shutDownMethod The method that is called to shutdown the application.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00421">421</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keyword">def </span>__init__(self, shutDownMethod):</div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="stringliteral">           @param shutDownMethod The method that is called to shutdown the application.</span></div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        self._alertButtonWrapper = AlertButtonWrapper(<span class="stringliteral">&quot;Quit&quot;</span>,\</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                                                      <span class="stringliteral">&quot;The application is shutting down. Please close the browser window&quot;</span>,\</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;                                                      buttonType=<span class="stringliteral">&quot;danger&quot;</span>,\</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;                                                      onClickMethod=shutDownMethod)</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00426">426</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keyword">def </span>__init__(self, shutDownMethod):</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="stringliteral">           @param shutDownMethod The method that is called to shutdown the application.</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        self._alertButtonWrapper = AlertButtonWrapper(<span class="stringliteral">&quot;Quit&quot;</span>,\</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                                                      <span class="stringliteral">&quot;The application is shutting down. Please close the browser window&quot;</span>,\</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                                                      buttonType=<span class="stringliteral">&quot;danger&quot;</span>,\</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;                                                      onClickMethod=shutDownMethod)</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -155,11 +155,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief return an instance of the shutdown button widget to be added to a layout.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00430">430</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">def </span>getWidget(self):</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the shutdown button widget to be added to a layout.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <span class="keywordflow">return</span> self._alertButtonWrapper.getWidget()</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00435">435</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keyword">def </span>getWidget(self):</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the shutdown button widget to be added to a layout.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        <span class="keywordflow">return</span> self._alertButtonWrapper.getWidget()</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
