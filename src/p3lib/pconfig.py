@@ -234,6 +234,28 @@ class ConfigManager(object):
       return ConfigManager._GetNumber(uio, prompt, previousValue, minValue=minValue, maxValue=maxValue, numberType=ConfigManager.FLOAT_NUMBER_TYPE)
 
     @staticmethod
+    def GetBool(uio, prompt, previousValue=True):
+        """@brief Input a boolean value.
+           @param uio          A UIO (User Input Output) instance.
+           @param prompt       The prompt presented to the user in order to enter
+                                the float value.
+           @param previousValue The previous True or False value."""
+        _prompt = "%s y/n" % (prompt)
+
+        if previousValue:
+            prevValue='y'
+        else:
+            prevValue='n'
+
+        while True:
+            value = ConfigManager.GetString(uio, _prompt, prevValue)
+            value=value.lower()
+            if value == 'n':
+                return False
+            elif value == 'y':
+                return True
+
+    @staticmethod
     def GetPrivateKeyFile():
         """@brief Get the private key file."""
         homePath = getHomePath()
@@ -295,7 +317,7 @@ class ConfigManager(object):
                           This is not secure but assuming the private key has not been compromised it's
                           probably the best we can do. Therefore if encrypt is set True then the
                           an ssh key must be present in the ~/.ssh folder named id_rsa.
-           @param cfgPath The config path when the config file will be stored. By default this is unset and the 
+           @param cfgPath The config path when the config file will be stored. By default this is unset and the
                           current users home folder is the location of the config file."""
         self._uio               = uio
         self._cfgFilename       = cfgFilename
@@ -307,7 +329,7 @@ class ConfigManager(object):
 
         self._cfgFile = self._getConfigFile()
         self._modifiedTime = self._getModifiedTime()
-        
+
     def _info(self, msg):
         """@brief Display an info message if we have a UIO instance.
            @param msg The message to be displayed."""
@@ -342,7 +364,7 @@ class ConfigManager(object):
 
         else:
             configPath=""
-            #If an absolute path is set for the config file then don't try to 
+            #If an absolute path is set for the config file then don't try to
             #put the file in the users home dir
             if not self._cfgFilename.startswith("/"):
                 configPath = expanduser("~")
