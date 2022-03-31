@@ -6,7 +6,6 @@
 import  sys
 import  queue
 from    datetime import datetime
-import  asyncio
 import  itertools
 import  base64
 from    datetime import date
@@ -49,7 +48,6 @@ from bokeh.models import TextAreaInput
 from bokeh.models import Toggle
 from bokeh.models import CustomJS
 from bokeh import events
-from pickle import NONE
 
 class TimeSeriesPoint(object):
     """@brief Resonsible for holding a time series point on a trace."""
@@ -269,7 +267,7 @@ class BokehDemoA(TimeSeriesGUI):
         slider = Slider(start=0, end=30, value=0, step=1, title="Smoothing by N Days", max_width=100)
         slider.on_change('value', self._oldNewHandler)
 
-        self.file_input = FileInput(accept=".*,.json,.txt")
+        self.file_input = FileInput(accept=".*,.json,.txt", multiple=True)
         self.file_input.on_change('value', self._file_input_handler)
 
         itemList = [("Item 1", "item_1"), ("Item 2", "item_2"), None, ("Item 3", "item_3")]
@@ -389,8 +387,9 @@ class BokehDemoA(TimeSeriesGUI):
     def _file_input_handler(self, attr, old, new):
         """Browsers will not reveal the file path, as a security policy. There’s nothing we can do about that.
            The data from the file is returned."""
-        textStr = base64.b64decode(new).decode()
-        print("File contents={}".format(textStr))
+        for contents in new:
+            textStr = base64.b64decode(contents).decode()
+            print("File contents={}".format(textStr))
 
     def _oldNewHandler(self, attr, old, new):
         """@brief Called when a radio group item is selected."""
