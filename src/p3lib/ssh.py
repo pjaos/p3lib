@@ -536,7 +536,7 @@ class SSHTunnelManager(object):
     """@brief Responsible for setting up, tearing down and maintaining lists of
               SSH port forwarding and ssh reverse port forwarding connections."""
 
-    RX_BUFFER_SIZE = 4096
+    RX_BUFFER_SIZE = 65535
 
     def __init__(self, uio, ssh, useCompression):
         """@brief Constructor
