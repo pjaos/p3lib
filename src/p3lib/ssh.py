@@ -552,6 +552,24 @@ class SSHTunnelManager(object):
         self._forwardingServerList = []
         self._reverseSShDict = {}
 
+    def _info(self, text):
+        """@brief Present an info level message to the user.
+           @param text The text to be presented to the user."""
+        if self._uio:
+            self._uio.info(text)
+
+    def _warn(self, text):
+        """@brief Present an warning level message to the user.
+           @param text The text to be presented to the user."""
+        if self._uio:
+            self._uio.warn(text)
+
+    def _error(self, text):
+        """@brief Present an error level message to the user.
+           @param text The text to be presented to the user."""
+        if self._uio:
+            self._uio.error(text)
+
     def startFwdSSHTunnel(self, serverPort, destHost, destPort):
         """@brief Start an ssh port forwarding tunnel. This is a non blocking method.
                   A separate thread will be started to handle data transfer over the
@@ -563,7 +581,7 @@ class SSHTunnelManager(object):
                              end of the ssh connection.
            @param destPort   The host TCP port of the tunnel destination at the remote
                              end of the ssh connection."""
-        self._uio.info("Forwarding local TCP server port (%d) to %s:%d on the remote end of the ssh connection." % (
+        self._info("Forwarding local TCP server port (%d) to %s:%d on the remote end of the ssh connection." % (
         serverPort, destHost, destPort))
         transport = self._ssh.getTransport()
 
@@ -589,14 +607,14 @@ class SSHTunnelManager(object):
             if forwardingServerPort == serverPort:
                 forwardingServer.shutdown()
                 forwardingServer.server_close()
-                self._uio.info("Shutdown ssh port forwarding connection using local server port %d." % (serverPort))
+                self._info("Shutdown ssh port forwarding connection using local server port %d." % (serverPort))
 
     def stopAllFwdSSHTunnels(self):
         """@brief Stop all previously started ssh port forwarding servers.."""
         for forwardingServer in self._forwardingServerList:
             forwardingServer.shutdown()
             forwardingServer.server_close()
-            self._uio.info("Shutdown ssh port forwarding on %s." % (str(forwardingServer.server_address)))
+            self._info("Shutdown ssh port forwarding on %s." % (str(forwardingServer.server_address)))
 
     def startRevSSHTunnel(self, serverPort, destHost, destPort):
         """@brief Start an ssh reverse port forwarding tunnel
@@ -607,7 +625,7 @@ class SSHTunnelManager(object):
                              end of the ssh connection.
            @param destPort   The host TCP port of the tunnel destination at the local
                              end of the ssh connection."""
-        self._uio.info("Forwarding (reverse) Remote TCP server port (%d) to %s:%d on this end of the ssh connection." % (
+        self._info("Forwarding (reverse) Remote TCP server port (%d) to %s:%d on this end of the ssh connection." % (
         serverPort, destHost, destPort))
         # We add the None refs as the placeholders will be used later
         chan = None
@@ -632,7 +650,7 @@ class SSHTunnelManager(object):
             if sock:
                 sock.close()
 
-            self._uio.info("Shutdown reverse ssh port forwarding connection using remote server port %d." % (serverPort))
+            self._info("Shutdown reverse ssh port forwarding connection using remote server port %d." % (serverPort))
 
     def stopAllRevSSHTunnels(self):
         """@brief Stop all previously started reverse ssh port forwarding servers."""
@@ -647,7 +665,7 @@ class SSHTunnelManager(object):
             if sock:
                 sock.close()
 
-            self._uio.info("Shutdown reverse ssh port forwarding connection using remote server port %d." % (key))
+            self._info("Shutdown reverse ssh port forwarding connection using remote server port %d." % (key))
 
     def stopAllSSHTunnels(self):
         """@brief Stop all ssh tunnels."""
@@ -687,10 +705,10 @@ class SSHTunnelManager(object):
         try:
             sock.connect((destHost, destPort))
         except Exception as e:
-            self._uio.error('Forwarding (reverse) request to %s:%d failed: %r' % (destHost, destPort, e))
+            self._error('Forwarding (reverse) request to %s:%d failed: %r' % (destHost, destPort, e))
             return
 
-        self._uio.info('Connected!  Reverse tunnel open %r -> %r -> %r' % (chan.origin_addr,
+        self._info('Connected!  Reverse tunnel open %r -> %r -> %r' % (chan.origin_addr,
                                                                           chan.getpeername(), (destHost, destPort)))
         while True:
             r, w, x = select.select([sock, chan], [], [])
@@ -712,7 +730,7 @@ class SSHTunnelManager(object):
                     break
         chan.close()
         sock.close()
-        self._uio.info('Tunnel closed from server port %d' % (serverPort))
+        self._info('Tunnel closed from server port %d' % (serverPort))
 
 
 class ForwardingServer(socketserver.ThreadingTCPServer):
@@ -724,22 +742,34 @@ class ForwardingServer(socketserver.ThreadingTCPServer):
 class ForwardingHandler(socketserver.BaseRequestHandler):
     """@brief handler for ssh port forwarding connections."""
 
+    def _info(self, text):
+        """@brief Present an info level message to the user.
+           @param text The text to be presented to the user."""
+        if self.uo:
+            self.uo.info(text)
+
+    def _error(self, text):
+        """@brief Present an error level message to the user.
+           @param text The text to be presented to the user."""
+        if self.uo:
+            self.uo.error(text)
+
     def handle(self):
         try:
             chan = self.ssh_transport.open_channel('direct-tcpip',
                                                    (self.chain_host, self.chain_port),
                                                    self.request.getpeername())
         except Exception as e:
-            self.uo.error('Incoming request to %s:%d failed: %s' % (self.chain_host,
+            self._error('Incoming request to %s:%d failed: %s' % (self.chain_host,
                                                                     self.chain_port,
                                                                     repr(e)))
             return
         if chan is None:
-            self.uo.error('Incoming request to %s:%d was rejected by the SSH server.' %
+            self._error('Incoming request to %s:%d was rejected by the SSH server.' %
                           (self.chain_host, self.chain_port))
             return
 
-        self.uo.info('Connected!  Tunnel open %r -> %r -> %r' % (self.request.getpeername(),
+        self._info('Connected!  Tunnel open %r -> %r -> %r' % (self.request.getpeername(),
                                                                  chan.getpeername(),
                                                                  (self.chain_host, self.chain_port)))
         while True:
@@ -758,4 +788,4 @@ class ForwardingHandler(socketserver.BaseRequestHandler):
         peername = self.request.getpeername()
         chan.close()
         self.request.close()
-        self.uo.info('Tunnel closed from %r' % (peername,))
+        self._info('Tunnel closed from %r' % (peername,))
