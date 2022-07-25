@@ -9,7 +9,7 @@ from   socket import socket, AF_INET, SOCK_DGRAM
 from   getpass import getpass, getuser
 from   time import strftime, localtime
 from   datetime import datetime
-        
+
 from   p3lib.netif import NetIF
 
 class UIO(object):
@@ -47,7 +47,7 @@ class UIO(object):
 
     USER_LOG_SYM_LINK           = "log.txt"
     DEBUG_LOG_SYM_LINK          = "debug_log.txt"
-  
+
     @staticmethod
     def GetInfoEscapeSeq():
         """@return the info level ANSI escape sequence."""
@@ -127,7 +127,7 @@ class UIO(object):
             else:
                 self.storeToDebugLog('DEBUG: {}'.format(text))
         self._update_syslog(PRIORITY.DEBUG, text)
-        
+
     def warn(self, text):
         """@brief Present a warning level message to the user.
            @param text The line of text to be presented to the user."""
@@ -136,7 +136,7 @@ class UIO(object):
         else:
             self._print('WARN:  {}'.format(text))
         self._update_syslog(PRIORITY.WARNING, text)
-        
+
     def error(self, text):
         """@brief Present an error level message to the user.
            @param text The line of text to be presented to the user."""
@@ -152,7 +152,7 @@ class UIO(object):
         if self._debugLogEnabled and self._debugLogFile:
             self.storeToDebugLog(text)
         print(text)
-      
+
     def getInput(self, prompt, noEcho=False, stripEOL=True):
         """@brief Get a line of text from the user.
            @param noEcho If True then * are printed when each character is pressed.
@@ -274,12 +274,11 @@ class UIO(object):
             if not os.path.isfile(logFile):
                 createSymLink = True
 
-            fd = open(logFile, 'a')
-            if addLF:
-                fd.write("{}\n".format(text))
-            else:
-                fd.write(text)
-            fd.close()
+            with open(logFile, 'a') as fd:
+                if addLF:
+                    fd.write("{}\n".format(text))
+                else:
+                    fd.write(text)
 
             if createSymLink:
                 #This is helpful as the link will point to the latest log file
@@ -341,7 +340,7 @@ class UIO(object):
            @param enabled If True then syslog is enabled."""
         self._sysLogEnabled = enabled
         self._sysLogHost = host
-      
+
     def _update_syslog(self, pri, msg):
         """Send a message to syslog is syslog is enabled
         Syslog messages will have the following components
@@ -356,11 +355,11 @@ class UIO(object):
         """
         if self._sysLogEnabled:
             aMsg=msg
-            #Ensure we have no zero characters in the message. 
+            #Ensure we have no zero characters in the message.
             # syslog will throw an error if it finds any
             if "\x00" in aMsg:
                 aMsg=aMsg.replace("\x00", "")
-                
+
             #Attempt to get the src IP address for syslog messages.
             srcIP = ""
             try:
@@ -378,21 +377,21 @@ class UIO(object):
 
 class ConsoleMenu(object):
     """@brief Responsible for presenting a list of options to the user on a
-              console/terminal interface and allowing the user to select 
+              console/terminal interface and allowing the user to select
               the options as required."""
     def __init__(self, uio):
         """@brief Constructor
            @param uio A UIO instance."""
         self._uio = uio
         self._menuList = []
-        
+
     def add(self, menuStr, menuMethod, args=None):
         """@brief Add a menu option.
            @param menuStr The String displayed as the menu option.
            @param menuMethod The method to be called when this option is selected.
            @param args An optional list or tuple of arguments to pass to the method."""
         self._menuList.append( (menuStr, menuMethod, args) )
-        
+
     def show(self, showSelectedOption=False):
         """@brief Show the menu to the user and allow the user to interact with it.
            @param showSelectedOption If True then the option selected is displayed before executing the method."""
@@ -413,7 +412,7 @@ class ConsoleMenu(object):
 
 # -------------------------------------------------------------------
 # @brief An implementation to allow syslog messages to be generated.
-# 
+#
 class FACILITY:
   KERN=0
   USER=1
@@ -435,7 +434,7 @@ class FACILITY:
   LOCAL5=21
   LOCAL6=22
   LOCAL7=23
- 
+
 class PRIORITY:
   EMERG=0
   ALERT=1
@@ -448,18 +447,18 @@ class PRIORITY:
 
 syslogSocket=None
 lock = Lock()
-  
+
 def syslog(priority, message, facility=FACILITY.LOCAL0, host='localhost', port=514):
     """
 	  @brief Send a syslog message.
       @param priority The syslog priority level.
       @param message The text message to be sent.
-      @param facility The syslog facility 
+      @param facility The syslog facility
       @param host The host address for the systlog server.
       @param port The syslog port.
 	"""
     global lock, timer, syslogSocket
-	
+
     try:
         lock.acquire()
         if not syslogSocket:
