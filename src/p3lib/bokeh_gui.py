@@ -312,8 +312,10 @@ class TimeSeriesPlotter(TabbedGUI):
 
 class StatusBarWrapper(object):
     """@brief Responsible for presenting a single status line of text in a GUI
-              that runs the width of the page (normally at the bottom)."""
-    def __init__(self):
+              that runs the width of the page (normally at the bottom).
+       @param sizing_mode The widget sizing mode. By default the status bar will streach accross the width of the layout.
+       @param height The height of the status bar in pixels. Default 50 gives good L&F on most browsers."""
+    def __init__(self, sizing_mode="stretch_width", height=50):
         data = dict(
             status = [],
         )
@@ -322,7 +324,12 @@ class StatusBarWrapper(object):
         columns = [
                 TableColumn(field="status", title="Status"),
             ]
-        self.statusBar = DataTable(source=self.source, columns=columns, header_row=True, index_position=None)
+        self.statusBar = DataTable(source=self.source,
+                                   columns=columns,
+                                   header_row=True,
+                                   index_position=None,
+                                   sizing_mode=sizing_mode,
+                                   height=height)
 
     def getWidget(self):
         """@brief return an instance of the status bar widget to be added to a layout."""
