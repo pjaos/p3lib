@@ -94,7 +94,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Responsible for presenting a button that when clicked displayed an alert dialog.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00392">392</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00399">399</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac39f0a3a47d0099849b0c32f6c733900"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac39f0a3a47d0099849b0c32f6c733900">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -145,25 +145,25 @@ Public Member Functions</h2></td></tr>
    @param buttonType The type of button to display (default, primary, success, warning, danger, light)).
    @param onClickMethod An optional method that is called when the alert OK button has been clicked.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00394">394</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="keyword">def </span>__init__(self, buttonLabel, alertMessage, buttonType=&quot;default&quot;, onClickMethod=None):</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="stringliteral">           @param buttonLabel The text displayed on the button.</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="stringliteral">           @param alertMessage The message displayed in the alert dialog when clicked.</span></div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="stringliteral">           @param buttonType The type of button to display (default, primary, success, warning, danger, light)).</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="stringliteral">           @param onClickMethod An optional method that is called when the alert OK button has been clicked.</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        self._button = Button(label=buttonLabel, button_type=buttonType)</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="keywordflow">if</span> onClickMethod:</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;            self.addOnClickMethod(onClickMethod)</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        source = {<span class="stringliteral">&quot;msg&quot;</span>: alertMessage}</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        callback1 = CustomJS(args=dict(source=source), code=<span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="stringliteral">            var msg = source[&#39;msg&#39;]</span></div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;<span class="stringliteral">            alert(msg);</span></div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span>)</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        self._button.js_on_event(events.ButtonClick, callback1)</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00401">401</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keyword">def </span>__init__(self, buttonLabel, alertMessage, buttonType=&quot;default&quot;, onClickMethod=None):</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="stringliteral">           @param buttonLabel The text displayed on the button.</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="stringliteral">           @param alertMessage The message displayed in the alert dialog when clicked.</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="stringliteral">           @param buttonType The type of button to display (default, primary, success, warning, danger, light)).</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="stringliteral">           @param onClickMethod An optional method that is called when the alert OK button has been clicked.</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        self._button = Button(label=buttonLabel, button_type=buttonType)</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordflow">if</span> onClickMethod:</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            self.addOnClickMethod(onClickMethod)</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        source = {<span class="stringliteral">&quot;msg&quot;</span>: alertMessage}</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        callback1 = CustomJS(args=dict(source=source), code=<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="stringliteral">            var msg = source[&#39;msg&#39;]</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="stringliteral">            alert(msg);</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span>)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        self._button.js_on_event(events.ButtonClick, callback1)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -195,12 +195,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add a method that is called after the alert dialog has been displayed.
    @param onClickMethod The method that is called.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00412">412</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">def </span>addOnClickMethod(self, onClickMethod):</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add a method that is called after the alert dialog has been displayed.</span></div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;<span class="stringliteral">           @param onClickMethod The method that is called.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        self._button.on_click(onClickMethod)</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00419">419</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">def </span>addOnClickMethod(self, onClickMethod):</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Add a method that is called after the alert dialog has been displayed.</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="stringliteral">           @param onClickMethod The method that is called.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        self._button.on_click(onClickMethod)</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -220,11 +220,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief return an instance of the button widget to be added to a layout.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00417">417</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keyword">def </span>getWidget(self):</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the button widget to be added to a layout.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keywordflow">return</span> self._button</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00424">424</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">def </span>getWidget(self):</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the button widget to be added to a layout.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="keywordflow">return</span> self._button</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
