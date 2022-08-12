@@ -557,9 +557,9 @@ class ConfigManager(object):
         previousValue=self._getValue(key)
         yes = self.getYesNo(prompt, previousValue=previousValue)
         if yes:
-            value=1
+            value=True
         else:
-            value=0
+            value=False
         self.addAttr(key, value)
 
     def getYesNo(self, prompt, previousValue=0):
