@@ -694,7 +694,7 @@ class ConfigManager(object):
         running=True
         while running:
             idKeyDict=self.show()
-            response = self._uio.getInput("Enter 'E' to edit a parameter, 'S' to save and quit or 'Q' to quit")
+            response = self._uio.getInput("Enter 'E' to edit a parameter, or 'Q' to quit")
             response=response.upper()
             if response == 'E':
                 id = self._uio.getIntInput("Enter the ID of the parameter to change")
@@ -703,9 +703,8 @@ class ConfigManager(object):
                 else:
                     key=idKeyDict[id]
                     editConfigMethod(key)
-            elif response == 'S':
-                self.store()
-                running = False
+                    self.store()
+
             elif response == 'Q':
                 running = False
 
