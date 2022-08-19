@@ -358,7 +358,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;        running=<span class="keyword">True</span></div>
 <div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        <span class="keywordflow">while</span> running:</div>
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;            idKeyDict=self.show()</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;            response = self._uio.getInput(<span class="stringliteral">&quot;Enter &#39;E&#39; to edit a parameter, &#39;S&#39; to save and quit or &#39;Q&#39; to quit&quot;</span>)</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;            response = self._uio.getInput(<span class="stringliteral">&quot;Enter &#39;E&#39; to edit a parameter, or &#39;Q&#39; to quit&quot;</span>)</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;            response=response.upper()</div>
 <div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;            <span class="keywordflow">if</span> response == <span class="stringliteral">&#39;E&#39;</span>:</div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;                id = self._uio.getIntInput(<span class="stringliteral">&quot;Enter the ID of the parameter to change&quot;</span>)</div>
@@ -367,12 +367,11 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                    key=idKeyDict[id]</div>
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;                    editConfigMethod(key)</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;S&#39;</span>:</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;                self.store()</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;                running = <span class="keyword">False</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;Q&#39;</span>:</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;                running = <span class="keyword">False</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;                    self.store()</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;Q&#39;</span>:</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;                running = <span class="keyword">False</span></div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1369,9 +1368,9 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        previousValue=self._getValue(key)</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        yes = self.getYesNo(prompt, previousValue=previousValue)</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="keywordflow">if</span> yes:</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            value=1</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            value=<span class="keyword">True</span></div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            value=0</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;            value=<span class="keyword">False</span></div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        self.addAttr(key, value)</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160; </div>
 </div><!-- fragment -->
@@ -1952,23 +1951,23 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief A helper method to show the dictionary config to the user.
    @return A dictionary mapping the attribute ID's (keys) to dictionary keys (values).</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00712">712</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="keyword">def </span>show(self):</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to show the dictionary config to the user.</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="stringliteral">           @return A dictionary mapping the attribute ID&#39;s (keys) to dictionary keys (values).&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        maxKeyLen=10</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;            <span class="keywordflow">if</span> len(key) &gt; maxKeyLen:</div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;                maxKeyLen = len(key)</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        self._info(<span class="stringliteral">&quot;ID  PARAMETER&quot;</span>+<span class="stringliteral">&quot; &quot;</span>*(maxKeyLen-8)+<span class="stringliteral">&quot; VALUE&quot;</span>)</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;        id=1</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        idKeyDict = {}</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;            idKeyDict[id]=key</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;            self._info(<span class="stringliteral">&quot;{:&lt;3d} {:&lt;{}} {}&quot;</span>.format(id, key, maxKeyLen+1, self._configDict[key]))</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;            id=id+1</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;        <span class="keywordflow">return</span> idKeyDict</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00711">711</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keyword">def </span>show(self):</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to show the dictionary config to the user.</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="stringliteral">           @return A dictionary mapping the attribute ID&#39;s (keys) to dictionary keys (values).&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        maxKeyLen=10</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;            <span class="keywordflow">if</span> len(key) &gt; maxKeyLen:</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;                maxKeyLen = len(key)</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        self._info(<span class="stringliteral">&quot;ID  PARAMETER&quot;</span>+<span class="stringliteral">&quot; &quot;</span>*(maxKeyLen-8)+<span class="stringliteral">&quot; VALUE&quot;</span>)</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        id=1</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;        idKeyDict = {}</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> self._configDict:</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;            idKeyDict[id]=key</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;            self._info(<span class="stringliteral">&quot;{:&lt;3d} {:&lt;{}} {}&quot;</span>.format(id, key, maxKeyLen+1, self._configDict[key]))</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;            id=id+1</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        <span class="keywordflow">return</span> idKeyDict</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>

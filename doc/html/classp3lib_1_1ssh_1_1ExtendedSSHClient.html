@@ -89,8 +89,8 @@ Collaboration diagram for ExtendedSSHClient:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae64f0875afe3067b97ba370b354b9213"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1ExtendedSSHClient.html#ae64f0875afe3067b97ba370b354b9213">__init__</a> (self)</td></tr>
 <tr class="separator:ae64f0875afe3067b97ba370b354b9213"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41dac4ea11498ce5d8bd7fae5b791901"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1ExtendedSSHClient.html#a41dac4ea11498ce5d8bd7fae5b791901">runCmd</a> (self, cmd, throwError=True)</td></tr>
-<tr class="separator:a41dac4ea11498ce5d8bd7fae5b791901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5107acdb3ff67313176f4a34e53a225"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1ExtendedSSHClient.html#af5107acdb3ff67313176f4a34e53a225">runCmd</a> (self, cmd, throwError=True, timeout=None)</td></tr>
+<tr class="separator:af5107acdb3ff67313176f4a34e53a225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8635c8dfaeffa72dfc99b52eddac76cb"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1ExtendedSSHClient.html#a8635c8dfaeffa72dfc99b52eddac76cb">startCmd</a> (self, command)</td></tr>
 <tr class="separator:a8635c8dfaeffa72dfc99b52eddac76cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -176,8 +176,8 @@ Static Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a41dac4ea11498ce5d8bd7fae5b791901"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41dac4ea11498ce5d8bd7fae5b791901">&#9670;&nbsp;</a></span>runCmd()</h2>
+<a id="af5107acdb3ff67313176f4a34e53a225"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5107acdb3ff67313176f4a34e53a225">&#9670;&nbsp;</a></span>runCmd()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +198,13 @@ Static Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>throwError</em> = <code>True</code>&#160;</td>
+          <td class="paramname"><em>throwError</em> = <code>True</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>None</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -207,32 +213,45 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Run a command over an ssh session and return a tuple with the following threee elements
-  0 - the return code/exit status of the command
-  1 - Lines of text from stdout
-  2 - lines of text from stderr
-
-  If throwError is true and the exit status of the copmmand is not 0 then an
-  SSHError will be thrown
+<pre class="fragment">@brief Run a command over an ssh session
+   @param cmd The command to execute
+   @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.
+             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown
+   @param timeout The timeout value in seconds or None (default) if no command timeout is required.
+   @return A tuple with the following three elements if the command executes
+        0 - the return code/exit status of the command
+        1 - Lines of text from stdout
+        2 - lines of text from stderr
+   If the command fails to execute then None is returned.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00089">89</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">def </span>runCmd(self, cmd, throwError=True):</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;Run a command over an ssh session and return a tuple with the following threee elements</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">          0 - the return code/exit status of the command</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral">          1 - Lines of text from stdout</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">          2 - lines of text from stderr</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">          If throwError is true and the exit status of the copmmand is not 0 then an</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">          SSHError will be thrown</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        stdin, stdout, stderr, exitStatus = self.__exec_command(cmd)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">if</span> throwError <span class="keywordflow">and</span> exitStatus != 0:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            errorText = stderr.read()</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">if</span> len(errorText) &gt; 0:</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">raise</span> SSHError(errorText)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;The cmd &#39;%s&#39; return the error code: %d&quot;</span> % (cmd, exitStatus))</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> [exitStatus, ExtendedSSHClient.GetLines(stdout.read()), ExtendedSSHClient.GetLines(stderr.read())]</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00092">92</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">def </span>runCmd(self, cmd, throwError=True, timeout=None):</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Run a command over an ssh session</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">           @param cmd The command to execute</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">           @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">                             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">           @param timeout The timeout value in seconds or None (default) if no command timeout is required.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="stringliteral">           @return A tuple with the following three elements if the command executes</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">                        0 - the return code/exit status of the command</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="stringliteral">                        1 - Lines of text from stdout</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="stringliteral">                        2 - lines of text from stderr</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="stringliteral">                   If the command fails to execute then None is returned.</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            stdin, stdout, stderr, exitStatus = self.__exec_command(cmd,timeout=timeout)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span> throwError <span class="keywordflow">and</span> exitStatus != 0:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                errorText = stderr.read()</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">if</span> len(errorText) &gt; 0:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <span class="keywordflow">raise</span> SSHError(errorText)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;The cmd &#39;%s&#39; return the error code: %d&quot;</span> % (cmd, exitStatus))</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> [exitStatus, ExtendedSSHClient.GetLines(stdout.read()), ExtendedSSHClient.GetLines(stderr.read())]</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">except</span>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keywordflow">if</span> throwError:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">raise</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -269,21 +288,21 @@ the requested command is executed.
 channel in a timely manner).
 @raise SSHException: if the server fails to execute the command
 </pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00075">75</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">def </span>startCmd(self, command ):</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">        Start executing a executing a command on the SSH server.  A new L{Channel} is opened and</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">        the requested command is executed.</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral"></span> </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">        @param command: The command to execute.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">        @return The SSH channel session with the command executing in it (it is up to the caller to read data from this</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">                channel in a timely manner).</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">        @raise SSHException: if the server fails to execute the command</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        chan = self._transport.open_session()</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        chan.exec_command(command)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> chan</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00078">78</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">def </span>startCmd(self, command ):</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">        Start executing a executing a command on the SSH server.  A new L{Channel} is opened and</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">        the requested command is executed.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">        @param command: The command to execute.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">        @return The SSH channel session with the command executing in it (it is up to the caller to read data from this</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">                channel in a timely manner).</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">        @raise SSHException: if the server fails to execute the command</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        chan = self._transport.open_session()</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        chan.exec_command(command)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> chan</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
