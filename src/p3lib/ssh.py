@@ -48,7 +48,7 @@ class ExtendedSSHClient(SSHClient):
         super(ExtendedSSHClient, self).__init__()
         self.set_missing_host_key_policy(AutoAddPolicy())
 
-    def __exec_command(self, command, bufsize=-1):
+    def __exec_command(self, command, bufsize=-1, timeout=None):
         """
         Execute a command on the SSH server.  A new L{Channel} is opened and
         the requested command is executed.  The command's input and output
@@ -59,12 +59,15 @@ class ExtendedSSHClient(SSHClient):
         @type command: str
         @param bufsize: interpreted the same way as by the built-in C{file()} function in python
         @type bufsize: int
+        @param timeout The timeout value in seconds or None if no command timeout.
+        @param type None or float
         @return: the stdin, stdout, and stderr of the executing command
         @rtype: tuple(L{ChannelFile}, L{ChannelFile}, L{ChannelFile})
 
         @raise SSHException: if the server fails to execute the command
         """
-        chan = self._transport.open_session()
+        chan = self._transport.open_session(timeout=timeout)
+        chan.settimeout(timeout)
         chan.exec_command(command)
         stdin = chan.makefile('wb', bufsize)
         stdout = chan.makefile('rb', bufsize)
@@ -86,22 +89,32 @@ class ExtendedSSHClient(SSHClient):
         chan.exec_command(command)
         return chan
 
-    def runCmd(self, cmd, throwError=True):
-        """Run a command over an ssh session and return a tuple with the following threee elements
-          0 - the return code/exit status of the command
-          1 - Lines of text from stdout
-          2 - lines of text from stderr
-
-          If throwError is true and the exit status of the copmmand is not 0 then an
-          SSHError will be thrown
+    def runCmd(self, cmd, throwError=True, timeout=None):
+        """@brief Run a command over an ssh session
+           @param cmd The command to execute
+           @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.
+                             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown
+           @param timeout The timeout value in seconds or None (default) if no command timeout is required.
+           @return A tuple with the following three elements if the command executes
+                        0 - the return code/exit status of the command
+                        1 - Lines of text from stdout
+                        2 - lines of text from stderr
+                   If the command fails to execute then None is returned.
         """
-        stdin, stdout, stderr, exitStatus = self.__exec_command(cmd)
-        if throwError and exitStatus != 0:
-            errorText = stderr.read()
-            if len(errorText) > 0:
-                raise SSHError(errorText)
-            raise SSHError("The cmd '%s' return the error code: %d" % (cmd, exitStatus))
-        return [exitStatus, ExtendedSSHClient.GetLines(stdout.read()), ExtendedSSHClient.GetLines(stderr.read())]
+        try:
+            stdin, stdout, stderr, exitStatus = self.__exec_command(cmd,timeout=timeout)
+            if throwError and exitStatus != 0:
+                errorText = stderr.read()
+                if len(errorText) > 0:
+                    raise SSHError(errorText)
+                raise SSHError("The cmd '%s' return the error code: %d" % (cmd, exitStatus))
+            return [exitStatus, ExtendedSSHClient.GetLines(stdout.read()), ExtendedSSHClient.GetLines(stderr.read())]
+        except:
+            if throwError:
+                raise
+        return None
+
+
 
 class SSH(object):
     """@brief responsible for connecting an ssh connection, excuting commands."""
@@ -283,17 +296,18 @@ class SSH(object):
            @return The ssh transport object."""
         return self._ssh.get_transport()
 
-    def runCmd(self, cmd, throwError = True):
-        """@brief Run a command over an ssh session.
-           @return A tuple with the following three elements when the command is complete.
-          0 - the return code/exit status of the command
-          1 - Lines of text from stdout
-          2 - lines of text from stderr
-
-          If throwError is true and the exit status of the copmmand is not 0 then an
-          SSHError will be thrown
+    def runCmd(self, cmd, throwError=True, timeout=None):
+        """@brief Run a command over an ssh session
+           @param cmd The command to execute
+           @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.
+                             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown
+           @param timeout The timeout value in seconds or None (default) if no command timeout is required.
+           @return A tuple with the following threee elements
+              0 - the return code/exit status of the command
+              1 - Lines of text from stdout
+              2 - lines of text from stderr
         """
-        return self._ssh.runCmd(cmd, throwError=throwError)
+        return self._ssh.runCmd(cmd, throwError=throwError, timeout=timeout)
 
     def startCmd(self, cmd):
         """@brief Start executing a command. This will return after starting the command and before the command has completed.
