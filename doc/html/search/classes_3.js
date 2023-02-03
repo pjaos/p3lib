@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['databaseif_498',['DatabaseIF',['../classp3lib_1_1database__if_1_1DatabaseIF.html',1,'p3lib::database_if']]],
-  ['databaseiferror_499',['DatabaseIFError',['../classp3lib_1_1database__if_1_1DatabaseIFError.html',1,'p3lib::database_if']]],
-  ['dbconfig_500',['DBConfig',['../classp3lib_1_1database__if_1_1DBConfig.html',1,'p3lib::database_if']]],
-  ['dynamicplotexample_501',['DynamicPlotExample',['../classGUIModel__A__example_1_1DynamicPlotExample.html',1,'GUIModel_A_example']]]
+  ['databaseif_501',['DatabaseIF',['../classp3lib_1_1database__if_1_1DatabaseIF.html',1,'p3lib::database_if']]],
+  ['databaseiferror_502',['DatabaseIFError',['../classp3lib_1_1database__if_1_1DatabaseIFError.html',1,'p3lib::database_if']]],
+  ['dbconfig_503',['DBConfig',['../classp3lib_1_1database__if_1_1DBConfig.html',1,'p3lib::database_if']]],
+  ['dynamicplotexample_504',['DynamicPlotExample',['../classGUIModel__A__example_1_1DynamicPlotExample.html',1,'GUIModel_A_example']]]
 ];
