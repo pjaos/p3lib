@@ -130,6 +130,19 @@ class SSH(object):
     DEFAULT_SSH_CONNECTION_TIMEOUT      = 20
 
     @staticmethod
+    def AddKey(privateKey):
+        """@brief Add a key to the list of keys that will be tried when connecting to an ssh server.
+                  This method should be called before instantiating the SSH class. If a key is
+                  already present it won't be added to avoid duplicates.
+           @param privateKey The name of the private key file in the ~/.ssh folder. The public
+                             key file must have the same name with a .pub extension."""
+        if privateKey not in SSH.PRIVATE_KEY_FILE_LIST:
+            SSH.PRIVATE_KEY_FILE_LIST.insert(0, privateKey)
+
+        if privateKey not in SSH.PUBLIC_KEY_FILE_LIST:
+            SSH.PUBLIC_KEY_FILE_LIST.insert(0, privateKey+".pub")
+
+    @staticmethod
     def GetPublicKeyFile():
         """@brief Get the public key file from the <HOME>/.ssh"""
         homeFolder = SSH.LOCAL_SSH_CONFIG_PATH
@@ -148,6 +161,26 @@ class SSH(object):
         raise SSHError("Unable to find a public key file. Please use the 'ssh-keygen -t rsa' command to generate a key pair.")
 
     @staticmethod
+    def GetPublicKeyFileList():
+        """@brief Get a list of public key files that exist locally in <HOME>/.ssh"""
+        homeFolder = SSH.LOCAL_SSH_CONFIG_PATH
+        if not os.path.isdir(homeFolder):
+            username = getuser()
+            if username == 'root':
+                homeFolder = '/root/.ssh'
+            else:
+                homeFolder = '/home/%s/.ssh' % (username)
+
+        keyFileList = []
+        for key in SSH.PUBLIC_KEY_FILE_LIST:
+            keyFile = os.path.join(homeFolder, key)
+            if os.path.isfile(keyFile):
+                if keyFile not in keyFileList:
+                    keyFileList.append(keyFile)
+
+        return keyFileList
+
+    @staticmethod
     def GetPrivateKeyFile():
         """@brief Get the private key file from the <HOME>/.ssh"""
         homeFolder = SSH.LOCAL_SSH_CONFIG_PATH
@@ -164,6 +197,25 @@ class SSH(object):
                 return keyFile
 
         raise SSHError("Unable to find a public key file. Please use the 'ssh-keygen -t rsa' command to generate a key pair.")
+
+    @staticmethod
+    def GetPrivateKeyFileList():
+        """@brief Get a list of private key files that exist locally in <HOME>/.ssh"""
+        homeFolder = SSH.LOCAL_SSH_CONFIG_PATH
+        if not os.path.isdir(homeFolder):
+            username = getuser()
+            if username == 'root':
+                homeFolder = '/root/.ssh'
+            else:
+                homeFolder = '/home/%s/.ssh' % (username)
+
+        keyFileList = []
+        for key in SSH.PRIVATE_KEY_FILE_LIST:
+            keyFile = os.path.join(homeFolder, key)
+            if os.path.isfile(keyFile):
+                if keyFile not in keyFileList:
+                    keyFileList.append(keyFile)
+        return keyFileList
 
     @staticmethod
     def GetPublicKey():
@@ -255,6 +307,12 @@ class SSH(object):
         if self._uio:
             self._uio.warn(text)
 
+    def _debug(self, text):
+        """@brief Present debug level message to the user.
+           @param text The text to be presented to the user."""
+        if self._uio:
+            self._uio.debug(text)
+
     def _connect(self, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):
         """@brief Connect the ssh connection
            @param connectSFTPSession If True then just after the ssh connection
@@ -264,8 +322,34 @@ class SSH(object):
         if not self._ssh:
             self._ssh = ExtendedSSHClient()
 
-        self._ssh.connect(self._host, username=self._username, password=self._password, port=self._port,
-                          pkey=self._sshPrivateKey, timeout=timeout)
+        connected = False
+        for privateKeyFile in SSH.GetPrivateKeyFileList():
+            if os.path.isfile(privateKeyFile):
+                msg = "Trying private key {}".format(privateKeyFile)
+                self._debug(msg)
+                try:
+                    #Define the ssh config
+                    cfg = {
+                        'hostname': self._host,
+                        'timeout': timeout,
+                        'username': self._username,
+                        'key_filename': privateKeyFile,
+                        # This is required of else loging in without the password fails.
+                        'disabled_algorithms': dict(pubkeys=['rsa-sha2-256', 'rsa-sha2-512'])
+                    }
+                    # If we have a password then add this to the config
+                    if self._password and len(self._password) > 0:
+                        cfg['password']=self._password
+                    self._ssh.connect(**cfg)
+                    connected = True
+                    break
+
+                except Exception as ex:
+                    pass
+
+        if not connected:
+            raise Exception("Failed to connect to the SSH server {}@{}.".format(self._username, self._host))
+
         # It can be usefull to know what local IP address was used to reach the ssh server
         self._localAddress = self._ssh.get_transport().sock.getsockname()[0]
         self._ssh.get_transport().use_compression(self.useCompression)
