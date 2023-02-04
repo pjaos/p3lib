@@ -306,6 +306,41 @@ class ConfigManager(object):
         decryptedBytes = crypter.decrypt(token)
         return decryptedBytes.decode('utf-8')
 
+    @staticmethod
+    def GetConfigFile(cfgFilename, addDotToFilename=True, cfgPath=None):
+        """@brief Get the config file."""
+
+        if not cfgFilename:
+            raise Exception("No config filename defined.")
+
+        cfgFilename = cfgFilename
+        if addDotToFilename:
+            if not cfgFilename.startswith("."):
+
+                cfgFilename=".%s" % (cfgFilename)
+
+            else:
+
+                cfgFilename=cfgFilename
+
+        #The the config path has been set then use it
+        if cfgPath:
+            configPath = cfgPath
+
+        else:
+            configPath=""
+            #If an absolute path is set for the config file then don't try to
+            #put the file in the users home dir
+            if not cfgFilename.startswith("/"):
+                configPath = expanduser("~")
+                configPath = configPath.strip()
+                #If no user is known then default to root user.
+                #This occurs on Omega2 startup apps.
+                if len(configPath) == 0 or configPath == '/' or configPath == '/root':
+                    configPath="/root"
+
+        return join( configPath, cfgFilename )
+
     def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
         """@brief Constructor
            @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
@@ -344,37 +379,7 @@ class ConfigManager(object):
 
     def _getConfigFile(self):
         """@brief Get the config file."""
-
-        if not self._cfgFilename:
-            raise Exception("No config filename defined.")
-
-        cfgFilename = self._cfgFilename
-        if self._addDotToFilename:
-            if not self._cfgFilename.startswith("."):
-
-                cfgFilename=".%s" % (self._cfgFilename)
-
-            else:
-
-                cfgFilename=self._cfgFilename
-
-        #The the config path has been set then use it
-        if self._cfgPath:
-            configPath = self._cfgPath
-
-        else:
-            configPath=""
-            #If an absolute path is set for the config file then don't try to
-            #put the file in the users home dir
-            if not self._cfgFilename.startswith("/"):
-                configPath = expanduser("~")
-                configPath = configPath.strip()
-                #If no user is known then default to root user.
-                #This occurs on Omega2 startup apps.
-                if len(configPath) == 0 or configPath == '/' or configPath == '/root':
-                    configPath="/root"
-
-        return join( configPath, cfgFilename )
+        return ConfigManager.GetConfigFile(self._cfgFilename, addDotToFilename=self._addDotToFilename, cfgPath=self._cfgPath)
 
     def addAttr(self, key, value):
         """@brief Add an attribute value to the config.
