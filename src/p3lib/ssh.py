@@ -331,6 +331,7 @@ class SSH(object):
                     #Define the ssh config
                     cfg = {
                         'hostname': self._host,
+                        'port': self._port,
                         'timeout': timeout,
                         'username': self._username,
                         'key_filename': privateKeyFile,
