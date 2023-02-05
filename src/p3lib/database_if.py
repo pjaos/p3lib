@@ -139,7 +139,7 @@ class DatabaseIF(object):
 
 
     def _debug(self, msg):
-        if self._dbConfig.uio.debug:
+        if self._dbConfig.uio and self._dbConfig.uio.debug:
             self._dbConfig.uio.debug(msg)
             
     def connect(self):
