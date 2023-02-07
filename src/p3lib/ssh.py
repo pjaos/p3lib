@@ -2,7 +2,7 @@
 
 import  os
 import  socket
-from    paramiko import SSHClient, AutoAddPolicy, RSAKey, AuthenticationException, SFTPClient
+from    paramiko import SSHClient, AutoAddPolicy, AuthenticationException, SFTPClient
 import  logging
 import  threading
 import  socketserver
@@ -284,11 +284,7 @@ class SSH(object):
         self._password          = password
         self._uio               = uio
         if privateKeyFile:
-            self._privateKeyFile    = privateKeyFile
-        else:
-            self._privateKeyFile = SSH.GetPrivateKeyFile()
-
-        self._sshPrivateKey = RSAKey.from_private_key_file(self._privateKeyFile)
+            SSH.AddKey(privateKeyFile)
 
         self._ssh = ExtendedSSHClient()
         logging.getLogger("paramiko").setLevel(logging.WARNING)
@@ -345,7 +341,7 @@ class SSH(object):
                     connected = True
                     break
 
-                except Exception as ex:
+                except:
                     pass
 
         if not connected:
@@ -431,14 +427,6 @@ class SSH(object):
     def _setupAutologin(self, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):
         """@brief Setup autologin on the ssh server.
            @param timeout The connection timeout in seconds."""
-
-        publicKeyFilename = "{}.pub".format(self._privateKeyFile)
-        publicKeyFile = os.path.join(SSH.LOCAL_SSH_CONFIG_PATH, publicKeyFilename)
-        if not os.path.isfile(publicKeyFile):
-            raise SSHError(
-                "{} public key file not found. Please create a public/private key pair and try again.".format(
-                    publicKeyFile))
-
         self._warn("Auto login to the ssh server failed authentication.")
         self._info("Copying the local public ssh key to the ssh server for automatic login.")
         self._info("Please enter the ssh server ({}) password for the user: {}".format(self._host, self._username))
