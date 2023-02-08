@@ -19,7 +19,7 @@ from bokeh.server.server import Server
 from bokeh.application import Application
 from bokeh.application.handlers.function import FunctionHandler
 from bokeh.plotting import figure, ColumnDataSource, save, output_file
-from bokeh.models import Range1d
+from bokeh.models import Range
 from bokeh.layouts import gridplot, column, row
 from bokeh.palettes import Category20_20 as palette
 from bokeh.models.widgets import CheckboxGroup, Div
@@ -43,10 +43,13 @@ from bokeh.models import PreText
 from bokeh.models import RadioButtonGroup
 from bokeh.models import RangeSlider
 from bokeh.models import Spinner
-from bokeh.models import Panel, Tabs
+from bokeh.models import TabPanel, Tabs
 from bokeh.models import TextAreaInput
 from bokeh.models import Toggle
 from bokeh.models import CustomJS
+from bokeh.models import AutocompleteInput
+from bokeh.models import NumericInput
+from bokeh.models import Switch
 from bokeh import events
 
 class TimeSeriesPoint(object):
@@ -82,16 +85,21 @@ class TimeSeriesGUI(object):
            @param height The height of the plot area in pixels.
            @return A figure instance."""
         if yRangeLimits and len(yRangeLimits) == 2:
-            yrange = Range1d(yRangeLimits[0], yRangeLimits[1])
+#            yrange = Range1d(yRangeLimits[0], yRangeLimits[1])
+            yrange = (float(yRangeLimits[0]), float(yRangeLimits[1]))
+            fig = figure(title=title,
+                         x_axis_type="datetime",
+                         x_axis_location="below",
+                         y_range=yrange,
+                         width=width,
+                         height=height)
         else:
-            yrange = None
+            fig = figure(title=title,
+                         x_axis_type="datetime",
+                         x_axis_location="below",
+                         width=width,
+                         height=height)
 
-        fig = figure(title=title,
-                     x_axis_type="datetime",
-                     x_axis_location="below",
-                     y_range=yrange,
-                     plot_width=width,
-                     plot_height=height)
         fig.yaxis.axis_label = yAxisName
         return fig
 
@@ -207,9 +215,9 @@ class BokehDemoA(TimeSeriesGUI):
         demoWidgetsTab = self._getDemoWidgetsTab()
         textTab = self._getTextTab()
 
-        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
-        self._tabList.append( Panel(child=demoWidgetsTab,  title="Demo Widets") )
-        self._tabList.append( Panel(child=textTab,  title="Text Panel") )
+        self._tabList.append( TabPanel(child=plotPanel,  title="Plots") )
+        self._tabList.append( TabPanel(child=demoWidgetsTab,  title="Demo Widets") )
+        self._tabList.append( TabPanel(child=textTab,  title="Text Panel") )
 
         self._doc.add_root( Tabs(tabs=self._tabList) )
 
@@ -217,7 +225,10 @@ class BokehDemoA(TimeSeriesGUI):
 
     def _getPlotPanel(self):
         """@brief Add tab that shows plot data updates."""
-        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+        # Previously this worked
+        # self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+        # sizing_mode no longer works in this layout (bokeh 2.4.3 -> 3.0.3)
+        self._grid = gridplot(children = self._figTable,  toolbar_location='left')
 
         checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
         checkbox1.on_change('active', self._checkboxHandler)
@@ -230,11 +241,10 @@ class BokehDemoA(TimeSeriesGUI):
         shutDownButton = Button(label="Quit", button_type="success", width=50)
         shutDownButton.on_click(self.stopServer)
 
-        self._statusAreaInput = TextAreaInput(value="", width_policy="max")
-        statusPanel = row([self._statusAreaInput])
+        self._statusAreaInput = TextAreaInput(value="", sizing_mode="stretch_width")
 
         plotRowCtrl = row(children=[checkbox1, saveButton, self.fileToSave, shutDownButton])
-        plotPanel = column([plotRowCtrl, self._grid, statusPanel])
+        plotPanel = column([plotRowCtrl, self._grid, self._statusAreaInput])
         return plotPanel
 
     def _savePlot(self):
@@ -277,8 +287,17 @@ class BokehDemoA(TimeSeriesGUI):
         radio = RadioGroup( labels=["line", "SqureCurve", "CubeCurve"], active=0)
         radio.on_change('active', self._oldNewHandler)
 
+        numericInput = NumericInput(title="NumericInput", value=10.1, low= -10, high=10, mode='float') # mode can be int or float
+        numericInput.on_change('value', self._oldNewHandler)
+
+        switch = Switch(name='Switch', active=True)
+        switch.on_change('active', self._oldNewHandler)
+
         select = Select(title="Select:", value='line', options=["STR1", "STR2", "STR3"])
         select.on_change('value', self._oldNewHandler)
+
+        autocompleteInput = AutocompleteInput(title="AutocompleteInput:", completions=["ABCDEFGHIJK", "0123456789", "Train Station"])
+        autocompleteInput.on_change('value', self._oldNewHandler)
 
         LABELS = ["Option 1", "Option 2", "Option 3"]
         checkbox_button_group = CheckboxButtonGroup(labels=LABELS, active=[0, 1])
@@ -322,8 +341,8 @@ class BokehDemoA(TimeSeriesGUI):
         toggle.on_change('active', self._oldNewHandler)
 
         #to add spacing between items in row set spacing > 0
-        ctrlPanel = row(  column([messageButton, slider, self.file_input, dropdown, radio]),\
-                          column([select, checkbox_button_group, checkbox_group, colorPicker, date_picker]),\
+        ctrlPanel = row(  column([messageButton, slider, self.file_input, dropdown, radio, numericInput, switch]),\
+                          column([select, autocompleteInput, checkbox_button_group, checkbox_group, colorPicker, date_picker]),\
                           column([date_range_slider, password_input, multi_choice, multi_select, range_slider]),\
                           column([spinner, toggle]))
         return ctrlPanel
@@ -422,7 +441,7 @@ class BokehDemoB(TimeSeriesGUI):
 
         plotPanel = self._getPlotPanel()
 
-        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
+        self._tabList.append( TabPanel(child=plotPanel,  title="Plots") )
         self._doc.add_root( Tabs(tabs=self._tabList) )
         self._doc.add_periodic_callback(self._update, 100)
 
@@ -532,9 +551,8 @@ def main(runServer):
         # to the server if this is used.
         plotter.runBokehServer()
     else:
-        # If running using the 'bokeh serve --show bokeh_demo.py' command then
-        # uncomment the following line. Multiple clients will be able to connect
-        # to the server if this is used.
+        # If running using the 'bokeh serve --show bokeh_demo.py' command after
+        # starting pipenv shell.
         plotter.createPlot( curdoc() )
 
 
