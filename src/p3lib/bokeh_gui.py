@@ -18,7 +18,7 @@ from bokeh.server.server import Server
 from bokeh.application import Application
 from bokeh.application.handlers.function import FunctionHandler
 from bokeh.plotting import figure, ColumnDataSource
-from bokeh.models import Range1d
+from bokeh.models import Range
 from bokeh.palettes import Category20_20 as palette
 from bokeh.resources import Resources
 from bokeh.embed import file_html
@@ -28,10 +28,17 @@ from bokeh.layouts import gridplot, column, row
 from bokeh.models.widgets import CheckboxGroup
 from bokeh.models.widgets.buttons import Button
 from bokeh.models.widgets import TextInput
-from bokeh.models import Panel, Tabs
+from bokeh.models import Tabs
 from bokeh.models import DataTable, TableColumn
 from bokeh.models import CustomJS
 from bokeh import events
+
+# In bokeh 2.4.8 -> 3.0.3 Panel was removed.
+# TabPanel can be used instead.
+try:
+    from bokeh.models import Panel
+except ImportError:
+    from bokeh.models import TabPanel as Panel
 
 class UpdateEvent(object):
     """@brief Responsible for holding the state of an event sent from a non GUI thread
@@ -84,16 +91,20 @@ class TabbedGUI(object):
            @param height The height of the plot area in pixels.
            @return A figure instance."""
         if yRangeLimits and len(yRangeLimits) == 2:
-            yrange = Range1d(yRangeLimits[0], yRangeLimits[1])
+            yrange = Range(yRangeLimits[0], yRangeLimits[1])
+            fig = figure(title=title,
+                         x_axis_type="datetime",
+                         x_axis_location="below",
+                         y_range=yrange,
+                         plot_width=width,
+                         plot_height=height)
         else:
-            yrange = None
+            fig = figure(title=title,
+                         x_axis_type="datetime",
+                         x_axis_location="below",
+                         plot_width=width,
+                         plot_height=height)
 
-        fig = figure(title=title,
-                     x_axis_type="datetime",
-                     x_axis_location="below",
-                     y_range=yrange,
-                     plot_width=width,
-                     plot_height=height)
         fig.yaxis.axis_label = yAxisName
         return fig
 
@@ -244,7 +255,7 @@ class TimeSeriesPlotter(TabbedGUI):
 
     def _getPlotPanel(self):
         """@brief Add tab that shows plot data updates."""
-        self._grid = gridplot(children = self._figTable, sizing_mode = 'scale_both',  toolbar_location='left')
+        self._grid = gridplot(children = self._figTable, toolbar_location='left')
 
         if self._topCtrlPanel:
             checkbox1 = CheckboxGroup(labels=["Plot Data"], active=[0, 1],max_width=70)
@@ -610,7 +621,7 @@ class GUIModel_A(SingleAppServer):
             if self._includeSaveHTML:
                 self._addHTMLSaveWidgets()
             self._guiTable.append([self._statusBar.getWidget()])
-            gp = gridplot( children = self._guiTable, sizing_mode='stretch_width', toolbar_location="above", merge_tools=True)
+            gp = gridplot( children = self._guiTable, toolbar_location="above", merge_tools=True)
             self._doc.add_root( gp )
             self._appInitComplete = True
 
