@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['checktableexists_41',['CheckTableExists',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a5fa0353081793451468619544d38797d',1,'p3lib::database_if::DatabaseIF']]],
+  ['checktableexists_41',['CheckTableExists',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a5fa0353081793451468619544d38797d',1,'p3lib.database_if.DatabaseIF.CheckTableExists(connection, tableName)'],['../classp3lib_1_1database__if_1_1DatabaseIF.html#a9a85b158655e97ff83fee797df26a1d8',1,'p3lib.database_if.DatabaseIF.checkTableExists(self, tableName)']]],
   ['clearprogbar_42',['clearProgBar',['../classp3lib_1_1uio_1_1UIO.html#a60f5e8daeb91a459bcabf6c6e637e876',1,'p3lib::uio::UIO']]],
   ['client_5fid_5fdict_5fkey_43',['CLIENT_ID_DICT_KEY',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a7e85b7c95fd811a25dce70f2b4ea8aba',1,'p3lib::mqtt_rpc::MQTTRPCClient']]],
   ['close_44',['close',['../classp3lib_1_1json__networking_1_1JSONClient.html#a8639372c33e15084a7f7c4d9d87b7bfe',1,'p3lib.json_networking.JSONClient.close()'],['../classp3lib_1_1ssh_1_1SSH.html#a8639372c33e15084a7f7c4d9d87b7bfe',1,'p3lib.ssh.SSH.close()']]],

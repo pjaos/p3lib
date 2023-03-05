@@ -141,7 +141,7 @@ class DatabaseIF(object):
     def _debug(self, msg):
         if self._dbConfig.uio and self._dbConfig.uio.debug:
             self._dbConfig.uio.debug(msg)
-            
+
     def connect(self):
         """@brief connect to the database server."""
         self._info("Connecting to {}:{} (database = {})".format(self._dbConfig.serverAddress, self._dbConfig.serverPort, self._dbConfig.dataBaseName))
@@ -161,30 +161,69 @@ class DatabaseIF(object):
                                                 passwd=self._dbConfig.password)
         self._info("Connected")
 
+    def checkTableExists(self, tableName):
+        """@brief Check if a table exists in any database.
+           @param tableName The name of the table to check for.
+           @return True if the table exists, False if not."""
+        cursor = self._dbCon.cursor()
+        cmd="""SELECT COUNT(*) FROM information_schema.tables WHERE table_name = '{0}'""".format(tableName.replace('\'', '\'\''))
+        self._debug("EXECUTE SQL: {}".format(cmd))
+        #self.executeSQL(cmd)
+        cursor.execute(cmd)
+        tableExists = cursor.fetchone()[0] == 1
+        cursor.close()
+        return tableExists
+
+    def _createTable(self, tableName, tableSchemaDict):
+        """"@brief Create a table in the currently used database..
+            @param tableName The name of the database table.
+            @param tableSchemaDict A python dictionary that defines the table schema.
+                                   Each dictionary key is the name of the column in the table.
+                                   Each associated value is the SQL definition of the column type (E.G VARCHAR(64), FLOAT(5,2) etc)."""
+        cursor = self._dbCon.cursor()
+
+        sqlCmd = 'CREATE TABLE IF NOT EXISTS `{}` ('.format(tableName)
+        for colName in list(tableSchemaDict.keys()):
+            colDef = tableSchemaDict[colName]
+            correctedColName = DatabaseIF.GetValidColName(colName)
+            sqlCmd = sqlCmd + "`{}` {},\n".format(correctedColName, colDef)
+
+        sqlCmd = sqlCmd[:-2]
+        sqlCmd = sqlCmd + ");"
+        self.executeSQL(sqlCmd)
+        cursor.close()
+
     def createTable(self, tableName, tableSchemaDict):
         """@brief Create the table in the connected database.
            @param tableName The table we're innterested in.
            @param tableSchemaDict The schema for the table in dict form."""
-        if not DatabaseIF.CheckTableExists(self._dbCon, tableName):
-            DatabaseIF.CreateTable(self._dbCon, tableName, tableSchemaDict)
-            self._info("Created the {} table".format(tableName))
-        else:
-            raise Exception("The {} table already exists in the database.".format(tableName))
+        self._createTable(tableName, tableSchemaDict)
 
+    def getTableRowCount(self, tableName):
+        """@brief Get the number of rows in a table.
+           @param tableName The name of the table. 
+           @return the number of rows in the table or -1 if not found."""
+        count = -1
+        cmd = "SELECT COUNT(*) as count from {};".format(tableName)
+        retList = self.executeSQL(cmd)
+        if len(retList) > 0:
+            print()
+            count = retList[0]['count']
+        return count
+    
+    def deleteRows(self, tableName, rowCount):
+        """@brief Delete rows from a table.
+           @param tableName The name of the table. 
+           @param rowCount The number of rows to delete."""
+        cmd = "DELETE FROM {} LIMIT {};".format(tableName, rowCount)
+        self.executeSQL(cmd)
+        
     def ensureTableExists(self, tableName, tableSchemaDict, autoCreate):
         """@brief Check that the table a table exists in the database.
            @param tableName The table we're interested in.
            @param tableSchemaDict The schema for the table in dict form.
-           @param autoCreate IF True then auto create the table."""
-
-        if not DatabaseIF.CheckTableExists(self._dbCon, tableName):
-            if autoCreate:
-
-                self.createTable(tableName, tableSchemaDict)
-
-            else:
-
-                raise DatabaseIFError("{} database table not found.".format(tableName) )
+           @param autoCreate Now redundant. It used to be the case that if True then auto create the table."""
+        self._createTable(tableName, tableSchemaDict)
 
     def insertRow(self, dataDict, tableName, tableSchemaDict):
         """@brief Insert a row into a database table.
@@ -193,7 +232,23 @@ class DatabaseIF(object):
            @param tableName The name of the table to insert data into
            @param tableSchemaDict The schema for the database table."""
         insertableDict = DatabaseIF.GetInsertableDict(tableName, dataDict, tableSchemaDict)
-        DatabaseIF.InsertRow(self._dbCon, tableName, insertableDict)
+        cursor = self._dbCon.cursor()
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        insertableDict['TIMESTAMP'] = timestamp
+
+        keyList = list(insertableDict.keys())
+        valueList = []
+        for key in keyList:
+            valueList.append(str(insertableDict[key]))
+
+        sql = 'INSERT INTO `' + tableName
+        sql += '` ('
+        sql += ', '.join(keyList)
+        sql += ') VALUES ('
+        sql += ', '.join(map(DatabaseIF.GetQuotedValue, valueList))
+        sql += ');'
+        self.executeSQL(sql)
+        cursor.close()
 
     def executeSQL(self, sqlCmd):
         """@brief execute an SQL cmd"""

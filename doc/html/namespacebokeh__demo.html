@@ -105,64 +105,63 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief program entry point
    @runServer If True then run the bokeh server directly as a python program.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00485">485</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceuio__test.html#ae0eaf8293c08d82b9cf47c406b3122c8">main</a>(runServer):</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;@brief program entry point</span></div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="stringliteral">       @runServer If True then run the bokeh server directly as a python program.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160; </div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="comment"># Two different demos are shown.</span></div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    plotter = BokehDemoA(<span class="stringliteral">&quot;Bokeh Real Time Plot And Widgets Demo&quot;</span>)</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="comment"># A cut down version of the above</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="comment">#plotter = BokehDemoB(&quot;Bokeh Real Time Plot Demo&quot;)</span></div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    fig1 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 1&quot;</span>, <span class="stringliteral">&quot;PLOT 1 Y Range&quot;</span>)</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    <span class="comment">#Trace index 0</span></div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    plotter.addTrace(fig1, <span class="stringliteral">&quot;Volts&quot;</span>)</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="comment">#Trace index 1</span></div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    plotter.addTrace(fig1, <span class="stringliteral">&quot;Amps&quot;</span>)</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="comment">#Trace index 2</span></div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    plotter.addTrace(fig1, <span class="stringliteral">&quot;Watts&quot;</span>)</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    fig2 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 2&quot;</span>, <span class="stringliteral">&quot;PLOT 2 Y Range&quot;</span>)</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <span class="comment">#Trace index 3</span></div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    plotter.addTrace(fig2, <span class="stringliteral">&quot;Distance&quot;</span>)</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    fig3 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 3&quot;</span>, <span class="stringliteral">&quot;PLOT 3 Y Range&quot;</span>)</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="comment">#Trace index 4</span></div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    plotter.addTrace(fig3, <span class="stringliteral">&quot;Height&quot;</span>)</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    fig4 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 4&quot;</span>, <span class="stringliteral">&quot;PLOT 4 Y Range&quot;</span>)</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="comment">#Trace index 5</span></div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    plotter.addTrace(fig4, <span class="stringliteral">&quot;Trains&quot;</span>)</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160; </div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    fig5 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 4&quot;</span>, <span class="stringliteral">&quot;PLOT 4 Y Range&quot;</span>)</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="comment">#Trace index 6</span></div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    plotter.addTrace(fig5, <span class="stringliteral">&quot;Cars&quot;</span>)</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160; </div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    plotter.addToRow(fig1)</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    plotter.addToRow(fig2)</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    plotter.addRow()</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    plotter.addToRow(fig3)</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    plotter.addToRow(fig4)</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    plotter.addToRow(fig5)</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00504">504</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="keyword">def </span><a class="code" href="namespaceuio__test.html#ae0eaf8293c08d82b9cf47c406b3122c8">main</a>(runServer):</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;@brief program entry point</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;<span class="stringliteral">       @runServer If True then run the bokeh server directly as a python program.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="comment"># Two different demos are shown.</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    plotter = BokehDemoA(<span class="stringliteral">&quot;Bokeh Real Time Plot And Widgets Demo&quot;</span>)</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;    <span class="comment"># A cut down version of the above</span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;    <span class="comment">#plotter = BokehDemoB(&quot;Bokeh Real Time Plot Demo&quot;)</span></div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    fig1 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 1&quot;</span>, <span class="stringliteral">&quot;PLOT 1 Y Range&quot;</span>)</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="comment">#Trace index 0</span></div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    plotter.addTrace(fig1, <span class="stringliteral">&quot;Volts&quot;</span>)</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="comment">#Trace index 1</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    plotter.addTrace(fig1, <span class="stringliteral">&quot;Amps&quot;</span>)</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="comment">#Trace index 2</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    plotter.addTrace(fig1, <span class="stringliteral">&quot;Watts&quot;</span>)</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160; </div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    fig2 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 2&quot;</span>, <span class="stringliteral">&quot;PLOT 2 Y Range&quot;</span>)</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">#Trace index 3</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    plotter.addTrace(fig2, <span class="stringliteral">&quot;Distance&quot;</span>)</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160; </div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    plotUpdateThread = threading.Thread(target=updatePlots, args=(plotter,))</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    plotUpdateThread.setDaemon(<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    plotUpdateThread.start()</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    fig3 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 3&quot;</span>, <span class="stringliteral">&quot;PLOT 3 Y Range&quot;</span>)</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="comment">#Trace index 4</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    plotter.addTrace(fig3, <span class="stringliteral">&quot;Height&quot;</span>)</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">if</span> runServer:</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="comment"># If called using the &#39;python bokeh_demo.py&#39; command then uncomment</span></div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        <span class="comment"># the following line. Only a single client will be able to connect</span></div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        <span class="comment"># to the server if this is used.</span></div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        plotter.runBokehServer()</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;        <span class="comment"># If running using the &#39;bokeh serve --show bokeh_demo.py&#39; command then</span></div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        <span class="comment"># uncomment the following line. Multiple clients will be able to connect</span></div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="comment"># to the server if this is used.</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        plotter.createPlot( curdoc() )</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160; </div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    fig4 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 4&quot;</span>, <span class="stringliteral">&quot;PLOT 4 Y Range&quot;</span>)</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <span class="comment">#Trace index 5</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    plotter.addTrace(fig4, <span class="stringliteral">&quot;Trains&quot;</span>)</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160; </div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    fig5 = TimeSeriesGUI.GetFigure(<span class="stringliteral">&quot;PLOT 4&quot;</span>, <span class="stringliteral">&quot;PLOT 4 Y Range&quot;</span>)</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">#Trace index 6</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    plotter.addTrace(fig5, <span class="stringliteral">&quot;Cars&quot;</span>)</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;    plotter.addToRow(fig1)</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    plotter.addToRow(fig2)</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    plotter.addRow()</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    plotter.addToRow(fig3)</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    plotter.addToRow(fig4)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    plotter.addToRow(fig5)</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    plotUpdateThread = threading.Thread(target=updatePlots, args=(plotter,))</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    plotUpdateThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    plotUpdateThread.start()</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keywordflow">if</span> runServer:</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="comment"># If called using the &#39;python bokeh_demo.py&#39; command then uncomment</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        <span class="comment"># the following line. Only a single client will be able to connect</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        <span class="comment"># to the server if this is used.</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;        plotter.runBokehServer()</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        <span class="comment"># If running using the &#39;bokeh serve --show bokeh_demo.py&#39; command after</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        <span class="comment"># starting pipenv shell.</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        plotter.createPlot( curdoc() )</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,23 +181,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00474">474</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="keyword">def </span><a class="code" href="namespacebokeh__demo.html#a96ca1bcfa4b16d989a879125d0a77857">updatePlots</a>(plotter):</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    min=0</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    max=100</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <span class="comment">#Trace indexes from 0-6 are valid</span></div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,7):</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;            value = min + (max-min)*random.random()</div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;            plotter.addValue(traceIndex, value)</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        sleep(1)</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__demo_8py_source.html#l00493">493</a> of file <a class="el" href="bokeh__demo_8py_source.html">bokeh_demo.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="keyword">def </span><a class="code" href="namespacebokeh__demo.html#a96ca1bcfa4b16d989a879125d0a77857">updatePlots</a>(plotter):</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    min=0</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    max=100</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        <span class="comment">#Trace indexes from 0-6 are valid</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,7):</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;            value = min + (max-min)*random.random()</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;            plotter.addValue(traceIndex, value)</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        sleep(1)</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="anamespacebokeh__demo_html_a96ca1bcfa4b16d989a879125d0a77857"><div class="ttname"><a href="namespacebokeh__demo.html#a96ca1bcfa4b16d989a879125d0a77857">bokeh_demo.updatePlots</a></div><div class="ttdeci">def updatePlots(plotter)</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__demo_8py_source.html#l00474">bokeh_demo.py:474</a></div></div>
+<div class="ttc" id="anamespacebokeh__demo_html_a96ca1bcfa4b16d989a879125d0a77857"><div class="ttname"><a href="namespacebokeh__demo.html#a96ca1bcfa4b16d989a879125d0a77857">bokeh_demo.updatePlots</a></div><div class="ttdeci">def updatePlots(plotter)</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__demo_8py_source.html#l00493">bokeh_demo.py:493</a></div></div>
 <div class="ttc" id="anamespaceuio__test_html_ae0eaf8293c08d82b9cf47c406b3122c8"><div class="ttname"><a href="namespaceuio__test.html#ae0eaf8293c08d82b9cf47c406b3122c8">uio_test.main</a></div><div class="ttdeci">def main()</div><div class="ttdef"><b>Definition:</b> <a href="uio__test_8py_source.html#l00168">uio_test.py:168</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
