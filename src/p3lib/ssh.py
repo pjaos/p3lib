@@ -91,9 +91,13 @@ class ExtendedSSHClient(SSHClient):
 
     def runCmd(self, cmd, throwError=True, timeout=None):
         """@brief Run a command over an ssh session
-           @param cmd The command to execute
-           @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.
-                             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown
+           @param cmd The command to execute.
+                      Note that if the command is executed in the background (I.E the command ends with a '
+                      character then no attempt to read from stdout or stderr is made.
+                      In this case the stdout and stderr lines returned will be empty lists but
+                      the return code will still be valid (I.E 0 if the backgrounded command started).
+           @param throwError If True and the command fails throw an error. If False and the command fail re
+                             If throwError is True and the exit status of the command is not 0 then an SSHE
            @param timeout The timeout value in seconds or None (default) if no command timeout is required.
            @return A tuple with the following three elements if the command executes
                         0 - the return code/exit status of the command
@@ -101,14 +105,27 @@ class ExtendedSSHClient(SSHClient):
                         2 - lines of text from stderr
                    If the command fails to execute then None is returned.
         """
+        readData=True
+        stdOutLines=[]
+        stdErrLines=[]
         try:
+            # Check if we have a backgrounded command. If so don't read the output
+            # as openssh servers may block reading from stdout on backgrounded commands
+            # which is not what the caller would expect.
+            sCmd = cmd.strip()
+            if sCmd.endswith("&"):
+                readData=False
             stdin, stdout, stderr, exitStatus = self.__exec_command(cmd,timeout=timeout)
             if throwError and exitStatus != 0:
-                errorText = stderr.read()
-                if len(errorText) > 0:
-                    raise SSHError(errorText)
+                if readData:
+                    errorText = stderr.read(1024)
+                    if len(errorText) > 0:
+                        raise SSHError(errorText)
                 raise SSHError("The cmd '%s' return the error code: %d" % (cmd, exitStatus))
-            return [exitStatus, ExtendedSSHClient.GetLines(stdout.read()), ExtendedSSHClient.GetLines(stderr.read())]
+            if readData:
+                stdOutLines = ExtendedSSHClient.GetLines(stdout.read())
+                stdErrLines = ExtendedSSHClient.GetLines(stderr.read())
+            return [exitStatus, stdOutLines, stdErrLines]
         except:
             if throwError:
                 raise
