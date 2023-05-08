@@ -256,7 +256,9 @@ class DatabaseIF(object):
         dictCursor = self._dbCon.cursor(mysqldb.cursors.DictCursor)
 
         dictCursor.execute(sqlCmd)
-        return dictCursor.fetchall()
+        resultDict = dictCursor.fetchall()
+        self._dbCon.commit()
+        return resultDict
 
     def disconnect(self):
         """@brief Disconnect from the database server."""
