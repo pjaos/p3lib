@@ -87,6 +87,7 @@ class UIO(object):
         self._symLinkDir                    = None
         self._sysLogEnabled                 = False
         self._sysLogHost                    = None
+        self._syslogProgramName             = None
 
     def logAll(self, enabled):
         """@brief Turn on/off the logging of all output including debug output even if debugging is off."""
@@ -335,11 +336,13 @@ class UIO(object):
             pass
         return username
 
-    def enableSyslog(self, enabled, host="localhost"):
+    def enableSyslog(self, enabled, host="localhost", programName=None):
         """@brief Enable/disable syslog.
-           @param enabled If True then syslog is enabled."""
+           @param enabled If True then syslog is enabled.
+           @param syslogProgramName The name of the program that is being logged. If defined this appears after the username in the syslog output."""
         self._sysLogEnabled = enabled
         self._sysLogHost = host
+        self._syslogProgramName = programName
 
     def _update_syslog(self, pri, msg):
         """Send a message to syslog is syslog is enabled
@@ -369,8 +372,12 @@ class UIO(object):
                 pass
 
             try:
+                if self._syslogProgramName:
+                    idString = str(self.getCurrentUsername()) + "-" + self._syslogProgramName
+                else:
+                    idString = str(self.getCurrentUsername())
                 #send aMsg to syslog with the current process ID and username
-                syslog(pri, "%s %d %s: %s" % (srcIP, os.getpid(), str(self.getCurrentUsername()), str(aMsg) ), host=self._sysLogHost )
+                syslog(pri, "%s %d %s: %s" % (srcIP, os.getpid(), idString, str(aMsg) ), host=self._sysLogHost )
             #Ignore if se can't resolve address. We don't really syslog want errors to stop the user interface
             except:
                 pass
