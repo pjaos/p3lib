@@ -4,6 +4,7 @@ import sys
 import os
 import re
 import traceback
+import platform
 from   threading import Lock
 from   socket import socket, AF_INET, SOCK_DGRAM
 from   getpass import getpass, getuser
@@ -273,7 +274,9 @@ class UIO(object):
             # If the log file is about to be created then we will create a symlink
             # to the file.
             if not os.path.isfile(logFile):
-                createSymLink = True
+                # We can't create symlinks on a windows platform
+                if platform.system() != "Windows":
+                    createSymLink = True
 
             with open(logFile, 'a') as fd:
                 if addLF:
