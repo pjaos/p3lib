@@ -202,20 +202,57 @@ class UIO(object):
             elif allowQuit and response.lower() == 'q':
                 sys.exit(0)
 
-    def getIntInput(self, prompt, allowQuit=True, radix=10):
+    def _getNumericInput(self, floatValue, prompt, allowQuit=True, radix=10, minValue=None, maxValue=None):
       """@brief Get a decimal int number from the user.
+         @param floatValue If True a float value is returned. If False an int value is returned.
          @param allowQuit If True and the user enters q then the program will exit.
-         @param radix The radix of the number entered (default=10).
+         @param radix The radix of the number entered (default=10). Only used if inputting an int value.
+         @param minValue The minimum acceptable value. If left at None then any value is accepted.
+         @param maxValue The maximum acceptable value. If left at None then any value is accepted.
          @return True or False"""
       while True:
         response = self.getInput(prompt=prompt)
         try:
-          return int(response, radix)
-        except ValueError:
-          self.warn("%s is not a valid integer value." % (response))
+            if floatValue:
+                value = float(response)
+            else:
+                value = int(response, radix)
+                
+            if minValue is not None and value < minValue:
+                self.warn(f"The minimum acceptable value is {minValue}")
+                
+            if maxValue is not None and value > maxValue:
+                self.warn(f"The mximum acceptable value is {maxValue}")
+                
+            return value
 
+        except ValueError:
+            if floatValue:
+                self.warn("%s is not a valid float value." % (response))
+                
+            else:
+                self.warn("%s is not a valid integer value." % (response))
+                
         if allowQuit and response.lower() == 'q':
-          return None
+            return None
+
+    def getIntInput(self, prompt, allowQuit=True, radix=10, minValue=None, maxValue=None):
+      """@brief Get a decimal int number from the user.
+         @param allowQuit If True and the user enters q then the program will exit.
+         @param radix The radix of the number entered (default=10).
+         @param minValue The minimum acceptable value. If left at None then any value is accepted.
+         @param maxValue The maximum acceptable value. If left at None then any value is accepted.
+         @return True or False"""
+      return self._getNumericInput(False, prompt, allowQuit=allowQuit, radix=radix, minValue=minValue, maxValue=maxValue)
+
+    def getFloatInput(self, prompt, allowQuit=True, radix=10, minValue=None, maxValue=None):
+      """@brief Get a float number from the user.
+         @param allowQuit If True and the user enters q then the program will exit.
+         @param radix The radix of the number entered (default=10).
+         @param minValue The minimum acceptable value. If left at None then any value is accepted.
+         @param maxValue The maximum acceptable value. If left at None then any value is accepted.
+         @return True or False"""
+      return self._getNumericInput(True, prompt, allowQuit=allowQuit, radix=radix, minValue=minValue, maxValue=maxValue)
 
     def errorException(self):
         """@brief Show an exception traceback if debugging is enabled"""
