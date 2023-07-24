@@ -15,6 +15,6 @@ var searchData=
   ['example_5frun_5fmultiple_5fbokeh_5fservers_132',['example_run_multiple_bokeh_servers',['../namespaceexample__run__multiple__bokeh__servers.html',1,'']]],
   ['example_5frun_5fmultiple_5fbokeh_5fservers_2epy_133',['example_run_multiple_bokeh_servers.py',['../example__run__multiple__bokeh__servers_8py.html',1,'']]],
   ['exampleappserver_134',['ExampleAppServer',['../classexample__run__multiple__bokeh__servers_1_1ExampleAppServer.html',1,'example_run_multiple_bokeh_servers']]],
-  ['executesql_135',['executeSQL',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a6ffd1a646b85c8ff98412b9082adcd15',1,'p3lib.database_if.DatabaseIF.executeSQL(self, sqlCmd)'],['../classp3lib_1_1database__if_1_1DatabaseIF.html#a0b70c4a751cd2ccd735b8fa29517e6e0',1,'p3lib.database_if.DatabaseIF.ExecuteSQL(connection, cursor, cmd)']]],
+  ['executesql_135',['ExecuteSQL',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a0b70c4a751cd2ccd735b8fa29517e6e0',1,'p3lib.database_if.DatabaseIF.ExecuteSQL(connection, cursor, cmd)'],['../classp3lib_1_1database__if_1_1DatabaseIF.html#a6ffd1a646b85c8ff98412b9082adcd15',1,'p3lib.database_if.DatabaseIF.executeSQL(self, sqlCmd)']]],
   ['extendedsshclient_136',['ExtendedSSHClient',['../classp3lib_1_1ssh_1_1ExtendedSSHClient.html',1,'p3lib::ssh']]]
 ];
