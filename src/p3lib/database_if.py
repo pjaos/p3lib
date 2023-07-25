@@ -207,7 +207,6 @@ class DatabaseIF(object):
         cmd = "SELECT COUNT(*) as count from {};".format(tableName)
         retList = self.executeSQL(cmd)
         if len(retList) > 0:
-            print()
             count = retList[0]['count']
         return count
     
