@@ -461,7 +461,7 @@ class SingleAppServer(object):
               the freedom to define your app as required."""
 
     @staticmethod
-    def GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress="localhost"):
+    def GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress="0.0.0.0"):
         """@brief Get the first unused above the base port.
            @param basePort The port to start checking for available ports.
            @param maxPort The highest port number to check.
@@ -739,3 +739,74 @@ class GUIModel_A(SingleAppServer):
         if time() > self._lastUpdateTime+10:
             self._debug("Updating GUI: Outstanding messages = {}".format( self._plotDataQueue.qsize()) )
             self._lastUpdateTime = time()
+
+
+class MultiAppServer(object):
+    """@brief Responsible for running a bokeh server containing a multiple apps.
+              The server may be started by calling either a blocking or a non
+              blocking method. This provides a basic parent class with
+              the freedom to define your app as required."""
+
+    @staticmethod
+    def GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress="0.0.0.0"):
+        """@brief A helper method to get the first unused above the base port.
+           @param basePort The port to start checking for available ports.
+           @param maxPort The highest port number to check.
+           @param bindAddress The address to bind to.
+           @return The TCP port or -1 if no port is available."""
+        return SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)
+
+    def __init__(self, bokehPort=0):
+        """@Constructor
+           @param bokehPort The TCP port to run the server on. If left at the default
+                  of 0 then a spare TCP port will be used.
+           """
+        if bokehPort == 0:
+            bokehPort = MultiAppServer.GetNextUnusedPort()
+        self._bokehPort=bokehPort
+
+    def getServerPort(self):
+        """@return The bokeh server port."""
+        return self._bokehPort
+
+    def _getAppDict(self, appMethodDict):
+        """@brief Get a dict that can be passed to the Server object to
+                  define the apps to be served."""
+        appDict = {}
+        for key in appMethodDict:
+            appMethod = appMethodDict[key]
+            appDict[key]=Application(FunctionHandler(appMethod))
+        return appDict
+
+    def runBlockingBokehServer(self, appMethodDict):
+        """@brief Run the bokeh server. This method will only return when the server shuts down.
+           @param appMethodDict This dict holds references to all the apps yourwish the server
+           to run.
+           The key to each dict entry should be the last part of the URL to point to the app.
+           E.G '/' is the root app which is displayed when the full URL is given.
+           The value should be a reference to the method on this object that holds
+           the app code."""
+        appDict = self._getAppDict(appMethodDict)
+
+        #As this gets run in a thread we need to start an event loop
+        evtLoop = asyncio.new_event_loop()
+        asyncio.set_event_loop(evtLoop)
+        self._server = Server(appDict, port=self._bokehPort)
+        self._server.start()
+        #Show the server in a web browser window
+        self._server.io_loop.add_callback(self._server.show, "/")
+        self._server.io_loop.start()
+
+    def runNonBlockingBokehServer(self, appMethodDict):
+        """@brief Run the bokeh server in a separate thread. This is useful
+                  if the we want to load realtime data into the plot from the
+                  main thread.
+           @param @param appMethodDict This dict holds references to all the apps yourwish the server
+           to run.
+           The key to each dict entry should be the last part of the URL to point to the app.
+           E.G '/' is the root app which is displayed when the full URL is given.
+           The value should be a reference to the method on this object that holds
+           the app code."""
+        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethodDict,))
+        self._serverThread.setDaemon(True)
+        self._serverThread.start()
