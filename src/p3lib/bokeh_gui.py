@@ -747,6 +747,8 @@ class MultiAppServer(object):
               blocking method. This provides a basic parent class with
               the freedom to define your app as required."""
 
+    BOKEH_ALLOW_WS_ORIGIN       = 'BOKEH_ALLOW_WS_ORIGIN'
+
     @staticmethod
     def GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress="0.0.0.0"):
         """@brief A helper method to get the first unused above the base port.
@@ -756,14 +758,17 @@ class MultiAppServer(object):
            @return The TCP port or -1 if no port is available."""
         return SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)
 
-    def __init__(self, bokehPort=0):
+    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*"):
         """@Constructor
+           @param address The address of the bokeh server.
            @param bokehPort The TCP port to run the server on. If left at the default
                   of 0 then a spare TCP port will be used.
            """
         if bokehPort == 0:
             bokehPort = MultiAppServer.GetNextUnusedPort()
         self._bokehPort=bokehPort
+        self._address=address
+        os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin
 
     def getServerPort(self):
         """@return The bokeh server port."""
@@ -792,7 +797,7 @@ class MultiAppServer(object):
         #As this gets run in a thread we need to start an event loop
         evtLoop = asyncio.new_event_loop()
         asyncio.set_event_loop(evtLoop)
-        self._server = Server(appDict, port=self._bokehPort)
+        self._server = Server(appDict, address=self._address, port=self._bokehPort)
         self._server.start()
         if openBrowser:
             #Show the server in a web browser window
