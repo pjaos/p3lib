@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['warn_493',['warn',['../classp3lib_1_1uio_1_1UIO.html#a32632feeba36506bc455ad31ab73660f',1,'p3lib::uio::UIO']]],
-  ['warning_494',['WARNING',['../classp3lib_1_1uio_1_1PRIORITY.html#a6d56d31dc98daa7e6566f14350e580f9',1,'p3lib::uio::PRIORITY']]]
+  ['value_500',['value',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'p3lib.bokeh_gui.TimeSeriesPoint.value()'],['../classbokeh__demo_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'bokeh_demo.TimeSeriesPoint.value()']]]
 ];
