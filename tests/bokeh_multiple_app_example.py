@@ -109,12 +109,12 @@ class MyMultiAppServer(MultiAppServer):
         doc.add_root( gp )
 
 myMultiAppServer = MyMultiAppServer(bokehPort=9000)
-
+openBrowser=False
 # Call this to block execution in the main thread at this point
-myMultiAppServer.runBlockingBokehServer(myMultiAppServer.getAppMethodDict())
+myMultiAppServer.runBlockingBokehServer(myMultiAppServer.getAppMethodDict(), openBrowser=openBrowser)
 
 # Call this if you wish the main thread to continue execution
-#myMultiAppServer.runNonBlockingBokehServer(myMultiAppServer.getAppMethodDict())
+#myMultiAppServer.runNonBlockingBokehServer(myMultiAppServer.getAppMethodDict(), openBrowser=openBrowser)
 count=1
 while True:
     sleep(5)

@@ -778,14 +778,15 @@ class MultiAppServer(object):
             appDict[key]=Application(FunctionHandler(appMethod))
         return appDict
 
-    def runBlockingBokehServer(self, appMethodDict):
+    def runBlockingBokehServer(self, appMethodDict, openBrowser=True):
         """@brief Run the bokeh server. This method will only return when the server shuts down.
            @param appMethodDict This dict holds references to all the apps yourwish the server
            to run.
            The key to each dict entry should be the last part of the URL to point to the app.
            E.G '/' is the root app which is displayed when the full URL is given.
            The value should be a reference to the method on this object that holds
-           the app code."""
+           the app code.
+           @param openBrowser If True then open a browser connected to the / app (default=True)."""
         appDict = self._getAppDict(appMethodDict)
 
         #As this gets run in a thread we need to start an event loop
@@ -793,11 +794,12 @@ class MultiAppServer(object):
         asyncio.set_event_loop(evtLoop)
         self._server = Server(appDict, port=self._bokehPort)
         self._server.start()
-        #Show the server in a web browser window
-        self._server.io_loop.add_callback(self._server.show, "/")
+        if openBrowser:
+            #Show the server in a web browser window
+            self._server.io_loop.add_callback(self._server.show, "/")
         self._server.io_loop.start()
 
-    def runNonBlockingBokehServer(self, appMethodDict):
+    def runNonBlockingBokehServer(self, appMethodDict, openBrowser=True):
         """@brief Run the bokeh server in a separate thread. This is useful
                   if the we want to load realtime data into the plot from the
                   main thread.
@@ -806,7 +808,8 @@ class MultiAppServer(object):
            The key to each dict entry should be the last part of the URL to point to the app.
            E.G '/' is the root app which is displayed when the full URL is given.
            The value should be a reference to the method on this object that holds
-           the app code."""
-        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethodDict,))
+           the app code.
+           @param openBrowser If True then open a browser connected to the / app (default=True)"""
+        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethodDict,openBrowser))
         self._serverThread.setDaemon(True)
         self._serverThread.start()
