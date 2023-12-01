@@ -162,7 +162,23 @@ class UIOTester(unittest.TestCase):
             self.assertTrue(lines[2] == "ERROR:     raise Exception(\"An error occurred\")\n")
             self.assertTrue(lines[3] == "ERROR: Exception: An error occurred\n")
             self.assertTrue(lines[4] == "ERROR: \n")
-
+            
+    def test10_table(self):
+        print("\n")
+        table = []
+        table.append(["Col 1", "Col 2"])
+        table.append(["awfdasdfgsd", "afesdgfsdgfsdfgsdf"])
+        table.append(["1", "2"])
+        table.append(["AAA", "BBB"])
+        self._uio.showTable(table, rowSeparatorChar="~", colSeparatorChar="!")
+        
+        table = []
+        table.append(["Col 1", "Col 2", "Col 3"])
+        table.append(["awfdasdfgsd", "afesdgfsdgfsdfgsdf", "sdf9we908r23m4r2398"])
+        table.append(["1", "2", "3"])
+        table.append(["AAA", "BBB", "CCC"])
+        self._uio.showTable(table)
+        
     #!!! getPassword() not tested as redirect does not work.
 
 def main():

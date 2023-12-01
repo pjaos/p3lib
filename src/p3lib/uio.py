@@ -421,7 +421,56 @@ class UIO(object):
             #Ignore if se can't resolve address. We don't really syslog want errors to stop the user interface
             except:
                 pass
+        
+    def showTable(self, table, rowSeparatorChar = "-", colSeparatorChar = "|"):
+        """@brief Show the contents of a table to the user.
+           @param table This must be a list. Each list element must be a table row (list).
+                        Each element in each row must be a string.
+           @param rowSeparatorChar The character used for horizontal lines to separate table rows.
+           @param colSeparatorChar The character used to separate table columns."""
+        columnWidths = []
+        # Check we have a table to display
+        if len(table) == 0:
+            raise Exception("No table rows to display")
+        
+        # Check all rows have the same number of columns in the table
+        colCount = len(table[0])
+        for row in table:
+            if len(row) != colCount:
+                raise Exception(f"{str(row)} column count different from first row ({colCount})")
+        
+        for row in table:
+            for col in row:
+                if not isinstance(col, str):
+                    raise Exception(f"Table column is not a string: {col} in {row}")
+                
+        # Get the max width for each column
+        for col in range(0,colCount):
+            maxWidth=0
+            for row in table:
+                if len(row[col]) > maxWidth:
+                    maxWidth = len(row[col])
+            columnWidths.append(maxWidth)
 
+        tableWidth = 1
+        for columnWidth in columnWidths:
+            tableWidth += columnWidth + 3 # Space each side of the column + a column divider character
+                    
+        # Add the top line of the table
+        self.info(rowSeparatorChar*tableWidth)
+               
+        # The starting row index
+        for rowIndex in range(0, len(table)):
+            rowText = colSeparatorChar
+            colIndex = 0
+            for col in table[rowIndex]:
+                colWidth = columnWidths[colIndex]
+                rowText = rowText + " " + f"{col:>{colWidth}s}" + " " + colSeparatorChar
+                colIndex += 1
+            self.info(rowText)
+            # Add the row separator line
+            self.info(rowSeparatorChar*tableWidth)
+            
 class ConsoleMenu(object):
     """@brief Responsible for presenting a list of options to the user on a
               console/terminal interface and allowing the user to select
@@ -456,6 +505,10 @@ class ConsoleMenu(object):
                     selectedMethod()
                 else:
                     selectedMethod(*args)
+          
+            
+        
+                
 
 # -------------------------------------------------------------------
 # @brief An implementation to allow syslog messages to be generated.
