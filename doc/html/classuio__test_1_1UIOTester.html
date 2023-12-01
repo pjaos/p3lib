@@ -93,6 +93,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a56c54e463c817da67a20bb5e7b3b433a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ada489f961ee7275c08a96de1934e28"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuio__test_1_1UIOTester.html#a6ada489f961ee7275c08a96de1934e28">test0_info</a> (self)</td></tr>
 <tr class="separator:a6ada489f961ee7275c08a96de1934e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288850716e9ca562d4d324eedce34fc8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuio__test_1_1UIOTester.html#a288850716e9ca562d4d324eedce34fc8">test10_table</a> (self)</td></tr>
+<tr class="separator:a288850716e9ca562d4d324eedce34fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae72010ce7975a23d79d6c6577fbc7bb6"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuio__test_1_1UIOTester.html#ae72010ce7975a23d79d6c6577fbc7bb6">test1_info</a> (self)</td></tr>
 <tr class="separator:ae72010ce7975a23d79d6c6577fbc7bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a654a634ef574f0ebbc4c1e1b2f36493f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classuio__test_1_1UIOTester.html#a654a634ef574f0ebbc4c1e1b2f36493f">test2_warn</a> (self)</td></tr>
@@ -234,6 +236,42 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        self._uio.error(<span class="stringliteral">&quot;An error level message&quot;</span>)</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        self._uio.debug(<span class="stringliteral">&quot;An debug level message&quot;</span>)</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a288850716e9ca562d4d324eedce34fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a288850716e9ca562d4d324eedce34fc8">&#9670;&nbsp;</a></span>test10_table()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def test10_table </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="uio__test_8py_source.html#l00166">166</a> of file <a class="el" href="uio__test_8py_source.html">uio_test.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">def </span>test10_table(self):</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        print(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        table = []</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        table.append([<span class="stringliteral">&quot;Col 1&quot;</span>, <span class="stringliteral">&quot;Col 2&quot;</span>])</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        table.append([<span class="stringliteral">&quot;awfdasdfgsd&quot;</span>, <span class="stringliteral">&quot;afesdgfsdgfsdfgsdf&quot;</span>])</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        table.append([<span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>])</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        table.append([<span class="stringliteral">&quot;AAA&quot;</span>, <span class="stringliteral">&quot;BBB&quot;</span>])</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        self._uio.showTable(table, rowSeparatorChar=<span class="stringliteral">&quot;~&quot;</span>, colSeparatorChar=<span class="stringliteral">&quot;!&quot;</span>)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        table = []</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        table.append([<span class="stringliteral">&quot;Col 1&quot;</span>, <span class="stringliteral">&quot;Col 2&quot;</span>, <span class="stringliteral">&quot;Col 3&quot;</span>])</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        table.append([<span class="stringliteral">&quot;awfdasdfgsd&quot;</span>, <span class="stringliteral">&quot;afesdgfsdgfsdfgsdf&quot;</span>, <span class="stringliteral">&quot;sdf9we908r23m4r2398&quot;</span>])</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        table.append([<span class="stringliteral">&quot;1&quot;</span>, <span class="stringliteral">&quot;2&quot;</span>, <span class="stringliteral">&quot;3&quot;</span>])</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        table.append([<span class="stringliteral">&quot;AAA&quot;</span>, <span class="stringliteral">&quot;BBB&quot;</span>, <span class="stringliteral">&quot;CCC&quot;</span>])</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        self._uio.showTable(table)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -549,7 +587,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            self.assertTrue(lines[2] == <span class="stringliteral">&quot;ERROR:     raise Exception(\&quot;An error occurred\&quot;)\n&quot;</span>)</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            self.assertTrue(lines[3] == <span class="stringliteral">&quot;ERROR: Exception: An error occurred\n&quot;</span>)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            self.assertTrue(lines[4] == <span class="stringliteral">&quot;ERROR: \n&quot;</span>)</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            </div>
 </div><!-- fragment -->
 </div>
 </div>

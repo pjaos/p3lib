@@ -129,6 +129,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a673aa35d3b605e53f50256149104a73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addad3f9105e68ad90e3b4659d3bc6813"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1uio_1_1UIO.html#addad3f9105e68ad90e3b4659d3bc6813">showProgBar</a> (self, barChar=' *')</td></tr>
 <tr class="separator:addad3f9105e68ad90e3b4659d3bc6813"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50bf7eec624e098816c419d35f91ecf8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1uio_1_1UIO.html#a50bf7eec624e098816c419d35f91ecf8">showTable</a> (self, table, rowSeparatorChar=&quot;-&quot;, colSeparatorChar=&quot;|&quot;)</td></tr>
+<tr class="separator:a50bf7eec624e098816c419d35f91ecf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39e4a4aa6795d71c89d08b7db4b5cf3c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1uio_1_1UIO.html#a39e4a4aa6795d71c89d08b7db4b5cf3c">storeToDebugLog</a> (self, text, addLF=True, addDateTime=True)</td></tr>
 <tr class="separator:a39e4a4aa6795d71c89d08b7db4b5cf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2953f2c1c7db75c7bb0a627a3abd905c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1uio_1_1UIO.html#a2953f2c1c7db75c7bb0a627a3abd905c">storeToLog</a> (self, text, addLF=True, addDateTime=True)</td></tr>
@@ -1260,6 +1262,101 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        sys.stdout.flush()</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a50bf7eec624e098816c419d35f91ecf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50bf7eec624e098816c419d35f91ecf8">&#9670;&nbsp;</a></span>showTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def showTable </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>table</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>rowSeparatorChar</em> = <code>&quot;-&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>colSeparatorChar</em> = <code>&quot;|&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Show the contents of a table to the user.
+   @param table This must be a list. Each list element must be a table row (list).
+        Each element in each row must be a string.
+   @param rowSeparatorChar The character used for horizontal lines to separate table rows.
+   @param colSeparatorChar The character used to separate table columns.</pre> 
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00425">425</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keyword">def </span>showTable(self, table, rowSeparatorChar = &quot;-&quot;, colSeparatorChar = &quot;|&quot;):</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Show the contents of a table to the user.</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="stringliteral">           @param table This must be a list. Each list element must be a table row (list).</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="stringliteral">                        Each element in each row must be a string.</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="stringliteral">           @param rowSeparatorChar The character used for horizontal lines to separate table rows.</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="stringliteral">           @param colSeparatorChar The character used to separate table columns.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        columnWidths = []</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        <span class="comment"># Check we have a table to display</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <span class="keywordflow">if</span> len(table) == 0:</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;No table rows to display&quot;</span>)</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        </div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        <span class="comment"># Check all rows have the same number of columns in the table</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        colCount = len(table[0])</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            <span class="keywordflow">if</span> len(row) != colCount:</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{str(row)} column count different from first row ({colCount})&quot;</span>)</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> row:</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;                <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(col, str):</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Table column is not a string: {col} in {row}&quot;</span>)</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;                </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="comment"># Get the max width for each column</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        <span class="keywordflow">for</span> col <span class="keywordflow">in</span> range(0,colCount):</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            maxWidth=0</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;                <span class="keywordflow">if</span> len(row[col]) &gt; maxWidth:</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                    maxWidth = len(row[col])</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;            columnWidths.append(maxWidth)</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        tableWidth = 1</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        <span class="keywordflow">for</span> columnWidth <span class="keywordflow">in</span> columnWidths:</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;            tableWidth += columnWidth + 3 <span class="comment"># Space each side of the column + a column divider character</span></div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                    </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="comment"># Add the top line of the table</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        self.info(rowSeparatorChar*tableWidth)</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;               </div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        <span class="comment"># The starting row index</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        <span class="keywordflow">for</span> rowIndex <span class="keywordflow">in</span> range(0, len(table)):</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;            rowText = colSeparatorChar</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;            colIndex = 0</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> table[rowIndex]:</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;                colWidth = columnWidths[colIndex]</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;                rowText = rowText + <span class="stringliteral">&quot; &quot;</span> + f<span class="stringliteral">&quot;{col:&gt;{colWidth}s}&quot;</span> + <span class="stringliteral">&quot; &quot;</span> + colSeparatorChar</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;                colIndex += 1</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;            self.info(rowText)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;            <span class="comment"># Add the row separator line</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;            self.info(rowSeparatorChar*tableWidth)</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;            </div>
 </div><!-- fragment -->
 </div>
 </div>
