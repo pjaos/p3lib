@@ -87,8 +87,8 @@ Collaboration diagram for MultiAppServer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac28dea56d25ae299f1d66243c2e5ed99"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1bokeh__gui_1_1MultiAppServer.html#ac28dea56d25ae299f1d66243c2e5ed99">__init__</a> (self, address=&quot;0.0.0.0&quot;, bokehPort=0, wsOrigin=&quot;*:*&quot;, userHashFile=None)</td></tr>
-<tr class="separator:ac28dea56d25ae299f1d66243c2e5ed99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a90436bdc5c3c752214572165237efa"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1bokeh__gui_1_1MultiAppServer.html#a5a90436bdc5c3c752214572165237efa">__init__</a> (self, address=&quot;0.0.0.0&quot;, bokehPort=0, wsOrigin=&quot;*:*&quot;, credentialsJsonFile=None)</td></tr>
+<tr class="separator:a5a90436bdc5c3c752214572165237efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada06ed4caaa33c8b4a38175acf1c86ec"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1bokeh__gui_1_1MultiAppServer.html#ada06ed4caaa33c8b4a38175acf1c86ec">getServerPort</a> (self)</td></tr>
 <tr class="separator:ada06ed4caaa33c8b4a38175acf1c86ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5c9dc31e087471101bfc83ba9dc52be"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1bokeh__gui_1_1MultiAppServer.html#aa5c9dc31e087471101bfc83ba9dc52be">runBlockingBokehServer</a> (self, appMethodDict, openBrowser=True)</td></tr>
@@ -113,8 +113,8 @@ Static Public Attributes</h2></td></tr>
           the freedom to define your app as required.</pre> 
 <p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00745">745</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac28dea56d25ae299f1d66243c2e5ed99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac28dea56d25ae299f1d66243c2e5ed99">&#9670;&nbsp;</a></span>__init__()</h2>
+<a id="a5a90436bdc5c3c752214572165237efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a90436bdc5c3c752214572165237efa">&#9670;&nbsp;</a></span>__init__()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +147,7 @@ Static Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>userHashFile</em> = <code>None</code>&#160;</td>
+          <td class="paramname"><em>credentialsJsonFile</em> = <code>None</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,21 +160,21 @@ Static Public Attributes</h2></td></tr>
    @param address The address of the bokeh server.
    @param bokehPort The TCP port to run the server on. If left at the default
   of 0 then a spare TCP port will be used.
-   @param userHashFile A file that contains the hashed (via argon2) login credentials.</pre> 
+   @param credentialsJsonFile A file that contains the json formatted hashed (via argon2) login credentials.</pre> 
 <p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00762">762</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keyword">def </span>__init__(self, address=&quot;0.0.0.0&quot;, bokehPort=0, wsOrigin=&quot;*:*<span class="stringliteral">&quot;, userHashFile=None):</span></div>
+<div class="fragment"><div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keyword">def </span>__init__(self, address=&quot;0.0.0.0&quot;, bokehPort=0, wsOrigin=&quot;*:*<span class="stringliteral">&quot;, credentialsJsonFile=None):</span></div>
 <div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="stringliteral">        &quot;&quot;&quot;@Constructor</span></div>
 <div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="stringliteral">           @param address The address of the bokeh server.</span></div>
 <div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="stringliteral">           @param bokehPort The TCP port to run the server on. If left at the default</span></div>
 <div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;<span class="stringliteral">                  of 0 then a spare TCP port will be used.</span></div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="stringliteral">           @param userHashFile A file that contains the hashed (via argon2) login credentials.</span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="stringliteral">           @param credentialsJsonFile A file that contains the json formatted hashed (via argon2) login credentials.</span></div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="stringliteral">           &quot;&quot;&quot;</span></div>
 <div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <span class="keywordflow">if</span> bokehPort == 0:</div>
 <div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            bokehPort = MultiAppServer.GetNextUnusedPort()</div>
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;        self._bokehPort=bokehPort</div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;        self._address=address</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;        os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        self._userHashFile = userHashFile</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;        self._credentialsJsonFile = credentialsJsonFile</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160; </div>
 </div><!-- fragment -->
 </div>
@@ -314,7 +314,7 @@ Static Public Attributes</h2></td></tr>
 <div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
 <div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;        evtLoop = asyncio.new_event_loop()</div>
 <div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;        asyncio.set_event_loop(evtLoop)</div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        <span class="keywordflow">if</span> self._userHashFile <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;        <span class="keywordflow">if</span> self._credentialsJsonFile <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;            self._server = Server(appDict, </div>
 <div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;                                  address=self._address,</div>
 <div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;                                  port=self._bokehPort)</div>

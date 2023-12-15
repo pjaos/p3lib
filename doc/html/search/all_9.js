@@ -7,7 +7,7 @@ var searchData=
   ['id_5fstr3_261',['ID_STR3',['../classp3lib_1_1netif_1_1NetIF.html#a5d760f047a229f4eead6e69603847f49',1,'p3lib::netif::NetIF']]],
   ['id_5fstr4_262',['ID_STR4',['../classp3lib_1_1netif_1_1NetIF.html#a4246a5d8523cbc5c8d1fc7753fd240cc',1,'p3lib::netif::NetIF']]],
   ['index_5fhtml_5ffile_263',['INDEX_HTML_FILE',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a7bd18dcc3a608fc13243a3b4816acdeb',1,'p3lib::netplotly::NetPlotly']]],
-  ['info_264',['INFO',['../classp3lib_1_1uio_1_1PRIORITY.html#a5ccbba8803c4e08f1a8d52cc79abe68f',1,'p3lib.uio.PRIORITY.INFO()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#a1ceaf99e1f2ccf8fbd639bfe60b1158c',1,'p3lib.netplotly.NetPlotly.info()'],['../classp3lib_1_1uio_1_1UIO.html#a77feaa8d41967bbecf0c3db9de32e351',1,'p3lib.uio.UIO.info()']]],
+  ['info_264',['info',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a1ceaf99e1f2ccf8fbd639bfe60b1158c',1,'p3lib.netplotly.NetPlotly.info()'],['../classp3lib_1_1uio_1_1UIO.html#a77feaa8d41967bbecf0c3db9de32e351',1,'p3lib.uio.UIO.info()'],['../classp3lib_1_1uio_1_1PRIORITY.html#a5ccbba8803c4e08f1a8d52cc79abe68f',1,'p3lib.uio.PRIORITY.INFO()']]],
   ['initargs_265',['initArgs',['../namespacep3lib_1_1helper.html#aa613e72121b6f3c855d47fb07a4781fc',1,'p3lib::helper']]],
   ['inputbool_266',['inputBool',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a1ae94b0e3d9692872865dca9165ef802',1,'p3lib::pconfig::ConfigManager']]],
   ['inputdate_267',['inputDate',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a2a3473b89594dad13f943995465bce88',1,'p3lib::pconfig::ConfigManager']]],
