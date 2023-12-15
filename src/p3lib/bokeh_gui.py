@@ -759,19 +759,19 @@ class MultiAppServer(object):
            @return The TCP port or -1 if no port is available."""
         return SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)
 
-    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*", userHashFile=None):
+    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*", credentialsJsonFile=None):
         """@Constructor
            @param address The address of the bokeh server.
            @param bokehPort The TCP port to run the server on. If left at the default
                   of 0 then a spare TCP port will be used.
-           @param userHashFile A file that contains the hashed (via argon2) login credentials.
+           @param credentialsJsonFile A file that contains the json formatted hashed (via argon2) login credentials.
            """
         if bokehPort == 0:
             bokehPort = MultiAppServer.GetNextUnusedPort()
         self._bokehPort=bokehPort
         self._address=address
         os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin
-        self._userHashFile = userHashFile
+        self._credentialsJsonFile = credentialsJsonFile
 
     def getServerPort(self):
         """@return The bokeh server port."""
@@ -800,7 +800,7 @@ class MultiAppServer(object):
         #As this gets run in a thread we need to start an event loop
         evtLoop = asyncio.new_event_loop()
         asyncio.set_event_loop(evtLoop)
-        if self._userHashFile is None:
+        if self._credentialsJsonFile is None:
             self._server = Server(appDict, 
                                   address=self._address,
                                   port=self._bokehPort)

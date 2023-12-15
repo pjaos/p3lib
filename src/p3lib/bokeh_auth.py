@@ -80,11 +80,11 @@ class CredentialsHasher(object):
               recommended for high security systems but is aimed at providing 
               a simple credentials storage solution for Bokeh servers."""
               
-    def __init__(self, userHashFile):
+    def __init__(self, credentialsJsonFile):
         """@brief Construct an object that can be used to generate a credentials has file and check 
                   credentials entered by a user. 
-           @param userHashFile A file that contains the hashed (via argon2) login credentials."""
-        self._userHashFile = userHashFile
+           @param credentialsJsonFile A file that contains the hashed (via argon2) login credentials."""
+        self._credentialsJsonFile = credentialsJsonFile
         self._passwordHasher = PasswordHasher()
         self._credDict = self._getCredDict()
         
@@ -95,9 +95,9 @@ class CredentialsHasher(object):
                    key = hashed password."""
         credDict = {}
         # If the hash file exists
-        if os.path.isfile(self._userHashFile):
+        if os.path.isfile(self._credentialsJsonFile):
             # Add the hash a a line in the file 
-            with open(self._userHashFile, 'r') as fd:
+            with open(self._credentialsJsonFile, 'r') as fd:
                 contents = fd.read()
             credDict = json.loads(contents)
         return credDict
@@ -113,7 +113,7 @@ class CredentialsHasher(object):
         
     def _saveCredentials(self):
         """@brief Save the cr3edentials to the file."""
-        with open(self._userHashFile, 'w', encoding='utf-8') as f:
+        with open(self._credentialsJsonFile, 'w', encoding='utf-8') as f:
             json.dump(self._credDict, f, ensure_ascii=False, indent=4)
                 
     def add(self, username, password):
@@ -170,13 +170,13 @@ class CredentialsHasher(object):
 class CredentialsManager(object):
     """@brief Responsible for allowing the user to add and remove credentials to a a local file."""
     
-    def __init__(self, uio, userHashFile):
+    def __init__(self, uio, credentialsJsonFile):
         """@brief Constructor.
            @param uio A UIO instance that allows user input output.
-           @param userHashFile A file that contains the hashed (via argon2) login credentials."""
+           @param credentialsJsonFile A file that contains the hashed (via argon2) login credentials."""
         self._uio = uio
-        self._userHashFile = userHashFile
-        self.credentialsHasher = CredentialsHasher(self._userHashFile)
+        self._credentialsJsonFile = credentialsJsonFile
+        self.credentialsHasher = CredentialsHasher(self._credentialsJsonFile)
         
     def _add(self):
         """@brief Add a username/password to the list of credentials."""
@@ -223,7 +223,7 @@ class CredentialsManager(object):
         while True:
             self._uio.info("")
             self._showUsernames()
-            self._uio.info(f"{self.credentialsHasher.getCredentialCount()} credentials stored in {self._userHashFile}")
+            self._uio.info(f"{self.credentialsHasher.getCredentialCount()} credentials stored in {self._credentialsJsonFile}")
             self._uio.info("")
             self._uio.info("A - Add a username/password.")
             self._uio.info("D - Delete a username/password.")
