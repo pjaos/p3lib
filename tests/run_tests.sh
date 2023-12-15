@@ -2,6 +2,7 @@
 
 export PATH=$PATH:.
 
+python3 -m pipenv run bokeh_auth_test.py
 python3.8 -m pipenv run uio_test.py
 python3.8 -m pipenv run python -m pytest  test_json_networking.py
 python3.8 -m pipenv run python -m pytest -s test_netif.py
