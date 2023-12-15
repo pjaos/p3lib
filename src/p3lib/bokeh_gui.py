@@ -13,6 +13,7 @@ from    functools import partial
 from    time import time
 
 from    p3lib.helper import getHomePath
+from    p3lib.bokeh_auth import SetBokehAuthAttrs
 
 from bokeh.server.server import Server
 from bokeh.application import Application
@@ -759,7 +760,7 @@ class MultiAppServer(object):
            @return The TCP port or -1 if no port is available."""
         return SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)
 
-    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*", credentialsJsonFile=None):
+    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*", credentialsJsonFile=None, loginHTMLFile="login.html"):
         """@Constructor
            @param address The address of the bokeh server.
            @param bokehPort The TCP port to run the server on. If left at the default
@@ -772,6 +773,7 @@ class MultiAppServer(object):
         self._address=address
         os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin
         self._credentialsJsonFile = credentialsJsonFile
+        self._loginHTMLFile = loginHTMLFile
 
     def getServerPort(self):
         """@return The bokeh server port."""
@@ -800,12 +802,8 @@ class MultiAppServer(object):
         #As this gets run in a thread we need to start an event loop
         evtLoop = asyncio.new_event_loop()
         asyncio.set_event_loop(evtLoop)
-        if self._credentialsJsonFile is None:
-            self._server = Server(appDict, 
-                                  address=self._address,
-                                  port=self._bokehPort)
-
-        else:
+        if self._credentialsJsonFile:
+            SetBokehAuthAttrs(self._credentialsJsonFile, self._loginHTMLFile)
             # We don't check the credentials hash file exists as this should have been
             # done at a higher level. We assume that web server authoristion is required.
             selfPath = os.path.dirname(os.path.abspath(__file__))
@@ -815,6 +813,12 @@ class MultiAppServer(object):
                                   address=self._address,
                                   port=self._bokehPort,
                                   auth_provider=authModule)
+
+        else:
+            self._server = Server(appDict, 
+                                  address=self._address,
+                                  port=self._bokehPort)
+
         self._server.start()
         if openBrowser:
             #Show the server in a web browser window

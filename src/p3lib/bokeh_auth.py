@@ -3,13 +3,19 @@
 This file is a modified version of the Bokeh authorisation example code.
 Many thanks to bokeh for this.
 
+!!! This contains a mix of pep8 and camel case method names !!!
+
 '''
 import os
 import json
+import tempfile
 import tornado
 from   tornado.web import RequestHandler
 from   argon2 import PasswordHasher
 from   argon2.exceptions import VerificationError
+
+CRED_FILE_KEY = "CRED_FILE"
+LOGIN_HTML_FILE_KEY = "LOGIN_HTML_FILE"
 
 # could define get_user_async instead
 def get_user(request_handler):
@@ -19,6 +25,42 @@ def get_user(request_handler):
 # could also define get_login_url function (but must give up LoginHandler)
 login_url = "/login"
 
+def GetAuthAttrFile():
+    """@brief Get the file that is used to pass parameters (credentials file and login.html file) to the tornado server.
+              There must be a better way of passing the credentials file to the tornado login handler than this..."""
+    jsonFile = os.path.join( tempfile.gettempdir(), f"bokeh_auth_attr_{os.getpid()}.json")
+    return jsonFile
+
+def SetBokehAuthAttrs(credentialsJsonFile, loginHTMLFile):
+    """@brief Set the attributes used to login to the bokeh server. By default
+              no login is required to the bokeh server.
+       @param credentialsJsonFile The file that stores the username and hashed passwords for the server.
+       @param loginHTMLFile The HTML file for the page presented to the user when logging into the bokeh server."""
+    jsonFile = GetAuthAttrFile()
+    with open(jsonFile, 'w') as fd:
+        cfgDict={CRED_FILE_KEY: credentialsJsonFile}
+        cfgDict[LOGIN_HTML_FILE_KEY]=loginHTMLFile
+        json.dump(cfgDict, fd, ensure_ascii=False, indent=4)
+
+def _getCredDict():
+    """@brief Get the dictionary containing the attributes passed into the tornado server auth
+              login process.
+       @return A dict containing the attributes."""
+    jsonFile = GetAuthAttrFile()
+    with open(jsonFile, 'r') as fd:
+        contents = fd.read()
+    return json.loads(contents)
+
+def GetCredentialsFile():
+    """@return The file containing the usernames and hashed passwords to login to the server."""
+    credDict = _getCredDict()
+    return credDict[CRED_FILE_KEY]
+
+def GetLoginHTMLFile():
+    """@return The html file for the login page."""
+    credDict = _getCredDict()
+    return credDict[LOGIN_HTML_FILE_KEY]
+    
 # optional login page for login_url
 class LoginHandler(RequestHandler):
 
@@ -27,20 +69,17 @@ class LoginHandler(RequestHandler):
             errormessage = self.get_argument("error")
         except Exception:
             errormessage = ""
-        self.render("login.html", errormessage=errormessage)
-        
-    def set_credentials(self, credHasher):
-        """@brief Set the object that has details of the valid usernames and passwords."""
-        self._credHasher = credHasher
+        loginHTMLFile = GetLoginHTMLFile()
+        self.render(loginHTMLFile, errormessage=errormessage)
 
     def check_permission(self, username, password):
         """@brief Check if we the username and password are valid
            @return True if the username and password are valid."""
         valid = False
-        # If we have details of the valid usernames and passwords.
-        if hasattr(self, '_credHasher'):
-            if self._credHasher.valid(username, password):
-                valid = True
+        credentialsJsonFile = GetCredentialsFile()
+        ch = CredentialsHasher(credentialsJsonFile)
+        if ch.verify(username, password):
+            valid = True
         return valid
 
     def post(self):
