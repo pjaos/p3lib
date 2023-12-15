@@ -5,7 +5,7 @@ from    p3lib.netif import NetIF
 
 #These must be changed to use an interface on the local machine.
 NET_IF = "enp0s31f6"
-IP_ADDRESS = "192.168.0.51"
+IP_ADDRESS = "192.168.0.9"
 NETMASK = "255.255.255.0"
 
 class TestClass:

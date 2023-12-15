@@ -50,12 +50,12 @@ class SSHTester(unittest.TestCase):
     def test4_fwdTunnel(self):
         self.ssh.connect()
         sshTunnelManager = SSHTunnelManager(self._uio, self.ssh, True)
-        sshTunnelManager.startFwdSSHTunnel(10000, SERVER, 22)
+        sshTunnelManager.startFwdSSHTunnel(30000, SERVER, 22)
 
     def test5_revTunnel(self):
         self.ssh.connect()
         sshTunnelManager = SSHTunnelManager(self._uio, self.ssh, True)
-        sshTunnelManager.startRevSSHTunnel(10000, SERVER, 22)
+        sshTunnelManager.startRevSSHTunnel(30000, SERVER, 22)
 
 def main():
     """@brief Unit tests for the UIO class"""
