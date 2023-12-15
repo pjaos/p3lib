@@ -149,7 +149,7 @@ Additional Inherited Members</h2></td></tr>
             can be distributed and when recieved opened by users with their web browser.
             When opened the plots can be manipulated (zoom etc).
           2 - A status bar at the bottom of the page.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00530">530</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00531">531</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0ecddee0da5658208e849e26649d05f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ecddee0da5658208e849e26649d05f2">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -207,32 +207,32 @@ Additional Inherited Members</h2></td></tr>
         available themes.
    @param updatePollPeriod The GUI update poll period in milli seconds.
    @param bokehServerPort The TCP port to bind the server to.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00554">554</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keyword">def </span>__init__(self, docTitle,</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;                 bokehServerPort=SingleAppServer.GetNextUnusedPort(),</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                 includeSaveHTML=<span class="keyword">True</span>,</div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                 theme=DEFAULT_BOKEH_THEME,</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                 updatePollPeriod=UPDATE_POLL_MSECS):</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@Constructor.</span></div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="stringliteral">           @param docTitle The title of the HTML doc page.</span></div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="stringliteral">           @param includeSaveHTML If True include widgets at the bottom of the web page for saving it as an HTML file.</span></div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="stringliteral">           @param theme The theme that defines the colours used by the GUI (default=caliber). BOKEH_THEME_NAMES defines the</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="stringliteral">                        available themes.</span></div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="stringliteral">           @param updatePollPeriod The GUI update poll period in milli seconds.</span></div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="stringliteral">           @param bokehServerPort The TCP port to bind the server to.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        super().__init__(bokehPort=bokehServerPort)</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        self._docTitle              = docTitle          <span class="comment"># The HTML page title shown in the browser window.</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        self._includeSaveHTML       = includeSaveHTML   <span class="comment"># If True then the save HTML page is displayed at the bottom of the web page.</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        self._theme                 = theme             <span class="comment"># The theme that defines the colors used by the GUI.</span></div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        self._updatePollPeriod      = updatePollPeriod  <span class="comment"># The GUI poll time in milli seconds.</span></div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        self._appInitComplete       = <span class="keyword">False</span>             <span class="comment"># True when the app is initialised</span></div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        self._lastUpdateTime        = time()            <span class="comment"># A timer used to show the user the status of the data plot as it can take a while for bokeh to render it on the server.</span></div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        self._plotDataQueue         = queue.Queue()     <span class="comment"># The queue holding rows of data to be plotted and other messages passed into the GUI thread inside _update() method.</span></div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        self._guiTable              = []                <span class="comment"># A two dimensional table that holds the GUI components in a grid.</span></div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        self._uio                   = <span class="keywordtype">None</span>              <span class="comment"># A UIO instance for displaying update messages on stdout. If left at None then no messages are displayed.</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        self._updateStatus          = <span class="keyword">True</span>              <span class="comment"># Flag to indicate if the status bar should be updated.</span></div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        self._htmlFileName          = <span class="stringliteral">&quot;plot.html&quot;</span>       <span class="comment"># The default HTML file to save.</span></div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00555">555</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="keyword">def </span>__init__(self, docTitle,</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;                 bokehServerPort=SingleAppServer.GetNextUnusedPort(),</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;                 includeSaveHTML=<span class="keyword">True</span>,</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;                 theme=DEFAULT_BOKEH_THEME,</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                 updatePollPeriod=UPDATE_POLL_MSECS):</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@Constructor.</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="stringliteral">           @param docTitle The title of the HTML doc page.</span></div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="stringliteral">           @param includeSaveHTML If True include widgets at the bottom of the web page for saving it as an HTML file.</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="stringliteral">           @param theme The theme that defines the colours used by the GUI (default=caliber). BOKEH_THEME_NAMES defines the</span></div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="stringliteral">                        available themes.</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;<span class="stringliteral">           @param updatePollPeriod The GUI update poll period in milli seconds.</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="stringliteral">           @param bokehServerPort The TCP port to bind the server to.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        super().__init__(bokehPort=bokehServerPort)</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        self._docTitle              = docTitle          <span class="comment"># The HTML page title shown in the browser window.</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        self._includeSaveHTML       = includeSaveHTML   <span class="comment"># If True then the save HTML page is displayed at the bottom of the web page.</span></div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        self._theme                 = theme             <span class="comment"># The theme that defines the colors used by the GUI.</span></div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        self._updatePollPeriod      = updatePollPeriod  <span class="comment"># The GUI poll time in milli seconds.</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;        self._appInitComplete       = <span class="keyword">False</span>             <span class="comment"># True when the app is initialised</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        self._lastUpdateTime        = time()            <span class="comment"># A timer used to show the user the status of the data plot as it can take a while for bokeh to render it on the server.</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        self._plotDataQueue         = queue.Queue()     <span class="comment"># The queue holding rows of data to be plotted and other messages passed into the GUI thread inside _update() method.</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        self._guiTable              = []                <span class="comment"># A two dimensional table that holds the GUI components in a grid.</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        self._uio                   = <span class="keywordtype">None</span>              <span class="comment"># A UIO instance for displaying update messages on stdout. If left at None then no messages are displayed.</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        self._updateStatus          = <span class="keyword">True</span>              <span class="comment"># Flag to indicate if the status bar should be updated.</span></div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        self._htmlFileName          = <span class="stringliteral">&quot;plot.html&quot;</span>       <span class="comment"># The default HTML file to save.</span></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -266,18 +266,18 @@ Additional Inherited Members</h2></td></tr>
    @param doc The document to add the plot to.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1bokeh__gui_1_1SingleAppServer.html#a8005a39a7e82245ea5a5f534b1aaa285">SingleAppServer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00597">597</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="keyword">def </span>app(self, doc):</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Start the process of creating an app.</span></div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;<span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        self._doc = doc</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        self._doc.title = self._docTitle</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        self._doc.theme = self._theme</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        <span class="comment"># The status bar can be added to the bottom of the window showing status information.</span></div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        self._statusBar = StatusBarWrapper()</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        <span class="comment">#Setup the callback through which all updates to the GUI will be performed.</span></div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        self._doc.add_periodic_callback(self._update, self._updatePollPeriod)</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00598">598</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    <span class="keyword">def </span>app(self, doc):</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Start the process of creating an app.</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;<span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        self._doc = doc</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        self._doc.title = self._docTitle</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        self._doc.theme = self._theme</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="comment"># The status bar can be added to the bottom of the window showing status information.</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        self._statusBar = StatusBarWrapper()</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="comment">#Setup the callback through which all updates to the GUI will be performed.</span></div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        self._doc.add_periodic_callback(self._update, self._updatePollPeriod)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -324,30 +324,30 @@ Additional Inherited Members</h2></td></tr>
    @param filename The filename to save.
    @param title The document title. If left as Non then the title of the current page is used.
    @param theme The bokeh theme. If left as None then the theme used by the current page is used.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00708">708</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keyword">def </span>save(self, filename, title=None, theme=None):</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Save the state of the document to an HTML file.</span></div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="stringliteral">                  This was written to allow the suppression of Javascript warnings</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="stringliteral">                  as previously the bokeh save method was called.</span></div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="stringliteral">           @param filename The filename to save.</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="stringliteral">           @param title The document title. If left as Non then the title of the current page is used.</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="stringliteral">           @param theme The bokeh theme. If left as None then the theme used by the current page is used.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;        <span class="keywordflow">if</span> theme <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;            theme = self._doc.theme</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160; </div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;        <span class="keywordflow">if</span> title <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;            title = self._doc.title</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160; </div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        html = file_html(self._doc,</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;                         Resources(mode=<span class="keywordtype">None</span>),</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                         title=title,</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                         template=<span class="keywordtype">None</span>,</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                         theme=theme,</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                         suppress_callback_warning=<span class="keyword">True</span>)</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160; </div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;        <span class="keyword">with</span> open(filename, mode=<span class="stringliteral">&quot;w&quot;</span>, encoding=<span class="stringliteral">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            f.write(html)</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00709">709</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;    <span class="keyword">def </span>save(self, filename, title=None, theme=None):</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Save the state of the document to an HTML file.</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="stringliteral">                  This was written to allow the suppression of Javascript warnings</span></div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="stringliteral">                  as previously the bokeh save method was called.</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="stringliteral">           @param filename The filename to save.</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="stringliteral">           @param title The document title. If left as Non then the title of the current page is used.</span></div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="stringliteral">           @param theme The bokeh theme. If left as None then the theme used by the current page is used.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;        <span class="keywordflow">if</span> theme <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;            theme = self._doc.theme</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160; </div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;        <span class="keywordflow">if</span> title <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;            title = self._doc.title</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;        html = file_html(self._doc,</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;                         Resources(mode=<span class="keywordtype">None</span>),</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;                         title=title,</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;                         template=<span class="keywordtype">None</span>,</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;                         theme=theme,</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;                         suppress_callback_warning=<span class="keyword">True</span>)</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160; </div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;        <span class="keyword">with</span> open(filename, mode=<span class="stringliteral">&quot;w&quot;</span>, encoding=<span class="stringliteral">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            f.write(html)</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -382,16 +382,16 @@ Additional Inherited Members</h2></td></tr>
   to the self._processDict(). This allows subclasses to receive these
   dicts and update the GUI based on the contents.
    @param theDict A Dict containing data to update the GUI.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00579">579</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keyword">def </span>send(self, theDict):</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Send a dict to the GUI. This method must be used to send data to the GUI</span></div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;<span class="stringliteral">                  thread as all actions that change GUI components must be performed inside</span></div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="stringliteral">                  the GUI thread. The dict passed here is the same dict that gets passed</span></div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="stringliteral">                  to the self._processDict(). This allows subclasses to receive these</span></div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="stringliteral">                  dicts and update the GUI based on the contents.</span></div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="stringliteral">           @param theDict A Dict containing data to update the GUI.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        self._plotDataQueue.put(theDict)</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00580">580</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    <span class="keyword">def </span>send(self, theDict):</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Send a dict to the GUI. This method must be used to send data to the GUI</span></div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;<span class="stringliteral">                  thread as all actions that change GUI components must be performed inside</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="stringliteral">                  the GUI thread. The dict passed here is the same dict that gets passed</span></div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="stringliteral">                  to the self._processDict(). This allows subclasses to receive these</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="stringliteral">                  dicts and update the GUI based on the contents.</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="stringliteral">           @param theDict A Dict containing data to update the GUI.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        self._plotDataQueue.put(theDict)</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -422,12 +422,12 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the HTML filename to save.
    @param defaultHTMLFileName The default HTML filename to save.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00592">592</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="keyword">def </span>setHTMLSaveFileName(self, defaultHTMLFileName):</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Set the HTML filename to save.</span></div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;<span class="stringliteral">           @param defaultHTMLFileName The default HTML filename to save.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        self._htmlFileName = defaultHTMLFileName</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00593">593</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    <span class="keyword">def </span>setHTMLSaveFileName(self, defaultHTMLFileName):</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Set the HTML filename to save.</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;<span class="stringliteral">           @param defaultHTMLFileName The default HTML filename to save.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        self._htmlFileName = defaultHTMLFileName</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -457,11 +457,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set a UIO instance to display info and debug messages on std out.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00588">588</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    <span class="keyword">def </span>setUIO(self, uio):</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Set a UIO instance to display info and debug messages on std out.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        self._uio = uio</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00589">589</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keyword">def </span>setUIO(self, uio):</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Set a UIO instance to display info and debug messages on std out.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        self._uio = uio</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -486,7 +486,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00542">542</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00543">543</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -510,7 +510,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00546">546</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00547">547</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -534,7 +534,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00543">543</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00544">544</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -558,7 +558,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00544">544</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00545">545</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -587,7 +587,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">                                       BOKEH_THEME_NIGHT_SKY,</div>
 <div class="line">                                       BOKEH_THEME_CONTRAST)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00547">547</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00548">548</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -611,7 +611,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00545">545</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00546">546</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -635,7 +635,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00552">552</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00553">553</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -651,7 +651,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00678">678</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00679">679</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -675,7 +675,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00541">541</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00542">542</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

@@ -91,9 +91,21 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ad27ac7eecfe92b136c36e6f44ddbe3ea"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#ad27ac7eecfe92b136c36e6f44ddbe3ea">get_user</a> (request_handler)</td></tr>
 <tr class="separator:ad27ac7eecfe92b136c36e6f44ddbe3ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ae2e712471a1a762cd78857a6b6b17"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#a99ae2e712471a1a762cd78857a6b6b17">GetAuthAttrFile</a> ()</td></tr>
+<tr class="separator:a99ae2e712471a1a762cd78857a6b6b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2aaf527d059566af23246b380679bde0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#a2aaf527d059566af23246b380679bde0">GetCredentialsFile</a> ()</td></tr>
+<tr class="separator:a2aaf527d059566af23246b380679bde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9455f3b388cc3868d044f86a7acc83"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#a6e9455f3b388cc3868d044f86a7acc83">GetLoginHTMLFile</a> ()</td></tr>
+<tr class="separator:a6e9455f3b388cc3868d044f86a7acc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a026aa8f5ce61f5879523e4307cb2b76d"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#a026aa8f5ce61f5879523e4307cb2b76d">SetBokehAuthAttrs</a> (credentialsJsonFile, loginHTMLFile)</td></tr>
+<tr class="separator:a026aa8f5ce61f5879523e4307cb2b76d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:ae5e855317b0c587e9b522bff27a5a125"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#ae5e855317b0c587e9b522bff27a5a125">CRED_FILE_KEY</a> = &quot;CRED_FILE&quot;</td></tr>
+<tr class="separator:ae5e855317b0c587e9b522bff27a5a125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7388a71d5946f383c7cab3a0b2da1f50"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#a7388a71d5946f383c7cab3a0b2da1f50">LOGIN_HTML_FILE_KEY</a> = &quot;LOGIN_HTML_FILE&quot;</td></tr>
+<tr class="separator:a7388a71d5946f383c7cab3a0b2da1f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65e25d2f5a06f85869c146ac3d17bd03"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#a65e25d2f5a06f85869c146ac3d17bd03">login_url</a> = &quot;/login&quot;</td></tr>
 <tr class="separator:a65e25d2f5a06f85869c146ac3d17bd03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa36e01f36c68a2896abffa4f8d3f331"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1bokeh__auth.html#afa36e01f36c68a2896abffa4f8d3f331">logout_url</a> = &quot;/logout&quot;</td></tr>
@@ -101,7 +113,9 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">This file is a modified version of the Bokeh authorisation example code.
-Many thanks to bokeh for this.</pre> </div><h2 class="groupheader">Function Documentation</h2>
+Many thanks to bokeh for this.
+
+!!! This contains a mix of pep8 and camel case method names !!!</pre> </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ad27ac7eecfe92b136c36e6f44ddbe3ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad27ac7eecfe92b136c36e6f44ddbe3ea">&#9670;&nbsp;</a></span>get_user()</h2>
 
@@ -118,16 +132,167 @@ Many thanks to bokeh for this.</pre> </div><h2 class="groupheader">Function Docu
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00015">15</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">def </span><a class="code" href="namespacep3lib_1_1bokeh__auth.html#ad27ac7eecfe92b136c36e6f44ddbe3ea">get_user</a>(request_handler):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    user = request_handler.get_cookie(<span class="stringliteral">&quot;user&quot;</span>)</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> user</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"># could also define get_login_url function (but must give up LoginHandler)</span></div>
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00021">21</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">def </span><a class="code" href="namespacep3lib_1_1bokeh__auth.html#ad27ac7eecfe92b136c36e6f44ddbe3ea">get_user</a>(request_handler):</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    user = request_handler.get_cookie(<span class="stringliteral">&quot;user&quot;</span>)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> user</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"># could also define get_login_url function (but must give up LoginHandler)</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a99ae2e712471a1a762cd78857a6b6b17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ae2e712471a1a762cd78857a6b6b17">&#9670;&nbsp;</a></span>GetAuthAttrFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def p3lib.bokeh_auth.GetAuthAttrFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Get the file that is used to pass parameters (credentials file and login.html file) to the tornado server.
+          There must be a better way of passing the credentials file to the tornado login handler than this...</pre> 
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00028">28</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">def </span><a class="code" href="namespacep3lib_1_1bokeh__auth.html#a99ae2e712471a1a762cd78857a6b6b17">GetAuthAttrFile</a>():</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;@brief Get the file that is used to pass parameters (credentials file and login.html file) to the tornado server.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">              There must be a better way of passing the credentials file to the tornado login handler than this...&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    jsonFile = os.path.join( tempfile.gettempdir(), f<span class="stringliteral">&quot;bokeh_auth_attr_{os.getpid()}.json&quot;</span>)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> jsonFile</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2aaf527d059566af23246b380679bde0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aaf527d059566af23246b380679bde0">&#9670;&nbsp;</a></span>GetCredentialsFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def p3lib.bokeh_auth.GetCredentialsFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@return The file containing the usernames and hashed passwords to login to the server.</pre> 
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00054">54</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">def </span><a class="code" href="namespacep3lib_1_1bokeh__auth.html#a2aaf527d059566af23246b380679bde0">GetCredentialsFile</a>():</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;@return The file containing the usernames and hashed passwords to login to the server.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    credDict = _getCredDict()</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> credDict[CRED_FILE_KEY]</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6e9455f3b388cc3868d044f86a7acc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9455f3b388cc3868d044f86a7acc83">&#9670;&nbsp;</a></span>GetLoginHTMLFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def p3lib.bokeh_auth.GetLoginHTMLFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@return The html file for the login page.</pre> 
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00059">59</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">def </span><a class="code" href="namespacep3lib_1_1bokeh__auth.html#a6e9455f3b388cc3868d044f86a7acc83">GetLoginHTMLFile</a>():</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;@return The html file for the login page.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    credDict = _getCredDict()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> credDict[LOGIN_HTML_FILE_KEY]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"># optional login page for login_url</span></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a026aa8f5ce61f5879523e4307cb2b76d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a026aa8f5ce61f5879523e4307cb2b76d">&#9670;&nbsp;</a></span>SetBokehAuthAttrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def p3lib.bokeh_auth.SetBokehAuthAttrs </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>credentialsJsonFile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>loginHTMLFile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Set the attributes used to login to the bokeh server. By default
+          no login is required to the bokeh server.
+   @param credentialsJsonFile The file that stores the username and hashed passwords for the server.
+   @param loginHTMLFile The HTML file for the page presented to the user when logging into the bokeh server.</pre> 
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00034">34</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">def </span><a class="code" href="namespacep3lib_1_1bokeh__auth.html#a026aa8f5ce61f5879523e4307cb2b76d">SetBokehAuthAttrs</a>(credentialsJsonFile, loginHTMLFile):</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="stringliteral">&quot;&quot;&quot;@brief Set the attributes used to login to the bokeh server. By default</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="stringliteral">              no login is required to the bokeh server.</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="stringliteral">       @param credentialsJsonFile The file that stores the username and hashed passwords for the server.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="stringliteral">       @param loginHTMLFile The HTML file for the page presented to the user when logging into the bokeh server.&quot;&quot;&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    jsonFile = <a class="code" href="namespacep3lib_1_1bokeh__auth.html#a99ae2e712471a1a762cd78857a6b6b17">GetAuthAttrFile</a>()</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">with</span> open(jsonFile, <span class="stringliteral">&#39;w&#39;</span>) <span class="keyword">as</span> fd:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        cfgDict={CRED_FILE_KEY: credentialsJsonFile}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        cfgDict[LOGIN_HTML_FILE_KEY]=loginHTMLFile</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        json.dump(cfgDict, fd, ensure_ascii=<span class="keyword">False</span>, indent=4)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ae5e855317b0c587e9b522bff27a5a125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e855317b0c587e9b522bff27a5a125">&#9670;&nbsp;</a></span>CRED_FILE_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string CRED_FILE_KEY = &quot;CRED_FILE&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00017">17</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+
+</div>
+</div>
+<a id="a7388a71d5946f383c7cab3a0b2da1f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7388a71d5946f383c7cab3a0b2da1f50">&#9670;&nbsp;</a></span>LOGIN_HTML_FILE_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string LOGIN_HTML_FILE_KEY = &quot;LOGIN_HTML_FILE&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00018">18</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+
+</div>
+</div>
 <a id="a65e25d2f5a06f85869c146ac3d17bd03"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65e25d2f5a06f85869c146ac3d17bd03">&#9670;&nbsp;</a></span>login_url</h2>
 
@@ -140,7 +305,7 @@ Many thanks to bokeh for this.</pre> </div><h2 class="groupheader">Function Docu
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00020">20</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00026">26</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
 
 </div>
 </div>
@@ -156,12 +321,16 @@ Many thanks to bokeh for this.</pre> </div><h2 class="groupheader">Function Docu
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00064">64</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__auth_8py_source.html#l00103">103</a> of file <a class="el" href="bokeh__auth_8py_source.html">bokeh_auth.py</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="anamespacep3lib_1_1bokeh__auth_html_ad27ac7eecfe92b136c36e6f44ddbe3ea"><div class="ttname"><a href="namespacep3lib_1_1bokeh__auth.html#ad27ac7eecfe92b136c36e6f44ddbe3ea">p3lib.bokeh_auth.get_user</a></div><div class="ttdeci">def get_user(request_handler)</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__auth_8py_source.html#l00015">bokeh_auth.py:15</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1bokeh__auth_html_a99ae2e712471a1a762cd78857a6b6b17"><div class="ttname"><a href="namespacep3lib_1_1bokeh__auth.html#a99ae2e712471a1a762cd78857a6b6b17">p3lib.bokeh_auth.GetAuthAttrFile</a></div><div class="ttdeci">def GetAuthAttrFile()</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__auth_8py_source.html#l00028">bokeh_auth.py:28</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1bokeh__auth_html_a2aaf527d059566af23246b380679bde0"><div class="ttname"><a href="namespacep3lib_1_1bokeh__auth.html#a2aaf527d059566af23246b380679bde0">p3lib.bokeh_auth.GetCredentialsFile</a></div><div class="ttdeci">def GetCredentialsFile()</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__auth_8py_source.html#l00054">bokeh_auth.py:54</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1bokeh__auth_html_a026aa8f5ce61f5879523e4307cb2b76d"><div class="ttname"><a href="namespacep3lib_1_1bokeh__auth.html#a026aa8f5ce61f5879523e4307cb2b76d">p3lib.bokeh_auth.SetBokehAuthAttrs</a></div><div class="ttdeci">def SetBokehAuthAttrs(credentialsJsonFile, loginHTMLFile)</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__auth_8py_source.html#l00034">bokeh_auth.py:34</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1bokeh__auth_html_ad27ac7eecfe92b136c36e6f44ddbe3ea"><div class="ttname"><a href="namespacep3lib_1_1bokeh__auth.html#ad27ac7eecfe92b136c36e6f44ddbe3ea">p3lib.bokeh_auth.get_user</a></div><div class="ttdeci">def get_user(request_handler)</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__auth_8py_source.html#l00021">bokeh_auth.py:21</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1bokeh__auth_html_a6e9455f3b388cc3868d044f86a7acc83"><div class="ttname"><a href="namespacep3lib_1_1bokeh__auth.html#a6e9455f3b388cc3868d044f86a7acc83">p3lib.bokeh_auth.GetLoginHTMLFile</a></div><div class="ttdeci">def GetLoginHTMLFile()</div><div class="ttdef"><b>Definition:</b> <a href="bokeh__auth_8py_source.html#l00059">bokeh_auth.py:59</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
