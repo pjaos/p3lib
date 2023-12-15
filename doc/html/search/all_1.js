@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['add_2',['add',['../classp3lib_1_1boot__manager_1_1BootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7',1,'p3lib.boot_manager.BootManager.add()'],['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7',1,'p3lib.boot_manager.LinuxBootManager.add()'],['../classp3lib_1_1uio_1_1ConsoleMenu.html#a77313afaf744addde2846ba568f6ab0e',1,'p3lib.uio.ConsoleMenu.add()']]],
+  ['add_2',['add',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasher.html#acb77df0cbe9813e1e73c7a6ba6d8c3ab',1,'p3lib.bokeh_auth.CredentialsHasher.add()'],['../classp3lib_1_1boot__manager_1_1BootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7',1,'p3lib.boot_manager.BootManager.add()'],['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#af4da29f21b0fe6338b441b70ab4eb9d7',1,'p3lib.boot_manager.LinuxBootManager.add()'],['../classp3lib_1_1uio_1_1ConsoleMenu.html#a77313afaf744addde2846ba568f6ab0e',1,'p3lib.uio.ConsoleMenu.add()']]],
   ['addattr_3',['addAttr',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a606a4e65cd8947da945856f81cd5e45e',1,'p3lib::pconfig::ConfigManager']]],
   ['addbeamplotvalues_4',['addBeamPlotValues',['../classGUIModel__A__example_1_1StaticPlotExample.html#a273f52d86dadb2ed8926c13fb0fa22fb',1,'GUIModel_A_example::StaticPlotExample']]],
   ['addexampledata_5',['AddExampleData',['../classGUIModel__A__example_1_1StaticPlotExample.html#a0059c1f72766269e49d79adabcd72a35',1,'GUIModel_A_example::StaticPlotExample']]],

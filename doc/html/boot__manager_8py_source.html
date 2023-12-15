@@ -357,17 +357,15 @@ $(function() {
 <div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a484ab8883aacc4d1b2697aa28c0190aa">  286</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a484ab8883aacc4d1b2697aa28c0190aa">getStatusLines</a>(self):</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        statusLines = []</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        appName, _ = self.<a class="code" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a4376760c5ccb96c6dbac15c8ca82c024">_getApp</a>()</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        cmd = <span class="stringliteral">&quot;{} status {}&quot;</span>.format(LinuxBootManager.SYSTEM_CTL, appName)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        p = Popen([LinuxBootManager.SYSTEM_CTL, <span class="stringliteral">&#39;status&#39;</span>, appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">return</span> lines</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        appName, _ = self.<a class="code" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a4376760c5ccb96c6dbac15c8ca82c024">_getApp</a>()</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        p = Popen([LinuxBootManager.SYSTEM_CTL, <span class="stringliteral">&#39;status&#39;</span>, appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span> lines</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            </div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassp3lib_1_1boot__manager_1_1LinuxBootManager_html_a1f9f69d9f49237b89f708c27b962ef4b"><div class="ttname"><a href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a1f9f69d9f49237b89f708c27b962ef4b">p3lib.boot_manager.LinuxBootManager._logFile</a></div><div class="ttdeci">_logFile</div><div class="ttdef"><b>Definition:</b> <a href="boot__manager_8py_source.html#l00075">boot_manager.py:75</a></div></div>
 <div class="ttc" id="aclassp3lib_1_1boot__manager_1_1LinuxBootManager_html_a484ab8883aacc4d1b2697aa28c0190aa"><div class="ttname"><a href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a484ab8883aacc4d1b2697aa28c0190aa">p3lib.boot_manager.LinuxBootManager.getStatusLines</a></div><div class="ttdeci">def getStatusLines(self)</div><div class="ttdef"><b>Definition:</b> <a href="boot__manager_8py_source.html#l00286">boot_manager.py:286</a></div></div>

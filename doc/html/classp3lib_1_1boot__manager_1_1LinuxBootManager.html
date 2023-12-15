@@ -296,17 +296,15 @@ Static Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">def </span>getStatusLines(self):</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        statusLines = []</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        appName, _ = self._getApp()</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        cmd = <span class="stringliteral">&quot;{} status {}&quot;</span>.format(LinuxBootManager.SYSTEM_CTL, appName)</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        p = Popen([LinuxBootManager.SYSTEM_CTL, <span class="stringliteral">&#39;status&#39;</span>, appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">return</span> lines</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        appName, _ = self._getApp()</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        p = Popen([LinuxBootManager.SYSTEM_CTL, <span class="stringliteral">&#39;status&#39;</span>, appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">return</span> lines</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;            </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;            </div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            </div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;            </div>
 </div><!-- fragment -->
 </div>
 </div>
