@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.8
 
 import  platform
-from    subprocess import call, check_output
+from    subprocess import check_output
 import  socket
 import  struct
 
@@ -112,7 +112,6 @@ class NetIF(object):
                        key   = name of interface
                        value = A list of <IP ADDRESS>/<NET MASK BIT COUNT>"""
         netIFDict = {}
-        ifName = None
         
         cmdOutput = check_output(['/sbin/ip','a'] ).decode()
         netIFDict = self._getLinuxIFDict(cmdOutput, includeNoIPIF=includeNoIPIF)
@@ -127,7 +126,6 @@ class NetIF(object):
                        value = A list of <IP ADDRESS>/<NET MASK BIT COUNT>"""
         netIFDict = {}
         lines = cmdOutput.lower().split('\n')
-        interfaceID = 1
         ifName = None
         ifAddressList = []
         for line in lines:

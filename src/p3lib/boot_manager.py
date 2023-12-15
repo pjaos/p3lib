@@ -286,9 +286,7 @@ class LinuxBootManager(object):
     def getStatusLines(self):
         """@brief Get a status report.
            @return Lines of text indicating the status of a previously started process."""
-        statusLines = []
         appName, _ = self._getApp()
-        cmd = "{} status {}".format(LinuxBootManager.SYSTEM_CTL, appName)
         p = Popen([LinuxBootManager.SYSTEM_CTL, 'status', appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)
         output, err = p.communicate(b"input data that is passed to subprocess' stdin")
         response = output.decode() + "\n" + err.decode()
