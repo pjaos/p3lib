@@ -14,7 +14,8 @@ cryptography = "*"
 paramiko = ">=2.10.1"
 plotly = "*"
 pandas = "*"
-bokeh = ">=3.0.3"
+bokeh = ">=3.1.0"
+argon2-cffi = "*"
 
 [requires]
 python_version = "3.8"
