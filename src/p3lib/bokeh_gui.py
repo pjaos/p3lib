@@ -22,6 +22,7 @@ from bokeh.models import Range
 from bokeh.palettes import Category20_20 as palette
 from bokeh.resources import Resources
 from bokeh.embed import file_html
+from bokeh.server.auth_provider import AuthModule
 
 from bokeh.plotting import save, output_file
 from bokeh.layouts import gridplot, column, row
@@ -758,17 +759,19 @@ class MultiAppServer(object):
            @return The TCP port or -1 if no port is available."""
         return SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)
 
-    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*"):
+    def __init__(self, address="0.0.0.0", bokehPort=0, wsOrigin="*:*", userHashFile=None):
         """@Constructor
            @param address The address of the bokeh server.
            @param bokehPort The TCP port to run the server on. If left at the default
                   of 0 then a spare TCP port will be used.
+           @param userHashFile A file that contains the hashed (via argon2) login credentials.
            """
         if bokehPort == 0:
             bokehPort = MultiAppServer.GetNextUnusedPort()
         self._bokehPort=bokehPort
         self._address=address
         os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin
+        self._userHashFile = userHashFile
 
     def getServerPort(self):
         """@return The bokeh server port."""
@@ -797,7 +800,21 @@ class MultiAppServer(object):
         #As this gets run in a thread we need to start an event loop
         evtLoop = asyncio.new_event_loop()
         asyncio.set_event_loop(evtLoop)
-        self._server = Server(appDict, address=self._address, port=self._bokehPort)
+        if self._userHashFile is None:
+            self._server = Server(appDict, 
+                                  address=self._address,
+                                  port=self._bokehPort)
+
+        else:
+            # We don't check the credentials hash file exists as this should have been
+            # done at a higher level. We assume that web server authoristion is required.
+            selfPath = os.path.dirname(os.path.abspath(__file__))
+            authFile = os.path.join(selfPath, "bokeh_auth.py")
+            authModule = AuthModule(authFile)
+            self._server = Server(appDict, 
+                                  address=self._address,
+                                  port=self._bokehPort,
+                                  auth_provider=authModule)
         self._server.start()
         if openBrowser:
             #Show the server in a web browser window
