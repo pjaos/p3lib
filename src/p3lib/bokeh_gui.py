@@ -97,14 +97,14 @@ class TabbedGUI(object):
                          x_axis_type="datetime",
                          x_axis_location="below",
                          y_range=yrange,
-                         plot_width=width,
-                         plot_height=height)
+                         width=width,
+                         height=height)
         else:
             fig = figure(title=title,
                          x_axis_type="datetime",
                          x_axis_location="below",
-                         plot_width=width,
-                         plot_height=height)
+                         width=width,
+                         height=height)
 
         fig.yaxis.axis_label = yAxisName
         return fig
