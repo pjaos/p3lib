@@ -3,7 +3,7 @@
 This file is a modified version of the Bokeh authorisation example code.
 Many thanks to bokeh for this.
 
-!!! This contains a mix of pep8 and camel case method names !!!
+This contains a mix of pep8 and camel case method names ...
 
 '''
 import os
@@ -13,9 +13,11 @@ import tornado
 from   tornado.web import RequestHandler
 from   argon2 import PasswordHasher
 from   argon2.exceptions import VerificationError
+from   datetime import datetime
 
 CRED_FILE_KEY = "CRED_FILE"
 LOGIN_HTML_FILE_KEY = "LOGIN_HTML_FILE"
+ACCESS_LOG_FILE = "ACCESS_LOG_FILE"
 
 # could define get_user_async instead
 def get_user(request_handler):
@@ -31,15 +33,17 @@ def GetAuthAttrFile():
     jsonFile = os.path.join( tempfile.gettempdir(), f"bokeh_auth_attr_{os.getpid()}.json")
     return jsonFile
 
-def SetBokehAuthAttrs(credentialsJsonFile, loginHTMLFile):
+def SetBokehAuthAttrs(credentialsJsonFile, loginHTMLFile, accessLogFile=None):
     """@brief Set the attributes used to login to the bokeh server. By default
               no login is required to the bokeh server.
        @param credentialsJsonFile The file that stores the username and hashed passwords for the server.
-       @param loginHTMLFile The HTML file for the page presented to the user when logging into the bokeh server."""
+       @param loginHTMLFile The HTML file for the page presented to the user when logging into the bokeh server.
+       @param accessLogFile The log file to record access to. If left as None then no logging occurs."""
     jsonFile = GetAuthAttrFile()
     with open(jsonFile, 'w') as fd:
         cfgDict={CRED_FILE_KEY: credentialsJsonFile}
         cfgDict[LOGIN_HTML_FILE_KEY]=loginHTMLFile
+        cfgDict[ACCESS_LOG_FILE]=accessLogFile
         json.dump(cfgDict, fd, ensure_ascii=False, indent=4)
 
 def _getCredDict():
@@ -60,11 +64,73 @@ def GetLoginHTMLFile():
     """@return The html file for the login page."""
     credDict = _getCredDict()
     return credDict[LOGIN_HTML_FILE_KEY]
-    
+
+def GetAccessLogFile():
+    """@return Get the access log file.."""
+    credDict = _getCredDict()
+    return credDict[ACCESS_LOG_FILE]
+
 # optional login page for login_url
 class LoginHandler(RequestHandler):
 
+    def _recordGet(self):
+        """@brief Record an HHTP get on the login page."""
+        self._saveInfoAccessLogMessage(f"HTTP GET from {self.request.remote_ip}")
+        try:
+            # We import here so that the p3lib module will import even if ip2geotools
+            # is not available.
+            from   ip2geotools.databases.noncommercial import DbIpCity
+            response = DbIpCity.get(self.request.remote_ip, api_key='free')
+            self._saveInfoAccessLogMessage(f"HTTP GET country   = {response.country}")
+            self._saveInfoAccessLogMessage(f"HTTP GET region    = {response.region}")
+            self._saveInfoAccessLogMessage(f"HTTP GET city      = {response.city}")
+            self._saveInfoAccessLogMessage(f"HTTP GET latitude  = {response.latitude}")
+            self._saveInfoAccessLogMessage(f"HTTP GET longitude = {response.longitude}")
+        except:
+            pass
+
+    def _recordLoginAttempt(self, username, password):
+        """@brief Record an attempt to login to the server.
+           @param username The username entered.
+           @param password The password entered."""
+        self._saveInfoAccessLogMessage(f"Login attempt from {self.request.remote_ip}: username = {username}, password={password}")
+
+    def _recordLoginSuccess(self, username, password):
+        """@brief Record a successful login to the server.
+           @param username The username entered.
+           @param password The password entered."""
+        self._saveInfoAccessLogMessage(f"Login success from {self.request.remote_ip}: username = {username}, password={password}")
+
+    def _saveInfoAccessLogMessage(self, msg):
+        """@brief Save an info level access log message.
+           @param msg The message to save to the access log."""
+        self._saveAccessLogMessage("INFO:  "+str(msg))
+
+    def _saveErrorAccessLogMessage(self, msg):
+        """@brief Save an info level access log message.
+           @param msg The message to save to the access log."""
+        self._saveAccessLogMessage("ERROR: "+str(msg))
+
+    def _saveAccessLogMessage(self, msg):
+        """@brief Save an access log message.
+           @param msg The message to save to the access log."""
+        now = datetime.now()
+        accessLogFile = GetAccessLogFile()
+        if accessLogFile and len(accessLogFile) > 0:
+            try:
+                if not os.path.isfile(accessLogFile):
+                    with open(accessLogFile, 'w'):
+                        pass
+
+                with open(accessLogFile, 'a') as fd:
+                    line = now.isoformat() + ": " + str(msg)+"\n"
+                    fd.write(line)
+
+            except:
+                pass
+
     def get(self):
+        self._recordGet()
         try:
             errormessage = self.get_argument("error")
         except Exception:
@@ -75,11 +141,13 @@ class LoginHandler(RequestHandler):
     def check_permission(self, username, password):
         """@brief Check if we the username and password are valid
            @return True if the username and password are valid."""
+        self._recordLoginAttempt(username, password)
         valid = False
         credentialsJsonFile = GetCredentialsFile()
         ch = CredentialsHasher(credentialsJsonFile)
         if ch.verify(username, password):
             valid = True
+            self._recordLoginSuccess(username, password)
         return valid
 
     def post(self):
@@ -96,8 +164,10 @@ class LoginHandler(RequestHandler):
     def set_current_user(self, user):
         if user:
             self.set_cookie("user", tornado.escape.json_encode(user))
+            self._saveInfoAccessLogMessage(f"Set user cookie: user={user}")
         else:
             self.clear_cookie("user")
+            self._saveInfoAccessLogMessage("Cleared user cookie")
 
 # optional logout_url, available as curdoc().session_context.logout_url
 logout_url = "/logout"
@@ -115,32 +185,32 @@ class CredentialsHasherExeption(Exception):
 
 class CredentialsHasher(object):
     """@brief Responsible for storing hashed credentials to a local file.
-              There are issues storing hashed credentials and so this is not 
-              recommended for high security systems but is aimed at providing 
+              There are issues storing hashed credentials and so this is not
+              recommended for high security systems but is aimed at providing
               a simple credentials storage solution for Bokeh servers."""
-              
+
     def __init__(self, credentialsJsonFile):
-        """@brief Construct an object that can be used to generate a credentials has file and check 
-                  credentials entered by a user. 
+        """@brief Construct an object that can be used to generate a credentials has file and check
+                  credentials entered by a user.
            @param credentialsJsonFile A file that contains the hashed (via argon2) login credentials."""
         self._credentialsJsonFile = credentialsJsonFile
         self._passwordHasher = PasswordHasher()
         self._credDict = self._getCredDict()
-        
+
     def _getCredDict(self):
         """@brief Get a dictionary containing the current credentials.
-           @return A dict containing the credentials. 
+           @return A dict containing the credentials.
                    value = username
                    key = hashed password."""
         credDict = {}
         # If the hash file exists
         if os.path.isfile(self._credentialsJsonFile):
-            # Add the hash a a line in the file 
+            # Add the hash a a line in the file
             with open(self._credentialsJsonFile, 'r') as fd:
                 contents = fd.read()
             credDict = json.loads(contents)
         return credDict
-                
+
     def isUsernameAvailable(self, username):
         """@brief Determine if the username is not already used.
            @param username The login username.
@@ -149,12 +219,12 @@ class CredentialsHasher(object):
         if username in self._credDict:
             usernameAvailable = False
         return usernameAvailable
-        
+
     def _saveCredentials(self):
         """@brief Save the cr3edentials to the file."""
         with open(self._credentialsJsonFile, 'w', encoding='utf-8') as f:
             json.dump(self._credDict, f, ensure_ascii=False, indent=4)
-                
+
     def add(self, username, password):
         """@brief Add credential to the stored hashes.
            @param username The login username.
@@ -163,22 +233,22 @@ class CredentialsHasher(object):
             hash = self._passwordHasher.hash(password)
             self._credDict[username] = hash
             self._saveCredentials()
-            
+
         else:
             raise CredentialsHasherExeption(f"{username} username is already in use.")
-        
+
     def remove(self, username):
         """@brief Remove a user from the stored hashes.
                   If the username is not present then this method will return without an error.
            @param username The login username.
            @return True if the username/password was removed"""
-        removed = False        
+        removed = False
         if username in self._credDict:
             del self._credDict[username]
             self._saveCredentials()
             removed = True
         return removed
-        
+
     def verify(self, username, password):
         """@brief Check the credentials are valid and stored in the hash file.
            @param username The login username.
@@ -190,25 +260,25 @@ class CredentialsHasher(object):
             try:
                 self._passwordHasher.verify(storedHash, password)
                 validCredential = True
-                
+
             except VerificationError:
-                pass        
-        
+                pass
+
         return validCredential
-                
+
     def getCredentialCount(self):
         """@brief Get the number of credentials that are stored.
            @return The number of credentials stored."""
-        return len(self._credDict.keys())    
-    
+        return len(self._credDict.keys())
+
     def getUsernameList(self):
         """@brief Get a list of usernames.
            @return A list of usernames."""
-        return list(self._credDict.keys())    
+        return list(self._credDict.keys())
 
 class CredentialsManager(object):
     """@brief Responsible for allowing the user to add and remove credentials to a a local file."""
-    
+
     def __init__(self, uio, credentialsJsonFile):
         """@brief Constructor.
            @param uio A UIO instance that allows user input output.
@@ -216,7 +286,7 @@ class CredentialsManager(object):
         self._uio = uio
         self._credentialsJsonFile = credentialsJsonFile
         self.credentialsHasher = CredentialsHasher(self._credentialsJsonFile)
-        
+
     def _add(self):
         """@brief Add a username/password to the list of credentials."""
         self._uio.info('Add a username/password')
@@ -226,7 +296,7 @@ class CredentialsManager(object):
             self.credentialsHasher.add(username, password)
         else:
             self._uio.error(f"{username} is already in use.")
-    
+
     def _delete(self):
         """@brief Delete a username/password from the list of credentials."""
         self._uio.info('Delete a username/password')
@@ -236,10 +306,10 @@ class CredentialsManager(object):
                 self._uio.info(f"Removed {username}")
             else:
                 self._uio.error(f"Failed to remove {username}.")
-            
+
         else:
             self._uio.error(f"{username} not found.")
-        
+
     def _check(self):
         """@brief Check a username/password from the list of credentials."""
         self._uio.info('Check a username/password')
@@ -249,14 +319,14 @@ class CredentialsManager(object):
             self._uio.info(f"The username and password match.")
         else:
             self._uio.error(f"The username and password do not match.")
-        
+
     def _showUsernames(self):
         """@brief Show the user a list of the usernames stored."""
         table = [["USERNAME"]]
         for username in self.credentialsHasher.getUsernameList():
             table.append([username])
         self._uio.showTable(table)
-        
+
     def manage(self):
         """@brief Allow the user to add and remove user credentials from a local file."""
         while True:
@@ -280,9 +350,3 @@ class CredentialsManager(object):
                 return
             else:
                 self._uio.error(f"{response} is an invalid response.")
-        
-        
-        
-        
-        
-    
