@@ -78,7 +78,7 @@ class LoginHandler(RequestHandler):
         self._saveInfoAccessLogMessage(f"HTTP GET from {self.request.remote_ip}")
         try:
             # We import here so that the p3lib module will import even if ip2geotools
-            # is not available.
+            # is not available as pip install ip2geotools adds in 73 python modules !!!
             from   ip2geotools.databases.noncommercial import DbIpCity
             response = DbIpCity.get(self.request.remote_ip, api_key='free')
             self._saveInfoAccessLogMessage(f"HTTP GET country   = {response.country}")
