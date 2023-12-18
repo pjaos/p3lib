@@ -93,13 +93,15 @@ class LoginHandler(RequestHandler):
         """@brief Record an attempt to login to the server.
            @param username The username entered.
            @param password The password entered."""
-        self._saveInfoAccessLogMessage(f"Login attempt from {self.request.remote_ip}: username = {username}, password={password}")
+        pw = "*"*len(password)
+        self._saveInfoAccessLogMessage(f"Login attempt from {self.request.remote_ip}: username = {username}, password={pw}")
 
     def _recordLoginSuccess(self, username, password):
         """@brief Record a successful login to the server.
            @param username The username entered.
            @param password The password entered."""
-        self._saveInfoAccessLogMessage(f"Login success from {self.request.remote_ip}: username = {username}, password={password}")
+        pw = "*"*len(password)
+        self._saveInfoAccessLogMessage(f"Login success from {self.request.remote_ip}: username = {username}, password={pw}")
 
     def _saveInfoAccessLogMessage(self, msg):
         """@brief Save an info level access log message.
