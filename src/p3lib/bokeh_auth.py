@@ -15,17 +15,21 @@ from   argon2 import PasswordHasher
 from   argon2.exceptions import VerificationError
 from   datetime import datetime
 
+# could also define get_login_url function (but must give up LoginHandler)
+login_url = "/login"
+
 CRED_FILE_KEY = "CRED_FILE"
 LOGIN_HTML_FILE_KEY = "LOGIN_HTML_FILE"
 ACCESS_LOG_FILE = "ACCESS_LOG_FILE"
 
 # could define get_user_async instead
 def get_user(request_handler):
+    # Record the get request
+    LoginHandler.RecordGet(request_handler.request.remote_ip)
     user = request_handler.get_cookie("user")
+    # Record the user making the request
+    LoginHandler.SaveInfoAccessLogMessage(f"USER={user}")
     return user
-
-# could also define get_login_url function (but must give up LoginHandler)
-login_url = "/login"
 
 def GetAuthAttrFile():
     """@brief Get the file that is used to pass parameters (credentials file and login.html file) to the tornado server.
@@ -73,19 +77,22 @@ def GetAccessLogFile():
 # optional login page for login_url
 class LoginHandler(RequestHandler):
 
-    def _recordGet(self):
-        """@brief Record an HHTP get on the login page."""
-        self._saveInfoAccessLogMessage(f"HTTP GET from {self.request.remote_ip}")
+    @staticmethod
+    def RecordGet(remoteIP):
+        """@brief Record an HHTP get on the login page.
+           @param remoteIP The IP address of the client."""
+        msg = f"HTTP GET from {remoteIP}"
+        LoginHandler.SaveInfoAccessLogMessage(msg)
         try:
             # We import here so that the p3lib module will import even if ip2geotools
-            # is not available as pip install ip2geotools adds in 73 python modules !!!
+            # is not available as pip install ip2geotools adds in ~ 70 python modules !!!
             from   ip2geotools.databases.noncommercial import DbIpCity
-            response = DbIpCity.get(self.request.remote_ip, api_key='free')
-            self._saveInfoAccessLogMessage(f"HTTP GET country   = {response.country}")
-            self._saveInfoAccessLogMessage(f"HTTP GET region    = {response.region}")
-            self._saveInfoAccessLogMessage(f"HTTP GET city      = {response.city}")
-            self._saveInfoAccessLogMessage(f"HTTP GET latitude  = {response.latitude}")
-            self._saveInfoAccessLogMessage(f"HTTP GET longitude = {response.longitude}")
+            response = DbIpCity.get(remoteIP, api_key='free')
+            LoginHandler.SaveInfoAccessLogMessage(f"HTTP GET country   = {response.country}")
+            LoginHandler.SaveInfoAccessLogMessage(f"HTTP GET region    = {response.region}")
+            LoginHandler.SaveInfoAccessLogMessage(f"HTTP GET city      = {response.city}")
+            LoginHandler.SaveInfoAccessLogMessage(f"HTTP GET latitude  = {response.latitude}")
+            LoginHandler.SaveInfoAccessLogMessage(f"HTTP GET longitude = {response.longitude}")
         except:
             pass
 
@@ -94,26 +101,23 @@ class LoginHandler(RequestHandler):
            @param username The username entered.
            @param password The password entered."""
         pw = "*"*len(password)
-        self._saveInfoAccessLogMessage(f"Login attempt from {self.request.remote_ip}: username = {username}, password={pw}")
+        LoginHandler.SaveInfoAccessLogMessage(f"Login attempt from {self.request.remote_ip}: username = {username}, password={pw}")
 
     def _recordLoginSuccess(self, username, password):
         """@brief Record a successful login to the server.
            @param username The username entered.
            @param password The password entered."""
         pw = "*"*len(password)
-        self._saveInfoAccessLogMessage(f"Login success from {self.request.remote_ip}: username = {username}, password={pw}")
+        LoginHandler.SaveInfoAccessLogMessage(f"Login success from {self.request.remote_ip}: username = {username}, password={pw}")
 
-    def _saveInfoAccessLogMessage(self, msg):
+    @staticmethod
+    def SaveInfoAccessLogMessage(msg):
         """@brief Save an info level access log message.
            @param msg The message to save to the access log."""
-        self._saveAccessLogMessage("INFO:  "+str(msg))
+        LoginHandler.SaveAccessLogMessage("INFO:  "+str(msg))
 
-    def _saveErrorAccessLogMessage(self, msg):
-        """@brief Save an info level access log message.
-           @param msg The message to save to the access log."""
-        self._saveAccessLogMessage("ERROR: "+str(msg))
-
-    def _saveAccessLogMessage(self, msg):
+    @staticmethod
+    def SaveAccessLogMessage(msg):
         """@brief Save an access log message.
            @param msg The message to save to the access log."""
         now = datetime.now()
@@ -132,7 +136,6 @@ class LoginHandler(RequestHandler):
                 pass
 
     def get(self):
-        self._recordGet()
         try:
             errormessage = self.get_argument("error")
         except Exception:
@@ -166,10 +169,10 @@ class LoginHandler(RequestHandler):
     def set_current_user(self, user):
         if user:
             self.set_cookie("user", tornado.escape.json_encode(user))
-            self._saveInfoAccessLogMessage(f"Set user cookie: user={user}")
+            LoginHandler.SaveInfoAccessLogMessage(f"Set user cookie: user={user}")
         else:
             self.clear_cookie("user")
-            self._saveInfoAccessLogMessage("Cleared user cookie")
+            LoginHandler.SaveInfoAccessLogMessage("Cleared user cookie")
 
 # optional logout_url, available as curdoc().session_context.logout_url
 logout_url = "/logout"
