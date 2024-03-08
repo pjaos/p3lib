@@ -331,8 +331,10 @@ class SSH(object):
                         'timeout': timeout,
                         'username': self._username,
                         'key_filename': privateKeyFile,
-                        # This is required of else loging in without the password fails.
-                        'disabled_algorithms': dict(pubkeys=['rsa-sha2-256', 'rsa-sha2-512'])
+                        # This used to be required or else loging in without the password would fail.
+                        # This is no longer true for the latest paramiko as of 8 Mar 2024.
+                        # Therefore this workaround has been removed but shown in place in case of future issues.
+                        #'disabled_algorithms': dict(pubkeys=['rsa-sha2-256', 'rsa-sha2-512'])
                     }
                     # If we have a password then add this to the config
                     if self._password and len(self._password) > 0:
@@ -340,6 +342,12 @@ class SSH(object):
                     self._ssh.connect(**cfg)
                     connected = True
                     break
+        
+                # Ensure we throw an exception in the event of authencication failure as this ensures
+                # that the code to triggers the code to allow the user to copy thier public ssh key to
+                # the server in order that future logins are passwordless.
+                except AuthenticationException:
+                    raise
 
                 except:
                     pass
