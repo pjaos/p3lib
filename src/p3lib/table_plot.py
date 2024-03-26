@@ -131,7 +131,7 @@ class Table2DPlotServer(object):
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.WINDOW_TTLE} must be > 0 and <= 250 characters in length: {wTitle}"}
                         
-                    if Table2DPlotServer.XAXIS_TYPE in rxDict:
+                    elif Table2DPlotServer.XAXIS_TYPE in rxDict:
                         xAxisType = rxDict[Table2DPlotServer.XAXIS_TYPE]
                         if xAxisType in Table2DPlotServer.VALID_X_AXIS_TYPES:
                             self.server.parent.staticPlotParams.xAxisType = xAxisType
@@ -139,70 +139,70 @@ class Table2DPlotServer(object):
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.XAXIS_TYPE} invalid: {xAxisType}"}
                             
                         
-                    if Table2DPlotServer.PLOT_PANEL_HEIGHT in rxDict:
+                    elif Table2DPlotServer.PLOT_PANEL_HEIGHT in rxDict:
                         pHeight = rxDict[Table2DPlotServer.PLOT_PANEL_HEIGHT]
                         if pHeight > 10 and pHeight < 2048:
                             self.server.parent.staticPlotParams.plotPanelHeight = pHeight
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.PLOT_PANEL_HEIGHT} invalid: {pHeight} must be > 10 and < 2048"}
                         
-                    if Table2DPlotServer.LINE_PLOT in rxDict:
+                    elif Table2DPlotServer.LINE_PLOT in rxDict:
                         lPlot = rxDict[Table2DPlotServer.LINE_PLOT]
                         if lPlot in (True, False):
                             self.server.parent.staticPlotParams.linePlot = lPlot
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.LINE_PLOT} invalid, must be True of False not {lPlot}"}
                         
-                    if Table2DPlotServer.PLOT_LINE_WIDTH in rxDict:
+                    elif Table2DPlotServer.PLOT_LINE_WIDTH in rxDict:
                         plWidth = rxDict[Table2DPlotServer.PLOT_LINE_WIDTH]
                         if plWidth > 0 and plWidth < 100:
                             self.server.parent.staticPlotParams.plotLineWidth = plWidth
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.PLOT_LINE_WIDTH} invalid, must be > 0 and < 100 not {plWidth}"}
                         
-                    if Table2DPlotServer.SCATTER_PLOT_DOT_SIZE in rxDict:
+                    elif Table2DPlotServer.SCATTER_PLOT_DOT_SIZE in rxDict:
                         spDotSize = rxDict[Table2DPlotServer.SCATTER_PLOT_DOT_SIZE]
                         if spDotSize > 0 and spDotSize < 250:
                             self.server.parent.staticPlotParams.scatterPlotDotSize = spDotSize
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.SCATTER_PLOT_DOT_SIZE} invalid, must be > 0 and < 250 not {spDotSize}"}                           
                             
-                    if Table2DPlotServer.THEME in rxDict:
+                    elif Table2DPlotServer.THEME in rxDict:
                         theme = rxDict[Table2DPlotServer.THEME]
                         if theme in Table2DPlotServer.VALID_THEMES:
                             self.server.parent.staticPlotParams.theme = theme
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.XAXIS_TYPE} invalid: {theme}"}
 
-                    if Table2DPlotServer.X_AXIS_NAME in rxDict:
+                    elif Table2DPlotServer.X_AXIS_NAME in rxDict:
                         xAxisName = rxDict[Table2DPlotServer.X_AXIS_NAME]
                         if isinstance(xAxisName,str) and len(xAxisName) > 0 and len(xAxisName) <= 150:
                             self.server.parent.staticPlotParams.xAxisName = xAxisName
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.X_AXIS_NAME} must be > 0 and <= 150 characters in length: {xAxisName}"}
 
-                    if Table2DPlotServer.HTML_FILE in rxDict:
+                    elif Table2DPlotServer.HTML_FILE in rxDict:
                         htmlFile = rxDict[Table2DPlotServer.HTML_FILE]
                         if isinstance(htmlFile,str) and len(htmlFile) > 0 and len(htmlFile) <= 250:
                             self.server.parent.staticPlotParams.htmlFile = htmlFile
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.HTML_FILE} must be > 0 and <= 250 characters in length: {htmlFile}"}
 
-                    if Table2DPlotServer.DISABLE_RESULT in rxDict:
+                    elif Table2DPlotServer.DISABLE_RESULT in rxDict:
                         disableResult = rxDict[Table2DPlotServer.DISABLE_RESULT]
                         if disableResult in (True, False):
                             self.server.parent.staticPlotParams.disableResult = disableResult
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.DISABLE_RESULT} invalid, must be True of False not {disableResult}"}
 
-                    if Table2DPlotServer.RESULT_WIDTH in rxDict:
+                    elif Table2DPlotServer.RESULT_WIDTH in rxDict:
                         resultWidth = rxDict[Table2DPlotServer.RESULT_WIDTH]
                         if resultWidth > 10 and resultWidth < 2048:
                             self.server.parent.staticPlotParams.resultWidth = resultWidth
                         else:
                             errorDict = {Table2DPlotServer.ERROR: f"{Table2DPlotServer.RESULT_WIDTH} invalid: {resultWidth} must be > 10 and < 2048"}
    
-                    if Table2DPlotServer.RESULT_TITLE in rxDict:
+                    elif Table2DPlotServer.RESULT_TITLE in rxDict:
                         resultTitle = rxDict[Table2DPlotServer.RESULT_TITLE]
                         if isinstance(resultTitle,str) and len(resultTitle) > 0 and len(resultTitle) <= 250:
                             self.server.parent.staticPlotParams.resultTitle = resultTitle
@@ -211,14 +211,14 @@ class Table2DPlotServer(object):
                     
                     # Set static parameters stop
                             
-                    if Table2DPlotServer.SET_RESULT in rxDict:
+                    elif Table2DPlotServer.SET_RESULT in rxDict:
                         guiMsg = GUIMessage()
                         guiMsg.type = GUIMessage.RESULT_DATA_TYPE
                         guiMsg.data = rxDict[Table2DPlotServer.SET_RESULT]
                         if self.server.parent._bokeh2DTablePlotter:
                             self.server.parent._bokeh2DTablePlotter.sendMessage(guiMsg)
 
-                    if Table2DPlotServer.TABLE_COLUMNS in rxDict:
+                    elif Table2DPlotServer.TABLE_COLUMNS in rxDict:
                         self.server.parent.createNewPlot(rxDict[Table2DPlotServer.TABLE_COLUMNS])
                         
                     elif Table2DPlotServer.TABLE_ROW in rxDict:
