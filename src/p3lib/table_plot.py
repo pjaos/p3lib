@@ -587,7 +587,7 @@ class Bokeh2DTablePlotter(SingleAppServer):
 from time import sleep
 from datetime import datetime
 
-from table_plot import Table2DPlotServer
+from p3lib.table_plot import Table2DPlotServer
 from p3lib.json_networking import JSONClient
 
 # This starts the server in the background waiting for the data to be plotted.
