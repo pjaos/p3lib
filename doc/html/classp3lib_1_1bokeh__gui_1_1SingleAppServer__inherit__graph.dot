@@ -14,4 +14,6 @@ digraph "SingleAppServer"
   Node5 [label="DynamicPlotExample",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGUIModel__A__example_1_1DynamicPlotExample.html",tooltip=" "];
   Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node6 [label="StaticPlotExample",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGUIModel__A__example_1_1StaticPlotExample.html",tooltip=" "];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Bokeh2DTablePlotter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html",tooltip=" "];
 }
