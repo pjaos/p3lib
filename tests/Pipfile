@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 # Based on https://github.com/pjaos/p3lib/security/dependabot/10
 tornado = ">=6.3.2"
-pillow = ">=9.0.1"
+pillow = ">=10.3.0"
 pytest = "*"
 cryptography = "*"
 paramiko = ">=2.10.1"
