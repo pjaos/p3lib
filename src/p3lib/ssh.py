@@ -122,6 +122,7 @@ class SSH(object):
     PRIVATE_KEY_FILE_LIST               = ["id_rsa", "id_dsa", 'id_ecdsa']
     PUBLIC_KEY_FILE_LIST                = ["id_rsa.pub", "id_dsa.pub", 'id_ecdsa.pub']
     LOCAL_SSH_CONFIG_PATH               = os.path.join(os.path.expanduser("~"), ".ssh")
+    DEFAULT_REMOTE_SSH_CONFIG_FOLDER    = "~/.ssh"
     DEFAULT_REMOTE_SSH_AUTH_KEYS_FILE   = "~/.ssh/authorized_keys"
     DROPBEAR_DIR                        = "/etc/dropbear"
     DROPBEAR_AUTH_KEYS_FILE             = "%s/authorized_keys" % (DROPBEAR_DIR)
@@ -520,8 +521,17 @@ class SSH(object):
 
         cmd = "test -d %s" % (SSH.DROPBEAR_DIR)
         rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=False)
+        # If the ssh server uses dropbear
         if rc == 0:
             authKeysFile = SSH.DROPBEAR_AUTH_KEYS_FILE
+        else:
+            # Check for the users ssh config folder
+            cmd = "test -d %s" % (SSH.DEFAULT_REMOTE_SSH_CONFIG_FOLDER)
+            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=False)
+            if rc != 0:
+                # If the remote ssh config folder does not exist, create it
+                cmd = f"mkdir {SSH.DEFAULT_REMOTE_SSH_CONFIG_FOLDER}"
+                rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=True)
 
         return authKeysFile
 
