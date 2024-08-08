@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bitcounttonetmask_774',['BitCountToNetMask',['../classp3lib_1_1netif_1_1NetIF.html#ac197c968c53321d9df020a3708a36f6c',1,'p3lib::netif::NetIF']]],
-  ['breadavailable_775',['bReadAvailable',['../classp3lib_1_1conduit_1_1Conduit.html#a82c8462ba65127b2655b2d635648ee4e',1,'p3lib.conduit.Conduit.bReadAvailable()'],['../classp3lib_1_1conduit_1_1QueueConduit.html#a82c8462ba65127b2655b2d635648ee4e',1,'p3lib.conduit.QueueConduit.bReadAvailable()']]]
+  ['bitcounttonetmask_0',['BitCountToNetMask',['../classp3lib_1_1netif_1_1NetIF.html#a01f2d1cc5b4023614c8cd4e38e35179c',1,'p3lib::netif::NetIF']]],
+  ['breadavailable_1',['breadavailable',['../classp3lib_1_1conduit_1_1Conduit.html#a58b67af442ed6b7206e00df8cf3f0899',1,'p3lib.conduit.Conduit.bReadAvailable()'],['../classp3lib_1_1conduit_1_1QueueConduit.html#a58b67af442ed6b7206e00df8cf3f0899',1,'p3lib.conduit.QueueConduit.bReadAvailable()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['warning_1256',['WARNING',['../classp3lib_1_1uio_1_1PRIORITY.html#a6d56d31dc98daa7e6566f14350e580f9',1,'p3lib::uio::PRIORITY']]],
-  ['window_5fttle_1257',['WINDOW_TTLE',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a86136713de61a9fa1396e8d719270ab0',1,'p3lib::table_plot::Table2DPlotServer']]],
-  ['windowtitle_1258',['windowTitle',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a4e3ac5b727033516129bae426ab2091d',1,'p3lib::table_plot::StaticPlotParams']]]
+  ['valid_5fthemes_0',['VALID_THEMES',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#ae4e991b5d866c737dbfef4f96e51df8e',1,'p3lib::table_plot::Table2DPlotServer']]],
+  ['valid_5fx_5faxis_5ftypes_1',['VALID_X_AXIS_TYPES',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a067a31bb700c6ac4f9ebed8cf0136b8f',1,'p3lib::table_plot::Table2DPlotServer']]],
+  ['value_2',['value',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'p3lib.bokeh_gui.TimeSeriesPoint.value'],['../classbokeh__demo_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'bokeh_demo.TimeSeriesPoint.value']]]
 ];
