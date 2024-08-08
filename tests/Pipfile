@@ -18,5 +18,3 @@ bokeh = ">=3.1.0"
 argon2-cffi = "*"
 #ip2geotools = "*"
 
-[requires]
-python_version = "3.8"
