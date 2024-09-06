@@ -154,7 +154,7 @@ class DatabaseIF(object):
 
     def connectNoDB(self):
         """@brief connect to the database server."""
-        self._info("Connecting to {}:{}".format(self._dbConfig.serverAddress, self._dbConfig.serverPort))
+        self._info("Connecting to database server @ {}:{}".format(self._dbConfig.serverAddress, self._dbConfig.serverPort))
         self._dbCon = mysqldb.Connection(host=self._dbConfig.serverAddress,\
                                                 port=self._dbConfig.serverPort,\
                                                 user=self._dbConfig.username,\
