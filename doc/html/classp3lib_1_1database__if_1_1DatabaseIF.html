@@ -508,7 +508,7 @@ Protected Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="database__if_8py_source.html#l00155">155</a> of file <a class="el" href="database__if_8py_source.html">database_if.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  155</span>    <span class="keyword">def </span>connectNoDB(self):</div>
 <div class="line"><span class="lineno">  156</span>        <span class="stringliteral">&quot;&quot;&quot;@brief connect to the database server.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  157</span>        self._info(<span class="stringliteral">&quot;Connecting to {}:{}&quot;</span>.format(self._dbConfig.serverAddress, self._dbConfig.serverPort))</div>
+<div class="line"><span class="lineno">  157</span>        self._info(<span class="stringliteral">&quot;Connecting to database server @ {}:{}&quot;</span>.format(self._dbConfig.serverAddress, self._dbConfig.serverPort))</div>
 <div class="line"><span class="lineno">  158</span>        self._dbCon = mysqldb.Connection(host=self._dbConfig.serverAddress,\</div>
 <div class="line"><span class="lineno">  159</span>                                                port=self._dbConfig.serverPort,\</div>
 <div class="line"><span class="lineno">  160</span>                                                user=self._dbConfig.username,\</div>
