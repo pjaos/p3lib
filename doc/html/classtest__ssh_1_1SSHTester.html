@@ -121,7 +121,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Unit tests for the UIO class</pre> 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00013">13</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00020">20</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8265f43e817bd81e8ee0479d9cf942f1" name="a8265f43e817bd81e8ee0479d9cf942f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8265f43e817bd81e8ee0479d9cf942f1">&#9670;&#160;</a></span>setUp()</h2>
@@ -141,15 +141,15 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief To test correctly the ssh key should be removed from the server
        The user will be asked to enter a password and the connect will succeed.
        The next time the user should be able to login without a password.</pre> 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00016">16</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>    <span class="keyword">def </span>setUp(self):</div>
-<div class="line"><span class="lineno">   17</span>        <span class="stringliteral">&quot;&quot;&quot;@brief To test correctly the ssh key should be removed from the server</span></div>
-<div class="line"><span class="lineno">   18</span><span class="stringliteral">               The user will be asked to enter a password and the connect will succeed.</span></div>
-<div class="line"><span class="lineno">   19</span><span class="stringliteral">               The next time the user should be able to login without a password.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   20</span>        self._uio = UIO()</div>
-<div class="line"><span class="lineno">   21</span>        uio = UIO()</div>
-<div class="line"><span class="lineno">   22</span>        self.ssh = SSH(SERVER, USERNAME, uio=uio)</div>
-<div class="line"><span class="lineno">   23</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00023">23</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>    <span class="keyword">def </span>setUp(self):</div>
+<div class="line"><span class="lineno">   24</span>        <span class="stringliteral">&quot;&quot;&quot;@brief To test correctly the ssh key should be removed from the server</span></div>
+<div class="line"><span class="lineno">   25</span><span class="stringliteral">               The user will be asked to enter a password and the connect will succeed.</span></div>
+<div class="line"><span class="lineno">   26</span><span class="stringliteral">               The next time the user should be able to login without a password.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   27</span>        self._uio = UIO()</div>
+<div class="line"><span class="lineno">   28</span>        uio = UIO()</div>
+<div class="line"><span class="lineno">   29</span>        self.ssh = SSH(SERVER, USERNAME, uio=uio)</div>
+<div class="line"><span class="lineno">   30</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -169,10 +169,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00024">24</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   24</span>    <span class="keyword">def </span>tearDown(self):</div>
-<div class="line"><span class="lineno">   25</span>        self.ssh.close()</div>
-<div class="line"><span class="lineno">   26</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00031">31</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   31</span>    <span class="keyword">def </span>tearDown(self):</div>
+<div class="line"><span class="lineno">   32</span>        self.ssh.close()</div>
+<div class="line"><span class="lineno">   33</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -192,10 +192,10 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00027">27</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>    <span class="keyword">def </span>test1_connect(self):</div>
-<div class="line"><span class="lineno">   28</span>        self.ssh.connect()</div>
-<div class="line"><span class="lineno">   29</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00034">34</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>    <span class="keyword">def </span>test1_connect(self):</div>
+<div class="line"><span class="lineno">   35</span>        self.ssh.connect()</div>
+<div class="line"><span class="lineno">   36</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -215,17 +215,17 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00030">30</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   30</span>    <span class="keyword">def </span>test2_put(self):</div>
-<div class="line"><span class="lineno">   31</span>        localFile = <span class="stringliteral">&quot;/tmp/pushFile.txt&quot;</span></div>
-<div class="line"><span class="lineno">   32</span>        remoteFile = <span class="stringliteral">&quot;/tmp/pushedFile.txt&quot;</span></div>
-<div class="line"><span class="lineno">   33</span>        fd = open(localFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><span class="lineno">   34</span>        fd.write(<span class="stringliteral">&quot;1234\n&quot;</span>)</div>
-<div class="line"><span class="lineno">   35</span>        fd.close()</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>        self.ssh.connect(connectSFTPSession=<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">   38</span>        self.ssh.putFile(localFile, remoteFile)</div>
-<div class="line"><span class="lineno">   39</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00037">37</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>    <span class="keyword">def </span>test2_put(self):</div>
+<div class="line"><span class="lineno">   38</span>        localFile = <span class="stringliteral">&quot;/tmp/pushFile.txt&quot;</span></div>
+<div class="line"><span class="lineno">   39</span>        remoteFile = <span class="stringliteral">&quot;/tmp/pushedFile.txt&quot;</span></div>
+<div class="line"><span class="lineno">   40</span>        fd = open(localFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><span class="lineno">   41</span>        fd.write(<span class="stringliteral">&quot;1234\n&quot;</span>)</div>
+<div class="line"><span class="lineno">   42</span>        fd.close()</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>        self.ssh.connect(connectSFTPSession=<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">   45</span>        self.ssh.putFile(localFile, remoteFile)</div>
+<div class="line"><span class="lineno">   46</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -245,17 +245,17 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00040">40</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   40</span>    <span class="keyword">def </span>test3_get(self):</div>
-<div class="line"><span class="lineno">   41</span>        localFile = <span class="stringliteral">&quot;/tmp/pulledFile.txt&quot;</span></div>
-<div class="line"><span class="lineno">   42</span>        remoteFile = <span class="stringliteral">&quot;/tmp/pushedFile.txt&quot;</span></div>
-<div class="line"><span class="lineno">   43</span>        fd = open(localFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><span class="lineno">   44</span>        fd.write(<span class="stringliteral">&quot;1234\n&quot;</span>)</div>
-<div class="line"><span class="lineno">   45</span>        fd.close()</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>        self.ssh.connect(connectSFTPSession=<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">   48</span>        self.ssh.getFile(remoteFile, localFile)</div>
-<div class="line"><span class="lineno">   49</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00047">47</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>    <span class="keyword">def </span>test3_get(self):</div>
+<div class="line"><span class="lineno">   48</span>        localFile = <span class="stringliteral">&quot;/tmp/pulledFile.txt&quot;</span></div>
+<div class="line"><span class="lineno">   49</span>        remoteFile = <span class="stringliteral">&quot;/tmp/pushedFile.txt&quot;</span></div>
+<div class="line"><span class="lineno">   50</span>        fd = open(localFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><span class="lineno">   51</span>        fd.write(<span class="stringliteral">&quot;1234\n&quot;</span>)</div>
+<div class="line"><span class="lineno">   52</span>        fd.close()</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>        self.ssh.connect(connectSFTPSession=<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">   55</span>        self.ssh.getFile(remoteFile, localFile)</div>
+<div class="line"><span class="lineno">   56</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -275,12 +275,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00050">50</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>    <span class="keyword">def </span>test4_fwdTunnel(self):</div>
-<div class="line"><span class="lineno">   51</span>        self.ssh.connect()</div>
-<div class="line"><span class="lineno">   52</span>        sshTunnelManager = SSHTunnelManager(self._uio, self.ssh, <span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">   53</span>        sshTunnelManager.startFwdSSHTunnel(30000, SERVER, 22)</div>
-<div class="line"><span class="lineno">   54</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00057">57</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>    <span class="keyword">def </span>test4_fwdTunnel(self):</div>
+<div class="line"><span class="lineno">   58</span>        self.ssh.connect()</div>
+<div class="line"><span class="lineno">   59</span>        sshTunnelManager = SSHTunnelManager(self._uio, self.ssh, <span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">   60</span>        sshTunnelManager.startFwdSSHTunnel(30000, SERVER, 22)</div>
+<div class="line"><span class="lineno">   61</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -300,12 +300,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00055">55</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   55</span>    <span class="keyword">def </span>test5_revTunnel(self):</div>
-<div class="line"><span class="lineno">   56</span>        self.ssh.connect()</div>
-<div class="line"><span class="lineno">   57</span>        sshTunnelManager = SSHTunnelManager(self._uio, self.ssh, <span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">   58</span>        sshTunnelManager.startRevSSHTunnel(30000, SERVER, 22)</div>
-<div class="line"><span class="lineno">   59</span> </div>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00062">62</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>    <span class="keyword">def </span>test5_revTunnel(self):</div>
+<div class="line"><span class="lineno">   63</span>        self.ssh.connect()</div>
+<div class="line"><span class="lineno">   64</span>        sshTunnelManager = SSHTunnelManager(self._uio, self.ssh, <span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">   65</span>        sshTunnelManager.startRevSSHTunnel(30000, SERVER, 22)</div>
+<div class="line"><span class="lineno">   66</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -330,7 +330,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00020">20</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00027">27</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
 
 </div>
 </div>
@@ -346,7 +346,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00022">22</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="test__ssh_8py_source.html#l00029">29</a> of file <a class="el" href="test__ssh_8py_source.html">test_ssh.py</a>.</p>
 
 </div>
 </div>

@@ -154,7 +154,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  542</span>    plotter.addToRow(fig5)</div>
 <div class="line"><span class="lineno">  543</span> </div>
 <div class="line"><span class="lineno">  544</span>    plotUpdateThread = threading.Thread(target=updatePlots, args=(plotter,))</div>
-<div class="line"><span class="lineno">  545</span>    plotUpdateThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  545</span>    plotUpdateThread.daemon = <span class="keyword">True</span></div>
 <div class="line"><span class="lineno">  546</span>    plotUpdateThread.start()</div>
 <div class="line"><span class="lineno">  547</span> </div>
 <div class="line"><span class="lineno">  548</span>    <span class="keywordflow">if</span> runServer:</div>

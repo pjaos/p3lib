@@ -117,7 +117,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Responsible for presenting a table of values that can be updated dynamically.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00356">356</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00350">350</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae57a46a53adc46955c7080601446512c" name="ae57a46a53adc46955c7080601446512c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae57a46a53adc46955c7080601446512c">&#9670;&#160;</a></span>__init__()</h2>
@@ -178,29 +178,29 @@ Protected Attributes</h2></td></tr>
           into view..
    @param index_position The position of the index column in the table. 0 = the first
           column. Default is None which does not display the index column.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00358">358</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  358</span>    <span class="keyword">def </span>__init__(self, columnNameList, height=400, heightPolicy=&quot;auto&quot;, showLastRows=0, index_position=None):</div>
-<div class="line"><span class="lineno">  359</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><span class="lineno">  360</span><span class="stringliteral">           @param columnNameList A List of strings denoting each column in the 2 dimensional table.</span></div>
-<div class="line"><span class="lineno">  361</span><span class="stringliteral">           @param height The hieght of the table viewport in pixels.</span></div>
-<div class="line"><span class="lineno">  362</span><span class="stringliteral">           @param heightPolicy The height policy (auto, fixed, fit, min, max). default=fixed.</span></div>
-<div class="line"><span class="lineno">  363</span><span class="stringliteral">           @param showLastRows The number of rows to show in the table. If set to 2 then only</span></div>
-<div class="line"><span class="lineno">  364</span><span class="stringliteral">                  the last two rows in the table are displayed but they ate scrolled into view.</span></div>
-<div class="line"><span class="lineno">  365</span><span class="stringliteral">                  The default=0 which will display all rows and will not scroll the latest</span></div>
-<div class="line"><span class="lineno">  366</span><span class="stringliteral">                  into view..</span></div>
-<div class="line"><span class="lineno">  367</span><span class="stringliteral">           @param index_position The position of the index column in the table. 0 = the first</span></div>
-<div class="line"><span class="lineno">  368</span><span class="stringliteral">                  column. Default is None which does not display the index column.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  369</span>        self._columnNameList = columnNameList</div>
-<div class="line"><span class="lineno">  370</span>        self._dataDict = {}</div>
-<div class="line"><span class="lineno">  371</span>        self._columns = []</div>
-<div class="line"><span class="lineno">  372</span>        <span class="keywordflow">for</span> columnName <span class="keywordflow">in</span> columnNameList:</div>
-<div class="line"><span class="lineno">  373</span>            self._dataDict[columnName]=[]</div>
-<div class="line"><span class="lineno">  374</span>            self._columns.append( TableColumn(field=columnName, title=columnName) )</div>
-<div class="line"><span class="lineno">  375</span> </div>
-<div class="line"><span class="lineno">  376</span>        self._source = ColumnDataSource(self._dataDict)</div>
-<div class="line"><span class="lineno">  377</span> </div>
-<div class="line"><span class="lineno">  378</span>        self._dataTable = DataTable(source=self._source, columns=self._columns, height=height, height_policy=heightPolicy, frozen_rows=-showLastRows, index_position=index_position)</div>
-<div class="line"><span class="lineno">  379</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00352">352</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  352</span>    <span class="keyword">def </span>__init__(self, columnNameList, height=400, heightPolicy=&quot;auto&quot;, showLastRows=0, index_position=None):</div>
+<div class="line"><span class="lineno">  353</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><span class="lineno">  354</span><span class="stringliteral">           @param columnNameList A List of strings denoting each column in the 2 dimensional table.</span></div>
+<div class="line"><span class="lineno">  355</span><span class="stringliteral">           @param height The hieght of the table viewport in pixels.</span></div>
+<div class="line"><span class="lineno">  356</span><span class="stringliteral">           @param heightPolicy The height policy (auto, fixed, fit, min, max). default=fixed.</span></div>
+<div class="line"><span class="lineno">  357</span><span class="stringliteral">           @param showLastRows The number of rows to show in the table. If set to 2 then only</span></div>
+<div class="line"><span class="lineno">  358</span><span class="stringliteral">                  the last two rows in the table are displayed but they ate scrolled into view.</span></div>
+<div class="line"><span class="lineno">  359</span><span class="stringliteral">                  The default=0 which will display all rows and will not scroll the latest</span></div>
+<div class="line"><span class="lineno">  360</span><span class="stringliteral">                  into view..</span></div>
+<div class="line"><span class="lineno">  361</span><span class="stringliteral">           @param index_position The position of the index column in the table. 0 = the first</span></div>
+<div class="line"><span class="lineno">  362</span><span class="stringliteral">                  column. Default is None which does not display the index column.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  363</span>        self._columnNameList = columnNameList</div>
+<div class="line"><span class="lineno">  364</span>        self._dataDict = {}</div>
+<div class="line"><span class="lineno">  365</span>        self._columns = []</div>
+<div class="line"><span class="lineno">  366</span>        <span class="keywordflow">for</span> columnName <span class="keywordflow">in</span> columnNameList:</div>
+<div class="line"><span class="lineno">  367</span>            self._dataDict[columnName]=[]</div>
+<div class="line"><span class="lineno">  368</span>            self._columns.append( TableColumn(field=columnName, title=columnName) )</div>
+<div class="line"><span class="lineno">  369</span> </div>
+<div class="line"><span class="lineno">  370</span>        self._source = ColumnDataSource(self._dataDict)</div>
+<div class="line"><span class="lineno">  371</span> </div>
+<div class="line"><span class="lineno">  372</span>        self._dataTable = DataTable(source=self._source, columns=self._columns, height=height, height_policy=heightPolicy, frozen_rows=-showLastRows, index_position=index_position)</div>
+<div class="line"><span class="lineno">  373</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -232,18 +232,18 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the rows in the table.
    @param rowList A list of rows of data. Each row must contain a list of values for each column in the table.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00401">401</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  401</span>    <span class="keyword">def </span>appendRow(self, _row):</div>
-<div class="line"><span class="lineno">  402</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the rows in the table.</span></div>
-<div class="line"><span class="lineno">  403</span><span class="stringliteral">           @param rowList A list of rows of data. Each row must contain a list of values for each column in the table.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  404</span>        dataDict = {}</div>
-<div class="line"><span class="lineno">  405</span>        colIndex = 0</div>
-<div class="line"><span class="lineno">  406</span>        <span class="keywordflow">for</span> columnName <span class="keywordflow">in</span> self._columnNameList:</div>
-<div class="line"><span class="lineno">  407</span>            valueList = [_row[colIndex]]</div>
-<div class="line"><span class="lineno">  408</span>            dataDict[columnName]=valueList</div>
-<div class="line"><span class="lineno">  409</span>            colIndex = colIndex + 1</div>
-<div class="line"><span class="lineno">  410</span>        self._source.stream(dataDict)</div>
-<div class="line"><span class="lineno">  411</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00395">395</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  395</span>    <span class="keyword">def </span>appendRow(self, _row):</div>
+<div class="line"><span class="lineno">  396</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the rows in the table.</span></div>
+<div class="line"><span class="lineno">  397</span><span class="stringliteral">           @param rowList A list of rows of data. Each row must contain a list of values for each column in the table.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  398</span>        dataDict = {}</div>
+<div class="line"><span class="lineno">  399</span>        colIndex = 0</div>
+<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">for</span> columnName <span class="keywordflow">in</span> self._columnNameList:</div>
+<div class="line"><span class="lineno">  401</span>            valueList = [_row[colIndex]]</div>
+<div class="line"><span class="lineno">  402</span>            dataDict[columnName]=valueList</div>
+<div class="line"><span class="lineno">  403</span>            colIndex = colIndex + 1</div>
+<div class="line"><span class="lineno">  404</span>        self._source.stream(dataDict)</div>
+<div class="line"><span class="lineno">  405</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -263,11 +263,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Return an instance of the DataTable widget to be added to a layout.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00380">380</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  380</span>    <span class="keyword">def </span>getWidget(self):</div>
-<div class="line"><span class="lineno">  381</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Return an instance of the DataTable widget to be added to a layout.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  382</span>        <span class="keywordflow">return</span> self._dataTable</div>
-<div class="line"><span class="lineno">  383</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00374">374</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  374</span>    <span class="keyword">def </span>getWidget(self):</div>
+<div class="line"><span class="lineno">  375</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Return an instance of the DataTable widget to be added to a layout.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  376</span>        <span class="keywordflow">return</span> self._dataTable</div>
+<div class="line"><span class="lineno">  377</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -298,24 +298,24 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the rows in the table.
    @param rowList A list of rows of data. Each row must contain a list of values for each column in the table.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00384">384</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  384</span>    <span class="keyword">def </span>setRows(self, rowList):</div>
-<div class="line"><span class="lineno">  385</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the rows in the table.</span></div>
-<div class="line"><span class="lineno">  386</span><span class="stringliteral">           @param rowList A list of rows of data. Each row must contain a list of values for each column in the table.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  387</span>        <span class="keywordflow">for</span> _row <span class="keywordflow">in</span> rowList:</div>
-<div class="line"><span class="lineno">  388</span>            <span class="keywordflow">if</span> len(_row) != len(self._columnNameList):</div>
-<div class="line"><span class="lineno">  389</span>                <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;{} row should have {} values.&quot;</span>.format(_row, len(self._columnNameList)))</div>
-<div class="line"><span class="lineno">  390</span>        dataDict = {}</div>
-<div class="line"><span class="lineno">  391</span>        colIndex = 0</div>
-<div class="line"><span class="lineno">  392</span>        <span class="keywordflow">for</span> columnName <span class="keywordflow">in</span> self._columnNameList:</div>
-<div class="line"><span class="lineno">  393</span>            valueList = []</div>
-<div class="line"><span class="lineno">  394</span>            <span class="keywordflow">for</span> _row <span class="keywordflow">in</span> rowList:</div>
-<div class="line"><span class="lineno">  395</span>                valueList.append( _row[colIndex] )</div>
-<div class="line"><span class="lineno">  396</span>            dataDict[columnName]=valueList</div>
-<div class="line"><span class="lineno">  397</span> </div>
-<div class="line"><span class="lineno">  398</span>            colIndex = colIndex + 1</div>
-<div class="line"><span class="lineno">  399</span>        self._source.data = dataDict</div>
-<div class="line"><span class="lineno">  400</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00378">378</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  378</span>    <span class="keyword">def </span>setRows(self, rowList):</div>
+<div class="line"><span class="lineno">  379</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the rows in the table.</span></div>
+<div class="line"><span class="lineno">  380</span><span class="stringliteral">           @param rowList A list of rows of data. Each row must contain a list of values for each column in the table.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  381</span>        <span class="keywordflow">for</span> _row <span class="keywordflow">in</span> rowList:</div>
+<div class="line"><span class="lineno">  382</span>            <span class="keywordflow">if</span> len(_row) != len(self._columnNameList):</div>
+<div class="line"><span class="lineno">  383</span>                <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;{} row should have {} values.&quot;</span>.format(_row, len(self._columnNameList)))</div>
+<div class="line"><span class="lineno">  384</span>        dataDict = {}</div>
+<div class="line"><span class="lineno">  385</span>        colIndex = 0</div>
+<div class="line"><span class="lineno">  386</span>        <span class="keywordflow">for</span> columnName <span class="keywordflow">in</span> self._columnNameList:</div>
+<div class="line"><span class="lineno">  387</span>            valueList = []</div>
+<div class="line"><span class="lineno">  388</span>            <span class="keywordflow">for</span> _row <span class="keywordflow">in</span> rowList:</div>
+<div class="line"><span class="lineno">  389</span>                valueList.append( _row[colIndex] )</div>
+<div class="line"><span class="lineno">  390</span>            dataDict[columnName]=valueList</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>            colIndex = colIndex + 1</div>
+<div class="line"><span class="lineno">  393</span>        self._source.data = dataDict</div>
+<div class="line"><span class="lineno">  394</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -340,7 +340,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00369">369</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00363">363</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00371">371</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00365">365</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -388,7 +388,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00370">370</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00364">364</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -412,7 +412,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00378">378</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00372">372</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -436,7 +436,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00376">376</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00370">370</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

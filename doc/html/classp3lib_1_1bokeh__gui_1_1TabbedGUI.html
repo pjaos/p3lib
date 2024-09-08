@@ -135,7 +135,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief A Generalised class responsible for plotting real time data.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00080">80</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00074">74</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa3a48991468351a819871f7d6bd57c29" name="aa3a48991468351a819871f7d6bd57c29"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa3a48991468351a819871f7d6bd57c29">&#9670;&#160;</a></span>__init__()</h2>
@@ -173,17 +173,17 @@ Protected Attributes</h2></td></tr>
    @param bokehPort The port to run the server on.</pre> 
 <p>Reimplemented in <a class="el" href="classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#a84f027a92ee79eb184a355d2af5001b3">TimeSeriesPlotter</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00113">113</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  113</span>    <span class="keyword">def </span>__init__(self, docTitle, bokehPort=9090):</div>
-<div class="line"><span class="lineno">  114</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor.</span></div>
-<div class="line"><span class="lineno">  115</span><span class="stringliteral">           @param docTitle The document title.</span></div>
-<div class="line"><span class="lineno">  116</span><span class="stringliteral">           @param bokehPort The port to run the server on.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  117</span>        self._docTitle=docTitle</div>
-<div class="line"><span class="lineno">  118</span>        self._bokehPort=bokehPort</div>
-<div class="line"><span class="lineno">  119</span>        self._doc = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  120</span>        self._tabList = []</div>
-<div class="line"><span class="lineno">  121</span>        self._server = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  122</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00107">107</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>    <span class="keyword">def </span>__init__(self, docTitle, bokehPort=9090):</div>
+<div class="line"><span class="lineno">  108</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor.</span></div>
+<div class="line"><span class="lineno">  109</span><span class="stringliteral">           @param docTitle The document title.</span></div>
+<div class="line"><span class="lineno">  110</span><span class="stringliteral">           @param bokehPort The port to run the server on.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  111</span>        self._docTitle=docTitle</div>
+<div class="line"><span class="lineno">  112</span>        self._bokehPort=bokehPort</div>
+<div class="line"><span class="lineno">  113</span>        self._doc = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  114</span>        self._tabList = []</div>
+<div class="line"><span class="lineno">  115</span>        self._server = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  116</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -234,18 +234,18 @@ Protected Attributes</h2></td></tr>
    @param method The method to execute.
    @param A tuple of arguments to pass to the method.
           If no arguments are required then an empty tuple should be passed.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00148">148</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>    <span class="keyword">def </span>_run(self, method, args=[]):</div>
-<div class="line"><span class="lineno">  149</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run a method in a separate thread. This is useful when</span></div>
-<div class="line"><span class="lineno">  150</span><span class="stringliteral">                  methods are called from gui events that take some time to execute.</span></div>
-<div class="line"><span class="lineno">  151</span><span class="stringliteral">                  For such methods the gui callback should call this method to execute</span></div>
-<div class="line"><span class="lineno">  152</span><span class="stringliteral">                  the time consuming methods in another thread.</span></div>
-<div class="line"><span class="lineno">  153</span><span class="stringliteral">           @param method The method to execute.</span></div>
-<div class="line"><span class="lineno">  154</span><span class="stringliteral">           @param A tuple of arguments to pass to the method.</span></div>
-<div class="line"><span class="lineno">  155</span><span class="stringliteral">                  If no arguments are required then an empty tuple should be passed.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  156</span>        thread = threading.Thread(target=method, args=args)</div>
-<div class="line"><span class="lineno">  157</span>        thread.start()</div>
-<div class="line"><span class="lineno">  158</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00142">142</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>    <span class="keyword">def </span>_run(self, method, args=[]):</div>
+<div class="line"><span class="lineno">  143</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run a method in a separate thread. This is useful when</span></div>
+<div class="line"><span class="lineno">  144</span><span class="stringliteral">                  methods are called from gui events that take some time to execute.</span></div>
+<div class="line"><span class="lineno">  145</span><span class="stringliteral">                  For such methods the gui callback should call this method to execute</span></div>
+<div class="line"><span class="lineno">  146</span><span class="stringliteral">                  the time consuming methods in another thread.</span></div>
+<div class="line"><span class="lineno">  147</span><span class="stringliteral">           @param method The method to execute.</span></div>
+<div class="line"><span class="lineno">  148</span><span class="stringliteral">           @param A tuple of arguments to pass to the method.</span></div>
+<div class="line"><span class="lineno">  149</span><span class="stringliteral">                  If no arguments are required then an empty tuple should be passed.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  150</span>        thread = threading.Thread(target=method, args=args)</div>
+<div class="line"><span class="lineno">  151</span>        thread.start()</div>
+<div class="line"><span class="lineno">  152</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -286,14 +286,14 @@ Protected Attributes</h2></td></tr>
    @param updateEvent An PSUGUIUpdateEvent instance. This method will
                       be specific to the GUI implemented and must therefore
                       be overridden in child classes.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00167">167</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  167</span>    <span class="keyword">def </span>_rxUpdateEvent(self, updateEvent):</div>
-<div class="line"><span class="lineno">  168</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Receive an event into the GUI context to update the GUI.</span></div>
-<div class="line"><span class="lineno">  169</span><span class="stringliteral">           @param updateEvent An PSUGUIUpdateEvent instance. This method will</span></div>
-<div class="line"><span class="lineno">  170</span><span class="stringliteral">                              be specific to the GUI implemented and must therefore</span></div>
-<div class="line"><span class="lineno">  171</span><span class="stringliteral">                              be overridden in child classes.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;BUG: The _rxUpdateEvent() method must be implemented by classes that are children of the TabbedGUI class.&quot;</span>)</div>
-<div class="line"><span class="lineno">  173</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00161">161</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  161</span>    <span class="keyword">def </span>_rxUpdateEvent(self, updateEvent):</div>
+<div class="line"><span class="lineno">  162</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Receive an event into the GUI context to update the GUI.</span></div>
+<div class="line"><span class="lineno">  163</span><span class="stringliteral">           @param updateEvent An PSUGUIUpdateEvent instance. This method will</span></div>
+<div class="line"><span class="lineno">  164</span><span class="stringliteral">                              be specific to the GUI implemented and must therefore</span></div>
+<div class="line"><span class="lineno">  165</span><span class="stringliteral">                              be overridden in child classes.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  166</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;BUG: The _rxUpdateEvent() method must be implemented by classes that are children of the TabbedGUI class.&quot;</span>)</div>
+<div class="line"><span class="lineno">  167</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -335,15 +335,15 @@ Protected Attributes</h2></td></tr>
           of the GUI, events must be sent to the gui context in order to update
           the gui elements when they have the correct locks.
    @param updateEvent An UpdateEvent instance.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00159">159</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  159</span>    <span class="keyword">def </span>_sendUpdateEvent(self, updateEvent):</div>
-<div class="line"><span class="lineno">  160</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send an event to the GUI context to update the GUI. When methods</span></div>
-<div class="line"><span class="lineno">  161</span><span class="stringliteral">                  are executing outside the gui thread but need to update the state</span></div>
-<div class="line"><span class="lineno">  162</span><span class="stringliteral">                  of the GUI, events must be sent to the gui context in order to update</span></div>
-<div class="line"><span class="lineno">  163</span><span class="stringliteral">                  the gui elements when they have the correct locks.</span></div>
-<div class="line"><span class="lineno">  164</span><span class="stringliteral">           @param updateEvent An UpdateEvent instance.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  165</span>        self._doc.add_next_tick_callback( partial(self._rxUpdateEvent, updateEvent)  )</div>
-<div class="line"><span class="lineno">  166</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00153">153</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  153</span>    <span class="keyword">def </span>_sendUpdateEvent(self, updateEvent):</div>
+<div class="line"><span class="lineno">  154</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send an event to the GUI context to update the GUI. When methods</span></div>
+<div class="line"><span class="lineno">  155</span><span class="stringliteral">                  are executing outside the gui thread but need to update the state</span></div>
+<div class="line"><span class="lineno">  156</span><span class="stringliteral">                  of the GUI, events must be sent to the gui context in order to update</span></div>
+<div class="line"><span class="lineno">  157</span><span class="stringliteral">                  the gui elements when they have the correct locks.</span></div>
+<div class="line"><span class="lineno">  158</span><span class="stringliteral">           @param updateEvent An UpdateEvent instance.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  159</span>        self._doc.add_next_tick_callback( partial(self._rxUpdateEvent, updateEvent)  )</div>
+<div class="line"><span class="lineno">  160</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -408,36 +408,36 @@ Protected Attributes</h2></td></tr>
    @param width The width of the plot area in pixels.
    @param height The height of the plot area in pixels.
    @return A figure instance.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00084">84</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>    <span class="keyword">def </span>GetFigure(title=None, yAxisName=None, yRangeLimits=None, width=400, height=400):</div>
-<div class="line"><span class="lineno">   85</span>        <span class="stringliteral">&quot;&quot;&quot;@brief A Factory method to obtain a figure instance.</span></div>
-<div class="line"><span class="lineno">   86</span><span class="stringliteral">                  A figure is a single plot area that can contain multiple traces.</span></div>
-<div class="line"><span class="lineno">   87</span><span class="stringliteral">           @param title The title of the figure.</span></div>
-<div class="line"><span class="lineno">   88</span><span class="stringliteral">           @param yAxisName The name of the Y axis.</span></div>
-<div class="line"><span class="lineno">   89</span><span class="stringliteral">           @param yRangeLimits If None then the Y azxis will auto range.</span></div>
-<div class="line"><span class="lineno">   90</span><span class="stringliteral">                               If a list of two numerical values then this</span></div>
-<div class="line"><span class="lineno">   91</span><span class="stringliteral">                               defines the min and max Y axis range values.</span></div>
-<div class="line"><span class="lineno">   92</span><span class="stringliteral">           @param width The width of the plot area in pixels.</span></div>
-<div class="line"><span class="lineno">   93</span><span class="stringliteral">           @param height The height of the plot area in pixels.</span></div>
-<div class="line"><span class="lineno">   94</span><span class="stringliteral">           @return A figure instance.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   95</span>        <span class="keywordflow">if</span> yRangeLimits <span class="keywordflow">and</span> len(yRangeLimits) == 2:</div>
-<div class="line"><span class="lineno">   96</span>            yrange = Range(yRangeLimits[0], yRangeLimits[1])</div>
-<div class="line"><span class="lineno">   97</span>            fig = figure(title=title,</div>
-<div class="line"><span class="lineno">   98</span>                         x_axis_type=<span class="stringliteral">&quot;datetime&quot;</span>,</div>
-<div class="line"><span class="lineno">   99</span>                         x_axis_location=<span class="stringliteral">&quot;below&quot;</span>,</div>
-<div class="line"><span class="lineno">  100</span>                         y_range=yrange,</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00078">78</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>    <span class="keyword">def </span>GetFigure(title=None, yAxisName=None, yRangeLimits=None, width=400, height=400):</div>
+<div class="line"><span class="lineno">   79</span>        <span class="stringliteral">&quot;&quot;&quot;@brief A Factory method to obtain a figure instance.</span></div>
+<div class="line"><span class="lineno">   80</span><span class="stringliteral">                  A figure is a single plot area that can contain multiple traces.</span></div>
+<div class="line"><span class="lineno">   81</span><span class="stringliteral">           @param title The title of the figure.</span></div>
+<div class="line"><span class="lineno">   82</span><span class="stringliteral">           @param yAxisName The name of the Y axis.</span></div>
+<div class="line"><span class="lineno">   83</span><span class="stringliteral">           @param yRangeLimits If None then the Y azxis will auto range.</span></div>
+<div class="line"><span class="lineno">   84</span><span class="stringliteral">                               If a list of two numerical values then this</span></div>
+<div class="line"><span class="lineno">   85</span><span class="stringliteral">                               defines the min and max Y axis range values.</span></div>
+<div class="line"><span class="lineno">   86</span><span class="stringliteral">           @param width The width of the plot area in pixels.</span></div>
+<div class="line"><span class="lineno">   87</span><span class="stringliteral">           @param height The height of the plot area in pixels.</span></div>
+<div class="line"><span class="lineno">   88</span><span class="stringliteral">           @return A figure instance.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">if</span> yRangeLimits <span class="keywordflow">and</span> len(yRangeLimits) == 2:</div>
+<div class="line"><span class="lineno">   90</span>            yrange = Range(yRangeLimits[0], yRangeLimits[1])</div>
+<div class="line"><span class="lineno">   91</span>            fig = figure(title=title,</div>
+<div class="line"><span class="lineno">   92</span>                         x_axis_type=<span class="stringliteral">&quot;datetime&quot;</span>,</div>
+<div class="line"><span class="lineno">   93</span>                         x_axis_location=<span class="stringliteral">&quot;below&quot;</span>,</div>
+<div class="line"><span class="lineno">   94</span>                         y_range=yrange,</div>
+<div class="line"><span class="lineno">   95</span>                         width=width,</div>
+<div class="line"><span class="lineno">   96</span>                         height=height)</div>
+<div class="line"><span class="lineno">   97</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">   98</span>            fig = figure(title=title,</div>
+<div class="line"><span class="lineno">   99</span>                         x_axis_type=<span class="stringliteral">&quot;datetime&quot;</span>,</div>
+<div class="line"><span class="lineno">  100</span>                         x_axis_location=<span class="stringliteral">&quot;below&quot;</span>,</div>
 <div class="line"><span class="lineno">  101</span>                         width=width,</div>
 <div class="line"><span class="lineno">  102</span>                         height=height)</div>
-<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  104</span>            fig = figure(title=title,</div>
-<div class="line"><span class="lineno">  105</span>                         x_axis_type=<span class="stringliteral">&quot;datetime&quot;</span>,</div>
-<div class="line"><span class="lineno">  106</span>                         x_axis_location=<span class="stringliteral">&quot;below&quot;</span>,</div>
-<div class="line"><span class="lineno">  107</span>                         width=width,</div>
-<div class="line"><span class="lineno">  108</span>                         height=height)</div>
-<div class="line"><span class="lineno">  109</span> </div>
-<div class="line"><span class="lineno">  110</span>        fig.yaxis.axis_label = yAxisName</div>
-<div class="line"><span class="lineno">  111</span>        <span class="keywordflow">return</span> fig</div>
-<div class="line"><span class="lineno">  112</span> </div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>        fig.yaxis.axis_label = yAxisName</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span> fig</div>
+<div class="line"><span class="lineno">  106</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -459,21 +459,21 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Check if the server is running.
    @param True if the server is running. It may take some time (~ 20 seconds)
           after the browser is closed before the server session shuts down.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00127">127</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  127</span>    <span class="keyword">def </span>isServerRunning(self):</div>
-<div class="line"><span class="lineno">  128</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check if the server is running.</span></div>
-<div class="line"><span class="lineno">  129</span><span class="stringliteral">           @param True if the server is running. It may take some time (~ 20 seconds)</span></div>
-<div class="line"><span class="lineno">  130</span><span class="stringliteral">                  after the browser is closed before the server session shuts down.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  131</span>        serverSessions = <span class="stringliteral">&quot;not started&quot;</span></div>
-<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">if</span> self._server:</div>
-<div class="line"><span class="lineno">  133</span>            serverSessions = self._server.get_sessions()</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00121">121</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  121</span>    <span class="keyword">def </span>isServerRunning(self):</div>
+<div class="line"><span class="lineno">  122</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check if the server is running.</span></div>
+<div class="line"><span class="lineno">  123</span><span class="stringliteral">           @param True if the server is running. It may take some time (~ 20 seconds)</span></div>
+<div class="line"><span class="lineno">  124</span><span class="stringliteral">                  after the browser is closed before the server session shuts down.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  125</span>        serverSessions = <span class="stringliteral">&quot;not started&quot;</span></div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">if</span> self._server:</div>
+<div class="line"><span class="lineno">  127</span>            serverSessions = self._server.get_sessions()</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>        serverRunning = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> serverSessions:</div>
+<div class="line"><span class="lineno">  131</span>                serverRunning = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>        <span class="keywordflow">return</span> serverRunning</div>
 <div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>        serverRunning = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> serverSessions:</div>
-<div class="line"><span class="lineno">  137</span>                serverRunning = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  138</span> </div>
-<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">return</span> serverRunning</div>
-<div class="line"><span class="lineno">  140</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -493,14 +493,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Run the bokeh server. This is a blocking method.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00141">141</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  141</span>    <span class="keyword">def </span>runBokehServer(self):</div>
-<div class="line"><span class="lineno">  142</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This is a blocking method.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  143</span>        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(self.createPlot))}</div>
-<div class="line"><span class="lineno">  144</span>        self._server = Server(apps, port=self._bokehPort)</div>
-<div class="line"><span class="lineno">  145</span>        self._server.show(<span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><span class="lineno">  146</span>        self._server.run_until_shutdown()</div>
-<div class="line"><span class="lineno">  147</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00135">135</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  135</span>    <span class="keyword">def </span>runBokehServer(self):</div>
+<div class="line"><span class="lineno">  136</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This is a blocking method.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  137</span>        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(self.createPlot))}</div>
+<div class="line"><span class="lineno">  138</span>        self._server = Server(apps, port=self._bokehPort)</div>
+<div class="line"><span class="lineno">  139</span>        self._server.show(<span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><span class="lineno">  140</span>        self._server.run_until_shutdown()</div>
+<div class="line"><span class="lineno">  141</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -520,11 +520,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop the bokeh server</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00123">123</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>    <span class="keyword">def </span>stopServer(self):</div>
-<div class="line"><span class="lineno">  124</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop the bokeh server&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  125</span><span class="stringliteral">        sys.exit()</span></div>
-<div class="line"><span class="lineno">  126</span><span class="stringliteral"></span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00117">117</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  117</span>    <span class="keyword">def </span>stopServer(self):</div>
+<div class="line"><span class="lineno">  118</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop the bokeh server&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  119</span><span class="stringliteral">        sys.exit()</span></div>
+<div class="line"><span class="lineno">  120</span><span class="stringliteral"></span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -549,7 +549,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00118">118</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00112">112</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -573,7 +573,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00119">119</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00113">113</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -597,7 +597,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00117">117</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00111">111</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -621,7 +621,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00165">165</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00159">159</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -645,7 +645,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00121">121</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00115">115</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -669,7 +669,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00120">120</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00114">114</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

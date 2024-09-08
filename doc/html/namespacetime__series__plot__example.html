@@ -104,11 +104,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="time__series__plot__example_8py_source.html#l00067">67</a> of file <a class="el" href="time__series__plot__example_8py_source.html">time_series_plot_example.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span><span class="keyword">def </span>main():</div>
-<div class="line"><span class="lineno">   68</span>    timeSeriesPlotExample = TimeSeriesPlotExample()</div>
-<div class="line"><span class="lineno">   69</span>    timeSeriesPlotExample.run()</div>
-<div class="line"><span class="lineno">   70</span> </div>
+<p class="definition">Definition at line <a class="el" href="time__series__plot__example_8py_source.html#l00069">69</a> of file <a class="el" href="time__series__plot__example_8py_source.html">time_series_plot_example.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span><span class="keyword">def </span>main():</div>
+<div class="line"><span class="lineno">   70</span>    timeSeriesPlotExample = TimeSeriesPlotExample()</div>
+<div class="line"><span class="lineno">   71</span>    timeSeriesPlotExample.run()</div>
+<div class="line"><span class="lineno">   72</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -132,14 +132,16 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   56</span><span class="keyword">def </span>updatePlots(plotter):</div>
 <div class="line"><span class="lineno">   57</span>    min=0</div>
 <div class="line"><span class="lineno">   58</span>    max=100</div>
-<div class="line"><span class="lineno">   59</span>    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
-<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
-<div class="line"><span class="lineno">   61</span>        <span class="comment">#Trace indexes from 0-5 are valid</span></div>
-<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,6):</div>
-<div class="line"><span class="lineno">   63</span>            value = min + (max-min)*random.random()</div>
-<div class="line"><span class="lineno">   64</span>            plotter.addValue(traceIndex, value)</div>
-<div class="line"><span class="lineno">   65</span>        sleep(0.5)</div>
-<div class="line"><span class="lineno">   66</span>        </div>
+<div class="line"><span class="lineno">   59</span>    <span class="comment"># Wait for server to startup before sending values</span></div>
+<div class="line"><span class="lineno">   60</span>    sleep(1)</div>
+<div class="line"><span class="lineno">   61</span>    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
+<div class="line"><span class="lineno">   63</span>        <span class="comment">#Trace indexes from 0-5 are valid</span></div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,6):</div>
+<div class="line"><span class="lineno">   65</span>            value = min + (max-min)*random.random()</div>
+<div class="line"><span class="lineno">   66</span>            plotter.addValue(traceIndex, value)</div>
+<div class="line"><span class="lineno">   67</span>        sleep(0.5)</div>
+<div class="line"><span class="lineno">   68</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -198,7 +198,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Responsible for plotting data on tab 0 with no other tabs.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00174">174</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00168">168</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a84f027a92ee79eb184a355d2af5001b3" name="a84f027a92ee79eb184a355d2af5001b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84f027a92ee79eb184a355d2af5001b3">&#9670;&#160;</a></span>__init__()</h2>
@@ -243,23 +243,23 @@ Additional Inherited Members</h2></td></tr>
    @param topCtrlPanel If True then a control panel is displayed at the top of the plot.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#aa3a48991468351a819871f7d6bd57c29">TabbedGUI</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00177">177</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  177</span>    <span class="keyword">def </span>__init__(self, docTitle, bokehPort=9091, topCtrlPanel=True):</div>
-<div class="line"><span class="lineno">  178</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor</span></div>
-<div class="line"><span class="lineno">  179</span><span class="stringliteral">           @param docTitle The document title.</span></div>
-<div class="line"><span class="lineno">  180</span><span class="stringliteral">           @param bokehPort The port to run the server on.</span></div>
-<div class="line"><span class="lineno">  181</span><span class="stringliteral">           @param topCtrlPanel If True then a control panel is displayed at the top of the plot.</span></div>
-<div class="line"><span class="lineno">  182</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  183</span>        super().__init__(docTitle, bokehPort=bokehPort)</div>
-<div class="line"><span class="lineno">  184</span>        self._statusAreaInput = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  185</span>        self._figTable=[[]]</div>
-<div class="line"><span class="lineno">  186</span>        self._grid = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  187</span>        self._topCtrlPanel=topCtrlPanel</div>
-<div class="line"><span class="lineno">  188</span>        self._srcList = []</div>
-<div class="line"><span class="lineno">  189</span>        self._colors = itertools.cycle(palette)</div>
-<div class="line"><span class="lineno">  190</span>        self._queue = queue.Queue()</div>
-<div class="line"><span class="lineno">  191</span>        self._plottingEnabled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  192</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00171">171</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  171</span>    <span class="keyword">def </span>__init__(self, docTitle, bokehPort=9091, topCtrlPanel=True):</div>
+<div class="line"><span class="lineno">  172</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor</span></div>
+<div class="line"><span class="lineno">  173</span><span class="stringliteral">           @param docTitle The document title.</span></div>
+<div class="line"><span class="lineno">  174</span><span class="stringliteral">           @param bokehPort The port to run the server on.</span></div>
+<div class="line"><span class="lineno">  175</span><span class="stringliteral">           @param topCtrlPanel If True then a control panel is displayed at the top of the plot.</span></div>
+<div class="line"><span class="lineno">  176</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  177</span>        super().__init__(docTitle, bokehPort=bokehPort)</div>
+<div class="line"><span class="lineno">  178</span>        self._statusAreaInput = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  179</span>        self._figTable=[[]]</div>
+<div class="line"><span class="lineno">  180</span>        self._grid = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  181</span>        self._topCtrlPanel=topCtrlPanel</div>
+<div class="line"><span class="lineno">  182</span>        self._srcList = []</div>
+<div class="line"><span class="lineno">  183</span>        self._colors = itertools.cycle(palette)</div>
+<div class="line"><span class="lineno">  184</span>        self._queue = queue.Queue()</div>
+<div class="line"><span class="lineno">  185</span>        self._plottingEnabled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  186</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -310,16 +310,16 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Called when the checkbox is clicked.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00297">297</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  297</span>    <span class="keyword">def </span>_checkboxHandler(self, attr, old, new):</div>
-<div class="line"><span class="lineno">  298</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when the checkbox is clicked.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  299</span>        <span class="keywordflow">if</span> 0 <span class="keywordflow">in</span> list(new):  <span class="comment"># Is first checkbox selected</span></div>
-<div class="line"><span class="lineno">  300</span>            self._plottingEnabled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  301</span>            self._statusBarWrapper.setStatus(<span class="stringliteral">&quot;Plotting enabled&quot;</span>)</div>
-<div class="line"><span class="lineno">  302</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  303</span>            self._plottingEnabled = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  304</span>            self._statusBarWrapper.setStatus(<span class="stringliteral">&quot;Plotting disabled&quot;</span>)</div>
-<div class="line"><span class="lineno">  305</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00291">291</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  291</span>    <span class="keyword">def </span>_checkboxHandler(self, attr, old, new):</div>
+<div class="line"><span class="lineno">  292</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when the checkbox is clicked.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  293</span>        <span class="keywordflow">if</span> 0 <span class="keywordflow">in</span> list(new):  <span class="comment"># Is first checkbox selected</span></div>
+<div class="line"><span class="lineno">  294</span>            self._plottingEnabled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  295</span>            self._statusBarWrapper.setStatus(<span class="stringliteral">&quot;Plotting enabled&quot;</span>)</div>
+<div class="line"><span class="lineno">  296</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  297</span>            self._plottingEnabled = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  298</span>            self._statusBarWrapper.setStatus(<span class="stringliteral">&quot;Plotting disabled&quot;</span>)</div>
+<div class="line"><span class="lineno">  299</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -347,32 +347,32 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add tab that shows plot data updates.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00258">258</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  258</span>    <span class="keyword">def </span>_getPlotPanel(self):</div>
-<div class="line"><span class="lineno">  259</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add tab that shows plot data updates.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  260</span>        self._grid = gridplot(children = self._figTable, toolbar_location=<span class="stringliteral">&#39;left&#39;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00252">252</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  252</span>    <span class="keyword">def </span>_getPlotPanel(self):</div>
+<div class="line"><span class="lineno">  253</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add tab that shows plot data updates.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  254</span>        self._grid = gridplot(children = self._figTable, toolbar_location=<span class="stringliteral">&#39;left&#39;</span>)</div>
+<div class="line"><span class="lineno">  255</span> </div>
+<div class="line"><span class="lineno">  256</span>        <span class="keywordflow">if</span> self._topCtrlPanel:</div>
+<div class="line"><span class="lineno">  257</span>            checkbox1 = CheckboxGroup(labels=[<span class="stringliteral">&quot;Plot Data&quot;</span>], active=[0, 1],max_width=70)</div>
+<div class="line"><span class="lineno">  258</span>            checkbox1.on_change(<span class="stringliteral">&#39;active&#39;</span>, self._checkboxHandler)</div>
+<div class="line"><span class="lineno">  259</span> </div>
+<div class="line"><span class="lineno">  260</span>            self._fileToSave = TextInput(title=<span class="stringliteral">&quot;File to save&quot;</span>, max_width=150)</div>
 <div class="line"><span class="lineno">  261</span> </div>
-<div class="line"><span class="lineno">  262</span>        <span class="keywordflow">if</span> self._topCtrlPanel:</div>
-<div class="line"><span class="lineno">  263</span>            checkbox1 = CheckboxGroup(labels=[<span class="stringliteral">&quot;Plot Data&quot;</span>], active=[0, 1],max_width=70)</div>
-<div class="line"><span class="lineno">  264</span>            checkbox1.on_change(<span class="stringliteral">&#39;active&#39;</span>, self._checkboxHandler)</div>
-<div class="line"><span class="lineno">  265</span> </div>
-<div class="line"><span class="lineno">  266</span>            self._fileToSave = TextInput(title=<span class="stringliteral">&quot;File to save&quot;</span>, max_width=150)</div>
+<div class="line"><span class="lineno">  262</span>            saveButton = Button(label=<span class="stringliteral">&quot;Save&quot;</span>, button_type=<span class="stringliteral">&quot;success&quot;</span>, width=50)</div>
+<div class="line"><span class="lineno">  263</span>            saveButton.on_click(self._savePlot)</div>
+<div class="line"><span class="lineno">  264</span> </div>
+<div class="line"><span class="lineno">  265</span>            shutDownButton = Button(label=<span class="stringliteral">&quot;Quit&quot;</span>, button_type=<span class="stringliteral">&quot;success&quot;</span>, width=50)</div>
+<div class="line"><span class="lineno">  266</span>            shutDownButton.on_click(self.stopServer)</div>
 <div class="line"><span class="lineno">  267</span> </div>
-<div class="line"><span class="lineno">  268</span>            saveButton = Button(label=<span class="stringliteral">&quot;Save&quot;</span>, button_type=<span class="stringliteral">&quot;success&quot;</span>, width=50)</div>
-<div class="line"><span class="lineno">  269</span>            saveButton.on_click(self._savePlot)</div>
-<div class="line"><span class="lineno">  270</span> </div>
-<div class="line"><span class="lineno">  271</span>            shutDownButton = Button(label=<span class="stringliteral">&quot;Quit&quot;</span>, button_type=<span class="stringliteral">&quot;success&quot;</span>, width=50)</div>
-<div class="line"><span class="lineno">  272</span>            shutDownButton.on_click(self.stopServer)</div>
-<div class="line"><span class="lineno">  273</span> </div>
-<div class="line"><span class="lineno">  274</span>            self._statusBarWrapper = StatusBarWrapper()</div>
-<div class="line"><span class="lineno">  275</span> </div>
-<div class="line"><span class="lineno">  276</span>            plotRowCtrl = row(children=[checkbox1, saveButton, self._fileToSave, shutDownButton])</div>
-<div class="line"><span class="lineno">  277</span>            plotPanel = column([plotRowCtrl, self._grid, self._statusBarWrapper.getWidget()])</div>
-<div class="line"><span class="lineno">  278</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  279</span>            plotPanel = column([self._grid])</div>
-<div class="line"><span class="lineno">  280</span> </div>
-<div class="line"><span class="lineno">  281</span>        <span class="keywordflow">return</span> plotPanel</div>
-<div class="line"><span class="lineno">  282</span> </div>
+<div class="line"><span class="lineno">  268</span>            self._statusBarWrapper = StatusBarWrapper()</div>
+<div class="line"><span class="lineno">  269</span> </div>
+<div class="line"><span class="lineno">  270</span>            plotRowCtrl = row(children=[checkbox1, saveButton, self._fileToSave, shutDownButton])</div>
+<div class="line"><span class="lineno">  271</span>            plotPanel = column([plotRowCtrl, self._grid, self._statusBarWrapper.getWidget()])</div>
+<div class="line"><span class="lineno">  272</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  273</span>            plotPanel = column([self._grid])</div>
+<div class="line"><span class="lineno">  274</span> </div>
+<div class="line"><span class="lineno">  275</span>        <span class="keywordflow">return</span> plotPanel</div>
+<div class="line"><span class="lineno">  276</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -400,19 +400,19 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Run the bokeh server. This is called when the bokeh server is executed in a thread.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00314">314</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  314</span>    <span class="keyword">def </span>_runBokehServer(self):</div>
-<div class="line"><span class="lineno">  315</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This is called when the bokeh server is executed in a thread.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  316</span>        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(self.createPlot))}</div>
-<div class="line"><span class="lineno">  317</span>        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
-<div class="line"><span class="lineno">  318</span>        evtLoop = asyncio.new_event_loop()</div>
-<div class="line"><span class="lineno">  319</span>        asyncio.set_event_loop(evtLoop)</div>
-<div class="line"><span class="lineno">  320</span>        self._server = Server(apps, port=self._bokehPort)</div>
-<div class="line"><span class="lineno">  321</span>        self._server.start()</div>
-<div class="line"><span class="lineno">  322</span>        <span class="comment">#Show the server in a web browser window</span></div>
-<div class="line"><span class="lineno">  323</span>        self._server.io_loop.add_callback(self._server.show, <span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><span class="lineno">  324</span>        self._server.io_loop.start()</div>
-<div class="line"><span class="lineno">  325</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00308">308</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  308</span>    <span class="keyword">def </span>_runBokehServer(self):</div>
+<div class="line"><span class="lineno">  309</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This is called when the bokeh server is executed in a thread.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  310</span>        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(self.createPlot))}</div>
+<div class="line"><span class="lineno">  311</span>        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
+<div class="line"><span class="lineno">  312</span>        evtLoop = asyncio.new_event_loop()</div>
+<div class="line"><span class="lineno">  313</span>        asyncio.set_event_loop(evtLoop)</div>
+<div class="line"><span class="lineno">  314</span>        self._server = Server(apps, port=self._bokehPort)</div>
+<div class="line"><span class="lineno">  315</span>        self._server.start()</div>
+<div class="line"><span class="lineno">  316</span>        <span class="comment">#Show the server in a web browser window</span></div>
+<div class="line"><span class="lineno">  317</span>        self._server.io_loop.add_callback(self._server.show, <span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><span class="lineno">  318</span>        self._server.io_loop.start()</div>
+<div class="line"><span class="lineno">  319</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -441,21 +441,21 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Save plot to a single html file. This allows the plots to be
           analysed later.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00283">283</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  283</span>    <span class="keyword">def </span>_savePlot(self):</div>
-<div class="line"><span class="lineno">  284</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Save plot to a single html file. This allows the plots to be</span></div>
-<div class="line"><span class="lineno">  285</span><span class="stringliteral">                  analysed later.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  286</span>        <span class="keywordflow">if</span> self._fileToSave <span class="keywordflow">and</span> self._fileToSave.value:</div>
-<div class="line"><span class="lineno">  287</span>            <span class="keywordflow">if</span> self._fileToSave.value.endswith(<span class="stringliteral">&quot;.html&quot;</span>):</div>
-<div class="line"><span class="lineno">  288</span>                filename = self._fileToSave.value</div>
-<div class="line"><span class="lineno">  289</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  290</span>                filename = self._fileToSave.value + <span class="stringliteral">&quot;.html&quot;</span></div>
-<div class="line"><span class="lineno">  291</span>            output_file(filename)</div>
-<div class="line"><span class="lineno">  292</span>            <span class="comment"># Save all the plots in the grid to an html file that allows</span></div>
-<div class="line"><span class="lineno">  293</span>            <span class="comment"># display in a browser and plot manipulation.</span></div>
-<div class="line"><span class="lineno">  294</span>            save( self._grid )</div>
-<div class="line"><span class="lineno">  295</span>            self._statusBarWrapper.setStatus(<span class="stringliteral">&quot;Saved {}&quot;</span>.format(filename))</div>
-<div class="line"><span class="lineno">  296</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00277">277</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  277</span>    <span class="keyword">def </span>_savePlot(self):</div>
+<div class="line"><span class="lineno">  278</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Save plot to a single html file. This allows the plots to be</span></div>
+<div class="line"><span class="lineno">  279</span><span class="stringliteral">                  analysed later.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  280</span>        <span class="keywordflow">if</span> self._fileToSave <span class="keywordflow">and</span> self._fileToSave.value:</div>
+<div class="line"><span class="lineno">  281</span>            <span class="keywordflow">if</span> self._fileToSave.value.endswith(<span class="stringliteral">&quot;.html&quot;</span>):</div>
+<div class="line"><span class="lineno">  282</span>                filename = self._fileToSave.value</div>
+<div class="line"><span class="lineno">  283</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  284</span>                filename = self._fileToSave.value + <span class="stringliteral">&quot;.html&quot;</span></div>
+<div class="line"><span class="lineno">  285</span>            output_file(filename)</div>
+<div class="line"><span class="lineno">  286</span>            <span class="comment"># Save all the plots in the grid to an html file that allows</span></div>
+<div class="line"><span class="lineno">  287</span>            <span class="comment"># display in a browser and plot manipulation.</span></div>
+<div class="line"><span class="lineno">  288</span>            save( self._grid )</div>
+<div class="line"><span class="lineno">  289</span>            self._statusBarWrapper.setStatus(<span class="stringliteral">&quot;Saved {}&quot;</span>.format(filename))</div>
+<div class="line"><span class="lineno">  290</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -483,17 +483,17 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief called periodically to update the plot traces.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00216">216</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  216</span>    <span class="keyword">def </span>_update(self):</div>
-<div class="line"><span class="lineno">  217</span>        <span class="stringliteral">&quot;&quot;&quot;@brief called periodically to update the plot traces.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  218</span>        <span class="keywordflow">if</span> self._plottingEnabled:</div>
-<div class="line"><span class="lineno">  219</span>            <span class="keywordflow">while</span> <span class="keywordflow">not</span> self._queue.empty():</div>
-<div class="line"><span class="lineno">  220</span>                timeSeriesPoint = self._queue.get()</div>
-<div class="line"><span class="lineno">  221</span>                new = {<span class="stringliteral">&#39;x&#39;</span>: [timeSeriesPoint.time],</div>
-<div class="line"><span class="lineno">  222</span>                       <span class="stringliteral">&#39;y&#39;</span>: [timeSeriesPoint.value]}</div>
-<div class="line"><span class="lineno">  223</span>                source = self._srcList[timeSeriesPoint.traceIndex]</div>
-<div class="line"><span class="lineno">  224</span>                source.stream(new)</div>
-<div class="line"><span class="lineno">  225</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00210">210</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  210</span>    <span class="keyword">def </span>_update(self):</div>
+<div class="line"><span class="lineno">  211</span>        <span class="stringliteral">&quot;&quot;&quot;@brief called periodically to update the plot traces.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  212</span>        <span class="keywordflow">if</span> self._plottingEnabled:</div>
+<div class="line"><span class="lineno">  213</span>            <span class="keywordflow">while</span> <span class="keywordflow">not</span> self._queue.empty():</div>
+<div class="line"><span class="lineno">  214</span>                timeSeriesPoint = self._queue.get()</div>
+<div class="line"><span class="lineno">  215</span>                new = {<span class="stringliteral">&#39;x&#39;</span>: [timeSeriesPoint.time],</div>
+<div class="line"><span class="lineno">  216</span>                       <span class="stringliteral">&#39;y&#39;</span>: [timeSeriesPoint.value]}</div>
+<div class="line"><span class="lineno">  217</span>                source = self._srcList[timeSeriesPoint.traceIndex]</div>
+<div class="line"><span class="lineno">  218</span>                source.stream(new)</div>
+<div class="line"><span class="lineno">  219</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -513,11 +513,11 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add an empty row to the figures.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00237">237</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  237</span>    <span class="keyword">def </span>addRow(self):</div>
-<div class="line"><span class="lineno">  238</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add an empty row to the figures.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  239</span>        self._figTable.append([])</div>
-<div class="line"><span class="lineno">  240</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00231">231</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  231</span>    <span class="keyword">def </span>addRow(self):</div>
+<div class="line"><span class="lineno">  232</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add an empty row to the figures.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  233</span>        self._figTable.append([])</div>
+<div class="line"><span class="lineno">  234</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -548,12 +548,12 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add a figure to the end of the current row of figues.
    @param fig The figure to add.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00241">241</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  241</span>    <span class="keyword">def </span>addToRow(self, fig):</div>
-<div class="line"><span class="lineno">  242</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a figure to the end of the current row of figues.</span></div>
-<div class="line"><span class="lineno">  243</span><span class="stringliteral">           @param fig The figure to add.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  244</span>        self._figTable[-1].append(fig)</div>
-<div class="line"><span class="lineno">  245</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00235">235</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  235</span>    <span class="keyword">def </span>addToRow(self, fig):</div>
+<div class="line"><span class="lineno">  236</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a figure to the end of the current row of figues.</span></div>
+<div class="line"><span class="lineno">  237</span><span class="stringliteral">           @param fig The figure to add.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  238</span>        self._figTable[-1].append(fig)</div>
+<div class="line"><span class="lineno">  239</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -605,30 +605,30 @@ Additional Inherited Members</h2></td></tr>
    @param line_color The line color
    @param legend_label The text of the label.
    @param line_width The trace line width.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00193">193</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  193</span>    <span class="keyword">def </span>addTrace(self, fig, legend_label, line_color=None, line_width=1):</div>
-<div class="line"><span class="lineno">  194</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a trace to a figure.</span></div>
-<div class="line"><span class="lineno">  195</span><span class="stringliteral">           @param fig The figure to add the trace to.</span></div>
-<div class="line"><span class="lineno">  196</span><span class="stringliteral">           @param line_color The line color</span></div>
-<div class="line"><span class="lineno">  197</span><span class="stringliteral">           @param legend_label The text of the label.</span></div>
-<div class="line"><span class="lineno">  198</span><span class="stringliteral">           @param line_width The trace line width.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  199</span>        src = ColumnDataSource({<span class="stringliteral">&#39;x&#39;</span>: [], <span class="stringliteral">&#39;y&#39;</span>: []})</div>
-<div class="line"><span class="lineno">  200</span> </div>
-<div class="line"><span class="lineno">  201</span>        <span class="comment">#Allocate a line color if one is not defined</span></div>
-<div class="line"><span class="lineno">  202</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> line_color:</div>
-<div class="line"><span class="lineno">  203</span>            line_color = next(self._colors)</div>
-<div class="line"><span class="lineno">  204</span> </div>
-<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">if</span> legend_label <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> len(legend_label) &gt; 0:</div>
-<div class="line"><span class="lineno">  206</span>                fig.line(source=src,</div>
-<div class="line"><span class="lineno">  207</span>                 line_color = line_color,</div>
-<div class="line"><span class="lineno">  208</span>                         legend_label = legend_label,</div>
-<div class="line"><span class="lineno">  209</span>                         line_width = line_width)</div>
-<div class="line"><span class="lineno">  210</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  211</span>                fig.line(source=src,</div>
-<div class="line"><span class="lineno">  212</span>                         line_color = line_color,</div>
-<div class="line"><span class="lineno">  213</span>                         line_width = line_width)</div>
-<div class="line"><span class="lineno">  214</span>        self._srcList.append(src)</div>
-<div class="line"><span class="lineno">  215</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00187">187</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  187</span>    <span class="keyword">def </span>addTrace(self, fig, legend_label, line_color=None, line_width=1):</div>
+<div class="line"><span class="lineno">  188</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a trace to a figure.</span></div>
+<div class="line"><span class="lineno">  189</span><span class="stringliteral">           @param fig The figure to add the trace to.</span></div>
+<div class="line"><span class="lineno">  190</span><span class="stringliteral">           @param line_color The line color</span></div>
+<div class="line"><span class="lineno">  191</span><span class="stringliteral">           @param legend_label The text of the label.</span></div>
+<div class="line"><span class="lineno">  192</span><span class="stringliteral">           @param line_width The trace line width.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  193</span>        src = ColumnDataSource({<span class="stringliteral">&#39;x&#39;</span>: [], <span class="stringliteral">&#39;y&#39;</span>: []})</div>
+<div class="line"><span class="lineno">  194</span> </div>
+<div class="line"><span class="lineno">  195</span>        <span class="comment">#Allocate a line color if one is not defined</span></div>
+<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> line_color:</div>
+<div class="line"><span class="lineno">  197</span>            line_color = next(self._colors)</div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>        <span class="keywordflow">if</span> legend_label <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span> <span class="keywordflow">and</span> len(legend_label) &gt; 0:</div>
+<div class="line"><span class="lineno">  200</span>                fig.line(source=src,</div>
+<div class="line"><span class="lineno">  201</span>                 line_color = line_color,</div>
+<div class="line"><span class="lineno">  202</span>                         legend_label = legend_label,</div>
+<div class="line"><span class="lineno">  203</span>                         line_width = line_width)</div>
+<div class="line"><span class="lineno">  204</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  205</span>                fig.line(source=src,</div>
+<div class="line"><span class="lineno">  206</span>                         line_color = line_color,</div>
+<div class="line"><span class="lineno">  207</span>                         line_width = line_width)</div>
+<div class="line"><span class="lineno">  208</span>        self._srcList.append(src)</div>
+<div class="line"><span class="lineno">  209</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -676,18 +676,18 @@ Additional Inherited Members</h2></td></tr>
    @param timeStamp The timestamp associated with the value. If not supplied
                     then the timestamp will be created at the time when This
                     method is called.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00226">226</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  226</span>    <span class="keyword">def </span>addValue(self, traceIndex, value, timeStamp=None):</div>
-<div class="line"><span class="lineno">  227</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a value to be plotted. This adds to queue of values</span></div>
-<div class="line"><span class="lineno">  228</span><span class="stringliteral">                  to be plotted the next time _update() is called.</span></div>
-<div class="line"><span class="lineno">  229</span><span class="stringliteral">           @param traceIndex The index of the trace this reading should be applied to.</span></div>
-<div class="line"><span class="lineno">  230</span><span class="stringliteral">           @param value The Y value to be plotted.</span></div>
-<div class="line"><span class="lineno">  231</span><span class="stringliteral">           @param timeStamp The timestamp associated with the value. If not supplied</span></div>
-<div class="line"><span class="lineno">  232</span><span class="stringliteral">                            then the timestamp will be created at the time when This</span></div>
-<div class="line"><span class="lineno">  233</span><span class="stringliteral">                            method is called.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  234</span>        timeSeriesPoint = TimeSeriesPoint(traceIndex, value, timeStamp=timeStamp)</div>
-<div class="line"><span class="lineno">  235</span>        self._queue.put(timeSeriesPoint)</div>
-<div class="line"><span class="lineno">  236</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00220">220</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  220</span>    <span class="keyword">def </span>addValue(self, traceIndex, value, timeStamp=None):</div>
+<div class="line"><span class="lineno">  221</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a value to be plotted. This adds to queue of values</span></div>
+<div class="line"><span class="lineno">  222</span><span class="stringliteral">                  to be plotted the next time _update() is called.</span></div>
+<div class="line"><span class="lineno">  223</span><span class="stringliteral">           @param traceIndex The index of the trace this reading should be applied to.</span></div>
+<div class="line"><span class="lineno">  224</span><span class="stringliteral">           @param value The Y value to be plotted.</span></div>
+<div class="line"><span class="lineno">  225</span><span class="stringliteral">           @param timeStamp The timestamp associated with the value. If not supplied</span></div>
+<div class="line"><span class="lineno">  226</span><span class="stringliteral">                            then the timestamp will be created at the time when This</span></div>
+<div class="line"><span class="lineno">  227</span><span class="stringliteral">                            method is called.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  228</span>        timeSeriesPoint = TimeSeriesPoint(traceIndex, value, timeStamp=timeStamp)</div>
+<div class="line"><span class="lineno">  229</span>        self._queue.put(timeSeriesPoint)</div>
+<div class="line"><span class="lineno">  230</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -718,19 +718,19 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief create a plot figure.
    @param doc The document to add the plot to.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00246">246</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  246</span>    <span class="keyword">def </span>createPlot(self, doc, ):</div>
-<div class="line"><span class="lineno">  247</span>        <span class="stringliteral">&quot;&quot;&quot;@brief create a plot figure.</span></div>
-<div class="line"><span class="lineno">  248</span><span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  249</span>        self._doc = doc</div>
-<div class="line"><span class="lineno">  250</span>        self._doc.title = self._docTitle</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00240">240</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  240</span>    <span class="keyword">def </span>createPlot(self, doc, ):</div>
+<div class="line"><span class="lineno">  241</span>        <span class="stringliteral">&quot;&quot;&quot;@brief create a plot figure.</span></div>
+<div class="line"><span class="lineno">  242</span><span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  243</span>        self._doc = doc</div>
+<div class="line"><span class="lineno">  244</span>        self._doc.title = self._docTitle</div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span>        plotPanel = self._getPlotPanel()</div>
+<div class="line"><span class="lineno">  247</span> </div>
+<div class="line"><span class="lineno">  248</span>        self._tabList.append( TabPanel(child=plotPanel,  title=<span class="stringliteral">&quot;Plots&quot;</span>) )</div>
+<div class="line"><span class="lineno">  249</span>        self._doc.add_root( Tabs(tabs=self._tabList) )</div>
+<div class="line"><span class="lineno">  250</span>        self._doc.add_periodic_callback(self._update, 100)</div>
 <div class="line"><span class="lineno">  251</span> </div>
-<div class="line"><span class="lineno">  252</span>        plotPanel = self._getPlotPanel()</div>
-<div class="line"><span class="lineno">  253</span> </div>
-<div class="line"><span class="lineno">  254</span>        self._tabList.append( Panel(child=plotPanel,  title=<span class="stringliteral">&quot;Plots&quot;</span>) )</div>
-<div class="line"><span class="lineno">  255</span>        self._doc.add_root( Tabs(tabs=self._tabList) )</div>
-<div class="line"><span class="lineno">  256</span>        self._doc.add_periodic_callback(self._update, 100)</div>
-<div class="line"><span class="lineno">  257</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -752,15 +752,15 @@ Additional Inherited Members</h2></td></tr>
 <pre class="fragment">@brief Run the bokeh server in a separate thread. This is useful
           if the we want to load realtime data into the plot from the
           main thread.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00306">306</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  306</span>    <span class="keyword">def </span>runNonBlockingBokehServer(self):</div>
-<div class="line"><span class="lineno">  307</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server in a separate thread. This is useful</span></div>
-<div class="line"><span class="lineno">  308</span><span class="stringliteral">                  if the we want to load realtime data into the plot from the</span></div>
-<div class="line"><span class="lineno">  309</span><span class="stringliteral">                  main thread.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  310</span>        self._serverThread = threading.Thread(target=self._runBokehServer)</div>
-<div class="line"><span class="lineno">  311</span>        self._serverThread.setDaemon(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  312</span>        self._serverThread.start()</div>
-<div class="line"><span class="lineno">  313</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00300">300</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  300</span>    <span class="keyword">def </span>runNonBlockingBokehServer(self):</div>
+<div class="line"><span class="lineno">  301</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server in a separate thread. This is useful</span></div>
+<div class="line"><span class="lineno">  302</span><span class="stringliteral">                  if the we want to load realtime data into the plot from the</span></div>
+<div class="line"><span class="lineno">  303</span><span class="stringliteral">                  main thread.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  304</span>        self._serverThread = threading.Thread(target=self._runBokehServer)</div>
+<div class="line"><span class="lineno">  305</span>        self._serverThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  306</span>        self._serverThread.start()</div>
+<div class="line"><span class="lineno">  307</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -785,7 +785,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00264">264</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00258">258</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -809,7 +809,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00189">189</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00183">183</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -833,7 +833,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00249">249</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00243">243</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -857,7 +857,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00185">185</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00179">179</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -881,7 +881,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00266">266</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00260">260</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -905,7 +905,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00186">186</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00180">180</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -929,7 +929,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00191">191</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00185">185</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -953,7 +953,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00190">190</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00184">184</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -977,7 +977,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00269">269</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00263">263</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1001,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00320">320</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00314">314</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1025,7 +1025,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00310">310</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00304">304</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1049,7 +1049,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00188">188</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00182">182</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1073,7 +1073,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00184">184</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00178">178</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1097,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00274">274</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00268">268</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1121,7 +1121,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00187">187</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00181">181</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1145,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00256">256</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00250">250</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -1161,7 +1161,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00272">272</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00266">266</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

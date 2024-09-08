@@ -867,7 +867,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>        forwardingServer = ForwardingServer((&#39;&#39;, serverPort), SubHander)</div>
 <div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>        self._forwardingServerList.append(forwardingServer)</div>
 <div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>        newThread = threading.Thread(target=forwardingServer.serve_forever)</div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>        newThread.setDaemon(True)</div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>        newThread.daemon = True</div>
 <div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>        newThread.start()</div>
 <div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span> </div>
 </div>

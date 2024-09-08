@@ -180,7 +180,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   45</span>        self._plotter.addToRow(fig4)</div>
 <div class="line"><span class="lineno">   46</span> </div>
 <div class="line"><span class="lineno">   47</span>        plotUpdateThread = threading.Thread(target=updatePlots, args=(self._plotter,))</div>
-<div class="line"><span class="lineno">   48</span>        plotUpdateThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">   48</span>        plotUpdateThread.daemon = <span class="keyword">True</span></div>
 <div class="line"><span class="lineno">   49</span>        plotUpdateThread.start()</div>
 <div class="line"><span class="lineno">   50</span> </div>
 <div class="line"><span class="lineno">   51</span>        <span class="comment"># If called using the &#39;python bokeh_demo.py&#39; command then uncomment</span></div>

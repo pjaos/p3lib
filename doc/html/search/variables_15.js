@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['x_5faxis_5fname_0',['X_AXIS_NAME',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#ac6767af9bbdb722ea257d6a9fab3f170',1,'p3lib::table_plot::Table2DPlotServer']]],
-  ['xaxis_5ftype_1',['XAXIS_TYPE',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#afe74f015f3ba6ca2204b065a955fe1fb',1,'p3lib::table_plot::Table2DPlotServer']]],
-  ['xaxisname_2',['xAxisName',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a3b11dcb39e132b1984ee7af33e732623',1,'p3lib::table_plot::StaticPlotParams']]],
-  ['xaxistype_3',['xAxisType',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#aaae03be26e1cebb1a72f5e876342d1cf',1,'p3lib::table_plot::StaticPlotParams']]]
+  ['warn_5fmessage_0',['WARN_MESSAGE',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#afbfea46ef6a23181194ff20bd2cc758e',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['warning_1',['WARNING',['../classp3lib_1_1uio_1_1PRIORITY.html#a6d56d31dc98daa7e6566f14350e580f9',1,'p3lib::uio::PRIORITY']]],
+  ['widget_5fkey_2',['WIDGET_KEY',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240',1,'p3lib::ngt::YesNoDialog']]],
+  ['window_5fttle_3',['WINDOW_TTLE',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#ad4136487d7e9548b01df7dafb5f37b91',1,'p3lib::table_plot::Table2DPlotServer']]],
+  ['windowtitle_4',['windowTitle',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a4e3ac5b727033516129bae426ab2091d',1,'p3lib::table_plot::StaticPlotParams']]]
 ];

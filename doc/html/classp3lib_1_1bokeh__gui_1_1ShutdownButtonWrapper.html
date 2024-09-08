@@ -108,7 +108,7 @@ Protected Attributes</h2></td></tr>
           an alert message is displayed instructing the user to close the browser
           window. When the OK button in the alert dialog is clicked the
           application is shutdown.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00441">441</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00435">435</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af704e55d7cc641b2496efc160eb929b9" name="af704e55d7cc641b2496efc160eb929b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af704e55d7cc641b2496efc160eb929b9">&#9670;&#160;</a></span>__init__()</h2>
@@ -138,16 +138,16 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Constructor
    @param shutDownMethod The method that is called to shutdown the application.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00446">446</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  446</span>    <span class="keyword">def </span>__init__(self, shutDownMethod):</div>
-<div class="line"><span class="lineno">  447</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><span class="lineno">  448</span><span class="stringliteral">           @param shutDownMethod The method that is called to shutdown the application.</span></div>
-<div class="line"><span class="lineno">  449</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  450</span>        self._alertButtonWrapper = AlertButtonWrapper(<span class="stringliteral">&quot;Quit&quot;</span>,\</div>
-<div class="line"><span class="lineno">  451</span>                                                      <span class="stringliteral">&quot;The application is shutting down. Please close the browser window&quot;</span>,\</div>
-<div class="line"><span class="lineno">  452</span>                                                      buttonType=<span class="stringliteral">&quot;danger&quot;</span>,\</div>
-<div class="line"><span class="lineno">  453</span>                                                      onClickMethod=shutDownMethod)</div>
-<div class="line"><span class="lineno">  454</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00440">440</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  440</span>    <span class="keyword">def </span>__init__(self, shutDownMethod):</div>
+<div class="line"><span class="lineno">  441</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><span class="lineno">  442</span><span class="stringliteral">           @param shutDownMethod The method that is called to shutdown the application.</span></div>
+<div class="line"><span class="lineno">  443</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  444</span>        self._alertButtonWrapper = AlertButtonWrapper(<span class="stringliteral">&quot;Quit&quot;</span>,\</div>
+<div class="line"><span class="lineno">  445</span>                                                      <span class="stringliteral">&quot;The application is shutting down. Please close the browser window&quot;</span>,\</div>
+<div class="line"><span class="lineno">  446</span>                                                      buttonType=<span class="stringliteral">&quot;danger&quot;</span>,\</div>
+<div class="line"><span class="lineno">  447</span>                                                      onClickMethod=shutDownMethod)</div>
+<div class="line"><span class="lineno">  448</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -168,11 +168,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief return an instance of the shutdown button widget to be added to a layout.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00455">455</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  455</span>    <span class="keyword">def </span>getWidget(self):</div>
-<div class="line"><span class="lineno">  456</span>        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the shutdown button widget to be added to a layout.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  457</span>        <span class="keywordflow">return</span> self._alertButtonWrapper.getWidget()</div>
-<div class="line"><span class="lineno">  458</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00449">449</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  449</span>    <span class="keyword">def </span>getWidget(self):</div>
+<div class="line"><span class="lineno">  450</span>        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the shutdown button widget to be added to a layout.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  451</span>        <span class="keywordflow">return</span> self._alertButtonWrapper.getWidget()</div>
+<div class="line"><span class="lineno">  452</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,7 +197,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00450">450</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00444">444</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

@@ -112,7 +112,7 @@ Public Attributes</h2></td></tr>
           that runs the width of the page (normally at the bottom).
    @param sizing_mode The widget sizing mode. By default the status bar will streach accross the width of the layout.
    @param height The height of the status bar in pixels. Default 50 gives good L&amp;F on most browsers.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00326">326</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00320">320</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af5ebf60edc2a02ffcab6663f270d917b" name="af5ebf60edc2a02ffcab6663f270d917b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5ebf60edc2a02ffcab6663f270d917b">&#9670;&#160;</a></span>__init__()</h2>
@@ -146,23 +146,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00331">331</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  331</span>    <span class="keyword">def </span>__init__(self, sizing_mode=&quot;stretch_width&quot;, height=50):</div>
-<div class="line"><span class="lineno">  332</span>        data = dict(</div>
-<div class="line"><span class="lineno">  333</span>            status = [],</div>
-<div class="line"><span class="lineno">  334</span>        )</div>
-<div class="line"><span class="lineno">  335</span>        self.source = ColumnDataSource(data)</div>
-<div class="line"><span class="lineno">  336</span> </div>
-<div class="line"><span class="lineno">  337</span>        columns = [</div>
-<div class="line"><span class="lineno">  338</span>                TableColumn(field=<span class="stringliteral">&quot;status&quot;</span>, title=<span class="stringliteral">&quot;Status&quot;</span>),</div>
-<div class="line"><span class="lineno">  339</span>            ]</div>
-<div class="line"><span class="lineno">  340</span>        self.statusBar = DataTable(source=self.source,</div>
-<div class="line"><span class="lineno">  341</span>                                   columns=columns,</div>
-<div class="line"><span class="lineno">  342</span>                                   header_row=<span class="keyword">True</span>,</div>
-<div class="line"><span class="lineno">  343</span>                                   index_position=<span class="keywordtype">None</span>,</div>
-<div class="line"><span class="lineno">  344</span>                                   sizing_mode=sizing_mode,</div>
-<div class="line"><span class="lineno">  345</span>                                   height=height)</div>
-<div class="line"><span class="lineno">  346</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00325">325</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  325</span>    <span class="keyword">def </span>__init__(self, sizing_mode=&quot;stretch_width&quot;, height=50):</div>
+<div class="line"><span class="lineno">  326</span>        data = dict(</div>
+<div class="line"><span class="lineno">  327</span>            status = [],</div>
+<div class="line"><span class="lineno">  328</span>        )</div>
+<div class="line"><span class="lineno">  329</span>        self.source = ColumnDataSource(data)</div>
+<div class="line"><span class="lineno">  330</span> </div>
+<div class="line"><span class="lineno">  331</span>        columns = [</div>
+<div class="line"><span class="lineno">  332</span>                TableColumn(field=<span class="stringliteral">&quot;status&quot;</span>, title=<span class="stringliteral">&quot;Status&quot;</span>),</div>
+<div class="line"><span class="lineno">  333</span>            ]</div>
+<div class="line"><span class="lineno">  334</span>        self.statusBar = DataTable(source=self.source,</div>
+<div class="line"><span class="lineno">  335</span>                                   columns=columns,</div>
+<div class="line"><span class="lineno">  336</span>                                   header_row=<span class="keyword">True</span>,</div>
+<div class="line"><span class="lineno">  337</span>                                   index_position=<span class="keywordtype">None</span>,</div>
+<div class="line"><span class="lineno">  338</span>                                   sizing_mode=sizing_mode,</div>
+<div class="line"><span class="lineno">  339</span>                                   height=height)</div>
+<div class="line"><span class="lineno">  340</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -183,11 +183,11 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief return an instance of the status bar widget to be added to a layout.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00347">347</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  347</span>    <span class="keyword">def </span>getWidget(self):</div>
-<div class="line"><span class="lineno">  348</span>        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the status bar widget to be added to a layout.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  349</span>        <span class="keywordflow">return</span> self.statusBar</div>
-<div class="line"><span class="lineno">  350</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00341">341</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  341</span>    <span class="keyword">def </span>getWidget(self):</div>
+<div class="line"><span class="lineno">  342</span>        <span class="stringliteral">&quot;&quot;&quot;@brief return an instance of the status bar widget to be added to a layout.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  343</span>        <span class="keywordflow">return</span> self.statusBar</div>
+<div class="line"><span class="lineno">  344</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -218,12 +218,12 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the message iun the status bar.
    @param The message to be displayed.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00351">351</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  351</span>    <span class="keyword">def </span>setStatus(self, msg):</div>
-<div class="line"><span class="lineno">  352</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the message iun the status bar.</span></div>
-<div class="line"><span class="lineno">  353</span><span class="stringliteral">           @param The message to be displayed.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  354</span>        self.source.data = {<span class="stringliteral">&quot;status&quot;</span>: [msg]}</div>
-<div class="line"><span class="lineno">  355</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00345">345</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  345</span>    <span class="keyword">def </span>setStatus(self, msg):</div>
+<div class="line"><span class="lineno">  346</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the message iun the status bar.</span></div>
+<div class="line"><span class="lineno">  347</span><span class="stringliteral">           @param The message to be displayed.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  348</span>        self.source.data = {<span class="stringliteral">&quot;status&quot;</span>: [msg]}</div>
+<div class="line"><span class="lineno">  349</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,7 +240,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00335">335</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00329">329</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -256,7 +256,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00340">340</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00334">334</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

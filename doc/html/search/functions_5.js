@@ -6,7 +6,7 @@ var searchData=
   ['encrypt_3',['Encrypt',['../classp3lib_1_1pconfig_1_1ConfigManager.html#ace1962d0d59c2203849b01d42fc9ace5',1,'p3lib::pconfig::ConfigManager']]],
   ['ensureboolint_4',['ensureBoolInt',['../namespacep3lib_1_1helper.html#afbb77038d7e117c4c02eddcc1c00d4f9',1,'p3lib::helper']]],
   ['ensuretableexists_5',['ensureTableExists',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a040fbe9bd3b6c8b3b467ca716a5be48c',1,'p3lib::database_if::DatabaseIF']]],
-  ['error_6',['error',['../classp3lib_1_1uio_1_1UIO.html#a2d7765eaf49680c5986c56a191ba1e0a',1,'p3lib::uio::UIO']]],
+  ['error_6',['error',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ac8f36c8f32a12de3fae3ac8046de9476',1,'p3lib.ngt.TabbedNiceGui.error()'],['../classp3lib_1_1uio_1_1UIO.html#a2d7765eaf49680c5986c56a191ba1e0a',1,'p3lib.uio.UIO.error(self, text)']]],
   ['errorexception_7',['errorException',['../classp3lib_1_1uio_1_1UIO.html#ab8a4853258f4f7f2b760dbc4688fb693',1,'p3lib::uio::UIO']]],
   ['example1_8',['example1',['../namespacepconfig__example.html#a476a79ed1c3c2a2d2445a38f41f3dbe1',1,'pconfig_example']]],
   ['example2_9',['example2',['../namespacepconfig__example.html#ae2ff847356fedb39fd4f635ae14cb965',1,'pconfig_example']]],

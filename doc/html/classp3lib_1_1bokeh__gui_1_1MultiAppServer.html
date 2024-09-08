@@ -142,7 +142,7 @@ Protected Attributes</h2></td></tr>
           The server may be started by calling either a blocking or a non
           blocking method. This provides a basic parent class with
           the freedom to define your app as required.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00746">746</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00740">740</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abbc09f77fedc871dfea9333c48bb3a4e" name="abbc09f77fedc871dfea9333c48bb3a4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbc09f77fedc871dfea9333c48bb3a4e">&#9670;&#160;</a></span>__init__()</h2>
@@ -207,24 +207,24 @@ Protected Attributes</h2></td></tr>
    @param accessLogFile The log file to record access to. If left as None then no logging occurs.</pre> 
 <p>Reimplemented in <a class="el" href="classbokeh__multiple__app__example_1_1MyMultiAppServer.html#aaf10ea7e10a6d6e57649d3e1d1428863">MyMultiAppServer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00763">763</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  769</span>                 accessLogFile=<span class="keywordtype">None</span>):</div>
-<div class="line"><span class="lineno">  770</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor</span></div>
-<div class="line"><span class="lineno">  771</span><span class="stringliteral">           @param address The address of the bokeh server.</span></div>
-<div class="line"><span class="lineno">  772</span><span class="stringliteral">           @param bokehPort The TCP port to run the server on. If left at the default</span></div>
-<div class="line"><span class="lineno">  773</span><span class="stringliteral">                  of 0 then a spare TCP port will be used.</span></div>
-<div class="line"><span class="lineno">  774</span><span class="stringliteral">           @param credentialsJsonFile A file that contains the json formatted hashed (via argon2) login credentials.</span></div>
-<div class="line"><span class="lineno">  775</span><span class="stringliteral">           @param accessLogFile The log file to record access to. If left as None then no logging occurs.</span></div>
-<div class="line"><span class="lineno">  776</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  777</span>        <span class="keywordflow">if</span> bokehPort == 0:</div>
-<div class="line"><span class="lineno">  778</span>            bokehPort = MultiAppServer.GetNextUnusedPort()</div>
-<div class="line"><span class="lineno">  779</span>        self._bokehPort=bokehPort</div>
-<div class="line"><span class="lineno">  780</span>        self._address=address</div>
-<div class="line"><span class="lineno">  781</span>        os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin</div>
-<div class="line"><span class="lineno">  782</span>        self._credentialsJsonFile = credentialsJsonFile</div>
-<div class="line"><span class="lineno">  783</span>        self._loginHTMLFile = loginHTMLFile</div>
-<div class="line"><span class="lineno">  784</span>        self._accessLogFile = accessLogFile</div>
-<div class="line"><span class="lineno">  785</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00757">757</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  763</span>                 accessLogFile=<span class="keywordtype">None</span>):</div>
+<div class="line"><span class="lineno">  764</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor</span></div>
+<div class="line"><span class="lineno">  765</span><span class="stringliteral">           @param address The address of the bokeh server.</span></div>
+<div class="line"><span class="lineno">  766</span><span class="stringliteral">           @param bokehPort The TCP port to run the server on. If left at the default</span></div>
+<div class="line"><span class="lineno">  767</span><span class="stringliteral">                  of 0 then a spare TCP port will be used.</span></div>
+<div class="line"><span class="lineno">  768</span><span class="stringliteral">           @param credentialsJsonFile A file that contains the json formatted hashed (via argon2) login credentials.</span></div>
+<div class="line"><span class="lineno">  769</span><span class="stringliteral">           @param accessLogFile The log file to record access to. If left as None then no logging occurs.</span></div>
+<div class="line"><span class="lineno">  770</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  771</span>        <span class="keywordflow">if</span> bokehPort == 0:</div>
+<div class="line"><span class="lineno">  772</span>            bokehPort = MultiAppServer.GetNextUnusedPort()</div>
+<div class="line"><span class="lineno">  773</span>        self._bokehPort=bokehPort</div>
+<div class="line"><span class="lineno">  774</span>        self._address=address</div>
+<div class="line"><span class="lineno">  775</span>        os.environ[MultiAppServer.BOKEH_ALLOW_WS_ORIGIN]=wsOrigin</div>
+<div class="line"><span class="lineno">  776</span>        self._credentialsJsonFile = credentialsJsonFile</div>
+<div class="line"><span class="lineno">  777</span>        self._loginHTMLFile = loginHTMLFile</div>
+<div class="line"><span class="lineno">  778</span>        self._accessLogFile = accessLogFile</div>
+<div class="line"><span class="lineno">  779</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,16 +264,16 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get a dict that can be passed to the Server object to
           define the apps to be served.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00790">790</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  790</span>    <span class="keyword">def </span>_getAppDict(self, appMethodDict):</div>
-<div class="line"><span class="lineno">  791</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a dict that can be passed to the Server object to</span></div>
-<div class="line"><span class="lineno">  792</span><span class="stringliteral">                  define the apps to be served.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  793</span>        appDict = {}</div>
-<div class="line"><span class="lineno">  794</span>        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> appMethodDict:</div>
-<div class="line"><span class="lineno">  795</span>            appMethod = appMethodDict[key]</div>
-<div class="line"><span class="lineno">  796</span>            appDict[key]=Application(FunctionHandler(appMethod))</div>
-<div class="line"><span class="lineno">  797</span>        <span class="keywordflow">return</span> appDict</div>
-<div class="line"><span class="lineno">  798</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00784">784</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  784</span>    <span class="keyword">def </span>_getAppDict(self, appMethodDict):</div>
+<div class="line"><span class="lineno">  785</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a dict that can be passed to the Server object to</span></div>
+<div class="line"><span class="lineno">  786</span><span class="stringliteral">                  define the apps to be served.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  787</span>        appDict = {}</div>
+<div class="line"><span class="lineno">  788</span>        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> appMethodDict:</div>
+<div class="line"><span class="lineno">  789</span>            appMethod = appMethodDict[key]</div>
+<div class="line"><span class="lineno">  790</span>            appDict[key]=Application(FunctionHandler(appMethod))</div>
+<div class="line"><span class="lineno">  791</span>        <span class="keywordflow">return</span> appDict</div>
+<div class="line"><span class="lineno">  792</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -321,15 +321,15 @@ Protected Attributes</h2></td></tr>
    @param maxPort The highest port number to check.
    @param bindAddress The address to bind to.
    @return The TCP port or -1 if no port is available.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00755">755</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  755</span>    <span class="keyword">def </span>GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress=&quot;0.0.0.0&quot;):</div>
-<div class="line"><span class="lineno">  756</span>        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to get the first unused above the base port.</span></div>
-<div class="line"><span class="lineno">  757</span><span class="stringliteral">           @param basePort The port to start checking for available ports.</span></div>
-<div class="line"><span class="lineno">  758</span><span class="stringliteral">           @param maxPort The highest port number to check.</span></div>
-<div class="line"><span class="lineno">  759</span><span class="stringliteral">           @param bindAddress The address to bind to.</span></div>
-<div class="line"><span class="lineno">  760</span><span class="stringliteral">           @return The TCP port or -1 if no port is available.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  761</span>        <span class="keywordflow">return</span> SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)</div>
-<div class="line"><span class="lineno">  762</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00749">749</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  749</span>    <span class="keyword">def </span>GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress=&quot;0.0.0.0&quot;):</div>
+<div class="line"><span class="lineno">  750</span>        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to get the first unused above the base port.</span></div>
+<div class="line"><span class="lineno">  751</span><span class="stringliteral">           @param basePort The port to start checking for available ports.</span></div>
+<div class="line"><span class="lineno">  752</span><span class="stringliteral">           @param maxPort The highest port number to check.</span></div>
+<div class="line"><span class="lineno">  753</span><span class="stringliteral">           @param bindAddress The address to bind to.</span></div>
+<div class="line"><span class="lineno">  754</span><span class="stringliteral">           @return The TCP port or -1 if no port is available.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  755</span>        <span class="keywordflow">return</span> SingleAppServer.GetNextUnusedPort(basePort=basePort, maxPort=maxPort, bindAddress=bindAddress)</div>
+<div class="line"><span class="lineno">  756</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -349,11 +349,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@return The bokeh server port.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00786">786</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  786</span>    <span class="keyword">def </span>getServerPort(self):</div>
-<div class="line"><span class="lineno">  787</span>        <span class="stringliteral">&quot;&quot;&quot;@return The bokeh server port.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  788</span>        <span class="keywordflow">return</span> self._bokehPort</div>
-<div class="line"><span class="lineno">  789</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00780">780</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  780</span>    <span class="keyword">def </span>getServerPort(self):</div>
+<div class="line"><span class="lineno">  781</span>        <span class="stringliteral">&quot;&quot;&quot;@return The bokeh server port.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  782</span>        <span class="keywordflow">return</span> self._bokehPort</div>
+<div class="line"><span class="lineno">  783</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -396,46 +396,46 @@ Protected Attributes</h2></td></tr>
    The value should be a reference to the method on this object that holds
    the app code.
    @param openBrowser If True then open a browser connected to the / app (default=True).</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00799">799</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  799</span>    <span class="keyword">def </span>runBlockingBokehServer(self, appMethodDict, openBrowser=True):</div>
-<div class="line"><span class="lineno">  800</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This method will only return when the server shuts down.</span></div>
-<div class="line"><span class="lineno">  801</span><span class="stringliteral">           @param appMethodDict This dict holds references to all the apps yourwish the server</span></div>
-<div class="line"><span class="lineno">  802</span><span class="stringliteral">           to run.</span></div>
-<div class="line"><span class="lineno">  803</span><span class="stringliteral">           The key to each dict entry should be the last part of the URL to point to the app.</span></div>
-<div class="line"><span class="lineno">  804</span><span class="stringliteral">           E.G &#39;/&#39; is the root app which is displayed when the full URL is given.</span></div>
-<div class="line"><span class="lineno">  805</span><span class="stringliteral">           The value should be a reference to the method on this object that holds</span></div>
-<div class="line"><span class="lineno">  806</span><span class="stringliteral">           the app code.</span></div>
-<div class="line"><span class="lineno">  807</span><span class="stringliteral">           @param openBrowser If True then open a browser connected to the / app (default=True).&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  808</span>        appDict = self._getAppDict(appMethodDict)</div>
-<div class="line"><span class="lineno">  809</span> </div>
-<div class="line"><span class="lineno">  810</span>        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
-<div class="line"><span class="lineno">  811</span>        evtLoop = asyncio.new_event_loop()</div>
-<div class="line"><span class="lineno">  812</span>        asyncio.set_event_loop(evtLoop)</div>
-<div class="line"><span class="lineno">  813</span>        <span class="keywordflow">if</span> self._credentialsJsonFile:</div>
-<div class="line"><span class="lineno">  814</span>            SetBokehAuthAttrs(self._credentialsJsonFile,</div>
-<div class="line"><span class="lineno">  815</span>                              self._loginHTMLFile,</div>
-<div class="line"><span class="lineno">  816</span>                              accessLogFile=self._accessLogFile)</div>
-<div class="line"><span class="lineno">  817</span>            <span class="comment"># We don&#39;t check the credentials hash file exists as this should have been</span></div>
-<div class="line"><span class="lineno">  818</span>            <span class="comment"># done at a higher level. We assume that web server authoristion is required.</span></div>
-<div class="line"><span class="lineno">  819</span>            selfPath = os.path.dirname(os.path.abspath(__file__))</div>
-<div class="line"><span class="lineno">  820</span>            authFile = os.path.join(selfPath, <span class="stringliteral">&quot;bokeh_auth.py&quot;</span>)</div>
-<div class="line"><span class="lineno">  821</span>            authModule = AuthModule(authFile)</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00793">793</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  793</span>    <span class="keyword">def </span>runBlockingBokehServer(self, appMethodDict, openBrowser=True):</div>
+<div class="line"><span class="lineno">  794</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This method will only return when the server shuts down.</span></div>
+<div class="line"><span class="lineno">  795</span><span class="stringliteral">           @param appMethodDict This dict holds references to all the apps yourwish the server</span></div>
+<div class="line"><span class="lineno">  796</span><span class="stringliteral">           to run.</span></div>
+<div class="line"><span class="lineno">  797</span><span class="stringliteral">           The key to each dict entry should be the last part of the URL to point to the app.</span></div>
+<div class="line"><span class="lineno">  798</span><span class="stringliteral">           E.G &#39;/&#39; is the root app which is displayed when the full URL is given.</span></div>
+<div class="line"><span class="lineno">  799</span><span class="stringliteral">           The value should be a reference to the method on this object that holds</span></div>
+<div class="line"><span class="lineno">  800</span><span class="stringliteral">           the app code.</span></div>
+<div class="line"><span class="lineno">  801</span><span class="stringliteral">           @param openBrowser If True then open a browser connected to the / app (default=True).&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  802</span>        appDict = self._getAppDict(appMethodDict)</div>
+<div class="line"><span class="lineno">  803</span> </div>
+<div class="line"><span class="lineno">  804</span>        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
+<div class="line"><span class="lineno">  805</span>        evtLoop = asyncio.new_event_loop()</div>
+<div class="line"><span class="lineno">  806</span>        asyncio.set_event_loop(evtLoop)</div>
+<div class="line"><span class="lineno">  807</span>        <span class="keywordflow">if</span> self._credentialsJsonFile:</div>
+<div class="line"><span class="lineno">  808</span>            SetBokehAuthAttrs(self._credentialsJsonFile,</div>
+<div class="line"><span class="lineno">  809</span>                              self._loginHTMLFile,</div>
+<div class="line"><span class="lineno">  810</span>                              accessLogFile=self._accessLogFile)</div>
+<div class="line"><span class="lineno">  811</span>            <span class="comment"># We don&#39;t check the credentials hash file exists as this should have been</span></div>
+<div class="line"><span class="lineno">  812</span>            <span class="comment"># done at a higher level. We assume that web server authoristion is required.</span></div>
+<div class="line"><span class="lineno">  813</span>            selfPath = os.path.dirname(os.path.abspath(__file__))</div>
+<div class="line"><span class="lineno">  814</span>            authFile = os.path.join(selfPath, <span class="stringliteral">&quot;bokeh_auth.py&quot;</span>)</div>
+<div class="line"><span class="lineno">  815</span>            authModule = AuthModule(authFile)</div>
+<div class="line"><span class="lineno">  816</span>            self._server = Server(appDict,</div>
+<div class="line"><span class="lineno">  817</span>                                  address=self._address,</div>
+<div class="line"><span class="lineno">  818</span>                                  port=self._bokehPort,</div>
+<div class="line"><span class="lineno">  819</span>                                  auth_provider=authModule)</div>
+<div class="line"><span class="lineno">  820</span> </div>
+<div class="line"><span class="lineno">  821</span>        <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  822</span>            self._server = Server(appDict,</div>
 <div class="line"><span class="lineno">  823</span>                                  address=self._address,</div>
-<div class="line"><span class="lineno">  824</span>                                  port=self._bokehPort,</div>
-<div class="line"><span class="lineno">  825</span>                                  auth_provider=authModule)</div>
-<div class="line"><span class="lineno">  826</span> </div>
-<div class="line"><span class="lineno">  827</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  828</span>            self._server = Server(appDict,</div>
-<div class="line"><span class="lineno">  829</span>                                  address=self._address,</div>
-<div class="line"><span class="lineno">  830</span>                                  port=self._bokehPort)</div>
+<div class="line"><span class="lineno">  824</span>                                  port=self._bokehPort)</div>
+<div class="line"><span class="lineno">  825</span> </div>
+<div class="line"><span class="lineno">  826</span>        self._server.start()</div>
+<div class="line"><span class="lineno">  827</span>        <span class="keywordflow">if</span> openBrowser:</div>
+<div class="line"><span class="lineno">  828</span>            <span class="comment">#Show the server in a web browser window</span></div>
+<div class="line"><span class="lineno">  829</span>            self._server.io_loop.add_callback(self._server.show, <span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><span class="lineno">  830</span>        self._server.io_loop.start()</div>
 <div class="line"><span class="lineno">  831</span> </div>
-<div class="line"><span class="lineno">  832</span>        self._server.start()</div>
-<div class="line"><span class="lineno">  833</span>        <span class="keywordflow">if</span> openBrowser:</div>
-<div class="line"><span class="lineno">  834</span>            <span class="comment">#Show the server in a web browser window</span></div>
-<div class="line"><span class="lineno">  835</span>            self._server.io_loop.add_callback(self._server.show, <span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><span class="lineno">  836</span>        self._server.io_loop.start()</div>
-<div class="line"><span class="lineno">  837</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,21 +480,21 @@ Protected Attributes</h2></td></tr>
    The value should be a reference to the method on this object that holds
    the app code.
    @param openBrowser If True then open a browser connected to the / app (default=True)</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00838">838</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  838</span>    <span class="keyword">def </span>runNonBlockingBokehServer(self, appMethodDict, openBrowser=True):</div>
-<div class="line"><span class="lineno">  839</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server in a separate thread. This is useful</span></div>
-<div class="line"><span class="lineno">  840</span><span class="stringliteral">                  if the we want to load realtime data into the plot from the</span></div>
-<div class="line"><span class="lineno">  841</span><span class="stringliteral">                  main thread.</span></div>
-<div class="line"><span class="lineno">  842</span><span class="stringliteral">           @param @param appMethodDict This dict holds references to all the apps yourwish the server</span></div>
-<div class="line"><span class="lineno">  843</span><span class="stringliteral">           to run.</span></div>
-<div class="line"><span class="lineno">  844</span><span class="stringliteral">           The key to each dict entry should be the last part of the URL to point to the app.</span></div>
-<div class="line"><span class="lineno">  845</span><span class="stringliteral">           E.G &#39;/&#39; is the root app which is displayed when the full URL is given.</span></div>
-<div class="line"><span class="lineno">  846</span><span class="stringliteral">           The value should be a reference to the method on this object that holds</span></div>
-<div class="line"><span class="lineno">  847</span><span class="stringliteral">           the app code.</span></div>
-<div class="line"><span class="lineno">  848</span><span class="stringliteral">           @param openBrowser If True then open a browser connected to the / app (default=True)&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  849</span>        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethodDict,openBrowser))</div>
-<div class="line"><span class="lineno">  850</span>        self._serverThread.setDaemon(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  851</span>        self._serverThread.start()</div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00832">832</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  832</span>    <span class="keyword">def </span>runNonBlockingBokehServer(self, appMethodDict, openBrowser=True):</div>
+<div class="line"><span class="lineno">  833</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server in a separate thread. This is useful</span></div>
+<div class="line"><span class="lineno">  834</span><span class="stringliteral">                  if the we want to load realtime data into the plot from the</span></div>
+<div class="line"><span class="lineno">  835</span><span class="stringliteral">                  main thread.</span></div>
+<div class="line"><span class="lineno">  836</span><span class="stringliteral">           @param @param appMethodDict This dict holds references to all the apps yourwish the server</span></div>
+<div class="line"><span class="lineno">  837</span><span class="stringliteral">           to run.</span></div>
+<div class="line"><span class="lineno">  838</span><span class="stringliteral">           The key to each dict entry should be the last part of the URL to point to the app.</span></div>
+<div class="line"><span class="lineno">  839</span><span class="stringliteral">           E.G &#39;/&#39; is the root app which is displayed when the full URL is given.</span></div>
+<div class="line"><span class="lineno">  840</span><span class="stringliteral">           The value should be a reference to the method on this object that holds</span></div>
+<div class="line"><span class="lineno">  841</span><span class="stringliteral">           the app code.</span></div>
+<div class="line"><span class="lineno">  842</span><span class="stringliteral">           @param openBrowser If True then open a browser connected to the / app (default=True)&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  843</span>        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethodDict,openBrowser))</div>
+<div class="line"><span class="lineno">  844</span>        self._serverThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  845</span>        self._serverThread.start()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -519,7 +519,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00784">784</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00778">778</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -543,7 +543,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00780">780</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00774">774</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -567,7 +567,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00779">779</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00773">773</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -591,7 +591,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00782">782</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00776">776</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -615,7 +615,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00783">783</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00777">777</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -639,7 +639,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00822">822</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00816">816</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -663,7 +663,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00849">849</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00843">843</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -687,7 +687,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00752">752</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00746">746</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>

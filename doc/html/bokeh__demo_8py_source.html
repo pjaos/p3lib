@@ -694,7 +694,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>    plotter.addToRow(fig5)</div>
 <div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span> </div>
 <div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>    plotUpdateThread = threading.Thread(target=updatePlots, args=(plotter,))</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>    plotUpdateThread.setDaemon(True)</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>    plotUpdateThread.daemon = True</div>
 <div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    plotUpdateThread.start()</div>
 <div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span> </div>
 <div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    if runServer:</div>

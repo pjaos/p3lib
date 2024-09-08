@@ -132,7 +132,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        self.<a class="code hl_variable" href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html#a7cae80e3076dfbe7c9ea77889ac47978">_plotter</a>.addToRow(fig4)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        plotUpdateThread = threading.Thread(target=updatePlots, args=(self.<a class="code hl_variable" href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html#a7cae80e3076dfbe7c9ea77889ac47978">_plotter</a>,))</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        plotUpdateThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        plotUpdateThread.daemon = <span class="keyword">True</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        plotUpdateThread.start()</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment"># If called using the &#39;python bokeh_demo.py&#39; command then uncomment</span></div>
@@ -146,31 +146,33 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespacetime__series__plot__example.html#a0d5dfd597852c14a490dc329e3b2b16b">   56</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacetime__series__plot__example.html#a0d5dfd597852c14a490dc329e3b2b16b">updatePlots</a>(plotter):</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    min=0</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    max=100</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="comment">#Trace indexes from 0-5 are valid</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,6):</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            value = min + (max-min)*random.random()</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            plotter.addValue(traceIndex, value)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        sleep(0.5)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment"># Wait for server to startup before sending values</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    sleep(1)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="comment">#Server started now we send data to the server to be plotted.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">while</span> plotter.isServerRunning():</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">#Trace indexes from 0-5 are valid</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">for</span> traceIndex <span class="keywordflow">in</span> range(0,6):</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            value = min + (max-min)*random.random()</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            plotter.addValue(traceIndex, value)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        sleep(0.5)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        </div>
 </div>
-<div class="foldopen" id="foldopen00067" data-start="" data-end="">
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">   67</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">main</a>():</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    timeSeriesPlotExample = <a class="code hl_class" href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html">TimeSeriesPlotExample</a>()</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    timeSeriesPlotExample.run()</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="" data-end="">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">   69</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">main</a>():</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    timeSeriesPlotExample = <a class="code hl_class" href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html">TimeSeriesPlotExample</a>()</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    timeSeriesPlotExample.run()</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordflow">if</span> __name__== <span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">main</a>()</div>
-<div class="ttc" id="aclassp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter_html"><div class="ttname"><a href="classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html">p3lib.bokeh_gui.TimeSeriesPlotter</a></div><div class="ttdef"><b>Definition</b> <a href="bokeh__gui_8py_source.html#l00174">bokeh_gui.py:174</a></div></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordflow">if</span> __name__== <span class="stringliteral">&#39;__main__&#39;</span>:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_function" href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">main</a>()</div>
+<div class="ttc" id="aclassp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter_html"><div class="ttname"><a href="classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html">p3lib.bokeh_gui.TimeSeriesPlotter</a></div><div class="ttdef"><b>Definition</b> <a href="bokeh__gui_8py_source.html#l00168">bokeh_gui.py:168</a></div></div>
 <div class="ttc" id="aclasstime__series__plot__example_1_1TimeSeriesPlotExample_html"><div class="ttname"><a href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html">time_series_plot_example.TimeSeriesPlotExample</a></div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00009">time_series_plot_example.py:9</a></div></div>
 <div class="ttc" id="aclasstime__series__plot__example_1_1TimeSeriesPlotExample_html_a08060e0924949738f75a0cdd8b49cef4"><div class="ttname"><a href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html#a08060e0924949738f75a0cdd8b49cef4">time_series_plot_example.TimeSeriesPlotExample.run</a></div><div class="ttdeci">run(self)</div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00017">time_series_plot_example.py:17</a></div></div>
 <div class="ttc" id="aclasstime__series__plot__example_1_1TimeSeriesPlotExample_html_a7cae80e3076dfbe7c9ea77889ac47978"><div class="ttname"><a href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html#a7cae80e3076dfbe7c9ea77889ac47978">time_series_plot_example.TimeSeriesPlotExample._plotter</a></div><div class="ttdeci">_plotter</div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00015">time_series_plot_example.py:15</a></div></div>
 <div class="ttc" id="aclasstime__series__plot__example_1_1TimeSeriesPlotExample_html_abdd362d5f799ad16b5d6700efe590290"><div class="ttname"><a href="classtime__series__plot__example_1_1TimeSeriesPlotExample.html#abdd362d5f799ad16b5d6700efe590290">time_series_plot_example.TimeSeriesPlotExample.__init__</a></div><div class="ttdeci">__init__(self)</div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00014">time_series_plot_example.py:14</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1bokeh__gui_html"><div class="ttname"><a href="namespacep3lib_1_1bokeh__gui.html">p3lib.bokeh_gui</a></div><div class="ttdef"><b>Definition</b> <a href="bokeh__gui_8py_source.html#l00001">bokeh_gui.py:1</a></div></div>
 <div class="ttc" id="anamespacetime__series__plot__example_html_a0d5dfd597852c14a490dc329e3b2b16b"><div class="ttname"><a href="namespacetime__series__plot__example.html#a0d5dfd597852c14a490dc329e3b2b16b">time_series_plot_example.updatePlots</a></div><div class="ttdeci">updatePlots(plotter)</div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00056">time_series_plot_example.py:56</a></div></div>
-<div class="ttc" id="anamespacetime__series__plot__example_html_a51af30a60f9f02777c6396b8247e356f"><div class="ttname"><a href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">time_series_plot_example.main</a></div><div class="ttdeci">main()</div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00067">time_series_plot_example.py:67</a></div></div>
+<div class="ttc" id="anamespacetime__series__plot__example_html_a51af30a60f9f02777c6396b8247e356f"><div class="ttname"><a href="namespacetime__series__plot__example.html#a51af30a60f9f02777c6396b8247e356f">time_series_plot_example.main</a></div><div class="ttdeci">main()</div><div class="ttdef"><b>Definition</b> <a href="time__series__plot__example_8py_source.html#l00069">time_series_plot_example.py:69</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

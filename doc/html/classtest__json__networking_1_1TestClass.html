@@ -140,7 +140,7 @@ Static Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   29</span>    <span class="keyword">def </span>setup_class(cls):</div>
 <div class="line"><span class="lineno">   30</span>        server = JSONServer((TestClass.HOST, TestClass.PORT), ServerSessionHandler)</div>
 <div class="line"><span class="lineno">   31</span>        serverThread = threading.Thread(target=server.serve_forever)</div>
-<div class="line"><span class="lineno">   32</span>        serverThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">   32</span>        serverThread.daemon = <span class="keyword">True</span></div>
 <div class="line"><span class="lineno">   33</span>        serverThread.start()</div>
 <div class="line"><span class="lineno">   34</span> </div>
 </div><!-- fragment -->

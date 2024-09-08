@@ -124,7 +124,7 @@ Protected Attributes</h2></td></tr>
           The server may be started by calling either a blocking or a non
           blocking method. This provides a basic parennt class with
           the freedom to define your app as required.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00459">459</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00453">453</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af7cb45c74f8e812d56033575a7cf07d5" name="af7cb45c74f8e812d56033575a7cf07d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af7cb45c74f8e812d56033575a7cf07d5">&#9670;&#160;</a></span>__init__()</h2>
@@ -156,16 +156,16 @@ Protected Attributes</h2></td></tr>
           of 0 then a spare TCP port will be used.</pre> 
 <p>Reimplemented in <a class="el" href="classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html#a47de50546f2ec3597309189216536af0">Bokeh2DTablePlotter</a>, <a class="el" href="classGUIModel__A__example_1_1DynamicPlotExample.html#a132529b0272f6fcbb8b59d4e3f3e5b7d">DynamicPlotExample</a>, <a class="el" href="classGUIModel__A__example_1_1StaticPlotExample.html#a132529b0272f6fcbb8b59d4e3f3e5b7d">StaticPlotExample</a>, <a class="el" href="classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#aca0cc0bea4ac2e5630dd03781fdd1205">GUIModel_A</a>, and <a class="el" href="classexample__run__multiple__bokeh__servers_1_1ExampleAppServer.html#a9ce468a7cd50b015cb6bb62559efe53f">ExampleAppServer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00487">487</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  487</span>    <span class="keyword">def </span>__init__(self, bokehPort=0):</div>
-<div class="line"><span class="lineno">  488</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor</span></div>
-<div class="line"><span class="lineno">  489</span><span class="stringliteral">           @param bokehPort The TCP port to run the server on. If left at the default</span></div>
-<div class="line"><span class="lineno">  490</span><span class="stringliteral">                  of 0 then a spare TCP port will be used.</span></div>
-<div class="line"><span class="lineno">  491</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  492</span>        <span class="keywordflow">if</span> bokehPort == 0:</div>
-<div class="line"><span class="lineno">  493</span>            bokehPort = SingleAppServer.GetNextUnusedPort()</div>
-<div class="line"><span class="lineno">  494</span>        self._bokehPort=bokehPort</div>
-<div class="line"><span class="lineno">  495</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00481">481</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  481</span>    <span class="keyword">def </span>__init__(self, bokehPort=0):</div>
+<div class="line"><span class="lineno">  482</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor</span></div>
+<div class="line"><span class="lineno">  483</span><span class="stringliteral">           @param bokehPort The TCP port to run the server on. If left at the default</span></div>
+<div class="line"><span class="lineno">  484</span><span class="stringliteral">                  of 0 then a spare TCP port will be used.</span></div>
+<div class="line"><span class="lineno">  485</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  486</span>        <span class="keywordflow">if</span> bokehPort == 0:</div>
+<div class="line"><span class="lineno">  487</span>            bokehPort = SingleAppServer.GetNextUnusedPort()</div>
+<div class="line"><span class="lineno">  488</span>        self._bokehPort=bokehPort</div>
+<div class="line"><span class="lineno">  489</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -199,12 +199,12 @@ Protected Attributes</h2></td></tr>
    @param doc The document to add the plot to.</pre> 
 <p>Reimplemented in <a class="el" href="classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#a54642e93c1f20133b63c5693a8b2949b">GUIModel_A</a>, <a class="el" href="classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html#a54642e93c1f20133b63c5693a8b2949b">Bokeh2DTablePlotter</a>, and <a class="el" href="classexample__run__multiple__bokeh__servers_1_1ExampleAppServer.html#a54642e93c1f20133b63c5693a8b2949b">ExampleAppServer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00526">526</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  526</span>    <span class="keyword">def </span>app(self, doc):</div>
-<div class="line"><span class="lineno">  527</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start the process of creating an app.</span></div>
-<div class="line"><span class="lineno">  528</span><span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  529</span>        <span class="keywordflow">raise</span> NotImplementedError(<span class="stringliteral">&quot;app() method not implemented by {}&quot;</span>.format(self.__class__.__name__))</div>
-<div class="line"><span class="lineno">  530</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00520">520</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  520</span>    <span class="keyword">def </span>app(self, doc):</div>
+<div class="line"><span class="lineno">  521</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start the process of creating an app.</span></div>
+<div class="line"><span class="lineno">  522</span><span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  523</span>        <span class="keywordflow">raise</span> NotImplementedError(<span class="stringliteral">&quot;app() method not implemented by {}&quot;</span>.format(self.__class__.__name__))</div>
+<div class="line"><span class="lineno">  524</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -252,28 +252,28 @@ Protected Attributes</h2></td></tr>
    @param maxPort The highest port number to check.
    @param bindAddress The address to bind to.
    @return The TCP port or -1 if no port is available.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00466">466</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  466</span>    <span class="keyword">def </span>GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress=&quot;0.0.0.0&quot;):</div>
-<div class="line"><span class="lineno">  467</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the first unused above the base port.</span></div>
-<div class="line"><span class="lineno">  468</span><span class="stringliteral">           @param basePort The port to start checking for available ports.</span></div>
-<div class="line"><span class="lineno">  469</span><span class="stringliteral">           @param maxPort The highest port number to check.</span></div>
-<div class="line"><span class="lineno">  470</span><span class="stringliteral">           @param bindAddress The address to bind to.</span></div>
-<div class="line"><span class="lineno">  471</span><span class="stringliteral">           @return The TCP port or -1 if no port is available.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  472</span>        port = basePort</div>
-<div class="line"><span class="lineno">  473</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  474</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  475</span>                sock = socket.socket()</div>
-<div class="line"><span class="lineno">  476</span>                sock.bind((bindAddress, port))</div>
-<div class="line"><span class="lineno">  477</span>                sock.close()</div>
-<div class="line"><span class="lineno">  478</span>                <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  479</span>            <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  480</span>                port = port + 1</div>
-<div class="line"><span class="lineno">  481</span>                <span class="keywordflow">if</span> port &gt; maxPort:</div>
-<div class="line"><span class="lineno">  482</span>                    port = -1</div>
-<div class="line"><span class="lineno">  483</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  484</span> </div>
-<div class="line"><span class="lineno">  485</span>        <span class="keywordflow">return</span> port</div>
-<div class="line"><span class="lineno">  486</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00460">460</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  460</span>    <span class="keyword">def </span>GetNextUnusedPort(basePort=1024, maxPort = 65534, bindAddress=&quot;0.0.0.0&quot;):</div>
+<div class="line"><span class="lineno">  461</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the first unused above the base port.</span></div>
+<div class="line"><span class="lineno">  462</span><span class="stringliteral">           @param basePort The port to start checking for available ports.</span></div>
+<div class="line"><span class="lineno">  463</span><span class="stringliteral">           @param maxPort The highest port number to check.</span></div>
+<div class="line"><span class="lineno">  464</span><span class="stringliteral">           @param bindAddress The address to bind to.</span></div>
+<div class="line"><span class="lineno">  465</span><span class="stringliteral">           @return The TCP port or -1 if no port is available.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  466</span>        port = basePort</div>
+<div class="line"><span class="lineno">  467</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  468</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  469</span>                sock = socket.socket()</div>
+<div class="line"><span class="lineno">  470</span>                sock.bind((bindAddress, port))</div>
+<div class="line"><span class="lineno">  471</span>                sock.close()</div>
+<div class="line"><span class="lineno">  472</span>                <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  473</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  474</span>                port = port + 1</div>
+<div class="line"><span class="lineno">  475</span>                <span class="keywordflow">if</span> port &gt; maxPort:</div>
+<div class="line"><span class="lineno">  476</span>                    port = -1</div>
+<div class="line"><span class="lineno">  477</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  478</span> </div>
+<div class="line"><span class="lineno">  479</span>        <span class="keywordflow">return</span> port</div>
+<div class="line"><span class="lineno">  480</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -293,11 +293,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@return The bokeh server port.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00496">496</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  496</span>    <span class="keyword">def </span>getServerPort(self):</div>
-<div class="line"><span class="lineno">  497</span>        <span class="stringliteral">&quot;&quot;&quot;@return The bokeh server port.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  498</span>        <span class="keywordflow">return</span> self._bokehPort</div>
-<div class="line"><span class="lineno">  499</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00490">490</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  490</span>    <span class="keyword">def </span>getServerPort(self):</div>
+<div class="line"><span class="lineno">  491</span>        <span class="stringliteral">&quot;&quot;&quot;@return The bokeh server port.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  492</span>        <span class="keywordflow">return</span> self._bokehPort</div>
+<div class="line"><span class="lineno">  493</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -328,22 +328,22 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Run the bokeh server. This method will only return when the server shuts down.
    @param appMethod The method called to create the app.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00500">500</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  500</span>    <span class="keyword">def </span>runBlockingBokehServer(self, appMethod=None):</div>
-<div class="line"><span class="lineno">  501</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This method will only return when the server shuts down.</span></div>
-<div class="line"><span class="lineno">  502</span><span class="stringliteral">           @param appMethod The method called to create the app.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  503</span>        <span class="keywordflow">if</span> appMethod <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  504</span>            appMethod = self.app</div>
-<div class="line"><span class="lineno">  505</span>        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(appMethod))}</div>
-<div class="line"><span class="lineno">  506</span>        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
-<div class="line"><span class="lineno">  507</span>        evtLoop = asyncio.new_event_loop()</div>
-<div class="line"><span class="lineno">  508</span>        asyncio.set_event_loop(evtLoop)</div>
-<div class="line"><span class="lineno">  509</span>        self._server = Server(apps, port=self._bokehPort)</div>
-<div class="line"><span class="lineno">  510</span>        self._server.start()</div>
-<div class="line"><span class="lineno">  511</span>        <span class="comment">#Show the server in a web browser window</span></div>
-<div class="line"><span class="lineno">  512</span>        self._server.io_loop.add_callback(self._server.show, <span class="stringliteral">&quot;/&quot;</span>)</div>
-<div class="line"><span class="lineno">  513</span>        self._server.io_loop.start()</div>
-<div class="line"><span class="lineno">  514</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00494">494</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  494</span>    <span class="keyword">def </span>runBlockingBokehServer(self, appMethod=None):</div>
+<div class="line"><span class="lineno">  495</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server. This method will only return when the server shuts down.</span></div>
+<div class="line"><span class="lineno">  496</span><span class="stringliteral">           @param appMethod The method called to create the app.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  497</span>        <span class="keywordflow">if</span> appMethod <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  498</span>            appMethod = self.app</div>
+<div class="line"><span class="lineno">  499</span>        apps = {<span class="stringliteral">&#39;/&#39;</span>: Application(FunctionHandler(appMethod))}</div>
+<div class="line"><span class="lineno">  500</span>        <span class="comment">#As this gets run in a thread we need to start an event loop</span></div>
+<div class="line"><span class="lineno">  501</span>        evtLoop = asyncio.new_event_loop()</div>
+<div class="line"><span class="lineno">  502</span>        asyncio.set_event_loop(evtLoop)</div>
+<div class="line"><span class="lineno">  503</span>        self._server = Server(apps, port=self._bokehPort)</div>
+<div class="line"><span class="lineno">  504</span>        self._server.start()</div>
+<div class="line"><span class="lineno">  505</span>        <span class="comment">#Show the server in a web browser window</span></div>
+<div class="line"><span class="lineno">  506</span>        self._server.io_loop.add_callback(self._server.show, <span class="stringliteral">&quot;/&quot;</span>)</div>
+<div class="line"><span class="lineno">  507</span>        self._server.io_loop.start()</div>
+<div class="line"><span class="lineno">  508</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -376,18 +376,18 @@ Protected Attributes</h2></td></tr>
           if the we want to load realtime data into the plot from the
           main thread.
    @param appMethod The method called to create the app.</pre> 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00515">515</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  515</span>    <span class="keyword">def </span>runNonBlockingBokehServer(self, appMethod=None):</div>
-<div class="line"><span class="lineno">  516</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server in a separate thread. This is useful</span></div>
-<div class="line"><span class="lineno">  517</span><span class="stringliteral">                  if the we want to load realtime data into the plot from the</span></div>
-<div class="line"><span class="lineno">  518</span><span class="stringliteral">                  main thread.</span></div>
-<div class="line"><span class="lineno">  519</span><span class="stringliteral">           @param appMethod The method called to create the app.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  520</span>        <span class="keywordflow">if</span> appMethod <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  521</span>            appMethod = self.app</div>
-<div class="line"><span class="lineno">  522</span>        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethod,))</div>
-<div class="line"><span class="lineno">  523</span>        self._serverThread.setDaemon(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  524</span>        self._serverThread.start()</div>
-<div class="line"><span class="lineno">  525</span> </div>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00509">509</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  509</span>    <span class="keyword">def </span>runNonBlockingBokehServer(self, appMethod=None):</div>
+<div class="line"><span class="lineno">  510</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run the bokeh server in a separate thread. This is useful</span></div>
+<div class="line"><span class="lineno">  511</span><span class="stringliteral">                  if the we want to load realtime data into the plot from the</span></div>
+<div class="line"><span class="lineno">  512</span><span class="stringliteral">                  main thread.</span></div>
+<div class="line"><span class="lineno">  513</span><span class="stringliteral">           @param appMethod The method called to create the app.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  514</span>        <span class="keywordflow">if</span> appMethod <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  515</span>            appMethod = self.app</div>
+<div class="line"><span class="lineno">  516</span>        self._serverThread = threading.Thread(target=self.runBlockingBokehServer, args=(appMethod,))</div>
+<div class="line"><span class="lineno">  517</span>        self._serverThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  518</span>        self._serverThread.start()</div>
+<div class="line"><span class="lineno">  519</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -412,7 +412,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00494">494</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00488">488</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -436,7 +436,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00509">509</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00503">503</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
@@ -460,7 +460,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00522">522</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bokeh__gui_8py_source.html#l00516">516</a> of file <a class="el" href="bokeh__gui_8py_source.html">bokeh_gui.py</a>.</p>
 
 </div>
 </div>
