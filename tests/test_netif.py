@@ -4,8 +4,8 @@ from    time import sleep
 from    p3lib.netif import NetIF
 
 #These must be changed to use an interface on the local machine.
-NET_IF = "enp0s31f6"
-IP_ADDRESS = "192.168.0.9"
+NET_IF = "enx0c37960803fc"
+IP_ADDRESS = "192.168.0.10"
 NETMASK = "255.255.255.0"
 
 class TestClass:

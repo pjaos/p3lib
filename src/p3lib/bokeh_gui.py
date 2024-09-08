@@ -34,13 +34,7 @@ from bokeh.models import Tabs
 from bokeh.models import DataTable, TableColumn
 from bokeh.models import CustomJS
 from bokeh import events
-
-# In bokeh 2.4.8 -> 3.0.3 Panel was removed.
-# TabPanel can be used instead.
-try:
-    from bokeh.models import Panel
-except ImportError:
-    from bokeh.models import TabPanel as Panel
+from bokeh.models import TabPanel
 
 class UpdateEvent(object):
     """@brief Responsible for holding the state of an event sent from a non GUI thread
@@ -251,7 +245,7 @@ class TimeSeriesPlotter(TabbedGUI):
 
         plotPanel = self._getPlotPanel()
 
-        self._tabList.append( Panel(child=plotPanel,  title="Plots") )
+        self._tabList.append( TabPanel(child=plotPanel,  title="Plots") )
         self._doc.add_root( Tabs(tabs=self._tabList) )
         self._doc.add_periodic_callback(self._update, 100)
 

@@ -700,7 +700,7 @@ class SSHTunnelManager(object):
         forwardingServer = ForwardingServer(('', serverPort), SubHander)
         self._forwardingServerList.append(forwardingServer)
         newThread = threading.Thread(target=forwardingServer.serve_forever)
-        newThread.setDaemon(True)
+        newThread.daemon = True
         newThread.start()
 
     def stopFwdSSHTunnel(self, serverPort):

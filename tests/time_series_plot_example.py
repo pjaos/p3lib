@@ -45,7 +45,7 @@ class TimeSeriesPlotExample(object):
         self._plotter.addToRow(fig4)
 
         plotUpdateThread = threading.Thread(target=updatePlots, args=(self._plotter,))
-        plotUpdateThread.setDaemon(True)
+        plotUpdateThread.daemon = True
         plotUpdateThread.start()
 
         # If called using the 'python bokeh_demo.py' command then uncomment
@@ -56,6 +56,8 @@ class TimeSeriesPlotExample(object):
 def updatePlots(plotter):
     min=0
     max=100
+    # Wait for server to startup before sending values
+    sleep(1)
     #Server started now we send data to the server to be plotted.
     while plotter.isServerRunning():
         #Trace indexes from 0-5 are valid

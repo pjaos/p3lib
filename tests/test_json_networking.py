@@ -29,7 +29,7 @@ class TestClass:
     def setup_class(cls):
         server = JSONServer((TestClass.HOST, TestClass.PORT), ServerSessionHandler)
         serverThread = threading.Thread(target=server.serve_forever)
-        serverThread.setDaemon(True)
+        serverThread.daemon = True
         serverThread.start()
 
     def test_connect(self):

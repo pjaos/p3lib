@@ -3,4 +3,4 @@
 export PATH=$PATH:.
 
 echo "Run the bokeh demo example"
-pipenv run bokeh_demo.py
+python3 -m poetry run bokeh_demo.py

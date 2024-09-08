@@ -3,11 +3,18 @@
 import unittest
 from    time import sleep
 
+# Supress the following warning
+# CryptographyDeprecationWarning: TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES and will be removed from this module in 48.0.0.
+import warnings
+from cryptography.utils import CryptographyDeprecationWarning
+with warnings.catch_warnings(action="ignore", category=CryptographyDeprecationWarning):
+    import paramiko
+
 from    p3lib.uio import UIO
 from    p3lib.ssh import SSH, SSHTunnelManager
 
 #An ssh login on an ssh server must be available for these test to run.
-USERNAME="test"
+USERNAME="pja"
 SERVER="localhost"
 
 class SSHTester(unittest.TestCase):

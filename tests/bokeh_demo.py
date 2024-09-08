@@ -542,7 +542,7 @@ def main(runServer):
     plotter.addToRow(fig5)
 
     plotUpdateThread = threading.Thread(target=updatePlots, args=(plotter,))
-    plotUpdateThread.setDaemon(True)
+    plotUpdateThread.daemon = True
     plotUpdateThread.start()
 
     if runServer:
