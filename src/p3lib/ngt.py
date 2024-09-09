@@ -15,7 +15,6 @@ from time import time, strftime, localtime
 
 from nicegui import ui
 
-
 class TabbedNiceGui(object):
     """@brief Responsible for starting the providing a tabbed GUI.
               This class is designed to ease the creation of a tabbed GUI interface.
@@ -29,6 +28,7 @@ class TabbedNiceGui(object):
     # than normal.
     DESCRIP_STYLE               = '<span style="font-size:1.2em;">'
     ENABLE_BUTTONS              = "ENABLE_BUTTONS"
+    NOTIFY_DIALOG               = "NOTIFY_DIALOG"
     UPDATE_SECONDS              = "UPDATE_SECONDS"
     INFO_MESSAGE                = "INFO:  "
     WARN_MESSAGE                = "WARN:  "
@@ -37,6 +37,7 @@ class TabbedNiceGui(object):
     MAX_PROGRESS_VALUE          = 100
     DEFAULT_SERVER_PORT         = 9812
     GUI_TIMER_SECONDS           = 0.1
+    PROGRESS_TIMER_SECONDS      = 1.0
     UPDATE_SECONDS              = "UPDATE_SECONDS"
     DEFAULT_GUI_RESPONSE_TIMEOUT= 30.0
     POETRY_CONFIG_FILE          = "pyproject.toml"
@@ -64,6 +65,15 @@ class TabbedNiceGui(object):
         return logFileName
     
     @staticmethod
+    def CheckPort(port):
+        """@brief Check the server port.
+           @param port The server port."""
+        if port < 1024:
+            raise Exception("The minimum TCP port that you can bind the GUI server to is 1024.")
+        if port > 65535:
+            raise Exception("The maximum TCP port that you can bind the GUI server to is 65535.")
+        
+    @staticmethod
     def GetProgramVersion():
         """@brief Get the program version from the poetry pyproject.toml file.
            @return The version of the installed program (string value)."""
@@ -90,17 +100,21 @@ class TabbedNiceGui(object):
         if programVersion is None:
             raise Exception(f"Failed to extract program version from '{line}' line of {poetryConfigFile} file.")
         return programVersion
-    
+
     def __init__(self, debugEnabled, logPath=None):
         """@brief Constructor
            @param debugEnabled True if debugging is enabled.
            @param logPath The path to store log files. If left as None then no log files are created."""
-        self._debugEnabled      = debugEnabled
-        self._logFile           = None              # This must be defined in subclass if logging to a file is required.
-        self._buttonList        = []
-        self._logMessageCount   = 0
-        self._progressStepValue = 0
-        self._programVersion    = TabbedNiceGui.GetProgramVersion()
+        self._debugEnabled                      = debugEnabled
+        self._logFile                           = None              # This must be defined in subclass if logging to a file is required.
+        self._buttonList                        = []
+        self._logMessageCount                   = 0
+        self._updateProgressOnTimer             = False
+        self._progressStepValue                 = 0
+        self._progressBarStartMessage           = ""
+        self._progressBarExpectedMessageList    = []
+        self._expectedProgressBarMessageIndex   = 0
+        self._programVersion                    = TabbedNiceGui.GetProgramVersion()
 
         self._logPath           = None
         if logPath:
@@ -136,29 +150,35 @@ class TabbedNiceGui(object):
         """@brief Send a info message to be displayed in the GUI.
                   This can be called from outside the GUI thread.
            @param msg The message to be displayed."""
-        msgDict = {TabbedNiceGui.INFO_MESSAGE: msg}
+        msgDict = {TabbedNiceGui.INFO_MESSAGE: str(msg)}
         self.updateGUI(msgDict)
 
     def warn(self, msg):
         """@brief Send a warning message to be displayed in the GUI.
                   This can be called from outside the GUI thread.
            @param msg The message to be displayed."""
-        msgDict = {TabbedNiceGui.WARN_MESSAGE: msg}
+        msgDict = {TabbedNiceGui.WARN_MESSAGE: str(msg)}
         self.updateGUI(msgDict)
         
     def error(self, msg):
         """@brief Send a error message to be displayed in the GUI.
                   This can be called from outside the GUI thread.
            @param msg The message to be displayed."""
-        msgDict = {TabbedNiceGui.ERROR_MESSAGE: repr(msg)}
+        msgDict = {TabbedNiceGui.ERROR_MESSAGE: str(msg)}
         self.updateGUI(msgDict)
         
+    def infoDialog(self, msg):
+        """@brief Display an info level dialog.
+           @param msg The message dialog."""
+        msgDict = {TabbedNiceGui.NOTIFY_DIALOG: str(msg)}
+        self.updateGUI(msgDict)
+
     def debug(self, msg):
         """@brief Send a debug message to be displayed in the GUI.
                   This can be called from outside the GUI thread.
            @param msg The message to be displayed."""
         if self._debugEnabled:
-            msgDict = {TabbedNiceGui.DEBUG_MESSAGE: msg}
+            msgDict = {TabbedNiceGui.DEBUG_MESSAGE: str(msg)}
             self.updateGUI(msgDict)
 
     async def getInput(self, prompt):
@@ -184,11 +204,11 @@ class TabbedNiceGui(object):
                   If not then the exception message is displayed.
            @param exception The exception instance."""
         if self._debugEnabled:
-            msg = traceback.format_exc()
-            lines = msg.split('\n')
-            for l in lines:
-                self.error(l)
-        self.error( exception.args[0] )
+            lines = traceback.format_exc().split("\n")
+            for line in lines:
+                self.error(line)
+        if len(exception.args) > 0:
+            self.error(exception.args[0])
 
     def _sendEnableAllButtons(self, state):
         """@brief Send a message to the GUI to enable/disable all the GUI buttons.
@@ -294,7 +314,8 @@ class TabbedNiceGui(object):
         self._log.push(msg)
         self._saveLogMsg(msg)
         self._logMessageCount += 1
-        self._progress.set_value( int(self._logMessageCount*self._progressStepValue) )
+        # We've received a log message so update progress bar if required. 
+        self._updateProgressBar(msg)
 
     def _infoGT(self, msg):
         """@brief Update an info level message. This must be called from the GUI thread.
@@ -335,7 +356,9 @@ class TabbedNiceGui(object):
         if enabled:
             for button in self._buttonList:
                 button.enable()
-            self._progress.set_visibility(False)
+            # No buttons are enabled, any executed task must be complete therefor hide the progress bar.
+            self._stopProgress()
+
         else:
             for button in self._buttonList:
                 button.disable()
@@ -343,8 +366,8 @@ class TabbedNiceGui(object):
             if self._progressStepValue > 0:
                 self._progress.set_visibility(True)
 
-    def periodicTimer(self):
-        """@called periodically to allow updates of the GUI."""
+    def guiTimerCallback(self):
+        """@called periodically (quickly) to allow updates of the GUI."""
         while not self._toGUIQueue.empty():
             rxMessage = self._toGUIQueue.get()
             if isinstance(rxMessage, dict):
@@ -382,39 +405,97 @@ class TabbedNiceGui(object):
         ui.label("Message Log")
         self._progress = ui.slider(min=0,max=TabbedNiceGui.MAX_PROGRESS_VALUE,step=1)
         self._progress.set_visibility(False)
+        self._progress.min = 0
+        # Don't allow user to adjust progress bar thumb
+        self._progress.disable()
         self._log = ui.log(max_lines=2000)
         self._log.set_visibility(True)
 
         with ui.row():
-            ui.button('Quit', on_click=self.close)
-            ui.button('Log Message Count', on_click=self._showLogMsgCount)
             ui.button('Clear Log', on_click=self._clearLog)
+            ui.button('Log Message Count', on_click=self._showLogMsgCount)
+            ui.button('Quit', on_click=self.close)
 
         with ui.row():
             ui.label(f"Software Version: {self._programVersion}")
 
-        ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.periodicTimer)
+        ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)
+        ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)
         ui.run(host=address, port=port, title=pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=reload)
 
-    def _setProgressMessageCount(self, normalCount, debugCount):
-        """@brief Set the number of log messages expected for normal completion of the current action.
-           @param normalCount The number of messages expected when debug is off.
-           @param debugCount The number of messages expected when debug is on."""
-        self._progressStepValue = 0
-        if self._debugEnabled:
-            self._progress.min=0
-            if debugCount > 0:
-                self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(debugCount)
-        else:
-            self._progress.min=0
-            if normalCount > 0:
-                self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(normalCount)
+    def progressTimerCallback(self):
+        """@brief Time to update the progress bar. We run the timer all the time because there appears to be a 
+                  bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer."""
+        if self._updateProgressOnTimer and self._progress.visible:
+            # Increment the progress bar
+            self._progress.set_value( self._progress.value + self._progressStepValue )
 
-    def _initTask(self, normalCount, debugCount):
-        """@brief Should be called before a task is started.
-           @param normalCount The number of messages expected when debug is off.
-           @param debugCount The number of messages expected when debug is on."""
-        self._setProgressMessageCount(normalCount, debugCount)
+    def _startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[]):
+        """@brief Start a timer that will update the progress bar.
+                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length 
+                  of the task if startMessage is unset and startMessage = None and expectedMessageCount = 0.
+
+                  Alternatively if durationSeconds is set and startMessage (expectedMessageCount = 0) is set to some text that
+                  we expect to receive in the log before the progress timer (as detailed above) is triggered.
+                  
+                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is 
+                  updated as each message is received. The messages may be the entire line of a log message or parts of a log message line.
+            @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.
+            @param expectedMsgList A list of the expected log file messages."""
+        self._progressValue                     = 0
+        self._progressBarStartMessage           = ""
+        self._progressBarExpectedMessageList    = []
+        self._expectedProgressBarMessageIndex   = 0
+        self._updateProgressOnTimer             = False
+        self._progress.set_value( self._progressValue )
+        # If the caller wants to update the progress bar on expected messages.
+        if len(expectedMsgList):
+            #Use the text of log messages to increment the progress bar.
+            self._expectedProgressBarMessageIndex = 0
+            self._progressBarExpectedMessageList = expectedMsgList
+            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(len(expectedMsgList))
+
+        elif durationSeconds > 0:
+            # Calc the step size required to give the required duration
+            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(durationSeconds)
+            if startMessage:
+                self._progressBarStartMessage = startMessage
+            else:
+                # Start updating the progress bar now.
+                self._updateProgressOnTimer = True
+
+        else:
+            raise Exception("BUG: _startProgressTimer() called. len(expectedMsgList)=0 and durationSeconds<=0.")
+
+        self._progress.set_visibility(True)
+
+    def _stopProgress(self):
+        """@brief Stop the progress bar being updated and hide it."""
+        self._updateProgressOnTimer = False
+        self._progress.set_visibility(False)
+
+    def _updateProgressBar(self, msg):
+        """@brief Update the progress bar if required when a log message is received. This is called as each message is added to the log.
+           @param msg The log message received."""
+        # If we have a list of log messages to update the progress bar.
+        if len(self._progressBarExpectedMessageList) > 0:
+            if self._expectedProgressBarMessageIndex < len(self._progressBarExpectedMessageList):
+                # Get the message we expect to receive next
+                expectedMsg = self._progressBarExpectedMessageList[self._expectedProgressBarMessageIndex]
+                if msg.find(expectedMsg) != -1:
+                    self._progressValue = self._progressValue + self._progressStepValue
+                    self._progress.set_value( self._progressValue )
+                    self._expectedProgressBarMessageIndex += 1
+
+        # If we have a message that we expect to receive to start the progress bar timer.
+        elif self._progressBarStartMessage and len(self._progressBarStartMessage):
+            # If we found the start message in the message received.
+            if msg.find(self._progressBarStartMessage) != -1:
+                # Start updating the progress bar now on the timer.
+                self._updateProgressOnTimer = True
+
+    def _initTask(self):
+        """@brief Should be called before a task is started."""
         self._enableAllButtons(False)
         self._clearMessages()
         
@@ -429,7 +510,7 @@ class TabbedNiceGui(object):
         
     def close(self):
         """@brief Close down the app server."""
-        ui.notify("Press 'CTRL C' at command line to quit.")
+        ui.notify("Press 'CTRL C' at command line or close the terminal window to quit.")
         # A subclass close() method can call 
         # app.shutdown()
         # if reload=False on ui.run()
@@ -462,6 +543,10 @@ class TabbedNiceGui(object):
             state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]
             self._enableAllButtons(state)
 
+        elif TabbedNiceGui.NOTIFY_DIALOG in rxDict:
+            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG]
+            ui.notify(message, close_button='OK', type="positive", position="center")
+ 
         else:
 
             self._handleGUIUpdate(rxDict)
@@ -705,4 +790,3 @@ class YesNoDialog(object):
     def close(self):
         """@brief Close the boolean dialog."""
         self._dialog.close()
-
