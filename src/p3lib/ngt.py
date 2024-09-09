@@ -8,22 +8,13 @@
 import traceback
 import os
 import platform
-import argparse
 
 from time import sleep
-from p3lib.uio import UIO
-from p3lib.helper import logTraceBack
-
 from queue import Queue
 from time import time, strftime, localtime
 
+from nicegui import ui
 
-from nicegui import ui, app
-
-from pathlib import Path
-from typing import Optional
-
-from nicegui import events
 
 class TabbedNiceGui(object):
     """@brief Responsible for starting the providing a tabbed GUI.
