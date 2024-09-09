@@ -83,8 +83,7 @@ class NGT_Examples(object):
         ui.notify(f"Male = {self._dialog3.getValue('Male')}" )
         ui.notify(f"Letter = {self._dialog3.getValue('Letter')}" )
         ui.notify(f"Color = {self._dialog3.getValue('Color')}" )
-        ui.notify(f"AVALUE = {self._dialog3.getValue('AVALUE')}" )
-        ui.notify(f"File = {self._dialog3.getValue('File')}" )
+        ui.notify(f"Height = {self._dialog3.getValue('Height')}" )
 
 def main():
     """@brief Program entry point"""
