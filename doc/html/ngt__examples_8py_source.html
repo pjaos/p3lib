@@ -188,53 +188,52 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        ui.notify(f<span class="stringliteral">&quot;Male = {self._dialog3.getValue(&#39;Male&#39;)}&quot;</span> )</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        ui.notify(f<span class="stringliteral">&quot;Letter = {self._dialog3.getValue(&#39;Letter&#39;)}&quot;</span> )</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        ui.notify(f<span class="stringliteral">&quot;Color = {self._dialog3.getValue(&#39;Color&#39;)}&quot;</span> )</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        ui.notify(f<span class="stringliteral">&quot;AVALUE = {self._dialog3.getValue(&#39;AVALUE&#39;)}&quot;</span> )</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        ui.notify(f<span class="stringliteral">&quot;File = {self._dialog3.getValue(&#39;File&#39;)}&quot;</span> )</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        ui.notify(f<span class="stringliteral">&quot;Height = {self._dialog3.getValue(&#39;Height&#39;)}&quot;</span> )</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 </div>
 </div>
-<div class="foldopen" id="foldopen00089" data-start="" data-end="">
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">   89</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">main</a>():</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Program entry point&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    uio = <a class="code hl_class" href="classp3lib_1_1uio_1_1UIO.html">UIO</a>()</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    options = <span class="keywordtype">None</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">try</span>:</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        parser = argparse.ArgumentParser(description=<span class="stringliteral">&quot;ngt examples.&quot;</span>,</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                                         formatter_class=argparse.RawDescriptionHelpFormatter)</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        parser.add_argument(<span class="stringliteral">&quot;-d&quot;</span>, <span class="stringliteral">&quot;--debug&quot;</span>,  action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable debugging.&quot;</span>)</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        parser.add_argument(<span class="stringliteral">&quot;-enable_syslog&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable syslog.&quot;</span>)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        options = parser.parse_args()</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        uio.enableDebug(options.debug)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        uio.logAll(<span class="keyword">True</span>)</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        uio.enableSyslog(options.enable_syslog, programName=<span class="stringliteral">&quot;ngt&quot;</span>)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span> options.enable_syslog:</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            uio.info(<span class="stringliteral">&quot;Syslog enabled&quot;</span>)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        ngtExamples = <a class="code hl_class" href="classngt__examples_1_1NGT__Examples.html">NGT_Examples</a>()</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        ngtExamples.tabbedGUI(options.debug)</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">#If the program throws a system exit exception</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">except</span> SystemExit:</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">pass</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">#Don&#39;t print error information if CTRL C pressed</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">except</span> KeyboardInterrupt:</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">pass</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        logTraceBack(uio)</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> options <span class="keywordflow">or</span> options.debug:</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordflow">raise</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            uio.error(str(ex))</div>
+<div class="foldopen" id="foldopen00088" data-start="" data-end="">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">   88</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">main</a>():</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Program entry point&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    uio = <a class="code hl_class" href="classp3lib_1_1uio_1_1UIO.html">UIO</a>()</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    options = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        parser = argparse.ArgumentParser(description=<span class="stringliteral">&quot;ngt examples.&quot;</span>,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                                         formatter_class=argparse.RawDescriptionHelpFormatter)</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        parser.add_argument(<span class="stringliteral">&quot;-d&quot;</span>, <span class="stringliteral">&quot;--debug&quot;</span>,  action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable debugging.&quot;</span>)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        parser.add_argument(<span class="stringliteral">&quot;-enable_syslog&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable syslog.&quot;</span>)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        options = parser.parse_args()</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        uio.enableDebug(options.debug)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        uio.logAll(<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        uio.enableSyslog(options.enable_syslog, programName=<span class="stringliteral">&quot;ngt&quot;</span>)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">if</span> options.enable_syslog:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            uio.info(<span class="stringliteral">&quot;Syslog enabled&quot;</span>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        ngtExamples = <a class="code hl_class" href="classngt__examples_1_1NGT__Examples.html">NGT_Examples</a>()</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        ngtExamples.tabbedGUI(options.debug)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">#If the program throws a system exit exception</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">except</span> SystemExit:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">#Don&#39;t print error information if CTRL C pressed</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">except</span> KeyboardInterrupt:</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        logTraceBack(uio)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> options <span class="keywordflow">or</span> options.debug:</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordflow">raise</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            uio.error(str(ex))</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment"># Note __mp_main__ is used by the nicegui module</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"># Note __mp_main__ is used by the nicegui module</span></div>
 </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keywordflow">if</span> __name__ <span class="keywordflow">in</span> {<span class="stringliteral">&quot;__main__&quot;</span>, <span class="stringliteral">&quot;__mp_main__&quot;</span>}:</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">main</a>()</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordflow">if</span> __name__ <span class="keywordflow">in</span> {<span class="stringliteral">&quot;__main__&quot;</span>, <span class="stringliteral">&quot;__mp_main__&quot;</span>}:</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_function" href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">main</a>()</div>
 <div class="ttc" id="aclassngt__examples_1_1NGT__Examples_html"><div class="ttname"><a href="classngt__examples_1_1NGT__Examples.html">ngt_examples.NGT_Examples</a></div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00013">ngt_examples.py:13</a></div></div>
 <div class="ttc" id="aclassngt__examples_1_1NGT__Examples_html_a10fc16570a659cc135bfbb0eb4dd2e83"><div class="ttname"><a href="classngt__examples_1_1NGT__Examples.html#a10fc16570a659cc135bfbb0eb4dd2e83">ngt_examples.NGT_Examples.successMethod1</a></div><div class="ttdeci">successMethod1(self)</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00066">ngt_examples.py:66</a></div></div>
 <div class="ttc" id="aclassngt__examples_1_1NGT__Examples_html_a22077497e341076af1f75da664f60e3f"><div class="ttname"><a href="classngt__examples_1_1NGT__Examples.html#a22077497e341076af1f75da664f60e3f">ngt_examples.NGT_Examples._dialog1</a></div><div class="ttdeci">_dialog1</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00044">ngt_examples.py:44</a></div></div>
@@ -251,10 +250,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassngt__examples_1_1NGT__Examples_html_ab0c38bcc48054d65e456b96b3afda6cb"><div class="ttname"><a href="classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb">ngt_examples.NGT_Examples.tabbedGUI</a></div><div class="ttdeci">tabbedGUI(self, debugEnabled)</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00015">ngt_examples.py:15</a></div></div>
 <div class="ttc" id="aclassngt__examples_1_1NGT__Examples_html_ac91941a2cdc7621c278a65dc6bc411c8"><div class="ttname"><a href="classngt__examples_1_1NGT__Examples.html#ac91941a2cdc7621c278a65dc6bc411c8">ngt_examples.NGT_Examples._initTab2</a></div><div class="ttdeci">_initTab2(self)</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00039">ngt_examples.py:39</a></div></div>
 <div class="ttc" id="aclassngt__examples_1_1NGT__Examples_html_aff5a2bd39fcfcfa83c87a215f6c324df"><div class="ttname"><a href="classngt__examples_1_1NGT__Examples.html#aff5a2bd39fcfcfa83c87a215f6c324df">ngt_examples.NGT_Examples.successMethod3</a></div><div class="ttdeci">successMethod3(self)</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00078">ngt_examples.py:78</a></div></div>
-<div class="ttc" id="aclassp3lib_1_1ngt_1_1TabbedNiceGui_html"><div class="ttname"><a href="classp3lib_1_1ngt_1_1TabbedNiceGui.html">p3lib.ngt.TabbedNiceGui</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00028">ngt.py:28</a></div></div>
-<div class="ttc" id="aclassp3lib_1_1ngt_1_1YesNoDialog_html"><div class="ttname"><a href="classp3lib_1_1ngt_1_1YesNoDialog.html">p3lib.ngt.YesNoDialog</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00523">ngt.py:523</a></div></div>
+<div class="ttc" id="aclassp3lib_1_1ngt_1_1TabbedNiceGui_html"><div class="ttname"><a href="classp3lib_1_1ngt_1_1TabbedNiceGui.html">p3lib.ngt.TabbedNiceGui</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00018">ngt.py:18</a></div></div>
+<div class="ttc" id="aclassp3lib_1_1ngt_1_1YesNoDialog_html"><div class="ttname"><a href="classp3lib_1_1ngt_1_1YesNoDialog.html">p3lib.ngt.YesNoDialog</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00599">ngt.py:599</a></div></div>
 <div class="ttc" id="aclassp3lib_1_1uio_1_1UIO_html"><div class="ttname"><a href="classp3lib_1_1uio_1_1UIO.html">p3lib.uio.UIO</a></div><div class="ttdef"><b>Definition</b> <a href="uio_8py_source.html#l00016">uio.py:16</a></div></div>
-<div class="ttc" id="anamespacengt__examples_html_a51af30a60f9f02777c6396b8247e356f"><div class="ttname"><a href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">ngt_examples.main</a></div><div class="ttdeci">main()</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00089">ngt_examples.py:89</a></div></div>
+<div class="ttc" id="anamespacengt__examples_html_a51af30a60f9f02777c6396b8247e356f"><div class="ttname"><a href="namespacengt__examples.html#a51af30a60f9f02777c6396b8247e356f">ngt_examples.main</a></div><div class="ttdeci">main()</div><div class="ttdef"><b>Definition</b> <a href="ngt__examples_8py_source.html#l00088">ngt_examples.py:88</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1helper_html"><div class="ttname"><a href="namespacep3lib_1_1helper.html">p3lib.helper</a></div><div class="ttdef"><b>Definition</b> <a href="helper_8py_source.html#l00001">helper.py:1</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1ngt_html"><div class="ttname"><a href="namespacep3lib_1_1ngt.html">p3lib.ngt</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00001">ngt.py:1</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1uio_html"><div class="ttname"><a href="namespacep3lib_1_1uio.html">p3lib.uio</a></div><div class="ttdef"><b>Definition</b> <a href="uio_8py_source.html#l00001">uio.py:1</a></div></div>

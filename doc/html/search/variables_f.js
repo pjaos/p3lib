@@ -15,6 +15,7 @@ var searchData=
   ['private_5fkey_5ffile_5flist_12',['PRIVATE_KEY_FILE_LIST',['../classp3lib_1_1ssh_1_1SSH.html#a61bc9407da40be50e88b807e59950eb2',1,'p3lib::ssh::SSH']]],
   ['private_5fssh_5fkey_5ffilename_13',['PRIVATE_SSH_KEY_FILENAME',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a4d178f5ee24faec5fbb88a27fcf85421',1,'p3lib::pconfig::ConfigManager']]],
   ['prog_5fbar_5flength_14',['PROG_BAR_LENGTH',['../classp3lib_1_1uio_1_1UIO.html#a286aaba59ab36027e58c44549486ecf3',1,'p3lib::uio::UIO']]],
-  ['prompt_15',['prompt',['../classp3lib_1_1pconfig_1_1ConfigAttrDetails.html#ad84e19307a43d3f799a4daeef0a6484a',1,'p3lib::pconfig::ConfigAttrDetails']]],
-  ['public_5fkey_5ffile_5flist_16',['PUBLIC_KEY_FILE_LIST',['../classp3lib_1_1ssh_1_1SSH.html#a1c1ebf55737e86f832cfcae61deef8d1',1,'p3lib::ssh::SSH']]]
+  ['progress_5ftimer_5fseconds_15',['PROGRESS_TIMER_SECONDS',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ad5ab20dc79976ef69982471b60e13697',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['prompt_16',['prompt',['../classp3lib_1_1pconfig_1_1ConfigAttrDetails.html#ad84e19307a43d3f799a4daeef0a6484a',1,'p3lib::pconfig::ConfigAttrDetails']]],
+  ['public_5fkey_5ffile_5flist_17',['PUBLIC_KEY_FILE_LIST',['../classp3lib_1_1ssh_1_1SSH.html#a1c1ebf55737e86f832cfcae61deef8d1',1,'p3lib::ssh::SSH']]]
 ];

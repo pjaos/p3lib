@@ -99,5 +99,6 @@ var searchData=
   ['getvalue_96',['getValue',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a4411c18577e55f56f98e7b18b5a12980',1,'p3lib::ngt::YesNoDialog']]],
   ['getwarnescapeseq_97',['GetWarnEscapeSeq',['../classp3lib_1_1uio_1_1UIO.html#abd4aac3090d748d7d07635f683695703',1,'p3lib::uio::UIO']]],
   ['getwidget_98',['getwidget',['../classp3lib_1_1bokeh__gui_1_1ShutdownButtonWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.ShutdownButtonWrapper.getWidget()'],['../classp3lib_1_1bokeh__gui_1_1AlertButtonWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.AlertButtonWrapper.getWidget()'],['../classp3lib_1_1bokeh__gui_1_1ReadOnlyTableWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.ReadOnlyTableWrapper.getWidget()'],['../classp3lib_1_1bokeh__gui_1_1StatusBarWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.StatusBarWrapper.getWidget()']]],
-  ['getyesno_99',['getYesNo',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a37aebb3896362083e5cf3bc89ecea7eb',1,'p3lib::pconfig::ConfigManager']]]
+  ['getyesno_99',['getYesNo',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a37aebb3896362083e5cf3bc89ecea7eb',1,'p3lib::pconfig::ConfigManager']]],
+  ['guitimercallback_100',['guiTimerCallback',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib::ngt::TabbedNiceGui']]]
 ];

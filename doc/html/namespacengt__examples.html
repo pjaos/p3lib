@@ -102,45 +102,45 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Program entry point</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt__examples_8py_source.html#l00089">89</a> of file <a class="el" href="ngt__examples_8py_source.html">ngt_examples.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span><span class="keyword">def </span>main():</div>
-<div class="line"><span class="lineno">   90</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Program entry point&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   91</span>    uio = UIO()</div>
-<div class="line"><span class="lineno">   92</span>    options = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">   95</span>        parser = argparse.ArgumentParser(description=<span class="stringliteral">&quot;ngt examples.&quot;</span>,</div>
-<div class="line"><span class="lineno">   96</span>                                         formatter_class=argparse.RawDescriptionHelpFormatter)</div>
-<div class="line"><span class="lineno">   97</span>        parser.add_argument(<span class="stringliteral">&quot;-d&quot;</span>, <span class="stringliteral">&quot;--debug&quot;</span>,  action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable debugging.&quot;</span>)</div>
-<div class="line"><span class="lineno">   98</span>        parser.add_argument(<span class="stringliteral">&quot;-enable_syslog&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable syslog.&quot;</span>)</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>        options = parser.parse_args()</div>
-<div class="line"><span class="lineno">  101</span>        uio.enableDebug(options.debug)</div>
-<div class="line"><span class="lineno">  102</span>        uio.logAll(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  103</span>        uio.enableSyslog(options.enable_syslog, programName=<span class="stringliteral">&quot;ngt&quot;</span>)</div>
-<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">if</span> options.enable_syslog:</div>
-<div class="line"><span class="lineno">  105</span>            uio.info(<span class="stringliteral">&quot;Syslog enabled&quot;</span>)</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>        ngtExamples = NGT_Examples()</div>
-<div class="line"><span class="lineno">  108</span>        </div>
-<div class="line"><span class="lineno">  109</span>        ngtExamples.tabbedGUI(options.debug)</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="comment">#If the program throws a system exit exception</span></div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">except</span> SystemExit:</div>
-<div class="line"><span class="lineno">  113</span>        <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  114</span>    <span class="comment">#Don&#39;t print error information if CTRL C pressed</span></div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">except</span> KeyboardInterrupt:</div>
-<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
-<div class="line"><span class="lineno">  118</span>        logTraceBack(uio)</div>
-<div class="line"><span class="lineno">  119</span> </div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> options <span class="keywordflow">or</span> options.debug:</div>
-<div class="line"><span class="lineno">  121</span>            <span class="keywordflow">raise</span></div>
-<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  123</span>            uio.error(str(ex))</div>
+<p class="definition">Definition at line <a class="el" href="ngt__examples_8py_source.html#l00088">88</a> of file <a class="el" href="ngt__examples_8py_source.html">ngt_examples.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   88</span><span class="keyword">def </span>main():</div>
+<div class="line"><span class="lineno">   89</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Program entry point&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   90</span>    uio = UIO()</div>
+<div class="line"><span class="lineno">   91</span>    options = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">   92</span> </div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">   94</span>        parser = argparse.ArgumentParser(description=<span class="stringliteral">&quot;ngt examples.&quot;</span>,</div>
+<div class="line"><span class="lineno">   95</span>                                         formatter_class=argparse.RawDescriptionHelpFormatter)</div>
+<div class="line"><span class="lineno">   96</span>        parser.add_argument(<span class="stringliteral">&quot;-d&quot;</span>, <span class="stringliteral">&quot;--debug&quot;</span>,  action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable debugging.&quot;</span>)</div>
+<div class="line"><span class="lineno">   97</span>        parser.add_argument(<span class="stringliteral">&quot;-enable_syslog&quot;</span>, action=<span class="stringliteral">&#39;store_true&#39;</span>, help=<span class="stringliteral">&quot;Enable syslog.&quot;</span>)</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>        options = parser.parse_args()</div>
+<div class="line"><span class="lineno">  100</span>        uio.enableDebug(options.debug)</div>
+<div class="line"><span class="lineno">  101</span>        uio.logAll(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  102</span>        uio.enableSyslog(options.enable_syslog, programName=<span class="stringliteral">&quot;ngt&quot;</span>)</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">if</span> options.enable_syslog:</div>
+<div class="line"><span class="lineno">  104</span>            uio.info(<span class="stringliteral">&quot;Syslog enabled&quot;</span>)</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>        ngtExamples = NGT_Examples()</div>
+<div class="line"><span class="lineno">  107</span>        </div>
+<div class="line"><span class="lineno">  108</span>        ngtExamples.tabbedGUI(options.debug)</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>    <span class="comment">#If the program throws a system exit exception</span></div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">except</span> SystemExit:</div>
+<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  113</span>    <span class="comment">#Don&#39;t print error information if CTRL C pressed</span></div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">except</span> KeyboardInterrupt:</div>
+<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
+<div class="line"><span class="lineno">  117</span>        logTraceBack(uio)</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> options <span class="keywordflow">or</span> options.debug:</div>
+<div class="line"><span class="lineno">  120</span>            <span class="keywordflow">raise</span></div>
+<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  122</span>            uio.error(str(ex))</div>
+<div class="line"><span class="lineno">  123</span> </div>
 <div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span> </div>
-<div class="line"><span class="lineno">  126</span><span class="comment"># Note __mp_main__ is used by the nicegui module</span></div>
+<div class="line"><span class="lineno">  125</span><span class="comment"># Note __mp_main__ is used by the nicegui module</span></div>
 </div><!-- fragment -->
 </div>
 </div>
