@@ -114,6 +114,7 @@ class TabbedNiceGui(object):
         self._progressBarStartMessage           = ""
         self._progressBarExpectedMessageList    = []
         self._expectedProgressBarMessageIndex   = 0
+        self._expectedProgressBarMsgCount       = 0
         self._programVersion                    = TabbedNiceGui.GetProgramVersion()
 
         self._logPath           = None
@@ -430,26 +431,39 @@ class TabbedNiceGui(object):
             # Increment the progress bar
             self._progress.set_value( self._progress.value + self._progressStepValue )
 
-    def _startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[]):
+    def _startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0):
         """@brief Start a timer that will update the progress bar.
                   The progress bar can simply update on a timer every second with durationSeconds set to the expected length 
-                  of the task if startMessage is unset and startMessage = None and expectedMessageCount = 0.
+                  of the task.
 
-                  Alternatively if durationSeconds is set and startMessage (expectedMessageCount = 0) is set to some text that
-                  we expect to receive in the log before the progress timer (as detailed above) is triggered.
+                  If startMessage is set to a text string the progress time will not start until the log message area contains 
+                  the start message.
                   
                   Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is 
-                  updated as each message is received. The messages may be the entire line of a log message or parts of a log message line.
+                  updated as each message is received. The messages may be the entire line of a log message or parts of a
+                  log message line.
+
+                  Alternatively if expectedMsgCount is set to a value > 0 then the progress bar is updated as each message is 
+                  added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.
+
             @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.
-            @param expectedMsgList A list of the expected log file messages."""
+            @param expectedMsgList A list of the expected log file messages.
+            @param expectedMsgCount A int value that defines the number of log messages we expect to receive for normal progress
+                                    completion."""
         self._progressValue                     = 0
         self._progressBarStartMessage           = ""
         self._progressBarExpectedMessageList    = []
         self._expectedProgressBarMessageIndex   = 0
+        self._expectedProgressBarMsgCount       = 0
         self._updateProgressOnTimer             = False
         self._progress.set_value( self._progressValue )
+        # If the caller wants to the progress bar to update as the log file message count increases.
+        if expectedMsgCount > 0:
+            self._expectedProgressBarMsgCount = expectedMsgCount
+            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(self._expectedProgressBarMsgCount)
+
         # If the caller wants to update the progress bar on expected messages.
-        if len(expectedMsgList):
+        elif len(expectedMsgList):
             #Use the text of log messages to increment the progress bar.
             self._expectedProgressBarMessageIndex = 0
             self._progressBarExpectedMessageList = expectedMsgList
@@ -477,8 +491,13 @@ class TabbedNiceGui(object):
     def _updateProgressBar(self, msg):
         """@brief Update the progress bar if required when a log message is received. This is called as each message is added to the log.
            @param msg The log message received."""
+        # If we update the progress bar as each message is received until we have a log with self._expectedProgressBarMsgCount many messages.
+        if self._expectedProgressBarMsgCount > 0:
+            self._progressValue = self._progressValue + self._progressStepValue
+            self._progress.set_value( self._progressValue )
+            
         # If we have a list of log messages to update the progress bar.
-        if len(self._progressBarExpectedMessageList) > 0:
+        elif len(self._progressBarExpectedMessageList) > 0:
             if self._expectedProgressBarMessageIndex < len(self._progressBarExpectedMessageList):
                 # Get the message we expect to receive next
                 expectedMsg = self._progressBarExpectedMessageList[self._expectedProgressBarMessageIndex]
