@@ -255,6 +255,9 @@ class LinuxBootManager(object):
                        If set to None then the current user is used.
            @param argString The argument string that the program is to be launched with.
            @param enableSyslog If True enable stdout and stderr to be sent to syslog."""
+        if user is None:
+            user = self._username
+
         appName, absApp = self._getApp()
 
         serviceFile = self._getServiceFile(appName)
@@ -274,7 +277,8 @@ class LinuxBootManager(object):
         else:
             lines.append("StandardOutput=null")
             lines.append("StandardError=journal")
-        lines.append("User={}".format(user))
+        if self._rootMode and user != 'root':
+            lines.append("User={}".format(user))
 
         #We add the home path env var so that config files (if stored in/under 
         # the users home dir) can be found by the prgram.
