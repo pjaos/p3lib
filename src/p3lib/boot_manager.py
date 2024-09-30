@@ -3,6 +3,7 @@
 import  os
 import  sys
 import  platform
+import  getpass
 
 from    subprocess import check_call, DEVNULL, STDOUT, Popen, PIPE
 from    datetime import datetime
@@ -35,10 +36,10 @@ class BootManager(object):
         else:
             raise Exception("{} is an unsupported OS.".format(self._osName) )
 
-    def add(self, user, argString=None, enableSyslog=False):
+    def add(self, user=None, argString=None, enableSyslog=False):
         """@brief Add an executable file to the processes started at boot time.
            @param exeFile The file/program to be executed. This should be an absolute path.
-           @param user The user that will run the executable file.
+           @param user The user that will run the executable file. If left as None then the current user will be used.
            @param argString The argument string that the program is to be launched with.
            @param enableSyslog If True enable stdout and stderr to be sent to syslog."""
         if self._platformBootManager:
@@ -63,9 +64,41 @@ class BootManager(object):
 class LinuxBootManager(object):
     """@brief Responsible for adding/removing Linux services using systemd."""
 
-    LOG_PATH="/var/log"
-    SERVICE_FOLDER = "/etc/systemd/system/"
-    SYSTEM_CTL = "/bin/systemctl"
+    LOG_PATH            ="/var/log"
+    ROOT_SERVICE_FOLDER = "/etc/systemd/system/"
+    SYSTEM_CTL_1        = "/bin/systemctl"
+    SYSTEM_CTL_2        = "/usr/bin/systemctl"
+
+    @staticmethod
+    def GetSystemCTLBin():
+        """@brief Get the location of the systemctl binary file on this system.
+           @return The systemctl bin file."""
+        binFile = None
+        if os.path.isfile(LinuxBootManager.SYSTEM_CTL_1):
+            binFile = LinuxBootManager.SYSTEM_CTL_1
+        elif os.path.isfile(LinuxBootManager.SYSTEM_CTL_2):
+            binFile = LinuxBootManager.SYSTEM_CTL_2
+        else:
+            raise Exception("Failed to find the location of the systemctl bin file on this machine.")
+        return binFile
+
+    @staticmethod
+    def GetServiceFolder(rootUser):
+        """"@brief Get the service folder to use.
+            @param rootUser False if non root user.
+            @return The folder that should hold the systemctl service files."""
+        serviceFolder = None
+        if rootUser:
+            serviceFolder = LinuxBootManager.ROOT_SERVICE_FOLDER
+        else:
+            homeFolder = os.path.expanduser('~')
+            serviceFolder = os.path.join(homeFolder, '.config/systemd/user/')
+            if not os.path.isdir(serviceFolder):
+                os.makedirs(serviceFolder)
+
+        if not os.path.isdir(serviceFolder):
+            raise Exception(f"{serviceFolder} folder not found.")
+        return serviceFolder
 
     def __init__(self, uio, allowRootUser):
         """@brief Constructor
@@ -74,12 +107,20 @@ class LinuxBootManager(object):
         self._uio = uio
         self._logFile = None
         self._allowRootUser=allowRootUser
-
-        if os.geteuid() != 0:
-            self._fatalError("Please run this command with root level access.")
-
         self._info("OS: {}".format(platform.system()) )
-
+        self._rootMode = False # If True run as root, else False.
+        self._systemCtlBin = LinuxBootManager.GetSystemCTLBin()
+        if os.geteuid() == 0:
+            if not allowRootUser:
+                self._fatalError(self.__class__.__name__ + f": You are running as root user but allowRootUser={allowRootUser}.")
+            else:
+                self._rootMode = True
+        if not self._rootMode:
+            self._cmdLinePrefix = self._systemCtlBin + " --user"
+        else:
+            self._cmdLinePrefix = self._systemCtlBin
+        self._username = getpass.getuser()
+        self._serviceFolder = LinuxBootManager.GetServiceFolder(self._rootMode)
         self._appName = None
 
     def _getInstallledStartupScript(self):
@@ -188,7 +229,9 @@ class LinuxBootManager(object):
             self._fatalError("{} file not found.".format(absApp) )
 
         appName = appName.replace(".py", "")
-        self._logFile = os.path.join(LinuxBootManager.LOG_PATH, appName)
+        if self._rootMode:
+            # We can only save to /var/log/ is we are root user.
+            self._logFile = os.path.join(LinuxBootManager.LOG_PATH, appName)
 
         return (appName, absApp)
 
@@ -197,7 +240,7 @@ class LinuxBootManager(object):
            @param appName The name of the app to execute.
            @return The absolute path to the service file """
         serviceName = "{}.service".format(appName)
-        serviceFile = os.path.join(LinuxBootManager.SERVICE_FOLDER, serviceName)
+        serviceFile = os.path.join(self._serviceFolder, serviceName)
         return serviceFile
 
     def add(self, user, argString=None, enableSyslog=False):
@@ -209,9 +252,9 @@ class LinuxBootManager(object):
                        to non root user paths on Linux systems and the startup
                        script should then be executed with the same username in
                        order that the same config file is used.
+                       If set to None then the current user is used.
            @param argString The argument string that the program is to be launched with.
            @param enableSyslog If True enable stdout and stderr to be sent to syslog."""
-
         appName, absApp = self._getApp()
 
         serviceFile = self._getServiceFile(appName)
@@ -253,12 +296,12 @@ class LinuxBootManager(object):
         except IOError:
             self._fatalError("Failed to create {}".format(serviceFile) )
 
-        cmd = "{} daemon-reload".format(LinuxBootManager.SYSTEM_CTL)
+        cmd = "{} daemon-reload".format(self._cmdLinePrefix)
         self._runLocalCmd(cmd)
-        cmd = "{} enable {}".format(LinuxBootManager.SYSTEM_CTL, appName)
+        cmd = "{} enable {}".format(self._cmdLinePrefix, appName)
         self._info("Enabled {} on restart".format(appName))
         self._runLocalCmd(cmd)
-        cmd = "{} start {}".format(LinuxBootManager.SYSTEM_CTL, appName)
+        cmd = "{} start {}".format(self._cmdLinePrefix, appName)
         self._runLocalCmd(cmd)
         self._info("Started {}".format(appName))
 
@@ -270,11 +313,11 @@ class LinuxBootManager(object):
 
         serviceFile = self._getServiceFile(appName)
         if os.path.isfile(serviceFile):
-            cmd = "{} disable {}".format(LinuxBootManager.SYSTEM_CTL, appName)
+            cmd = "{} disable {}".format(self._cmdLinePrefix, appName)
             self._runLocalCmd(cmd)
             self._info("Disabled {} on restart".format(appName))
 
-            cmd = "{} stop {}".format(LinuxBootManager.SYSTEM_CTL, appName)
+            cmd = "{} stop {}".format(self._cmdLinePrefix, appName)
             self._runLocalCmd(cmd)
             self._info("Stopped {}".format(appName))
 
@@ -287,11 +330,11 @@ class LinuxBootManager(object):
         """@brief Get a status report.
            @return Lines of text indicating the status of a previously started process."""
         appName, _ = self._getApp()
-        p = Popen([LinuxBootManager.SYSTEM_CTL, 'status', appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        if self._rootMode:
+            p = Popen([self._systemCtlBin, 'status', appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        else:
+            p = Popen([self._systemCtlBin, '--user', 'status', appName], stdin=PIPE, stdout=PIPE, stderr=PIPE)
         output, err = p.communicate(b"input data that is passed to subprocess' stdin")
         response = output.decode() + "\n" + err.decode()
         lines = response.split("\n")
         return lines
-            
-            
-            
