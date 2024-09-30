@@ -7,5 +7,6 @@ var searchData=
   ['result_5fwidth_4',['RESULT_WIDTH',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a10663d2637062cc5af25ce8ffadb6b9d',1,'p3lib::table_plot::Table2DPlotServer']]],
   ['resulttitle_5',['resultTitle',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a4539a8bafabafbb1f1b29379e7975693',1,'p3lib::table_plot::StaticPlotParams']]],
   ['resultwidth_6',['resultWidth',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a41bf2776d30fbfa53f75d311588bebd5',1,'p3lib::table_plot::StaticPlotParams']]],
-  ['rx_5fbuffer_5fsize_7',['RX_BUFFER_SIZE',['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib::ssh::SSHTunnelManager']]]
+  ['root_5fservice_5ffolder_7',['ROOT_SERVICE_FOLDER',['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a1e8fc68236ab16d934acd54566c3d011',1,'p3lib::boot_manager::LinuxBootManager']]],
+  ['rx_5fbuffer_5fsize_8',['RX_BUFFER_SIZE',['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a6a3f56dbe4f7361619f2460bae197f03',1,'p3lib::ssh::SSHTunnelManager']]]
 ];
