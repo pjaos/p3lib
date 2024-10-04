@@ -113,7 +113,7 @@ class UIO(object):
                 self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('INFO:  {}'.format(text))
-        self._update_syslog(PRIORITY.INFO, text)
+        self._update_syslog(PRIORITY.INFO, "INFO:  "+text)
 
     def debug(self, text):
         """@brief Present a debug level message to the user if debuging is enabled.
@@ -128,7 +128,7 @@ class UIO(object):
                 self.storeToDebugLog('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
             else:
                 self.storeToDebugLog('DEBUG: {}'.format(text))
-        self._update_syslog(PRIORITY.DEBUG, text)
+        self._update_syslog(PRIORITY.DEBUG, "DEBUG: "+text)
 
     def warn(self, text):
         """@brief Present a warning level message to the user.
@@ -137,7 +137,7 @@ class UIO(object):
             self._print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('WARN:  {}'.format(text))
-        self._update_syslog(PRIORITY.WARNING, text)
+        self._update_syslog(PRIORITY.WARNING, "WARN:  "+text)
 
     def error(self, text):
         """@brief Present an error level message to the user.
@@ -146,7 +146,7 @@ class UIO(object):
             self._print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('ERROR: {}'.format(text))
-        self._update_syslog(PRIORITY.ERROR, text)
+        self._update_syslog(PRIORITY.ERROR, "ERROR: "+text)
 
     def _print(self, text):
         """@brief Print text to stdout"""
@@ -382,7 +382,10 @@ class UIO(object):
            @param syslogProgramName The name of the program that is being logged. If defined this appears after the username in the syslog output."""
         self._sysLogEnabled = enabled
         self._sysLogHost = host
-        self._syslogProgramName = programName
+        if programName:
+            self._syslogProgramName = programName
+        else:
+            self._syslogProgramName = sys.argv[0]
 
     def _update_syslog(self, pri, msg):
         """Send a message to syslog is syslog is enabled
@@ -398,7 +401,7 @@ class UIO(object):
         """
         if self._sysLogEnabled:
             aMsg=msg
-            #Ensure we have no zero characters in the message.
+            #Ensure we have no 0x00 characters in the message.
             # syslog will throw an error if it finds any
             if "\x00" in aMsg:
                 aMsg=aMsg.replace("\x00", "")
