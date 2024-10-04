@@ -1,4 +1,4 @@
-#!/bin/sh/env python3d
+#!/bin/sh/env python3
 
 import  os
 import  base64
@@ -6,6 +6,7 @@ import  datetime
 import  sys
 import  json
 import  copy
+import  platform
 
 from    shutil import copyfile
 
@@ -313,31 +314,28 @@ class ConfigManager(object):
         if not cfgFilename:
             raise Exception("No config filename defined.")
 
-        cfgFilename = cfgFilename
         if addDotToFilename:
             if not cfgFilename.startswith("."):
 
                 cfgFilename=".%s" % (cfgFilename)
-
-            else:
-
-                cfgFilename=cfgFilename
 
         #The the config path has been set then use it
         if cfgPath:
             configPath = cfgPath
 
         else:
-            configPath=""
-            #If an absolute path is set for the config file then don't try to
-            #put the file in the users home dir
-            if not cfgFilename.startswith("/"):
-                configPath = expanduser("~")
-                configPath = configPath.strip()
-                #If no user is known then default to root user.
-                #This occurs on Omega2 startup apps.
-                if len(configPath) == 0 or configPath == '/' or configPath == '/root':
-                    configPath="/root"
+            # If the root user on a Linux system
+            if platform.system() == 'Linux' and os.geteuid() == 0:
+                # This should be the root users config folder.
+                configPath="/root"
+
+            else:
+                configPath=""
+                #If an absolute path is set for the config file then don't try to
+                #put the file in the users home dir
+                if not cfgFilename.startswith("/"):
+                    configPath = expanduser("~")
+                    configPath = configPath.strip()
 
         return join( configPath, cfgFilename )
 
