@@ -135,7 +135,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Inner class to handle connections to the server.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00117">117</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00116">116</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a900a6bb72b36cac786c3060914a1935f" name="a900a6bb72b36cac786c3060914a1935f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a900a6bb72b36cac786c3060914a1935f">&#9670;&#160;</a></span>handle()</h2>
@@ -155,126 +155,126 @@ Additional Inherited Members</h2></td></tr>
 <pre class="fragment">@brief Handle connections to the server.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1json__networking_1_1JsonServerHandler.html#a900a6bb72b36cac786c3060914a1935f">JsonServerHandler</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00119">119</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  119</span>        <span class="keyword">def </span>handle(self):</div>
-<div class="line"><span class="lineno">  120</span>            errorDict = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  121</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  122</span>                <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  123</span>                    </div>
-<div class="line"><span class="lineno">  124</span>                    <span class="comment"># Set static parameters start</span></div>
-<div class="line"><span class="lineno">  125</span>                    </div>
-<div class="line"><span class="lineno">  126</span>                    rxDict = self.rx()</div>
-<div class="line"><span class="lineno">  127</span>                    <span class="keywordflow">if</span> Table2DPlotServer.WINDOW_TTLE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  128</span>                        wTitle = rxDict[Table2DPlotServer.WINDOW_TTLE]</div>
-<div class="line"><span class="lineno">  129</span>                        <span class="keywordflow">if</span> isinstance(wTitle,str) <span class="keywordflow">and</span> len(wTitle) &gt; 0 <span class="keywordflow">and</span> len(wTitle) &lt;= 250:</div>
-<div class="line"><span class="lineno">  130</span>                            self.server.parent.staticPlotParams.windowTitle = wTitle</div>
-<div class="line"><span class="lineno">  131</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  132</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.WINDOW_TTLE} must be &gt; 0 and &lt;= 250 characters in length: {wTitle}&quot;</span>}</div>
-<div class="line"><span class="lineno">  133</span>                        </div>
-<div class="line"><span class="lineno">  134</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.XAXIS_TYPE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  135</span>                        xAxisType = rxDict[Table2DPlotServer.XAXIS_TYPE]</div>
-<div class="line"><span class="lineno">  136</span>                        <span class="keywordflow">if</span> xAxisType <span class="keywordflow">in</span> Table2DPlotServer.VALID_X_AXIS_TYPES:</div>
-<div class="line"><span class="lineno">  137</span>                            self.server.parent.staticPlotParams.xAxisType = xAxisType</div>
-<div class="line"><span class="lineno">  138</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  139</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.XAXIS_TYPE} invalid: {xAxisType}&quot;</span>}</div>
-<div class="line"><span class="lineno">  140</span>                            </div>
-<div class="line"><span class="lineno">  141</span>                        </div>
-<div class="line"><span class="lineno">  142</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.PLOT_PANEL_HEIGHT <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  143</span>                        pHeight = rxDict[Table2DPlotServer.PLOT_PANEL_HEIGHT]</div>
-<div class="line"><span class="lineno">  144</span>                        <span class="keywordflow">if</span> pHeight &gt; 10 <span class="keywordflow">and</span> pHeight &lt; 2048:</div>
-<div class="line"><span class="lineno">  145</span>                            self.server.parent.staticPlotParams.plotPanelHeight = pHeight</div>
-<div class="line"><span class="lineno">  146</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  147</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.PLOT_PANEL_HEIGHT} invalid: {pHeight} must be &gt; 10 and &lt; 2048&quot;</span>}</div>
-<div class="line"><span class="lineno">  148</span>                        </div>
-<div class="line"><span class="lineno">  149</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.LINE_PLOT <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  150</span>                        lPlot = rxDict[Table2DPlotServer.LINE_PLOT]</div>
-<div class="line"><span class="lineno">  151</span>                        <span class="keywordflow">if</span> lPlot <span class="keywordflow">in</span> (<span class="keyword">True</span>, <span class="keyword">False</span>):</div>
-<div class="line"><span class="lineno">  152</span>                            self.server.parent.staticPlotParams.linePlot = lPlot</div>
-<div class="line"><span class="lineno">  153</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  154</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.LINE_PLOT} invalid, must be True of False not {lPlot}&quot;</span>}</div>
-<div class="line"><span class="lineno">  155</span>                        </div>
-<div class="line"><span class="lineno">  156</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.PLOT_LINE_WIDTH <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  157</span>                        plWidth = rxDict[Table2DPlotServer.PLOT_LINE_WIDTH]</div>
-<div class="line"><span class="lineno">  158</span>                        <span class="keywordflow">if</span> plWidth &gt; 0 <span class="keywordflow">and</span> plWidth &lt; 100:</div>
-<div class="line"><span class="lineno">  159</span>                            self.server.parent.staticPlotParams.plotLineWidth = plWidth</div>
-<div class="line"><span class="lineno">  160</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  161</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.PLOT_LINE_WIDTH} invalid, must be &gt; 0 and &lt; 100 not {plWidth}&quot;</span>}</div>
-<div class="line"><span class="lineno">  162</span>                        </div>
-<div class="line"><span class="lineno">  163</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.SCATTER_PLOT_DOT_SIZE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  164</span>                        spDotSize = rxDict[Table2DPlotServer.SCATTER_PLOT_DOT_SIZE]</div>
-<div class="line"><span class="lineno">  165</span>                        <span class="keywordflow">if</span> spDotSize &gt; 0 <span class="keywordflow">and</span> spDotSize &lt; 250:</div>
-<div class="line"><span class="lineno">  166</span>                            self.server.parent.staticPlotParams.scatterPlotDotSize = spDotSize</div>
-<div class="line"><span class="lineno">  167</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  168</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.SCATTER_PLOT_DOT_SIZE} invalid, must be &gt; 0 and &lt; 250 not {spDotSize}&quot;</span>}                           </div>
-<div class="line"><span class="lineno">  169</span>                            </div>
-<div class="line"><span class="lineno">  170</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.THEME <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  171</span>                        theme = rxDict[Table2DPlotServer.THEME]</div>
-<div class="line"><span class="lineno">  172</span>                        <span class="keywordflow">if</span> theme <span class="keywordflow">in</span> Table2DPlotServer.VALID_THEMES:</div>
-<div class="line"><span class="lineno">  173</span>                            self.server.parent.staticPlotParams.theme = theme</div>
-<div class="line"><span class="lineno">  174</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  175</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.XAXIS_TYPE} invalid: {theme}&quot;</span>}</div>
-<div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.X_AXIS_NAME <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  178</span>                        xAxisName = rxDict[Table2DPlotServer.X_AXIS_NAME]</div>
-<div class="line"><span class="lineno">  179</span>                        <span class="keywordflow">if</span> isinstance(xAxisName,str) <span class="keywordflow">and</span> len(xAxisName) &gt; 0 <span class="keywordflow">and</span> len(xAxisName) &lt;= 150:</div>
-<div class="line"><span class="lineno">  180</span>                            self.server.parent.staticPlotParams.xAxisName = xAxisName</div>
-<div class="line"><span class="lineno">  181</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  182</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.X_AXIS_NAME} must be &gt; 0 and &lt;= 150 characters in length: {xAxisName}&quot;</span>}</div>
-<div class="line"><span class="lineno">  183</span> </div>
-<div class="line"><span class="lineno">  184</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.HTML_FILE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  185</span>                        htmlFile = rxDict[Table2DPlotServer.HTML_FILE]</div>
-<div class="line"><span class="lineno">  186</span>                        <span class="keywordflow">if</span> isinstance(htmlFile,str) <span class="keywordflow">and</span> len(htmlFile) &gt; 0 <span class="keywordflow">and</span> len(htmlFile) &lt;= 250:</div>
-<div class="line"><span class="lineno">  187</span>                            self.server.parent.staticPlotParams.htmlFile = htmlFile</div>
-<div class="line"><span class="lineno">  188</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  189</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.HTML_FILE} must be &gt; 0 and &lt;= 250 characters in length: {htmlFile}&quot;</span>}</div>
-<div class="line"><span class="lineno">  190</span> </div>
-<div class="line"><span class="lineno">  191</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.DISABLE_RESULT <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  192</span>                        disableResult = rxDict[Table2DPlotServer.DISABLE_RESULT]</div>
-<div class="line"><span class="lineno">  193</span>                        <span class="keywordflow">if</span> disableResult <span class="keywordflow">in</span> (<span class="keyword">True</span>, <span class="keyword">False</span>):</div>
-<div class="line"><span class="lineno">  194</span>                            self.server.parent.staticPlotParams.disableResult = disableResult</div>
-<div class="line"><span class="lineno">  195</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  196</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.DISABLE_RESULT} invalid, must be True of False not {disableResult}&quot;</span>}</div>
-<div class="line"><span class="lineno">  197</span> </div>
-<div class="line"><span class="lineno">  198</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.RESULT_WIDTH <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  199</span>                        resultWidth = rxDict[Table2DPlotServer.RESULT_WIDTH]</div>
-<div class="line"><span class="lineno">  200</span>                        <span class="keywordflow">if</span> resultWidth &gt; 10 <span class="keywordflow">and</span> resultWidth &lt; 2048:</div>
-<div class="line"><span class="lineno">  201</span>                            self.server.parent.staticPlotParams.resultWidth = resultWidth</div>
-<div class="line"><span class="lineno">  202</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  203</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.RESULT_WIDTH} invalid: {resultWidth} must be &gt; 10 and &lt; 2048&quot;</span>}</div>
-<div class="line"><span class="lineno">  204</span>   </div>
-<div class="line"><span class="lineno">  205</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.RESULT_TITLE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  206</span>                        resultTitle = rxDict[Table2DPlotServer.RESULT_TITLE]</div>
-<div class="line"><span class="lineno">  207</span>                        <span class="keywordflow">if</span> isinstance(resultTitle,str) <span class="keywordflow">and</span> len(resultTitle) &gt; 0 <span class="keywordflow">and</span> len(resultTitle) &lt;= 250:</div>
-<div class="line"><span class="lineno">  208</span>                            self.server.parent.staticPlotParams.resultTitle = resultTitle</div>
-<div class="line"><span class="lineno">  209</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  210</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.RESULT_TITLE} must be &gt; 0 and &lt;= 250 characters in length: {resultTitle}&quot;</span>}</div>
-<div class="line"><span class="lineno">  211</span>                    </div>
-<div class="line"><span class="lineno">  212</span>                    <span class="comment"># Set static parameters stop</span></div>
-<div class="line"><span class="lineno">  213</span>                            </div>
-<div class="line"><span class="lineno">  214</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.SET_RESULT <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  215</span>                        guiMsg = GUIMessage()</div>
-<div class="line"><span class="lineno">  216</span>                        guiMsg.type = GUIMessage.RESULT_DATA_TYPE</div>
-<div class="line"><span class="lineno">  217</span>                        guiMsg.data = rxDict[Table2DPlotServer.SET_RESULT]</div>
-<div class="line"><span class="lineno">  218</span>                        <span class="keywordflow">if</span> self.server.parent._bokeh2DTablePlotter:</div>
-<div class="line"><span class="lineno">  219</span>                            self.server.parent._bokeh2DTablePlotter.sendMessage(guiMsg)</div>
-<div class="line"><span class="lineno">  220</span> </div>
-<div class="line"><span class="lineno">  221</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.TABLE_COLUMNS <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  222</span>                        self.server.parent.createNewPlot(rxDict[Table2DPlotServer.TABLE_COLUMNS])</div>
-<div class="line"><span class="lineno">  223</span>                        </div>
-<div class="line"><span class="lineno">  224</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.TABLE_ROW <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  225</span>                        self.server.parent.updatePlot(rxDict[Table2DPlotServer.TABLE_ROW])</div>
-<div class="line"><span class="lineno">  226</span>                        </div>
-<div class="line"><span class="lineno">  227</span>                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  228</span>                        errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{rxDict} contains no valid keys to be processed.&quot;</span>}    </div>
-<div class="line"><span class="lineno">  229</span>                        </div>
-<div class="line"><span class="lineno">  230</span>                    <span class="keywordflow">if</span> errorDict:                    </div>
-<div class="line"><span class="lineno">  231</span>                        self.tx(self.request, errorDict)</div>
-<div class="line"><span class="lineno">  232</span>    </div>
-<div class="line"><span class="lineno">  233</span>            <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  234</span>                <span class="comment"># PJA TODO show error</span></div>
-<div class="line"><span class="lineno">  235</span>                <span class="keywordflow">raise</span></div>
-<div class="line"><span class="lineno">  236</span>        </div>
-<div class="line"><span class="lineno">  237</span>    <span class="keyword">def </span>info(self, msg):</div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00118">118</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  118</span>        <span class="keyword">def </span>handle(self):</div>
+<div class="line"><span class="lineno">  119</span>            errorDict = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  120</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  121</span>                <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  122</span>                    </div>
+<div class="line"><span class="lineno">  123</span>                    <span class="comment"># Set static parameters start</span></div>
+<div class="line"><span class="lineno">  124</span>                    </div>
+<div class="line"><span class="lineno">  125</span>                    rxDict = self.rx()</div>
+<div class="line"><span class="lineno">  126</span>                    <span class="keywordflow">if</span> Table2DPlotServer.WINDOW_TTLE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  127</span>                        wTitle = rxDict[Table2DPlotServer.WINDOW_TTLE]</div>
+<div class="line"><span class="lineno">  128</span>                        <span class="keywordflow">if</span> isinstance(wTitle,str) <span class="keywordflow">and</span> len(wTitle) &gt; 0 <span class="keywordflow">and</span> len(wTitle) &lt;= 250:</div>
+<div class="line"><span class="lineno">  129</span>                            self.server.parent.staticPlotParams.windowTitle = wTitle</div>
+<div class="line"><span class="lineno">  130</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  131</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.WINDOW_TTLE} must be &gt; 0 and &lt;= 250 characters in length: {wTitle}&quot;</span>}</div>
+<div class="line"><span class="lineno">  132</span>                        </div>
+<div class="line"><span class="lineno">  133</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.XAXIS_TYPE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  134</span>                        xAxisType = rxDict[Table2DPlotServer.XAXIS_TYPE]</div>
+<div class="line"><span class="lineno">  135</span>                        <span class="keywordflow">if</span> xAxisType <span class="keywordflow">in</span> Table2DPlotServer.VALID_X_AXIS_TYPES:</div>
+<div class="line"><span class="lineno">  136</span>                            self.server.parent.staticPlotParams.xAxisType = xAxisType</div>
+<div class="line"><span class="lineno">  137</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  138</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.XAXIS_TYPE} invalid: {xAxisType}&quot;</span>}</div>
+<div class="line"><span class="lineno">  139</span>                            </div>
+<div class="line"><span class="lineno">  140</span>                        </div>
+<div class="line"><span class="lineno">  141</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.PLOT_PANEL_HEIGHT <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  142</span>                        pHeight = rxDict[Table2DPlotServer.PLOT_PANEL_HEIGHT]</div>
+<div class="line"><span class="lineno">  143</span>                        <span class="keywordflow">if</span> pHeight &gt; 10 <span class="keywordflow">and</span> pHeight &lt; 2048:</div>
+<div class="line"><span class="lineno">  144</span>                            self.server.parent.staticPlotParams.plotPanelHeight = pHeight</div>
+<div class="line"><span class="lineno">  145</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  146</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.PLOT_PANEL_HEIGHT} invalid: {pHeight} must be &gt; 10 and &lt; 2048&quot;</span>}</div>
+<div class="line"><span class="lineno">  147</span>                        </div>
+<div class="line"><span class="lineno">  148</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.LINE_PLOT <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  149</span>                        lPlot = rxDict[Table2DPlotServer.LINE_PLOT]</div>
+<div class="line"><span class="lineno">  150</span>                        <span class="keywordflow">if</span> lPlot <span class="keywordflow">in</span> (<span class="keyword">True</span>, <span class="keyword">False</span>):</div>
+<div class="line"><span class="lineno">  151</span>                            self.server.parent.staticPlotParams.linePlot = lPlot</div>
+<div class="line"><span class="lineno">  152</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  153</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.LINE_PLOT} invalid, must be True of False not {lPlot}&quot;</span>}</div>
+<div class="line"><span class="lineno">  154</span>                        </div>
+<div class="line"><span class="lineno">  155</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.PLOT_LINE_WIDTH <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  156</span>                        plWidth = rxDict[Table2DPlotServer.PLOT_LINE_WIDTH]</div>
+<div class="line"><span class="lineno">  157</span>                        <span class="keywordflow">if</span> plWidth &gt; 0 <span class="keywordflow">and</span> plWidth &lt; 100:</div>
+<div class="line"><span class="lineno">  158</span>                            self.server.parent.staticPlotParams.plotLineWidth = plWidth</div>
+<div class="line"><span class="lineno">  159</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  160</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.PLOT_LINE_WIDTH} invalid, must be &gt; 0 and &lt; 100 not {plWidth}&quot;</span>}</div>
+<div class="line"><span class="lineno">  161</span>                        </div>
+<div class="line"><span class="lineno">  162</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.SCATTER_PLOT_DOT_SIZE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  163</span>                        spDotSize = rxDict[Table2DPlotServer.SCATTER_PLOT_DOT_SIZE]</div>
+<div class="line"><span class="lineno">  164</span>                        <span class="keywordflow">if</span> spDotSize &gt; 0 <span class="keywordflow">and</span> spDotSize &lt; 250:</div>
+<div class="line"><span class="lineno">  165</span>                            self.server.parent.staticPlotParams.scatterPlotDotSize = spDotSize</div>
+<div class="line"><span class="lineno">  166</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  167</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.SCATTER_PLOT_DOT_SIZE} invalid, must be &gt; 0 and &lt; 250 not {spDotSize}&quot;</span>}                           </div>
+<div class="line"><span class="lineno">  168</span>                            </div>
+<div class="line"><span class="lineno">  169</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.THEME <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  170</span>                        theme = rxDict[Table2DPlotServer.THEME]</div>
+<div class="line"><span class="lineno">  171</span>                        <span class="keywordflow">if</span> theme <span class="keywordflow">in</span> Table2DPlotServer.VALID_THEMES:</div>
+<div class="line"><span class="lineno">  172</span>                            self.server.parent.staticPlotParams.theme = theme</div>
+<div class="line"><span class="lineno">  173</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  174</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.XAXIS_TYPE} invalid: {theme}&quot;</span>}</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.X_AXIS_NAME <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  177</span>                        xAxisName = rxDict[Table2DPlotServer.X_AXIS_NAME]</div>
+<div class="line"><span class="lineno">  178</span>                        <span class="keywordflow">if</span> isinstance(xAxisName,str) <span class="keywordflow">and</span> len(xAxisName) &gt; 0 <span class="keywordflow">and</span> len(xAxisName) &lt;= 150:</div>
+<div class="line"><span class="lineno">  179</span>                            self.server.parent.staticPlotParams.xAxisName = xAxisName</div>
+<div class="line"><span class="lineno">  180</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  181</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.X_AXIS_NAME} must be &gt; 0 and &lt;= 150 characters in length: {xAxisName}&quot;</span>}</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  183</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.HTML_FILE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  184</span>                        htmlFile = rxDict[Table2DPlotServer.HTML_FILE]</div>
+<div class="line"><span class="lineno">  185</span>                        <span class="keywordflow">if</span> isinstance(htmlFile,str) <span class="keywordflow">and</span> len(htmlFile) &gt; 0 <span class="keywordflow">and</span> len(htmlFile) &lt;= 250:</div>
+<div class="line"><span class="lineno">  186</span>                            self.server.parent.staticPlotParams.htmlFile = htmlFile</div>
+<div class="line"><span class="lineno">  187</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  188</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.HTML_FILE} must be &gt; 0 and &lt;= 250 characters in length: {htmlFile}&quot;</span>}</div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.DISABLE_RESULT <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  191</span>                        disableResult = rxDict[Table2DPlotServer.DISABLE_RESULT]</div>
+<div class="line"><span class="lineno">  192</span>                        <span class="keywordflow">if</span> disableResult <span class="keywordflow">in</span> (<span class="keyword">True</span>, <span class="keyword">False</span>):</div>
+<div class="line"><span class="lineno">  193</span>                            self.server.parent.staticPlotParams.disableResult = disableResult</div>
+<div class="line"><span class="lineno">  194</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  195</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.DISABLE_RESULT} invalid, must be True of False not {disableResult}&quot;</span>}</div>
+<div class="line"><span class="lineno">  196</span> </div>
+<div class="line"><span class="lineno">  197</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.RESULT_WIDTH <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  198</span>                        resultWidth = rxDict[Table2DPlotServer.RESULT_WIDTH]</div>
+<div class="line"><span class="lineno">  199</span>                        <span class="keywordflow">if</span> resultWidth &gt; 10 <span class="keywordflow">and</span> resultWidth &lt; 2048:</div>
+<div class="line"><span class="lineno">  200</span>                            self.server.parent.staticPlotParams.resultWidth = resultWidth</div>
+<div class="line"><span class="lineno">  201</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  202</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.RESULT_WIDTH} invalid: {resultWidth} must be &gt; 10 and &lt; 2048&quot;</span>}</div>
+<div class="line"><span class="lineno">  203</span>   </div>
+<div class="line"><span class="lineno">  204</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.RESULT_TITLE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  205</span>                        resultTitle = rxDict[Table2DPlotServer.RESULT_TITLE]</div>
+<div class="line"><span class="lineno">  206</span>                        <span class="keywordflow">if</span> isinstance(resultTitle,str) <span class="keywordflow">and</span> len(resultTitle) &gt; 0 <span class="keywordflow">and</span> len(resultTitle) &lt;= 250:</div>
+<div class="line"><span class="lineno">  207</span>                            self.server.parent.staticPlotParams.resultTitle = resultTitle</div>
+<div class="line"><span class="lineno">  208</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  209</span>                            errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{Table2DPlotServer.RESULT_TITLE} must be &gt; 0 and &lt;= 250 characters in length: {resultTitle}&quot;</span>}</div>
+<div class="line"><span class="lineno">  210</span>                    </div>
+<div class="line"><span class="lineno">  211</span>                    <span class="comment"># Set static parameters stop</span></div>
+<div class="line"><span class="lineno">  212</span>                            </div>
+<div class="line"><span class="lineno">  213</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.SET_RESULT <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  214</span>                        guiMsg = GUIMessage()</div>
+<div class="line"><span class="lineno">  215</span>                        guiMsg.type = GUIMessage.RESULT_DATA_TYPE</div>
+<div class="line"><span class="lineno">  216</span>                        guiMsg.data = rxDict[Table2DPlotServer.SET_RESULT]</div>
+<div class="line"><span class="lineno">  217</span>                        <span class="keywordflow">if</span> self.server.parent._bokeh2DTablePlotter:</div>
+<div class="line"><span class="lineno">  218</span>                            self.server.parent._bokeh2DTablePlotter.sendMessage(guiMsg)</div>
+<div class="line"><span class="lineno">  219</span> </div>
+<div class="line"><span class="lineno">  220</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.TABLE_COLUMNS <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  221</span>                        self.server.parent.createNewPlot(rxDict[Table2DPlotServer.TABLE_COLUMNS])</div>
+<div class="line"><span class="lineno">  222</span>                        </div>
+<div class="line"><span class="lineno">  223</span>                    <span class="keywordflow">elif</span> Table2DPlotServer.TABLE_ROW <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  224</span>                        self.server.parent.updatePlot(rxDict[Table2DPlotServer.TABLE_ROW])</div>
+<div class="line"><span class="lineno">  225</span>                        </div>
+<div class="line"><span class="lineno">  226</span>                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  227</span>                        errorDict = {Table2DPlotServer.ERROR: f<span class="stringliteral">&quot;{rxDict} contains no valid keys to be processed.&quot;</span>}    </div>
+<div class="line"><span class="lineno">  228</span>                        </div>
+<div class="line"><span class="lineno">  229</span>                    <span class="keywordflow">if</span> errorDict:                    </div>
+<div class="line"><span class="lineno">  230</span>                        self.tx(self.request, errorDict)</div>
+<div class="line"><span class="lineno">  231</span>    </div>
+<div class="line"><span class="lineno">  232</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  233</span>                <span class="comment"># PJA TODO show error</span></div>
+<div class="line"><span class="lineno">  234</span>                <span class="keywordflow">raise</span></div>
+<div class="line"><span class="lineno">  235</span>        </div>
+<div class="line"><span class="lineno">  236</span>    <span class="keyword">def </span>info(self, msg):</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,7 +291,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00231">231</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00230">230</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>

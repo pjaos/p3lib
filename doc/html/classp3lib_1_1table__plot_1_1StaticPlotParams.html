@@ -129,7 +129,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Holds plot parameters that do not change through the life of a single plot window.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00031">31</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00030">30</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abdd362d5f799ad16b5d6700efe590290" name="abdd362d5f799ad16b5d6700efe590290"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abdd362d5f799ad16b5d6700efe590290">&#9670;&#160;</a></span>__init__()</h2>
@@ -147,25 +147,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Constructor.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00034">34</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>    <span class="keyword">def </span>__init__(self):</div>
-<div class="line"><span class="lineno">   35</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   36</span>        self.windowTitle            = <span class="stringliteral">&quot;UNSET WINDOW TITLE&quot;</span> <span class="comment"># The HTML page title for the GUI.</span></div>
-<div class="line"><span class="lineno">   37</span>        self.tableColNames          = <span class="keywordtype">None</span>      <span class="comment"># The names of all the columns in the plot table. Each column is displayed as a row plot in the GUI.</span></div>
-<div class="line"><span class="lineno">   38</span>        self.xAxisType              = <span class="keywordtype">None</span>      <span class="comment"># The type of X axis. Either Table2DPlotServer.FLOAT_X_AXIS_TYPE or Table2DPlotServer.DATETIME_X_AXIS_TYPE.</span></div>
-<div class="line"><span class="lineno">   39</span>        self.plotPanelHeight        = 250       <span class="comment"># The vertical size in pixels of each individual trace plot panel.</span></div>
-<div class="line"><span class="lineno">   40</span>        self.linePlot               = <span class="keyword">True</span>      <span class="comment"># If True then a line plot is displayed. If False then a scatter plot is displayed.</span></div>
-<div class="line"><span class="lineno">   41</span>        self.plotLineWidth          = 2         <span class="comment"># The width of the line in pixels when al ine plot is displayed.</span></div>
-<div class="line"><span class="lineno">   42</span>        self.scatterPlotDotSize     = 8         <span class="comment"># The size in pixels of the dot size when a scatter plot is displayed.</span></div>
-<div class="line"><span class="lineno">   43</span>        self.theme                  = <span class="stringliteral">&quot;dark_minimal&quot;</span> <span class="comment"># The Bokeh color theme used for the plots</span></div>
-<div class="line"><span class="lineno">   44</span>        self.xAxisName              = <span class="keywordtype">None</span>      <span class="comment"># The name of the X axis on all plots</span></div>
-<div class="line"><span class="lineno">   45</span>        self.singlePanel            = <span class="keyword">False</span>     <span class="comment"># If False each trace is displayed in it&#39;s own panel</span></div>
-<div class="line"><span class="lineno">   46</span>                                                <span class="comment"># Each panel is one above the other.</span></div>
-<div class="line"><span class="lineno">   47</span>        self.htmlFile               = <span class="keywordtype">None</span>      <span class="comment"># The text that appears in the HTML file save text box. </span></div>
-<div class="line"><span class="lineno">   48</span>        self.disableResult          = <span class="keyword">False</span>     <span class="comment"># If True then the Result field on the right hand end of the trace is not displayed.</span></div>
-<div class="line"><span class="lineno">   49</span>        self.resultWidth            = 50        <span class="comment"># The width in pixels of the result table</span></div>
-<div class="line"><span class="lineno">   50</span>        self.resultTitle            = <span class="stringliteral">&quot;Result&quot;</span>  <span class="comment"># The title of the table where the result of the trace is displayed.</span></div>
-<div class="line"><span class="lineno">   51</span> </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00033">33</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>    <span class="keyword">def </span>__init__(self):</div>
+<div class="line"><span class="lineno">   34</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   35</span>        self.windowTitle            = <span class="stringliteral">&quot;UNSET WINDOW TITLE&quot;</span> <span class="comment"># The HTML page title for the GUI.</span></div>
+<div class="line"><span class="lineno">   36</span>        self.tableColNames          = <span class="keywordtype">None</span>      <span class="comment"># The names of all the columns in the plot table. Each column is displayed as a row plot in the GUI.</span></div>
+<div class="line"><span class="lineno">   37</span>        self.xAxisType              = <span class="keywordtype">None</span>      <span class="comment"># The type of X axis. Either Table2DPlotServer.FLOAT_X_AXIS_TYPE or Table2DPlotServer.DATETIME_X_AXIS_TYPE.</span></div>
+<div class="line"><span class="lineno">   38</span>        self.plotPanelHeight        = 250       <span class="comment"># The vertical size in pixels of each individual trace plot panel.</span></div>
+<div class="line"><span class="lineno">   39</span>        self.linePlot               = <span class="keyword">True</span>      <span class="comment"># If True then a line plot is displayed. If False then a scatter plot is displayed.</span></div>
+<div class="line"><span class="lineno">   40</span>        self.plotLineWidth          = 2         <span class="comment"># The width of the line in pixels when al ine plot is displayed.</span></div>
+<div class="line"><span class="lineno">   41</span>        self.scatterPlotDotSize     = 8         <span class="comment"># The size in pixels of the dot size when a scatter plot is displayed.</span></div>
+<div class="line"><span class="lineno">   42</span>        self.theme                  = <span class="stringliteral">&quot;dark_minimal&quot;</span> <span class="comment"># The Bokeh color theme used for the plots</span></div>
+<div class="line"><span class="lineno">   43</span>        self.xAxisName              = <span class="keywordtype">None</span>      <span class="comment"># The name of the X axis on all plots</span></div>
+<div class="line"><span class="lineno">   44</span>        self.singlePanel            = <span class="keyword">False</span>     <span class="comment"># If False each trace is displayed in it&#39;s own panel</span></div>
+<div class="line"><span class="lineno">   45</span>                                                <span class="comment"># Each panel is one above the other.</span></div>
+<div class="line"><span class="lineno">   46</span>        self.htmlFile               = <span class="keywordtype">None</span>      <span class="comment"># The text that appears in the HTML file save text box. </span></div>
+<div class="line"><span class="lineno">   47</span>        self.disableResult          = <span class="keyword">False</span>     <span class="comment"># If True then the Result field on the right hand end of the trace is not displayed.</span></div>
+<div class="line"><span class="lineno">   48</span>        self.resultWidth            = 50        <span class="comment"># The width in pixels of the result table</span></div>
+<div class="line"><span class="lineno">   49</span>        self.resultTitle            = <span class="stringliteral">&quot;Result&quot;</span>  <span class="comment"># The title of the table where the result of the trace is displayed.</span></div>
+<div class="line"><span class="lineno">   50</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,7 +182,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00048">48</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00047">47</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -198,7 +198,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00047">47</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00046">46</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -214,7 +214,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00040">40</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00039">39</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -230,7 +230,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00041">41</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00040">40</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -246,7 +246,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00039">39</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00038">38</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -262,7 +262,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00050">50</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00049">49</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -278,7 +278,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00049">49</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00048">48</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -294,7 +294,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00042">42</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00041">41</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -310,7 +310,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00045">45</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00044">44</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -326,7 +326,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00037">37</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00036">36</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -342,7 +342,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00043">43</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00042">42</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -358,7 +358,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00036">36</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00035">35</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -374,7 +374,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00044">44</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00043">43</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -390,7 +390,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00038">38</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00037">37</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>

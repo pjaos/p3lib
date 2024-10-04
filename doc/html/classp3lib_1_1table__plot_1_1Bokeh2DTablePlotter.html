@@ -204,7 +204,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00298">298</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00297">297</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a47de50546f2ec3597309189216536af0" name="a47de50546f2ec3597309189216536af0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47de50546f2ec3597309189216536af0">&#9670;&#160;</a></span>__init__()</h2>
@@ -242,27 +242,27 @@ Protected Attributes</h2></td></tr>
    @param bokehServerPort The TCP port to bind the server to.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1bokeh__gui_1_1SingleAppServer.html#af7cb45c74f8e812d56033575a7cf07d5">SingleAppServer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00319">319</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  319</span>    <span class="keyword">def </span>__init__(self, docTitle, bokehServerPort):</div>
-<div class="line"><span class="lineno">  320</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor.</span></div>
-<div class="line"><span class="lineno">  321</span><span class="stringliteral">           @param docTitle The title of the HTML doc page.</span></div>
-<div class="line"><span class="lineno">  322</span><span class="stringliteral">           @param bokehServerPort The TCP port to bind the server to.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  323</span>        super().__init__(bokehPort=bokehServerPort)</div>
-<div class="line"><span class="lineno">  324</span>        self.docTitle                   = docTitle</div>
-<div class="line"><span class="lineno">  325</span>        self._guiInitComplete           = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  326</span>        self._guiTable                  = [[]]          <span class="comment"># A two dimensional table that holds the GUI components.</span></div>
-<div class="line"><span class="lineno">  327</span>        self._msgQueue                  = queue.Queue() <span class="comment"># Queue through which messages pass into the GUI thread.</span></div>
-<div class="line"><span class="lineno">  328</span>        self._plotColumnDataSourceList  = <span class="keywordtype">None</span></div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00318">318</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  318</span>    <span class="keyword">def </span>__init__(self, docTitle, bokehServerPort):</div>
+<div class="line"><span class="lineno">  319</span>        <span class="stringliteral">&quot;&quot;&quot;@Constructor.</span></div>
+<div class="line"><span class="lineno">  320</span><span class="stringliteral">           @param docTitle The title of the HTML doc page.</span></div>
+<div class="line"><span class="lineno">  321</span><span class="stringliteral">           @param bokehServerPort The TCP port to bind the server to.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  322</span>        super().__init__(bokehPort=bokehServerPort)</div>
+<div class="line"><span class="lineno">  323</span>        self.docTitle                   = docTitle</div>
+<div class="line"><span class="lineno">  324</span>        self._guiInitComplete           = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  325</span>        self._guiTable                  = [[]]          <span class="comment"># A two dimensional table that holds the GUI components.</span></div>
+<div class="line"><span class="lineno">  326</span>        self._msgQueue                  = queue.Queue() <span class="comment"># Queue through which messages pass into the GUI thread.</span></div>
+<div class="line"><span class="lineno">  327</span>        self._plotColumnDataSourceList  = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  328</span>        self._plotFigureList            = <span class="keywordtype">None</span></div>
 <div class="line"><span class="lineno">  329</span>        self._plotFigureList            = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  330</span>        self._plotFigureList            = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  331</span>        self._plotColorIndex            = 3</div>
-<div class="line"><span class="lineno">  332</span>        self._pColor                    = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  333</span>        self._resultTableList           = []</div>
-<div class="line"><span class="lineno">  334</span>        </div>
-<div class="line"><span class="lineno">  335</span>        self._newPlotColor()</div>
-<div class="line"><span class="lineno">  336</span>        </div>
-<div class="line"><span class="lineno">  337</span>     <span class="comment"># Setters start</span></div>
-<div class="line"><span class="lineno">  338</span>     </div>
+<div class="line"><span class="lineno">  330</span>        self._plotColorIndex            = 3</div>
+<div class="line"><span class="lineno">  331</span>        self._pColor                    = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  332</span>        self._resultTableList           = []</div>
+<div class="line"><span class="lineno">  333</span>        </div>
+<div class="line"><span class="lineno">  334</span>        self._newPlotColor()</div>
+<div class="line"><span class="lineno">  335</span>        </div>
+<div class="line"><span class="lineno">  336</span>     <span class="comment"># Setters start</span></div>
+<div class="line"><span class="lineno">  337</span>     </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,27 +291,27 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Display all the plots to be displayed.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00458">458</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  458</span>    <span class="keyword">def </span>_addPlots(self):</div>
-<div class="line"><span class="lineno">  459</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Display all the plots to be displayed.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  460</span>        self._plotColumnDataSourceList  = []</div>
-<div class="line"><span class="lineno">  461</span>        self._plotFigureList            = []</div>
-<div class="line"><span class="lineno">  462</span>        <span class="keywordflow">if</span> self._staticPlotParams.tableColNames <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  463</span>            <span class="keywordflow">raise</span> PSError(<span class="stringliteral">&quot;BUG: self._staticPlotParams.tableColNames is None&quot;</span>)</div>
-<div class="line"><span class="lineno">  464</span>        </div>
-<div class="line"><span class="lineno">  465</span>        <span class="comment"># Add plot traces ignoring the first column as we expect this to be a float value or datetime.</span></div>
-<div class="line"><span class="lineno">  466</span>        <span class="keywordflow">for</span> tableColName <span class="keywordflow">in</span> self._staticPlotParams.tableColNames[1:]:</div>
-<div class="line"><span class="lineno">  467</span>            plotFigure = self._getPlotFigure(tableColName)</div>
-<div class="line"><span class="lineno">  468</span>            self._plotFigureList.append(plotFigure)</div>
-<div class="line"><span class="lineno">  469</span>            resultTable = self._getResultTable()</div>
-<div class="line"><span class="lineno">  470</span>            <span class="keywordflow">if</span> self._staticPlotParams.disableResult:</div>
-<div class="line"><span class="lineno">  471</span>                <span class="comment"># Don&#39;t add the result table to the GUI layout</span></div>
-<div class="line"><span class="lineno">  472</span>                tRow = row(plotFigure, height=self._staticPlotParams.plotPanelHeight)                </div>
-<div class="line"><span class="lineno">  473</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  474</span>                tRow = row(plotFigure, resultTable, height=self._staticPlotParams.plotPanelHeight)</div>
-<div class="line"><span class="lineno">  475</span> </div>
-<div class="line"><span class="lineno">  476</span>            self._guiTable.append([tRow])</div>
-<div class="line"><span class="lineno">  477</span>            </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00457">457</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  457</span>    <span class="keyword">def </span>_addPlots(self):</div>
+<div class="line"><span class="lineno">  458</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Display all the plots to be displayed.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  459</span>        self._plotColumnDataSourceList  = []</div>
+<div class="line"><span class="lineno">  460</span>        self._plotFigureList            = []</div>
+<div class="line"><span class="lineno">  461</span>        <span class="keywordflow">if</span> self._staticPlotParams.tableColNames <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  462</span>            <span class="keywordflow">raise</span> PSError(<span class="stringliteral">&quot;BUG: self._staticPlotParams.tableColNames is None&quot;</span>)</div>
+<div class="line"><span class="lineno">  463</span>        </div>
+<div class="line"><span class="lineno">  464</span>        <span class="comment"># Add plot traces ignoring the first column as we expect this to be a float value or datetime.</span></div>
+<div class="line"><span class="lineno">  465</span>        <span class="keywordflow">for</span> tableColName <span class="keywordflow">in</span> self._staticPlotParams.tableColNames[1:]:</div>
+<div class="line"><span class="lineno">  466</span>            plotFigure = self._getPlotFigure(tableColName)</div>
+<div class="line"><span class="lineno">  467</span>            self._plotFigureList.append(plotFigure)</div>
+<div class="line"><span class="lineno">  468</span>            resultTable = self._getResultTable()</div>
+<div class="line"><span class="lineno">  469</span>            <span class="keywordflow">if</span> self._staticPlotParams.disableResult:</div>
+<div class="line"><span class="lineno">  470</span>                <span class="comment"># Don&#39;t add the result table to the GUI layout</span></div>
+<div class="line"><span class="lineno">  471</span>                tRow = row(plotFigure, height=self._staticPlotParams.plotPanelHeight)                </div>
+<div class="line"><span class="lineno">  472</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  473</span>                tRow = row(plotFigure, resultTable, height=self._staticPlotParams.plotPanelHeight)</div>
+<div class="line"><span class="lineno">  474</span> </div>
+<div class="line"><span class="lineno">  475</span>            self._guiTable.append([tRow])</div>
+<div class="line"><span class="lineno">  476</span>            </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,77 +351,77 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Create a plot figure.
    @param tableColName The name of the trace.
    @return The figure instance.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00478">478</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  478</span>    <span class="keyword">def </span>_getPlotFigure(self, tableColName):</div>
-<div class="line"><span class="lineno">  479</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Create a plot figure.</span></div>
-<div class="line"><span class="lineno">  480</span><span class="stringliteral">           @param tableColName The name of the trace.</span></div>
-<div class="line"><span class="lineno">  481</span><span class="stringliteral">           @return The figure instance.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  482</span>        <span class="comment"># Add the hover menu for each plot point</span></div>
-<div class="line"><span class="lineno">  483</span>        <span class="keywordflow">if</span> self._staticPlotParams.xAxisType == Table2DPlotServer.FLOAT_X_AXIS_TYPE:</div>
-<div class="line"><span class="lineno">  484</span>            tooltips=[</div>
-<div class="line"><span class="lineno">  485</span>                (<span class="stringliteral">&quot;name&quot;</span>,         <span class="stringliteral">&quot;@name&quot;</span>),</div>
-<div class="line"><span class="lineno">  486</span>                (<span class="stringliteral">&quot;Seconds&quot;</span>,      <span class="stringliteral">&quot;@x{0.0}&quot;</span>),</div>
-<div class="line"><span class="lineno">  487</span>                (tableColName,   <span class="stringliteral">&quot;@y{0.0}&quot;</span>),</div>
-<div class="line"><span class="lineno">  488</span>            ]</div>
-<div class="line"><span class="lineno">  489</span>            xAxisName = <span class="stringliteral">&quot;Seconds&quot;</span> <span class="comment"># We defailt the X axis name to seconds.</span></div>
-<div class="line"><span class="lineno">  490</span>            xAxisType = <span class="stringliteral">&#39;auto&#39;</span></div>
-<div class="line"><span class="lineno">  491</span>        </div>
-<div class="line"><span class="lineno">  492</span>        <span class="keywordflow">elif</span> self._staticPlotParams.xAxisType == Table2DPlotServer.DATETIME_X_AXIS_TYPE:</div>
-<div class="line"><span class="lineno">  493</span>            tooltips=[</div>
-<div class="line"><span class="lineno">  494</span>                (<span class="stringliteral">&quot;name&quot;</span>,        <span class="stringliteral">&quot;@name&quot;</span>),</div>
-<div class="line"><span class="lineno">  495</span>                (<span class="stringliteral">&#39;date&#39;</span>,        <span class="stringliteral">&quot;$x{%Y-%m-%d}&quot;</span>), </div>
-<div class="line"><span class="lineno">  496</span>                (<span class="stringliteral">&#39;time&#39;</span>,        <span class="stringliteral">&quot;$x{%H:%M:%S}&quot;</span>),</div>
-<div class="line"><span class="lineno">  497</span>                (tableColName,   <span class="stringliteral">&quot;@y{0.0}&quot;</span>),</div>
-<div class="line"><span class="lineno">  498</span>            ]</div>
-<div class="line"><span class="lineno">  499</span>            xAxisName = <span class="stringliteral">&quot;Time&quot;</span></div>
-<div class="line"><span class="lineno">  500</span>            xAxisType = <span class="stringliteral">&#39;datetime&#39;</span></div>
-<div class="line"><span class="lineno">  501</span>                    </div>
-<div class="line"><span class="lineno">  502</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  503</span>            <span class="keywordflow">raise</span> PSError(f<span class="stringliteral">&quot;BUG: Invalid X Axis type set ({self._staticPlotParams.xAxisType}).&quot;</span>)</div>
-<div class="line"><span class="lineno">  504</span>        </div>
-<div class="line"><span class="lineno">  505</span>        <span class="comment">#If the x axis name is set this overrides the name associated with the x axis type. </span></div>
-<div class="line"><span class="lineno">  506</span>        <span class="keywordflow">if</span> self._staticPlotParams.xAxisName:</div>
-<div class="line"><span class="lineno">  507</span>            xAxisName = self._staticPlotParams.xAxisName</div>
-<div class="line"><span class="lineno">  508</span>        </div>
-<div class="line"><span class="lineno">  509</span>        <span class="comment"># Set up plot/figure attributes.</span></div>
-<div class="line"><span class="lineno">  510</span>        plot = figure(title=<span class="stringliteral">&quot;&quot;</span>, <span class="comment"># Don&#39;t set the title as the Y axis has the title</span></div>
-<div class="line"><span class="lineno">  511</span>                      sizing_mode = <span class="stringliteral">&#39;stretch_both&#39;</span>,</div>
-<div class="line"><span class="lineno">  512</span>                      x_axis_label=xAxisName,</div>
-<div class="line"><span class="lineno">  513</span>                      y_axis_label=tableColName,</div>
-<div class="line"><span class="lineno">  514</span>                      tools=Bokeh2DTablePlotter.TOOLS,</div>
-<div class="line"><span class="lineno">  515</span>                      active_drag=<span class="stringliteral">&quot;box_zoom&quot;</span>,</div>
-<div class="line"><span class="lineno">  516</span>                      x_axis_type=xAxisType)</div>
-<div class="line"><span class="lineno">  517</span>            </div>
-<div class="line"><span class="lineno">  518</span>        <span class="comment"># For sliding window of displayed values</span></div>
-<div class="line"><span class="lineno">  519</span><span class="comment">#        plot.x_range.follow = &quot;end&quot;</span></div>
-<div class="line"><span class="lineno">  520</span><span class="comment">#        from datetime import timedelta</span></div>
-<div class="line"><span class="lineno">  521</span><span class="comment">#        plot.x_range.follow_interval = 200</span></div>
-<div class="line"><span class="lineno">  522</span>        <span class="comment"># timedelta(seconds=50)</span></div>
-<div class="line"><span class="lineno">  523</span> </div>
-<div class="line"><span class="lineno">  524</span>        source = Bokeh2DTablePlotter.GetColumnDataSource()</div>
-<div class="line"><span class="lineno">  525</span>        self._plotColumnDataSourceList.append( source )</div>
-<div class="line"><span class="lineno">  526</span> </div>
-<div class="line"><span class="lineno">  527</span>        <span class="keywordflow">if</span> self._staticPlotParams.linePlot:</div>
-<div class="line"><span class="lineno">  528</span>            plot.line(<span class="stringliteral">&#39;x&#39;</span>, <span class="stringliteral">&#39;y&#39;</span>, source=source, line_width=self._staticPlotParams.plotLineWidth, color=self._pColor)</div>
-<div class="line"><span class="lineno">  529</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  530</span>            plot.circle(<span class="stringliteral">&#39;x&#39;</span>, <span class="stringliteral">&#39;y&#39;</span>, source=source, size=self._staticPlotParams.scatterPlotDotSize, color=self._pColor)</div>
-<div class="line"><span class="lineno">  531</span>        </div>
-<div class="line"><span class="lineno">  532</span>        <span class="keywordflow">if</span> self._staticPlotParams.xAxisType == Table2DPlotServer.FLOAT_X_AXIS_TYPE:</div>
-<div class="line"><span class="lineno">  533</span>            plot.add_tools(HoverTool(</div>
-<div class="line"><span class="lineno">  534</span>                tooltips=tooltips</div>
-<div class="line"><span class="lineno">  535</span>            ))</div>
-<div class="line"><span class="lineno">  536</span>                        </div>
-<div class="line"><span class="lineno">  537</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  538</span>            formatters = {<span class="stringliteral">&#39;$x&#39;</span>: <span class="stringliteral">&#39;datetime&#39;</span>}</div>
-<div class="line"><span class="lineno">  539</span>            plot.add_tools(HoverTool(</div>
-<div class="line"><span class="lineno">  540</span>                tooltips=tooltips,</div>
-<div class="line"><span class="lineno">  541</span>                formatters=formatters</div>
-<div class="line"><span class="lineno">  542</span>            ))</div>
-<div class="line"><span class="lineno">  543</span> </div>
-<div class="line"><span class="lineno">  544</span>        <span class="comment">#self._newPlotColor()</span></div>
-<div class="line"><span class="lineno">  545</span>        </div>
-<div class="line"><span class="lineno">  546</span>        <span class="keywordflow">return</span> plot</div>
-<div class="line"><span class="lineno">  547</span>        </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00477">477</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  477</span>    <span class="keyword">def </span>_getPlotFigure(self, tableColName):</div>
+<div class="line"><span class="lineno">  478</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Create a plot figure.</span></div>
+<div class="line"><span class="lineno">  479</span><span class="stringliteral">           @param tableColName The name of the trace.</span></div>
+<div class="line"><span class="lineno">  480</span><span class="stringliteral">           @return The figure instance.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  481</span>        <span class="comment"># Add the hover menu for each plot point</span></div>
+<div class="line"><span class="lineno">  482</span>        <span class="keywordflow">if</span> self._staticPlotParams.xAxisType == Table2DPlotServer.FLOAT_X_AXIS_TYPE:</div>
+<div class="line"><span class="lineno">  483</span>            tooltips=[</div>
+<div class="line"><span class="lineno">  484</span>                (<span class="stringliteral">&quot;name&quot;</span>,         <span class="stringliteral">&quot;@name&quot;</span>),</div>
+<div class="line"><span class="lineno">  485</span>                (<span class="stringliteral">&quot;Seconds&quot;</span>,      <span class="stringliteral">&quot;@x{0.0}&quot;</span>),</div>
+<div class="line"><span class="lineno">  486</span>                (tableColName,   <span class="stringliteral">&quot;@y{0.0}&quot;</span>),</div>
+<div class="line"><span class="lineno">  487</span>            ]</div>
+<div class="line"><span class="lineno">  488</span>            xAxisName = <span class="stringliteral">&quot;Seconds&quot;</span> <span class="comment"># We defailt the X axis name to seconds.</span></div>
+<div class="line"><span class="lineno">  489</span>            xAxisType = <span class="stringliteral">&#39;auto&#39;</span></div>
+<div class="line"><span class="lineno">  490</span>        </div>
+<div class="line"><span class="lineno">  491</span>        <span class="keywordflow">elif</span> self._staticPlotParams.xAxisType == Table2DPlotServer.DATETIME_X_AXIS_TYPE:</div>
+<div class="line"><span class="lineno">  492</span>            tooltips=[</div>
+<div class="line"><span class="lineno">  493</span>                (<span class="stringliteral">&quot;name&quot;</span>,        <span class="stringliteral">&quot;@name&quot;</span>),</div>
+<div class="line"><span class="lineno">  494</span>                (<span class="stringliteral">&#39;date&#39;</span>,        <span class="stringliteral">&quot;$x{%Y-%m-%d}&quot;</span>), </div>
+<div class="line"><span class="lineno">  495</span>                (<span class="stringliteral">&#39;time&#39;</span>,        <span class="stringliteral">&quot;$x{%H:%M:%S}&quot;</span>),</div>
+<div class="line"><span class="lineno">  496</span>                (tableColName,   <span class="stringliteral">&quot;@y{0.0}&quot;</span>),</div>
+<div class="line"><span class="lineno">  497</span>            ]</div>
+<div class="line"><span class="lineno">  498</span>            xAxisName = <span class="stringliteral">&quot;Time&quot;</span></div>
+<div class="line"><span class="lineno">  499</span>            xAxisType = <span class="stringliteral">&#39;datetime&#39;</span></div>
+<div class="line"><span class="lineno">  500</span>                    </div>
+<div class="line"><span class="lineno">  501</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  502</span>            <span class="keywordflow">raise</span> PSError(f<span class="stringliteral">&quot;BUG: Invalid X Axis type set ({self._staticPlotParams.xAxisType}).&quot;</span>)</div>
+<div class="line"><span class="lineno">  503</span>        </div>
+<div class="line"><span class="lineno">  504</span>        <span class="comment">#If the x axis name is set this overrides the name associated with the x axis type. </span></div>
+<div class="line"><span class="lineno">  505</span>        <span class="keywordflow">if</span> self._staticPlotParams.xAxisName:</div>
+<div class="line"><span class="lineno">  506</span>            xAxisName = self._staticPlotParams.xAxisName</div>
+<div class="line"><span class="lineno">  507</span>        </div>
+<div class="line"><span class="lineno">  508</span>        <span class="comment"># Set up plot/figure attributes.</span></div>
+<div class="line"><span class="lineno">  509</span>        plot = figure(title=<span class="stringliteral">&quot;&quot;</span>, <span class="comment"># Don&#39;t set the title as the Y axis has the title</span></div>
+<div class="line"><span class="lineno">  510</span>                      sizing_mode = <span class="stringliteral">&#39;stretch_both&#39;</span>,</div>
+<div class="line"><span class="lineno">  511</span>                      x_axis_label=xAxisName,</div>
+<div class="line"><span class="lineno">  512</span>                      y_axis_label=tableColName,</div>
+<div class="line"><span class="lineno">  513</span>                      tools=Bokeh2DTablePlotter.TOOLS,</div>
+<div class="line"><span class="lineno">  514</span>                      active_drag=<span class="stringliteral">&quot;box_zoom&quot;</span>,</div>
+<div class="line"><span class="lineno">  515</span>                      x_axis_type=xAxisType)</div>
+<div class="line"><span class="lineno">  516</span>            </div>
+<div class="line"><span class="lineno">  517</span>        <span class="comment"># For sliding window of displayed values</span></div>
+<div class="line"><span class="lineno">  518</span><span class="comment">#        plot.x_range.follow = &quot;end&quot;</span></div>
+<div class="line"><span class="lineno">  519</span><span class="comment">#        from datetime import timedelta</span></div>
+<div class="line"><span class="lineno">  520</span><span class="comment">#        plot.x_range.follow_interval = 200</span></div>
+<div class="line"><span class="lineno">  521</span>        <span class="comment"># timedelta(seconds=50)</span></div>
+<div class="line"><span class="lineno">  522</span> </div>
+<div class="line"><span class="lineno">  523</span>        source = Bokeh2DTablePlotter.GetColumnDataSource()</div>
+<div class="line"><span class="lineno">  524</span>        self._plotColumnDataSourceList.append( source )</div>
+<div class="line"><span class="lineno">  525</span> </div>
+<div class="line"><span class="lineno">  526</span>        <span class="keywordflow">if</span> self._staticPlotParams.linePlot:</div>
+<div class="line"><span class="lineno">  527</span>            plot.line(<span class="stringliteral">&#39;x&#39;</span>, <span class="stringliteral">&#39;y&#39;</span>, source=source, line_width=self._staticPlotParams.plotLineWidth, color=self._pColor)</div>
+<div class="line"><span class="lineno">  528</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  529</span>            plot.circle(<span class="stringliteral">&#39;x&#39;</span>, <span class="stringliteral">&#39;y&#39;</span>, source=source, size=self._staticPlotParams.scatterPlotDotSize, color=self._pColor)</div>
+<div class="line"><span class="lineno">  530</span>        </div>
+<div class="line"><span class="lineno">  531</span>        <span class="keywordflow">if</span> self._staticPlotParams.xAxisType == Table2DPlotServer.FLOAT_X_AXIS_TYPE:</div>
+<div class="line"><span class="lineno">  532</span>            plot.add_tools(HoverTool(</div>
+<div class="line"><span class="lineno">  533</span>                tooltips=tooltips</div>
+<div class="line"><span class="lineno">  534</span>            ))</div>
+<div class="line"><span class="lineno">  535</span>                        </div>
+<div class="line"><span class="lineno">  536</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  537</span>            formatters = {<span class="stringliteral">&#39;$x&#39;</span>: <span class="stringliteral">&#39;datetime&#39;</span>}</div>
+<div class="line"><span class="lineno">  538</span>            plot.add_tools(HoverTool(</div>
+<div class="line"><span class="lineno">  539</span>                tooltips=tooltips,</div>
+<div class="line"><span class="lineno">  540</span>                formatters=formatters</div>
+<div class="line"><span class="lineno">  541</span>            ))</div>
+<div class="line"><span class="lineno">  542</span> </div>
+<div class="line"><span class="lineno">  543</span>        <span class="comment">#self._newPlotColor()</span></div>
+<div class="line"><span class="lineno">  544</span>        </div>
+<div class="line"><span class="lineno">  545</span>        <span class="keywordflow">return</span> plot</div>
+<div class="line"><span class="lineno">  546</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -450,20 +450,20 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get a table to contain the result data.
    @return The table widget.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00445">445</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  445</span>    <span class="keyword">def </span>_getResultTable(self):</div>
-<div class="line"><span class="lineno">  446</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a table to contain the result data.</span></div>
-<div class="line"><span class="lineno">  447</span><span class="stringliteral">           @return The table widget.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  448</span>        resultTable = ReadOnlyTableWrapper([<span class="stringliteral">&quot;results&quot;</span>], showLastRows=-1)</div>
-<div class="line"><span class="lineno">  449</span>        resultTable.getWidget().width=self._staticPlotParams.resultWidth</div>
-<div class="line"><span class="lineno">  450</span>        resultTable.getWidget().sizing_mode = <span class="stringliteral">&#39;stretch_height&#39;</span></div>
-<div class="line"><span class="lineno">  451</span>        resultTable.getWidget().header_row=<span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  452</span>        div = Div(text = self._staticPlotParams.resultTitle, name = <span class="stringliteral">&quot;bokeh_div&quot;</span>, styles={<span class="stringliteral">&#39;font-weight&#39;</span>: <span class="stringliteral">&#39;bold&#39;</span>})</div>
-<div class="line"><span class="lineno">  453</span>        <span class="comment"># Add the title div above the table</span></div>
-<div class="line"><span class="lineno">  454</span>        titledTable = column(div, resultTable.getWidget(), sizing_mode=<span class="stringliteral">&quot;stretch_height&quot;</span>)</div>
-<div class="line"><span class="lineno">  455</span>        self._resultTableList.append(resultTable)</div>
-<div class="line"><span class="lineno">  456</span>        <span class="keywordflow">return</span> titledTable</div>
-<div class="line"><span class="lineno">  457</span> </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00444">444</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  444</span>    <span class="keyword">def </span>_getResultTable(self):</div>
+<div class="line"><span class="lineno">  445</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a table to contain the result data.</span></div>
+<div class="line"><span class="lineno">  446</span><span class="stringliteral">           @return The table widget.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  447</span>        resultTable = ReadOnlyTableWrapper([<span class="stringliteral">&quot;results&quot;</span>], showLastRows=-1)</div>
+<div class="line"><span class="lineno">  448</span>        resultTable.getWidget().width=self._staticPlotParams.resultWidth</div>
+<div class="line"><span class="lineno">  449</span>        resultTable.getWidget().sizing_mode = <span class="stringliteral">&#39;stretch_height&#39;</span></div>
+<div class="line"><span class="lineno">  450</span>        resultTable.getWidget().header_row=<span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  451</span>        div = Div(text = self._staticPlotParams.resultTitle, name = <span class="stringliteral">&quot;bokeh_div&quot;</span>, styles={<span class="stringliteral">&#39;font-weight&#39;</span>: <span class="stringliteral">&#39;bold&#39;</span>})</div>
+<div class="line"><span class="lineno">  452</span>        <span class="comment"># Add the title div above the table</span></div>
+<div class="line"><span class="lineno">  453</span>        titledTable = column(div, resultTable.getWidget(), sizing_mode=<span class="stringliteral">&quot;stretch_height&quot;</span>)</div>
+<div class="line"><span class="lineno">  454</span>        self._resultTableList.append(resultTable)</div>
+<div class="line"><span class="lineno">  455</span>        <span class="keywordflow">return</span> titledTable</div>
+<div class="line"><span class="lineno">  456</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -491,23 +491,23 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get a component to be used to save plots to an HTML file.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00369">369</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  369</span>    <span class="keyword">def </span>_getSaveHTMLComponment(self):</div>
-<div class="line"><span class="lineno">  370</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a component to be used to save plots to an HTML file.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  371</span>        saveButton = Button(label=<span class="stringliteral">&quot;Save HTML File&quot;</span>, button_type=<span class="stringliteral">&quot;success&quot;</span>, width=50)</div>
-<div class="line"><span class="lineno">  372</span>        saveButton.on_click(self._savePlot)</div>
-<div class="line"><span class="lineno">  373</span> </div>
-<div class="line"><span class="lineno">  374</span>        self.fileToSave = TextInput()</div>
-<div class="line"><span class="lineno">  375</span>        </div>
-<div class="line"><span class="lineno">  376</span>        <span class="comment">#If the HTML file has been defined then use this</span></div>
-<div class="line"><span class="lineno">  377</span>        <span class="keywordflow">if</span> self._staticPlotParams.htmlFile:</div>
-<div class="line"><span class="lineno">  378</span>            self.fileToSave.value = self._staticPlotParams.htmlFile</div>
-<div class="line"><span class="lineno">  379</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  380</span>            <span class="comment"># else set default output file name</span></div>
-<div class="line"><span class="lineno">  381</span>            self.fileToSave.value = os.path.join( tempfile.gettempdir(), <span class="stringliteral">&quot;result.html&quot;</span> )</div>
-<div class="line"><span class="lineno">  382</span> </div>
-<div class="line"><span class="lineno">  383</span>        <span class="keywordflow">return</span> row(self.fileToSave, saveButton)</div>
-<div class="line"><span class="lineno">  384</span> </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00368">368</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  368</span>    <span class="keyword">def </span>_getSaveHTMLComponment(self):</div>
+<div class="line"><span class="lineno">  369</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a component to be used to save plots to an HTML file.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  370</span>        saveButton = Button(label=<span class="stringliteral">&quot;Save HTML File&quot;</span>, button_type=<span class="stringliteral">&quot;success&quot;</span>, width=50)</div>
+<div class="line"><span class="lineno">  371</span>        saveButton.on_click(self._savePlot)</div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>        self.fileToSave = TextInput()</div>
+<div class="line"><span class="lineno">  374</span>        </div>
+<div class="line"><span class="lineno">  375</span>        <span class="comment">#If the HTML file has been defined then use this</span></div>
+<div class="line"><span class="lineno">  376</span>        <span class="keywordflow">if</span> self._staticPlotParams.htmlFile:</div>
+<div class="line"><span class="lineno">  377</span>            self.fileToSave.value = self._staticPlotParams.htmlFile</div>
+<div class="line"><span class="lineno">  378</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  379</span>            <span class="comment"># else set default output file name</span></div>
+<div class="line"><span class="lineno">  380</span>            self.fileToSave.value = os.path.join( tempfile.gettempdir(), <span class="stringliteral">&quot;result.html&quot;</span> )</div>
+<div class="line"><span class="lineno">  381</span> </div>
+<div class="line"><span class="lineno">  382</span>        <span class="keywordflow">return</span> row(self.fileToSave, saveButton)</div>
+<div class="line"><span class="lineno">  383</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -535,15 +535,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Allocate a new color for the plot trace.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00548">548</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  548</span>    <span class="keyword">def </span>_newPlotColor(self):</div>
-<div class="line"><span class="lineno">  549</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Allocate a new color for the plot trace.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  550</span>        <span class="comment"># Use the next color for the next plot</span></div>
-<div class="line"><span class="lineno">  551</span>        self._plotColorIndex += 1</div>
-<div class="line"><span class="lineno">  552</span>        <span class="keywordflow">if</span> self._plotColorIndex &gt; 20:</div>
-<div class="line"><span class="lineno">  553</span>            self._plotColorIndex = 3</div>
-<div class="line"><span class="lineno">  554</span>        self._pColor = Category20[20][self._plotColorIndex]</div>
-<div class="line"><span class="lineno">  555</span> </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00547">547</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  547</span>    <span class="keyword">def </span>_newPlotColor(self):</div>
+<div class="line"><span class="lineno">  548</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Allocate a new color for the plot trace.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  549</span>        <span class="comment"># Use the next color for the next plot</span></div>
+<div class="line"><span class="lineno">  550</span>        self._plotColorIndex += 1</div>
+<div class="line"><span class="lineno">  551</span>        <span class="keywordflow">if</span> self._plotColorIndex &gt; 20:</div>
+<div class="line"><span class="lineno">  552</span>            self._plotColorIndex = 3</div>
+<div class="line"><span class="lineno">  553</span>        self._pColor = Category20[20][self._plotColorIndex]</div>
+<div class="line"><span class="lineno">  554</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -581,21 +581,21 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Update a single plot point for each trace displayed.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00556">556</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  556</span>    <span class="keyword">def </span>_processPlotPoint(self, plotPointList):</div>
-<div class="line"><span class="lineno">  557</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Update a single plot point for each trace displayed.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  558</span>        xValue = Bokeh2DTablePlotter.GetTimeValue(plotPointList[0])</div>
-<div class="line"><span class="lineno">  559</span>        colNumber = 1</div>
-<div class="line"><span class="lineno">  560</span>        <span class="keywordflow">for</span> plotPoint <span class="keywordflow">in</span> plotPointList[1:]:</div>
-<div class="line"><span class="lineno">  561</span>            plotPoint= {<span class="stringliteral">&#39;name&#39;</span>: [self._staticPlotParams.tableColNames[colNumber]],</div>
-<div class="line"><span class="lineno">  562</span>                        <span class="stringliteral">&#39;x&#39;</span>: [xValue],</div>
-<div class="line"><span class="lineno">  563</span>                        <span class="stringliteral">&#39;y&#39;</span>: [plotPointList[colNumber]] }</div>
-<div class="line"><span class="lineno">  564</span> </div>
-<div class="line"><span class="lineno">  565</span>            <span class="keywordflow">if</span> colNumber &lt; len(self._plotColumnDataSourceList)+1:</div>
-<div class="line"><span class="lineno">  566</span>                self._plotColumnDataSourceList[colNumber-1].stream(plotPoint)</div>
-<div class="line"><span class="lineno">  567</span>                           </div>
-<div class="line"><span class="lineno">  568</span>            colNumber += 1           </div>
-<div class="line"><span class="lineno">  569</span>            </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00555">555</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  555</span>    <span class="keyword">def </span>_processPlotPoint(self, plotPointList):</div>
+<div class="line"><span class="lineno">  556</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Update a single plot point for each trace displayed.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  557</span>        xValue = Bokeh2DTablePlotter.GetTimeValue(plotPointList[0])</div>
+<div class="line"><span class="lineno">  558</span>        colNumber = 1</div>
+<div class="line"><span class="lineno">  559</span>        <span class="keywordflow">for</span> plotPoint <span class="keywordflow">in</span> plotPointList[1:]:</div>
+<div class="line"><span class="lineno">  560</span>            plotPoint= {<span class="stringliteral">&#39;name&#39;</span>: [self._staticPlotParams.tableColNames[colNumber]],</div>
+<div class="line"><span class="lineno">  561</span>                        <span class="stringliteral">&#39;x&#39;</span>: [xValue],</div>
+<div class="line"><span class="lineno">  562</span>                        <span class="stringliteral">&#39;y&#39;</span>: [plotPointList[colNumber]] }</div>
+<div class="line"><span class="lineno">  563</span> </div>
+<div class="line"><span class="lineno">  564</span>            <span class="keywordflow">if</span> colNumber &lt; len(self._plotColumnDataSourceList)+1:</div>
+<div class="line"><span class="lineno">  565</span>                self._plotColumnDataSourceList[colNumber-1].stream(plotPoint)</div>
+<div class="line"><span class="lineno">  566</span>                           </div>
+<div class="line"><span class="lineno">  567</span>            colNumber += 1           </div>
+<div class="line"><span class="lineno">  568</span>            </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -634,114 +634,114 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Process a final result message.
    @param resultList A list of the final results for each column in the table.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00570">570</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  570</span>    <span class="keyword">def </span>_processResult(self, resultList):</div>
-<div class="line"><span class="lineno">  571</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Process a final result message.</span></div>
-<div class="line"><span class="lineno">  572</span><span class="stringliteral">           @param resultList A list of the final results for each column in the table.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  573</span>        plotIndex = 0</div>
-<div class="line"><span class="lineno">  574</span>        <span class="keywordflow">for</span> resultTable <span class="keywordflow">in</span> self._resultTableList:</div>
-<div class="line"><span class="lineno">  575</span>            resultTable.setRows( [ [resultList[plotIndex]] ] )</div>
-<div class="line"><span class="lineno">  576</span>            plotIndex += 1</div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00569">569</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  569</span>    <span class="keyword">def </span>_processResult(self, resultList):</div>
+<div class="line"><span class="lineno">  570</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Process a final result message.</span></div>
+<div class="line"><span class="lineno">  571</span><span class="stringliteral">           @param resultList A list of the final results for each column in the table.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  572</span>        plotIndex = 0</div>
+<div class="line"><span class="lineno">  573</span>        <span class="keywordflow">for</span> resultTable <span class="keywordflow">in</span> self._resultTableList:</div>
+<div class="line"><span class="lineno">  574</span>            resultTable.setRows( [ [resultList[plotIndex]] ] )</div>
+<div class="line"><span class="lineno">  575</span>            plotIndex += 1</div>
+<div class="line"><span class="lineno">  576</span> </div>
 <div class="line"><span class="lineno">  577</span> </div>
 <div class="line"><span class="lineno">  578</span> </div>
 <div class="line"><span class="lineno">  579</span> </div>
-<div class="line"><span class="lineno">  580</span> </div>
-<div class="line"><span class="lineno">  581</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  582</span><span class="stringliteral"># Example code. This shows how 2D table data may be plotted. </span></div>
-<div class="line"><span class="lineno">  583</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  584</span><span class="stringliteral">#!/usr/bin/env python</span></div>
-<div class="line"><span class="lineno">  585</span><span class="stringliteral"># -*- coding: utf-8 -*-</span></div>
-<div class="line"><span class="lineno">  586</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  587</span><span class="stringliteral">from time import sleep</span></div>
-<div class="line"><span class="lineno">  588</span><span class="stringliteral">from datetime import datetime</span></div>
-<div class="line"><span class="lineno">  589</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  590</span><span class="stringliteral">from p3lib.table_plot import Table2DPlotServer</span></div>
-<div class="line"><span class="lineno">  591</span><span class="stringliteral">from p3lib.json_networking import JSONClient</span></div>
-<div class="line"><span class="lineno">  592</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  593</span><span class="stringliteral"># This starts the server in the background waiting for the data to be plotted.</span></div>
-<div class="line"><span class="lineno">  594</span><span class="stringliteral">table2DPlotServer = Table2DPlotServer()</span></div>
-<div class="line"><span class="lineno">  595</span><span class="stringliteral">table2DPlotServer.start()</span></div>
-<div class="line"><span class="lineno">  596</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  597</span><span class="stringliteral"># Create the client to talk to the above server and send parameters and table data</span></div>
-<div class="line"><span class="lineno">  598</span><span class="stringliteral">client = JSONClient(Table2DPlotServer.DEFAULT_HOST, Table2DPlotServer.DEFAULT_PORT)</span></div>
-<div class="line"><span class="lineno">  599</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  600</span><span class="stringliteral"># Set the X Axis type</span></div>
-<div class="line"><span class="lineno">  601</span><span class="stringliteral"># Set X AXIS as a float value values</span></div>
-<div class="line"><span class="lineno">  602</span><span class="stringliteral">xAxisTypeDict = {Table2DPlotServer.XAXIS_TYPE: Table2DPlotServer.FLOAT_X_AXIS_TYPE}</span></div>
-<div class="line"><span class="lineno">  603</span><span class="stringliteral"># Set X Axis as datetime values</span></div>
-<div class="line"><span class="lineno">  604</span><span class="stringliteral">#xAxisTypeDict = {Table2DPlotServer.XAXIS_TYPE: Table2DPlotServer.DATETIME_X_AXIS_TYPE}</span></div>
-<div class="line"><span class="lineno">  605</span><span class="stringliteral">client.tx(xAxisTypeDict)</span></div>
-<div class="line"><span class="lineno">  606</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  607</span><span class="stringliteral"># Set height of each trace panel to 500 pixels (default = 250)</span></div>
-<div class="line"><span class="lineno">  608</span><span class="stringliteral">#paramDict = {Table2DPlotServer.PLOT_PANEL_HEIGHT: 500}</span></div>
-<div class="line"><span class="lineno">  609</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  610</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  611</span><span class="stringliteral"># Set the plot line with to 10 pixels rather than the default of 10</span></div>
-<div class="line"><span class="lineno">  612</span><span class="stringliteral">#paramDict = {Table2DPlotServer.PLOT_LINE_WIDTH: 10}</span></div>
-<div class="line"><span class="lineno">  613</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  614</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  615</span><span class="stringliteral"># Set scatter plot rather than the default line plot</span></div>
-<div class="line"><span class="lineno">  616</span><span class="stringliteral">#paramDict = {Table2DPlotServer.LINE_PLOT: False}</span></div>
-<div class="line"><span class="lineno">  617</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  618</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  619</span><span class="stringliteral"># Set scatter plot dot size rather than the default of 8</span></div>
-<div class="line"><span class="lineno">  620</span><span class="stringliteral">#paramDict = {Table2DPlotServer.SCATTER_PLOT_DOT_SIZE: 20}</span></div>
-<div class="line"><span class="lineno">  621</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  622</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  623</span><span class="stringliteral"># Set the color theme for the plot</span></div>
-<div class="line"><span class="lineno">  624</span><span class="stringliteral"># Valid strings are caliber,dark_minimal,light_minimal,night_sky,contrast</span></div>
-<div class="line"><span class="lineno">  625</span><span class="stringliteral">#paramDict = {Table2DPlotServer.THEME: &quot;night_sky&quot;}</span></div>
-<div class="line"><span class="lineno">  626</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  627</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  628</span><span class="stringliteral"># Force the X axis name. </span></div>
-<div class="line"><span class="lineno">  629</span><span class="stringliteral"># If not set and XAXIS_TYPE = SECONDS_X_AXIS_TYPE the # x axis will be Seconds.</span></div>
-<div class="line"><span class="lineno">  630</span><span class="stringliteral"># If not set and XAXIS_TYPE = DATETIME_X_AXIS_TYPE the # x axis will be Time&quot;.</span></div>
-<div class="line"><span class="lineno">  631</span><span class="stringliteral">#paramDict = {Table2DPlotServer.X_AXIS_NAME: &quot;ABCDEF&quot;}</span></div>
-<div class="line"><span class="lineno">  632</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  633</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  634</span><span class="stringliteral"># Set the html file</span></div>
-<div class="line"><span class="lineno">  635</span><span class="stringliteral">#paramDict = {Table2DPlotServer.HTML_FILE: &quot;/home/auser/result.html&quot;}</span></div>
-<div class="line"><span class="lineno">  636</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  637</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  638</span><span class="stringliteral"># Remove the result table from the GUI.</span></div>
-<div class="line"><span class="lineno">  639</span><span class="stringliteral">#paramDict = {Table2DPlotServer.DISABLE_RESULT: True}</span></div>
-<div class="line"><span class="lineno">  640</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  641</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  642</span><span class="stringliteral"># Set the width (in pixels) of the result table. </span></div>
-<div class="line"><span class="lineno">  643</span><span class="stringliteral"># If set to small then it will expand to fit the the text. </span></div>
-<div class="line"><span class="lineno">  644</span><span class="stringliteral">#paramDict = {Table2DPlotServer.RESULT_WIDTH: 10}</span></div>
-<div class="line"><span class="lineno">  645</span><span class="stringliteral">#client.tx(paramDict)</span></div>
-<div class="line"><span class="lineno">  646</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  647</span><span class="stringliteral"># Set the title of the result table. By default this is result.</span></div>
-<div class="line"><span class="lineno">  648</span><span class="stringliteral">#paramDict = {Table2DPlotServer.RESULT_TITLE: &quot;FINAL RESULT&quot;}</span></div>
-<div class="line"><span class="lineno">  649</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  580</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  581</span><span class="stringliteral"># Example code. This shows how 2D table data may be plotted. </span></div>
+<div class="line"><span class="lineno">  582</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  583</span><span class="stringliteral">#!/usr/bin/env python</span></div>
+<div class="line"><span class="lineno">  584</span><span class="stringliteral"># -*- coding: utf-8 -*-</span></div>
+<div class="line"><span class="lineno">  585</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  586</span><span class="stringliteral">from time import sleep</span></div>
+<div class="line"><span class="lineno">  587</span><span class="stringliteral">from datetime import datetime</span></div>
+<div class="line"><span class="lineno">  588</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  589</span><span class="stringliteral">from p3lib.table_plot import Table2DPlotServer</span></div>
+<div class="line"><span class="lineno">  590</span><span class="stringliteral">from p3lib.json_networking import JSONClient</span></div>
+<div class="line"><span class="lineno">  591</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  592</span><span class="stringliteral"># This starts the server in the background waiting for the data to be plotted.</span></div>
+<div class="line"><span class="lineno">  593</span><span class="stringliteral">table2DPlotServer = Table2DPlotServer()</span></div>
+<div class="line"><span class="lineno">  594</span><span class="stringliteral">table2DPlotServer.start()</span></div>
+<div class="line"><span class="lineno">  595</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  596</span><span class="stringliteral"># Create the client to talk to the above server and send parameters and table data</span></div>
+<div class="line"><span class="lineno">  597</span><span class="stringliteral">client = JSONClient(Table2DPlotServer.DEFAULT_HOST, Table2DPlotServer.DEFAULT_PORT)</span></div>
+<div class="line"><span class="lineno">  598</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  599</span><span class="stringliteral"># Set the X Axis type</span></div>
+<div class="line"><span class="lineno">  600</span><span class="stringliteral"># Set X AXIS as a float value values</span></div>
+<div class="line"><span class="lineno">  601</span><span class="stringliteral">xAxisTypeDict = {Table2DPlotServer.XAXIS_TYPE: Table2DPlotServer.FLOAT_X_AXIS_TYPE}</span></div>
+<div class="line"><span class="lineno">  602</span><span class="stringliteral"># Set X Axis as datetime values</span></div>
+<div class="line"><span class="lineno">  603</span><span class="stringliteral">#xAxisTypeDict = {Table2DPlotServer.XAXIS_TYPE: Table2DPlotServer.DATETIME_X_AXIS_TYPE}</span></div>
+<div class="line"><span class="lineno">  604</span><span class="stringliteral">client.tx(xAxisTypeDict)</span></div>
+<div class="line"><span class="lineno">  605</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  606</span><span class="stringliteral"># Set height of each trace panel to 500 pixels (default = 250)</span></div>
+<div class="line"><span class="lineno">  607</span><span class="stringliteral">#paramDict = {Table2DPlotServer.PLOT_PANEL_HEIGHT: 500}</span></div>
+<div class="line"><span class="lineno">  608</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  609</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  610</span><span class="stringliteral"># Set the plot line with to 10 pixels rather than the default of 10</span></div>
+<div class="line"><span class="lineno">  611</span><span class="stringliteral">#paramDict = {Table2DPlotServer.PLOT_LINE_WIDTH: 10}</span></div>
+<div class="line"><span class="lineno">  612</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  613</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  614</span><span class="stringliteral"># Set scatter plot rather than the default line plot</span></div>
+<div class="line"><span class="lineno">  615</span><span class="stringliteral">#paramDict = {Table2DPlotServer.LINE_PLOT: False}</span></div>
+<div class="line"><span class="lineno">  616</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  617</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  618</span><span class="stringliteral"># Set scatter plot dot size rather than the default of 8</span></div>
+<div class="line"><span class="lineno">  619</span><span class="stringliteral">#paramDict = {Table2DPlotServer.SCATTER_PLOT_DOT_SIZE: 20}</span></div>
+<div class="line"><span class="lineno">  620</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  621</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  622</span><span class="stringliteral"># Set the color theme for the plot</span></div>
+<div class="line"><span class="lineno">  623</span><span class="stringliteral"># Valid strings are caliber,dark_minimal,light_minimal,night_sky,contrast</span></div>
+<div class="line"><span class="lineno">  624</span><span class="stringliteral">#paramDict = {Table2DPlotServer.THEME: &quot;night_sky&quot;}</span></div>
+<div class="line"><span class="lineno">  625</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  626</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  627</span><span class="stringliteral"># Force the X axis name. </span></div>
+<div class="line"><span class="lineno">  628</span><span class="stringliteral"># If not set and XAXIS_TYPE = SECONDS_X_AXIS_TYPE the # x axis will be Seconds.</span></div>
+<div class="line"><span class="lineno">  629</span><span class="stringliteral"># If not set and XAXIS_TYPE = DATETIME_X_AXIS_TYPE the # x axis will be Time&quot;.</span></div>
+<div class="line"><span class="lineno">  630</span><span class="stringliteral">#paramDict = {Table2DPlotServer.X_AXIS_NAME: &quot;ABCDEF&quot;}</span></div>
+<div class="line"><span class="lineno">  631</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  632</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  633</span><span class="stringliteral"># Set the html file</span></div>
+<div class="line"><span class="lineno">  634</span><span class="stringliteral">#paramDict = {Table2DPlotServer.HTML_FILE: &quot;/home/auser/result.html&quot;}</span></div>
+<div class="line"><span class="lineno">  635</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  636</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  637</span><span class="stringliteral"># Remove the result table from the GUI.</span></div>
+<div class="line"><span class="lineno">  638</span><span class="stringliteral">#paramDict = {Table2DPlotServer.DISABLE_RESULT: True}</span></div>
+<div class="line"><span class="lineno">  639</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  640</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  641</span><span class="stringliteral"># Set the width (in pixels) of the result table. </span></div>
+<div class="line"><span class="lineno">  642</span><span class="stringliteral"># If set to small then it will expand to fit the the text. </span></div>
+<div class="line"><span class="lineno">  643</span><span class="stringliteral">#paramDict = {Table2DPlotServer.RESULT_WIDTH: 10}</span></div>
+<div class="line"><span class="lineno">  644</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  645</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  646</span><span class="stringliteral"># Set the title of the result table. By default this is result.</span></div>
+<div class="line"><span class="lineno">  647</span><span class="stringliteral">#paramDict = {Table2DPlotServer.RESULT_TITLE: &quot;FINAL RESULT&quot;}</span></div>
+<div class="line"><span class="lineno">  648</span><span class="stringliteral">#client.tx(paramDict)</span></div>
+<div class="line"><span class="lineno">  649</span><span class="stringliteral"></span> </div>
 <div class="line"><span class="lineno">  650</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  651</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  652</span><span class="stringliteral">titleDict = {Table2DPlotServer.WINDOW_TTLE: &quot;An example Plot&quot;}</span></div>
-<div class="line"><span class="lineno">  653</span><span class="stringliteral">client.tx(titleDict)</span></div>
-<div class="line"><span class="lineno">  654</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  655</span><span class="stringliteral">headerDict = {Table2DPlotServer.TABLE_COLUMNS: [&quot;Seconds&quot;,&quot;Value 1&quot;,&quot;Value 2&quot;, &quot;V3&quot;, &quot;V4&quot;]}</span></div>
-<div class="line"><span class="lineno">  656</span><span class="stringliteral">client.tx(headerDict)</span></div>
-<div class="line"><span class="lineno">  657</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  658</span><span class="stringliteral">for seconds in range(1,100):</span></div>
-<div class="line"><span class="lineno">  659</span><span class="stringliteral">    # Add a plot point for each trace with the X axis as seconds</span></div>
-<div class="line"><span class="lineno">  660</span><span class="stringliteral">    rowDict =  {Table2DPlotServer.TABLE_ROW: [seconds, seconds+10, seconds*2, seconds*30, seconds/10.0]}</span></div>
-<div class="line"><span class="lineno">  661</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  662</span><span class="stringliteral">    # Use this when setting X axis as datetime rather than seconds values.</span></div>
-<div class="line"><span class="lineno">  663</span><span class="stringliteral">    # timeStr = Table2DPlotServer.GetTimeString(datetime.now())</span></div>
-<div class="line"><span class="lineno">  664</span><span class="stringliteral">    # rowDict =  {Table2DPlotServer.TABLE_ROW: [timeStr, seconds+10, seconds*2]}</span></div>
-<div class="line"><span class="lineno">  665</span><span class="stringliteral">    client.tx(rowDict)</span></div>
-<div class="line"><span class="lineno">  666</span><span class="stringliteral">    sleep(.02)</span></div>
-<div class="line"><span class="lineno">  667</span><span class="stringliteral">    </span></div>
-<div class="line"><span class="lineno">  668</span><span class="stringliteral"># Set the final result in the table on the right.</span></div>
-<div class="line"><span class="lineno">  669</span><span class="stringliteral">resultDict = {Table2DPlotServer.SET_RESULT: [1.1,2.2,3.3,4.4]}</span></div>
-<div class="line"><span class="lineno">  670</span><span class="stringliteral">client.tx(resultDict)</span></div>
-<div class="line"><span class="lineno">  671</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  672</span><span class="stringliteral"># Stay running to keep server running or saving an HTML file will not work.</span></div>
-<div class="line"><span class="lineno">  673</span><span class="stringliteral">while True:</span></div>
-<div class="line"><span class="lineno">  674</span><span class="stringliteral">    sleep(1)</span></div>
-<div class="line"><span class="lineno">  675</span><span class="stringliteral">    </span></div>
-<div class="line"><span class="lineno">  676</span><span class="stringliteral">&quot;&quot;&quot;</span>    </div>
+<div class="line"><span class="lineno">  651</span><span class="stringliteral">titleDict = {Table2DPlotServer.WINDOW_TTLE: &quot;An example Plot&quot;}</span></div>
+<div class="line"><span class="lineno">  652</span><span class="stringliteral">client.tx(titleDict)</span></div>
+<div class="line"><span class="lineno">  653</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  654</span><span class="stringliteral">headerDict = {Table2DPlotServer.TABLE_COLUMNS: [&quot;Seconds&quot;,&quot;Value 1&quot;,&quot;Value 2&quot;, &quot;V3&quot;, &quot;V4&quot;]}</span></div>
+<div class="line"><span class="lineno">  655</span><span class="stringliteral">client.tx(headerDict)</span></div>
+<div class="line"><span class="lineno">  656</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  657</span><span class="stringliteral">for seconds in range(1,100):</span></div>
+<div class="line"><span class="lineno">  658</span><span class="stringliteral">    # Add a plot point for each trace with the X axis as seconds</span></div>
+<div class="line"><span class="lineno">  659</span><span class="stringliteral">    rowDict =  {Table2DPlotServer.TABLE_ROW: [seconds, seconds+10, seconds*2, seconds*30, seconds/10.0]}</span></div>
+<div class="line"><span class="lineno">  660</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  661</span><span class="stringliteral">    # Use this when setting X axis as datetime rather than seconds values.</span></div>
+<div class="line"><span class="lineno">  662</span><span class="stringliteral">    # timeStr = Table2DPlotServer.GetTimeString(datetime.now())</span></div>
+<div class="line"><span class="lineno">  663</span><span class="stringliteral">    # rowDict =  {Table2DPlotServer.TABLE_ROW: [timeStr, seconds+10, seconds*2]}</span></div>
+<div class="line"><span class="lineno">  664</span><span class="stringliteral">    client.tx(rowDict)</span></div>
+<div class="line"><span class="lineno">  665</span><span class="stringliteral">    sleep(.02)</span></div>
+<div class="line"><span class="lineno">  666</span><span class="stringliteral">    </span></div>
+<div class="line"><span class="lineno">  667</span><span class="stringliteral"># Set the final result in the table on the right.</span></div>
+<div class="line"><span class="lineno">  668</span><span class="stringliteral">resultDict = {Table2DPlotServer.SET_RESULT: [1.1,2.2,3.3,4.4]}</span></div>
+<div class="line"><span class="lineno">  669</span><span class="stringliteral">client.tx(resultDict)</span></div>
+<div class="line"><span class="lineno">  670</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  671</span><span class="stringliteral"># Stay running to keep server running or saving an HTML file will not work.</span></div>
+<div class="line"><span class="lineno">  672</span><span class="stringliteral">while True:</span></div>
+<div class="line"><span class="lineno">  673</span><span class="stringliteral">    sleep(1)</span></div>
+<div class="line"><span class="lineno">  674</span><span class="stringliteral">    </span></div>
+<div class="line"><span class="lineno">  675</span><span class="stringliteral">&quot;&quot;&quot;</span>    </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -769,33 +769,33 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Save an html file with the current GUI state.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00385">385</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  385</span>    <span class="keyword">def </span>_savePlot(self):</div>
-<div class="line"><span class="lineno">  386</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Save an html file with the current GUI state.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  387</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  388</span>            htmlFile = self.fileToSave.value</div>
-<div class="line"><span class="lineno">  389</span>            <span class="keywordflow">if</span> len(htmlFile) &gt; 0:</div>
-<div class="line"><span class="lineno">  390</span>                fileBasename = os.path.basename(htmlFile)</div>
-<div class="line"><span class="lineno">  391</span>                filePath = htmlFile.replace(fileBasename, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  392</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> htmlFile.endswith(<span class="stringliteral">&quot;.html&quot;</span>):</div>
-<div class="line"><span class="lineno">  393</span>                    htmlFile = htmlFile + <span class="stringliteral">&quot;.html&quot;</span></div>
-<div class="line"><span class="lineno">  394</span>                <span class="keywordflow">if</span> os.path.isdir(filePath):</div>
-<div class="line"><span class="lineno">  395</span>                    <span class="keywordflow">if</span> os.access(filePath, os.W_OK):</div>
-<div class="line"><span class="lineno">  396</span>                        msg = <span class="stringliteral">&quot;Saving {}. Please wait...&quot;</span>.format(htmlFile)</div>
-<div class="line"><span class="lineno">  397</span>                        self._setStatus(msg)</div>
-<div class="line"><span class="lineno">  398</span>                        output_file(filename=htmlFile, title=<span class="stringliteral">&quot;Static HTML file&quot;</span>)</div>
-<div class="line"><span class="lineno">  399</span>                        save(self._doc)</div>
-<div class="line"><span class="lineno">  400</span>                        self._setStatus( <span class="stringliteral">&quot;Saved {}&quot;</span>.format(htmlFile) )</div>
-<div class="line"><span class="lineno">  401</span>                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  402</span>                        self._setStatus( <span class="stringliteral">&quot;{} exists but no write access.&quot;</span>.format(filePath) )</div>
-<div class="line"><span class="lineno">  403</span>                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  404</span>                    self._setStatus( <span class="stringliteral">&quot;{} path not found.&quot;</span>.format(filePath) )</div>
-<div class="line"><span class="lineno">  405</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  406</span>                self._setStatus(<span class="stringliteral">&quot;Please enter the html file to save.&quot;</span>)</div>
-<div class="line"><span class="lineno">  407</span>                </div>
-<div class="line"><span class="lineno">  408</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
-<div class="line"><span class="lineno">  409</span>            self._setStatus( str(ex) )</div>
-<div class="line"><span class="lineno">  410</span> </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00384">384</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  384</span>    <span class="keyword">def </span>_savePlot(self):</div>
+<div class="line"><span class="lineno">  385</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Save an html file with the current GUI state.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  386</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  387</span>            htmlFile = self.fileToSave.value</div>
+<div class="line"><span class="lineno">  388</span>            <span class="keywordflow">if</span> len(htmlFile) &gt; 0:</div>
+<div class="line"><span class="lineno">  389</span>                fileBasename = os.path.basename(htmlFile)</div>
+<div class="line"><span class="lineno">  390</span>                filePath = htmlFile.replace(fileBasename, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  391</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> htmlFile.endswith(<span class="stringliteral">&quot;.html&quot;</span>):</div>
+<div class="line"><span class="lineno">  392</span>                    htmlFile = htmlFile + <span class="stringliteral">&quot;.html&quot;</span></div>
+<div class="line"><span class="lineno">  393</span>                <span class="keywordflow">if</span> os.path.isdir(filePath):</div>
+<div class="line"><span class="lineno">  394</span>                    <span class="keywordflow">if</span> os.access(filePath, os.W_OK):</div>
+<div class="line"><span class="lineno">  395</span>                        msg = <span class="stringliteral">&quot;Saving {}. Please wait...&quot;</span>.format(htmlFile)</div>
+<div class="line"><span class="lineno">  396</span>                        self._setStatus(msg)</div>
+<div class="line"><span class="lineno">  397</span>                        output_file(filename=htmlFile, title=<span class="stringliteral">&quot;Static HTML file&quot;</span>)</div>
+<div class="line"><span class="lineno">  398</span>                        save(self._doc)</div>
+<div class="line"><span class="lineno">  399</span>                        self._setStatus( <span class="stringliteral">&quot;Saved {}&quot;</span>.format(htmlFile) )</div>
+<div class="line"><span class="lineno">  400</span>                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  401</span>                        self._setStatus( <span class="stringliteral">&quot;{} exists but no write access.&quot;</span>.format(filePath) )</div>
+<div class="line"><span class="lineno">  402</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  403</span>                    self._setStatus( <span class="stringliteral">&quot;{} path not found.&quot;</span>.format(filePath) )</div>
+<div class="line"><span class="lineno">  404</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  405</span>                self._setStatus(<span class="stringliteral">&quot;Please enter the html file to save.&quot;</span>)</div>
+<div class="line"><span class="lineno">  406</span>                </div>
+<div class="line"><span class="lineno">  407</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> ex:</div>
+<div class="line"><span class="lineno">  408</span>            self._setStatus( str(ex) )</div>
+<div class="line"><span class="lineno">  409</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -834,12 +834,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Show a status message in the GUI.
    @param msg The message to show.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00411">411</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  411</span>    <span class="keyword">def </span>_setStatus(self, msg):</div>
-<div class="line"><span class="lineno">  412</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show a status message in the GUI.</span></div>
-<div class="line"><span class="lineno">  413</span><span class="stringliteral">           @param msg The message to show.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  414</span>        self._statusBar.setStatus(msg)</div>
-<div class="line"><span class="lineno">  415</span>        </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00410">410</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  410</span>    <span class="keyword">def </span>_setStatus(self, msg):</div>
+<div class="line"><span class="lineno">  411</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show a status message in the GUI.</span></div>
+<div class="line"><span class="lineno">  412</span><span class="stringliteral">           @param msg The message to show.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  413</span>        self._statusBar.setStatus(msg)</div>
+<div class="line"><span class="lineno">  414</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -867,36 +867,36 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@Called periodically to update the GUI state.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00416">416</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  416</span>    <span class="keyword">def </span>_update(self):</div>
-<div class="line"><span class="lineno">  417</span>        <span class="stringliteral">&quot;&quot;&quot;@Called periodically to update the GUI state.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  418</span>        callTime = time()</div>
-<div class="line"><span class="lineno">  419</span>        <span class="comment"># If the GUI layout is not yet complete</span></div>
-<div class="line"><span class="lineno">  420</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self._guiInitComplete:</div>
-<div class="line"><span class="lineno">  421</span>            self._addPlots()</div>
-<div class="line"><span class="lineno">  422</span>            hmtlSaveRow = self._getSaveHTMLComponment()</div>
-<div class="line"><span class="lineno">  423</span>            self._guiTable.append([hmtlSaveRow])</div>
-<div class="line"><span class="lineno">  424</span>            <span class="comment"># Put the status bar below all the traces.</span></div>
-<div class="line"><span class="lineno">  425</span>            self._guiTable.append([self._statusBar.getWidget()])</div>
-<div class="line"><span class="lineno">  426</span>            gp = gridplot( children = self._guiTable, sizing_mode=<span class="stringliteral">&#39;stretch_width&#39;</span>, toolbar_location=<span class="stringliteral">&quot;below&quot;</span>, merge_tools=<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  427</span>            self._doc.add_root( gp )</div>
-<div class="line"><span class="lineno">  428</span>            self._setStatus(<span class="stringliteral">&quot;GUI init complete.&quot;</span>)</div>
-<div class="line"><span class="lineno">  429</span>            self._guiInitComplete = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  430</span> </div>
-<div class="line"><span class="lineno">  431</span>        <span class="comment">#While we have data in the queue to process</span></div>
-<div class="line"><span class="lineno">  432</span>        <span class="keywordflow">while</span> <span class="keywordflow">not</span> self._msgQueue.empty():</div>
-<div class="line"><span class="lineno">  433</span>            <span class="comment">#Don&#39;t block the bokeh thread for to long or it will crash.</span></div>
-<div class="line"><span class="lineno">  434</span>            <span class="keywordflow">if</span> time() &gt; callTime+Bokeh2DTablePlotter.MAX_GUI_BLOCK_SECONDS:</div>
-<div class="line"><span class="lineno">  435</span>                self._uio.debug(<span class="stringliteral">&quot;Quit _update() with {} outstanding messages after {:.1f} seconds.&quot;</span>.format( self._plotDataQueue.qsize(), time()-callTime ))</div>
-<div class="line"><span class="lineno">  436</span>                <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span>            msgReceived = self._msgQueue.get()</div>
-<div class="line"><span class="lineno">  439</span>            <span class="keywordflow">if</span> msgReceived <span class="keywordflow">and</span> msgReceived.type == GUIMessage.TABLE_DATA_TYPE:</div>
-<div class="line"><span class="lineno">  440</span>                self._processPlotPoint(msgReceived.data)</div>
-<div class="line"><span class="lineno">  441</span>                </div>
-<div class="line"><span class="lineno">  442</span>            <span class="keywordflow">elif</span> msgReceived <span class="keywordflow">and</span> msgReceived.type == GUIMessage.RESULT_DATA_TYPE:</div>
-<div class="line"><span class="lineno">  443</span>                self._processResult(msgReceived.data)</div>
-<div class="line"><span class="lineno">  444</span>                </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00415">415</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  415</span>    <span class="keyword">def </span>_update(self):</div>
+<div class="line"><span class="lineno">  416</span>        <span class="stringliteral">&quot;&quot;&quot;@Called periodically to update the GUI state.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  417</span>        callTime = time()</div>
+<div class="line"><span class="lineno">  418</span>        <span class="comment"># If the GUI layout is not yet complete</span></div>
+<div class="line"><span class="lineno">  419</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self._guiInitComplete:</div>
+<div class="line"><span class="lineno">  420</span>            self._addPlots()</div>
+<div class="line"><span class="lineno">  421</span>            hmtlSaveRow = self._getSaveHTMLComponment()</div>
+<div class="line"><span class="lineno">  422</span>            self._guiTable.append([hmtlSaveRow])</div>
+<div class="line"><span class="lineno">  423</span>            <span class="comment"># Put the status bar below all the traces.</span></div>
+<div class="line"><span class="lineno">  424</span>            self._guiTable.append([self._statusBar.getWidget()])</div>
+<div class="line"><span class="lineno">  425</span>            gp = gridplot( children = self._guiTable, sizing_mode=<span class="stringliteral">&#39;stretch_width&#39;</span>, toolbar_location=<span class="stringliteral">&quot;below&quot;</span>, merge_tools=<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  426</span>            self._doc.add_root( gp )</div>
+<div class="line"><span class="lineno">  427</span>            self._setStatus(<span class="stringliteral">&quot;GUI init complete.&quot;</span>)</div>
+<div class="line"><span class="lineno">  428</span>            self._guiInitComplete = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  429</span> </div>
+<div class="line"><span class="lineno">  430</span>        <span class="comment">#While we have data in the queue to process</span></div>
+<div class="line"><span class="lineno">  431</span>        <span class="keywordflow">while</span> <span class="keywordflow">not</span> self._msgQueue.empty():</div>
+<div class="line"><span class="lineno">  432</span>            <span class="comment">#Don&#39;t block the bokeh thread for to long or it will crash.</span></div>
+<div class="line"><span class="lineno">  433</span>            <span class="keywordflow">if</span> time() &gt; callTime+Bokeh2DTablePlotter.MAX_GUI_BLOCK_SECONDS:</div>
+<div class="line"><span class="lineno">  434</span>                self._uio.debug(<span class="stringliteral">&quot;Quit _update() with {} outstanding messages after {:.1f} seconds.&quot;</span>.format( self._plotDataQueue.qsize(), time()-callTime ))</div>
+<div class="line"><span class="lineno">  435</span>                <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  436</span> </div>
+<div class="line"><span class="lineno">  437</span>            msgReceived = self._msgQueue.get()</div>
+<div class="line"><span class="lineno">  438</span>            <span class="keywordflow">if</span> msgReceived <span class="keywordflow">and</span> msgReceived.type == GUIMessage.TABLE_DATA_TYPE:</div>
+<div class="line"><span class="lineno">  439</span>                self._processPlotPoint(msgReceived.data)</div>
+<div class="line"><span class="lineno">  440</span>                </div>
+<div class="line"><span class="lineno">  441</span>            <span class="keywordflow">elif</span> msgReceived <span class="keywordflow">and</span> msgReceived.type == GUIMessage.RESULT_DATA_TYPE:</div>
+<div class="line"><span class="lineno">  442</span>                self._processResult(msgReceived.data)</div>
+<div class="line"><span class="lineno">  443</span>                </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -924,15 +924,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Called to update the state of the GUI.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00361">361</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  361</span>    <span class="keyword">def </span>_updateGUI(self):</div>
-<div class="line"><span class="lineno">  362</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called to update the state of the GUI.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  363</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  364</span>            self._update()</div>
-<div class="line"><span class="lineno">  365</span>        <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  366</span>            <span class="comment"># PJA Handle exception here</span></div>
-<div class="line"><span class="lineno">  367</span>            <span class="keywordflow">raise</span> </div>
-<div class="line"><span class="lineno">  368</span>            </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00360">360</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  360</span>    <span class="keyword">def </span>_updateGUI(self):</div>
+<div class="line"><span class="lineno">  361</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called to update the state of the GUI.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  362</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  363</span>            self._update()</div>
+<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  365</span>            <span class="comment"># PJA Handle exception here</span></div>
+<div class="line"><span class="lineno">  366</span>            <span class="keywordflow">raise</span> </div>
+<div class="line"><span class="lineno">  367</span>            </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -965,17 +965,17 @@ Protected Attributes</h2></td></tr>
    @param doc The document to add the plot to.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1bokeh__gui_1_1SingleAppServer.html#a54642e93c1f20133b63c5693a8b2949b">SingleAppServer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00351">351</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  351</span>    <span class="keyword">def </span>app(self, doc):</div>
-<div class="line"><span class="lineno">  352</span>        <span class="stringliteral">&quot;&quot;&quot;@brief create the app to run in the bokeh server.</span></div>
-<div class="line"><span class="lineno">  353</span><span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  354</span>        self._doc = doc</div>
-<div class="line"><span class="lineno">  355</span>        self._doc.title = self.docTitle</div>
-<div class="line"><span class="lineno">  356</span>        self._doc.theme = self._staticPlotParams.theme</div>
-<div class="line"><span class="lineno">  357</span>        <span class="comment"># The status bar is added to the bottom of the window showing status information.</span></div>
-<div class="line"><span class="lineno">  358</span>        self._statusBar = StatusBarWrapper()</div>
-<div class="line"><span class="lineno">  359</span>        self._doc.add_periodic_callback(self._updateGUI, Bokeh2DTablePlotter.UPDATE_MSEC)</div>
-<div class="line"><span class="lineno">  360</span>        </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00350">350</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  350</span>    <span class="keyword">def </span>app(self, doc):</div>
+<div class="line"><span class="lineno">  351</span>        <span class="stringliteral">&quot;&quot;&quot;@brief create the app to run in the bokeh server.</span></div>
+<div class="line"><span class="lineno">  352</span><span class="stringliteral">           @param doc The document to add the plot to.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  353</span>        self._doc = doc</div>
+<div class="line"><span class="lineno">  354</span>        self._doc.title = self.docTitle</div>
+<div class="line"><span class="lineno">  355</span>        self._doc.theme = self._staticPlotParams.theme</div>
+<div class="line"><span class="lineno">  356</span>        <span class="comment"># The status bar is added to the bottom of the window showing status information.</span></div>
+<div class="line"><span class="lineno">  357</span>        self._statusBar = StatusBarWrapper()</div>
+<div class="line"><span class="lineno">  358</span>        self._doc.add_periodic_callback(self._updateGUI, Bokeh2DTablePlotter.UPDATE_MSEC)</div>
+<div class="line"><span class="lineno">  359</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1002,11 +1002,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@return the expected column data source.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00305">305</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  305</span>    <span class="keyword">def </span>GetColumnDataSource():</div>
-<div class="line"><span class="lineno">  306</span>        <span class="stringliteral">&quot;&quot;&quot;@return the expected column data source.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  307</span>        <span class="keywordflow">return</span> ColumnDataSource({<span class="stringliteral">&#39;name&#39;</span>: [], <span class="stringliteral">&#39;x&#39;</span>: [], <span class="stringliteral">&#39;y&#39;</span>: []})</div>
-<div class="line"><span class="lineno">  308</span> </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00304">304</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  304</span>    <span class="keyword">def </span>GetColumnDataSource():</div>
+<div class="line"><span class="lineno">  305</span>        <span class="stringliteral">&quot;&quot;&quot;@return the expected column data source.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  306</span>        <span class="keywordflow">return</span> ColumnDataSource({<span class="stringliteral">&#39;name&#39;</span>: [], <span class="stringliteral">&#39;x&#39;</span>: [], <span class="stringliteral">&#39;y&#39;</span>: []})</div>
+<div class="line"><span class="lineno">  307</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1034,16 +1034,16 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the X value time as either a float value or a datetime instance converted from a string.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00310">310</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  310</span>    <span class="keyword">def </span>GetTimeValue(xValue):</div>
-<div class="line"><span class="lineno">  311</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the X value time as either a float value or a datetime instance converted from a string.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  312</span>        <span class="keywordflow">if</span> isinstance(xValue, str):</div>
-<div class="line"><span class="lineno">  313</span>            timeValue = datetime.strptime(xValue, <span class="stringliteral">&quot;%d/%m/%Y-%H:%M:%S.%f&quot;</span>) </div>
-<div class="line"><span class="lineno">  314</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  315</span>            timeValue = float(xValue)</div>
-<div class="line"><span class="lineno">  316</span>        <span class="keywordflow">return</span> timeValue</div>
-<div class="line"><span class="lineno">  317</span>            </div>
-<div class="line"><span class="lineno">  318</span>        </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00309">309</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  309</span>    <span class="keyword">def </span>GetTimeValue(xValue):</div>
+<div class="line"><span class="lineno">  310</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the X value time as either a float value or a datetime instance converted from a string.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  311</span>        <span class="keywordflow">if</span> isinstance(xValue, str):</div>
+<div class="line"><span class="lineno">  312</span>            timeValue = datetime.strptime(xValue, <span class="stringliteral">&quot;%d/%m/%Y-%H:%M:%S.%f&quot;</span>) </div>
+<div class="line"><span class="lineno">  313</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  314</span>            timeValue = float(xValue)</div>
+<div class="line"><span class="lineno">  315</span>        <span class="keywordflow">return</span> timeValue</div>
+<div class="line"><span class="lineno">  316</span>            </div>
+<div class="line"><span class="lineno">  317</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1074,12 +1074,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Send a message to the GUI thread.
    @brief msgDict The dict holding the message t be sent to the GUI.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00346">346</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  346</span>    <span class="keyword">def </span>sendMessage(self, msgDict):</div>
-<div class="line"><span class="lineno">  347</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message to the GUI thread.</span></div>
-<div class="line"><span class="lineno">  348</span><span class="stringliteral">           @brief msgDict The dict holding the message t be sent to the GUI.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  349</span>        self._msgQueue.put(msgDict)</div>
-<div class="line"><span class="lineno">  350</span>        </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00345">345</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  345</span>    <span class="keyword">def </span>sendMessage(self, msgDict):</div>
+<div class="line"><span class="lineno">  346</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message to the GUI thread.</span></div>
+<div class="line"><span class="lineno">  347</span><span class="stringliteral">           @brief msgDict The dict holding the message t be sent to the GUI.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  348</span>        self._msgQueue.put(msgDict)</div>
+<div class="line"><span class="lineno">  349</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1110,12 +1110,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set table columnm names. This must be called before runNonBlockingBokehServer() is called.
    @param staticPlotParams All the parameters that may be set which do not change through the life of the plot.</pre> 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00339">339</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  339</span>    <span class="keyword">def </span>setStaticPlotParams(self, staticPlotParams):</div>
-<div class="line"><span class="lineno">  340</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set table columnm names. This must be called before runNonBlockingBokehServer() is called.</span></div>
-<div class="line"><span class="lineno">  341</span><span class="stringliteral">           @param staticPlotParams All the parameters that may be set which do not change through the life of the plot.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  342</span>        self._staticPlotParams = staticPlotParams</div>
-<div class="line"><span class="lineno">  343</span>     </div>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00338">338</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  338</span>    <span class="keyword">def </span>setStaticPlotParams(self, staticPlotParams):</div>
+<div class="line"><span class="lineno">  339</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set table columnm names. This must be called before runNonBlockingBokehServer() is called.</span></div>
+<div class="line"><span class="lineno">  340</span><span class="stringliteral">           @param staticPlotParams All the parameters that may be set which do not change through the life of the plot.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  341</span>        self._staticPlotParams = staticPlotParams</div>
+<div class="line"><span class="lineno">  342</span>     </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1140,7 +1140,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00354">354</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00353">353</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1164,7 +1164,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00325">325</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00324">324</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1188,7 +1188,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00326">326</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00325">325</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1212,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00327">327</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00326">326</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1236,7 +1236,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00332">332</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00331">331</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1260,7 +1260,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00331">331</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00330">330</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1284,7 +1284,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00328">328</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00327">327</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1308,7 +1308,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00329">329</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00328">328</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1332,7 +1332,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00333">333</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00332">332</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1356,7 +1356,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00372">372</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00371">371</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1380,7 +1380,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00342">342</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00341">341</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1404,7 +1404,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00358">358</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00357">357</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1428,7 +1428,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00359">359</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00358">358</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1452,7 +1452,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00301">301</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00300">300</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1468,7 +1468,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00324">324</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00323">323</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1484,7 +1484,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00374">374</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00373">373</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1508,7 +1508,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00300">300</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00299">299</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1532,7 +1532,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00302">302</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00301">301</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
@@ -1556,7 +1556,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00299">299</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="table__plot_8py_source.html#l00298">298</a> of file <a class="el" href="table__plot_8py_source.html">table_plot.py</a>.</p>
 
 </div>
 </div>
