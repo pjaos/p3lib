@@ -110,7 +110,7 @@ class LinuxBootManager(object):
         self._rootMode = False # If True run as root, else False.
         self._systemCtlBin = LinuxBootManager.GetSystemCTLBin()
         if ensureRootUser and os.geteuid() != 0:
-            self._fatalError(self.__class__.__name__ + f": Not root user. Ensure that you are root user and try again.")
+            self._fatalError(self.__class__.__name__ + ": Not root user. Ensure that you are root user and try again.")
 
         if os.geteuid() == 0:
             if not allowRootUser:

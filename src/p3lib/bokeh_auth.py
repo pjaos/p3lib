@@ -321,9 +321,9 @@ class CredentialsManager(object):
         username = self._uio.getInput('Enter the username: ')
         password = self._uio.getInput('Enter the password: ')
         if self.credentialsHasher.verify(username, password):
-            self._uio.info(f"The username and password match.")
+            self._uio.info("The username and password match.")
         else:
-            self._uio.error(f"The username and password do not match.")
+            self._uio.error("The username and password do not match.")
 
     def _showUsernames(self):
         """@brief Show the user a list of the usernames stored."""

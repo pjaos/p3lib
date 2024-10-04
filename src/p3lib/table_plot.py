@@ -18,7 +18,6 @@ from    bokeh.layouts import gridplot, row, column
 from    bokeh.plotting import figure, ColumnDataSource
 from    bokeh.palettes import Category20
 from    bokeh.models import HoverTool, Div
-from    bokeh.models import DatetimeTickFormatter
 from    bokeh.models.widgets.buttons import Button
 from    bokeh.models.widgets import TextInput
 from    bokeh.plotting import output_file, save
