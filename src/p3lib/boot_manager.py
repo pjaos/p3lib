@@ -15,18 +15,15 @@ class BootManager(object):
 
     LINUX_OS_NAME = "Linux"
 
-    def __init__(self, uio=None, allowRootUser=False):
+    def __init__(self, uio=None, allowRootUser=True):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output
                   is displayed to user.
            @param allowRootUser If True then allow root user to to auto start
-                  programs. We do not do this by default because often a programs
-                  configuration is stored in the users home path. E.G a config
-                  file in ~/.<configfilename> or ~/.config/<configfolder or filename>.
-                  If a program is started as root user then this config may not
-                  be present in the /root folder and so when the program is started
-                  it's config will not be found. If a program stores no config in
-                  the home folder then this is not an issue."""
+                  programs. Note that as the BootManager is responsible for 
+                  ensuring programs are started up when a machine boots up 
+                  the installed program should be installed for the root 
+                  user on Linux systems."""
         self._uio = uio
         self._allowRootUser=allowRootUser
         self._osName = platform.system()
