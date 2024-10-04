@@ -15,7 +15,7 @@ class BootManager(object):
 
     LINUX_OS_NAME = "Linux"
 
-    def __init__(self, uio=None, allowRootUser=True):
+    def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output
                   is displayed to user.
@@ -23,13 +23,14 @@ class BootManager(object):
                   programs. Note that as the BootManager is responsible for 
                   ensuring programs are started up when a machine boots up 
                   the installed program should be installed for the root 
-                  user on Linux systems."""
+                  user on Linux systems.
+           @param ensureRootUser If True the current user must be root user (Linux systems)."""
         self._uio = uio
         self._allowRootUser=allowRootUser
         self._osName = platform.system()
         self._platformBootManager = None
         if self._osName == BootManager.LINUX_OS_NAME:
-            self._platformBootManager = LinuxBootManager(uio, self._allowRootUser)
+            self._platformBootManager = LinuxBootManager(uio, self._allowRootUser, ensureRootUser)
         else:
             raise Exception("{} is an unsupported OS.".format(self._osName) )
 
@@ -97,16 +98,20 @@ class LinuxBootManager(object):
             raise Exception(f"{serviceFolder} folder not found.")
         return serviceFolder
 
-    def __init__(self, uio, allowRootUser):
+    def __init__(self, uio, allowRootUser, ensureRootUser):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output is displayed to user.
-           @param allowRootUser If True then allow root user to to auto start programs."""
+           @param allowRootUser If True then allow root user to to auto start programs.
+           @param ensureRootUser If True the current user must be root user."""
         self._uio = uio
         self._logFile = None
         self._allowRootUser=allowRootUser
         self._info("OS: {}".format(platform.system()) )
         self._rootMode = False # If True run as root, else False.
         self._systemCtlBin = LinuxBootManager.GetSystemCTLBin()
+        if ensureRootUser and os.geteuid() != 0:
+            self._fatalError(self.__class__.__name__ + f": Not root user. Ensure that you are root user and try again.")
+
         if os.geteuid() == 0:
             if not allowRootUser:
                 self._fatalError(self.__class__.__name__ + f": You are running as root user but allowRootUser={allowRootUser}.")
