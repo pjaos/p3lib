@@ -1,0 +1,7 @@
+<map id="TimeSeriesPlotter" name="TimeSeriesPlotter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,152,132,177"/>
+<area shape="rect" id="Node000002" href="$classp3lib_1_1bokeh__gui_1_1TabbedGUI.html" title=" " alt="" coords="25,79,113,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,118,71,152,66,152,66,118"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="40,5,97,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="71,44,71,79,66,79,66,44"/>
+</map>

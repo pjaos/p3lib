@@ -1,0 +1,15 @@
+<map id="SingleAppServer" name="SingleAppServer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="153,79,272,104"/>
+<area shape="rect" id="Node000003" href="$classexample__run__multiple__bokeh__servers_1_1ExampleAppServer.html" title=" " alt="" coords="5,152,140,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,113,97,154,94,149,177,108"/>
+<area shape="rect" id="Node000004" href="$classp3lib_1_1bokeh__gui_1_1GUIModel__A.html" title=" " alt="" coords="164,152,261,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,118,215,152,210,152,210,118"/>
+<area shape="rect" id="Node000007" href="$classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html" title=" " alt="" coords="285,152,431,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="249,108,335,149,333,154,247,112"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="184,5,241,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,44,215,79,210,79,210,44"/>
+<area shape="rect" id="Node000005" href="$classGUIModel__A__example_1_1DynamicPlotExample.html" title=" " alt="" coords="57,225,205,251"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="191,188,146,227,143,223,188,184"/>
+<area shape="rect" id="Node000006" href="$classGUIModel__A__example_1_1StaticPlotExample.html" title=" " alt="" coords="230,225,361,251"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="238,184,284,223,280,227,235,188"/>
+</map>

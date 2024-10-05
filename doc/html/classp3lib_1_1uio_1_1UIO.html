@@ -87,11 +87,21 @@ $(function() {
 Inheritance diagram for UIO:</div>
 <div class="dyncontent">
 <div class="center"><img src="classp3lib_1_1uio_1_1UIO__inherit__graph.png" border="0" usemap="#aUIO_inherit__map" alt="Inheritance graph"/></div>
+<map name="aUIO_inherit__map" id="aUIO_inherit__map">
+<area shape="rect" title=" " alt="" coords="11,79,57,104"/>
+<area shape="rect" title=" " alt="" coords="5,5,63,31"/>
+<area shape="poly" title=" " alt="" coords="37,44,37,79,31,79,31,44"/>
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for UIO:</div>
 <div class="dyncontent">
 <div class="center"><img src="classp3lib_1_1uio_1_1UIO__coll__graph.png" border="0" usemap="#aUIO_coll__map" alt="Collaboration graph"/></div>
+<map name="aUIO_coll__map" id="aUIO_coll__map">
+<area shape="rect" title=" " alt="" coords="11,79,57,104"/>
+<area shape="rect" title=" " alt="" coords="5,5,63,31"/>
+<area shape="poly" title=" " alt="" coords="37,44,37,79,31,79,31,44"/>
+</map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -616,45 +626,45 @@ Syslog messages will have the following components
 
 The syslog messages will be prefixed withj the application name
 </pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00387">387</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  387</span>    <span class="keyword">def </span>_update_syslog(self, pri, msg):</div>
-<div class="line"><span class="lineno">  388</span>        <span class="stringliteral">&quot;&quot;&quot;Send a message to syslog is syslog is enabled</span></div>
-<div class="line"><span class="lineno">  389</span><span class="stringliteral">        Syslog messages will have the following components</span></div>
-<div class="line"><span class="lineno">  390</span><span class="stringliteral">        0 = time/date stamp</span></div>
-<div class="line"><span class="lineno">  391</span><span class="stringliteral">        1 = hostname</span></div>
-<div class="line"><span class="lineno">  392</span><span class="stringliteral">        2 = main python file name</span></div>
-<div class="line"><span class="lineno">  393</span><span class="stringliteral">        3 = PID</span></div>
-<div class="line"><span class="lineno">  394</span><span class="stringliteral">        4 = username under which the program is being executed</span></div>
-<div class="line"><span class="lineno">  395</span><span class="stringliteral">        5 = The syslog message</span></div>
-<div class="line"><span class="lineno">  396</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  397</span><span class="stringliteral">        The syslog messages will be prefixed withj the application name</span></div>
-<div class="line"><span class="lineno">  398</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  399</span>        <span class="keywordflow">if</span> self._sysLogEnabled:</div>
-<div class="line"><span class="lineno">  400</span>            aMsg=msg</div>
-<div class="line"><span class="lineno">  401</span>            <span class="comment">#Ensure we have no zero characters in the message.</span></div>
-<div class="line"><span class="lineno">  402</span>            <span class="comment"># syslog will throw an error if it finds any</span></div>
-<div class="line"><span class="lineno">  403</span>            <span class="keywordflow">if</span> <span class="stringliteral">&quot;\x00&quot;</span> <span class="keywordflow">in</span> aMsg:</div>
-<div class="line"><span class="lineno">  404</span>                aMsg=aMsg.replace(<span class="stringliteral">&quot;\x00&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  405</span> </div>
-<div class="line"><span class="lineno">  406</span>            <span class="comment">#Attempt to get the src IP address for syslog messages.</span></div>
-<div class="line"><span class="lineno">  407</span>            srcIP = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  408</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  409</span>                netIF = NetIF()</div>
-<div class="line"><span class="lineno">  410</span>                srcIP = netIF.getLocalNetworkAddress()</div>
-<div class="line"><span class="lineno">  411</span>            <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  412</span>                <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  413</span> </div>
-<div class="line"><span class="lineno">  414</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  415</span>                <span class="keywordflow">if</span> self._syslogProgramName:</div>
-<div class="line"><span class="lineno">  416</span>                    idString = str(self.getCurrentUsername()) + <span class="stringliteral">&quot;-&quot;</span> + self._syslogProgramName</div>
-<div class="line"><span class="lineno">  417</span>                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  418</span>                    idString = str(self.getCurrentUsername())</div>
-<div class="line"><span class="lineno">  419</span>                <span class="comment">#send aMsg to syslog with the current process ID and username</span></div>
-<div class="line"><span class="lineno">  420</span>                syslog(pri, <span class="stringliteral">&quot;%s %d %s: %s&quot;</span> % (srcIP, os.getpid(), idString, str(aMsg) ), host=self._sysLogHost )</div>
-<div class="line"><span class="lineno">  421</span>            <span class="comment">#Ignore if se can&#39;t resolve address. We don&#39;t really syslog want errors to stop the user interface</span></div>
-<div class="line"><span class="lineno">  422</span>            <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  423</span>                <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  424</span>        </div>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00390">390</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  390</span>    <span class="keyword">def </span>_update_syslog(self, pri, msg):</div>
+<div class="line"><span class="lineno">  391</span>        <span class="stringliteral">&quot;&quot;&quot;Send a message to syslog is syslog is enabled</span></div>
+<div class="line"><span class="lineno">  392</span><span class="stringliteral">        Syslog messages will have the following components</span></div>
+<div class="line"><span class="lineno">  393</span><span class="stringliteral">        0 = time/date stamp</span></div>
+<div class="line"><span class="lineno">  394</span><span class="stringliteral">        1 = hostname</span></div>
+<div class="line"><span class="lineno">  395</span><span class="stringliteral">        2 = main python file name</span></div>
+<div class="line"><span class="lineno">  396</span><span class="stringliteral">        3 = PID</span></div>
+<div class="line"><span class="lineno">  397</span><span class="stringliteral">        4 = username under which the program is being executed</span></div>
+<div class="line"><span class="lineno">  398</span><span class="stringliteral">        5 = The syslog message</span></div>
+<div class="line"><span class="lineno">  399</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  400</span><span class="stringliteral">        The syslog messages will be prefixed withj the application name</span></div>
+<div class="line"><span class="lineno">  401</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  402</span>        <span class="keywordflow">if</span> self._sysLogEnabled:</div>
+<div class="line"><span class="lineno">  403</span>            aMsg=msg</div>
+<div class="line"><span class="lineno">  404</span>            <span class="comment">#Ensure we have no 0x00 characters in the message.</span></div>
+<div class="line"><span class="lineno">  405</span>            <span class="comment"># syslog will throw an error if it finds any</span></div>
+<div class="line"><span class="lineno">  406</span>            <span class="keywordflow">if</span> <span class="stringliteral">&quot;\x00&quot;</span> <span class="keywordflow">in</span> aMsg:</div>
+<div class="line"><span class="lineno">  407</span>                aMsg=aMsg.replace(<span class="stringliteral">&quot;\x00&quot;</span>, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  408</span> </div>
+<div class="line"><span class="lineno">  409</span>            <span class="comment">#Attempt to get the src IP address for syslog messages.</span></div>
+<div class="line"><span class="lineno">  410</span>            srcIP = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  411</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  412</span>                netIF = NetIF()</div>
+<div class="line"><span class="lineno">  413</span>                srcIP = netIF.getLocalNetworkAddress()</div>
+<div class="line"><span class="lineno">  414</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  415</span>                <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  416</span> </div>
+<div class="line"><span class="lineno">  417</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  418</span>                <span class="keywordflow">if</span> self._syslogProgramName:</div>
+<div class="line"><span class="lineno">  419</span>                    idString = str(self.getCurrentUsername()) + <span class="stringliteral">&quot;-&quot;</span> + self._syslogProgramName</div>
+<div class="line"><span class="lineno">  420</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  421</span>                    idString = str(self.getCurrentUsername())</div>
+<div class="line"><span class="lineno">  422</span>                <span class="comment">#send aMsg to syslog with the current process ID and username</span></div>
+<div class="line"><span class="lineno">  423</span>                syslog(pri, <span class="stringliteral">&quot;%s %d %s: %s&quot;</span> % (srcIP, os.getpid(), idString, str(aMsg) ), host=self._sysLogHost )</div>
+<div class="line"><span class="lineno">  424</span>            <span class="comment">#Ignore if se can&#39;t resolve address. We don&#39;t really syslog want errors to stop the user interface</span></div>
+<div class="line"><span class="lineno">  425</span>            <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  426</span>                <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  427</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -726,7 +736,7 @@ The syslog messages will be prefixed withj the application name
 <div class="line"><span class="lineno">  128</span>                self.storeToDebugLog(<span class="stringliteral">&#39;{}DEBUG{}: {}&#39;</span>.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))</div>
 <div class="line"><span class="lineno">  129</span>            <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  130</span>                self.storeToDebugLog(<span class="stringliteral">&#39;DEBUG: {}&#39;</span>.format(text))</div>
-<div class="line"><span class="lineno">  131</span>        self._update_syslog(PRIORITY.DEBUG, text)</div>
+<div class="line"><span class="lineno">  131</span>        self._update_syslog(PRIORITY.DEBUG, <span class="stringliteral">&quot;DEBUG: &quot;</span>+text)</div>
 <div class="line"><span class="lineno">  132</span> </div>
 </div><!-- fragment -->
 </div>
@@ -814,8 +824,11 @@ The syslog messages will be prefixed withj the application name
 <div class="line"><span class="lineno">  382</span><span class="stringliteral">           @param syslogProgramName The name of the program that is being logged. If defined this appears after the username in the syslog output.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  383</span>        self._sysLogEnabled = enabled</div>
 <div class="line"><span class="lineno">  384</span>        self._sysLogHost = host</div>
-<div class="line"><span class="lineno">  385</span>        self._syslogProgramName = programName</div>
-<div class="line"><span class="lineno">  386</span> </div>
+<div class="line"><span class="lineno">  385</span>        <span class="keywordflow">if</span> programName:</div>
+<div class="line"><span class="lineno">  386</span>            self._syslogProgramName = programName</div>
+<div class="line"><span class="lineno">  387</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  388</span>            self._syslogProgramName = sys.argv[0]</div>
+<div class="line"><span class="lineno">  389</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -854,7 +867,7 @@ The syslog messages will be prefixed withj the application name
 <div class="line"><span class="lineno">  146</span>            self._print(<span class="stringliteral">&#39;{}ERROR{}: {}&#39;</span>.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))</div>
 <div class="line"><span class="lineno">  147</span>        <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  148</span>            self._print(<span class="stringliteral">&#39;ERROR: {}&#39;</span>.format(text))</div>
-<div class="line"><span class="lineno">  149</span>        self._update_syslog(PRIORITY.ERROR, text)</div>
+<div class="line"><span class="lineno">  149</span>        self._update_syslog(PRIORITY.ERROR, <span class="stringliteral">&quot;ERROR: &quot;</span>+text)</div>
 <div class="line"><span class="lineno">  150</span> </div>
 </div><!-- fragment -->
 </div>
@@ -1437,7 +1450,7 @@ The syslog messages will be prefixed withj the application name
 <div class="line"><span class="lineno">  113</span>                self._print(<span class="stringliteral">&#39;{}INFO{}:  {}&#39;</span>.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))</div>
 <div class="line"><span class="lineno">  114</span>        <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  115</span>            self._print(<span class="stringliteral">&#39;INFO:  {}&#39;</span>.format(text))</div>
-<div class="line"><span class="lineno">  116</span>        self._update_syslog(PRIORITY.INFO, text)</div>
+<div class="line"><span class="lineno">  116</span>        self._update_syslog(PRIORITY.INFO, <span class="stringliteral">&quot;INFO:  &quot;</span>+text)</div>
 <div class="line"><span class="lineno">  117</span> </div>
 </div><!-- fragment -->
 </div>
@@ -1703,56 +1716,56 @@ The syslog messages will be prefixed withj the application name
                 Each element in each row must be a string.
    @param rowSeparatorChar The character used for horizontal lines to separate table rows.
    @param colSeparatorChar The character used to separate table columns.</pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00425">425</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  425</span>    <span class="keyword">def </span>showTable(self, table, rowSeparatorChar = &quot;-&quot;, colSeparatorChar = &quot;|&quot;):</div>
-<div class="line"><span class="lineno">  426</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the contents of a table to the user.</span></div>
-<div class="line"><span class="lineno">  427</span><span class="stringliteral">           @param table This must be a list. Each list element must be a table row (list).</span></div>
-<div class="line"><span class="lineno">  428</span><span class="stringliteral">                        Each element in each row must be a string.</span></div>
-<div class="line"><span class="lineno">  429</span><span class="stringliteral">           @param rowSeparatorChar The character used for horizontal lines to separate table rows.</span></div>
-<div class="line"><span class="lineno">  430</span><span class="stringliteral">           @param colSeparatorChar The character used to separate table columns.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  431</span>        columnWidths = []</div>
-<div class="line"><span class="lineno">  432</span>        <span class="comment"># Check we have a table to display</span></div>
-<div class="line"><span class="lineno">  433</span>        <span class="keywordflow">if</span> len(table) == 0:</div>
-<div class="line"><span class="lineno">  434</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;No table rows to display&quot;</span>)</div>
-<div class="line"><span class="lineno">  435</span>        </div>
-<div class="line"><span class="lineno">  436</span>        <span class="comment"># Check all rows have the same number of columns in the table</span></div>
-<div class="line"><span class="lineno">  437</span>        colCount = len(table[0])</div>
-<div class="line"><span class="lineno">  438</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
-<div class="line"><span class="lineno">  439</span>            <span class="keywordflow">if</span> len(row) != colCount:</div>
-<div class="line"><span class="lineno">  440</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{str(row)} column count different from first row ({colCount})&quot;</span>)</div>
-<div class="line"><span class="lineno">  441</span>        </div>
-<div class="line"><span class="lineno">  442</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
-<div class="line"><span class="lineno">  443</span>            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> row:</div>
-<div class="line"><span class="lineno">  444</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(col, str):</div>
-<div class="line"><span class="lineno">  445</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Table column is not a string: {col} in {row}&quot;</span>)</div>
-<div class="line"><span class="lineno">  446</span>                </div>
-<div class="line"><span class="lineno">  447</span>        <span class="comment"># Get the max width for each column</span></div>
-<div class="line"><span class="lineno">  448</span>        <span class="keywordflow">for</span> col <span class="keywordflow">in</span> range(0,colCount):</div>
-<div class="line"><span class="lineno">  449</span>            maxWidth=0</div>
-<div class="line"><span class="lineno">  450</span>            <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
-<div class="line"><span class="lineno">  451</span>                <span class="keywordflow">if</span> len(row[col]) &gt; maxWidth:</div>
-<div class="line"><span class="lineno">  452</span>                    maxWidth = len(row[col])</div>
-<div class="line"><span class="lineno">  453</span>            columnWidths.append(maxWidth)</div>
-<div class="line"><span class="lineno">  454</span> </div>
-<div class="line"><span class="lineno">  455</span>        tableWidth = 1</div>
-<div class="line"><span class="lineno">  456</span>        <span class="keywordflow">for</span> columnWidth <span class="keywordflow">in</span> columnWidths:</div>
-<div class="line"><span class="lineno">  457</span>            tableWidth += columnWidth + 3 <span class="comment"># Space each side of the column + a column divider character</span></div>
-<div class="line"><span class="lineno">  458</span>                    </div>
-<div class="line"><span class="lineno">  459</span>        <span class="comment"># Add the top line of the table</span></div>
-<div class="line"><span class="lineno">  460</span>        self.info(rowSeparatorChar*tableWidth)</div>
-<div class="line"><span class="lineno">  461</span>               </div>
-<div class="line"><span class="lineno">  462</span>        <span class="comment"># The starting row index</span></div>
-<div class="line"><span class="lineno">  463</span>        <span class="keywordflow">for</span> rowIndex <span class="keywordflow">in</span> range(0, len(table)):</div>
-<div class="line"><span class="lineno">  464</span>            rowText = colSeparatorChar</div>
-<div class="line"><span class="lineno">  465</span>            colIndex = 0</div>
-<div class="line"><span class="lineno">  466</span>            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> table[rowIndex]:</div>
-<div class="line"><span class="lineno">  467</span>                colWidth = columnWidths[colIndex]</div>
-<div class="line"><span class="lineno">  468</span>                rowText = rowText + <span class="stringliteral">&quot; &quot;</span> + f<span class="stringliteral">&quot;{col:&gt;{colWidth}s}&quot;</span> + <span class="stringliteral">&quot; &quot;</span> + colSeparatorChar</div>
-<div class="line"><span class="lineno">  469</span>                colIndex += 1</div>
-<div class="line"><span class="lineno">  470</span>            self.info(rowText)</div>
-<div class="line"><span class="lineno">  471</span>            <span class="comment"># Add the row separator line</span></div>
-<div class="line"><span class="lineno">  472</span>            self.info(rowSeparatorChar*tableWidth)</div>
-<div class="line"><span class="lineno">  473</span>            </div>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00428">428</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  428</span>    <span class="keyword">def </span>showTable(self, table, rowSeparatorChar = &quot;-&quot;, colSeparatorChar = &quot;|&quot;):</div>
+<div class="line"><span class="lineno">  429</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the contents of a table to the user.</span></div>
+<div class="line"><span class="lineno">  430</span><span class="stringliteral">           @param table This must be a list. Each list element must be a table row (list).</span></div>
+<div class="line"><span class="lineno">  431</span><span class="stringliteral">                        Each element in each row must be a string.</span></div>
+<div class="line"><span class="lineno">  432</span><span class="stringliteral">           @param rowSeparatorChar The character used for horizontal lines to separate table rows.</span></div>
+<div class="line"><span class="lineno">  433</span><span class="stringliteral">           @param colSeparatorChar The character used to separate table columns.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  434</span>        columnWidths = []</div>
+<div class="line"><span class="lineno">  435</span>        <span class="comment"># Check we have a table to display</span></div>
+<div class="line"><span class="lineno">  436</span>        <span class="keywordflow">if</span> len(table) == 0:</div>
+<div class="line"><span class="lineno">  437</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;No table rows to display&quot;</span>)</div>
+<div class="line"><span class="lineno">  438</span>        </div>
+<div class="line"><span class="lineno">  439</span>        <span class="comment"># Check all rows have the same number of columns in the table</span></div>
+<div class="line"><span class="lineno">  440</span>        colCount = len(table[0])</div>
+<div class="line"><span class="lineno">  441</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
+<div class="line"><span class="lineno">  442</span>            <span class="keywordflow">if</span> len(row) != colCount:</div>
+<div class="line"><span class="lineno">  443</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{str(row)} column count different from first row ({colCount})&quot;</span>)</div>
+<div class="line"><span class="lineno">  444</span>        </div>
+<div class="line"><span class="lineno">  445</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
+<div class="line"><span class="lineno">  446</span>            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> row:</div>
+<div class="line"><span class="lineno">  447</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(col, str):</div>
+<div class="line"><span class="lineno">  448</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Table column is not a string: {col} in {row}&quot;</span>)</div>
+<div class="line"><span class="lineno">  449</span>                </div>
+<div class="line"><span class="lineno">  450</span>        <span class="comment"># Get the max width for each column</span></div>
+<div class="line"><span class="lineno">  451</span>        <span class="keywordflow">for</span> col <span class="keywordflow">in</span> range(0,colCount):</div>
+<div class="line"><span class="lineno">  452</span>            maxWidth=0</div>
+<div class="line"><span class="lineno">  453</span>            <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
+<div class="line"><span class="lineno">  454</span>                <span class="keywordflow">if</span> len(row[col]) &gt; maxWidth:</div>
+<div class="line"><span class="lineno">  455</span>                    maxWidth = len(row[col])</div>
+<div class="line"><span class="lineno">  456</span>            columnWidths.append(maxWidth)</div>
+<div class="line"><span class="lineno">  457</span> </div>
+<div class="line"><span class="lineno">  458</span>        tableWidth = 1</div>
+<div class="line"><span class="lineno">  459</span>        <span class="keywordflow">for</span> columnWidth <span class="keywordflow">in</span> columnWidths:</div>
+<div class="line"><span class="lineno">  460</span>            tableWidth += columnWidth + 3 <span class="comment"># Space each side of the column + a column divider character</span></div>
+<div class="line"><span class="lineno">  461</span>                    </div>
+<div class="line"><span class="lineno">  462</span>        <span class="comment"># Add the top line of the table</span></div>
+<div class="line"><span class="lineno">  463</span>        self.info(rowSeparatorChar*tableWidth)</div>
+<div class="line"><span class="lineno">  464</span>               </div>
+<div class="line"><span class="lineno">  465</span>        <span class="comment"># The starting row index</span></div>
+<div class="line"><span class="lineno">  466</span>        <span class="keywordflow">for</span> rowIndex <span class="keywordflow">in</span> range(0, len(table)):</div>
+<div class="line"><span class="lineno">  467</span>            rowText = colSeparatorChar</div>
+<div class="line"><span class="lineno">  468</span>            colIndex = 0</div>
+<div class="line"><span class="lineno">  469</span>            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> table[rowIndex]:</div>
+<div class="line"><span class="lineno">  470</span>                colWidth = columnWidths[colIndex]</div>
+<div class="line"><span class="lineno">  471</span>                rowText = rowText + <span class="stringliteral">&quot; &quot;</span> + f<span class="stringliteral">&quot;{col:&gt;{colWidth}s}&quot;</span> + <span class="stringliteral">&quot; &quot;</span> + colSeparatorChar</div>
+<div class="line"><span class="lineno">  472</span>                colIndex += 1</div>
+<div class="line"><span class="lineno">  473</span>            self.info(rowText)</div>
+<div class="line"><span class="lineno">  474</span>            <span class="comment"># Add the row separator line</span></div>
+<div class="line"><span class="lineno">  475</span>            self.info(rowSeparatorChar*tableWidth)</div>
+<div class="line"><span class="lineno">  476</span>            </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1897,7 +1910,7 @@ The syslog messages will be prefixed withj the application name
 <div class="line"><span class="lineno">  137</span>            self._print(<span class="stringliteral">&#39;{}WARN{}:  {}&#39;</span>.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))</div>
 <div class="line"><span class="lineno">  138</span>        <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  139</span>            self._print(<span class="stringliteral">&#39;WARN:  {}&#39;</span>.format(text))</div>
-<div class="line"><span class="lineno">  140</span>        self._update_syslog(PRIORITY.WARNING, text)</div>
+<div class="line"><span class="lineno">  140</span>        self._update_syslog(PRIORITY.WARNING, <span class="stringliteral">&quot;WARN:  &quot;</span>+text)</div>
 <div class="line"><span class="lineno">  141</span> </div>
 </div><!-- fragment -->
 </div>

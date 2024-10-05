@@ -1,0 +1,7 @@
+<map id="MultiAppServer" name="MultiAppServer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="15,79,125,104"/>
+<area shape="rect" id="Node000003" href="$classbokeh__multiple__app__example_1_1MyMultiAppServer.html" title=" " alt="" coords="5,152,135,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,118,73,152,67,152,67,118"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,99,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,44,73,79,67,79,67,44"/>
+</map>
