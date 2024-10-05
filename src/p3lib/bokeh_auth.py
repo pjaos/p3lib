@@ -149,10 +149,16 @@ class LoginHandler(RequestHandler):
         self._recordLoginAttempt(username, password)
         valid = False
         credentialsJsonFile = GetCredentialsFile()
+        LoginHandler.SaveInfoAccessLogMessage(f"credentialsJsonFile = {credentialsJsonFile}")
+        fileExists = os.path.isfile(credentialsJsonFile)
+        LoginHandler.SaveInfoAccessLogMessage(f"fileExists = {fileExists}")
         ch = CredentialsHasher(credentialsJsonFile)
-        if ch.verify(username, password):
+        verified = ch.verify(username, password)
+        LoginHandler.SaveInfoAccessLogMessage(f"verified = {verified}")
+        if verified:
             valid = True
             self._recordLoginSuccess(username, password)
+        LoginHandler.SaveInfoAccessLogMessage(f"check_permission(): valid = {valid}")
         return valid
 
     def post(self):
