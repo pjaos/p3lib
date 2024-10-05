@@ -13,8 +13,65 @@ class BootManager(object):
        Currently supports the following platforms
        Linux"""
 
-    LINUX_OS_NAME = "Linux"
+    LINUX_OS_NAME       = "Linux"
+    ENABLE_CMD_OPT      = "--enable_auto_start"
+    DISABLE_CMD_OPT     = "--disable_auto_start"
+    CHECK_CMD_OPT       = "--check_auto_start"
 
+    @staticmethod
+    def AddCmdArgs(parser):
+        """@brief Add cmd line arguments to enable, disable and show the systemd boot state.
+           @param parser An instance of argparse.ArgumentParser."""
+        parser.add_argument(BootManager.ENABLE_CMD_OPT,  help="Auto start when this computer starts.", action="store_true", default=False)
+        parser.add_argument(BootManager.DISABLE_CMD_OPT, help="Disable auto starting when this computer starts.", action="store_true", default=False)
+        parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the status of an auto started icons_gw instance.", action="store_true", default=False)
+
+    @staticmethod
+    def HandleOptions(uio, options, enable_syslog):
+        """@brief Handle one of the bot manager command line options if the 
+                  user passed it on the cmd line.
+           @param uio A UIO instance.
+           @param options As returned from parser.parse_args() where parser 
+                          is an instance of argparse.ArgumentParser.
+           @param enable_syslog True to enable systemd syslog output.
+           @return True if handled , False if not."""
+        handled = False
+        if options.check_auto_start:
+            BootManager.CheckAutoStartStatus(uio)
+            handled = True
+            
+        elif options.enable_auto_start:
+            BootManager.EnableAutoStart(uio, enable_syslog)
+            handled = True
+            
+        elif options.disable_auto_start:
+            BootManager.DisableAutoStart(uio)
+            handled = True
+
+        return handled
+
+    @staticmethod
+    def EnableAutoStart(uio, enable_syslog):
+        """@brief Enable this program to auto start when the computer on which it is installed starts."""
+        bootManager = BootManager(uio=uio, ensureRootUser=True)
+        arsString = " ".join(sys.argv)
+        bootManager.add(argString=arsString, enableSyslog=enable_syslog)
+
+    @staticmethod
+    def DisableAutoStart(uio):
+        """@brief Enable this program to auto start when the computer on which it is installed starts."""
+        bootManager = BootManager(uio=uio, ensureRootUser=True)
+        bootManager.remove()
+        
+    @staticmethod
+    def CheckAutoStartStatus(uio):
+        """@brief Check the status of a process previously set to auto start."""
+        bootManager = BootManager(uio=uio)
+        lines = bootManager.getStatus()
+        if lines and len(lines) > 0:
+            for line in lines:
+                uio.info(line)
+        
     def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output
@@ -130,41 +187,14 @@ class LinuxBootManager(object):
                   named the same as the python file executed without the .py suffix.
            @return The startup script file (absolute path)."""""
         startupScript=None
-        pythonFile = sys.argv[0] # The python file executed at program startup
-        if pythonFile.startswith("./"):
-            pythonFile=pythonFile[2:]
-            
-        envPaths = self._getPaths()
-
-        # Search first for a file that does not have the .py suffix as 
-        # this may be installed via a deb/rpm installation.
-        exeFile=os.path.basename( pythonFile.replace(".py", "") )
-        if envPaths and len(envPaths) > 0:
-            for envPath in envPaths:
-                _exeStartupScript = os.path.join(envPath, exeFile)
-                if os.path.isfile(_exeStartupScript):
-                    startupScript=_exeStartupScript
-                    break 
-
-        # If the script file has not been found then search for a file with 
-        # the .py suffix.       
-        if not startupScript:
-            if envPaths and len(envPaths) > 0:
-                for envPath in envPaths:
-                    _startupScript = os.path.join(envPath, pythonFile)
-                    if os.path.isfile(_startupScript):
-                        startupScript=_startupScript
-                        break     
-                      
-        if not startupScript:
-            paths = self._getPaths()
-            if len(paths):
-                for _path in paths:
-                    self._info(_path)
-                self._fatalError("{} startup script not found using the PATH env var".format(pythonFile) )
-            else:
-                self._fatalError("No PATH env var found.")
-
+        argList = sys.argv
+        # If the first argument in the arg is a file.
+        if len(argList) > 0:
+            firstArg = argList[0]
+            if os.path.isfile(firstArg) or os.path.islink(firstArg):
+                startupScript = firstArg
+        if startupScript is None:
+            raise Exception("Failed to find the startup script.")
         return startupScript
 
     def _getPaths(self):
@@ -287,6 +317,13 @@ class LinuxBootManager(object):
         if user and len(user) > 0:
             lines.append('Environment="HOME=/home/{}"'.format(user))
         if argString:
+            argString = argString.strip()
+            if argString.startswith(absApp):
+                argString=argString.replace(absApp, "")
+            # We don't want the enable cmd opt in the cmd we add to the systemd file.
+            if argString.find(BootManager.ENABLE_CMD_OPT):
+                argString = argString.replace(BootManager.ENABLE_CMD_OPT, "")
+            argString = argString.strip()
             lines.append("ExecStart={} {}".format(absApp, argString))
         else:
             lines.append("ExecStart={}".format(absApp))
@@ -299,6 +336,7 @@ class LinuxBootManager(object):
             fd = open(serviceFile, 'w')
             fd.write( "\n".join(lines) )
             fd.close()
+            self._info(f"Created {serviceFile}")
         except IOError:
             self._fatalError("Failed to create {}".format(serviceFile) )
 
