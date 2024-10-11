@@ -30,7 +30,7 @@ var searchData=
   ['getdebugescapeseq_27',['GetDebugEscapeSeq',['../classp3lib_1_1uio_1_1UIO.html#a55624208bdb297752e1367645e4ce048',1,'p3lib::uio::UIO']]],
   ['getdebuglogfile_28',['getDebugLogFile',['../classp3lib_1_1uio_1_1UIO.html#a9f29daa8059bc7ed132bd2cd9038081d',1,'p3lib::uio::UIO']]],
   ['getdecint_29',['GetDecInt',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a1aacafb4dabf54dc07cba208eba6bc2c',1,'p3lib::pconfig::ConfigManager']]],
-  ['getdefaultconfigfilename_30',['GetDefaultConfigFilename',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a5b387a440d5e4ff3b7f11b49dcac86fb',1,'p3lib::pconfig::ConfigManager']]],
+  ['getdefaultconfigfilename_30',['GetDefaultConfigFilename',['../classp3lib_1_1pconfig_1_1DotConfigManager.html#a5b387a440d5e4ff3b7f11b49dcac86fb',1,'p3lib::pconfig::DotConfigManager']]],
   ['getdescription_31',['getDescription',['../classp3lib_1_1ate_1_1TestCase.html#a89ead7a3fb8d8dc987c92e1d7322f14a',1,'p3lib::ate::TestCase']]],
   ['getdict_32',['getDict',['../namespacep3lib_1_1helper.html#aebbc45058476e048fc208061c7fd3248',1,'p3lib::helper']]],
   ['geterrorescapeseq_33',['GetErrorEscapeSeq',['../classp3lib_1_1uio_1_1UIO.html#a97207b03afcd46ba47b3857be74331c1',1,'p3lib::uio::UIO']]],

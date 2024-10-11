@@ -1,7 +1,7 @@
 var searchData=
 [
   ['daemon_0',['DAEMON',['../classp3lib_1_1uio_1_1FACILITY.html#a38f6d6ea016822204f8b7edb2897bae9',1,'p3lib::uio::FACILITY']]],
-  ['daemon_5fthreads_1',['daemon_threads',['../classp3lib_1_1json__networking_1_1JSONServer.html#a56049bab11655c3271b121334b6bc916',1,'p3lib.json_networking.JSONServer.daemon_threads'],['../classp3lib_1_1ssh_1_1ForwardingServer.html#a56049bab11655c3271b121334b6bc916',1,'p3lib.ssh.ForwardingServer.daemon_threads']]],
+  ['daemon_5fthreads_1',['daemon_threads',['../classp3lib_1_1ssh_1_1ForwardingServer.html#a56049bab11655c3271b121334b6bc916',1,'p3lib.ssh.ForwardingServer.daemon_threads'],['../classp3lib_1_1json__networking_1_1JSONServer.html#a56049bab11655c3271b121334b6bc916',1,'p3lib.json_networking.JSONServer.daemon_threads']]],
   ['data_2',['data',['../classp3lib_1_1table__plot_1_1GUIMessage.html#a511ae0b1c13f95e5f08f1a0dd3da3d93',1,'p3lib::table_plot::GUIMessage']]],
   ['database_5fif_2epy_3',['database_if.py',['../database__if_8py.html',1,'']]],
   ['databaseif_4',['DatabaseIF',['../classp3lib_1_1database__if_1_1DatabaseIF.html',1,'p3lib::database_if']]],
@@ -66,10 +66,11 @@ var searchData=
   ['display_5fattr_5funderscore_63',['DISPLAY_ATTR_UNDERSCORE',['../classp3lib_1_1uio_1_1UIO.html#ae7705a227db41b44601392abba5762de',1,'p3lib::uio::UIO']]],
   ['display_5freset_5fescape_5fseq_64',['DISPLAY_RESET_ESCAPE_SEQ',['../classp3lib_1_1uio_1_1UIO.html#af078ac77884794802fb990787440d605',1,'p3lib::uio::UIO']]],
   ['doctitle_65',['docTitle',['../classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html#aed8cdcda1606e112e37a48b4c5022c76',1,'p3lib::table_plot::Bokeh2DTablePlotter']]],
-  ['dropbear_5fauth_5fkeys_5ffile_66',['DROPBEAR_AUTH_KEYS_FILE',['../classp3lib_1_1ssh_1_1SSH.html#a5c42d3641c2405880ffcb7549be909ce',1,'p3lib::ssh::SSH']]],
-  ['dropbear_5fdir_67',['DROPBEAR_DIR',['../classp3lib_1_1ssh_1_1SSH.html#ad3851228185ba73f03b6cba3060b6ff4',1,'p3lib::ssh::SSH']]],
-  ['dropdatabase_68',['dropDatabase',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ac65c08416c446ee434cfe8a8d773c6c7',1,'p3lib::database_if::DatabaseIF']]],
-  ['dropdown_5finput_5ffield_69',['DROPDOWN_INPUT_FIELD',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ab37cd043b35fee6c3a9b78c411323d8a',1,'p3lib::ngt::YesNoDialog']]],
-  ['droptable_70',['dropTable',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a9731a0e4687fd835554bb29477afdb42',1,'p3lib::database_if::DatabaseIF']]],
-  ['dynamicplotexample_71',['DynamicPlotExample',['../classGUIModel__A__example_1_1DynamicPlotExample.html',1,'GUIModel_A_example']]]
+  ['dotconfigmanager_66',['DotConfigManager',['../classp3lib_1_1pconfig_1_1DotConfigManager.html',1,'p3lib::pconfig']]],
+  ['dropbear_5fauth_5fkeys_5ffile_67',['DROPBEAR_AUTH_KEYS_FILE',['../classp3lib_1_1ssh_1_1SSH.html#a5c42d3641c2405880ffcb7549be909ce',1,'p3lib::ssh::SSH']]],
+  ['dropbear_5fdir_68',['DROPBEAR_DIR',['../classp3lib_1_1ssh_1_1SSH.html#ad3851228185ba73f03b6cba3060b6ff4',1,'p3lib::ssh::SSH']]],
+  ['dropdatabase_69',['dropDatabase',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ac65c08416c446ee434cfe8a8d773c6c7',1,'p3lib::database_if::DatabaseIF']]],
+  ['dropdown_5finput_5ffield_70',['DROPDOWN_INPUT_FIELD',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ab37cd043b35fee6c3a9b78c411323d8a',1,'p3lib::ngt::YesNoDialog']]],
+  ['droptable_71',['dropTable',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a9731a0e4687fd835554bb29477afdb42',1,'p3lib::database_if::DatabaseIF']]],
+  ['dynamicplotexample_72',['DynamicPlotExample',['../classGUIModel__A__example_1_1DynamicPlotExample.html',1,'GUIModel_A_example']]]
 ];
