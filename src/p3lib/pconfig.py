@@ -338,49 +338,6 @@ class ConfigManager(object):
                     configPath = configPath.strip()
 
         return join( configPath, cfgFilename )
-
-    @staticmethod
-    def GetDefaultConfigFilename():
-        """@brief Get the default name of the config file for this app. This will be the program name
-                  (file that started up initially) without the .py extension. On Linux systems this 
-                  will reside in the ~/.config folder. If the ~/.config does not exist an attempt to 
-                  create it is made. If the ~/.config folder cannot be created then the config file 
-                  will be as detailed above but will be prefixed by a . character and will reside
-                  in the users home folder."""
-        progName = sys.argv[0]
-        if progName.endswith('.py'):
-            progName = progName[0:-3]
-
-        folder = '.config'
-        homePath = os.path.expanduser("~")
-        configFolder = os.path.join(homePath, folder)
-
-        if not os.path.isdir(homePath):
-            raise Exception(f"{homePath} HOME path does not exist.")
-        
-        # Create the ~/.config folder if it does not exist
-        if not os.path.isdir(configFolder):
-            # Create the ~/.config folder
-            os.makedir(configFolder)
-
-        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True
-        # as this will prefix the filename with the . character.
-        if os.path.isdir(configFolder):
-            extraFolders = os.path.dirname(progName)
-            configFolder = os.path.join(configFolder, extraFolders)
-            if not os.path.isdir(configFolder):
-                os.makedirs(configFolder)
-            if not os.path.isdir(configFolder):
-                raise Exception(f"Failed to create the {configFolder} folder.")
-            
-            configFolder = "config"
-            configFolder = os.path.join(configFolder, extraFolders)
-            configFilename = os.path.join(configFolder, os.path.basename(progName) + '.cfg')
-
-        else:
-            configFilename = progName
-
-        return configFilename
     
     def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
         """@brief Constructor
@@ -782,3 +739,69 @@ class ConfigAttrDetails(object):
         self.minValue       =   minValue    #Only used for numbers
         self.maxValue       =   maxValue    #Only used for numbers
         self.allowEmpty     =   allowEmpty  #Only used for strings
+
+class DotConfigManager(ConfigManager):
+    """@brief This extends the previous ConfigManager and stores config under the ~/.config folder
+              rather than in the home folder (~) using a filename prefixed with the . character.
+              The ~/.config folder holds either a single config file of the startup python filename.
+              The ./config folder can contain another python module folder which contains the config
+              file. E.G for this example app the ~/.config/examples/pconfig_example.cfg folder is used."""
+
+    @staticmethod
+    def GetDefaultConfigFilename():
+        """@brief Get the default name of the config file for this app. This will be the program name
+                  (file that started up initially) without the .py extension. On Linux systems this 
+                  will reside in the ~/.config folder. If the ~/.config does not exist an attempt to 
+                  create it is made. If the ~/.config folder cannot be created then the config file 
+                  will be as detailed above but will be prefixed by a . character and will reside
+                  in the users home folder."""
+        progName = sys.argv[0]
+        if progName.endswith('.py'):
+            progName = progName[0:-3]
+
+        folder = '.config'
+        homePath = os.path.expanduser("~")
+        configFolder = os.path.join(homePath, folder)
+
+        if not os.path.isdir(homePath):
+            raise Exception(f"{homePath} HOME path does not exist.")
+        
+        # Create the ~/.config folder if it does not exist
+        if not os.path.isdir(configFolder):
+            # Create the ~/.config folder
+            os.makedir(configFolder)
+
+        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True
+        # as this will prefix the filename with the . character.
+        if os.path.isdir(configFolder):
+            extraFolders = os.path.dirname(progName)
+            configFolder = os.path.join(configFolder, extraFolders)
+            if not os.path.isdir(configFolder):
+                os.makedirs(configFolder)
+            if not os.path.isdir(configFolder):
+                raise Exception(f"Failed to create the {configFolder} folder.")
+            
+            configFolder = "config"
+            configFolder = os.path.join(configFolder, extraFolders)
+            configFilename = os.path.join(configFolder, os.path.basename(progName) + '.cfg')
+
+        else:
+            configFilename = progName
+
+        return configFilename
+        
+    def __init__(self, defaultConfig, uio=None, encrypt=False):
+        """@brief Constructor
+           @param defaultConfig A default config instance containing all the default key-value pairs.
+           @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
+           @param encrypt If True then data will be encrypted in the saved files.
+                          The encryption uses part of the the local SSH RSA private key.
+                          This is not secure but assuming the private key has not been compromised it's
+                          probably the best we can do. 
+                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!
+                          ||| in the ~/.ssh folder named id_rsa.                                   !!!"""
+        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)
+        # Ensure the config file is present and loaded into the internal dict.
+        self.load()
+
+
