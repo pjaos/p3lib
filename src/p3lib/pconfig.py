@@ -339,11 +339,54 @@ class ConfigManager(object):
 
         return join( configPath, cfgFilename )
 
+    @staticmethod
+    def GetDefaultConfigFilename():
+        """@brief Get the default name of the config file for this app. This will be the program name
+                  (file that started up initially) without the .py extension. On Linux systems this 
+                  will reside in the ~/.config folder. If the ~/.config does not exist an attempt to 
+                  create it is made. If the ~/.config folder cannot be created then the config file 
+                  will be as detailed above but will be prefixed by a . character and will reside
+                  in the users home folder."""
+        progName = sys.argv[0]
+        if progName.endswith('.py'):
+            progName = progName[0:-3]
+
+        folder = '.config'
+        homePath = os.path.expanduser("~")
+        configFolder = os.path.join(homePath, folder)
+
+        if not os.path.isdir(homePath):
+            raise Exception(f"{homePath} HOME path does not exist.")
+        
+        # Create the ~/.config folder if it does not exist
+        if not os.path.isdir(configFolder):
+            # Create the ~/.config folder
+            os.makedir(configFolder)
+
+        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True
+        # as this will prefix the filename with the . character.
+        if os.path.isdir(configFolder):
+            extraFolders = os.path.dirname(progName)
+            configFolder = os.path.join(configFolder, extraFolders)
+            if not os.path.isdir(configFolder):
+                os.makedirs(configFolder)
+            if not os.path.isdir(configFolder):
+                raise Exception(f"Failed to create the {configFolder} folder.")
+            
+            configFolder = "config"
+            configFolder = os.path.join(configFolder, extraFolders)
+            configFilename = os.path.join(configFolder, os.path.basename(progName) + '.cfg')
+
+        else:
+            configFilename = progName
+
+        return configFilename
+    
     def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
         """@brief Constructor
            @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
-           @param cfgFilename   The name of the config file.
-           @param defaultConfig A default config instance containg all the default key-value pairs.
+           @param cfgFilename   The name of the config file. If this is None then the default config filename is used.
+           @param defaultConfig A default config instance containing all the default key-value pairs.
            @param addDotToFilename If True (default) then a . is added to the start of the filename. This hides the file in normal cases.
            @param encrypt If True then data will be encrypted in the saved files.
                           The encryption uses part of the the local SSH RSA private key.
@@ -359,6 +402,10 @@ class ConfigManager(object):
         self._encrypt           = encrypt
         self._cfgPath           = cfgPath
         self._configDict        = {}
+
+        # If the user passed None in as the cfg filename then generate the default config file.
+        if self._cfgFilename is None:
+            self._cfgFilename =  ConfigManager.GetDefaultConfigFilename()
 
         self._cfgFile = self._getConfigFile()
         self._modifiedTime = self._getModifiedTime()
