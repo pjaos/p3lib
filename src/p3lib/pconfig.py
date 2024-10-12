@@ -756,6 +756,8 @@ class DotConfigManager(ConfigManager):
               The ~/.config folder holds either a single config file of the startup python filename.
               The ./config folder can contain another python module folder which contains the config
               file. E.G for this example app the ~/.config/examples/pconfig_example.cfg folder is used."""
+    DEFAULT_CONFIG = None       # This must be overridden in a subclass to define the configuration parameters and values.
+    KEY_EDIT_ORDER_LIST = None
 
     @staticmethod
     def GetDefaultConfigFilename():
@@ -800,9 +802,10 @@ class DotConfigManager(ConfigManager):
 
         return configFilename
         
-    def __init__(self, defaultConfig, uio=None, encrypt=False):
+    def __init__(self, defaultConfig, keyEditOrderList=None, uio=None, encrypt=False):
         """@brief Constructor
            @param defaultConfig A default config instance containing all the default key-value pairs.
+           @param keyEditOrderList A list of all the dict keys in the order that the caller wishes them to be displayed top the user.
            @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
            @param encrypt If True then data will be encrypted in the saved files.
                           The encryption uses part of the the local SSH RSA private key.
@@ -811,7 +814,33 @@ class DotConfigManager(ConfigManager):
                           !!! Therefore if encrypt is set True then the an ssh key must be present !!!
                           ||| in the ~/.ssh folder named id_rsa.                                   !!!"""
         super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)
+        self._keyEditOrderList = keyEditOrderList
         # Ensure the config file is present and loaded into the internal dict.
         self.load()
 
+    def show(self):
+        """@brief A helper method to show the dictionary config to the user.
+           @return A dictionary mapping the attribute ID's (keys) to dictionary keys (values)."""
+        maxKeyLen=10
+        # If the caller wants to present the parameters to the user in a partiular order
+        if self._keyEditOrderList:
+            keys = self._keyEditOrderList
+            defaultKeys = list(self._configDict.keys())
+            for defaultKey in defaultKeys:
+                if defaultKey not in keys:
+                    raise Exception(f"BUG: DotConfigManager: {defaultKey} key is missing from the keyEditOrderList.")
+        # Present the parameters to the user in any order.
+        else:
+            keys = list(self._configDict.keys())
 
+        for key in keys:
+            if len(key) > maxKeyLen:
+                maxKeyLen = len(key)
+        self._info("ID  PARAMETER"+" "*(maxKeyLen-8)+" VALUE")
+        id=1
+        idKeyDict = {}
+        for key in keys:
+            idKeyDict[id]=key
+            self._info("{:<3d} {:<{}} {}".format(id, key, maxKeyLen+1, self._configDict[key]))
+            id=id+1
+        return idKeyDict
