@@ -495,7 +495,7 @@ class ConfigManager(object):
                     self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(loadedConfigKey, loadedConfig[loadedConfigKey]))
                     loadedConfig.pop(loadedConfigKey, None)
 
-        self._configDict = loadedConfig
+            self._configDict = loadedConfig
         self._info("Loaded config from %s" % (self._cfgFile) )
 
     def inputFloat(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):
