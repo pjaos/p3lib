@@ -764,32 +764,35 @@ class DotConfigManager(ConfigManager):
         """@brief Get the default name of the config file for this app. This will be the program name
                   (file that started up initially) without the .py extension. A .cfg extension is added
                   and it will be found in the ~/.config folder."""
-         dotConfigFolder = '.config'
-         homePath = os.path.expanduser("~")
-         configFolder = os.path.join(homePath, dotConfigFolder)
+        dotConfigFolder = '.config'
+        if platform.system() == 'Linux' and os.geteuid() == 0:
+            homePath = "/root"
+        else:
+            homePath = os.path.expanduser("~")
+        configFolder = os.path.join(homePath, dotConfigFolder)
 
-         if not os.path.isdir(homePath):
-             raise Exception(f"{homePath} HOME path does not exist.")
+        if not os.path.isdir(homePath):
+            raise Exception(f"{homePath} HOME path does not exist.")
         
-         # Create the ~/.config folder if it does not exist
-         if not os.path.isdir(configFolder):
-             # Create the ~/.config folder
-             os.makedir(configFolder)
+        # Create the ~/.config folder if it does not exist
+        if not os.path.isdir(configFolder):
+            # Create the ~/.config folder
+            os.makedir(configFolder)
 
-         progName = sys.argv[0]
-         if progName.endswith('.py'):
-             progName = progName[0:-3]
-         progName = os.path.basename(progName).strip()
+        progName = sys.argv[0]
+        if progName.endswith('.py'):
+            progName = progName[0:-3]
+        progName = os.path.basename(progName).strip()
 
-         # Note that we assume that addDotToFilename in the ConfigManager constructor is set True
-         # as this will prefix the filename with the . character.
-         if os.path.isdir(configFolder):
-             configFilename = os.path.join(".config", progName + ".cfg")
+        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True
+        # as this will prefix the filename with the . character.
+        if os.path.isdir(configFolder):
+            configFilename = os.path.join(".config", progName + ".cfg")
 
-         else:
-             raise Exception(f"Failed to create the {configFolder} folder.")
+        else:
+            raise Exception(f"Failed to create the {configFolder} folder.")
 
-         return configFilename
+        return configFilename
 
     def __init__(self, defaultConfig, keyEditOrderList=None, uio=None, encrypt=False):
         """@brief Constructor
