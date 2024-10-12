@@ -474,11 +474,11 @@ class ConfigManager(object):
             #Get the config from the stored config file.
             loadedConfig = self._getDict()
             #Get list of all the keys from the config file loaded.
-            loadedConfigKeys = loadedConfig.keys()
+            loadedConfigKeys = list(loadedConfig.keys())
 
             #Get the default config
-            self._configDict = copy.deepcopy( self._defaultConfig )
-            defaultConfigKeys = self._configDict.keys()
+            defaultConfig = copy.deepcopy( self._defaultConfig )
+            defaultConfigKeys = list(defaultConfig.keys())
 
             # Config parameters may be added or dropped over time. We use the default config to
             # check for parameters that should be added/removed.
@@ -486,15 +486,16 @@ class ConfigManager(object):
             # Add any missing keys to the loaded config from the default config.
             for defaultKey in defaultConfigKeys:
                 if defaultKey not in loadedConfigKeys:
-                    self._configDict[defaultKey] = self._defaultConfig[defaultKey]
-                    self._debug("----------> DEFAULT VALUE ADDED: {} = {}".format(defaultKey, self._configDict[defaultKey]))
+                    loadedConfig[defaultKey] = self._defaultConfig[defaultKey]
+                    self._debug("----------> DEFAULT VALUE ADDED: {} = {}".format(defaultKey, loadedConfig[defaultKey]))
 
             # If some keys have been dropped from the config, remove them.
             for loadedConfigKey in loadedConfigKeys:
                 if loadedConfigKey not in defaultConfigKeys:
-                    self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(loadedConfigKey, self._configDict[loadedConfigKey]))
-                    self._configDict.pop(loadedConfigKey, None)
+                    self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(loadedConfigKey, loadedConfig[loadedConfigKey]))
+                    loadedConfig.pop(loadedConfigKey, None)
 
+        self._configDict = loadedConfig
         self._info("Loaded config from %s" % (self._cfgFile) )
 
     def inputFloat(self, key, prompt, minValue=UNSET_VALUE, maxValue=UNSET_VALUE):
