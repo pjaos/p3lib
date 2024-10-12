@@ -946,78 +946,81 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>                  (file that started up initially) without the .py extension. A .cfg extension is added</div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>                  and it will be found in the ~/.config folder.&quot;&quot;&quot;</div>
 <div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>        dotConfigFolder = &#39;.config&#39;</div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>        homePath = os.path.expanduser(&quot;~&quot;)</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        configFolder = os.path.join(homePath, dotConfigFolder)</div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span> </div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>        if not os.path.isdir(homePath):</div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>            raise Exception(f&quot;{homePath} HOME path does not exist.&quot;)</div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>        </div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        # Create the ~/.config folder if it does not exist</div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>        if not os.path.isdir(configFolder):</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>            # Create the ~/.config folder</div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>            os.makedir(configFolder)</div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span> </div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        progName = sys.argv[0]</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>        if progName.endswith(&#39;.py&#39;):</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>            progName = progName[0:-3]</div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        progName = os.path.basename(progName).strip()</div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span> </div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True</div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        # as this will prefix the filename with the . character.</div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>        if os.path.isdir(configFolder):</div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>            configFilename = os.path.join(&quot;.config&quot;, progName + &quot;.cfg&quot;)</div>
-<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        else:</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>            raise Exception(f&quot;Failed to create the {configFolder} folder.&quot;)</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>        if platform.system() == &#39;Linux&#39; and os.geteuid() == 0:</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>            homePath = &quot;/root&quot;</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>        else:</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>            homePath = os.path.expanduser(&quot;~&quot;)</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        configFolder = os.path.join(homePath, dotConfigFolder)</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span> </div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        if not os.path.isdir(homePath):</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>            raise Exception(f&quot;{homePath} HOME path does not exist.&quot;)</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        </div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>        # Create the ~/.config folder if it does not exist</div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        if not os.path.isdir(configFolder):</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>            # Create the ~/.config folder</div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>            os.makedir(configFolder)</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span> </div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        progName = sys.argv[0]</div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        if progName.endswith(&#39;.py&#39;):</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>            progName = progName[0:-3]</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        progName = os.path.basename(progName).strip()</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span> </div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>        # as this will prefix the filename with the . character.</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        if os.path.isdir(configFolder):</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>            configFilename = os.path.join(&quot;.config&quot;, progName + &quot;.cfg&quot;)</div>
 <div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span> </div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        return configFilename</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span> </div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        else:</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>            raise Exception(f&quot;Failed to create the {configFolder} folder.&quot;)</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span> </div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>        return configFilename</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span> </div>
 </div>
-<div class="foldopen" id="foldopen00794" data-start="" data-end="">
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1DotConfigManager.html#a6f1fc22d2d25b0729ae693f5e8a9a8cb">  794</a></span>    def __init__(self, defaultConfig, keyEditOrderList=None, uio=None, encrypt=False):</div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>        &quot;&quot;&quot;@brief Constructor</div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>           @param defaultConfig A default config instance containing all the default key-value pairs.</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>           @param keyEditOrderList A list of all the dict keys in the order that the caller wishes them to be displayed top the user.</div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>           @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.</div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>           @param encrypt If True then data will be encrypted in the saved files.</div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>                          The encryption uses part of the the local SSH RSA private key.</div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>                          This is not secure but assuming the private key has not been compromised it&#39;s</div>
-<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>                          probably the best we can do. </div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!</div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>                          ||| in the ~/.ssh folder named id_rsa.                                   !!!&quot;&quot;&quot;</div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)</div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1DotConfigManager.html#a4d326161e654396dccd540e1d8df002a">  806</a></span>        self._keyEditOrderList = keyEditOrderList</div>
-<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>        # Ensure the config file is present and loaded into the internal dict.</div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>        self.load()</div>
-<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span> </div>
+<div class="foldopen" id="foldopen00797" data-start="" data-end="">
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1DotConfigManager.html#a6f1fc22d2d25b0729ae693f5e8a9a8cb">  797</a></span>    def __init__(self, defaultConfig, keyEditOrderList=None, uio=None, encrypt=False):</div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>        &quot;&quot;&quot;@brief Constructor</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>           @param defaultConfig A default config instance containing all the default key-value pairs.</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>           @param keyEditOrderList A list of all the dict keys in the order that the caller wishes them to be displayed top the user.</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>           @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.</div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>           @param encrypt If True then data will be encrypted in the saved files.</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>                          The encryption uses part of the the local SSH RSA private key.</div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>                          This is not secure but assuming the private key has not been compromised it&#39;s</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>                          probably the best we can do. </div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>                          ||| in the ~/.ssh folder named id_rsa.                                   !!!&quot;&quot;&quot;</div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1DotConfigManager.html#a4d326161e654396dccd540e1d8df002a">  809</a></span>        self._keyEditOrderList = keyEditOrderList</div>
+<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>        # Ensure the config file is present and loaded into the internal dict.</div>
+<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>        self.load()</div>
+<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span> </div>
 </div>
-<div class="foldopen" id="foldopen00810" data-start="" data-end="">
-<div class="line"><a id="l00810" name="l00810"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1DotConfigManager.html#aee92d1368e7eba9c024dfc1cb30258f6">  810</a></span>    def show(self):</div>
-<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>        &quot;&quot;&quot;@brief A helper method to show the dictionary config to the user.</div>
-<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>           @return A dictionary mapping the attribute ID&#39;s (keys) to dictionary keys (values).&quot;&quot;&quot;</div>
-<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>        maxKeyLen=10</div>
-<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>        # If the caller wants to present the parameters to the user in a partiular order</div>
-<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>        if self._keyEditOrderList:</div>
-<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>            keys = self._keyEditOrderList</div>
-<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>            defaultKeys = list(self._configDict.keys())</div>
-<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>            for defaultKey in defaultKeys:</div>
-<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>                if defaultKey not in keys:</div>
-<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>                    raise Exception(f&quot;BUG: DotConfigManager: {defaultKey} key is missing from the keyEditOrderList.&quot;)</div>
-<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>        # Present the parameters to the user in any order.</div>
-<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>        else:</div>
-<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>            keys = list(self._configDict.keys())</div>
-<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span> </div>
-<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>        for key in keys:</div>
-<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>            if len(key) &gt; maxKeyLen:</div>
-<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>                maxKeyLen = len(key)</div>
-<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>        self._info(&quot;ID  PARAMETER&quot;+&quot; &quot;*(maxKeyLen-8)+&quot; VALUE&quot;)</div>
-<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>        id=1</div>
-<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>        idKeyDict = {}</div>
-<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>        for key in keys:</div>
-<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>            idKeyDict[id]=key</div>
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span>            self._info(&quot;{:&lt;3d} {:&lt;{}} {}&quot;.format(id, key, maxKeyLen+1, self._configDict[key]))</div>
-<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>            id=id+1</div>
-<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>        return idKeyDict</div>
+<div class="foldopen" id="foldopen00813" data-start="" data-end="">
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1DotConfigManager.html#aee92d1368e7eba9c024dfc1cb30258f6">  813</a></span>    def show(self):</div>
+<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>        &quot;&quot;&quot;@brief A helper method to show the dictionary config to the user.</div>
+<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>           @return A dictionary mapping the attribute ID&#39;s (keys) to dictionary keys (values).&quot;&quot;&quot;</div>
+<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>        maxKeyLen=10</div>
+<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>        # If the caller wants to present the parameters to the user in a partiular order</div>
+<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>        if self._keyEditOrderList:</div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>            keys = self._keyEditOrderList</div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>            defaultKeys = list(self._configDict.keys())</div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>            for defaultKey in defaultKeys:</div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>                if defaultKey not in keys:</div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>                    raise Exception(f&quot;BUG: DotConfigManager: {defaultKey} key is missing from the keyEditOrderList.&quot;)</div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>        # Present the parameters to the user in any order.</div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>        else:</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>            keys = list(self._configDict.keys())</div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span> </div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>        for key in keys:</div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>            if len(key) &gt; maxKeyLen:</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>                maxKeyLen = len(key)</div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>        self._info(&quot;ID  PARAMETER&quot;+&quot; &quot;*(maxKeyLen-8)+&quot; VALUE&quot;)</div>
+<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>        id=1</div>
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span>        idKeyDict = {}</div>
+<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>        for key in keys:</div>
+<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>            idKeyDict[id]=key</div>
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>            self._info(&quot;{:&lt;3d} {:&lt;{}} {}&quot;.format(id, key, maxKeyLen+1, self._configDict[key]))</div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>            id=id+1</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>        return idKeyDict</div>
 </div>
 </div>
 <div class="ttc" id="aclassp3lib_1_1pconfig_1_1ConfigManager_html"><div class="ttname"><a href="classp3lib_1_1pconfig_1_1ConfigManager.html">p3lib.pconfig.ConfigManager</a></div><div class="ttdef"><b>Definition</b> <a href="pconfig_8py_source.html#l00016">pconfig.py:16</a></div></div>
