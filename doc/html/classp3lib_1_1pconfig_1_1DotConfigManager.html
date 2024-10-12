@@ -370,32 +370,32 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">  764</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the default name of the config file for this app. This will be the program name</span></div>
 <div class="line"><span class="lineno">  765</span><span class="stringliteral">                  (file that started up initially) without the .py extension. A .cfg extension is added</span></div>
 <div class="line"><span class="lineno">  766</span><span class="stringliteral">                  and it will be found in the ~/.config folder.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  767</span>         dotConfigFolder = <span class="stringliteral">&#39;.config&#39;</span></div>
-<div class="line"><span class="lineno">  768</span>         homePath = os.path.expanduser(<span class="stringliteral">&quot;~&quot;</span>)</div>
-<div class="line"><span class="lineno">  769</span>         configFolder = os.path.join(homePath, dotConfigFolder)</div>
+<div class="line"><span class="lineno">  767</span>        dotConfigFolder = <span class="stringliteral">&#39;.config&#39;</span></div>
+<div class="line"><span class="lineno">  768</span>        homePath = os.path.expanduser(<span class="stringliteral">&quot;~&quot;</span>)</div>
+<div class="line"><span class="lineno">  769</span>        configFolder = os.path.join(homePath, dotConfigFolder)</div>
 <div class="line"><span class="lineno">  770</span> </div>
-<div class="line"><span class="lineno">  771</span>         <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(homePath):</div>
-<div class="line"><span class="lineno">  772</span>             <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{homePath} HOME path does not exist.&quot;</span>)</div>
+<div class="line"><span class="lineno">  771</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(homePath):</div>
+<div class="line"><span class="lineno">  772</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{homePath} HOME path does not exist.&quot;</span>)</div>
 <div class="line"><span class="lineno">  773</span>        </div>
-<div class="line"><span class="lineno">  774</span>         <span class="comment"># Create the ~/.config folder if it does not exist</span></div>
-<div class="line"><span class="lineno">  775</span>         <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
-<div class="line"><span class="lineno">  776</span>             <span class="comment"># Create the ~/.config folder</span></div>
-<div class="line"><span class="lineno">  777</span>             os.makedir(configFolder)</div>
+<div class="line"><span class="lineno">  774</span>        <span class="comment"># Create the ~/.config folder if it does not exist</span></div>
+<div class="line"><span class="lineno">  775</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
+<div class="line"><span class="lineno">  776</span>            <span class="comment"># Create the ~/.config folder</span></div>
+<div class="line"><span class="lineno">  777</span>            os.makedir(configFolder)</div>
 <div class="line"><span class="lineno">  778</span> </div>
-<div class="line"><span class="lineno">  779</span>         progName = sys.argv[0]</div>
-<div class="line"><span class="lineno">  780</span>         <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
-<div class="line"><span class="lineno">  781</span>             progName = progName[0:-3]</div>
-<div class="line"><span class="lineno">  782</span>         progName = os.path.basename(progName).strip()</div>
+<div class="line"><span class="lineno">  779</span>        progName = sys.argv[0]</div>
+<div class="line"><span class="lineno">  780</span>        <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
+<div class="line"><span class="lineno">  781</span>            progName = progName[0:-3]</div>
+<div class="line"><span class="lineno">  782</span>        progName = os.path.basename(progName).strip()</div>
 <div class="line"><span class="lineno">  783</span> </div>
-<div class="line"><span class="lineno">  784</span>         <span class="comment"># Note that we assume that addDotToFilename in the ConfigManager constructor is set True</span></div>
-<div class="line"><span class="lineno">  785</span>         <span class="comment"># as this will prefix the filename with the . character.</span></div>
-<div class="line"><span class="lineno">  786</span>         <span class="keywordflow">if</span> os.path.isdir(configFolder):</div>
-<div class="line"><span class="lineno">  787</span>             configFilename = os.path.join(<span class="stringliteral">&quot;.config&quot;</span>, progName + <span class="stringliteral">&quot;.cfg&quot;</span>)</div>
+<div class="line"><span class="lineno">  784</span>        <span class="comment"># Note that we assume that addDotToFilename in the ConfigManager constructor is set True</span></div>
+<div class="line"><span class="lineno">  785</span>        <span class="comment"># as this will prefix the filename with the . character.</span></div>
+<div class="line"><span class="lineno">  786</span>        <span class="keywordflow">if</span> os.path.isdir(configFolder):</div>
+<div class="line"><span class="lineno">  787</span>            configFilename = os.path.join(<span class="stringliteral">&quot;.config&quot;</span>, progName + <span class="stringliteral">&quot;.cfg&quot;</span>)</div>
 <div class="line"><span class="lineno">  788</span> </div>
-<div class="line"><span class="lineno">  789</span>         <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  790</span>             <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to create the {configFolder} folder.&quot;</span>)</div>
+<div class="line"><span class="lineno">  789</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  790</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to create the {configFolder} folder.&quot;</span>)</div>
 <div class="line"><span class="lineno">  791</span> </div>
-<div class="line"><span class="lineno">  792</span>         <span class="keywordflow">return</span> configFilename</div>
+<div class="line"><span class="lineno">  792</span>        <span class="keywordflow">return</span> configFilename</div>
 <div class="line"><span class="lineno">  793</span> </div>
 </div><!-- fragment -->
 </div>

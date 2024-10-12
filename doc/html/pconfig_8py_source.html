@@ -945,32 +945,32 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>        &quot;&quot;&quot;@brief Get the default name of the config file for this app. This will be the program name</div>
 <div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>                  (file that started up initially) without the .py extension. A .cfg extension is added</div>
 <div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>                  and it will be found in the ~/.config folder.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>         dotConfigFolder = &#39;.config&#39;</div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>         homePath = os.path.expanduser(&quot;~&quot;)</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>         configFolder = os.path.join(homePath, dotConfigFolder)</div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>        dotConfigFolder = &#39;.config&#39;</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>        homePath = os.path.expanduser(&quot;~&quot;)</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        configFolder = os.path.join(homePath, dotConfigFolder)</div>
 <div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span> </div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>         if not os.path.isdir(homePath):</div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>             raise Exception(f&quot;{homePath} HOME path does not exist.&quot;)</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>        if not os.path.isdir(homePath):</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>            raise Exception(f&quot;{homePath} HOME path does not exist.&quot;)</div>
 <div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>        </div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>         # Create the ~/.config folder if it does not exist</div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>         if not os.path.isdir(configFolder):</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>             # Create the ~/.config folder</div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>             os.makedir(configFolder)</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        # Create the ~/.config folder if it does not exist</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>        if not os.path.isdir(configFolder):</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>            # Create the ~/.config folder</div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>            os.makedir(configFolder)</div>
 <div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span> </div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>         progName = sys.argv[0]</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>         if progName.endswith(&#39;.py&#39;):</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>             progName = progName[0:-3]</div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>         progName = os.path.basename(progName).strip()</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        progName = sys.argv[0]</div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>        if progName.endswith(&#39;.py&#39;):</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>            progName = progName[0:-3]</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        progName = os.path.basename(progName).strip()</div>
 <div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span> </div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>         # Note that we assume that addDotToFilename in the ConfigManager constructor is set True</div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>         # as this will prefix the filename with the . character.</div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>         if os.path.isdir(configFolder):</div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>             configFilename = os.path.join(&quot;.config&quot;, progName + &quot;.cfg&quot;)</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        # Note that we assume that addDotToFilename in the ConfigManager constructor is set True</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        # as this will prefix the filename with the . character.</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>        if os.path.isdir(configFolder):</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>            configFilename = os.path.join(&quot;.config&quot;, progName + &quot;.cfg&quot;)</div>
 <div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>         else:</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>             raise Exception(f&quot;Failed to create the {configFolder} folder.&quot;)</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        else:</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>            raise Exception(f&quot;Failed to create the {configFolder} folder.&quot;)</div>
 <div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span> </div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>         return configFilename</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        return configFilename</div>
 <div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span> </div>
 </div>
 <div class="foldopen" id="foldopen00794" data-start="" data-end="">
