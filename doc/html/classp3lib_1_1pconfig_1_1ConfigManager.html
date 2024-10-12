@@ -2576,7 +2576,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  495</span>                    self._debug(<span class="stringliteral">&quot;----------&gt; DROPPED FROM CONFIG: {} = {}&quot;</span>.format(loadedConfigKey, loadedConfig[loadedConfigKey]))</div>
 <div class="line"><span class="lineno">  496</span>                    loadedConfig.pop(loadedConfigKey, <span class="keywordtype">None</span>)</div>
 <div class="line"><span class="lineno">  497</span> </div>
-<div class="line"><span class="lineno">  498</span>        self._configDict = loadedConfig</div>
+<div class="line"><span class="lineno">  498</span>            self._configDict = loadedConfig</div>
 <div class="line"><span class="lineno">  499</span>        self._info(<span class="stringliteral">&quot;Loaded config from %s&quot;</span> % (self._cfgFile) )</div>
 <div class="line"><span class="lineno">  500</span> </div>
 </div><!-- fragment -->
