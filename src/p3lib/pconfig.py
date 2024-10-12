@@ -475,16 +475,25 @@ class ConfigManager(object):
             loadedConfig = self._getDict()
             #Get list of all the keys from the config file loaded.
             loadedConfigKeys = loadedConfig.keys()
+
             #Get the default config
             self._configDict = copy.deepcopy( self._defaultConfig )
-            #Ensure that the config we use has all the values from the file we just loaded and any other values
-            #not in the config file loaded but defined in the default config are set to default values.
-            for key in loadedConfigKeys:
-                if key in self._configDict:
-                    self._configDict[key] = loadedConfig[key]
-                    self._debug("{} = {}".format(key, self._configDict[key]))
-                else:
-                    self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(key, loadedConfig[key]))
+            defaultConfigKeys = self._configDict.keys()
+
+            # Config parameters may be added or dropped over time. We use the default config to
+            # check for parameters that should be added/removed.
+
+            # Add any missing keys to the loaded config from the default config.
+            for defaultKey in defaultConfigKeys:
+                if defaultKey not in loadedConfigKeys:
+                    self._configDict[defaultKey] = self._defaultConfig[defaultKey]
+                    self._debug("----------> DEFAULT VALUE ADDED: {} = {}".format(defaultKey, self._configDict[defaultKey]))
+
+            # If some keys have been dropped from the config, remove them.
+            for loadedConfigKey in loadedConfigKeys:
+                if loadedConfigKey not in defaultConfigKeys:
+                    self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(loadedConfigKey, self._configDict[loadedConfigKey]))
+                    self._configDict.pop(loadedConfigKey, None)
 
         self._info("Loaded config from %s" % (self._cfgFile) )
 
