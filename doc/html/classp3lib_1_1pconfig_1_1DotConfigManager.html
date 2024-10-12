@@ -248,7 +248,7 @@ Additional Inherited Members</h2></td></tr>
           The ~/.config folder holds either a single config file of the startup python filename.
           The ./config folder can contain another python module folder which contains the config
           file. E.G for this example app the ~/.config/examples/pconfig_example.cfg folder is used.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00743">743</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00752">752</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4df8bb02da573495b44faf8044c49f25" name="a4df8bb02da573495b44faf8044c49f25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4df8bb02da573495b44faf8044c49f25">&#9670;&#160;</a></span>__init__()</h2>
@@ -298,22 +298,22 @@ Additional Inherited Members</h2></td></tr>
                   ||| in the ~/.ssh folder named id_rsa.                                   !!!</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#ad05b4e8286920561f6960f7453644f66">ConfigManager</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00793">793</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  793</span>    <span class="keyword">def </span>__init__(self, defaultConfig, uio=None, encrypt=False):</div>
-<div class="line"><span class="lineno">  794</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><span class="lineno">  795</span><span class="stringliteral">           @param defaultConfig A default config instance containing all the default key-value pairs.</span></div>
-<div class="line"><span class="lineno">  796</span><span class="stringliteral">           @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.</span></div>
-<div class="line"><span class="lineno">  797</span><span class="stringliteral">           @param encrypt If True then data will be encrypted in the saved files.</span></div>
-<div class="line"><span class="lineno">  798</span><span class="stringliteral">                          The encryption uses part of the the local SSH RSA private key.</span></div>
-<div class="line"><span class="lineno">  799</span><span class="stringliteral">                          This is not secure but assuming the private key has not been compromised it&#39;s</span></div>
-<div class="line"><span class="lineno">  800</span><span class="stringliteral">                          probably the best we can do. </span></div>
-<div class="line"><span class="lineno">  801</span><span class="stringliteral">                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!</span></div>
-<div class="line"><span class="lineno">  802</span><span class="stringliteral">                          ||| in the ~/.ssh folder named id_rsa.                                   !!!&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  803</span>        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)</div>
-<div class="line"><span class="lineno">  804</span>        <span class="comment"># Ensure the config file is present and loaded into the internal dict.</span></div>
-<div class="line"><span class="lineno">  805</span>        self.load()</div>
-<div class="line"><span class="lineno">  806</span> </div>
-<div class="line"><span class="lineno">  807</span> </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00802">802</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  802</span>    <span class="keyword">def </span>__init__(self, defaultConfig, uio=None, encrypt=False):</div>
+<div class="line"><span class="lineno">  803</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><span class="lineno">  804</span><span class="stringliteral">           @param defaultConfig A default config instance containing all the default key-value pairs.</span></div>
+<div class="line"><span class="lineno">  805</span><span class="stringliteral">           @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.</span></div>
+<div class="line"><span class="lineno">  806</span><span class="stringliteral">           @param encrypt If True then data will be encrypted in the saved files.</span></div>
+<div class="line"><span class="lineno">  807</span><span class="stringliteral">                          The encryption uses part of the the local SSH RSA private key.</span></div>
+<div class="line"><span class="lineno">  808</span><span class="stringliteral">                          This is not secure but assuming the private key has not been compromised it&#39;s</span></div>
+<div class="line"><span class="lineno">  809</span><span class="stringliteral">                          probably the best we can do. </span></div>
+<div class="line"><span class="lineno">  810</span><span class="stringliteral">                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!</span></div>
+<div class="line"><span class="lineno">  811</span><span class="stringliteral">                          ||| in the ~/.ssh folder named id_rsa.                                   !!!&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  812</span>        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)</div>
+<div class="line"><span class="lineno">  813</span>        <span class="comment"># Ensure the config file is present and loaded into the internal dict.</span></div>
+<div class="line"><span class="lineno">  814</span>        self.load()</div>
+<div class="line"><span class="lineno">  815</span> </div>
+<div class="line"><span class="lineno">  816</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,49 +346,49 @@ Additional Inherited Members</h2></td></tr>
           create it is made. If the ~/.config folder cannot be created then the config file 
           will be as detailed above but will be prefixed by a . character and will reside
           in the users home folder.</pre> 
-<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00751">751</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  751</span>    <span class="keyword">def </span>GetDefaultConfigFilename():</div>
-<div class="line"><span class="lineno">  752</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the default name of the config file for this app. This will be the program name</span></div>
-<div class="line"><span class="lineno">  753</span><span class="stringliteral">                  (file that started up initially) without the .py extension. On Linux systems this </span></div>
-<div class="line"><span class="lineno">  754</span><span class="stringliteral">                  will reside in the ~/.config folder. If the ~/.config does not exist an attempt to </span></div>
-<div class="line"><span class="lineno">  755</span><span class="stringliteral">                  create it is made. If the ~/.config folder cannot be created then the config file </span></div>
-<div class="line"><span class="lineno">  756</span><span class="stringliteral">                  will be as detailed above but will be prefixed by a . character and will reside</span></div>
-<div class="line"><span class="lineno">  757</span><span class="stringliteral">                  in the users home folder.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  758</span>        progName = sys.argv[0]</div>
-<div class="line"><span class="lineno">  759</span>        <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
-<div class="line"><span class="lineno">  760</span>            progName = progName[0:-3]</div>
-<div class="line"><span class="lineno">  761</span> </div>
-<div class="line"><span class="lineno">  762</span>        folder = <span class="stringliteral">&#39;.config&#39;</span></div>
-<div class="line"><span class="lineno">  763</span>        homePath = os.path.expanduser(<span class="stringliteral">&quot;~&quot;</span>)</div>
-<div class="line"><span class="lineno">  764</span>        configFolder = os.path.join(homePath, folder)</div>
-<div class="line"><span class="lineno">  765</span> </div>
-<div class="line"><span class="lineno">  766</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(homePath):</div>
-<div class="line"><span class="lineno">  767</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{homePath} HOME path does not exist.&quot;</span>)</div>
-<div class="line"><span class="lineno">  768</span>        </div>
-<div class="line"><span class="lineno">  769</span>        <span class="comment"># Create the ~/.config folder if it does not exist</span></div>
-<div class="line"><span class="lineno">  770</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
-<div class="line"><span class="lineno">  771</span>            <span class="comment"># Create the ~/.config folder</span></div>
-<div class="line"><span class="lineno">  772</span>            os.makedir(configFolder)</div>
-<div class="line"><span class="lineno">  773</span> </div>
-<div class="line"><span class="lineno">  774</span>        <span class="comment"># Note that we assume that addDotToFilename in the ConfigManager constructor is set True</span></div>
-<div class="line"><span class="lineno">  775</span>        <span class="comment"># as this will prefix the filename with the . character.</span></div>
-<div class="line"><span class="lineno">  776</span>        <span class="keywordflow">if</span> os.path.isdir(configFolder):</div>
-<div class="line"><span class="lineno">  777</span>            extraFolders = os.path.dirname(progName)</div>
-<div class="line"><span class="lineno">  778</span>            configFolder = os.path.join(configFolder, extraFolders)</div>
-<div class="line"><span class="lineno">  779</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
-<div class="line"><span class="lineno">  780</span>                os.makedirs(configFolder)</div>
-<div class="line"><span class="lineno">  781</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
-<div class="line"><span class="lineno">  782</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to create the {configFolder} folder.&quot;</span>)</div>
-<div class="line"><span class="lineno">  783</span>            </div>
-<div class="line"><span class="lineno">  784</span>            configFolder = <span class="stringliteral">&quot;config&quot;</span></div>
-<div class="line"><span class="lineno">  785</span>            configFolder = os.path.join(configFolder, extraFolders)</div>
-<div class="line"><span class="lineno">  786</span>            configFilename = os.path.join(configFolder, os.path.basename(progName) + <span class="stringliteral">&#39;.cfg&#39;</span>)</div>
-<div class="line"><span class="lineno">  787</span> </div>
-<div class="line"><span class="lineno">  788</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  789</span>            configFilename = progName</div>
-<div class="line"><span class="lineno">  790</span> </div>
-<div class="line"><span class="lineno">  791</span>        <span class="keywordflow">return</span> configFilename</div>
-<div class="line"><span class="lineno">  792</span>        </div>
+<p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00760">760</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  760</span>    <span class="keyword">def </span>GetDefaultConfigFilename():</div>
+<div class="line"><span class="lineno">  761</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the default name of the config file for this app. This will be the program name</span></div>
+<div class="line"><span class="lineno">  762</span><span class="stringliteral">                  (file that started up initially) without the .py extension. On Linux systems this </span></div>
+<div class="line"><span class="lineno">  763</span><span class="stringliteral">                  will reside in the ~/.config folder. If the ~/.config does not exist an attempt to </span></div>
+<div class="line"><span class="lineno">  764</span><span class="stringliteral">                  create it is made. If the ~/.config folder cannot be created then the config file </span></div>
+<div class="line"><span class="lineno">  765</span><span class="stringliteral">                  will be as detailed above but will be prefixed by a . character and will reside</span></div>
+<div class="line"><span class="lineno">  766</span><span class="stringliteral">                  in the users home folder.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  767</span>        progName = sys.argv[0]</div>
+<div class="line"><span class="lineno">  768</span>        <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
+<div class="line"><span class="lineno">  769</span>            progName = progName[0:-3]</div>
+<div class="line"><span class="lineno">  770</span> </div>
+<div class="line"><span class="lineno">  771</span>        folder = <span class="stringliteral">&#39;.config&#39;</span></div>
+<div class="line"><span class="lineno">  772</span>        homePath = os.path.expanduser(<span class="stringliteral">&quot;~&quot;</span>)</div>
+<div class="line"><span class="lineno">  773</span>        configFolder = os.path.join(homePath, folder)</div>
+<div class="line"><span class="lineno">  774</span> </div>
+<div class="line"><span class="lineno">  775</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(homePath):</div>
+<div class="line"><span class="lineno">  776</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{homePath} HOME path does not exist.&quot;</span>)</div>
+<div class="line"><span class="lineno">  777</span>        </div>
+<div class="line"><span class="lineno">  778</span>        <span class="comment"># Create the ~/.config folder if it does not exist</span></div>
+<div class="line"><span class="lineno">  779</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
+<div class="line"><span class="lineno">  780</span>            <span class="comment"># Create the ~/.config folder</span></div>
+<div class="line"><span class="lineno">  781</span>            os.makedir(configFolder)</div>
+<div class="line"><span class="lineno">  782</span> </div>
+<div class="line"><span class="lineno">  783</span>        <span class="comment"># Note that we assume that addDotToFilename in the ConfigManager constructor is set True</span></div>
+<div class="line"><span class="lineno">  784</span>        <span class="comment"># as this will prefix the filename with the . character.</span></div>
+<div class="line"><span class="lineno">  785</span>        <span class="keywordflow">if</span> os.path.isdir(configFolder):</div>
+<div class="line"><span class="lineno">  786</span>            extraFolders = os.path.dirname(progName)</div>
+<div class="line"><span class="lineno">  787</span>            configFolder = os.path.join(configFolder, extraFolders)</div>
+<div class="line"><span class="lineno">  788</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
+<div class="line"><span class="lineno">  789</span>                os.makedirs(configFolder)</div>
+<div class="line"><span class="lineno">  790</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
+<div class="line"><span class="lineno">  791</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to create the {configFolder} folder.&quot;</span>)</div>
+<div class="line"><span class="lineno">  792</span>            </div>
+<div class="line"><span class="lineno">  793</span>            configFolder = <span class="stringliteral">&quot;config&quot;</span></div>
+<div class="line"><span class="lineno">  794</span>            configFolder = os.path.join(configFolder, extraFolders)</div>
+<div class="line"><span class="lineno">  795</span>            configFilename = os.path.join(configFolder, os.path.basename(progName) + <span class="stringliteral">&#39;.cfg&#39;</span>)</div>
+<div class="line"><span class="lineno">  796</span> </div>
+<div class="line"><span class="lineno">  797</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  798</span>            configFilename = progName</div>
+<div class="line"><span class="lineno">  799</span> </div>
+<div class="line"><span class="lineno">  800</span>        <span class="keywordflow">return</span> configFilename</div>
+<div class="line"><span class="lineno">  801</span>        </div>
 </div><!-- fragment -->
 </div>
 </div>
