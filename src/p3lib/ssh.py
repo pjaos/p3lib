@@ -762,8 +762,6 @@ class SSHTunnelManager(object):
         self._reverseSShDict[serverPort] = (destHost, destPort, chan, sock)
 
         self._ssh.getTransport().use_compression(self._useCompression)
-        #serverBindAddress = "0.0.0.0"
-        print(f"PJA: BIND ADDR: {serverBindAddress}")
         self._ssh.getTransport().request_port_forward(serverBindAddress, serverPort, handler=self._startReverseForwardingHandler)
 
     def startRevTunnel(self, serverBindAddress, serverPort, destHost, destPort):
