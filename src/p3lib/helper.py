@@ -8,7 +8,8 @@ import os
 import platform
 import json
 import traceback
-import  socket
+import socket
+import platform
 
 def initArgs(parser, lastCmdLineArg=None, checkHostArg=True):
     """This method is responsible for
@@ -270,7 +271,11 @@ def getIntListUserResponse(uio, prompt, minValue=None, maxValue=None, allowQuit=
 
 def getHomePath():
     """Get the user home path as this will be used to store config files"""
-    if "HOME" in os.environ:
+    if platform.system() == 'Linux' and os.geteuid() == 0:
+        # Fix for os.environ["HOME"] returning /home/root sometimes.
+        return '/root/'
+    
+    elif "HOME" in os.environ:
         return os.environ["HOME"]
 
     elif "HOMEDRIVE" in os.environ and "HOMEPATH" in os.environ:
