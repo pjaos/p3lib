@@ -310,6 +310,14 @@ class SSH(object):
         if self._uio:
             self._uio.debug(text)
 
+    def isConnected(self):
+        """@brief Check if a connection is active.
+           @return True if connected."""
+        connected = False
+        if self._ssh and self._ssh.get_transport() is not None:
+            connected = self._ssh.get_transport().is_active()
+        return connected
+
     def _connect(self, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):
         """@brief Connect the ssh connection
            @param connectSFTPSession If True then just after the ssh connection
@@ -675,7 +683,7 @@ class SSHTunnelManager(object):
         if self._uio:
             self._uio.error(text)
 
-    def startFwdSSHTunnel(self, serverPort, destHost, destPort):
+    def startFwdSSHTunnel(self, serverPort, destHost, destPort, serverBindAddress=''):
         """@brief Start an ssh port forwarding tunnel. This is a non blocking method.
                   A separate thread will be started to handle data transfer over the
                   ssh forwarding connection.
@@ -685,7 +693,8 @@ class SSHTunnelManager(object):
            @param destHost   The host address of the tunnel destination at the remote
                              end of the ssh connection.
            @param destPort   The host TCP port of the tunnel destination at the remote
-                             end of the ssh connection."""
+                             end of the ssh connection.
+           @param serverBindAddress The server address to bind to."""
         self._info("Forwarding local TCP server port (%d) to %s:%d on the remote end of the ssh connection." % (
         serverPort, destHost, destPort))
         transport = self._ssh.getTransport()
@@ -697,11 +706,25 @@ class SSHTunnelManager(object):
             ssh_transport.use_compression(self._useCompression)
             uo = self._uio
 
-        forwardingServer = ForwardingServer(('', serverPort), SubHander)
+        forwardingServer = ForwardingServer((serverBindAddress, serverPort), SubHander)
         self._forwardingServerList.append(forwardingServer)
         newThread = threading.Thread(target=forwardingServer.serve_forever)
         newThread.daemon = True
         newThread.start()
+
+    def startFwdTunnel(self, serverBindAddress, serverPort, destHost, destPort):
+        """@brief Another method to start a forward SSH tunnel. startFwdSSHTunnel() was the original method.
+           We needed to keep this interface. However I wanted an interface to force the user to enter a bind
+           address on the server.
+           @param serverBindAddress The server address to bind to.
+           @param serverPort The TCP server port. On a port forwarding connection
+                             the TCP server runs on the src end of the ssh connection.
+                             This is the machine that this python code is executing on.
+           @param destHost   The host address of the tunnel destination at the remote
+                             end of the ssh connection.
+           @param destPort   The host TCP port of the tunnel destination at the remote
+                             end of the ssh connection."""
+        self.startFwdSSHTunnel(serverPort, destHost, destPort, serverBindAddress=serverBindAddress)
 
     def stopFwdSSHTunnel(self, serverPort):
         """@brief stop a previously started ssh port forwarding server
@@ -721,7 +744,7 @@ class SSHTunnelManager(object):
             forwardingServer.server_close()
             self._info("Shutdown ssh port forwarding on %s." % (str(forwardingServer.server_address)))
 
-    def startRevSSHTunnel(self, serverPort, destHost, destPort):
+    def startRevSSHTunnel(self, serverPort, destHost, destPort, serverBindAddress=''):
         """@brief Start an ssh reverse port forwarding tunnel
            @param serverPort The TCP server port. On a reverse port forwarding connection
                              the TCP server runs on the dest end of the ssh connection.
@@ -729,7 +752,8 @@ class SSHTunnelManager(object):
            @param destHost   The host address of the tunnel destination at the local
                              end of the ssh connection.
            @param destPort   The host TCP port of the tunnel destination at the local
-                             end of the ssh connection."""
+                             end of the ssh connection.
+           @param serverBindAddress The server address to bind to."""
         self._info("Forwarding (reverse) Remote TCP server port (%d) to %s:%d on this end of the ssh connection." % (
         serverPort, destHost, destPort))
         # We add the None refs as the placeholders will be used later
@@ -738,7 +762,24 @@ class SSHTunnelManager(object):
         self._reverseSShDict[serverPort] = (destHost, destPort, chan, sock)
 
         self._ssh.getTransport().use_compression(self._useCompression)
-        self._ssh.getTransport().request_port_forward('', serverPort, handler=self._startReverseForwardingHandler)
+        #serverBindAddress = "0.0.0.0"
+        print(f"PJA: BIND ADDR: {serverBindAddress}")
+        self._ssh.getTransport().request_port_forward(serverBindAddress, serverPort, handler=self._startReverseForwardingHandler)
+
+    def startRevTunnel(self, serverBindAddress, serverPort, destHost, destPort):
+        """@brief Another method to start a reverse SSH tunnerl. startRevSSHTunnel() was the original method.
+           We needed to keep this interface. However I wanted an interface to force the user to enter a bind
+           address on the server.
+           @param serverBindAddress The server address to bind to.
+           @param serverPort The TCP server port. On a reverse port forwarding connection
+                             the TCP server runs on the dest end of the ssh connection.
+                             This is the machine at the remote end of the ssh connection.
+           @param destHost   The host address of the tunnel destination at the local
+                             end of the ssh connection.
+           @param destPort   The host TCP port of the tunnel destination at the local
+                             end of the ssh connection."""
+        
+        self.startRevSSHTunnel(serverPort, destHost, destPort, serverBindAddress=serverBindAddress)
 
     def stopRevSSHTunnel(self, serverPort):
         """@brief stop a previously started reverse ssh port forwarding server
