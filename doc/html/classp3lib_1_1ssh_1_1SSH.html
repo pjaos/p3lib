@@ -127,6 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeb28fd0ea68921b2334e651af9a365ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9fa443499d888a70c3bbd85499d364a" id="r_ad9fa443499d888a70c3bbd85499d364a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSH.html#ad9fa443499d888a70c3bbd85499d364a">getTransport</a> (self)</td></tr>
 <tr class="separator:ad9fa443499d888a70c3bbd85499d364a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e8c2d21704465c2bfbf60edc9ad8d8f" id="r_a4e8c2d21704465c2bfbf60edc9ad8d8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSH.html#a4e8c2d21704465c2bfbf60edc9ad8d8f">isConnected</a> (self)</td></tr>
+<tr class="separator:a4e8c2d21704465c2bfbf60edc9ad8d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaadca343fbbc0882c918d6f0e8261e0c" id="r_aaadca343fbbc0882c918d6f0e8261e0c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSH.html#aaadca343fbbc0882c918d6f0e8261e0c">putFile</a> (self, localFilePath, remoteFilePath)</td></tr>
 <tr class="separator:aaadca343fbbc0882c918d6f0e8261e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe7399b846da4d2a04ca597e7142bf3a" id="r_afe7399b846da4d2a04ca597e7142bf3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSH.html#afe7399b846da4d2a04ca597e7142bf3a">removeAuthKey</a> (self, publicKey)</td></tr>
@@ -366,60 +368,60 @@ Protected Attributes</h2></td></tr>
           is built an SFT session will be built ready for file transfer.
    @param timeout The connection timeout in seconds.
    @return a ref to the SSHClient object</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00313">313</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  313</span>    <span class="keyword">def </span>_connect(self, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):</div>
-<div class="line"><span class="lineno">  314</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Connect the ssh connection</span></div>
-<div class="line"><span class="lineno">  315</span><span class="stringliteral">           @param connectSFTPSession If True then just after the ssh connection</span></div>
-<div class="line"><span class="lineno">  316</span><span class="stringliteral">                  is built an SFT session will be built ready for file transfer.</span></div>
-<div class="line"><span class="lineno">  317</span><span class="stringliteral">           @param timeout The connection timeout in seconds.</span></div>
-<div class="line"><span class="lineno">  318</span><span class="stringliteral">           @return a ref to the SSHClient object&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  319</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self._ssh:</div>
-<div class="line"><span class="lineno">  320</span>            self._ssh = ExtendedSSHClient()</div>
-<div class="line"><span class="lineno">  321</span> </div>
-<div class="line"><span class="lineno">  322</span>        connected = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  323</span>        <span class="keywordflow">for</span> privateKeyFile <span class="keywordflow">in</span> SSH.GetPrivateKeyFileList():</div>
-<div class="line"><span class="lineno">  324</span>            <span class="keywordflow">if</span> os.path.isfile(privateKeyFile):</div>
-<div class="line"><span class="lineno">  325</span>                msg = <span class="stringliteral">&quot;Trying private key {}&quot;</span>.format(privateKeyFile)</div>
-<div class="line"><span class="lineno">  326</span>                self._debug(msg)</div>
-<div class="line"><span class="lineno">  327</span>                <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  328</span>                    <span class="comment">#Define the ssh config</span></div>
-<div class="line"><span class="lineno">  329</span>                    cfg = {</div>
-<div class="line"><span class="lineno">  330</span>                        <span class="stringliteral">&#39;hostname&#39;</span>: self._host,</div>
-<div class="line"><span class="lineno">  331</span>                        <span class="stringliteral">&#39;port&#39;</span>: self._port,</div>
-<div class="line"><span class="lineno">  332</span>                        <span class="stringliteral">&#39;timeout&#39;</span>: timeout,</div>
-<div class="line"><span class="lineno">  333</span>                        <span class="stringliteral">&#39;username&#39;</span>: self._username,</div>
-<div class="line"><span class="lineno">  334</span>                        <span class="stringliteral">&#39;key_filename&#39;</span>: privateKeyFile,</div>
-<div class="line"><span class="lineno">  335</span>                        <span class="comment"># This used to be required or else loging in without the password would fail.</span></div>
-<div class="line"><span class="lineno">  336</span>                        <span class="comment"># This is no longer true for the latest paramiko as of 8 Mar 2024.</span></div>
-<div class="line"><span class="lineno">  337</span>                        <span class="comment"># Therefore this workaround has been removed but shown in place in case of future issues.</span></div>
-<div class="line"><span class="lineno">  338</span>                        <span class="comment">#&#39;disabled_algorithms&#39;: dict(pubkeys=[&#39;rsa-sha2-256&#39;, &#39;rsa-sha2-512&#39;])</span></div>
-<div class="line"><span class="lineno">  339</span>                    }</div>
-<div class="line"><span class="lineno">  340</span>                    <span class="comment"># If we have a password then add this to the config</span></div>
-<div class="line"><span class="lineno">  341</span>                    <span class="keywordflow">if</span> self._password <span class="keywordflow">and</span> len(self._password) &gt; 0:</div>
-<div class="line"><span class="lineno">  342</span>                        cfg[<span class="stringliteral">&#39;password&#39;</span>]=self._password</div>
-<div class="line"><span class="lineno">  343</span>                    self._ssh.connect(**cfg)</div>
-<div class="line"><span class="lineno">  344</span>                    connected = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  345</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  346</span>        </div>
-<div class="line"><span class="lineno">  347</span>                <span class="comment"># Ensure we throw an exception in the event of authencication failure as this ensures</span></div>
-<div class="line"><span class="lineno">  348</span>                <span class="comment"># that the code to triggers the code to allow the user to copy thier public ssh key to</span></div>
-<div class="line"><span class="lineno">  349</span>                <span class="comment"># the server in order that future logins are passwordless.</span></div>
-<div class="line"><span class="lineno">  350</span>                <span class="keywordflow">except</span> AuthenticationException:</div>
-<div class="line"><span class="lineno">  351</span>                    <span class="keywordflow">raise</span></div>
-<div class="line"><span class="lineno">  352</span> </div>
-<div class="line"><span class="lineno">  353</span>                <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  354</span>                    <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  355</span> </div>
-<div class="line"><span class="lineno">  356</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> connected:</div>
-<div class="line"><span class="lineno">  357</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to connect to the SSH server {}@{}.&quot;</span>.format(self._username, self._host))</div>
-<div class="line"><span class="lineno">  358</span> </div>
-<div class="line"><span class="lineno">  359</span>        <span class="comment"># It can be usefull to know what local IP address was used to reach the ssh server</span></div>
-<div class="line"><span class="lineno">  360</span>        self._localAddress = self._ssh.get_transport().sock.getsockname()[0]</div>
-<div class="line"><span class="lineno">  361</span>        self._ssh.get_transport().use_compression(self.useCompression)</div>
-<div class="line"><span class="lineno">  362</span>        <span class="keywordflow">if</span> connectSFTPSession:</div>
-<div class="line"><span class="lineno">  363</span>            self._sftp = SFTPClient.from_transport( self._ssh.get_transport() )</div>
-<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">return</span> self._ssh</div>
-<div class="line"><span class="lineno">  365</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00321">321</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  321</span>    <span class="keyword">def </span>_connect(self, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):</div>
+<div class="line"><span class="lineno">  322</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Connect the ssh connection</span></div>
+<div class="line"><span class="lineno">  323</span><span class="stringliteral">           @param connectSFTPSession If True then just after the ssh connection</span></div>
+<div class="line"><span class="lineno">  324</span><span class="stringliteral">                  is built an SFT session will be built ready for file transfer.</span></div>
+<div class="line"><span class="lineno">  325</span><span class="stringliteral">           @param timeout The connection timeout in seconds.</span></div>
+<div class="line"><span class="lineno">  326</span><span class="stringliteral">           @return a ref to the SSHClient object&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  327</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> self._ssh:</div>
+<div class="line"><span class="lineno">  328</span>            self._ssh = ExtendedSSHClient()</div>
+<div class="line"><span class="lineno">  329</span> </div>
+<div class="line"><span class="lineno">  330</span>        connected = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  331</span>        <span class="keywordflow">for</span> privateKeyFile <span class="keywordflow">in</span> SSH.GetPrivateKeyFileList():</div>
+<div class="line"><span class="lineno">  332</span>            <span class="keywordflow">if</span> os.path.isfile(privateKeyFile):</div>
+<div class="line"><span class="lineno">  333</span>                msg = <span class="stringliteral">&quot;Trying private key {}&quot;</span>.format(privateKeyFile)</div>
+<div class="line"><span class="lineno">  334</span>                self._debug(msg)</div>
+<div class="line"><span class="lineno">  335</span>                <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  336</span>                    <span class="comment">#Define the ssh config</span></div>
+<div class="line"><span class="lineno">  337</span>                    cfg = {</div>
+<div class="line"><span class="lineno">  338</span>                        <span class="stringliteral">&#39;hostname&#39;</span>: self._host,</div>
+<div class="line"><span class="lineno">  339</span>                        <span class="stringliteral">&#39;port&#39;</span>: self._port,</div>
+<div class="line"><span class="lineno">  340</span>                        <span class="stringliteral">&#39;timeout&#39;</span>: timeout,</div>
+<div class="line"><span class="lineno">  341</span>                        <span class="stringliteral">&#39;username&#39;</span>: self._username,</div>
+<div class="line"><span class="lineno">  342</span>                        <span class="stringliteral">&#39;key_filename&#39;</span>: privateKeyFile,</div>
+<div class="line"><span class="lineno">  343</span>                        <span class="comment"># This used to be required or else loging in without the password would fail.</span></div>
+<div class="line"><span class="lineno">  344</span>                        <span class="comment"># This is no longer true for the latest paramiko as of 8 Mar 2024.</span></div>
+<div class="line"><span class="lineno">  345</span>                        <span class="comment"># Therefore this workaround has been removed but shown in place in case of future issues.</span></div>
+<div class="line"><span class="lineno">  346</span>                        <span class="comment">#&#39;disabled_algorithms&#39;: dict(pubkeys=[&#39;rsa-sha2-256&#39;, &#39;rsa-sha2-512&#39;])</span></div>
+<div class="line"><span class="lineno">  347</span>                    }</div>
+<div class="line"><span class="lineno">  348</span>                    <span class="comment"># If we have a password then add this to the config</span></div>
+<div class="line"><span class="lineno">  349</span>                    <span class="keywordflow">if</span> self._password <span class="keywordflow">and</span> len(self._password) &gt; 0:</div>
+<div class="line"><span class="lineno">  350</span>                        cfg[<span class="stringliteral">&#39;password&#39;</span>]=self._password</div>
+<div class="line"><span class="lineno">  351</span>                    self._ssh.connect(**cfg)</div>
+<div class="line"><span class="lineno">  352</span>                    connected = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  353</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  354</span>        </div>
+<div class="line"><span class="lineno">  355</span>                <span class="comment"># Ensure we throw an exception in the event of authencication failure as this ensures</span></div>
+<div class="line"><span class="lineno">  356</span>                <span class="comment"># that the code to triggers the code to allow the user to copy thier public ssh key to</span></div>
+<div class="line"><span class="lineno">  357</span>                <span class="comment"># the server in order that future logins are passwordless.</span></div>
+<div class="line"><span class="lineno">  358</span>                <span class="keywordflow">except</span> AuthenticationException:</div>
+<div class="line"><span class="lineno">  359</span>                    <span class="keywordflow">raise</span></div>
+<div class="line"><span class="lineno">  360</span> </div>
+<div class="line"><span class="lineno">  361</span>                <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  362</span>                    <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  363</span> </div>
+<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> connected:</div>
+<div class="line"><span class="lineno">  365</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Failed to connect to the SSH server {}@{}.&quot;</span>.format(self._username, self._host))</div>
+<div class="line"><span class="lineno">  366</span> </div>
+<div class="line"><span class="lineno">  367</span>        <span class="comment"># It can be usefull to know what local IP address was used to reach the ssh server</span></div>
+<div class="line"><span class="lineno">  368</span>        self._localAddress = self._ssh.get_transport().sock.getsockname()[0]</div>
+<div class="line"><span class="lineno">  369</span>        self._ssh.get_transport().use_compression(self.useCompression)</div>
+<div class="line"><span class="lineno">  370</span>        <span class="keywordflow">if</span> connectSFTPSession:</div>
+<div class="line"><span class="lineno">  371</span>            self._sftp = SFTPClient.from_transport( self._ssh.get_transport() )</div>
+<div class="line"><span class="lineno">  372</span>        <span class="keywordflow">return</span> self._ssh</div>
+<div class="line"><span class="lineno">  373</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -492,32 +494,32 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Ensure that ssh auto login is enabled.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00453">453</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  453</span>    <span class="keyword">def </span>_ensureAutoLogin(self):</div>
-<div class="line"><span class="lineno">  454</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Ensure that ssh auto login is enabled.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  455</span> </div>
-<div class="line"><span class="lineno">  456</span>        localPublicKey = SSH.GetPublicKey()</div>
-<div class="line"><span class="lineno">  457</span>        _hostname, _username, _keytype, _ = SSH.GetSSHKeyAttributes(localPublicKey)</div>
-<div class="line"><span class="lineno">  458</span>        <span class="keywordflow">if</span> _hostname == <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  459</span>            _hostname = socket.gethostname()</div>
-<div class="line"><span class="lineno">  460</span>        <span class="keywordflow">if</span> _username == <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  461</span>            _username = getpass.getuser()</div>
-<div class="line"><span class="lineno">  462</span> </div>
-<div class="line"><span class="lineno">  463</span>        self._info(<span class="stringliteral">&quot;Using key: %s@%s&quot;</span> % (_username, _hostname))</div>
-<div class="line"><span class="lineno">  464</span>        remoteAuthorisedKeys = self.getRemoteAuthorisedKeys()</div>
-<div class="line"><span class="lineno">  465</span>        <span class="comment"># Check to see if the remote authorised keys contains the local public key</span></div>
-<div class="line"><span class="lineno">  466</span>        updateAuthKeys = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  467</span>        <span class="keywordflow">for</span> remoteAuthorisedKeys <span class="keywordflow">in</span> remoteAuthorisedKeys:</div>
-<div class="line"><span class="lineno">  468</span>            <span class="keywordflow">if</span> remoteAuthorisedKeys.find(localPublicKey) == 0:</div>
-<div class="line"><span class="lineno">  469</span>                updateAuthKeys = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  470</span>                <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  471</span> </div>
-<div class="line"><span class="lineno">  472</span>        <span class="keywordflow">if</span> updateAuthKeys:</div>
-<div class="line"><span class="lineno">  473</span>            remoteAuthKeysFile = self.updateAuthorisedKeys(localPublicKey)</div>
-<div class="line"><span class="lineno">  474</span>            self._info(<span class="stringliteral">&quot;Updated the remote %s file from the local %s file.&quot;</span> % (remoteAuthKeysFile, SSH.GetPublicKeyFile()))</div>
-<div class="line"><span class="lineno">  475</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  476</span>            self._info(<span class="stringliteral">&quot;The server already has the local ssh key (%s) in its authorized_key file.&quot;</span> % (SSH.GetPublicKeyFile()))</div>
-<div class="line"><span class="lineno">  477</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00461">461</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  461</span>    <span class="keyword">def </span>_ensureAutoLogin(self):</div>
+<div class="line"><span class="lineno">  462</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Ensure that ssh auto login is enabled.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  463</span> </div>
+<div class="line"><span class="lineno">  464</span>        localPublicKey = SSH.GetPublicKey()</div>
+<div class="line"><span class="lineno">  465</span>        _hostname, _username, _keytype, _ = SSH.GetSSHKeyAttributes(localPublicKey)</div>
+<div class="line"><span class="lineno">  466</span>        <span class="keywordflow">if</span> _hostname == <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  467</span>            _hostname = socket.gethostname()</div>
+<div class="line"><span class="lineno">  468</span>        <span class="keywordflow">if</span> _username == <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  469</span>            _username = getpass.getuser()</div>
+<div class="line"><span class="lineno">  470</span> </div>
+<div class="line"><span class="lineno">  471</span>        self._info(<span class="stringliteral">&quot;Using key: %s@%s&quot;</span> % (_username, _hostname))</div>
+<div class="line"><span class="lineno">  472</span>        remoteAuthorisedKeys = self.getRemoteAuthorisedKeys()</div>
+<div class="line"><span class="lineno">  473</span>        <span class="comment"># Check to see if the remote authorised keys contains the local public key</span></div>
+<div class="line"><span class="lineno">  474</span>        updateAuthKeys = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  475</span>        <span class="keywordflow">for</span> remoteAuthorisedKeys <span class="keywordflow">in</span> remoteAuthorisedKeys:</div>
+<div class="line"><span class="lineno">  476</span>            <span class="keywordflow">if</span> remoteAuthorisedKeys.find(localPublicKey) == 0:</div>
+<div class="line"><span class="lineno">  477</span>                updateAuthKeys = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  478</span>                <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  479</span> </div>
+<div class="line"><span class="lineno">  480</span>        <span class="keywordflow">if</span> updateAuthKeys:</div>
+<div class="line"><span class="lineno">  481</span>            remoteAuthKeysFile = self.updateAuthorisedKeys(localPublicKey)</div>
+<div class="line"><span class="lineno">  482</span>            self._info(<span class="stringliteral">&quot;Updated the remote %s file from the local %s file.&quot;</span> % (remoteAuthKeysFile, SSH.GetPublicKeyFile()))</div>
+<div class="line"><span class="lineno">  483</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  484</span>            self._info(<span class="stringliteral">&quot;The server already has the local ssh key (%s) in its authorized_key file.&quot;</span> % (SSH.GetPublicKeyFile()))</div>
+<div class="line"><span class="lineno">  485</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -556,15 +558,15 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the public key ID string.
    @param publicKey The ssh public key string</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00591">591</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  591</span>    <span class="keyword">def </span>_getPublicKeyID(self, publicKey):</div>
-<div class="line"><span class="lineno">  592</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the public key ID string.</span></div>
-<div class="line"><span class="lineno">  593</span><span class="stringliteral">           @param publicKey The ssh public key string&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  594</span>        elems = publicKey.split()</div>
-<div class="line"><span class="lineno">  595</span>        <span class="keywordflow">if</span> len(elems) == 3:</div>
-<div class="line"><span class="lineno">  596</span>            <span class="keywordflow">return</span> elems[2]</div>
-<div class="line"><span class="lineno">  597</span>        <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;{} is an invalid public key.&quot;</span>.format(publicKey) )</div>
-<div class="line"><span class="lineno">  598</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00599">599</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  599</span>    <span class="keyword">def </span>_getPublicKeyID(self, publicKey):</div>
+<div class="line"><span class="lineno">  600</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the public key ID string.</span></div>
+<div class="line"><span class="lineno">  601</span><span class="stringliteral">           @param publicKey The ssh public key string&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  602</span>        elems = publicKey.split()</div>
+<div class="line"><span class="lineno">  603</span>        <span class="keywordflow">if</span> len(elems) == 3:</div>
+<div class="line"><span class="lineno">  604</span>            <span class="keywordflow">return</span> elems[2]</div>
+<div class="line"><span class="lineno">  605</span>        <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;{} is an invalid public key.&quot;</span>.format(publicKey) )</div>
+<div class="line"><span class="lineno">  606</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -648,24 +650,24 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Setup autologin on the ssh server.
    @param timeout The connection timeout in seconds.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00436">436</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  436</span>    <span class="keyword">def </span>_setupAutologin(self, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):</div>
-<div class="line"><span class="lineno">  437</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Setup autologin on the ssh server.</span></div>
-<div class="line"><span class="lineno">  438</span><span class="stringliteral">           @param timeout The connection timeout in seconds.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  439</span>        self._warn(<span class="stringliteral">&quot;Auto login to the ssh server failed authentication.&quot;</span>)</div>
-<div class="line"><span class="lineno">  440</span>        self._info(<span class="stringliteral">&quot;Copying the local public ssh key to the ssh server for automatic login.&quot;</span>)</div>
-<div class="line"><span class="lineno">  441</span>        self._info(<span class="stringliteral">&quot;Please enter the ssh server ({}) password for the user: {}&quot;</span>.format(self._host, self._username))</div>
-<div class="line"><span class="lineno">  442</span> </div>
-<div class="line"><span class="lineno">  443</span>        self._password = self._uio.getPassword(<span class="stringliteral">&quot;SSH password: &quot;</span>)</div>
-<div class="line"><span class="lineno">  444</span> </div>
-<div class="line"><span class="lineno">  445</span>        self._connect()</div>
-<div class="line"><span class="lineno">  446</span> </div>
-<div class="line"><span class="lineno">  447</span>        self._ensureAutoLogin()</div>
-<div class="line"><span class="lineno">  448</span> </div>
-<div class="line"><span class="lineno">  449</span>        self.close()</div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00444">444</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  444</span>    <span class="keyword">def </span>_setupAutologin(self, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):</div>
+<div class="line"><span class="lineno">  445</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Setup autologin on the ssh server.</span></div>
+<div class="line"><span class="lineno">  446</span><span class="stringliteral">           @param timeout The connection timeout in seconds.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  447</span>        self._warn(<span class="stringliteral">&quot;Auto login to the ssh server failed authentication.&quot;</span>)</div>
+<div class="line"><span class="lineno">  448</span>        self._info(<span class="stringliteral">&quot;Copying the local public ssh key to the ssh server for automatic login.&quot;</span>)</div>
+<div class="line"><span class="lineno">  449</span>        self._info(<span class="stringliteral">&quot;Please enter the ssh server ({}) password for the user: {}&quot;</span>.format(self._host, self._username))</div>
 <div class="line"><span class="lineno">  450</span> </div>
-<div class="line"><span class="lineno">  451</span>        self._info(<span class="stringliteral">&quot;Local public ssh key copied to the ssh server.&quot;</span>)</div>
+<div class="line"><span class="lineno">  451</span>        self._password = self._uio.getPassword(<span class="stringliteral">&quot;SSH password: &quot;</span>)</div>
 <div class="line"><span class="lineno">  452</span> </div>
+<div class="line"><span class="lineno">  453</span>        self._connect()</div>
+<div class="line"><span class="lineno">  454</span> </div>
+<div class="line"><span class="lineno">  455</span>        self._ensureAutoLogin()</div>
+<div class="line"><span class="lineno">  456</span> </div>
+<div class="line"><span class="lineno">  457</span>        self.close()</div>
+<div class="line"><span class="lineno">  458</span> </div>
+<div class="line"><span class="lineno">  459</span>        self._info(<span class="stringliteral">&quot;Local public ssh key copied to the ssh server.&quot;</span>)</div>
+<div class="line"><span class="lineno">  460</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -774,16 +776,16 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Close an open ssh connection.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00374">374</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  374</span>    <span class="keyword">def </span>close(self):</div>
-<div class="line"><span class="lineno">  375</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close an open ssh connection.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  376</span>        <span class="keywordflow">if</span> self._ssh:</div>
-<div class="line"><span class="lineno">  377</span>            self._ssh.close()</div>
-<div class="line"><span class="lineno">  378</span>            self._ssh = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  379</span> </div>
-<div class="line"><span class="lineno">  380</span>        <span class="keywordflow">if</span> self._sftp:</div>
-<div class="line"><span class="lineno">  381</span>            self._sftp = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  382</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00382">382</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  382</span>    <span class="keyword">def </span>close(self):</div>
+<div class="line"><span class="lineno">  383</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close an open ssh connection.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  384</span>        <span class="keywordflow">if</span> self._ssh:</div>
+<div class="line"><span class="lineno">  385</span>            self._ssh.close()</div>
+<div class="line"><span class="lineno">  386</span>            self._ssh = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  387</span> </div>
+<div class="line"><span class="lineno">  388</span>        <span class="keywordflow">if</span> self._sftp:</div>
+<div class="line"><span class="lineno">  389</span>            self._sftp = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  390</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -833,27 +835,27 @@ Protected Attributes</h2></td></tr>
    @param timeout The connection timeout in seconds.
    @return True if connected without setting up auto login. False if auto
            login was setup for connection to succeed.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00416">416</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  416</span>    <span class="keyword">def </span>connect(self, enableAutoLoginSetup=False, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):</div>
-<div class="line"><span class="lineno">  417</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Connect the ssh connection</span></div>
-<div class="line"><span class="lineno">  418</span><span class="stringliteral">           @param enableAutoLoginSetup If True and auto login is not setup the</span></div>
-<div class="line"><span class="lineno">  419</span><span class="stringliteral">                  user is prompted for the password and the local ssh public key</span></div>
-<div class="line"><span class="lineno">  420</span><span class="stringliteral">                  is copied to the server.</span></div>
-<div class="line"><span class="lineno">  421</span><span class="stringliteral">           @param connectSFTPSession If True then just after the ssh connection</span></div>
-<div class="line"><span class="lineno">  422</span><span class="stringliteral">                  is built an SFT session will be built ready for file transfer.</span></div>
-<div class="line"><span class="lineno">  423</span><span class="stringliteral">           @param timeout The connection timeout in seconds.</span></div>
-<div class="line"><span class="lineno">  424</span><span class="stringliteral">           @return True if connected without setting up auto login. False if auto</span></div>
-<div class="line"><span class="lineno">  425</span><span class="stringliteral">                   login was setup for connection to succeed.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  426</span>        setupAutoLogin = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  427</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  428</span>            self._connect(connectSFTPSession=connectSFTPSession, timeout=timeout)</div>
-<div class="line"><span class="lineno">  429</span> </div>
-<div class="line"><span class="lineno">  430</span>        <span class="keywordflow">except</span> AuthenticationException:</div>
-<div class="line"><span class="lineno">  431</span>            self._setupAutologin(timeout)</div>
-<div class="line"><span class="lineno">  432</span>            self._connect(connectSFTPSession=connectSFTPSession, timeout=timeout)</div>
-<div class="line"><span class="lineno">  433</span>            setupAutoLogin = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  434</span>        <span class="keywordflow">return</span> setupAutoLogin</div>
-<div class="line"><span class="lineno">  435</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00424">424</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  424</span>    <span class="keyword">def </span>connect(self, enableAutoLoginSetup=False, connectSFTPSession=False, timeout=DEFAULT_SSH_CONNECTION_TIMEOUT):</div>
+<div class="line"><span class="lineno">  425</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Connect the ssh connection</span></div>
+<div class="line"><span class="lineno">  426</span><span class="stringliteral">           @param enableAutoLoginSetup If True and auto login is not setup the</span></div>
+<div class="line"><span class="lineno">  427</span><span class="stringliteral">                  user is prompted for the password and the local ssh public key</span></div>
+<div class="line"><span class="lineno">  428</span><span class="stringliteral">                  is copied to the server.</span></div>
+<div class="line"><span class="lineno">  429</span><span class="stringliteral">           @param connectSFTPSession If True then just after the ssh connection</span></div>
+<div class="line"><span class="lineno">  430</span><span class="stringliteral">                  is built an SFT session will be built ready for file transfer.</span></div>
+<div class="line"><span class="lineno">  431</span><span class="stringliteral">           @param timeout The connection timeout in seconds.</span></div>
+<div class="line"><span class="lineno">  432</span><span class="stringliteral">           @return True if connected without setting up auto login. False if auto</span></div>
+<div class="line"><span class="lineno">  433</span><span class="stringliteral">                   login was setup for connection to succeed.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  434</span>        setupAutoLogin = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  435</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  436</span>            self._connect(connectSFTPSession=connectSFTPSession, timeout=timeout)</div>
+<div class="line"><span class="lineno">  437</span> </div>
+<div class="line"><span class="lineno">  438</span>        <span class="keywordflow">except</span> AuthenticationException:</div>
+<div class="line"><span class="lineno">  439</span>            self._setupAutologin(timeout)</div>
+<div class="line"><span class="lineno">  440</span>            self._connect(connectSFTPSession=connectSFTPSession, timeout=timeout)</div>
+<div class="line"><span class="lineno">  441</span>            setupAutoLogin = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  442</span>        <span class="keywordflow">return</span> setupAutoLogin</div>
+<div class="line"><span class="lineno">  443</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -890,42 +892,42 @@ Protected Attributes</h2></td></tr>
      backup file.
    - The backup files have the suffix .backup1, .backup2 etc.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00556">556</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  556</span>    <span class="keyword">def </span>getAuthKeyBackupFile(self, maxBackupFileCount=10):</div>
-<div class="line"><span class="lineno">  557</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the name of the backup name for the authorised keys file.</span></div>
-<div class="line"><span class="lineno">  558</span><span class="stringliteral">           @param maxBackupFileCount The maximum number of backup files to keep.</span></div>
-<div class="line"><span class="lineno">  559</span><span class="stringliteral">           @return None</span></div>
-<div class="line"><span class="lineno">  560</span><span class="stringliteral">           - We create up to maxBackupFileCount backup files.</span></div>
-<div class="line"><span class="lineno">  561</span><span class="stringliteral">           - Once all the backup files have been created we always replace the oldest</span></div>
-<div class="line"><span class="lineno">  562</span><span class="stringliteral">             backup file.</span></div>
-<div class="line"><span class="lineno">  563</span><span class="stringliteral">           - The backup files have the suffix .backup1, .backup2 etc.</span></div>
-<div class="line"><span class="lineno">  564</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  565</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
-<div class="line"><span class="lineno">  566</span>        authKeyBackupFilePart = <span class="stringliteral">&quot;%s.backup&quot;</span> % (authKeysFile)</div>
-<div class="line"><span class="lineno">  567</span>        suffixNum = 1</div>
-<div class="line"><span class="lineno">  568</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  569</span>            authKeyBackupFileName = <span class="stringliteral">&quot;%s%d&quot;</span> % (authKeyBackupFilePart, suffixNum)</div>
-<div class="line"><span class="lineno">  570</span>            rc, stdoutLines, stderrLines = self.runCmd(<span class="stringliteral">&quot;test -f %s&quot;</span> % (authKeyBackupFileName), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  571</span>            <span class="keywordflow">if</span> rc != 0:</div>
-<div class="line"><span class="lineno">  572</span>                <span class="keywordflow">return</span> authKeyBackupFileName</div>
-<div class="line"><span class="lineno">  573</span>            <span class="comment"># If all the backup files have been created</span></div>
-<div class="line"><span class="lineno">  574</span>            <span class="keywordflow">if</span> suffixNum &gt;= maxBackupFileCount:</div>
-<div class="line"><span class="lineno">  575</span>                <span class="comment"># List the files in creation order (oldest first)</span></div>
-<div class="line"><span class="lineno">  576</span>                rc, stdoutLines, stderrLines = self.runCmd(<span class="stringliteral">&quot;ls -ltr %s*&quot;</span> % (authKeyBackupFilePart), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  577</span>                <span class="keywordflow">if</span> rc == 0:</div>
-<div class="line"><span class="lineno">  578</span>                    <span class="keywordflow">if</span> len(stdoutLines) &gt; 0:</div>
-<div class="line"><span class="lineno">  579</span>                        elems = stdoutLines[0].split()</div>
-<div class="line"><span class="lineno">  580</span>                        <span class="keywordflow">if</span> len(elems) &gt; 0:</div>
-<div class="line"><span class="lineno">  581</span>                            <span class="comment"># Return the oldest file as the next backup filename so that we roll</span></div>
-<div class="line"><span class="lineno">  582</span>                            <span class="comment"># around the always replacing the oldest backup file.</span></div>
-<div class="line"><span class="lineno">  583</span>                            backupfile = elems[len(elems) - 1]</div>
-<div class="line"><span class="lineno">  584</span>                            <span class="keywordflow">return</span> backupfile</div>
-<div class="line"><span class="lineno">  585</span> </div>
-<div class="line"><span class="lineno">  586</span>                <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;Unable to %s to %s. Please manually remove the backup files on the ssh server.&quot;</span> % (</div>
-<div class="line"><span class="lineno">  587</span>                authKeysFile, authKeyBackupFilePart))</div>
-<div class="line"><span class="lineno">  588</span> </div>
-<div class="line"><span class="lineno">  589</span>            suffixNum = suffixNum + 1</div>
-<div class="line"><span class="lineno">  590</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00564">564</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  564</span>    <span class="keyword">def </span>getAuthKeyBackupFile(self, maxBackupFileCount=10):</div>
+<div class="line"><span class="lineno">  565</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the name of the backup name for the authorised keys file.</span></div>
+<div class="line"><span class="lineno">  566</span><span class="stringliteral">           @param maxBackupFileCount The maximum number of backup files to keep.</span></div>
+<div class="line"><span class="lineno">  567</span><span class="stringliteral">           @return None</span></div>
+<div class="line"><span class="lineno">  568</span><span class="stringliteral">           - We create up to maxBackupFileCount backup files.</span></div>
+<div class="line"><span class="lineno">  569</span><span class="stringliteral">           - Once all the backup files have been created we always replace the oldest</span></div>
+<div class="line"><span class="lineno">  570</span><span class="stringliteral">             backup file.</span></div>
+<div class="line"><span class="lineno">  571</span><span class="stringliteral">           - The backup files have the suffix .backup1, .backup2 etc.</span></div>
+<div class="line"><span class="lineno">  572</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  573</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
+<div class="line"><span class="lineno">  574</span>        authKeyBackupFilePart = <span class="stringliteral">&quot;%s.backup&quot;</span> % (authKeysFile)</div>
+<div class="line"><span class="lineno">  575</span>        suffixNum = 1</div>
+<div class="line"><span class="lineno">  576</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  577</span>            authKeyBackupFileName = <span class="stringliteral">&quot;%s%d&quot;</span> % (authKeyBackupFilePart, suffixNum)</div>
+<div class="line"><span class="lineno">  578</span>            rc, stdoutLines, stderrLines = self.runCmd(<span class="stringliteral">&quot;test -f %s&quot;</span> % (authKeyBackupFileName), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  579</span>            <span class="keywordflow">if</span> rc != 0:</div>
+<div class="line"><span class="lineno">  580</span>                <span class="keywordflow">return</span> authKeyBackupFileName</div>
+<div class="line"><span class="lineno">  581</span>            <span class="comment"># If all the backup files have been created</span></div>
+<div class="line"><span class="lineno">  582</span>            <span class="keywordflow">if</span> suffixNum &gt;= maxBackupFileCount:</div>
+<div class="line"><span class="lineno">  583</span>                <span class="comment"># List the files in creation order (oldest first)</span></div>
+<div class="line"><span class="lineno">  584</span>                rc, stdoutLines, stderrLines = self.runCmd(<span class="stringliteral">&quot;ls -ltr %s*&quot;</span> % (authKeyBackupFilePart), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  585</span>                <span class="keywordflow">if</span> rc == 0:</div>
+<div class="line"><span class="lineno">  586</span>                    <span class="keywordflow">if</span> len(stdoutLines) &gt; 0:</div>
+<div class="line"><span class="lineno">  587</span>                        elems = stdoutLines[0].split()</div>
+<div class="line"><span class="lineno">  588</span>                        <span class="keywordflow">if</span> len(elems) &gt; 0:</div>
+<div class="line"><span class="lineno">  589</span>                            <span class="comment"># Return the oldest file as the next backup filename so that we roll</span></div>
+<div class="line"><span class="lineno">  590</span>                            <span class="comment"># around the always replacing the oldest backup file.</span></div>
+<div class="line"><span class="lineno">  591</span>                            backupfile = elems[len(elems) - 1]</div>
+<div class="line"><span class="lineno">  592</span>                            <span class="keywordflow">return</span> backupfile</div>
+<div class="line"><span class="lineno">  593</span> </div>
+<div class="line"><span class="lineno">  594</span>                <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;Unable to %s to %s. Please manually remove the backup files on the ssh server.&quot;</span> % (</div>
+<div class="line"><span class="lineno">  595</span>                authKeysFile, authKeyBackupFilePart))</div>
+<div class="line"><span class="lineno">  596</span> </div>
+<div class="line"><span class="lineno">  597</span>            suffixNum = suffixNum + 1</div>
+<div class="line"><span class="lineno">  598</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -963,16 +965,16 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Get a file from the sftp server
    @param remoteFilePath The remote file on the ssh server.
    @param localFilePath The path of the file after it's been received</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00538">538</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  538</span>    <span class="keyword">def </span>getFile(self, remoteFilePath, localFilePath ):</div>
-<div class="line"><span class="lineno">  539</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a file from the sftp server</span></div>
-<div class="line"><span class="lineno">  540</span><span class="stringliteral">           @param remoteFilePath The remote file on the ssh server.</span></div>
-<div class="line"><span class="lineno">  541</span><span class="stringliteral">           @param localFilePath The path of the file after it&#39;s been received&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  542</span>        <span class="keywordflow">if</span> self._sftp:</div>
-<div class="line"><span class="lineno">  543</span>            self._sftp.get(remoteFilePath,localFilePath)</div>
-<div class="line"><span class="lineno">  544</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  545</span>            <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;SFTP not connected.&quot;</span>)</div>
-<div class="line"><span class="lineno">  546</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00546">546</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  546</span>    <span class="keyword">def </span>getFile(self, remoteFilePath, localFilePath ):</div>
+<div class="line"><span class="lineno">  547</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a file from the sftp server</span></div>
+<div class="line"><span class="lineno">  548</span><span class="stringliteral">           @param remoteFilePath The remote file on the ssh server.</span></div>
+<div class="line"><span class="lineno">  549</span><span class="stringliteral">           @param localFilePath The path of the file after it&#39;s been received&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  550</span>        <span class="keywordflow">if</span> self._sftp:</div>
+<div class="line"><span class="lineno">  551</span>            self._sftp.get(remoteFilePath,localFilePath)</div>
+<div class="line"><span class="lineno">  552</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  553</span>            <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;SFTP not connected.&quot;</span>)</div>
+<div class="line"><span class="lineno">  554</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -992,11 +994,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the local IP address of the network interface used to connect to the ssh server</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00366">366</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  366</span>    <span class="keyword">def </span>getLocalAddress(self):</div>
-<div class="line"><span class="lineno">  367</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the local IP address of the network interface used to connect to the ssh server&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  368</span><span class="stringliteral">        return self._localAddress</span></div>
-<div class="line"><span class="lineno">  369</span><span class="stringliteral"></span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00374">374</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  374</span>    <span class="keyword">def </span>getLocalAddress(self):</div>
+<div class="line"><span class="lineno">  375</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the local IP address of the network interface used to connect to the ssh server&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  376</span><span class="stringliteral">        return self._localAddress</span></div>
+<div class="line"><span class="lineno">  377</span><span class="stringliteral"></span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1241,28 +1243,28 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Return the remote authorised key file for the current ssh connection.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00517">517</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  517</span>    <span class="keyword">def </span>getRemoteAuthorisedKeyFile(self):</div>
-<div class="line"><span class="lineno">  518</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Return the remote authorised key file for the current ssh connection.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  519</span> </div>
-<div class="line"><span class="lineno">  520</span>        authKeysFile = SSH.DEFAULT_REMOTE_SSH_AUTH_KEYS_FILE</div>
-<div class="line"><span class="lineno">  521</span> </div>
-<div class="line"><span class="lineno">  522</span>        cmd = <span class="stringliteral">&quot;test -d %s&quot;</span> % (SSH.DROPBEAR_DIR)</div>
-<div class="line"><span class="lineno">  523</span>        rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  524</span>        <span class="comment"># If the ssh server uses dropbear</span></div>
-<div class="line"><span class="lineno">  525</span>        <span class="keywordflow">if</span> rc == 0:</div>
-<div class="line"><span class="lineno">  526</span>            authKeysFile = SSH.DROPBEAR_AUTH_KEYS_FILE</div>
-<div class="line"><span class="lineno">  527</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  528</span>            <span class="comment"># Check for the users ssh config folder</span></div>
-<div class="line"><span class="lineno">  529</span>            cmd = <span class="stringliteral">&quot;test -d %s&quot;</span> % (SSH.DEFAULT_REMOTE_SSH_CONFIG_FOLDER)</div>
-<div class="line"><span class="lineno">  530</span>            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  531</span>            <span class="keywordflow">if</span> rc != 0:</div>
-<div class="line"><span class="lineno">  532</span>                <span class="comment"># If the remote ssh config folder does not exist, create it</span></div>
-<div class="line"><span class="lineno">  533</span>                cmd = f<span class="stringliteral">&quot;mkdir {SSH.DEFAULT_REMOTE_SSH_CONFIG_FOLDER}&quot;</span></div>
-<div class="line"><span class="lineno">  534</span>                rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  535</span> </div>
-<div class="line"><span class="lineno">  536</span>        <span class="keywordflow">return</span> authKeysFile</div>
-<div class="line"><span class="lineno">  537</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00525">525</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  525</span>    <span class="keyword">def </span>getRemoteAuthorisedKeyFile(self):</div>
+<div class="line"><span class="lineno">  526</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Return the remote authorised key file for the current ssh connection.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  527</span> </div>
+<div class="line"><span class="lineno">  528</span>        authKeysFile = SSH.DEFAULT_REMOTE_SSH_AUTH_KEYS_FILE</div>
+<div class="line"><span class="lineno">  529</span> </div>
+<div class="line"><span class="lineno">  530</span>        cmd = <span class="stringliteral">&quot;test -d %s&quot;</span> % (SSH.DROPBEAR_DIR)</div>
+<div class="line"><span class="lineno">  531</span>        rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  532</span>        <span class="comment"># If the ssh server uses dropbear</span></div>
+<div class="line"><span class="lineno">  533</span>        <span class="keywordflow">if</span> rc == 0:</div>
+<div class="line"><span class="lineno">  534</span>            authKeysFile = SSH.DROPBEAR_AUTH_KEYS_FILE</div>
+<div class="line"><span class="lineno">  535</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  536</span>            <span class="comment"># Check for the users ssh config folder</span></div>
+<div class="line"><span class="lineno">  537</span>            cmd = <span class="stringliteral">&quot;test -d %s&quot;</span> % (SSH.DEFAULT_REMOTE_SSH_CONFIG_FOLDER)</div>
+<div class="line"><span class="lineno">  538</span>            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  539</span>            <span class="keywordflow">if</span> rc != 0:</div>
+<div class="line"><span class="lineno">  540</span>                <span class="comment"># If the remote ssh config folder does not exist, create it</span></div>
+<div class="line"><span class="lineno">  541</span>                cmd = f<span class="stringliteral">&quot;mkdir {SSH.DEFAULT_REMOTE_SSH_CONFIG_FOLDER}&quot;</span></div>
+<div class="line"><span class="lineno">  542</span>                rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  543</span> </div>
+<div class="line"><span class="lineno">  544</span>        <span class="keywordflow">return</span> authKeysFile</div>
+<div class="line"><span class="lineno">  545</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1282,30 +1284,30 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Get the remote authorised keys file over the ssh connection.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00494">494</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  494</span>    <span class="keyword">def </span>getRemoteAuthorisedKeys(self):</div>
-<div class="line"><span class="lineno">  495</span>        <span class="stringliteral">&quot;&quot;&quot;Get the remote authorised keys file over the ssh connection.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  496</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
-<div class="line"><span class="lineno">  497</span>        cmd = <span class="stringliteral">&quot;test -f %s&quot;</span> % (authKeysFile)</div>
-<div class="line"><span class="lineno">  498</span>        rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  499</span>        <span class="keywordflow">if</span> rc != 0:</div>
-<div class="line"><span class="lineno">  500</span>            <span class="comment"># Auth keys file not found, attempt to create an empty one.</span></div>
-<div class="line"><span class="lineno">  501</span>            cmd = <span class="stringliteral">&quot;touch %s&quot;</span> % (authKeysFile)</div>
-<div class="line"><span class="lineno">  502</span>            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  503</span>            cmd = <span class="stringliteral">&quot;test -f %s&quot;</span> % (authKeysFile)</div>
-<div class="line"><span class="lineno">  504</span>            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  505</span>            <span class="keywordflow">if</span> rc != 0:</div>
-<div class="line"><span class="lineno">  506</span>                <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;!!! Server auth keys file not found (%s). Failed to create it.&quot;</span> % (authKeysFile))</div>
-<div class="line"><span class="lineno">  507</span> </div>
-<div class="line"><span class="lineno">  508</span>        rc, stdoutLines, stderrLines = self.runCmd(<span class="stringliteral">&quot;cat %s&quot;</span> % (authKeysFile), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  509</span> </div>
-<div class="line"><span class="lineno">  510</span>        <span class="comment"># Ensure we only return non empty lines</span></div>
-<div class="line"><span class="lineno">  511</span>        authKeyLines = []</div>
-<div class="line"><span class="lineno">  512</span>        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> stdoutLines:</div>
-<div class="line"><span class="lineno">  513</span>            <span class="keywordflow">if</span> len(l.strip()) &gt; 0:</div>
-<div class="line"><span class="lineno">  514</span>                authKeyLines.append(l)</div>
-<div class="line"><span class="lineno">  515</span>        <span class="keywordflow">return</span> authKeyLines</div>
-<div class="line"><span class="lineno">  516</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00502">502</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  502</span>    <span class="keyword">def </span>getRemoteAuthorisedKeys(self):</div>
+<div class="line"><span class="lineno">  503</span>        <span class="stringliteral">&quot;&quot;&quot;Get the remote authorised keys file over the ssh connection.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  504</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
+<div class="line"><span class="lineno">  505</span>        cmd = <span class="stringliteral">&quot;test -f %s&quot;</span> % (authKeysFile)</div>
+<div class="line"><span class="lineno">  506</span>        rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  507</span>        <span class="keywordflow">if</span> rc != 0:</div>
+<div class="line"><span class="lineno">  508</span>            <span class="comment"># Auth keys file not found, attempt to create an empty one.</span></div>
+<div class="line"><span class="lineno">  509</span>            cmd = <span class="stringliteral">&quot;touch %s&quot;</span> % (authKeysFile)</div>
+<div class="line"><span class="lineno">  510</span>            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  511</span>            cmd = <span class="stringliteral">&quot;test -f %s&quot;</span> % (authKeysFile)</div>
+<div class="line"><span class="lineno">  512</span>            rc, stdoutLines, stderrLines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  513</span>            <span class="keywordflow">if</span> rc != 0:</div>
+<div class="line"><span class="lineno">  514</span>                <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;!!! Server auth keys file not found (%s). Failed to create it.&quot;</span> % (authKeysFile))</div>
+<div class="line"><span class="lineno">  515</span> </div>
+<div class="line"><span class="lineno">  516</span>        rc, stdoutLines, stderrLines = self.runCmd(<span class="stringliteral">&quot;cat %s&quot;</span> % (authKeysFile), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  517</span> </div>
+<div class="line"><span class="lineno">  518</span>        <span class="comment"># Ensure we only return non empty lines</span></div>
+<div class="line"><span class="lineno">  519</span>        authKeyLines = []</div>
+<div class="line"><span class="lineno">  520</span>        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> stdoutLines:</div>
+<div class="line"><span class="lineno">  521</span>            <span class="keywordflow">if</span> len(l.strip()) &gt; 0:</div>
+<div class="line"><span class="lineno">  522</span>                authKeyLines.append(l)</div>
+<div class="line"><span class="lineno">  523</span>        <span class="keywordflow">return</span> authKeyLines</div>
+<div class="line"><span class="lineno">  524</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1325,11 +1327,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief return a ref to the SSHClient object</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00370">370</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  370</span>    <span class="keyword">def </span>getSSHClient(self):</div>
-<div class="line"><span class="lineno">  371</span>        <span class="stringliteral">&quot;&quot;&quot;@brief return a ref to the SSHClient object&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  372</span>        <span class="keywordflow">return</span> self._ssh</div>
-<div class="line"><span class="lineno">  373</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00378">378</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  378</span>    <span class="keyword">def </span>getSSHClient(self):</div>
+<div class="line"><span class="lineno">  379</span>        <span class="stringliteral">&quot;&quot;&quot;@brief return a ref to the SSHClient object&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  380</span>        <span class="keywordflow">return</span> self._ssh</div>
+<div class="line"><span class="lineno">  381</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1417,13 +1419,42 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Get the ssh transport object. Should only be
           called when the ssh session is connected.
    @return The ssh transport object.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00383">383</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  383</span>    <span class="keyword">def </span>getTransport(self):</div>
-<div class="line"><span class="lineno">  384</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the ssh transport object. Should only be</span></div>
-<div class="line"><span class="lineno">  385</span><span class="stringliteral">                  called when the ssh session is connected.</span></div>
-<div class="line"><span class="lineno">  386</span><span class="stringliteral">           @return The ssh transport object.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  387</span>        <span class="keywordflow">return</span> self._ssh.get_transport()</div>
-<div class="line"><span class="lineno">  388</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00391">391</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  391</span>    <span class="keyword">def </span>getTransport(self):</div>
+<div class="line"><span class="lineno">  392</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the ssh transport object. Should only be</span></div>
+<div class="line"><span class="lineno">  393</span><span class="stringliteral">                  called when the ssh session is connected.</span></div>
+<div class="line"><span class="lineno">  394</span><span class="stringliteral">           @return The ssh transport object.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  395</span>        <span class="keywordflow">return</span> self._ssh.get_transport()</div>
+<div class="line"><span class="lineno">  396</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a4e8c2d21704465c2bfbf60edc9ad8d8f" name="a4e8c2d21704465c2bfbf60edc9ad8d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e8c2d21704465c2bfbf60edc9ad8d8f">&#9670;&#160;</a></span>isConnected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">isConnected </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Check if a connection is active.
+   @return True if connected.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00313">313</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  313</span>    <span class="keyword">def </span>isConnected(self):</div>
+<div class="line"><span class="lineno">  314</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check if a connection is active.</span></div>
+<div class="line"><span class="lineno">  315</span><span class="stringliteral">           @return True if connected.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  316</span>        connected = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">if</span> self._ssh <span class="keywordflow">and</span> self._ssh.get_transport() <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  318</span>            connected = self._ssh.get_transport().is_active()</div>
+<div class="line"><span class="lineno">  319</span>        <span class="keywordflow">return</span> connected</div>
+<div class="line"><span class="lineno">  320</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1461,16 +1492,16 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Get a file from the sftp server
    @param localFilePath The path of the file after it's been received
    @param remoteFilePath The remote file on the ssh server.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00547">547</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  547</span>    <span class="keyword">def </span>putFile(self, localFilePath, remoteFilePath ):</div>
-<div class="line"><span class="lineno">  548</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a file from the sftp server</span></div>
-<div class="line"><span class="lineno">  549</span><span class="stringliteral">           @param localFilePath The path of the file after it&#39;s been received</span></div>
-<div class="line"><span class="lineno">  550</span><span class="stringliteral">           @param remoteFilePath The remote file on the ssh server.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  551</span>        <span class="keywordflow">if</span> self._sftp:</div>
-<div class="line"><span class="lineno">  552</span>            self._sftp.put(localFilePath, remoteFilePath)</div>
-<div class="line"><span class="lineno">  553</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  554</span>            <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;SFTP not connected.&quot;</span>)</div>
-<div class="line"><span class="lineno">  555</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00555">555</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  555</span>    <span class="keyword">def </span>putFile(self, localFilePath, remoteFilePath ):</div>
+<div class="line"><span class="lineno">  556</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a file from the sftp server</span></div>
+<div class="line"><span class="lineno">  557</span><span class="stringliteral">           @param localFilePath The path of the file after it&#39;s been received</span></div>
+<div class="line"><span class="lineno">  558</span><span class="stringliteral">           @param remoteFilePath The remote file on the ssh server.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  559</span>        <span class="keywordflow">if</span> self._sftp:</div>
+<div class="line"><span class="lineno">  560</span>            self._sftp.put(localFilePath, remoteFilePath)</div>
+<div class="line"><span class="lineno">  561</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  562</span>            <span class="keywordflow">raise</span> SSHError(<span class="stringliteral">&quot;SFTP not connected.&quot;</span>)</div>
+<div class="line"><span class="lineno">  563</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1501,48 +1532,48 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Remove authorised keys from the server authorised keys file.
    @param publicKeysForRemoval A list of public keys for removal.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00599">599</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  599</span>    <span class="keyword">def </span>removeAuthKey(self, publicKey):</div>
-<div class="line"><span class="lineno">  600</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove authorised keys from the server authorised keys file.</span></div>
-<div class="line"><span class="lineno">  601</span><span class="stringliteral">           @param publicKeysForRemoval A list of public keys for removal.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  602</span>        remove = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  603</span>        previousAuthKeysFile = self.getAuthKeyBackupFile()</div>
-<div class="line"><span class="lineno">  604</span>        publicKeyID = self._getPublicKeyID(publicKey)</div>
-<div class="line"><span class="lineno">  605</span>        self._info(<span class="stringliteral">&quot;Public ssh key ID: {}&quot;</span>.format(publicKeyID))</div>
-<div class="line"><span class="lineno">  606</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
-<div class="line"><span class="lineno">  607</span>        tmpAuthKeysFile = <span class="stringliteral">&quot;%s.tmp&quot;</span> % (authKeysFile)</div>
-<div class="line"><span class="lineno">  608</span>        retCode, publicKeyList, _ = self.runCmd(<span class="stringliteral">&quot;cat {}&quot;</span>.format(authKeysFile), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  609</span>        <span class="keywordflow">if</span> retCode == 0:</div>
-<div class="line"><span class="lineno">  610</span>            newAuthKeysList = []</div>
-<div class="line"><span class="lineno">  611</span>            <span class="keywordflow">for</span> publicKey <span class="keywordflow">in</span> publicKeyList:</div>
-<div class="line"><span class="lineno">  612</span>                <span class="keywordflow">if</span> publicKey.find(publicKeyID) &gt;= 0:</div>
-<div class="line"><span class="lineno">  613</span>                    self._info(<span class="stringliteral">&quot;Found {} public key on ssh server.&quot;</span>.format(publicKeyID))</div>
-<div class="line"><span class="lineno">  614</span>                    remove = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  615</span>                <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  616</span>                    newAuthKeysList.append(publicKey)</div>
-<div class="line"><span class="lineno">  617</span> </div>
-<div class="line"><span class="lineno">  618</span>        <span class="keywordflow">if</span> remove:</div>
-<div class="line"><span class="lineno">  619</span>            <span class="comment"># Remove any pre existing tmp auth keys file</span></div>
-<div class="line"><span class="lineno">  620</span>            self.runCmd(<span class="stringliteral">&quot;rm -f %s&quot;</span> % (tmpAuthKeysFile), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  621</span> </div>
-<div class="line"><span class="lineno">  622</span>            <span class="comment"># Create empty tmp auth keys file</span></div>
-<div class="line"><span class="lineno">  623</span>            self.runCmd(<span class="stringliteral">&quot;touch %s&quot;</span> % (tmpAuthKeysFile))</div>
-<div class="line"><span class="lineno">  624</span> </div>
-<div class="line"><span class="lineno">  625</span>            <span class="keywordflow">for</span> newAuthKey <span class="keywordflow">in</span> newAuthKeysList:</div>
-<div class="line"><span class="lineno">  626</span>                self.runCmd(<span class="stringliteral">&quot;echo \&quot;%s\&quot; &gt;&gt; %s&quot;</span> % (newAuthKey, tmpAuthKeysFile), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  627</span> </div>
-<div class="line"><span class="lineno">  628</span>            <span class="comment"># Remove any pre existing previous auth keys file</span></div>
-<div class="line"><span class="lineno">  629</span>            self.runCmd(<span class="stringliteral">&quot;rm -f %s&quot;</span> % (previousAuthKeysFile), throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  630</span> </div>
-<div class="line"><span class="lineno">  631</span>            <span class="comment"># Move the current auth keys file to the old one and the tmp to the current one</span></div>
-<div class="line"><span class="lineno">  632</span>            self.runCmd(<span class="stringliteral">&quot;mv %s %s&quot;</span> % (authKeysFile, previousAuthKeysFile))</div>
-<div class="line"><span class="lineno">  633</span>            self.runCmd(<span class="stringliteral">&quot;mv %s %s&quot;</span> % (tmpAuthKeysFile, authKeysFile))</div>
-<div class="line"><span class="lineno">  634</span>            self._info(<span class="stringliteral">&quot;Removed {} public key from the ssh server.&quot;</span>.format(publicKeyID))</div>
-<div class="line"><span class="lineno">  635</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  636</span>            self._info(<span class="stringliteral">&quot;{} public key not found in ssh server authorised keys file.&quot;</span>.format(publicKeyID))</div>
-<div class="line"><span class="lineno">  637</span> </div>
-<div class="line"><span class="lineno">  638</span>        <span class="keywordflow">return</span> remove</div>
-<div class="line"><span class="lineno">  639</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00607">607</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  607</span>    <span class="keyword">def </span>removeAuthKey(self, publicKey):</div>
+<div class="line"><span class="lineno">  608</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove authorised keys from the server authorised keys file.</span></div>
+<div class="line"><span class="lineno">  609</span><span class="stringliteral">           @param publicKeysForRemoval A list of public keys for removal.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  610</span>        remove = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  611</span>        previousAuthKeysFile = self.getAuthKeyBackupFile()</div>
+<div class="line"><span class="lineno">  612</span>        publicKeyID = self._getPublicKeyID(publicKey)</div>
+<div class="line"><span class="lineno">  613</span>        self._info(<span class="stringliteral">&quot;Public ssh key ID: {}&quot;</span>.format(publicKeyID))</div>
+<div class="line"><span class="lineno">  614</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
+<div class="line"><span class="lineno">  615</span>        tmpAuthKeysFile = <span class="stringliteral">&quot;%s.tmp&quot;</span> % (authKeysFile)</div>
+<div class="line"><span class="lineno">  616</span>        retCode, publicKeyList, _ = self.runCmd(<span class="stringliteral">&quot;cat {}&quot;</span>.format(authKeysFile), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  617</span>        <span class="keywordflow">if</span> retCode == 0:</div>
+<div class="line"><span class="lineno">  618</span>            newAuthKeysList = []</div>
+<div class="line"><span class="lineno">  619</span>            <span class="keywordflow">for</span> publicKey <span class="keywordflow">in</span> publicKeyList:</div>
+<div class="line"><span class="lineno">  620</span>                <span class="keywordflow">if</span> publicKey.find(publicKeyID) &gt;= 0:</div>
+<div class="line"><span class="lineno">  621</span>                    self._info(<span class="stringliteral">&quot;Found {} public key on ssh server.&quot;</span>.format(publicKeyID))</div>
+<div class="line"><span class="lineno">  622</span>                    remove = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  623</span>                <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  624</span>                    newAuthKeysList.append(publicKey)</div>
+<div class="line"><span class="lineno">  625</span> </div>
+<div class="line"><span class="lineno">  626</span>        <span class="keywordflow">if</span> remove:</div>
+<div class="line"><span class="lineno">  627</span>            <span class="comment"># Remove any pre existing tmp auth keys file</span></div>
+<div class="line"><span class="lineno">  628</span>            self.runCmd(<span class="stringliteral">&quot;rm -f %s&quot;</span> % (tmpAuthKeysFile), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  629</span> </div>
+<div class="line"><span class="lineno">  630</span>            <span class="comment"># Create empty tmp auth keys file</span></div>
+<div class="line"><span class="lineno">  631</span>            self.runCmd(<span class="stringliteral">&quot;touch %s&quot;</span> % (tmpAuthKeysFile))</div>
+<div class="line"><span class="lineno">  632</span> </div>
+<div class="line"><span class="lineno">  633</span>            <span class="keywordflow">for</span> newAuthKey <span class="keywordflow">in</span> newAuthKeysList:</div>
+<div class="line"><span class="lineno">  634</span>                self.runCmd(<span class="stringliteral">&quot;echo \&quot;%s\&quot; &gt;&gt; %s&quot;</span> % (newAuthKey, tmpAuthKeysFile), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  635</span> </div>
+<div class="line"><span class="lineno">  636</span>            <span class="comment"># Remove any pre existing previous auth keys file</span></div>
+<div class="line"><span class="lineno">  637</span>            self.runCmd(<span class="stringliteral">&quot;rm -f %s&quot;</span> % (previousAuthKeysFile), throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  638</span> </div>
+<div class="line"><span class="lineno">  639</span>            <span class="comment"># Move the current auth keys file to the old one and the tmp to the current one</span></div>
+<div class="line"><span class="lineno">  640</span>            self.runCmd(<span class="stringliteral">&quot;mv %s %s&quot;</span> % (authKeysFile, previousAuthKeysFile))</div>
+<div class="line"><span class="lineno">  641</span>            self.runCmd(<span class="stringliteral">&quot;mv %s %s&quot;</span> % (tmpAuthKeysFile, authKeysFile))</div>
+<div class="line"><span class="lineno">  642</span>            self._info(<span class="stringliteral">&quot;Removed {} public key from the ssh server.&quot;</span>.format(publicKeyID))</div>
+<div class="line"><span class="lineno">  643</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  644</span>            self._info(<span class="stringliteral">&quot;{} public key not found in ssh server authorised keys file.&quot;</span>.format(publicKeyID))</div>
+<div class="line"><span class="lineno">  645</span> </div>
+<div class="line"><span class="lineno">  646</span>        <span class="keywordflow">return</span> remove</div>
+<div class="line"><span class="lineno">  647</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1593,20 +1624,20 @@ Protected Attributes</h2></td></tr>
       1 - Lines of text from stdout
       2 - lines of text from stderr
 </pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00389">389</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  389</span>    <span class="keyword">def </span>runCmd(self, cmd, throwError=True, timeout=None):</div>
-<div class="line"><span class="lineno">  390</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run a command over an ssh session</span></div>
-<div class="line"><span class="lineno">  391</span><span class="stringliteral">           @param cmd The command to execute</span></div>
-<div class="line"><span class="lineno">  392</span><span class="stringliteral">           @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.</span></div>
-<div class="line"><span class="lineno">  393</span><span class="stringliteral">                             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown</span></div>
-<div class="line"><span class="lineno">  394</span><span class="stringliteral">           @param timeout The timeout value in seconds or None (default) if no command timeout is required.</span></div>
-<div class="line"><span class="lineno">  395</span><span class="stringliteral">           @return A tuple with the following threee elements</span></div>
-<div class="line"><span class="lineno">  396</span><span class="stringliteral">              0 - the return code/exit status of the command</span></div>
-<div class="line"><span class="lineno">  397</span><span class="stringliteral">              1 - Lines of text from stdout</span></div>
-<div class="line"><span class="lineno">  398</span><span class="stringliteral">              2 - lines of text from stderr</span></div>
-<div class="line"><span class="lineno">  399</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">return</span> self._ssh.runCmd(cmd, throwError=throwError, timeout=timeout)</div>
-<div class="line"><span class="lineno">  401</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00397">397</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  397</span>    <span class="keyword">def </span>runCmd(self, cmd, throwError=True, timeout=None):</div>
+<div class="line"><span class="lineno">  398</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Run a command over an ssh session</span></div>
+<div class="line"><span class="lineno">  399</span><span class="stringliteral">           @param cmd The command to execute</span></div>
+<div class="line"><span class="lineno">  400</span><span class="stringliteral">           @param throwError If True and the command fails throw an error. If False and the command fail return the erorr code etc.</span></div>
+<div class="line"><span class="lineno">  401</span><span class="stringliteral">                             If throwError is True and the exit status of the command is not 0 then an SSHError will be thrown</span></div>
+<div class="line"><span class="lineno">  402</span><span class="stringliteral">           @param timeout The timeout value in seconds or None (default) if no command timeout is required.</span></div>
+<div class="line"><span class="lineno">  403</span><span class="stringliteral">           @return A tuple with the following threee elements</span></div>
+<div class="line"><span class="lineno">  404</span><span class="stringliteral">              0 - the return code/exit status of the command</span></div>
+<div class="line"><span class="lineno">  405</span><span class="stringliteral">              1 - Lines of text from stdout</span></div>
+<div class="line"><span class="lineno">  406</span><span class="stringliteral">              2 - lines of text from stderr</span></div>
+<div class="line"><span class="lineno">  407</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  408</span>        <span class="keywordflow">return</span> self._ssh.runCmd(cmd, throwError=throwError, timeout=timeout)</div>
+<div class="line"><span class="lineno">  409</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1645,21 +1676,21 @@ Protected Attributes</h2></td></tr>
 
                 When the command is complete the caller should call channel.close()
    @return A channel instance in which the command is executing.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00402">402</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  402</span>    <span class="keyword">def </span>startCmd(self, cmd):</div>
-<div class="line"><span class="lineno">  403</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start executing a command. This will return after starting the command and before the command has completed.</span></div>
-<div class="line"><span class="lineno">  404</span><span class="stringliteral">                    The following methods maybe called to interrogate the command executions</span></div>
-<div class="line"><span class="lineno">  405</span><span class="stringliteral">                        channel.exit_status_ready()</span></div>
-<div class="line"><span class="lineno">  406</span><span class="stringliteral">                        channel.recv_ready()</span></div>
-<div class="line"><span class="lineno">  407</span><span class="stringliteral">                            channel.channel.recv(len(channel.in_buffer))</span></div>
-<div class="line"><span class="lineno">  408</span><span class="stringliteral">                        channel.recv_stderr_ready()</span></div>
-<div class="line"><span class="lineno">  409</span><span class="stringliteral">                            channel.recv_stderr(len(channel.in_stderr_buffer))</span></div>
-<div class="line"><span class="lineno">  410</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  411</span><span class="stringliteral">                        When the command is complete the caller should call channel.close()</span></div>
-<div class="line"><span class="lineno">  412</span><span class="stringliteral">           @return A channel instance in which the command is executing.</span></div>
-<div class="line"><span class="lineno">  413</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  414</span>        <span class="keywordflow">return</span> self._ssh.startCmd(cmd)</div>
-<div class="line"><span class="lineno">  415</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00410">410</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  410</span>    <span class="keyword">def </span>startCmd(self, cmd):</div>
+<div class="line"><span class="lineno">  411</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start executing a command. This will return after starting the command and before the command has completed.</span></div>
+<div class="line"><span class="lineno">  412</span><span class="stringliteral">                    The following methods maybe called to interrogate the command executions</span></div>
+<div class="line"><span class="lineno">  413</span><span class="stringliteral">                        channel.exit_status_ready()</span></div>
+<div class="line"><span class="lineno">  414</span><span class="stringliteral">                        channel.recv_ready()</span></div>
+<div class="line"><span class="lineno">  415</span><span class="stringliteral">                            channel.channel.recv(len(channel.in_buffer))</span></div>
+<div class="line"><span class="lineno">  416</span><span class="stringliteral">                        channel.recv_stderr_ready()</span></div>
+<div class="line"><span class="lineno">  417</span><span class="stringliteral">                            channel.recv_stderr(len(channel.in_stderr_buffer))</span></div>
+<div class="line"><span class="lineno">  418</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  419</span><span class="stringliteral">                        When the command is complete the caller should call channel.close()</span></div>
+<div class="line"><span class="lineno">  420</span><span class="stringliteral">           @return A channel instance in which the command is executing.</span></div>
+<div class="line"><span class="lineno">  421</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  422</span>        <span class="keywordflow">return</span> self._ssh.startCmd(cmd)</div>
+<div class="line"><span class="lineno">  423</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1690,23 +1721,23 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">Update the authorised keys file on the remote ssh server with the
    public ssh key</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00478">478</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  478</span>    <span class="keyword">def </span>updateAuthorisedKeys(self, publicKey):</div>
-<div class="line"><span class="lineno">  479</span>        <span class="stringliteral">&quot;&quot;&quot;Update the authorised keys file on the remote ssh server with the</span></div>
-<div class="line"><span class="lineno">  480</span><span class="stringliteral">           public ssh key&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  481</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
-<div class="line"><span class="lineno">  482</span>        cmd = <span class="stringliteral">&quot;test -d %s&quot;</span> % (authKeysFile)</div>
-<div class="line"><span class="lineno">  483</span>        rc, stdoutlines, stderrlines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  484</span>        <span class="keywordflow">if</span> rc == 0:</div>
-<div class="line"><span class="lineno">  485</span>            <span class="comment"># If this is a dir with nothing in it, delete it and create an empty</span></div>
-<div class="line"><span class="lineno">  486</span>            <span class="comment"># authorized_keys file.</span></div>
-<div class="line"><span class="lineno">  487</span>            self.runCmd(<span class="stringliteral">&quot;rmdir %s&quot;</span> % (authKeysFile))</div>
-<div class="line"><span class="lineno">  488</span>            self.runCmd(<span class="stringliteral">&quot;touch %s&quot;</span> % (authKeysFile))</div>
-<div class="line"><span class="lineno">  489</span> </div>
-<div class="line"><span class="lineno">  490</span>        self.runCmd(<span class="stringliteral">&quot;echo \&quot;%s\&quot; &gt;&gt; %s&quot;</span> % (publicKey, authKeysFile))</div>
-<div class="line"><span class="lineno">  491</span>        self.runCmd(<span class="stringliteral">&quot;chmod 600 %s&quot;</span> % (authKeysFile))</div>
-<div class="line"><span class="lineno">  492</span>        <span class="keywordflow">return</span> authKeysFile</div>
-<div class="line"><span class="lineno">  493</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00486">486</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  486</span>    <span class="keyword">def </span>updateAuthorisedKeys(self, publicKey):</div>
+<div class="line"><span class="lineno">  487</span>        <span class="stringliteral">&quot;&quot;&quot;Update the authorised keys file on the remote ssh server with the</span></div>
+<div class="line"><span class="lineno">  488</span><span class="stringliteral">           public ssh key&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  489</span>        authKeysFile = self.getRemoteAuthorisedKeyFile()</div>
+<div class="line"><span class="lineno">  490</span>        cmd = <span class="stringliteral">&quot;test -d %s&quot;</span> % (authKeysFile)</div>
+<div class="line"><span class="lineno">  491</span>        rc, stdoutlines, stderrlines = self.runCmd(cmd, throwError=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  492</span>        <span class="keywordflow">if</span> rc == 0:</div>
+<div class="line"><span class="lineno">  493</span>            <span class="comment"># If this is a dir with nothing in it, delete it and create an empty</span></div>
+<div class="line"><span class="lineno">  494</span>            <span class="comment"># authorized_keys file.</span></div>
+<div class="line"><span class="lineno">  495</span>            self.runCmd(<span class="stringliteral">&quot;rmdir %s&quot;</span> % (authKeysFile))</div>
+<div class="line"><span class="lineno">  496</span>            self.runCmd(<span class="stringliteral">&quot;touch %s&quot;</span> % (authKeysFile))</div>
+<div class="line"><span class="lineno">  497</span> </div>
+<div class="line"><span class="lineno">  498</span>        self.runCmd(<span class="stringliteral">&quot;echo \&quot;%s\&quot; &gt;&gt; %s&quot;</span> % (publicKey, authKeysFile))</div>
+<div class="line"><span class="lineno">  499</span>        self.runCmd(<span class="stringliteral">&quot;chmod 600 %s&quot;</span> % (authKeysFile))</div>
+<div class="line"><span class="lineno">  500</span>        <span class="keywordflow">return</span> authKeysFile</div>
+<div class="line"><span class="lineno">  501</span> </div>
 </div><!-- fragment -->
 </div>
 </div>

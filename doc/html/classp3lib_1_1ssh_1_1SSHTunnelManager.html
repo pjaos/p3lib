@@ -107,10 +107,14 @@ Collaboration diagram for SSHTunnelManager:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:acb63a245845618d5b7b4438d5bee831b" id="r_acb63a245845618d5b7b4438d5bee831b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#acb63a245845618d5b7b4438d5bee831b">__init__</a> (self, uio, ssh, useCompression)</td></tr>
 <tr class="separator:acb63a245845618d5b7b4438d5bee831b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a1e81456690d753800ac83055b02d33" id="r_a7a1e81456690d753800ac83055b02d33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#a7a1e81456690d753800ac83055b02d33">startFwdSSHTunnel</a> (self, serverPort, destHost, destPort)</td></tr>
-<tr class="separator:a7a1e81456690d753800ac83055b02d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a70c3a18e7a7fc2b17133d8c6ccc518" id="r_a6a70c3a18e7a7fc2b17133d8c6ccc518"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#a6a70c3a18e7a7fc2b17133d8c6ccc518">startRevSSHTunnel</a> (self, serverPort, destHost, destPort)</td></tr>
-<tr class="separator:a6a70c3a18e7a7fc2b17133d8c6ccc518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492eb7b06ed0fe2ef43fcf5498077272" id="r_a492eb7b06ed0fe2ef43fcf5498077272"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#a492eb7b06ed0fe2ef43fcf5498077272">startFwdSSHTunnel</a> (self, serverPort, destHost, destPort, serverBindAddress='')</td></tr>
+<tr class="separator:a492eb7b06ed0fe2ef43fcf5498077272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b6c00c857bfd2cf713fa2a9ba00c46" id="r_ab2b6c00c857bfd2cf713fa2a9ba00c46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#ab2b6c00c857bfd2cf713fa2a9ba00c46">startFwdTunnel</a> (self, serverBindAddress, serverPort, destHost, destPort)</td></tr>
+<tr class="separator:ab2b6c00c857bfd2cf713fa2a9ba00c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2945e980fe7a7f8766c6e2d7c03153c7" id="r_a2945e980fe7a7f8766c6e2d7c03153c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#a2945e980fe7a7f8766c6e2d7c03153c7">startRevSSHTunnel</a> (self, serverPort, destHost, destPort, serverBindAddress='')</td></tr>
+<tr class="separator:a2945e980fe7a7f8766c6e2d7c03153c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa346906aeaed8bc3a5c5f7c8d74d364e" id="r_aa346906aeaed8bc3a5c5f7c8d74d364e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#aa346906aeaed8bc3a5c5f7c8d74d364e">startRevTunnel</a> (self, serverBindAddress, serverPort, destHost, destPort)</td></tr>
+<tr class="separator:aa346906aeaed8bc3a5c5f7c8d74d364e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35fa9f68357202a990d054b3c3260bff" id="r_a35fa9f68357202a990d054b3c3260bff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#a35fa9f68357202a990d054b3c3260bff">stopAllFwdSSHTunnels</a> (self)</td></tr>
 <tr class="separator:a35fa9f68357202a990d054b3c3260bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a494a88cf61366361194169127530d101" id="r_a494a88cf61366361194169127530d101"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1ssh_1_1SSHTunnelManager.html#a494a88cf61366361194169127530d101">stopAllRevSSHTunnels</a> (self)</td></tr>
@@ -158,7 +162,7 @@ Protected Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Responsible for setting up, tearing down and maintaining lists of
           SSH port forwarding and ssh reverse port forwarding connections.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00640">640</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00648">648</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acb63a245845618d5b7b4438d5bee831b" name="acb63a245845618d5b7b4438d5bee831b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb63a245845618d5b7b4438d5bee831b">&#9670;&#160;</a></span>__init__()</h2>
@@ -201,21 +205,21 @@ Protected Attributes</h2></td></tr>
    @param uio  UIO instance
    @param ssh An instance of SSHClient that has previously been
               connected to an ssh server</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00646">646</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  646</span>    <span class="keyword">def </span>__init__(self, uio, ssh, useCompression):</div>
-<div class="line"><span class="lineno">  647</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><span class="lineno">  648</span><span class="stringliteral">           @param uio  UIO instance</span></div>
-<div class="line"><span class="lineno">  649</span><span class="stringliteral">           @param ssh An instance of SSHClient that has previously been</span></div>
-<div class="line"><span class="lineno">  650</span><span class="stringliteral">                      connected to an ssh server&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  651</span><span class="stringliteral">        self._uio = uio</span></div>
-<div class="line"><span class="lineno">  652</span><span class="stringliteral">        self._ssh = ssh</span></div>
-<div class="line"><span class="lineno">  653</span><span class="stringliteral">        self._useCompression = useCompression</span></div>
-<div class="line"><span class="lineno">  654</span><span class="stringliteral">        if not self._ssh.getTransport().is_active():</span></div>
-<div class="line"><span class="lineno">  655</span><span class="stringliteral">            raise SSHError(&quot;!!! The ssh connection is not connected !!!&quot;)</span></div>
-<div class="line"><span class="lineno">  656</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  657</span><span class="stringliteral">        self._forwardingServerList = []</span></div>
-<div class="line"><span class="lineno">  658</span><span class="stringliteral">        self._reverseSShDict = {}</span></div>
-<div class="line"><span class="lineno">  659</span><span class="stringliteral"></span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00654">654</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  654</span>    <span class="keyword">def </span>__init__(self, uio, ssh, useCompression):</div>
+<div class="line"><span class="lineno">  655</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><span class="lineno">  656</span><span class="stringliteral">           @param uio  UIO instance</span></div>
+<div class="line"><span class="lineno">  657</span><span class="stringliteral">           @param ssh An instance of SSHClient that has previously been</span></div>
+<div class="line"><span class="lineno">  658</span><span class="stringliteral">                      connected to an ssh server&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  659</span><span class="stringliteral">        self._uio = uio</span></div>
+<div class="line"><span class="lineno">  660</span><span class="stringliteral">        self._ssh = ssh</span></div>
+<div class="line"><span class="lineno">  661</span><span class="stringliteral">        self._useCompression = useCompression</span></div>
+<div class="line"><span class="lineno">  662</span><span class="stringliteral">        if not self._ssh.getTransport().is_active():</span></div>
+<div class="line"><span class="lineno">  663</span><span class="stringliteral">            raise SSHError(&quot;!!! The ssh connection is not connected !!!&quot;)</span></div>
+<div class="line"><span class="lineno">  664</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  665</span><span class="stringliteral">        self._forwardingServerList = []</span></div>
+<div class="line"><span class="lineno">  666</span><span class="stringliteral">        self._reverseSShDict = {}</span></div>
+<div class="line"><span class="lineno">  667</span><span class="stringliteral"></span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -255,13 +259,13 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Present an error level message to the user.
    @param text The text to be presented to the user.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00672">672</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  672</span>    <span class="keyword">def </span>_error(self, text):</div>
-<div class="line"><span class="lineno">  673</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an error level message to the user.</span></div>
-<div class="line"><span class="lineno">  674</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  675</span>        <span class="keywordflow">if</span> self._uio:</div>
-<div class="line"><span class="lineno">  676</span>            self._uio.error(text)</div>
-<div class="line"><span class="lineno">  677</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00680">680</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  680</span>    <span class="keyword">def </span>_error(self, text):</div>
+<div class="line"><span class="lineno">  681</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an error level message to the user.</span></div>
+<div class="line"><span class="lineno">  682</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  683</span>        <span class="keywordflow">if</span> self._uio:</div>
+<div class="line"><span class="lineno">  684</span>            self._uio.error(text)</div>
+<div class="line"><span class="lineno">  685</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -300,16 +304,16 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get destination (address and port) for the given server port.
    @param serverPort The TCP server port on the ssh server.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00781">781</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  781</span>    <span class="keyword">def </span>_getDestination(self, serverPort):</div>
-<div class="line"><span class="lineno">  782</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get destination (address and port) for the given server port.</span></div>
-<div class="line"><span class="lineno">  783</span><span class="stringliteral">           @param serverPort The TCP server port on the ssh server.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  784</span>        <span class="keywordflow">if</span> serverPort <span class="keywordflow">in</span> self._reverseSShDict:</div>
-<div class="line"><span class="lineno">  785</span>            revSSHParams = self._reverseSShDict[serverPort]</div>
-<div class="line"><span class="lineno">  786</span>            <span class="keywordflow">return</span> (revSSHParams[0], revSSHParams[1])</div>
-<div class="line"><span class="lineno">  787</span> </div>
-<div class="line"><span class="lineno">  788</span>        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  789</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00822">822</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  822</span>    <span class="keyword">def </span>_getDestination(self, serverPort):</div>
+<div class="line"><span class="lineno">  823</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get destination (address and port) for the given server port.</span></div>
+<div class="line"><span class="lineno">  824</span><span class="stringliteral">           @param serverPort The TCP server port on the ssh server.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  825</span>        <span class="keywordflow">if</span> serverPort <span class="keywordflow">in</span> self._reverseSShDict:</div>
+<div class="line"><span class="lineno">  826</span>            revSSHParams = self._reverseSShDict[serverPort]</div>
+<div class="line"><span class="lineno">  827</span>            <span class="keywordflow">return</span> (revSSHParams[0], revSSHParams[1])</div>
+<div class="line"><span class="lineno">  828</span> </div>
+<div class="line"><span class="lineno">  829</span>        <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  830</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -348,13 +352,13 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Present an info level message to the user.
    @param text The text to be presented to the user.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00660">660</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  660</span>    <span class="keyword">def </span>_info(self, text):</div>
-<div class="line"><span class="lineno">  661</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an info level message to the user.</span></div>
-<div class="line"><span class="lineno">  662</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  663</span>        <span class="keywordflow">if</span> self._uio:</div>
-<div class="line"><span class="lineno">  664</span>            self._uio.info(text)</div>
-<div class="line"><span class="lineno">  665</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00668">668</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  668</span>    <span class="keyword">def </span>_info(self, text):</div>
+<div class="line"><span class="lineno">  669</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an info level message to the user.</span></div>
+<div class="line"><span class="lineno">  670</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  671</span>        <span class="keywordflow">if</span> self._uio:</div>
+<div class="line"><span class="lineno">  672</span>            self._uio.info(text)</div>
+<div class="line"><span class="lineno">  673</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -414,48 +418,48 @@ Protected Attributes</h2></td></tr>
    @param serverPort The server port (on remote ssh server) from where the reverse ssh connection originated.
    @param destHost The destination host address.
    @param destPort The destination port address.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00800">800</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  800</span>    <span class="keyword">def </span>_reverseForwardingHandler(self, chan, serverPort, destHost, destPort):</div>
-<div class="line"><span class="lineno">  801</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle a reverse ssh forwarding connection.</span></div>
-<div class="line"><span class="lineno">  802</span><span class="stringliteral">           @param chan A connected channel over an ssh connection.</span></div>
-<div class="line"><span class="lineno">  803</span><span class="stringliteral">           @param serverPort The server port (on remote ssh server) from where the reverse ssh connection originated.</span></div>
-<div class="line"><span class="lineno">  804</span><span class="stringliteral">           @param destHost The destination host address.</span></div>
-<div class="line"><span class="lineno">  805</span><span class="stringliteral">           @param destPort The destination port address.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  806</span> </div>
-<div class="line"><span class="lineno">  807</span>        sock = socket.socket()</div>
-<div class="line"><span class="lineno">  808</span>        <span class="comment"># Add references to the chnl and sock so that they can be closed if required</span></div>
-<div class="line"><span class="lineno">  809</span>        self._reverseSShDict[serverPort] = (destHost, destPort, chan, sock)</div>
-<div class="line"><span class="lineno">  810</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  811</span>            sock.connect((destHost, destPort))</div>
-<div class="line"><span class="lineno">  812</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
-<div class="line"><span class="lineno">  813</span>            self._error(<span class="stringliteral">&#39;Forwarding (reverse) request to %s:%d failed: %r&#39;</span> % (destHost, destPort, e))</div>
-<div class="line"><span class="lineno">  814</span>            <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno">  815</span> </div>
-<div class="line"><span class="lineno">  816</span>        self._info(<span class="stringliteral">&#39;Connected!  Reverse tunnel open %r -&gt; %r -&gt; %r&#39;</span> % (chan.origin_addr,</div>
-<div class="line"><span class="lineno">  817</span>                                                                          chan.getpeername(), (destHost, destPort)))</div>
-<div class="line"><span class="lineno">  818</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  819</span>            r, w, x = select.select([sock, chan], [], [])</div>
-<div class="line"><span class="lineno">  820</span>            <span class="keywordflow">if</span> sock <span class="keywordflow">in</span> r:</div>
-<div class="line"><span class="lineno">  821</span>                data = sock.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
-<div class="line"><span class="lineno">  822</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
-<div class="line"><span class="lineno">  823</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  824</span>                <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  825</span>                    chan.send(data)</div>
-<div class="line"><span class="lineno">  826</span>                <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  827</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  828</span>            <span class="keywordflow">if</span> chan <span class="keywordflow">in</span> r:</div>
-<div class="line"><span class="lineno">  829</span>                data = chan.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
-<div class="line"><span class="lineno">  830</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
-<div class="line"><span class="lineno">  831</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  832</span>                <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  833</span>                    sock.send(data)</div>
-<div class="line"><span class="lineno">  834</span>                <span class="keywordflow">except</span>:</div>
-<div class="line"><span class="lineno">  835</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  836</span>        chan.close()</div>
-<div class="line"><span class="lineno">  837</span>        sock.close()</div>
-<div class="line"><span class="lineno">  838</span>        self._info(<span class="stringliteral">&#39;Tunnel closed from server port %d&#39;</span> % (serverPort))</div>
-<div class="line"><span class="lineno">  839</span> </div>
-<div class="line"><span class="lineno">  840</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00841">841</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  841</span>    <span class="keyword">def </span>_reverseForwardingHandler(self, chan, serverPort, destHost, destPort):</div>
+<div class="line"><span class="lineno">  842</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle a reverse ssh forwarding connection.</span></div>
+<div class="line"><span class="lineno">  843</span><span class="stringliteral">           @param chan A connected channel over an ssh connection.</span></div>
+<div class="line"><span class="lineno">  844</span><span class="stringliteral">           @param serverPort The server port (on remote ssh server) from where the reverse ssh connection originated.</span></div>
+<div class="line"><span class="lineno">  845</span><span class="stringliteral">           @param destHost The destination host address.</span></div>
+<div class="line"><span class="lineno">  846</span><span class="stringliteral">           @param destPort The destination port address.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  847</span> </div>
+<div class="line"><span class="lineno">  848</span>        sock = socket.socket()</div>
+<div class="line"><span class="lineno">  849</span>        <span class="comment"># Add references to the chnl and sock so that they can be closed if required</span></div>
+<div class="line"><span class="lineno">  850</span>        self._reverseSShDict[serverPort] = (destHost, destPort, chan, sock)</div>
+<div class="line"><span class="lineno">  851</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  852</span>            sock.connect((destHost, destPort))</div>
+<div class="line"><span class="lineno">  853</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><span class="lineno">  854</span>            self._error(<span class="stringliteral">&#39;Forwarding (reverse) request to %s:%d failed: %r&#39;</span> % (destHost, destPort, e))</div>
+<div class="line"><span class="lineno">  855</span>            <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno">  856</span> </div>
+<div class="line"><span class="lineno">  857</span>        self._info(<span class="stringliteral">&#39;Connected!  Reverse tunnel open %r -&gt; %r -&gt; %r&#39;</span> % (chan.origin_addr,</div>
+<div class="line"><span class="lineno">  858</span>                                                                          chan.getpeername(), (destHost, destPort)))</div>
+<div class="line"><span class="lineno">  859</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  860</span>            r, w, x = select.select([sock, chan], [], [])</div>
+<div class="line"><span class="lineno">  861</span>            <span class="keywordflow">if</span> sock <span class="keywordflow">in</span> r:</div>
+<div class="line"><span class="lineno">  862</span>                data = sock.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
+<div class="line"><span class="lineno">  863</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
+<div class="line"><span class="lineno">  864</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  865</span>                <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  866</span>                    chan.send(data)</div>
+<div class="line"><span class="lineno">  867</span>                <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  868</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  869</span>            <span class="keywordflow">if</span> chan <span class="keywordflow">in</span> r:</div>
+<div class="line"><span class="lineno">  870</span>                data = chan.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
+<div class="line"><span class="lineno">  871</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
+<div class="line"><span class="lineno">  872</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  873</span>                <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  874</span>                    sock.send(data)</div>
+<div class="line"><span class="lineno">  875</span>                <span class="keywordflow">except</span>:</div>
+<div class="line"><span class="lineno">  876</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  877</span>        chan.close()</div>
+<div class="line"><span class="lineno">  878</span>        sock.close()</div>
+<div class="line"><span class="lineno">  879</span>        self._info(<span class="stringliteral">&#39;Tunnel closed from server port %d&#39;</span> % (serverPort))</div>
+<div class="line"><span class="lineno">  880</span> </div>
+<div class="line"><span class="lineno">  881</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -505,17 +509,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Called when a channel is connected in order to start a handler thread fot it.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00790">790</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  790</span>    <span class="keyword">def </span>_startReverseForwardingHandler(self, chan, xxx_todo_changeme, xxx_todo_changeme1):</div>
-<div class="line"><span class="lineno">  791</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when a channel is connected in order to start a handler thread fot it.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  792</span>        (origin_addr, origin_port) = xxx_todo_changeme</div>
-<div class="line"><span class="lineno">  793</span>        (server_addr, serverPort) = xxx_todo_changeme1</div>
-<div class="line"><span class="lineno">  794</span>        destHost, destPort = self._getDestination(serverPort)</div>
-<div class="line"><span class="lineno">  795</span> </div>
-<div class="line"><span class="lineno">  796</span>        hThread = threading.Thread(target=self._reverseForwardingHandler, args=(chan, serverPort, destHost, destPort))</div>
-<div class="line"><span class="lineno">  797</span>        hThread.setDaemon(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  798</span>        hThread.start()</div>
-<div class="line"><span class="lineno">  799</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00831">831</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  831</span>    <span class="keyword">def </span>_startReverseForwardingHandler(self, chan, xxx_todo_changeme, xxx_todo_changeme1):</div>
+<div class="line"><span class="lineno">  832</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when a channel is connected in order to start a handler thread fot it.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  833</span>        (origin_addr, origin_port) = xxx_todo_changeme</div>
+<div class="line"><span class="lineno">  834</span>        (server_addr, serverPort) = xxx_todo_changeme1</div>
+<div class="line"><span class="lineno">  835</span>        destHost, destPort = self._getDestination(serverPort)</div>
+<div class="line"><span class="lineno">  836</span> </div>
+<div class="line"><span class="lineno">  837</span>        hThread = threading.Thread(target=self._reverseForwardingHandler, args=(chan, serverPort, destHost, destPort))</div>
+<div class="line"><span class="lineno">  838</span>        hThread.setDaemon(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  839</span>        hThread.start()</div>
+<div class="line"><span class="lineno">  840</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -554,18 +558,18 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Present an warning level message to the user.
    @param text The text to be presented to the user.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00666">666</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  666</span>    <span class="keyword">def </span>_warn(self, text):</div>
-<div class="line"><span class="lineno">  667</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an warning level message to the user.</span></div>
-<div class="line"><span class="lineno">  668</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  669</span>        <span class="keywordflow">if</span> self._uio:</div>
-<div class="line"><span class="lineno">  670</span>            self._uio.warn(text)</div>
-<div class="line"><span class="lineno">  671</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00674">674</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  674</span>    <span class="keyword">def </span>_warn(self, text):</div>
+<div class="line"><span class="lineno">  675</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an warning level message to the user.</span></div>
+<div class="line"><span class="lineno">  676</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  677</span>        <span class="keywordflow">if</span> self._uio:</div>
+<div class="line"><span class="lineno">  678</span>            self._uio.warn(text)</div>
+<div class="line"><span class="lineno">  679</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a7a1e81456690d753800ac83055b02d33" name="a7a1e81456690d753800ac83055b02d33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a1e81456690d753800ac83055b02d33">&#9670;&#160;</a></span>startFwdSSHTunnel()</h2>
+<a id="a492eb7b06ed0fe2ef43fcf5498077272" name="a492eb7b06ed0fe2ef43fcf5498077272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492eb7b06ed0fe2ef43fcf5498077272">&#9670;&#160;</a></span>startFwdSSHTunnel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -592,7 +596,13 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>destPort</em>&#160;</td>
+          <td class="paramname"><em>destPort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serverBindAddress</em> = <code>''</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -610,50 +620,58 @@ Protected Attributes</h2></td></tr>
    @param destHost   The host address of the tunnel destination at the remote
                      end of the ssh connection.
    @param destPort   The host TCP port of the tunnel destination at the remote
-                     end of the ssh connection.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00678">678</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  678</span>    <span class="keyword">def </span>startFwdSSHTunnel(self, serverPort, destHost, destPort):</div>
-<div class="line"><span class="lineno">  679</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start an ssh port forwarding tunnel. This is a non blocking method.</span></div>
-<div class="line"><span class="lineno">  680</span><span class="stringliteral">                  A separate thread will be started to handle data transfer over the</span></div>
-<div class="line"><span class="lineno">  681</span><span class="stringliteral">                  ssh forwarding connection.</span></div>
-<div class="line"><span class="lineno">  682</span><span class="stringliteral">           @param serverPort The TCP server port. On a port forwarding connection</span></div>
-<div class="line"><span class="lineno">  683</span><span class="stringliteral">                             the TCP server runs on the src end of the ssh connection.</span></div>
-<div class="line"><span class="lineno">  684</span><span class="stringliteral">                             This is the machine that this python code is executing on.</span></div>
-<div class="line"><span class="lineno">  685</span><span class="stringliteral">           @param destHost   The host address of the tunnel destination at the remote</span></div>
-<div class="line"><span class="lineno">  686</span><span class="stringliteral">                             end of the ssh connection.</span></div>
-<div class="line"><span class="lineno">  687</span><span class="stringliteral">           @param destPort   The host TCP port of the tunnel destination at the remote</span></div>
-<div class="line"><span class="lineno">  688</span><span class="stringliteral">                             end of the ssh connection.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  689</span>        self._info(<span class="stringliteral">&quot;Forwarding local TCP server port (%d) to %s:%d on the remote end of the ssh connection.&quot;</span> % (</div>
-<div class="line"><span class="lineno">  690</span>        serverPort, destHost, destPort))</div>
-<div class="line"><span class="lineno">  691</span>        transport = self._ssh.getTransport()</div>
-<div class="line"><span class="lineno">  692</span> </div>
-<div class="line"><span class="lineno">  693</span>        <span class="keyword">class </span>SubHander(ForwardingHandler):</div>
-<div class="line"><span class="lineno">  694</span>            chain_host = destHost</div>
-<div class="line"><span class="lineno">  695</span>            chain_port = destPort</div>
-<div class="line"><span class="lineno">  696</span>            ssh_transport = transport</div>
-<div class="line"><span class="lineno">  697</span>            ssh_transport.use_compression(self._useCompression)</div>
-<div class="line"><span class="lineno">  698</span>            uo = self._uio</div>
-<div class="line"><span class="lineno">  699</span> </div>
-<div class="line"><span class="lineno">  700</span>        forwardingServer = ForwardingServer((<span class="stringliteral">&#39;&#39;</span>, serverPort), SubHander)</div>
-<div class="line"><span class="lineno">  701</span>        self._forwardingServerList.append(forwardingServer)</div>
-<div class="line"><span class="lineno">  702</span>        newThread = threading.Thread(target=forwardingServer.serve_forever)</div>
-<div class="line"><span class="lineno">  703</span>        newThread.daemon = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  704</span>        newThread.start()</div>
-<div class="line"><span class="lineno">  705</span> </div>
+                     end of the ssh connection.
+   @param serverBindAddress The server address to bind to.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00686">686</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  686</span>    <span class="keyword">def </span>startFwdSSHTunnel(self, serverPort, destHost, destPort, serverBindAddress=&#39;&#39;):</div>
+<div class="line"><span class="lineno">  687</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start an ssh port forwarding tunnel. This is a non blocking method.</span></div>
+<div class="line"><span class="lineno">  688</span><span class="stringliteral">                  A separate thread will be started to handle data transfer over the</span></div>
+<div class="line"><span class="lineno">  689</span><span class="stringliteral">                  ssh forwarding connection.</span></div>
+<div class="line"><span class="lineno">  690</span><span class="stringliteral">           @param serverPort The TCP server port. On a port forwarding connection</span></div>
+<div class="line"><span class="lineno">  691</span><span class="stringliteral">                             the TCP server runs on the src end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  692</span><span class="stringliteral">                             This is the machine that this python code is executing on.</span></div>
+<div class="line"><span class="lineno">  693</span><span class="stringliteral">           @param destHost   The host address of the tunnel destination at the remote</span></div>
+<div class="line"><span class="lineno">  694</span><span class="stringliteral">                             end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  695</span><span class="stringliteral">           @param destPort   The host TCP port of the tunnel destination at the remote</span></div>
+<div class="line"><span class="lineno">  696</span><span class="stringliteral">                             end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  697</span><span class="stringliteral">           @param serverBindAddress The server address to bind to.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  698</span>        self._info(<span class="stringliteral">&quot;Forwarding local TCP server port (%d) to %s:%d on the remote end of the ssh connection.&quot;</span> % (</div>
+<div class="line"><span class="lineno">  699</span>        serverPort, destHost, destPort))</div>
+<div class="line"><span class="lineno">  700</span>        transport = self._ssh.getTransport()</div>
+<div class="line"><span class="lineno">  701</span> </div>
+<div class="line"><span class="lineno">  702</span>        <span class="keyword">class </span>SubHander(ForwardingHandler):</div>
+<div class="line"><span class="lineno">  703</span>            chain_host = destHost</div>
+<div class="line"><span class="lineno">  704</span>            chain_port = destPort</div>
+<div class="line"><span class="lineno">  705</span>            ssh_transport = transport</div>
+<div class="line"><span class="lineno">  706</span>            ssh_transport.use_compression(self._useCompression)</div>
+<div class="line"><span class="lineno">  707</span>            uo = self._uio</div>
+<div class="line"><span class="lineno">  708</span> </div>
+<div class="line"><span class="lineno">  709</span>        forwardingServer = ForwardingServer((serverBindAddress, serverPort), SubHander)</div>
+<div class="line"><span class="lineno">  710</span>        self._forwardingServerList.append(forwardingServer)</div>
+<div class="line"><span class="lineno">  711</span>        newThread = threading.Thread(target=forwardingServer.serve_forever)</div>
+<div class="line"><span class="lineno">  712</span>        newThread.daemon = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  713</span>        newThread.start()</div>
+<div class="line"><span class="lineno">  714</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a6a70c3a18e7a7fc2b17133d8c6ccc518" name="a6a70c3a18e7a7fc2b17133d8c6ccc518"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a70c3a18e7a7fc2b17133d8c6ccc518">&#9670;&#160;</a></span>startRevSSHTunnel()</h2>
+<a id="ab2b6c00c857bfd2cf713fa2a9ba00c46" name="ab2b6c00c857bfd2cf713fa2a9ba00c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2b6c00c857bfd2cf713fa2a9ba00c46">&#9670;&#160;</a></span>startFwdTunnel()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">startRevSSHTunnel </td>
+          <td class="memname">startFwdTunnel </td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serverBindAddress</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -680,6 +698,78 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<pre class="fragment">@brief Another method to start a forward SSH tunnel. startFwdSSHTunnel() was the original method.
+   We needed to keep this interface. However I wanted an interface to force the user to enter a bind
+   address on the server.
+   @param serverBindAddress The server address to bind to.
+   @param serverPort The TCP server port. On a port forwarding connection
+                     the TCP server runs on the src end of the ssh connection.
+                     This is the machine that this python code is executing on.
+   @param destHost   The host address of the tunnel destination at the remote
+                     end of the ssh connection.
+   @param destPort   The host TCP port of the tunnel destination at the remote
+                     end of the ssh connection.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00715">715</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  715</span>    <span class="keyword">def </span>startFwdTunnel(self, serverBindAddress, serverPort, destHost, destPort):</div>
+<div class="line"><span class="lineno">  716</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Another method to start a forward SSH tunnel. startFwdSSHTunnel() was the original method.</span></div>
+<div class="line"><span class="lineno">  717</span><span class="stringliteral">           We needed to keep this interface. However I wanted an interface to force the user to enter a bind</span></div>
+<div class="line"><span class="lineno">  718</span><span class="stringliteral">           address on the server.</span></div>
+<div class="line"><span class="lineno">  719</span><span class="stringliteral">           @param serverBindAddress The server address to bind to.</span></div>
+<div class="line"><span class="lineno">  720</span><span class="stringliteral">           @param serverPort The TCP server port. On a port forwarding connection</span></div>
+<div class="line"><span class="lineno">  721</span><span class="stringliteral">                             the TCP server runs on the src end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  722</span><span class="stringliteral">                             This is the machine that this python code is executing on.</span></div>
+<div class="line"><span class="lineno">  723</span><span class="stringliteral">           @param destHost   The host address of the tunnel destination at the remote</span></div>
+<div class="line"><span class="lineno">  724</span><span class="stringliteral">                             end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  725</span><span class="stringliteral">           @param destPort   The host TCP port of the tunnel destination at the remote</span></div>
+<div class="line"><span class="lineno">  726</span><span class="stringliteral">                             end of the ssh connection.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  727</span>        self.startFwdSSHTunnel(serverPort, destHost, destPort, serverBindAddress=serverBindAddress)</div>
+<div class="line"><span class="lineno">  728</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2945e980fe7a7f8766c6e2d7c03153c7" name="a2945e980fe7a7f8766c6e2d7c03153c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2945e980fe7a7f8766c6e2d7c03153c7">&#9670;&#160;</a></span>startRevSSHTunnel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">startRevSSHTunnel </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serverPort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>destHost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>destPort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serverBindAddress</em> = <code>''</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <pre class="fragment">@brief Start an ssh reverse port forwarding tunnel
    @param serverPort The TCP server port. On a reverse port forwarding connection
                      the TCP server runs on the dest end of the ssh connection.
@@ -687,27 +777,104 @@ Protected Attributes</h2></td></tr>
    @param destHost   The host address of the tunnel destination at the local
                      end of the ssh connection.
    @param destPort   The host TCP port of the tunnel destination at the local
+                     end of the ssh connection.
+   @param serverBindAddress The server address to bind to.</pre> 
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00747">747</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  747</span>    <span class="keyword">def </span>startRevSSHTunnel(self, serverPort, destHost, destPort, serverBindAddress=&#39;&#39;):</div>
+<div class="line"><span class="lineno">  748</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start an ssh reverse port forwarding tunnel</span></div>
+<div class="line"><span class="lineno">  749</span><span class="stringliteral">           @param serverPort The TCP server port. On a reverse port forwarding connection</span></div>
+<div class="line"><span class="lineno">  750</span><span class="stringliteral">                             the TCP server runs on the dest end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  751</span><span class="stringliteral">                             This is the machine at the remote end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  752</span><span class="stringliteral">           @param destHost   The host address of the tunnel destination at the local</span></div>
+<div class="line"><span class="lineno">  753</span><span class="stringliteral">                             end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  754</span><span class="stringliteral">           @param destPort   The host TCP port of the tunnel destination at the local</span></div>
+<div class="line"><span class="lineno">  755</span><span class="stringliteral">                             end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  756</span><span class="stringliteral">           @param serverBindAddress The server address to bind to.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  757</span>        self._info(<span class="stringliteral">&quot;Forwarding (reverse) Remote TCP server port (%d) to %s:%d on this end of the ssh connection.&quot;</span> % (</div>
+<div class="line"><span class="lineno">  758</span>        serverPort, destHost, destPort))</div>
+<div class="line"><span class="lineno">  759</span>        <span class="comment"># We add the None refs as the placeholders will be used later</span></div>
+<div class="line"><span class="lineno">  760</span>        chan = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  761</span>        sock = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  762</span>        self._reverseSShDict[serverPort] = (destHost, destPort, chan, sock)</div>
+<div class="line"><span class="lineno">  763</span> </div>
+<div class="line"><span class="lineno">  764</span>        self._ssh.getTransport().use_compression(self._useCompression)</div>
+<div class="line"><span class="lineno">  765</span>        <span class="comment">#serverBindAddress = &quot;0.0.0.0&quot;</span></div>
+<div class="line"><span class="lineno">  766</span>        print(f<span class="stringliteral">&quot;PJA: BIND ADDR: {serverBindAddress}&quot;</span>)</div>
+<div class="line"><span class="lineno">  767</span>        self._ssh.getTransport().request_port_forward(serverBindAddress, serverPort, handler=self._startReverseForwardingHandler)</div>
+<div class="line"><span class="lineno">  768</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa346906aeaed8bc3a5c5f7c8d74d364e" name="aa346906aeaed8bc3a5c5f7c8d74d364e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa346906aeaed8bc3a5c5f7c8d74d364e">&#9670;&#160;</a></span>startRevTunnel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">startRevTunnel </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serverBindAddress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serverPort</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>destHost</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>destPort</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Another method to start a reverse SSH tunnerl. startRevSSHTunnel() was the original method.
+   We needed to keep this interface. However I wanted an interface to force the user to enter a bind
+   address on the server.
+   @param serverBindAddress The server address to bind to.
+   @param serverPort The TCP server port. On a reverse port forwarding connection
+                     the TCP server runs on the dest end of the ssh connection.
+                     This is the machine at the remote end of the ssh connection.
+   @param destHost   The host address of the tunnel destination at the local
+                     end of the ssh connection.
+   @param destPort   The host TCP port of the tunnel destination at the local
                      end of the ssh connection.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00724">724</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  724</span>    <span class="keyword">def </span>startRevSSHTunnel(self, serverPort, destHost, destPort):</div>
-<div class="line"><span class="lineno">  725</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start an ssh reverse port forwarding tunnel</span></div>
-<div class="line"><span class="lineno">  726</span><span class="stringliteral">           @param serverPort The TCP server port. On a reverse port forwarding connection</span></div>
-<div class="line"><span class="lineno">  727</span><span class="stringliteral">                             the TCP server runs on the dest end of the ssh connection.</span></div>
-<div class="line"><span class="lineno">  728</span><span class="stringliteral">                             This is the machine at the remote end of the ssh connection.</span></div>
-<div class="line"><span class="lineno">  729</span><span class="stringliteral">           @param destHost   The host address of the tunnel destination at the local</span></div>
-<div class="line"><span class="lineno">  730</span><span class="stringliteral">                             end of the ssh connection.</span></div>
-<div class="line"><span class="lineno">  731</span><span class="stringliteral">           @param destPort   The host TCP port of the tunnel destination at the local</span></div>
-<div class="line"><span class="lineno">  732</span><span class="stringliteral">                             end of the ssh connection.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  733</span>        self._info(<span class="stringliteral">&quot;Forwarding (reverse) Remote TCP server port (%d) to %s:%d on this end of the ssh connection.&quot;</span> % (</div>
-<div class="line"><span class="lineno">  734</span>        serverPort, destHost, destPort))</div>
-<div class="line"><span class="lineno">  735</span>        <span class="comment"># We add the None refs as the placeholders will be used later</span></div>
-<div class="line"><span class="lineno">  736</span>        chan = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  737</span>        sock = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  738</span>        self._reverseSShDict[serverPort] = (destHost, destPort, chan, sock)</div>
-<div class="line"><span class="lineno">  739</span> </div>
-<div class="line"><span class="lineno">  740</span>        self._ssh.getTransport().use_compression(self._useCompression)</div>
-<div class="line"><span class="lineno">  741</span>        self._ssh.getTransport().request_port_forward(<span class="stringliteral">&#39;&#39;</span>, serverPort, handler=self._startReverseForwardingHandler)</div>
-<div class="line"><span class="lineno">  742</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00769">769</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  769</span>    <span class="keyword">def </span>startRevTunnel(self, serverBindAddress, serverPort, destHost, destPort):</div>
+<div class="line"><span class="lineno">  770</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Another method to start a reverse SSH tunnerl. startRevSSHTunnel() was the original method.</span></div>
+<div class="line"><span class="lineno">  771</span><span class="stringliteral">           We needed to keep this interface. However I wanted an interface to force the user to enter a bind</span></div>
+<div class="line"><span class="lineno">  772</span><span class="stringliteral">           address on the server.</span></div>
+<div class="line"><span class="lineno">  773</span><span class="stringliteral">           @param serverBindAddress The server address to bind to.</span></div>
+<div class="line"><span class="lineno">  774</span><span class="stringliteral">           @param serverPort The TCP server port. On a reverse port forwarding connection</span></div>
+<div class="line"><span class="lineno">  775</span><span class="stringliteral">                             the TCP server runs on the dest end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  776</span><span class="stringliteral">                             This is the machine at the remote end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  777</span><span class="stringliteral">           @param destHost   The host address of the tunnel destination at the local</span></div>
+<div class="line"><span class="lineno">  778</span><span class="stringliteral">                             end of the ssh connection.</span></div>
+<div class="line"><span class="lineno">  779</span><span class="stringliteral">           @param destPort   The host TCP port of the tunnel destination at the local</span></div>
+<div class="line"><span class="lineno">  780</span><span class="stringliteral">                             end of the ssh connection.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  781</span>        </div>
+<div class="line"><span class="lineno">  782</span>        self.startRevSSHTunnel(serverPort, destHost, destPort, serverBindAddress=serverBindAddress)</div>
+<div class="line"><span class="lineno">  783</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -727,14 +894,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop all previously started ssh port forwarding servers..</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00717">717</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  717</span>    <span class="keyword">def </span>stopAllFwdSSHTunnels(self):</div>
-<div class="line"><span class="lineno">  718</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop all previously started ssh port forwarding servers..&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  719</span>        <span class="keywordflow">for</span> forwardingServer <span class="keywordflow">in</span> self._forwardingServerList:</div>
-<div class="line"><span class="lineno">  720</span>            forwardingServer.shutdown()</div>
-<div class="line"><span class="lineno">  721</span>            forwardingServer.server_close()</div>
-<div class="line"><span class="lineno">  722</span>            self._info(<span class="stringliteral">&quot;Shutdown ssh port forwarding on %s.&quot;</span> % (str(forwardingServer.server_address)))</div>
-<div class="line"><span class="lineno">  723</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00740">740</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  740</span>    <span class="keyword">def </span>stopAllFwdSSHTunnels(self):</div>
+<div class="line"><span class="lineno">  741</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop all previously started ssh port forwarding servers..&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  742</span>        <span class="keywordflow">for</span> forwardingServer <span class="keywordflow">in</span> self._forwardingServerList:</div>
+<div class="line"><span class="lineno">  743</span>            forwardingServer.shutdown()</div>
+<div class="line"><span class="lineno">  744</span>            forwardingServer.server_close()</div>
+<div class="line"><span class="lineno">  745</span>            self._info(<span class="stringliteral">&quot;Shutdown ssh port forwarding on %s.&quot;</span> % (str(forwardingServer.server_address)))</div>
+<div class="line"><span class="lineno">  746</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -754,22 +921,22 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop all previously started reverse ssh port forwarding servers.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00760">760</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  760</span>    <span class="keyword">def </span>stopAllRevSSHTunnels(self):</div>
-<div class="line"><span class="lineno">  761</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop all previously started reverse ssh port forwarding servers.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  762</span>        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> list(self._reverseSShDict.keys()):</div>
-<div class="line"><span class="lineno">  763</span>            revSSHParams = self._reverseSShDict[key]</div>
-<div class="line"><span class="lineno">  764</span>            chan = revSSHParams[2]</div>
-<div class="line"><span class="lineno">  765</span>            sock = revSSHParams[3]</div>
-<div class="line"><span class="lineno">  766</span> </div>
-<div class="line"><span class="lineno">  767</span>            <span class="keywordflow">if</span> chan:</div>
-<div class="line"><span class="lineno">  768</span>                chan.close()</div>
-<div class="line"><span class="lineno">  769</span> </div>
-<div class="line"><span class="lineno">  770</span>            <span class="keywordflow">if</span> sock:</div>
-<div class="line"><span class="lineno">  771</span>                sock.close()</div>
-<div class="line"><span class="lineno">  772</span> </div>
-<div class="line"><span class="lineno">  773</span>            self._info(<span class="stringliteral">&quot;Shutdown reverse ssh port forwarding connection using remote server port %d.&quot;</span> % (key))</div>
-<div class="line"><span class="lineno">  774</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00801">801</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  801</span>    <span class="keyword">def </span>stopAllRevSSHTunnels(self):</div>
+<div class="line"><span class="lineno">  802</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop all previously started reverse ssh port forwarding servers.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  803</span>        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> list(self._reverseSShDict.keys()):</div>
+<div class="line"><span class="lineno">  804</span>            revSSHParams = self._reverseSShDict[key]</div>
+<div class="line"><span class="lineno">  805</span>            chan = revSSHParams[2]</div>
+<div class="line"><span class="lineno">  806</span>            sock = revSSHParams[3]</div>
+<div class="line"><span class="lineno">  807</span> </div>
+<div class="line"><span class="lineno">  808</span>            <span class="keywordflow">if</span> chan:</div>
+<div class="line"><span class="lineno">  809</span>                chan.close()</div>
+<div class="line"><span class="lineno">  810</span> </div>
+<div class="line"><span class="lineno">  811</span>            <span class="keywordflow">if</span> sock:</div>
+<div class="line"><span class="lineno">  812</span>                sock.close()</div>
+<div class="line"><span class="lineno">  813</span> </div>
+<div class="line"><span class="lineno">  814</span>            self._info(<span class="stringliteral">&quot;Shutdown reverse ssh port forwarding connection using remote server port %d.&quot;</span> % (key))</div>
+<div class="line"><span class="lineno">  815</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -789,12 +956,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop all ssh tunnels.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00775">775</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  775</span>    <span class="keyword">def </span>stopAllSSHTunnels(self):</div>
-<div class="line"><span class="lineno">  776</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop all ssh tunnels.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  777</span>        self.stopAllFwdSSHTunnels()</div>
-<div class="line"><span class="lineno">  778</span>        self.stopAllRevSSHTunnels()</div>
-<div class="line"><span class="lineno">  779</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00816">816</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  816</span>    <span class="keyword">def </span>stopAllSSHTunnels(self):</div>
+<div class="line"><span class="lineno">  817</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop all ssh tunnels.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  818</span>        self.stopAllFwdSSHTunnels()</div>
+<div class="line"><span class="lineno">  819</span>        self.stopAllRevSSHTunnels()</div>
+<div class="line"><span class="lineno">  820</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -826,18 +993,18 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief stop a previously started ssh port forwarding server
    @param serverPort The TCP server port which is currently accepting
                      port forwarding connections on.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00706">706</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  706</span>    <span class="keyword">def </span>stopFwdSSHTunnel(self, serverPort):</div>
-<div class="line"><span class="lineno">  707</span>        <span class="stringliteral">&quot;&quot;&quot;@brief stop a previously started ssh port forwarding server</span></div>
-<div class="line"><span class="lineno">  708</span><span class="stringliteral">           @param serverPort The TCP server port which is currently accepting</span></div>
-<div class="line"><span class="lineno">  709</span><span class="stringliteral">                             port forwarding connections on.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  710</span>        <span class="keywordflow">for</span> forwardingServer <span class="keywordflow">in</span> self._forwardingServerList:</div>
-<div class="line"><span class="lineno">  711</span>            forwardingServerPort = forwardingServer.server_address[1]</div>
-<div class="line"><span class="lineno">  712</span>            <span class="keywordflow">if</span> forwardingServerPort == serverPort:</div>
-<div class="line"><span class="lineno">  713</span>                forwardingServer.shutdown()</div>
-<div class="line"><span class="lineno">  714</span>                forwardingServer.server_close()</div>
-<div class="line"><span class="lineno">  715</span>                self._info(<span class="stringliteral">&quot;Shutdown ssh port forwarding connection using local server port %d.&quot;</span> % (serverPort))</div>
-<div class="line"><span class="lineno">  716</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00729">729</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  729</span>    <span class="keyword">def </span>stopFwdSSHTunnel(self, serverPort):</div>
+<div class="line"><span class="lineno">  730</span>        <span class="stringliteral">&quot;&quot;&quot;@brief stop a previously started ssh port forwarding server</span></div>
+<div class="line"><span class="lineno">  731</span><span class="stringliteral">           @param serverPort The TCP server port which is currently accepting</span></div>
+<div class="line"><span class="lineno">  732</span><span class="stringliteral">                             port forwarding connections on.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  733</span>        <span class="keywordflow">for</span> forwardingServer <span class="keywordflow">in</span> self._forwardingServerList:</div>
+<div class="line"><span class="lineno">  734</span>            forwardingServerPort = forwardingServer.server_address[1]</div>
+<div class="line"><span class="lineno">  735</span>            <span class="keywordflow">if</span> forwardingServerPort == serverPort:</div>
+<div class="line"><span class="lineno">  736</span>                forwardingServer.shutdown()</div>
+<div class="line"><span class="lineno">  737</span>                forwardingServer.server_close()</div>
+<div class="line"><span class="lineno">  738</span>                self._info(<span class="stringliteral">&quot;Shutdown ssh port forwarding connection using local server port %d.&quot;</span> % (serverPort))</div>
+<div class="line"><span class="lineno">  739</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -869,24 +1036,24 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief stop a previously started reverse ssh port forwarding server
    @param serverPort The TCP server port which is currently accepting
                      port forwarding connections on.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00743">743</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  743</span>    <span class="keyword">def </span>stopRevSSHTunnel(self, serverPort):</div>
-<div class="line"><span class="lineno">  744</span>        <span class="stringliteral">&quot;&quot;&quot;@brief stop a previously started reverse ssh port forwarding server</span></div>
-<div class="line"><span class="lineno">  745</span><span class="stringliteral">           @param serverPort The TCP server port which is currently accepting</span></div>
-<div class="line"><span class="lineno">  746</span><span class="stringliteral">                             port forwarding connections on.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  747</span>        <span class="keywordflow">if</span> serverPort <span class="keywordflow">in</span> self._reverseSShDict:</div>
-<div class="line"><span class="lineno">  748</span>            revSSHParams = self._reverseSShDict[serverPort]</div>
-<div class="line"><span class="lineno">  749</span>            chan = revSSHParams[2]</div>
-<div class="line"><span class="lineno">  750</span>            sock = revSSHParams[3]</div>
-<div class="line"><span class="lineno">  751</span> </div>
-<div class="line"><span class="lineno">  752</span>            <span class="keywordflow">if</span> chan:</div>
-<div class="line"><span class="lineno">  753</span>                chan.close()</div>
-<div class="line"><span class="lineno">  754</span> </div>
-<div class="line"><span class="lineno">  755</span>            <span class="keywordflow">if</span> sock:</div>
-<div class="line"><span class="lineno">  756</span>                sock.close()</div>
-<div class="line"><span class="lineno">  757</span> </div>
-<div class="line"><span class="lineno">  758</span>            self._info(<span class="stringliteral">&quot;Shutdown reverse ssh port forwarding connection using remote server port %d.&quot;</span> % (serverPort))</div>
-<div class="line"><span class="lineno">  759</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00784">784</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  784</span>    <span class="keyword">def </span>stopRevSSHTunnel(self, serverPort):</div>
+<div class="line"><span class="lineno">  785</span>        <span class="stringliteral">&quot;&quot;&quot;@brief stop a previously started reverse ssh port forwarding server</span></div>
+<div class="line"><span class="lineno">  786</span><span class="stringliteral">           @param serverPort The TCP server port which is currently accepting</span></div>
+<div class="line"><span class="lineno">  787</span><span class="stringliteral">                             port forwarding connections on.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  788</span>        <span class="keywordflow">if</span> serverPort <span class="keywordflow">in</span> self._reverseSShDict:</div>
+<div class="line"><span class="lineno">  789</span>            revSSHParams = self._reverseSShDict[serverPort]</div>
+<div class="line"><span class="lineno">  790</span>            chan = revSSHParams[2]</div>
+<div class="line"><span class="lineno">  791</span>            sock = revSSHParams[3]</div>
+<div class="line"><span class="lineno">  792</span> </div>
+<div class="line"><span class="lineno">  793</span>            <span class="keywordflow">if</span> chan:</div>
+<div class="line"><span class="lineno">  794</span>                chan.close()</div>
+<div class="line"><span class="lineno">  795</span> </div>
+<div class="line"><span class="lineno">  796</span>            <span class="keywordflow">if</span> sock:</div>
+<div class="line"><span class="lineno">  797</span>                sock.close()</div>
+<div class="line"><span class="lineno">  798</span> </div>
+<div class="line"><span class="lineno">  799</span>            self._info(<span class="stringliteral">&quot;Shutdown reverse ssh port forwarding connection using remote server port %d.&quot;</span> % (serverPort))</div>
+<div class="line"><span class="lineno">  800</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -911,7 +1078,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00657">657</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00665">665</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
@@ -935,7 +1102,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00658">658</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00666">666</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
@@ -959,7 +1126,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00652">652</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00660">660</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
@@ -983,7 +1150,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00651">651</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00659">659</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +1174,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00653">653</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00661">661</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
@@ -1031,7 +1198,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00644">644</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00652">652</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>

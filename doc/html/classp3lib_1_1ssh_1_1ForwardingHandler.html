@@ -123,7 +123,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief handler for ssh port forwarding connections.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00847">847</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00888">888</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2f70c13d80f6a0c4400d771ec5c8b05f" name="a2f70c13d80f6a0c4400d771ec5c8b05f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f70c13d80f6a0c4400d771ec5c8b05f">&#9670;&#160;</a></span>_error()</h2>
@@ -160,13 +160,13 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Present an error level message to the user.
    @param text The text to be presented to the user.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00856">856</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  856</span>    <span class="keyword">def </span>_error(self, text):</div>
-<div class="line"><span class="lineno">  857</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an error level message to the user.</span></div>
-<div class="line"><span class="lineno">  858</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  859</span>        <span class="keywordflow">if</span> self.uo:</div>
-<div class="line"><span class="lineno">  860</span>            self.uo.error(text)</div>
-<div class="line"><span class="lineno">  861</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00897">897</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  897</span>    <span class="keyword">def </span>_error(self, text):</div>
+<div class="line"><span class="lineno">  898</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an error level message to the user.</span></div>
+<div class="line"><span class="lineno">  899</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  900</span>        <span class="keywordflow">if</span> self.uo:</div>
+<div class="line"><span class="lineno">  901</span>            self.uo.error(text)</div>
+<div class="line"><span class="lineno">  902</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -205,13 +205,13 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Present an info level message to the user.
    @param text The text to be presented to the user.</pre> 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00850">850</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  850</span>    <span class="keyword">def </span>_info(self, text):</div>
-<div class="line"><span class="lineno">  851</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an info level message to the user.</span></div>
-<div class="line"><span class="lineno">  852</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  853</span>        <span class="keywordflow">if</span> self.uo:</div>
-<div class="line"><span class="lineno">  854</span>            self.uo.info(text)</div>
-<div class="line"><span class="lineno">  855</span> </div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00891">891</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  891</span>    <span class="keyword">def </span>_info(self, text):</div>
+<div class="line"><span class="lineno">  892</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Present an info level message to the user.</span></div>
+<div class="line"><span class="lineno">  893</span><span class="stringliteral">           @param text The text to be presented to the user.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  894</span>        <span class="keywordflow">if</span> self.uo:</div>
+<div class="line"><span class="lineno">  895</span>            self.uo.info(text)</div>
+<div class="line"><span class="lineno">  896</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -231,42 +231,42 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00862">862</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  862</span>    <span class="keyword">def </span>handle(self):</div>
-<div class="line"><span class="lineno">  863</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  864</span>            chan = self.ssh_transport.open_channel(<span class="stringliteral">&#39;direct-tcpip&#39;</span>,</div>
-<div class="line"><span class="lineno">  865</span>                                                   (self.chain_host, self.chain_port),</div>
-<div class="line"><span class="lineno">  866</span>                                                   self.request.getpeername())</div>
-<div class="line"><span class="lineno">  867</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
-<div class="line"><span class="lineno">  868</span>            self._error(<span class="stringliteral">&#39;Incoming request to %s:%d failed: %s&#39;</span> % (self.chain_host,</div>
-<div class="line"><span class="lineno">  869</span>                                                                    self.chain_port,</div>
-<div class="line"><span class="lineno">  870</span>                                                                    repr(e)))</div>
-<div class="line"><span class="lineno">  871</span>            <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno">  872</span>        <span class="keywordflow">if</span> chan <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  873</span>            self._error(<span class="stringliteral">&#39;Incoming request to %s:%d was rejected by the SSH server.&#39;</span> %</div>
-<div class="line"><span class="lineno">  874</span>                          (self.chain_host, self.chain_port))</div>
-<div class="line"><span class="lineno">  875</span>            <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno">  876</span> </div>
-<div class="line"><span class="lineno">  877</span>        self._info(<span class="stringliteral">&#39;Connected!  Tunnel open %r -&gt; %r -&gt; %r&#39;</span> % (self.request.getpeername(),</div>
-<div class="line"><span class="lineno">  878</span>                                                                 chan.getpeername(),</div>
-<div class="line"><span class="lineno">  879</span>                                                                 (self.chain_host, self.chain_port)))</div>
-<div class="line"><span class="lineno">  880</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  881</span>            r, w, x = select.select([self.request, chan], [], [])</div>
-<div class="line"><span class="lineno">  882</span>            <span class="keywordflow">if</span> self.request <span class="keywordflow">in</span> r:</div>
-<div class="line"><span class="lineno">  883</span>                data = self.request.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
-<div class="line"><span class="lineno">  884</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
-<div class="line"><span class="lineno">  885</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  886</span>                chan.send(data)</div>
-<div class="line"><span class="lineno">  887</span>            <span class="keywordflow">if</span> chan <span class="keywordflow">in</span> r:</div>
-<div class="line"><span class="lineno">  888</span>                data = chan.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
-<div class="line"><span class="lineno">  889</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
-<div class="line"><span class="lineno">  890</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  891</span>                self.request.send(data)</div>
-<div class="line"><span class="lineno">  892</span> </div>
-<div class="line"><span class="lineno">  893</span>        peername = self.request.getpeername()</div>
-<div class="line"><span class="lineno">  894</span>        chan.close()</div>
-<div class="line"><span class="lineno">  895</span>        self.request.close()</div>
-<div class="line"><span class="lineno">  896</span>        self._info(<span class="stringliteral">&#39;Tunnel closed from %r&#39;</span> % (peername,))</div>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00903">903</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  903</span>    <span class="keyword">def </span>handle(self):</div>
+<div class="line"><span class="lineno">  904</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  905</span>            chan = self.ssh_transport.open_channel(<span class="stringliteral">&#39;direct-tcpip&#39;</span>,</div>
+<div class="line"><span class="lineno">  906</span>                                                   (self.chain_host, self.chain_port),</div>
+<div class="line"><span class="lineno">  907</span>                                                   self.request.getpeername())</div>
+<div class="line"><span class="lineno">  908</span>        <span class="keywordflow">except</span> Exception <span class="keyword">as</span> e:</div>
+<div class="line"><span class="lineno">  909</span>            self._error(<span class="stringliteral">&#39;Incoming request to %s:%d failed: %s&#39;</span> % (self.chain_host,</div>
+<div class="line"><span class="lineno">  910</span>                                                                    self.chain_port,</div>
+<div class="line"><span class="lineno">  911</span>                                                                    repr(e)))</div>
+<div class="line"><span class="lineno">  912</span>            <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno">  913</span>        <span class="keywordflow">if</span> chan <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  914</span>            self._error(<span class="stringliteral">&#39;Incoming request to %s:%d was rejected by the SSH server.&#39;</span> %</div>
+<div class="line"><span class="lineno">  915</span>                          (self.chain_host, self.chain_port))</div>
+<div class="line"><span class="lineno">  916</span>            <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno">  917</span> </div>
+<div class="line"><span class="lineno">  918</span>        self._info(<span class="stringliteral">&#39;Connected!  Tunnel open %r -&gt; %r -&gt; %r&#39;</span> % (self.request.getpeername(),</div>
+<div class="line"><span class="lineno">  919</span>                                                                 chan.getpeername(),</div>
+<div class="line"><span class="lineno">  920</span>                                                                 (self.chain_host, self.chain_port)))</div>
+<div class="line"><span class="lineno">  921</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  922</span>            r, w, x = select.select([self.request, chan], [], [])</div>
+<div class="line"><span class="lineno">  923</span>            <span class="keywordflow">if</span> self.request <span class="keywordflow">in</span> r:</div>
+<div class="line"><span class="lineno">  924</span>                data = self.request.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
+<div class="line"><span class="lineno">  925</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
+<div class="line"><span class="lineno">  926</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  927</span>                chan.send(data)</div>
+<div class="line"><span class="lineno">  928</span>            <span class="keywordflow">if</span> chan <span class="keywordflow">in</span> r:</div>
+<div class="line"><span class="lineno">  929</span>                data = chan.recv(SSHTunnelManager.RX_BUFFER_SIZE)</div>
+<div class="line"><span class="lineno">  930</span>                <span class="keywordflow">if</span> len(data) == 0:</div>
+<div class="line"><span class="lineno">  931</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  932</span>                self.request.send(data)</div>
+<div class="line"><span class="lineno">  933</span> </div>
+<div class="line"><span class="lineno">  934</span>        peername = self.request.getpeername()</div>
+<div class="line"><span class="lineno">  935</span>        chan.close()</div>
+<div class="line"><span class="lineno">  936</span>        self.request.close()</div>
+<div class="line"><span class="lineno">  937</span>        self._info(<span class="stringliteral">&#39;Tunnel closed from %r&#39;</span> % (peername,))</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -283,7 +283,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00865">865</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00906">906</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
@@ -299,7 +299,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00865">865</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ssh_8py_source.html#l00906">906</a> of file <a class="el" href="ssh_8py_source.html">ssh.py</a>.</p>
 
 </div>
 </div>
