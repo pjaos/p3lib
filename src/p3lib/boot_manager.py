@@ -27,13 +27,16 @@ class BootManager(object):
         parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the status of an auto started icons_gw instance.", action="store_true", default=False)
 
     @staticmethod
-    def HandleOptions(uio, options, enable_syslog):
+    def HandleOptions(uio, options, enable_syslog, appName=None, restartSeconds=1):
         """@brief Handle one of the bot manager command line options if the 
                   user passed it on the cmd line.
            @param uio A UIO instance.
            @param options As returned from parser.parse_args() where parser 
                           is an instance of argparse.ArgumentParser.
            @param enable_syslog True to enable systemd syslog output.
+           @param appName The name of the app. This is used as the service name. If not set then
+                          the name of the initially executed python file is used.
+           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).
            @return True if handled , False if not."""
         handled = False
         if options.check_auto_start:
@@ -41,7 +44,7 @@ class BootManager(object):
             handled = True
             
         elif options.enable_auto_start:
-            BootManager.EnableAutoStart(uio, enable_syslog)
+            BootManager.EnableAutoStart(uio, enable_syslog, appName, restartSeconds)
             handled = True
             
         elif options.disable_auto_start:
@@ -51,9 +54,16 @@ class BootManager(object):
         return handled
 
     @staticmethod
-    def EnableAutoStart(uio, enable_syslog):
-        """@brief Enable this program to auto start when the computer on which it is installed starts."""
-        bootManager = BootManager(uio=uio, ensureRootUser=True)
+    def EnableAutoStart(uio, enable_syslog, appName, restartSeconds):
+        """@brief Enable this program to auto start when the computer on which it is installed starts.
+           @param uio A UIO instance.
+           @param options As returned from parser.parse_args() where parser 
+                          is an instance of argparse.ArgumentParser.
+           @param enable_syslog True to enable systemd syslog output.
+           @param appName The name of the app. This is used as the service name. If not set then
+                          the name of the initially executed python file is used.
+           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1)."""
+        bootManager = BootManager(uio=uio, ensureRootUser=True, appName=appName, restartSeconds=restartSeconds)
         arsString = " ".join(sys.argv)
         bootManager.add(argString=arsString, enableSyslog=enable_syslog)
 
