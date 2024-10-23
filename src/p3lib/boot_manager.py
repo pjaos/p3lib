@@ -72,7 +72,7 @@ class BootManager(object):
             for line in lines:
                 uio.info(line)
         
-    def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False):
+    def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False, appName=None, restartSeconds=1):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output
                   is displayed to user.
@@ -81,13 +81,16 @@ class BootManager(object):
                   ensuring programs are started up when a machine boots up 
                   the installed program should be installed for the root 
                   user on Linux systems.
-           @param ensureRootUser If True the current user must be root user (Linux systems)."""
+           @param ensureRootUser If True the current user must be root user (Linux systems).
+           @param appName The name of the app. This is used as the service name. If not set then
+                          the name of the initially executed python file is used.
+           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1)."""
         self._uio = uio
         self._allowRootUser=allowRootUser
         self._osName = platform.system()
         self._platformBootManager = None
         if self._osName == BootManager.LINUX_OS_NAME:
-            self._platformBootManager = LinuxBootManager(uio, self._allowRootUser, ensureRootUser)
+            self._platformBootManager = LinuxBootManager(uio, self._allowRootUser, ensureRootUser, appName, restartSeconds)
         else:
             raise Exception("{} is an unsupported OS.".format(self._osName) )
 
@@ -155,11 +158,14 @@ class LinuxBootManager(object):
             raise Exception(f"{serviceFolder} folder not found.")
         return serviceFolder
 
-    def __init__(self, uio, allowRootUser, ensureRootUser):
+    def __init__(self, uio, allowRootUser, ensureRootUser, appName, restartSeconds):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output is displayed to user.
            @param allowRootUser If True then allow root user to to auto start programs.
-           @param ensureRootUser If True the current user must be root user."""
+           @param ensureRootUser If True the current user must be root user.
+           @param appName The name of the app. This is used as the systemd service name. If not set then
+                          the name of the initially executed python file is used.
+           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped."""
         self._uio = uio
         self._logFile = None
         self._allowRootUser=allowRootUser
@@ -180,7 +186,8 @@ class LinuxBootManager(object):
             self._cmdLinePrefix = self._systemCtlBin
         self._username = getpass.getuser()
         self._serviceFolder = LinuxBootManager.GetServiceFolder(self._rootMode)
-        self._appName = None
+        self._appName = appName
+        self._restartSeconds = restartSeconds
 
     def _getInstallledStartupScript(self):
         """@brief Get the startup script full path. The startup script must be
@@ -252,18 +259,25 @@ class LinuxBootManager(object):
         if not os.path.isdir(exePath):
             self._fatalError("{} path not found".format(exePath))
 
-        appName = os.path.basename(exeFile)
-        if len(appName) == 0:
-            self._fatalError("No app found to execute.")
+        # If the appName was set in the constructor then use this.
+        if self._appName:
+            appName = self._appName
 
-        absApp = os.path.join(exePath, appName)
-        if not os.path.isfile( absApp ):
-            self._fatalError("{} file not found.".format(absApp) )
+        # Else we use the initially executed python file.
+        else:
 
-        appName = appName.replace(".py", "")
-        if self._rootMode:
-            # We can only save to /var/log/ is we are root user.
-            self._logFile = os.path.join(LinuxBootManager.LOG_PATH, appName)
+            appName = os.path.basename(exeFile)
+            if len(appName) == 0:
+                self._fatalError("No app found to execute.")
+
+            absApp = os.path.join(exePath, appName)
+            if not os.path.isfile( absApp ):
+                self._fatalError("{} file not found.".format(absApp) )
+
+            appName = appName.replace(".py", "")
+            if self._rootMode:
+                # We can only save to /var/log/ is we are root user.
+                self._logFile = os.path.join(LinuxBootManager.LOG_PATH, appName)
 
         return (appName, absApp)
 
@@ -302,7 +316,7 @@ class LinuxBootManager(object):
         lines.append("[Service]")
         lines.append("Type=simple")
         lines.append("Restart=always")
-        lines.append("RestartSec=1")
+        lines.append(f"RestartSec={self._restartSeconds}")
         if enableSyslog:
             lines.append("StandardOutput=syslog")
             lines.append("StandardError=syslog")
