@@ -40,7 +40,7 @@ class BootManager(object):
            @return True if handled , False if not."""
         handled = False
         if options.check_auto_start:
-            BootManager.CheckAutoStartStatus(uio)
+            BootManager.CheckAutoStartStatus(uio, appName)
             handled = True
             
         elif options.enable_auto_start:
@@ -48,7 +48,7 @@ class BootManager(object):
             handled = True
             
         elif options.disable_auto_start:
-            BootManager.DisableAutoStart(uio)
+            BootManager.DisableAutoStart(uio, appName)
             handled = True
 
         return handled
@@ -68,15 +68,21 @@ class BootManager(object):
         bootManager.add(argString=arsString, enableSyslog=enable_syslog)
 
     @staticmethod
-    def DisableAutoStart(uio):
-        """@brief Enable this program to auto start when the computer on which it is installed starts."""
-        bootManager = BootManager(uio=uio, ensureRootUser=True)
+    def DisableAutoStart(uio, appName):
+        """@brief Enable this program to auto start when the computer on which it is installed starts.
+           @param uio A UIO instance.
+           @param appName The name of the app. This is used as the service name. If not set then
+                          the name of the initially executed python file is used."""
+        bootManager = BootManager(uio=uio, ensureRootUser=True, appName=appName)
         bootManager.remove()
         
     @staticmethod
-    def CheckAutoStartStatus(uio):
-        """@brief Check the status of a process previously set to auto start."""
-        bootManager = BootManager(uio=uio)
+    def CheckAutoStartStatus(uio, appName):
+        """@brief Check the status of a process previously set to auto start.
+           @param uio A UIO instance.
+           @param appName The name of the app. This is used as the service name. If not set then
+                          the name of the initially executed python file is used."""
+        bootManager = BootManager(uio=uio, appName=appName)
         lines = bootManager.getStatus()
         if lines and len(lines) > 0:
             for line in lines:
