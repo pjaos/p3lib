@@ -275,25 +275,18 @@ class LinuxBootManager(object):
         if not os.path.isdir(exePath):
             self._fatalError("{} path not found".format(exePath))
 
-        # If the appName was set in the constructor then use this.
-        if self._appName:
-            appName = self._appName
+        appName = os.path.basename(exeFile)
+        if len(appName) == 0:
+            self._fatalError("No app found to execute.")
 
-        # Else we use the initially executed python file.
-        else:
+        absApp = os.path.join(exePath, appName)
+        if not os.path.isfile( absApp ):
+            self._fatalError("{} file not found.".format(absApp) )
 
-            appName = os.path.basename(exeFile)
-            if len(appName) == 0:
-                self._fatalError("No app found to execute.")
-
-            absApp = os.path.join(exePath, appName)
-            if not os.path.isfile( absApp ):
-                self._fatalError("{} file not found.".format(absApp) )
-
-            appName = appName.replace(".py", "")
-            if self._rootMode:
-                # We can only save to /var/log/ is we are root user.
-                self._logFile = os.path.join(LinuxBootManager.LOG_PATH, appName)
+        appName = appName.replace(".py", "")
+        if self._rootMode:
+            # We can only save to /var/log/ is we are root user.
+            self._logFile = os.path.join(LinuxBootManager.LOG_PATH, appName)
 
         return (appName, absApp)
 
@@ -322,7 +315,12 @@ class LinuxBootManager(object):
 
         appName, absApp = self._getApp()
 
-        serviceFile = self._getServiceFile(appName)
+        if self._appName:
+            serviceName = self._appName
+        else:
+            serviceName = appName
+
+        serviceFile = self._getServiceFile(serviceName)
 
         lines = []
         lines.append("[Unit]")
