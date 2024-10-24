@@ -7,7 +7,7 @@ var searchData=
   ['delplot_4',['delPlot',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a4060ba4eed05f6b2dbfdcf52078fd826',1,'netplotly_demo::NetPlotlyDemo']]],
   ['demo_5',['demo',['../classnetplotly__demo_1_1NetPlotlyDemo.html#ac0d5113114f3de414c47cb28c1bb30fa',1,'netplotly_demo::NetPlotlyDemo']]],
   ['dicttojson_6',['DictToJSON',['../classp3lib_1_1json__networking_1_1JsonServerHandler.html#adb33c1e042fec63e21b7e03ac5bf27c1',1,'p3lib::json_networking::JsonServerHandler']]],
-  ['disableautostart_7',['DisableAutoStart',['../classp3lib_1_1boot__manager_1_1BootManager.html#aee90a4e72cc401b473f1909642aca954',1,'p3lib::boot_manager::BootManager']]],
+  ['disableautostart_7',['DisableAutoStart',['../classp3lib_1_1boot__manager_1_1BootManager.html#af66c61f5e0014ef9690eefbe5c6cfb65',1,'p3lib::boot_manager::BootManager']]],
   ['disconnect_8',['disconnect',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ad6eeefccf29df872618a07775d344ff8',1,'p3lib.database_if.DatabaseIF.disconnect()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#ad6eeefccf29df872618a07775d344ff8',1,'p3lib.netplotly.NetPlotly.disconnect()']]],
   ['dropdatabase_9',['dropDatabase',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ac65c08416c446ee434cfe8a8d773c6c7',1,'p3lib::database_if::DatabaseIF']]],
   ['droptable_10',['dropTable',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a9731a0e4687fd835554bb29477afdb42',1,'p3lib::database_if::DatabaseIF']]]
