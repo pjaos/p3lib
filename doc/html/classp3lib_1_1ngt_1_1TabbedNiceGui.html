@@ -283,9 +283,9 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><pre class="fragment">@brief Responsible for starting the providing a tabbed GUI.
           This class is designed to ease the creation of a tabbed GUI interface.
           The contents of each tab can be defined in the subclass.
-          The GUI includes a message log area below each tab. Tasks can send messages 
+          The GUI includes a message log area below each tab. Tasks can send messages
           to this log area.
-          If a subclass sets the self._logFile attributed then all messages sent to the 
+          If a subclass sets the self._logFile attributed then all messages sent to the
           log area are written to a log file with timestamps.</pre> 
 <p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00018">18</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -781,7 +781,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  613</span><span class="stringliteral">                  that were not handled by the parent class.</span></div>
 <div class="line"><span class="lineno">  614</span><span class="stringliteral">           @param rxDict The dict received from the GUI message queue.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  615</span>        <span class="keywordflow">raise</span> NotImplementedError(<span class="stringliteral">&quot;_handleGUIUpdate() is not implemented. Implement this method in a subclass of TabbedNiceGUI&quot;</span>)</div>
-<div class="line"><span class="lineno">  616</span>    </div>
+<div class="line"><span class="lineno">  616</span> </div>
 <div class="line"><span class="lineno">  617</span> </div>
 </div><!-- fragment -->
 </div>
@@ -828,7 +828,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  315</span>        self._log.push(msg)</div>
 <div class="line"><span class="lineno">  316</span>        self._saveLogMsg(msg)</div>
 <div class="line"><span class="lineno">  317</span>        self._logMessageCount += 1</div>
-<div class="line"><span class="lineno">  318</span>        <span class="comment"># We&#39;ve received a log message so update progress bar if required. </span></div>
+<div class="line"><span class="lineno">  318</span>        <span class="comment"># We&#39;ve received a log message so update progress bar if required.</span></div>
 <div class="line"><span class="lineno">  319</span>        self._updateProgressBar(msg)</div>
 <div class="line"><span class="lineno">  320</span> </div>
 </div><!-- fragment -->
@@ -908,7 +908,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  517</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Should be called before a task is started.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  518</span>        self._enableAllButtons(<span class="keyword">False</span>)</div>
 <div class="line"><span class="lineno">  519</span>        self._clearMessages()</div>
-<div class="line"><span class="lineno">  520</span>        </div>
+<div class="line"><span class="lineno">  520</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -966,7 +966,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  557</span>        <span class="keywordflow">elif</span> TabbedNiceGui.DEBUG_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
 <div class="line"><span class="lineno">  558</span>            msg = rxDict[TabbedNiceGui.DEBUG_MESSAGE]</div>
 <div class="line"><span class="lineno">  559</span>            self._debugGT(msg)</div>
-<div class="line"><span class="lineno">  560</span>            </div>
+<div class="line"><span class="lineno">  560</span> </div>
 <div class="line"><span class="lineno">  561</span>        <span class="keywordflow">elif</span> TabbedNiceGui.ENABLE_BUTTONS <span class="keywordflow">in</span> rxDict:</div>
 <div class="line"><span class="lineno">  562</span>            state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]</div>
 <div class="line"><span class="lineno">  563</span>            self._enableAllButtons(state)</div>
@@ -1031,7 +1031,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  295</span>            <span class="keyword">with</span> open(self._logFile, <span class="stringliteral">&#39;a&#39;</span>) <span class="keyword">as</span> fd:</div>
 <div class="line"><span class="lineno">  296</span>                dateTimeStamp = TabbedNiceGui.GetDateTimeStamp()</div>
 <div class="line"><span class="lineno">  297</span>                fd.write(dateTimeStamp + <span class="stringliteral">&quot;: &quot;</span> + msg + <span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  298</span>    </div>
+<div class="line"><span class="lineno">  298</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1110,7 +1110,7 @@ Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  526</span>    <span class="keyword">def </span>_showLogMsgCount(self):</div>
 <div class="line"><span class="lineno">  527</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the number of log messages&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  528</span>        ui.notify(f<span class="stringliteral">&quot;{self._getLogMessageCount()} messages in the log.&quot;</span>)</div>
-<div class="line"><span class="lineno">  529</span>        </div>
+<div class="line"><span class="lineno">  529</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1166,17 +1166,17 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Start a timer that will update the progress bar.
-          The progress bar can simply update on a timer every second with durationSeconds set to the expected length 
+          The progress bar can simply update on a timer every second with durationSeconds set to the expected length
           of the task.
 
-          If startMessage is set to a text string the progress time will not start until the log message area contains 
+          If startMessage is set to a text string the progress time will not start until the log message area contains
           the start message.
-          
-          Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is 
+
+          Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is
           updated as each message is received. The messages may be the entire line of a log message or parts of a
           log message line.
 
-          Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is 
+          Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is
           added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.
 
     @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.
@@ -1186,17 +1186,17 @@ Protected Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00434">434</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  434</span>    <span class="keyword">def </span>_startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0):</div>
 <div class="line"><span class="lineno">  435</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start a timer that will update the progress bar.</span></div>
-<div class="line"><span class="lineno">  436</span><span class="stringliteral">                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length </span></div>
+<div class="line"><span class="lineno">  436</span><span class="stringliteral">                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length</span></div>
 <div class="line"><span class="lineno">  437</span><span class="stringliteral">                  of the task.</span></div>
 <div class="line"><span class="lineno">  438</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  439</span><span class="stringliteral">                  If startMessage is set to a text string the progress time will not start until the log message area contains </span></div>
+<div class="line"><span class="lineno">  439</span><span class="stringliteral">                  If startMessage is set to a text string the progress time will not start until the log message area contains</span></div>
 <div class="line"><span class="lineno">  440</span><span class="stringliteral">                  the start message.</span></div>
-<div class="line"><span class="lineno">  441</span><span class="stringliteral">                  </span></div>
-<div class="line"><span class="lineno">  442</span><span class="stringliteral">                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is </span></div>
+<div class="line"><span class="lineno">  441</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  442</span><span class="stringliteral">                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is</span></div>
 <div class="line"><span class="lineno">  443</span><span class="stringliteral">                  updated as each message is received. The messages may be the entire line of a log message or parts of a</span></div>
 <div class="line"><span class="lineno">  444</span><span class="stringliteral">                  log message line.</span></div>
 <div class="line"><span class="lineno">  445</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  446</span><span class="stringliteral">                  Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is </span></div>
+<div class="line"><span class="lineno">  446</span><span class="stringliteral">                  Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is</span></div>
 <div class="line"><span class="lineno">  447</span><span class="stringliteral">                  added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.</span></div>
 <div class="line"><span class="lineno">  448</span><span class="stringliteral"></span> </div>
 <div class="line"><span class="lineno">  449</span><span class="stringliteral">            @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.</span></div>
@@ -1425,13 +1425,13 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  601</span> </div>
 <div class="line"><span class="lineno">  602</span>            <span class="keywordflow">elif</span> time() &gt;= timeoutT:</div>
 <div class="line"><span class="lineno">  603</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{timeout} second GUI response timeout.&quot;</span>)</div>
-<div class="line"><span class="lineno">  604</span>            </div>
+<div class="line"><span class="lineno">  604</span> </div>
 <div class="line"><span class="lineno">  605</span>            <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  606</span>                <span class="comment"># Don&#39;t spin to fast</span></div>
 <div class="line"><span class="lineno">  607</span>                sleep(0.1)</div>
-<div class="line"><span class="lineno">  608</span>            </div>
+<div class="line"><span class="lineno">  608</span> </div>
 <div class="line"><span class="lineno">  609</span>        <span class="keywordflow">return</span> rxDict</div>
-<div class="line"><span class="lineno">  610</span>    </div>
+<div class="line"><span class="lineno">  610</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1478,7 +1478,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  495</span>        <span class="keywordflow">if</span> self._expectedProgressBarMsgCount &gt; 0:</div>
 <div class="line"><span class="lineno">  496</span>            self._progressValue = self._progressValue + self._progressStepValue</div>
 <div class="line"><span class="lineno">  497</span>            self._progress.set_value( self._progressValue )</div>
-<div class="line"><span class="lineno">  498</span>            </div>
+<div class="line"><span class="lineno">  498</span> </div>
 <div class="line"><span class="lineno">  499</span>        <span class="comment"># If we have a list of log messages to update the progress bar.</span></div>
 <div class="line"><span class="lineno">  500</span>        <span class="keywordflow">elif</span> len(self._progressBarExpectedMessageList) &gt; 0:</div>
 <div class="line"><span class="lineno">  501</span>            <span class="keywordflow">if</span> self._expectedProgressBarMessageIndex &lt; len(self._progressBarExpectedMessageList):</div>
@@ -1577,7 +1577,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   72</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The minimum TCP port that you can bind the GUI server to is 1024.&quot;</span>)</div>
 <div class="line"><span class="lineno">   73</span>        <span class="keywordflow">if</span> port &gt; 65535:</div>
 <div class="line"><span class="lineno">   74</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The maximum TCP port that you can bind the GUI server to is 65535.&quot;</span>)</div>
-<div class="line"><span class="lineno">   75</span>        </div>
+<div class="line"><span class="lineno">   75</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1601,7 +1601,7 @@ Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  530</span>    <span class="keyword">def </span>close(self):</div>
 <div class="line"><span class="lineno">  531</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close down the app server.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  532</span>        ui.notify(<span class="stringliteral">&quot;Press &#39;CTRL C&#39; at command line or close the terminal window to quit.&quot;</span>)</div>
-<div class="line"><span class="lineno">  533</span>        <span class="comment"># A subclass close() method can call </span></div>
+<div class="line"><span class="lineno">  533</span>        <span class="comment"># A subclass close() method can call</span></div>
 <div class="line"><span class="lineno">  534</span>        <span class="comment"># app.shutdown()</span></div>
 <div class="line"><span class="lineno">  535</span>        <span class="comment"># if reload=False on ui.run()</span></div>
 <div class="line"><span class="lineno">  536</span> </div>
@@ -1683,7 +1683,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  167</span><span class="stringliteral">           @param msg The message to be displayed.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  168</span>        msgDict = {TabbedNiceGui.ERROR_MESSAGE: str(msg)}</div>
 <div class="line"><span class="lineno">  169</span>        self.updateGUI(msgDict)</div>
-<div class="line"><span class="lineno">  170</span>        </div>
+<div class="line"><span class="lineno">  170</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1714,7 +1714,7 @@ Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>    <span class="keyword">def </span>GetDateTimeStamp():</div>
 <div class="line"><span class="lineno">   48</span>        <span class="stringliteral">&quot;&quot;&quot;@return The log file date/time stamp &quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">   49</span>        <span class="keywordflow">return</span> strftime(<span class="stringliteral">&quot;%Y%m%d%H%M%S&quot;</span>, localtime()).lower()</div>
-<div class="line"><span class="lineno">   50</span>    </div>
+<div class="line"><span class="lineno">   50</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1763,7 +1763,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  198</span>        <span class="keywordflow">else</span>:</div>
 <div class="line"><span class="lineno">  199</span>            returnText = inputObj.value</div>
 <div class="line"><span class="lineno">  200</span>        <span class="keywordflow">return</span> returnText</div>
-<div class="line"><span class="lineno">  201</span>            </div>
+<div class="line"><span class="lineno">  201</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1797,7 +1797,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   55</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(installFolder):</div>
 <div class="line"><span class="lineno">   56</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{installFolder} folder not found.&quot;</span>)</div>
 <div class="line"><span class="lineno">   57</span>        <span class="keywordflow">return</span> installFolder</div>
-<div class="line"><span class="lineno">   58</span>    </div>
+<div class="line"><span class="lineno">   58</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1833,7 +1833,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   63</span>        dateTimeStamp = TabbedNiceGui.GetDateTimeStamp()</div>
 <div class="line"><span class="lineno">   64</span>        logFileName = f<span class="stringliteral">&quot;{logFilePrefix}_{dateTimeStamp}.log&quot;</span></div>
 <div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> logFileName</div>
-<div class="line"><span class="lineno">   66</span>    </div>
+<div class="line"><span class="lineno">   66</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1898,7 +1898,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   86</span>                poetryConfigFile = os.path.join(cwd, TabbedNiceGui.POETRY_CONFIG_FILE)</div>
 <div class="line"><span class="lineno">   87</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(poetryConfigFile):</div>
 <div class="line"><span class="lineno">   88</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{poetryConfigFile}, {poetryConfigFile2} and {poetryConfigFile} not found.&quot;</span>)</div>
-<div class="line"><span class="lineno">   89</span>                </div>
+<div class="line"><span class="lineno">   89</span> </div>
 <div class="line"><span class="lineno">   90</span>        programVersion = <span class="keywordtype">None</span></div>
 <div class="line"><span class="lineno">   91</span>        <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
 <div class="line"><span class="lineno">   92</span>            lines = fd.readlines()</div>
@@ -2076,7 +2076,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Init the tabbed GUI.
    @param tabNameList A list of the names of each tab to be created.
-   @param tabMethodInitList A list of the methods to be called to init each of the above tabs. 
+   @param tabMethodInitList A list of the methods to be called to init each of the above tabs.
                             The two lists must be the same size.
    @param reload If reload is set False then changes to python files will not cause the server to be restarted.
    @param address The address to bind the server to.
@@ -2086,7 +2086,7 @@ Protected Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  377</span>    <span class="keyword">def </span>initGUI(self, tabNameList, tabMethodInitList, reload=True, address=&quot;0.0.0.0&quot;, port=DEFAULT_SERVER_PORT, pageTitle=&quot;NiceGUI&quot;):</div>
 <div class="line"><span class="lineno">  378</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Init the tabbed GUI.</span></div>
 <div class="line"><span class="lineno">  379</span><span class="stringliteral">           @param tabNameList A list of the names of each tab to be created.</span></div>
-<div class="line"><span class="lineno">  380</span><span class="stringliteral">           @param tabMethodInitList A list of the methods to be called to init each of the above tabs. </span></div>
+<div class="line"><span class="lineno">  380</span><span class="stringliteral">           @param tabMethodInitList A list of the methods to be called to init each of the above tabs.</span></div>
 <div class="line"><span class="lineno">  381</span><span class="stringliteral">                                    The two lists must be the same size.</span></div>
 <div class="line"><span class="lineno">  382</span><span class="stringliteral">           @param reload If reload is set False then changes to python files will not cause the server to be restarted.</span></div>
 <div class="line"><span class="lineno">  383</span><span class="stringliteral">           @param address The address to bind the server to.</span></div>
@@ -2101,7 +2101,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  392</span>                <span class="keywordflow">for</span> tabName <span class="keywordflow">in</span> tabNameList:</div>
 <div class="line"><span class="lineno">  393</span>                    tabObj = ui.tab(tabName)</div>
 <div class="line"><span class="lineno">  394</span>                    tabObjList.append(tabObj)</div>
-<div class="line"><span class="lineno">  395</span>                </div>
+<div class="line"><span class="lineno">  395</span> </div>
 <div class="line"><span class="lineno">  396</span>            <span class="keyword">with</span> ui.tab_panels(tabs, value=tabObjList[0]).classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
 <div class="line"><span class="lineno">  397</span>                <span class="keywordflow">for</span> tabObj <span class="keywordflow">in</span> tabObjList:</div>
 <div class="line"><span class="lineno">  398</span>                    <span class="keyword">with</span> ui.tab_panel(tabObj):</div>
@@ -2184,11 +2184,11 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">@brief Time to update the progress bar. We run the timer all the time because there appears to be a 
+<pre class="fragment">@brief Time to update the progress bar. We run the timer all the time because there appears to be a
           bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer.</pre> 
 <p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00427">427</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  427</span>    <span class="keyword">def </span>progressTimerCallback(self):</div>
-<div class="line"><span class="lineno">  428</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Time to update the progress bar. We run the timer all the time because there appears to be a </span></div>
+<div class="line"><span class="lineno">  428</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Time to update the progress bar. We run the timer all the time because there appears to be a</span></div>
 <div class="line"><span class="lineno">  429</span><span class="stringliteral">                  bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  430</span>        <span class="keywordflow">if</span> self._updateProgressOnTimer <span class="keywordflow">and</span> self._progress.visible:</div>
 <div class="line"><span class="lineno">  431</span>            <span class="comment"># Increment the progress bar</span></div>
@@ -2328,18 +2328,18 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  235</span>        <span class="comment"># Check we have a table to display</span></div>
 <div class="line"><span class="lineno">  236</span>        <span class="keywordflow">if</span> len(table) == 0:</div>
 <div class="line"><span class="lineno">  237</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;No table rows to display&quot;</span>)</div>
-<div class="line"><span class="lineno">  238</span>        </div>
+<div class="line"><span class="lineno">  238</span> </div>
 <div class="line"><span class="lineno">  239</span>        <span class="comment"># Check all rows have the same number of columns in the table</span></div>
 <div class="line"><span class="lineno">  240</span>        colCount = len(table[0])</div>
 <div class="line"><span class="lineno">  241</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
 <div class="line"><span class="lineno">  242</span>            <span class="keywordflow">if</span> len(row) != colCount:</div>
 <div class="line"><span class="lineno">  243</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{str(row)} column count different from first row ({colCount})&quot;</span>)</div>
-<div class="line"><span class="lineno">  244</span>        </div>
+<div class="line"><span class="lineno">  244</span> </div>
 <div class="line"><span class="lineno">  245</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
 <div class="line"><span class="lineno">  246</span>            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> row:</div>
 <div class="line"><span class="lineno">  247</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(col, str):</div>
 <div class="line"><span class="lineno">  248</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Table column is not a string: {col} in {row}&quot;</span>)</div>
-<div class="line"><span class="lineno">  249</span>                </div>
+<div class="line"><span class="lineno">  249</span> </div>
 <div class="line"><span class="lineno">  250</span>        <span class="comment"># Get the max width for each column</span></div>
 <div class="line"><span class="lineno">  251</span>        <span class="keywordflow">for</span> col <span class="keywordflow">in</span> range(0,colCount):</div>
 <div class="line"><span class="lineno">  252</span>            maxWidth=0</div>
@@ -2351,10 +2351,10 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  258</span>        tableWidth = 1</div>
 <div class="line"><span class="lineno">  259</span>        <span class="keywordflow">for</span> columnWidth <span class="keywordflow">in</span> columnWidths:</div>
 <div class="line"><span class="lineno">  260</span>            tableWidth += columnWidth + 3 <span class="comment"># Space each side of the column + a column divider character</span></div>
-<div class="line"><span class="lineno">  261</span>                    </div>
+<div class="line"><span class="lineno">  261</span> </div>
 <div class="line"><span class="lineno">  262</span>        <span class="comment"># Add the top line of the table</span></div>
 <div class="line"><span class="lineno">  263</span>        self.info(rowSeparatorChar*tableWidth)</div>
-<div class="line"><span class="lineno">  264</span>               </div>
+<div class="line"><span class="lineno">  264</span> </div>
 <div class="line"><span class="lineno">  265</span>        <span class="comment"># The starting row index</span></div>
 <div class="line"><span class="lineno">  266</span>        <span class="keywordflow">for</span> rowIndex <span class="keywordflow">in</span> range(0, len(table)):</div>
 <div class="line"><span class="lineno">  267</span>            rowText = colSeparatorChar</div>
@@ -2443,7 +2443,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  160</span><span class="stringliteral">           @param msg The message to be displayed.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  161</span>        msgDict = {TabbedNiceGui.WARN_MESSAGE: str(msg)}</div>
 <div class="line"><span class="lineno">  162</span>        self.updateGUI(msgDict)</div>
-<div class="line"><span class="lineno">  163</span>        </div>
+<div class="line"><span class="lineno">  163</span> </div>
 </div><!-- fragment -->
 </div>
 </div>

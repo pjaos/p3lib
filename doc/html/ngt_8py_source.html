@@ -84,7 +84,7 @@ $(document).ready(function() { init_codefold(0); });
 <a href="ngt_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacep3lib_1_1ngt.html">    1</a></span><span class="comment"># !/usr/bin/env python3</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="stringliteral">&quot;&quot;&quot;NiceGui Tools</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">   Responsible for providing helper classes for nicegui interfaces </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">   Responsible for providing helper classes for nicegui interfaces</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="stringliteral">   aimed at reducing coding required for a GUI.</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
@@ -103,9 +103,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Responsible for starting the providing a tabbed GUI.</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="stringliteral">              This class is designed to ease the creation of a tabbed GUI interface.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="stringliteral">              The contents of each tab can be defined in the subclass.</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral">              The GUI includes a message log area below each tab. Tasks can send messages </span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="stringliteral">              The GUI includes a message log area below each tab. Tasks can send messages</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="stringliteral">              to this log area.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">              If a subclass sets the self._logFile attributed then all messages sent to the </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">              If a subclass sets the self._logFile attributed then all messages sent to the</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="stringliteral">              log area are written to a log file with timestamps.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment"># This can be used in the markdown text for a TAB description to give slightly larger text</span></div>
@@ -132,7 +132,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#aae39eae78e0cf9b4337894fffa43052e">   47</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#aae39eae78e0cf9b4337894fffa43052e">GetDateTimeStamp</a>():</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="stringliteral">&quot;&quot;&quot;@return The log file date/time stamp &quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> strftime(<span class="stringliteral">&quot;%Y%m%d%H%M%S&quot;</span>, localtime()).lower()</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="preprocessor">@staticmethod</span></div>
 <div class="foldopen" id="foldopen00052" data-start="" data-end="">
@@ -142,7 +142,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(installFolder):</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{installFolder} folder not found.&quot;</span>)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> installFolder</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="preprocessor">@staticmethod</span></div>
 <div class="foldopen" id="foldopen00060" data-start="" data-end="">
@@ -152,7 +152,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        dateTimeStamp = TabbedNiceGui.GetDateTimeStamp()</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        logFileName = f<span class="stringliteral">&quot;{logFilePrefix}_{dateTimeStamp}.log&quot;</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> logFileName</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="preprocessor">@staticmethod</span></div>
 <div class="foldopen" id="foldopen00068" data-start="" data-end="">
@@ -163,7 +163,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The minimum TCP port that you can bind the GUI server to is 1024.&quot;</span>)</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordflow">if</span> port &gt; 65535:</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The maximum TCP port that you can bind the GUI server to is 65535.&quot;</span>)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="preprocessor">@staticmethod</span></div>
 <div class="foldopen" id="foldopen00077" data-start="" data-end="">
@@ -179,7 +179,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                poetryConfigFile = os.path.join(cwd, TabbedNiceGui.POETRY_CONFIG_FILE)</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(poetryConfigFile):</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{poetryConfigFile}, {poetryConfigFile2} and {poetryConfigFile} not found.&quot;</span>)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        programVersion = <span class="keywordtype">None</span></div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            lines = fd.readlines()</div>
@@ -244,8 +244,8 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="comment"># Start ------------------------------</span></div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment"># Methods that allow the GUI to display standard UIO messages</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment"># This allows the GUI to be used with code that was written </span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment"># to be used on the command line using UIO class instances </span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment"># This allows the GUI to be used with code that was written</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment"># to be used on the command line using UIO class instances</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">#</span></div>
 <div class="foldopen" id="foldopen00150" data-start="" data-end="">
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a794664bf8191321fa916605cd117a216">  150</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a794664bf8191321fa916605cd117a216">info</a>(self, msg):</div>
@@ -263,7 +263,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="stringliteral">           @param msg The message to be displayed.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        msgDict = {TabbedNiceGui.WARN_MESSAGE: str(msg)}</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a69a9b1fd56633d1534f7d9188098d2c9">updateGUI</a>(msgDict)</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
 </div>
 <div class="foldopen" id="foldopen00164" data-start="" data-end="">
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#ac8f36c8f32a12de3fae3ac8046de9476">  164</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#ac8f36c8f32a12de3fae3ac8046de9476">error</a>(self, msg):</div>
@@ -272,7 +272,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="stringliteral">           @param msg The message to be displayed.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        msgDict = {TabbedNiceGui.ERROR_MESSAGE: str(msg)}</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a69a9b1fd56633d1534f7d9188098d2c9">updateGUI</a>(msgDict)</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
 </div>
 <div class="foldopen" id="foldopen00171" data-start="" data-end="">
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a747cb6c6a4c24502ebf699c8f19f3d39">  171</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a747cb6c6a4c24502ebf699c8f19f3d39">infoDialog</a>(self, msg):</div>
@@ -309,7 +309,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keywordflow">else</span>:</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            returnText = inputObj.value</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <span class="keywordflow">return</span> returnText</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
 </div>
 <div class="foldopen" id="foldopen00202" data-start="" data-end="">
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a37b058446c274adcfe3bd2ad5af88480">  202</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a37b058446c274adcfe3bd2ad5af88480">reportException</a>(self, exception):</div>
@@ -354,18 +354,18 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="comment"># Check we have a table to display</span></div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">if</span> len(table) == 0:</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;No table rows to display&quot;</span>)</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="comment"># Check all rows have the same number of columns in the table</span></div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        colCount = len(table[0])</div>
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keywordflow">if</span> len(row) != colCount:</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{str(row)} column count different from first row ({colCount})&quot;</span>)</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordflow">for</span> row <span class="keywordflow">in</span> table:</div>
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            <span class="keywordflow">for</span> col <span class="keywordflow">in</span> row:</div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> isinstance(col, str):</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Table column is not a string: {col} in {row}&quot;</span>)</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="comment"># Get the max width for each column</span></div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordflow">for</span> col <span class="keywordflow">in</span> range(0,colCount):</div>
 <div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            maxWidth=0</div>
@@ -377,10 +377,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        tableWidth = 1</div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keywordflow">for</span> columnWidth <span class="keywordflow">in</span> columnWidths:</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            tableWidth += columnWidth + 3 <span class="comment"># Space each side of the column + a column divider character</span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                    </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="comment"># Add the top line of the table</span></div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a794664bf8191321fa916605cd117a216">info</a>(rowSeparatorChar*tableWidth)</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>               </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <span class="comment"># The starting row index</span></div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">for</span> rowIndex <span class="keywordflow">in</span> range(0, len(table)):</div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            rowText = colSeparatorChar</div>
@@ -404,7 +404,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordflow">pass</span></div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
 </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="comment"># End ------------------------------   </span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="comment"># End ------------------------------</span></div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
 <div class="foldopen" id="foldopen00285" data-start="" data-end="">
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a695a35fe6aef23a382ad8eac63e6600a">  285</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a695a35fe6aef23a382ad8eac63e6600a">_saveLogMsg</a>(self, msg):</div>
@@ -420,7 +420,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keyword">with</span> open(self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a1f9f69d9f49237b89f708c27b962ef4b">_logFile</a>, <span class="stringliteral">&#39;a&#39;</span>) <span class="keyword">as</span> fd:</div>
 <div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                dateTimeStamp = TabbedNiceGui.GetDateTimeStamp()</div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                fd.write(dateTimeStamp + <span class="stringliteral">&quot;: &quot;</span> + msg + <span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
 </div>
 <div class="foldopen" id="foldopen00299" data-start="" data-end="">
 <div class="line"><a id="l00299" name="l00299"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a5b162d3e1620b63b721d6c0f80678023">  299</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a5b162d3e1620b63b721d6c0f80678023">_getDisplayMsg</a>(self, msg, prefix):</div>
@@ -444,7 +444,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a69ee6b5dbf7293bf82231f023793e9ea">_log</a>.push(msg)</div>
 <div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a695a35fe6aef23a382ad8eac63e6600a">_saveLogMsg</a>(msg)</div>
 <div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a7dd2160f3244652f4e706ad1d6bbd43b">_logMessageCount</a> += 1</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="comment"># We&#39;ve received a log message so update progress bar if required. </span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="comment"># We&#39;ve received a log message so update progress bar if required.</span></div>
 <div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#aea360ca50023c685e56a9f0043b009f5">_updateProgressBar</a>(msg)</div>
 <div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
 </div>
@@ -524,7 +524,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00377" name="l00377"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a5e5ef4aaaf50efb72d564a88497a2623">  377</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a5e5ef4aaaf50efb72d564a88497a2623">initGUI</a>(self, tabNameList, tabMethodInitList, reload=True, address=&quot;0.0.0.0&quot;, port=DEFAULT_SERVER_PORT, pageTitle=&quot;NiceGUI&quot;):</div>
 <div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Init the tabbed GUI.</span></div>
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="stringliteral">           @param tabNameList A list of the names of each tab to be created.</span></div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="stringliteral">           @param tabMethodInitList A list of the methods to be called to init each of the above tabs. </span></div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="stringliteral">           @param tabMethodInitList A list of the methods to be called to init each of the above tabs.</span></div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="stringliteral">                                    The two lists must be the same size.</span></div>
 <div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span><span class="stringliteral">           @param reload If reload is set False then changes to python files will not cause the server to be restarted.</span></div>
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="stringliteral">           @param address The address to bind the server to.</span></div>
@@ -539,7 +539,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>                <span class="keywordflow">for</span> tabName <span class="keywordflow">in</span> tabNameList:</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>                    tabObj = ui.tab(tabName)</div>
 <div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>                    tabObjList.append(tabObj)</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>                </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>            <span class="keyword">with</span> ui.tab_panels(tabs, value=tabObjList[0]).classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
 <div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>                <span class="keywordflow">for</span> tabObj <span class="keywordflow">in</span> tabObjList:</div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>                    <span class="keyword">with</span> ui.tab_panel(tabObj):</div>
@@ -574,7 +574,7 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <div class="foldopen" id="foldopen00427" data-start="" data-end="">
 <div class="line"><a id="l00427" name="l00427"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a6ab69a94817ff7771ec8eb5fb898dff6">  427</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a6ab69a94817ff7771ec8eb5fb898dff6">progressTimerCallback</a>(self):</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Time to update the progress bar. We run the timer all the time because there appears to be a </span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Time to update the progress bar. We run the timer all the time because there appears to be a</span></div>
 <div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span><span class="stringliteral">                  bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a0a3134893975dfed69b1149507791b04">_updateProgressOnTimer</a> <span class="keywordflow">and</span> self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a11da034d826e4d9e9c5c2078570990fb">_progress</a>.visible:</div>
 <div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>            <span class="comment"># Increment the progress bar</span></div>
@@ -584,17 +584,17 @@ $(document).ready(function() { init_codefold(0); });
 <div class="foldopen" id="foldopen00434" data-start="" data-end="">
 <div class="line"><a id="l00434" name="l00434"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#afec8e979f3fb069d2c7c09f8fc975de7">  434</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#afec8e979f3fb069d2c7c09f8fc975de7">_startProgress</a>(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0):</div>
 <div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start a timer that will update the progress bar.</span></div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="stringliteral">                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length </span></div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="stringliteral">                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length</span></div>
 <div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="stringliteral">                  of the task.</span></div>
 <div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="stringliteral">                  If startMessage is set to a text string the progress time will not start until the log message area contains </span></div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="stringliteral">                  If startMessage is set to a text string the progress time will not start until the log message area contains</span></div>
 <div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="stringliteral">                  the start message.</span></div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="stringliteral">                  </span></div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="stringliteral">                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is </span></div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span><span class="stringliteral">                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is</span></div>
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="stringliteral">                  updated as each message is received. The messages may be the entire line of a log message or parts of a</span></div>
 <div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span><span class="stringliteral">                  log message line.</span></div>
 <div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span><span class="stringliteral">                  Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is </span></div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span><span class="stringliteral">                  Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is</span></div>
 <div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="stringliteral">                  added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.</span></div>
 <div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span><span class="stringliteral"></span> </div>
 <div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span><span class="stringliteral">            @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.</span></div>
@@ -650,7 +650,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#aa364e15cb313e88fbd5431ae8a70b4f1">_expectedProgressBarMsgCount</a> &gt; 0:</div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>            self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a4094394ab7c3ef999a76e27bb9d749ad">_progressValue</a> = self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a4094394ab7c3ef999a76e27bb9d749ad">_progressValue</a> + self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#ad9ece55c1941e02103432240fe020921">_progressStepValue</a></div>
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>            self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a11da034d826e4d9e9c5c2078570990fb">_progress</a>.set_value( self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a4094394ab7c3ef999a76e27bb9d749ad">_progressValue</a> )</div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>            </div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span> </div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>        <span class="comment"># If we have a list of log messages to update the progress bar.</span></div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>        <span class="keywordflow">elif</span> len(self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#abe677ba7235c7adcc6ecf6f4c682f782">_progressBarExpectedMessageList</a>) &gt; 0:</div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>            <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a46c79cc0c9319dbb6d420a9b464f168a">_expectedProgressBarMessageIndex</a> &lt; len(self.<a class="code hl_variable" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#abe677ba7235c7adcc6ecf6f4c682f782">_progressBarExpectedMessageList</a>):</div>
@@ -674,7 +674,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Should be called before a task is started.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a380f6ebec11aae1ef3547821c3b2326d">_enableAllButtons</a>(<span class="keyword">False</span>)</div>
 <div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>        self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a9326eeb15221a440bd63c3fa98adda28">_clearMessages</a>()</div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>        </div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span> </div>
 </div>
 <div class="foldopen" id="foldopen00521" data-start="" data-end="">
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#aa7fc6007e1ea933557e7a7335f5bb718">  521</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#aa7fc6007e1ea933557e7a7335f5bb718">_clearLog</a>(self):</div>
@@ -687,13 +687,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00526" name="l00526"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#afa478385f1d8412ee0e0cfe962832385">  526</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#afa478385f1d8412ee0e0cfe962832385">_showLogMsgCount</a>(self):</div>
 <div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the number of log messages&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>        ui.notify(f<span class="stringliteral">&quot;{self._getLogMessageCount()} messages in the log.&quot;</span>)</div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>        </div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
 </div>
 <div class="foldopen" id="foldopen00530" data-start="" data-end="">
 <div class="line"><a id="l00530" name="l00530"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a8ab79e14e24aa440dcd1d9e822eb1f1c">  530</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a8ab79e14e24aa440dcd1d9e822eb1f1c">close</a>(self):</div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close down the app server.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>        ui.notify(<span class="stringliteral">&quot;Press &#39;CTRL C&#39; at command line or close the terminal window to quit.&quot;</span>)</div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        <span class="comment"># A subclass close() method can call </span></div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        <span class="comment"># A subclass close() method can call</span></div>
 <div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>        <span class="comment"># app.shutdown()</span></div>
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>        <span class="comment"># if reload=False on ui.run()</span></div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
@@ -724,7 +724,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        <span class="keywordflow">elif</span> TabbedNiceGui.DEBUG_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
 <div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>            msg = rxDict[TabbedNiceGui.DEBUG_MESSAGE]</div>
 <div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>            self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a0ac6900014d1938e64682e0c65881e85">_debugGT</a>(msg)</div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>            </div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span> </div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>        <span class="keywordflow">elif</span> TabbedNiceGui.ENABLE_BUTTONS <span class="keywordflow">in</span> rxDict:</div>
 <div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>            state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]</div>
 <div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>            self.<a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#a380f6ebec11aae1ef3547821c3b2326d">_enableAllButtons</a>(state)</div>
@@ -774,13 +774,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span> </div>
 <div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>            <span class="keywordflow">elif</span> time() &gt;= timeoutT:</div>
 <div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{timeout} second GUI response timeout.&quot;</span>)</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            </div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span> </div>
 <div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>            <span class="keywordflow">else</span>:</div>
 <div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>                <span class="comment"># Don&#39;t spin to fast</span></div>
 <div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>                sleep(0.1)</div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>            </div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span> </div>
 <div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>        <span class="keywordflow">return</span> rxDict</div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    </div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span> </div>
 </div>
 <div class="foldopen" id="foldopen00611" data-start="" data-end="">
 <div class="line"><a id="l00611" name="l00611"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#af48e41f784c7c8c6c3747c14a63c6378">  611</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#af48e41f784c7c8c6c3747c14a63c6378">_handleGUIUpdate</a>(self, rxDict):</div>
@@ -788,230 +788,262 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span><span class="stringliteral">                  that were not handled by the parent class.</span></div>
 <div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span><span class="stringliteral">           @param rxDict The dict received from the GUI message queue.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>        <span class="keywordflow">raise</span> NotImplementedError(<span class="stringliteral">&quot;_handleGUIUpdate() is not implemented. Implement this method in a subclass of TabbedNiceGUI&quot;</span>)</div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>    </div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
 <div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span> </div>
 </div>
 </div>
 <div class="foldopen" id="foldopen00618" data-start="" data-end="">
 <div class="line"><a id="l00618" name="l00618"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html">  618</a></span><span class="keyword">class </span><a class="code hl_class" href="classp3lib_1_1ngt_1_1YesNoDialog.html">YesNoDialog</a>(object):</div>
 <div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Responsible for displaying a dialog box to the user with a boolean (I.E yes/no, ok/cancel) response.&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a98115ec86b1ac448c4eac53c27a07c66">  620</a></span>    TEXT_INPUT_FIELD_TYPE   = 1</div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#af7a47e887faeacb950eb48cbf37546fd">  621</a></span>    NUMBER_INPUT_FIELD_TYPE = 2</div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#acaacc2097dc0b8e084384ff32aed7d05">  622</a></span>    SWITCH_INPUT_FIELD_TYPE = 3</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ab37cd043b35fee6c3a9b78c411323d8a">  623</a></span>    DROPDOWN_INPUT_FIELD    = 4</div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a709b67c314c7fedf0822b1b9de1f7f4f">  624</a></span>    COLOR_INPUT_FIELD       = 5</div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a7412012f90c3fe1cb15ff7dbbb942659">  625</a></span>    DATE_INPUT_FIELD        = 6</div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aa15d5b9a261bf901d5eba04414cd53d7">  626</a></span>    TIME_INPUT_FIELD        = 7</div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a46d5ca2e6c2ed7e8195abb8a34293c4c">  627</a></span>    KNOB_INPUT_FIELD        = 8</div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ad8f55b6538efca43bb8d530789c87f3c">  628</a></span>    VALID_FIELD_TYPE_LIST   = (TEXT_INPUT_FIELD_TYPE, </div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>                               NUMBER_INPUT_FIELD_TYPE, </div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>                               SWITCH_INPUT_FIELD_TYPE, </div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>                               DROPDOWN_INPUT_FIELD,</div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>                               COLOR_INPUT_FIELD,</div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>                               DATE_INPUT_FIELD,</div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>                               TIME_INPUT_FIELD,</div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>                               KNOB_INPUT_FIELD)</div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span> </div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a769082aa169f867f42ac4473dd1b34f6">  637</a></span>    FIELD_TYPE_KEY          = <span class="stringliteral">&quot;FIELD_TYPE_KEY&quot;</span>      <span class="comment"># The type of field to be displayed.</span></div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a86bee01fce47ddad792418cf134fc31b">  638</a></span>    VALUE_KEY               = <span class="stringliteral">&quot;VALUE_KEY&quot;</span>           <span class="comment"># The value to be displayed in the field when the dialog is displayed. </span></div>
-<div class="line"><a id="l00639" name="l00639"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a79a015bbdb8f10f5e1e4c39f760f70a6">  639</a></span>    MIN_NUMBER_KEY          = <span class="stringliteral">&quot;MIN_NUMBER_KEY&quot;</span>      <span class="comment"># If the type is NUMBER_INPUT_FIELD_TYPE, the min value that can be entered.</span></div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aac565fa5ac8a6b16104fb5a5036e7127">  640</a></span>    MAX_NUMBER_KEY          = <span class="stringliteral">&quot;MAX_NUMBER_KEY&quot;</span>      <span class="comment"># If the type is NUMBER_INPUT_FIELD_TYPE, the max value that can be entered.</span></div>
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240">  641</a></span>    WIDGET_KEY              = <span class="stringliteral">&quot;WIDGET_KEY&quot;</span>          <span class="comment"># The key to the GUI widget (E.G ui.input, ui.number etc)</span></div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#af9ca36d0f5f96e76c37029a7701414a8">  642</a></span>    OPTIONS_KEY             = <span class="stringliteral">&quot;OPTIONS_KEY&quot;</span>         <span class="comment"># Some input fields require a list of options (E.G DROPDOWN_INPUT_FIELD).</span></div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span> </div>
-<div class="foldopen" id="foldopen00644" data-start="" data-end="">
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a37d1b9d644fbbf1795e129cfc7a6658e">  644</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a37d1b9d644fbbf1795e129cfc7a6658e">__init__</a>(self, </div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>                 prompt,</div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>                 successMethod,</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>                 failureMethod=None,</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>                 successButtonText=&quot;Yes&quot;,</div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>                 failureButtonText=&quot;No&quot;):</div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a2247b2057d6cfe08b6585bd8ac848c30">  651</a></span><span class="stringliteral">        self._dialog                 = None</span></div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a3f9ed351ca40ed5a4531e43e1f61f6db">  652</a></span><span class="stringliteral">        self._selectedFile           = None</span></div>
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ac072070ec803e55560e913a6a5776c75">  653</a></span><span class="stringliteral">        self._successButtonText      = None          # The dialogs success button text</span></div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a286f494893416b26f6803834dc7e5722">  654</a></span><span class="stringliteral">        self._failureButtonText      = None          # The dialogs failure button text</span></div>
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a1ea7eb942926cb9d7ac828b7dd4304c2">  655</a></span><span class="stringliteral">        self._prompt                 = None          # The prompt to be displayed in the dialog</span></div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a5382d52626b69ec5af8ca4af37598cc5">  656</a></span><span class="stringliteral">        self._successMethod          = None          # The method to be called when the success button is selected.</span></div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a48b2298d298457838884756746db0c6c">  657</a></span><span class="stringliteral">        self._failureMethod          = None          # The method to be called when the failure button is selected.</span></div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ae9a1bebaa2a22a31103a554cc7c06ae3">  658</a></span><span class="stringliteral">        self._inputFieldDict         = {}            # A dict of input field details to be included in the dialog. Can be left as an empty dict if no input fields are required.</span></div>
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span><span class="stringliteral">                                                     # The key in this dict is the name of the input field that the user sees. </span></div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span><span class="stringliteral">                                                     # The value in this dict is another dict containing details of the input field which may be</span></div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span><span class="stringliteral">        self.setPrompt(prompt)</span></div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span><span class="stringliteral">        self.setSuccessMethod(successMethod)</span></div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span><span class="stringliteral">        self.setFailureMethod(failureMethod)</span></div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span><span class="stringliteral">        self.setSuccessButtonLabel(successButtonText)</span></div>
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span><span class="stringliteral">        self.setFailureButtonLabel(failureButtonText)</span></div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a98115ec86b1ac448c4eac53c27a07c66">  620</a></span>    TEXT_INPUT_FIELD_TYPE       = 1</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#af7a47e887faeacb950eb48cbf37546fd">  621</a></span>    NUMBER_INPUT_FIELD_TYPE     = 2</div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#acaacc2097dc0b8e084384ff32aed7d05">  622</a></span>    SWITCH_INPUT_FIELD_TYPE     = 3</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ab37cd043b35fee6c3a9b78c411323d8a">  623</a></span>    DROPDOWN_INPUT_FIELD        = 4</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a709b67c314c7fedf0822b1b9de1f7f4f">  624</a></span>    COLOR_INPUT_FIELD           = 5</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a7412012f90c3fe1cb15ff7dbbb942659">  625</a></span>    DATE_INPUT_FIELD            = 6</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aa15d5b9a261bf901d5eba04414cd53d7">  626</a></span>    TIME_INPUT_FIELD            = 7</div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a46d5ca2e6c2ed7e8195abb8a34293c4c">  627</a></span>    KNOB_INPUT_FIELD            = 8</div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a2f3faacbf4d0727ee0f356d14e6ad6ee">  628</a></span>    HOUR_MIN_INPUT_FIELD_TYPE   = 9</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ad8f55b6538efca43bb8d530789c87f3c">  629</a></span>    VALID_FIELD_TYPE_LIST   = (TEXT_INPUT_FIELD_TYPE,</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>                               NUMBER_INPUT_FIELD_TYPE,</div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>                               SWITCH_INPUT_FIELD_TYPE,</div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>                               DROPDOWN_INPUT_FIELD,</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>                               COLOR_INPUT_FIELD,</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>                               DATE_INPUT_FIELD,</div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>                               TIME_INPUT_FIELD,</div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>                               KNOB_INPUT_FIELD,</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>                               HOUR_MIN_INPUT_FIELD_TYPE)</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span> </div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a769082aa169f867f42ac4473dd1b34f6">  639</a></span>    FIELD_TYPE_KEY          = <span class="stringliteral">&quot;FIELD_TYPE_KEY&quot;</span>      <span class="comment"># The type of field to be displayed.</span></div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a86bee01fce47ddad792418cf134fc31b">  640</a></span>    VALUE_KEY               = <span class="stringliteral">&quot;VALUE_KEY&quot;</span>           <span class="comment"># The value to be displayed in the field when the dialog is displayed.</span></div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a79a015bbdb8f10f5e1e4c39f760f70a6">  641</a></span>    MIN_NUMBER_KEY          = <span class="stringliteral">&quot;MIN_NUMBER_KEY&quot;</span>      <span class="comment"># If the type is NUMBER_INPUT_FIELD_TYPE, the min value that can be entered.</span></div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aac565fa5ac8a6b16104fb5a5036e7127">  642</a></span>    MAX_NUMBER_KEY          = <span class="stringliteral">&quot;MAX_NUMBER_KEY&quot;</span>      <span class="comment"># If the type is NUMBER_INPUT_FIELD_TYPE, the max value that can be entered.</span></div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240">  643</a></span>    WIDGET_KEY              = <span class="stringliteral">&quot;WIDGET_KEY&quot;</span>          <span class="comment"># The key to the GUI widget (E.G ui.input, ui.number etc)</span></div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#af9ca36d0f5f96e76c37029a7701414a8">  644</a></span>    OPTIONS_KEY             = <span class="stringliteral">&quot;OPTIONS_KEY&quot;</span>         <span class="comment"># Some input fields require a list of options (E.G DROPDOWN_INPUT_FIELD).</span></div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a8d33634c8324f83217a2569c33916179">  645</a></span>    STEP_KEY                = <span class="stringliteral">&quot;STEP_KEY&quot;</span>            <span class="comment"># The step size for numerical input fields</span></div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span> </div>
+<div class="foldopen" id="foldopen00647" data-start="" data-end="">
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a37d1b9d644fbbf1795e129cfc7a6658e">  647</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a37d1b9d644fbbf1795e129cfc7a6658e">__init__</a>(self,</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>                 prompt,</div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>                 successMethod,</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>                 failureMethod=None,</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>                 successButtonText=&quot;Yes&quot;,</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>                 failureButtonText=&quot;No&quot;):</div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a2247b2057d6cfe08b6585bd8ac848c30">  654</a></span><span class="stringliteral">        self._dialog                 = None</span></div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a3f9ed351ca40ed5a4531e43e1f61f6db">  655</a></span><span class="stringliteral">        self._selectedFile           = None</span></div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ac072070ec803e55560e913a6a5776c75">  656</a></span><span class="stringliteral">        self._successButtonText      = None          # The dialogs success button text</span></div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a286f494893416b26f6803834dc7e5722">  657</a></span><span class="stringliteral">        self._failureButtonText      = None          # The dialogs failure button text</span></div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a1ea7eb942926cb9d7ac828b7dd4304c2">  658</a></span><span class="stringliteral">        self._prompt                 = None          # The prompt to be displayed in the dialog</span></div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a5382d52626b69ec5af8ca4af37598cc5">  659</a></span><span class="stringliteral">        self._successMethod          = None          # The method to be called when the success button is selected.</span></div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a48b2298d298457838884756746db0c6c">  660</a></span><span class="stringliteral">        self._failureMethod          = None          # The method to be called when the failure button is selected.</span></div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ae9a1bebaa2a22a31103a554cc7c06ae3">  661</a></span><span class="stringliteral">        self._inputFieldDict         = {}            # A dict of input field details to be included in the dialog. Can be left as an empty dict if no input fields are required.</span></div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span><span class="stringliteral">                                                     # The key in this dict is the name of the input field that the user sees.</span></div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span><span class="stringliteral">                                                     # The value in this dict is another dict containing details of the input field which may be</span></div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span><span class="stringliteral">        self.setPrompt(prompt)</span></div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span><span class="stringliteral">        self.setSuccessMethod(successMethod)</span></div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span><span class="stringliteral">        self.setFailureMethod(failureMethod)</span></div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span><span class="stringliteral">        self.setSuccessButtonLabel(successButtonText)</span></div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span><span class="stringliteral">        self.setFailureButtonLabel(failureButtonText)</span></div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span><span class="stringliteral"></span> </div>
 </div>
-<div class="foldopen" id="foldopen00669" data-start="" data-end="">
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a4923d30fd283c458bd94415a9ba57acc">  669</a></span><span class="stringliteral">    def addField(self, name, fieldType, value=None, minNumber=None, maxNumber=None, options=None):</span></div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span><span class="stringliteral">        &quot;&quot;&quot;</span>@brief Add a field to the dialog.</div>
-<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>           @param name          The name of the field to be added.</div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>           @param fieldType     The type of field to be entered.</div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>           @param value         The optional initial value for the field when the dialog is displayed.</div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>           @param minNumber     The optional min value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>           @param maxNumber     The optional max value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>           &quot;&quot;&quot;</div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>        if name and len(name) &gt; 0:</div>
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>            if fieldType in YesNoDialog.VALID_FIELD_TYPE_LIST:</div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>                self._inputFieldDict[name] = {YesNoDialog.FIELD_TYPE_KEY:     fieldType,</div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>                                              YesNoDialog.VALUE_KEY:          value,</div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>                                              YesNoDialog.MIN_NUMBER_KEY:     minNumber,</div>
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>                                              YesNoDialog.MAX_NUMBER_KEY:     maxNumber,</div>
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>                                              YesNoDialog.OPTIONS_KEY:        options}</div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span> </div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>            else:</div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>                raise Exception(f&quot;YesNoDialog.addField() {fieldType} is an invalid field type.&quot;)</div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>        else:</div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>            raise Exception(&quot;YesNoDialog.addField() name not set.&quot;)</div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>        </div>
+<div class="foldopen" id="foldopen00672" data-start="" data-end="">
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aab276d6458709e0f9927953b072c1bfa">  672</a></span><span class="stringliteral">    def addField(self, name, fieldType, value=None, minNumber=None, maxNumber=None, options=None, step=1):</span></div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span><span class="stringliteral">        &quot;&quot;&quot;</span>@brief Add a field to the dialog.</div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>           @param name          The name of the field to be added.</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>           @param fieldType     The type of field to be entered.</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>           @param value         The optional initial value for the field when the dialog is displayed.</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>           @param minNumber     The optional min value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>           @param maxNumber     The optional max value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>           @param step          The step size for numerical input fields.</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>           &quot;&quot;&quot;</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>        if name and len(name) &gt; 0:</div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>            if fieldType in YesNoDialog.VALID_FIELD_TYPE_LIST:</div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>                self._inputFieldDict[name] = {YesNoDialog.FIELD_TYPE_KEY:     fieldType,</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>                                              YesNoDialog.VALUE_KEY:          value,</div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>                                              YesNoDialog.MIN_NUMBER_KEY:     minNumber,</div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>                                              YesNoDialog.MAX_NUMBER_KEY:     maxNumber,</div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>                                              YesNoDialog.OPTIONS_KEY:        options,</div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>                                              YesNoDialog.STEP_KEY:           step}</div>
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span> </div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>            else:</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>                raise Exception(f&quot;YesNoDialog.addField() {fieldType} is an invalid field type.&quot;)</div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>        else:</div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>            raise Exception(&quot;YesNoDialog.addField() name not set.&quot;)</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span> </div>
 </div>
-<div class="foldopen" id="foldopen00691" data-start="" data-end="">
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a818bfe5a6cb25335f9fb0b3ac831c9cf">  691</a></span>    def _init(self):</div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>        &quot;&quot;&quot;@brief Init the dialog.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>        with ui.dialog() as self._dialog, ui.card():</div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>            ui.label(self._prompt)</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>            for fieldName in self._inputFieldDict:</div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>                fieldType = self._inputFieldDict[fieldName][YesNoDialog.FIELD_TYPE_KEY]</div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                if fieldType == YesNoDialog.TEXT_INPUT_FIELD_TYPE:</div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>                    widget = ui.input(label=fieldName).style(&#39;width: 200px;&#39;)</div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span> </div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>                elif fieldType == YesNoDialog.NUMBER_INPUT_FIELD_TYPE:</div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>                    value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
-<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>                    min = self._inputFieldDict[fieldName][YesNoDialog.MIN_NUMBER_KEY]</div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>                    max = self._inputFieldDict[fieldName][YesNoDialog.MAX_NUMBER_KEY]</div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>                    widget = ui.number(label=fieldName, </div>
-<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>                                        value=value, </div>
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>                                        min=min, </div>
-<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>                                        max=max).style(&#39;width: 200px;&#39;)</div>
-<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>                    </div>
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>                elif fieldType == YesNoDialog.SWITCH_INPUT_FIELD_TYPE:</div>
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>                    widget = ui.switch(fieldName)</div>
-<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span> </div>
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>                elif fieldType == YesNoDialog.DROPDOWN_INPUT_FIELD:</div>
-<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>                    #ui.label(fieldName)</div>
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>                    options = self._inputFieldDict[fieldName][YesNoDialog.OPTIONS_KEY]</div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>                    if options:</div>
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>                        widget = ui.select(options)</div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>                        widget.tooltip(fieldName)</div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>                    else:</div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>                        raise Exception(&quot;BUG: DROPDOWN_INPUT_FIELD defined without defining the options.&quot;)</div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>                    </div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>                elif fieldType == YesNoDialog.COLOR_INPUT_FIELD:</div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>                    widget = ui.color_input(label=fieldName)</div>
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span> </div>
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>                elif fieldType == YesNoDialog.DATE_INPUT_FIELD:</div>
-<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>                    widget = ui.date()</div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>                    widget.tooltip(fieldName)</div>
+<div class="foldopen" id="foldopen00696" data-start="" data-end="">
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a818bfe5a6cb25335f9fb0b3ac831c9cf">  696</a></span>    def _init(self):</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>        &quot;&quot;&quot;@brief Init the dialog.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>        with ui.dialog() as self._dialog, ui.card():</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>            ui.label(self._prompt)</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>            for fieldName in self._inputFieldDict:</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>                fieldType = self._inputFieldDict[fieldName][YesNoDialog.FIELD_TYPE_KEY]</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>                if fieldType == YesNoDialog.TEXT_INPUT_FIELD_TYPE:</div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>                    widget = ui.input(label=fieldName).style(&#39;width: 200px;&#39;)</div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span> </div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>                elif fieldType == YesNoDialog.NUMBER_INPUT_FIELD_TYPE:</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>                    value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>                    min = self._inputFieldDict[fieldName][YesNoDialog.MIN_NUMBER_KEY]</div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>                    max = self._inputFieldDict[fieldName][YesNoDialog.MAX_NUMBER_KEY]</div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>                    step = self._inputFieldDict[fieldName][YesNoDialog.STEP_KEY]</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>                    widget = ui.number(label=fieldName,</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>                                        value=value,</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>                                        min=min,</div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>                                        max=max,</div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>                                        step=step).style(&#39;width: 200px;&#39;)</div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span> </div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>                elif fieldType == YesNoDialog.SWITCH_INPUT_FIELD_TYPE:</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>                    widget = ui.switch(fieldName)</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span> </div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>                elif fieldType == YesNoDialog.DROPDOWN_INPUT_FIELD:</div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>                    #ui.label(fieldName)</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>                    options = self._inputFieldDict[fieldName][YesNoDialog.OPTIONS_KEY]</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>                    if options:</div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>                        widget = ui.select(options)</div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>                        widget.tooltip(fieldName)</div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>                    else:</div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>                        raise Exception(&quot;BUG: DROPDOWN_INPUT_FIELD defined without defining the options.&quot;)</div>
 <div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span> </div>
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>                elif fieldType == YesNoDialog.TIME_INPUT_FIELD:</div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>                    widget = ui.time()</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>                    widget.tooltip(fieldName)</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span> </div>
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>                elif fieldType == YesNoDialog.KNOB_INPUT_FIELD:</div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>                    widget = ui.knob(show_value=True)</div>
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>                    widget.tooltip(fieldName)</div>
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span> </div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>                # Save a ref to the widet in the field dict</div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>                self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY] = widget</div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>                elif fieldType == YesNoDialog.COLOR_INPUT_FIELD:</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>                    widget = ui.color_input(label=fieldName)</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span> </div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>                elif fieldType == YesNoDialog.DATE_INPUT_FIELD:</div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>                    widget = ui.date()</div>
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>                    widget.tooltip(fieldName)</div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span> </div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>                elif fieldType == YesNoDialog.TIME_INPUT_FIELD:</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>                    widget = ui.time()</div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>                    widget.tooltip(fieldName)</div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
-<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>                # If we have an initial value then set it</div>
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>                value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
-<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>                if value:</div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>                    widget.value = value</div>
-<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span> </div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>            with ui.row():</div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>                ui.button(self._successButtonText, on_click=self._internalSuccessMethod)</div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>                ui.button(self._failureButtonText,  on_click=self._internalFailureMethod)</div>
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>                elif fieldType == YesNoDialog.KNOB_INPUT_FIELD:</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>                    widget = ui.knob(show_value=True)</div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>                    widget.tooltip(fieldName)</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span> </div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>                elif fieldType == YesNoDialog.HOUR_MIN_INPUT_FIELD_TYPE:</div>
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>                    widget = self._get_input_time_field(fieldName)</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>                    widget.tooltip(fieldName)</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span> </div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>                # Save a ref to the widet in the field dict</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>                self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY] = widget</div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>                # If we have an initial value then set it</div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>                value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>                if value:</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>                    widget.value = value</div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span> </div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>            with ui.row():</div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>                ui.button(self._successButtonText, on_click=self._internalSuccessMethod)</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>                ui.button(self._failureButtonText,  on_click=self._internalFailureMethod)</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span> </div>
 </div>
-<div class="foldopen" id="foldopen00748" data-start="" data-end="">
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ad9998bf6f867291f984c0e274b32821e">  748</a></span>    def setPrompt(self, prompt):</div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>        &quot;&quot;&quot;@brief Set the user prompt.</div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>           @param prompt The user prompt.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>        self._prompt = prompt</div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span> </div>
-</div>
-<div class="foldopen" id="foldopen00753" data-start="" data-end="">
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#af521541bbe8e2516910d611307cb341f">  753</a></span>    def setSuccessMethod(self, successMethod):</div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>        &quot;&quot;&quot;@brief Set the text of the success button.</div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>           @param successMethod The method called when the user selects the success button.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>        self._successMethod = successMethod</div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span> </div>
-</div>
-<div class="foldopen" id="foldopen00758" data-start="" data-end="">
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ad3fb5f7c712089a5643d4117582a9c7f">  758</a></span>    def setFailureMethod(self, failureMethod):</div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>        &quot;&quot;&quot;@brief Set the text of the success button.</div>
-<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>           @param failureMethod The method called when the user selects the failure button.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        self._failureMethod = failureMethod</div>
-<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span> </div>
-</div>
-<div class="foldopen" id="foldopen00763" data-start="" data-end="">
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ae9f25310c6a76e5805053de290910514">  763</a></span>    def setSuccessButtonLabel(self, label):</div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>        &quot;&quot;&quot;@brief Set the text of the success button.</div>
-<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>           @param label The success button text.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>        self._successButtonText = label</div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span> </div>
-</div>
-<div class="foldopen" id="foldopen00768" data-start="" data-end="">
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#acf2c1100d221bd2f4054e9e97d562e01">  768</a></span>    def setFailureButtonLabel(self, label):</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>        &quot;&quot;&quot;@brief Set the text of the failure button.</div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>           @param label The failure button text.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>        self._failureButtonText = label</div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        </div>
-</div>
-<div class="foldopen" id="foldopen00773" data-start="" data-end="">
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aee92d1368e7eba9c024dfc1cb30258f6">  773</a></span>    def show(self):</div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        &quot;&quot;&quot;@brief Allow the user to select yes/no, ok/cancel etc in response to a question.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>        self._init()</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        self._dialog.open()</div>
+<div class="foldopen" id="foldopen00759" data-start="" data-end="">
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#acb2da16d834e00f0b1c436936ccb5440">  759</a></span>    def _get_input_time_field(self, label):</div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>        &quot;&quot;&quot;@brief Add a control to allow the user to enter the time as an hour and min.</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>           @param label The label for the time field.</div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>           @return The input field containing the hour and minute entered.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>        # Put this off the bottom of the mobile screen as most times it will not be needed</div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>        # and there is not enough room on the mobile screen above the plot pane.</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>        with ui.row().classes(&#39;w-full&#39;):</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>            ui.label(label)</div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>            with ui.row().classes(&#39;w-full&#39;):</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>                time_input = ui.input(&quot;Time (HH:MM)&quot;)</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>                with time_input as time:</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>                    with ui.menu().props(&#39;no-parent-event&#39;) as menu:</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>                        with ui.time().bind_value(time):</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>                            with ui.row().classes(&#39;justify-end&#39;):</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>                                ui.button(&#39;Close&#39;, on_click=menu.close).props(&#39;flat&#39;)</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>                    with time.add_slot(&#39;append&#39;):</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>                        ui.icon(&#39;access_time&#39;).on(&#39;click&#39;, menu.open).classes(&#39;cursor-pointer&#39;)</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        return time_input</div>
 <div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span> </div>
 </div>
 <div class="foldopen" id="foldopen00778" data-start="" data-end="">
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a4411c18577e55f56f98e7b18b5a12980">  778</a></span>    def getValue(self, fieldName):</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        &quot;&quot;&quot;@brief Get the value entered by the user.</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>           @param fieldName The name of the field entered.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>        value = None</div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        if hasattr(widget, &#39;value&#39;):</div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>            value = widget.value</div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span> </div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>        elif isinstance(widget, ui.upload):</div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>            value = self._selectedFile</div>
-<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        return value</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span> </div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ad9998bf6f867291f984c0e274b32821e">  778</a></span>    def setPrompt(self, prompt):</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        &quot;&quot;&quot;@brief Set the user prompt.</div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>           @param prompt The user prompt.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>        self._prompt = prompt</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span> </div>
 </div>
-<div class="foldopen" id="foldopen00791" data-start="" data-end="">
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a644eb952700b20c2cad6fa375af5a196">  791</a></span>    def _internalSuccessMethod(self):</div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        &quot;&quot;&quot;@brief Called when the user selects the success button.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>        self.close()</div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>        # Save the entered values for all fields</div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>        for fieldName in self._inputFieldDict:</div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>            widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>            if hasattr(widget, &#39;value&#39;):</div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>                self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY] = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY].value</div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>        # If defined call the method </div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>        if self._successMethod:</div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>            self._successMethod()</div>
+<div class="foldopen" id="foldopen00783" data-start="" data-end="">
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#af521541bbe8e2516910d611307cb341f">  783</a></span>    def setSuccessMethod(self, successMethod):</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        &quot;&quot;&quot;@brief Set the text of the success button.</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>           @param successMethod The method called when the user selects the success button.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>        self._successMethod = successMethod</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span> </div>
+</div>
+<div class="foldopen" id="foldopen00788" data-start="" data-end="">
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ad3fb5f7c712089a5643d4117582a9c7f">  788</a></span>    def setFailureMethod(self, failureMethod):</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        &quot;&quot;&quot;@brief Set the text of the success button.</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>           @param failureMethod The method called when the user selects the failure button.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>        self._failureMethod = failureMethod</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span> </div>
+</div>
+<div class="foldopen" id="foldopen00793" data-start="" data-end="">
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#ae9f25310c6a76e5805053de290910514">  793</a></span>    def setSuccessButtonLabel(self, label):</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>        &quot;&quot;&quot;@brief Set the text of the success button.</div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>           @param label The success button text.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>        self._successButtonText = label</div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span> </div>
+</div>
+<div class="foldopen" id="foldopen00798" data-start="" data-end="">
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#acf2c1100d221bd2f4054e9e97d562e01">  798</a></span>    def setFailureButtonLabel(self, label):</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>        &quot;&quot;&quot;@brief Set the text of the failure button.</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>           @param label The failure button text.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>        self._failureButtonText = label</div>
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span> </div>
 </div>
 <div class="foldopen" id="foldopen00803" data-start="" data-end="">
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aa467338f682fb819842ebcf8a9d07059">  803</a></span>    def _internalFailureMethod(self):</div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>        &quot;&quot;&quot;@brief Called when the user selects the failure button.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>        self.close()</div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>        if self._failureMethod:</div>
-<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>            self._failureMethod()</div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span> </div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aee92d1368e7eba9c024dfc1cb30258f6">  803</a></span>    def show(self):</div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>        &quot;&quot;&quot;@brief Allow the user to select yes/no, ok/cancel etc in response to a question.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>        self._init()</div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>        self._dialog.open()</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span> </div>
 </div>
-<div class="foldopen" id="foldopen00809" data-start="" data-end="">
-<div class="line"><a id="l00809" name="l00809"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a8ab79e14e24aa440dcd1d9e822eb1f1c">  809</a></span>    def close(self):</div>
-<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>        &quot;&quot;&quot;@brief Close the boolean dialog.&quot;&quot;&quot;</div>
-<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>        self._dialog.close()</div>
+<div class="foldopen" id="foldopen00808" data-start="" data-end="">
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a4411c18577e55f56f98e7b18b5a12980">  808</a></span>    def getValue(self, fieldName):</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>        &quot;&quot;&quot;@brief Get the value entered by the user.</div>
+<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>           @param fieldName The name of the field entered.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>        value = None</div>
+<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>        widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>        if hasattr(widget, &#39;value&#39;):</div>
+<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>            value = widget.value</div>
+<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span> </div>
+<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>        elif isinstance(widget, ui.upload):</div>
+<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>            value = self._selectedFile</div>
+<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span> </div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>        return value</div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span> </div>
+</div>
+<div class="foldopen" id="foldopen00821" data-start="" data-end="">
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a644eb952700b20c2cad6fa375af5a196">  821</a></span>    def _internalSuccessMethod(self):</div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>        &quot;&quot;&quot;@brief Called when the user selects the success button.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>        self.close()</div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>        # Save the entered values for all fields</div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>        for fieldName in self._inputFieldDict:</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>            widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            if hasattr(widget, &#39;value&#39;):</div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>                self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY] = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY].value</div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>        # If defined call the method</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>        if self._successMethod:</div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>            self._successMethod()</div>
+<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span> </div>
+</div>
+<div class="foldopen" id="foldopen00833" data-start="" data-end="">
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#aa467338f682fb819842ebcf8a9d07059">  833</a></span>    def _internalFailureMethod(self):</div>
+<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>        &quot;&quot;&quot;@brief Called when the user selects the failure button.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>        self.close()</div>
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>        if self._failureMethod:</div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>            self._failureMethod()</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span> </div>
+</div>
+<div class="foldopen" id="foldopen00839" data-start="" data-end="">
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1YesNoDialog.html#a8ab79e14e24aa440dcd1d9e822eb1f1c">  839</a></span>    def close(self):</div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>        &quot;&quot;&quot;@brief Close the boolean dialog.&quot;&quot;&quot;</div>
+<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>        self._dialog.close()</div>
 </div>
 </div>
 <div class="ttc" id="aclassp3lib_1_1ngt_1_1TabbedNiceGui_html"><div class="ttname"><a href="classp3lib_1_1ngt_1_1TabbedNiceGui.html">p3lib.ngt.TabbedNiceGui</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00018">ngt.py:18</a></div></div>
@@ -1081,7 +1113,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassp3lib_1_1ngt_1_1TabbedNiceGui_html_afa478385f1d8412ee0e0cfe962832385"><div class="ttname"><a href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#afa478385f1d8412ee0e0cfe962832385">p3lib.ngt.TabbedNiceGui._showLogMsgCount</a></div><div class="ttdeci">_showLogMsgCount(self)</div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00526">ngt.py:526</a></div></div>
 <div class="ttc" id="aclassp3lib_1_1ngt_1_1TabbedNiceGui_html_afec8e979f3fb069d2c7c09f8fc975de7"><div class="ttname"><a href="classp3lib_1_1ngt_1_1TabbedNiceGui.html#afec8e979f3fb069d2c7c09f8fc975de7">p3lib.ngt.TabbedNiceGui._startProgress</a></div><div class="ttdeci">_startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0)</div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00434">ngt.py:434</a></div></div>
 <div class="ttc" id="aclassp3lib_1_1ngt_1_1YesNoDialog_html"><div class="ttname"><a href="classp3lib_1_1ngt_1_1YesNoDialog.html">p3lib.ngt.YesNoDialog</a></div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00618">ngt.py:618</a></div></div>
-<div class="ttc" id="aclassp3lib_1_1ngt_1_1YesNoDialog_html_a37d1b9d644fbbf1795e129cfc7a6658e"><div class="ttname"><a href="classp3lib_1_1ngt_1_1YesNoDialog.html#a37d1b9d644fbbf1795e129cfc7a6658e">p3lib.ngt.YesNoDialog.__init__</a></div><div class="ttdeci">__init__(self, prompt, successMethod, failureMethod=None, successButtonText=&quot;Yes&quot;, failureButtonText=&quot;No&quot;)</div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00644">ngt.py:649</a></div></div>
+<div class="ttc" id="aclassp3lib_1_1ngt_1_1YesNoDialog_html_a37d1b9d644fbbf1795e129cfc7a6658e"><div class="ttname"><a href="classp3lib_1_1ngt_1_1YesNoDialog.html#a37d1b9d644fbbf1795e129cfc7a6658e">p3lib.ngt.YesNoDialog.__init__</a></div><div class="ttdeci">__init__(self, prompt, successMethod, failureMethod=None, successButtonText=&quot;Yes&quot;, failureButtonText=&quot;No&quot;)</div><div class="ttdef"><b>Definition</b> <a href="ngt_8py_source.html#l00647">ngt.py:652</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

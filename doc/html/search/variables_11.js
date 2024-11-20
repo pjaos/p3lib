@@ -14,11 +14,12 @@ var searchData=
   ['ssh_5ffolder_11',['SSH_FOLDER',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a36f636597ecc5337397fe40d8c7f6ae5',1,'p3lib::pconfig::ConfigManager']]],
   ['staticplotparams_12',['staticPlotParams',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#aff411ddfcafd48b6a9811805817e13aa',1,'p3lib::table_plot::Table2DPlotServer']]],
   ['statusbar_13',['statusBar',['../classp3lib_1_1bokeh__gui_1_1StatusBarWrapper.html#a9d0dfb6edcc63c30f643bd86dfac48ce',1,'p3lib::bokeh_gui::StatusBarWrapper']]],
-  ['stopserver_14',['stopserver',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#a6e37efb79b90216f6d8b9c8ba4b430d2',1,'p3lib.bokeh_gui.TimeSeriesPlotter.stopServer'],['../classbokeh__demo_1_1BokehDemoA.html#a6e37efb79b90216f6d8b9c8ba4b430d2',1,'bokeh_demo.BokehDemoA.stopServer'],['../classbokeh__demo_1_1BokehDemoB.html#a6e37efb79b90216f6d8b9c8ba4b430d2',1,'bokeh_demo.BokehDemoB.stopServer']]],
-  ['supported_5fos_5fnames_15',['SUPPORTED_OS_NAMES',['../classp3lib_1_1netif_1_1NetIF.html#a821e869512df7808c2ac4f2427c5c124',1,'p3lib::netif::NetIF']]],
-  ['switch_5finput_5ffield_5ftype_16',['SWITCH_INPUT_FIELD_TYPE',['../classp3lib_1_1ngt_1_1YesNoDialog.html#acaacc2097dc0b8e084384ff32aed7d05',1,'p3lib::ngt::YesNoDialog']]],
-  ['syslog_17',['SYSLOG',['../classp3lib_1_1uio_1_1FACILITY.html#a5e80bcc6274d98be41a1dbee9e16cc8e',1,'p3lib::uio::FACILITY']]],
-  ['syslog_5fserver_18',['SYSLOG_SERVER',['../namespaceuio__test.html#a13f26aabc90b0ddd4d90a1b6ac531995',1,'uio_test']]],
-  ['system_5fctl_5f1_19',['SYSTEM_CTL_1',['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#ad494c879ab37dd1d09b4237aaeb86e2a',1,'p3lib::boot_manager::LinuxBootManager']]],
-  ['system_5fctl_5f2_20',['SYSTEM_CTL_2',['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#ad7c48562f4041af345b0c768dd1a5424',1,'p3lib::boot_manager::LinuxBootManager']]]
+  ['step_5fkey_14',['STEP_KEY',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a8d33634c8324f83217a2569c33916179',1,'p3lib::ngt::YesNoDialog']]],
+  ['stopserver_15',['stopserver',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#a6e37efb79b90216f6d8b9c8ba4b430d2',1,'p3lib.bokeh_gui.TimeSeriesPlotter.stopServer'],['../classbokeh__demo_1_1BokehDemoA.html#a6e37efb79b90216f6d8b9c8ba4b430d2',1,'bokeh_demo.BokehDemoA.stopServer'],['../classbokeh__demo_1_1BokehDemoB.html#a6e37efb79b90216f6d8b9c8ba4b430d2',1,'bokeh_demo.BokehDemoB.stopServer']]],
+  ['supported_5fos_5fnames_16',['SUPPORTED_OS_NAMES',['../classp3lib_1_1netif_1_1NetIF.html#a821e869512df7808c2ac4f2427c5c124',1,'p3lib::netif::NetIF']]],
+  ['switch_5finput_5ffield_5ftype_17',['SWITCH_INPUT_FIELD_TYPE',['../classp3lib_1_1ngt_1_1YesNoDialog.html#acaacc2097dc0b8e084384ff32aed7d05',1,'p3lib::ngt::YesNoDialog']]],
+  ['syslog_18',['SYSLOG',['../classp3lib_1_1uio_1_1FACILITY.html#a5e80bcc6274d98be41a1dbee9e16cc8e',1,'p3lib::uio::FACILITY']]],
+  ['syslog_5fserver_19',['SYSLOG_SERVER',['../namespaceuio__test.html#a13f26aabc90b0ddd4d90a1b6ac531995',1,'uio_test']]],
+  ['system_5fctl_5f1_20',['SYSTEM_CTL_1',['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#ad494c879ab37dd1d09b4237aaeb86e2a',1,'p3lib::boot_manager::LinuxBootManager']]],
+  ['system_5fctl_5f2_21',['SYSTEM_CTL_2',['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#ad7c48562f4041af345b0c768dd1a5424',1,'p3lib::boot_manager::LinuxBootManager']]]
 ];
