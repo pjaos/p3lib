@@ -1,7 +1,7 @@
 # !/usr/bin/env python3
 
 """NiceGui Tools
-   Responsible for providing helper classes for nicegui interfaces 
+   Responsible for providing helper classes for nicegui interfaces
    aimed at reducing coding required for a GUI.
 """
 
@@ -19,9 +19,9 @@ class TabbedNiceGui(object):
     """@brief Responsible for starting the providing a tabbed GUI.
               This class is designed to ease the creation of a tabbed GUI interface.
               The contents of each tab can be defined in the subclass.
-              The GUI includes a message log area below each tab. Tasks can send messages 
+              The GUI includes a message log area below each tab. Tasks can send messages
               to this log area.
-              If a subclass sets the self._logFile attributed then all messages sent to the 
+              If a subclass sets the self._logFile attributed then all messages sent to the
               log area are written to a log file with timestamps."""
 
     # This can be used in the markdown text for a TAB description to give slightly larger text
@@ -47,7 +47,7 @@ class TabbedNiceGui(object):
     def GetDateTimeStamp():
         """@return The log file date/time stamp """
         return strftime("%Y%m%d%H%M%S", localtime()).lower()
-    
+
     @staticmethod
     def GetInstallFolder():
         """@return The folder where the apps are installed."""
@@ -55,7 +55,7 @@ class TabbedNiceGui(object):
         if not os.path.isdir(installFolder):
             raise Exception(f"{installFolder} folder not found.")
         return installFolder
-    
+
     @staticmethod
     def GetLogFileName(logFilePrefix):
         """@param logFilePrefix The text in the log file name before the timestamp.
@@ -63,7 +63,7 @@ class TabbedNiceGui(object):
         dateTimeStamp = TabbedNiceGui.GetDateTimeStamp()
         logFileName = f"{logFilePrefix}_{dateTimeStamp}.log"
         return logFileName
-    
+
     @staticmethod
     def CheckPort(port):
         """@brief Check the server port.
@@ -72,7 +72,7 @@ class TabbedNiceGui(object):
             raise Exception("The minimum TCP port that you can bind the GUI server to is 1024.")
         if port > 65535:
             raise Exception("The maximum TCP port that you can bind the GUI server to is 65535.")
-        
+
     @staticmethod
     def GetProgramVersion():
         """@brief Get the program version from the poetry pyproject.toml file.
@@ -86,7 +86,7 @@ class TabbedNiceGui(object):
                 poetryConfigFile = os.path.join(cwd, TabbedNiceGui.POETRY_CONFIG_FILE)
                 if not os.path.isfile(poetryConfigFile):
                     raise Exception(f"{poetryConfigFile}, {poetryConfigFile2} and {poetryConfigFile} not found.")
-                
+
         programVersion = None
         with open(poetryConfigFile, 'r') as fd:
             lines = fd.readlines()
@@ -144,8 +144,8 @@ class TabbedNiceGui(object):
 
     # Start ------------------------------
     # Methods that allow the GUI to display standard UIO messages
-    # This allows the GUI to be used with code that was written 
-    # to be used on the command line using UIO class instances 
+    # This allows the GUI to be used with code that was written
+    # to be used on the command line using UIO class instances
     #
     def info(self, msg):
         """@brief Send a info message to be displayed in the GUI.
@@ -160,14 +160,14 @@ class TabbedNiceGui(object):
            @param msg The message to be displayed."""
         msgDict = {TabbedNiceGui.WARN_MESSAGE: str(msg)}
         self.updateGUI(msgDict)
-        
+
     def error(self, msg):
         """@brief Send a error message to be displayed in the GUI.
                   This can be called from outside the GUI thread.
            @param msg The message to be displayed."""
         msgDict = {TabbedNiceGui.ERROR_MESSAGE: str(msg)}
         self.updateGUI(msgDict)
-        
+
     def infoDialog(self, msg):
         """@brief Display an info level dialog.
            @param msg The message dialog."""
@@ -198,7 +198,7 @@ class TabbedNiceGui(object):
         else:
             returnText = inputObj.value
         return returnText
-            
+
     def reportException(self, exception):
         """@brief Report an exception.
                   If debug is enabled a full stack trace is displayed.
@@ -235,18 +235,18 @@ class TabbedNiceGui(object):
         # Check we have a table to display
         if len(table) == 0:
             raise Exception("No table rows to display")
-        
+
         # Check all rows have the same number of columns in the table
         colCount = len(table[0])
         for row in table:
             if len(row) != colCount:
                 raise Exception(f"{str(row)} column count different from first row ({colCount})")
-        
+
         for row in table:
             for col in row:
                 if not isinstance(col, str):
                     raise Exception(f"Table column is not a string: {col} in {row}")
-                
+
         # Get the max width for each column
         for col in range(0,colCount):
             maxWidth=0
@@ -258,10 +258,10 @@ class TabbedNiceGui(object):
         tableWidth = 1
         for columnWidth in columnWidths:
             tableWidth += columnWidth + 3 # Space each side of the column + a column divider character
-                    
+
         # Add the top line of the table
         self.info(rowSeparatorChar*tableWidth)
-               
+
         # The starting row index
         for rowIndex in range(0, len(table)):
             rowText = colSeparatorChar
@@ -280,7 +280,7 @@ class TabbedNiceGui(object):
     def setLogFile(self, logFile):
         pass
 
-    # End ------------------------------   
+    # End ------------------------------
 
     def _saveLogMsg(self, msg):
         """@brief Save the message to a log file.
@@ -295,7 +295,7 @@ class TabbedNiceGui(object):
             with open(self._logFile, 'a') as fd:
                 dateTimeStamp = TabbedNiceGui.GetDateTimeStamp()
                 fd.write(dateTimeStamp + ": " + msg + '\n')
-    
+
     def _getDisplayMsg(self, msg, prefix):
         """@brief Get the msg to display. If the msg does not already have a msg level we add one.
            @param msg The source msg.
@@ -315,7 +315,7 @@ class TabbedNiceGui(object):
         self._log.push(msg)
         self._saveLogMsg(msg)
         self._logMessageCount += 1
-        # We've received a log message so update progress bar if required. 
+        # We've received a log message so update progress bar if required.
         self._updateProgressBar(msg)
 
     def _infoGT(self, msg):
@@ -377,7 +377,7 @@ class TabbedNiceGui(object):
     def initGUI(self, tabNameList, tabMethodInitList, reload=True, address="0.0.0.0", port=DEFAULT_SERVER_PORT, pageTitle="NiceGUI"):
         """@brief Init the tabbed GUI.
            @param tabNameList A list of the names of each tab to be created.
-           @param tabMethodInitList A list of the methods to be called to init each of the above tabs. 
+           @param tabMethodInitList A list of the methods to be called to init each of the above tabs.
                                     The two lists must be the same size.
            @param reload If reload is set False then changes to python files will not cause the server to be restarted.
            @param address The address to bind the server to.
@@ -392,7 +392,7 @@ class TabbedNiceGui(object):
                 for tabName in tabNameList:
                     tabObj = ui.tab(tabName)
                     tabObjList.append(tabObj)
-                
+
             with ui.tab_panels(tabs, value=tabObjList[0]).classes('w-full'):
                 for tabObj in tabObjList:
                     with ui.tab_panel(tabObj):
@@ -425,7 +425,7 @@ class TabbedNiceGui(object):
         ui.run(host=address, port=port, title=pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=reload)
 
     def progressTimerCallback(self):
-        """@brief Time to update the progress bar. We run the timer all the time because there appears to be a 
+        """@brief Time to update the progress bar. We run the timer all the time because there appears to be a
                   bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer."""
         if self._updateProgressOnTimer and self._progress.visible:
             # Increment the progress bar
@@ -433,17 +433,17 @@ class TabbedNiceGui(object):
 
     def _startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0):
         """@brief Start a timer that will update the progress bar.
-                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length 
+                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length
                   of the task.
 
-                  If startMessage is set to a text string the progress time will not start until the log message area contains 
+                  If startMessage is set to a text string the progress time will not start until the log message area contains
                   the start message.
-                  
-                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is 
+
+                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is
                   updated as each message is received. The messages may be the entire line of a log message or parts of a
                   log message line.
 
-                  Alternatively if expectedMsgCount is set to a value > 0 then the progress bar is updated as each message is 
+                  Alternatively if expectedMsgCount is set to a value > 0 then the progress bar is updated as each message is
                   added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.
 
             @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.
@@ -495,7 +495,7 @@ class TabbedNiceGui(object):
         if self._expectedProgressBarMsgCount > 0:
             self._progressValue = self._progressValue + self._progressStepValue
             self._progress.set_value( self._progressValue )
-            
+
         # If we have a list of log messages to update the progress bar.
         elif len(self._progressBarExpectedMessageList) > 0:
             if self._expectedProgressBarMessageIndex < len(self._progressBarExpectedMessageList):
@@ -517,7 +517,7 @@ class TabbedNiceGui(object):
         """@brief Should be called before a task is started."""
         self._enableAllButtons(False)
         self._clearMessages()
-        
+
     def _clearLog(self):
         """@brief Clear the log text"""
         if self._log:
@@ -526,11 +526,11 @@ class TabbedNiceGui(object):
     def _showLogMsgCount(self):
         """@brief Show the number of log messages"""
         ui.notify(f"{self._getLogMessageCount()} messages in the log.")
-        
+
     def close(self):
         """@brief Close down the app server."""
         ui.notify("Press 'CTRL C' at command line or close the terminal window to quit.")
-        # A subclass close() method can call 
+        # A subclass close() method can call
         # app.shutdown()
         # if reload=False on ui.run()
 
@@ -557,7 +557,7 @@ class TabbedNiceGui(object):
         elif TabbedNiceGui.DEBUG_MESSAGE in rxDict:
             msg = rxDict[TabbedNiceGui.DEBUG_MESSAGE]
             self._debugGT(msg)
-            
+
         elif TabbedNiceGui.ENABLE_BUTTONS in rxDict:
             state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]
             self._enableAllButtons(state)
@@ -565,7 +565,7 @@ class TabbedNiceGui(object):
         elif TabbedNiceGui.NOTIFY_DIALOG in rxDict:
             message = rxDict[TabbedNiceGui.NOTIFY_DIALOG]
             ui.notify(message, close_button='OK', type="positive", position="center")
- 
+
         else:
 
             self._handleGUIUpdate(rxDict)
@@ -601,47 +601,50 @@ class TabbedNiceGui(object):
 
             elif time() >= timeoutT:
                 raise Exception(f"{timeout} second GUI response timeout.")
-            
+
             else:
                 # Don't spin to fast
                 sleep(0.1)
-            
+
         return rxDict
-    
+
     def _handleGUIUpdate(self, rxDict):
         """@brief Process the dicts received from the GUI message queue
                   that were not handled by the parent class.
            @param rxDict The dict received from the GUI message queue."""
         raise NotImplementedError("_handleGUIUpdate() is not implemented. Implement this method in a subclass of TabbedNiceGUI")
-    
+
 
 class YesNoDialog(object):
     """@brief Responsible for displaying a dialog box to the user with a boolean (I.E yes/no, ok/cancel) response."""
-    TEXT_INPUT_FIELD_TYPE   = 1
-    NUMBER_INPUT_FIELD_TYPE = 2
-    SWITCH_INPUT_FIELD_TYPE = 3
-    DROPDOWN_INPUT_FIELD    = 4
-    COLOR_INPUT_FIELD       = 5
-    DATE_INPUT_FIELD        = 6
-    TIME_INPUT_FIELD        = 7
-    KNOB_INPUT_FIELD        = 8
-    VALID_FIELD_TYPE_LIST   = (TEXT_INPUT_FIELD_TYPE, 
-                               NUMBER_INPUT_FIELD_TYPE, 
-                               SWITCH_INPUT_FIELD_TYPE, 
+    TEXT_INPUT_FIELD_TYPE       = 1
+    NUMBER_INPUT_FIELD_TYPE     = 2
+    SWITCH_INPUT_FIELD_TYPE     = 3
+    DROPDOWN_INPUT_FIELD        = 4
+    COLOR_INPUT_FIELD           = 5
+    DATE_INPUT_FIELD            = 6
+    TIME_INPUT_FIELD            = 7
+    KNOB_INPUT_FIELD            = 8
+    HOUR_MIN_INPUT_FIELD_TYPE   = 9
+    VALID_FIELD_TYPE_LIST   = (TEXT_INPUT_FIELD_TYPE,
+                               NUMBER_INPUT_FIELD_TYPE,
+                               SWITCH_INPUT_FIELD_TYPE,
                                DROPDOWN_INPUT_FIELD,
                                COLOR_INPUT_FIELD,
                                DATE_INPUT_FIELD,
                                TIME_INPUT_FIELD,
-                               KNOB_INPUT_FIELD)
+                               KNOB_INPUT_FIELD,
+                               HOUR_MIN_INPUT_FIELD_TYPE)
 
     FIELD_TYPE_KEY          = "FIELD_TYPE_KEY"      # The type of field to be displayed.
-    VALUE_KEY               = "VALUE_KEY"           # The value to be displayed in the field when the dialog is displayed. 
+    VALUE_KEY               = "VALUE_KEY"           # The value to be displayed in the field when the dialog is displayed.
     MIN_NUMBER_KEY          = "MIN_NUMBER_KEY"      # If the type is NUMBER_INPUT_FIELD_TYPE, the min value that can be entered.
     MAX_NUMBER_KEY          = "MAX_NUMBER_KEY"      # If the type is NUMBER_INPUT_FIELD_TYPE, the max value that can be entered.
     WIDGET_KEY              = "WIDGET_KEY"          # The key to the GUI widget (E.G ui.input, ui.number etc)
     OPTIONS_KEY             = "OPTIONS_KEY"         # Some input fields require a list of options (E.G DROPDOWN_INPUT_FIELD).
+    STEP_KEY                = "STEP_KEY"            # The step size for numerical input fields
 
-    def __init__(self, 
+    def __init__(self,
                  prompt,
                  successMethod,
                  failureMethod=None,
@@ -656,7 +659,7 @@ class YesNoDialog(object):
         self._successMethod          = None          # The method to be called when the success button is selected.
         self._failureMethod          = None          # The method to be called when the failure button is selected.
         self._inputFieldDict         = {}            # A dict of input field details to be included in the dialog. Can be left as an empty dict if no input fields are required.
-                                                     # The key in this dict is the name of the input field that the user sees. 
+                                                     # The key in this dict is the name of the input field that the user sees.
                                                      # The value in this dict is another dict containing details of the input field which may be
 
         self.setPrompt(prompt)
@@ -666,13 +669,14 @@ class YesNoDialog(object):
         self.setFailureButtonLabel(failureButtonText)
 
 
-    def addField(self, name, fieldType, value=None, minNumber=None, maxNumber=None, options=None):
+    def addField(self, name, fieldType, value=None, minNumber=None, maxNumber=None, options=None, step=1):
         """@brief Add a field to the dialog.
            @param name          The name of the field to be added.
            @param fieldType     The type of field to be entered.
            @param value         The optional initial value for the field when the dialog is displayed.
            @param minNumber     The optional min value if the fieldType = NUMBER_INPUT_FIELD_TYPE.
            @param maxNumber     The optional max value if the fieldType = NUMBER_INPUT_FIELD_TYPE.
+           @param step          The step size for numerical input fields.
            """
         if name and len(name) > 0:
             if fieldType in YesNoDialog.VALID_FIELD_TYPE_LIST:
@@ -680,14 +684,15 @@ class YesNoDialog(object):
                                               YesNoDialog.VALUE_KEY:          value,
                                               YesNoDialog.MIN_NUMBER_KEY:     minNumber,
                                               YesNoDialog.MAX_NUMBER_KEY:     maxNumber,
-                                              YesNoDialog.OPTIONS_KEY:        options}
+                                              YesNoDialog.OPTIONS_KEY:        options,
+                                              YesNoDialog.STEP_KEY:           step}
 
             else:
                 raise Exception(f"YesNoDialog.addField() {fieldType} is an invalid field type.")
 
         else:
             raise Exception("YesNoDialog.addField() name not set.")
-        
+
     def _init(self):
         """@brief Init the dialog."""
         with ui.dialog() as self._dialog, ui.card():
@@ -701,11 +706,13 @@ class YesNoDialog(object):
                     value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]
                     min = self._inputFieldDict[fieldName][YesNoDialog.MIN_NUMBER_KEY]
                     max = self._inputFieldDict[fieldName][YesNoDialog.MAX_NUMBER_KEY]
-                    widget = ui.number(label=fieldName, 
-                                        value=value, 
-                                        min=min, 
-                                        max=max).style('width: 200px;')
-                    
+                    step = self._inputFieldDict[fieldName][YesNoDialog.STEP_KEY]
+                    widget = ui.number(label=fieldName,
+                                        value=value,
+                                        min=min,
+                                        max=max,
+                                        step=step).style('width: 200px;')
+
                 elif fieldType == YesNoDialog.SWITCH_INPUT_FIELD_TYPE:
                     widget = ui.switch(fieldName)
 
@@ -717,7 +724,7 @@ class YesNoDialog(object):
                         widget.tooltip(fieldName)
                     else:
                         raise Exception("BUG: DROPDOWN_INPUT_FIELD defined without defining the options.")
-                    
+
                 elif fieldType == YesNoDialog.COLOR_INPUT_FIELD:
                     widget = ui.color_input(label=fieldName)
 
@@ -733,6 +740,10 @@ class YesNoDialog(object):
                     widget = ui.knob(show_value=True)
                     widget.tooltip(fieldName)
 
+                elif fieldType == YesNoDialog.HOUR_MIN_INPUT_FIELD_TYPE:
+                    widget = self._get_input_time_field(fieldName)
+                    widget.tooltip(fieldName)
+
                 # Save a ref to the widet in the field dict
                 self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY] = widget
 
@@ -744,6 +755,25 @@ class YesNoDialog(object):
             with ui.row():
                 ui.button(self._successButtonText, on_click=self._internalSuccessMethod)
                 ui.button(self._failureButtonText,  on_click=self._internalFailureMethod)
+
+    def _get_input_time_field(self, label):
+        """@brief Add a control to allow the user to enter the time as an hour and min.
+           @param label The label for the time field.
+           @return The input field containing the hour and minute entered."""
+        # Put this off the bottom of the mobile screen as most times it will not be needed
+        # and there is not enough room on the mobile screen above the plot pane.
+        with ui.row().classes('w-full'):
+            ui.label(label)
+            with ui.row().classes('w-full'):
+                time_input = ui.input("Time (HH:MM)")
+                with time_input as time:
+                    with ui.menu().props('no-parent-event') as menu:
+                        with ui.time().bind_value(time):
+                            with ui.row().classes('justify-end'):
+                                ui.button('Close', on_click=menu.close).props('flat')
+                    with time.add_slot('append'):
+                        ui.icon('access_time').on('click', menu.open).classes('cursor-pointer')
+        return time_input
 
     def setPrompt(self, prompt):
         """@brief Set the user prompt.
@@ -769,7 +799,7 @@ class YesNoDialog(object):
         """@brief Set the text of the failure button.
            @param label The failure button text."""
         self._failureButtonText = label
-        
+
     def show(self):
         """@brief Allow the user to select yes/no, ok/cancel etc in response to a question."""
         self._init()
@@ -796,7 +826,7 @@ class YesNoDialog(object):
             widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]
             if hasattr(widget, 'value'):
                 self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY] = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY].value
-        # If defined call the method 
+        # If defined call the method
         if self._successMethod:
             self._successMethod()
 
