@@ -338,7 +338,7 @@ class ConfigManager(object):
                     configPath = configPath.strip()
 
         return join( configPath, cfgFilename )
-    
+
     def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
         """@brief Constructor
            @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
@@ -773,11 +773,11 @@ class DotConfigManager(ConfigManager):
 
         if not os.path.isdir(homePath):
             raise Exception(f"{homePath} HOME path does not exist.")
-        
+
         # Create the ~/.config folder if it does not exist
         if not os.path.isdir(configFolder):
             # Create the ~/.config folder
-            os.makedir(configFolder)
+            os.makedirs(configFolder)
 
         progName = sys.argv[0]
         if progName.endswith('.py'):
@@ -802,7 +802,7 @@ class DotConfigManager(ConfigManager):
            @param encrypt If True then data will be encrypted in the saved files.
                           The encryption uses part of the the local SSH RSA private key.
                           This is not secure but assuming the private key has not been compromised it's
-                          probably the best we can do. 
+                          probably the best we can do.
                           !!! Therefore if encrypt is set True then the an ssh key must be present !!!
                           ||| in the ~/.ssh folder named id_rsa.                                   !!!"""
         super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)
