@@ -314,7 +314,7 @@ Additional Inherited Members</h2></td></tr>
    @param encrypt If True then data will be encrypted in the saved files.
                   The encryption uses part of the the local SSH RSA private key.
                   This is not secure but assuming the private key has not been compromised it's
-                  probably the best we can do. 
+                  probably the best we can do.
                   !!! Therefore if encrypt is set True then the an ssh key must be present !!!
                   ||| in the ~/.ssh folder named id_rsa.                                   !!!</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#ad05b4e8286920561f6960f7453644f66">ConfigManager</a>.</p>
@@ -328,7 +328,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">  802</span><span class="stringliteral">           @param encrypt If True then data will be encrypted in the saved files.</span></div>
 <div class="line"><span class="lineno">  803</span><span class="stringliteral">                          The encryption uses part of the the local SSH RSA private key.</span></div>
 <div class="line"><span class="lineno">  804</span><span class="stringliteral">                          This is not secure but assuming the private key has not been compromised it&#39;s</span></div>
-<div class="line"><span class="lineno">  805</span><span class="stringliteral">                          probably the best we can do. </span></div>
+<div class="line"><span class="lineno">  805</span><span class="stringliteral">                          probably the best we can do.</span></div>
 <div class="line"><span class="lineno">  806</span><span class="stringliteral">                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!</span></div>
 <div class="line"><span class="lineno">  807</span><span class="stringliteral">                          ||| in the ~/.ssh folder named id_rsa.                                   !!!&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  808</span>        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)</div>
@@ -379,11 +379,11 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">  773</span> </div>
 <div class="line"><span class="lineno">  774</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(homePath):</div>
 <div class="line"><span class="lineno">  775</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{homePath} HOME path does not exist.&quot;</span>)</div>
-<div class="line"><span class="lineno">  776</span>        </div>
+<div class="line"><span class="lineno">  776</span> </div>
 <div class="line"><span class="lineno">  777</span>        <span class="comment"># Create the ~/.config folder if it does not exist</span></div>
 <div class="line"><span class="lineno">  778</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(configFolder):</div>
 <div class="line"><span class="lineno">  779</span>            <span class="comment"># Create the ~/.config folder</span></div>
-<div class="line"><span class="lineno">  780</span>            os.makedir(configFolder)</div>
+<div class="line"><span class="lineno">  780</span>            os.makedirs(configFolder)</div>
 <div class="line"><span class="lineno">  781</span> </div>
 <div class="line"><span class="lineno">  782</span>        progName = sys.argv[0]</div>
 <div class="line"><span class="lineno">  783</span>        <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>

@@ -453,7 +453,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>                    configPath = configPath.strip()</div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        return join( configPath, cfgFilename )</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
 </div>
 <div class="foldopen" id="foldopen00342" data-start="" data-end="">
 <div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1ConfigManager.html#ad05b4e8286920561f6960f7453644f66">  342</a></span>    def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):</div>
@@ -954,11 +954,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span> </div>
 <div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        if not os.path.isdir(homePath):</div>
 <div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>            raise Exception(f&quot;{homePath} HOME path does not exist.&quot;)</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        </div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span> </div>
 <div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>        # Create the ~/.config folder if it does not exist</div>
 <div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        if not os.path.isdir(configFolder):</div>
 <div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>            # Create the ~/.config folder</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>            os.makedir(configFolder)</div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>            os.makedirs(configFolder)</div>
 <div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span> </div>
 <div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        progName = sys.argv[0]</div>
 <div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        if progName.endswith(&#39;.py&#39;):</div>
@@ -985,7 +985,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>           @param encrypt If True then data will be encrypted in the saved files.</div>
 <div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>                          The encryption uses part of the the local SSH RSA private key.</div>
 <div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>                          This is not secure but assuming the private key has not been compromised it&#39;s</div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>                          probably the best we can do. </div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>                          probably the best we can do.</div>
 <div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>                          !!! Therefore if encrypt is set True then the an ssh key must be present !!!</div>
 <div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>                          ||| in the ~/.ssh folder named id_rsa.                                   !!!&quot;&quot;&quot;</div>
 <div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)</div>
