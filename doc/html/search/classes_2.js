@@ -8,5 +8,6 @@ var searchData=
   ['credentialshasher_5',['CredentialsHasher',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasher.html',1,'p3lib::bokeh_auth']]],
   ['credentialshasherexeption_6',['CredentialsHasherExeption',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasherExeption.html',1,'p3lib::bokeh_auth']]],
   ['credentialshashertester_7',['CredentialsHasherTester',['../classbokeh__auth__test_1_1CredentialsHasherTester.html',1,'bokeh_auth_test']]],
-  ['credentialsmanager_8',['CredentialsManager',['../classp3lib_1_1bokeh__auth_1_1CredentialsManager.html',1,'p3lib::bokeh_auth']]]
+  ['credentialsmanager_8',['CredentialsManager',['../classp3lib_1_1bokeh__auth_1_1CredentialsManager.html',1,'p3lib::bokeh_auth']]],
+  ['cryptfile_9',['CryptFile',['../classp3lib_1_1file__io_1_1CryptFile.html',1,'p3lib::file_io']]]
 ];

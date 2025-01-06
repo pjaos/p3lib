@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['save_0',['save',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#a49bcda5793f9cba440ad71a9e375d2f0',1,'p3lib.bokeh_gui.GUIModel_A.save()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#ac75225f55d725e44854b72f4bc8fe72e',1,'p3lib.netplotly.NetPlotly.save()']]],
+  ['save_0',['save',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#a49bcda5793f9cba440ad71a9e375d2f0',1,'p3lib.bokeh_gui.GUIModel_A.save()'],['../classp3lib_1_1file__io_1_1CryptFile.html#acd2147510387360932d5b75f70e19352',1,'p3lib.file_io.CryptFile.save()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#ac75225f55d725e44854b72f4bc8fe72e',1,'p3lib.netplotly.NetPlotly.save()']]],
   ['saveaccesslogmessage_1',['SaveAccessLogMessage',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#a1c1974bb60e9aa454a762144fb6dc1e3',1,'p3lib::bokeh_auth::LoginHandler']]],
   ['savedict_2',['saveDict',['../namespacep3lib_1_1helper.html#a50738f406ace375f13b1eb8eb01138db',1,'p3lib::helper']]],
   ['saveinfoaccesslogmessage_3',['SaveInfoAccessLogMessage',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#aa8f28666f4d2e26129ccaca3e9f9a517',1,'p3lib::bokeh_auth::LoginHandler']]],

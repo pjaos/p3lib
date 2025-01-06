@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['warn_5fmessage_0',['WARN_MESSAGE',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#afbfea46ef6a23181194ff20bd2cc758e',1,'p3lib::ngt::TabbedNiceGui']]],
-  ['warning_1',['WARNING',['../classp3lib_1_1uio_1_1PRIORITY.html#a6d56d31dc98daa7e6566f14350e580f9',1,'p3lib::uio::PRIORITY']]],
-  ['widget_5fkey_2',['WIDGET_KEY',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240',1,'p3lib::ngt::YesNoDialog']]],
-  ['window_5fttle_3',['WINDOW_TTLE',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#ad4136487d7e9548b01df7dafb5f37b91',1,'p3lib::table_plot::Table2DPlotServer']]],
-  ['windowtitle_4',['windowTitle',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a4e3ac5b727033516129bae426ab2091d',1,'p3lib::table_plot::StaticPlotParams']]]
+  ['valid_5ffield_5ftype_5flist_0',['VALID_FIELD_TYPE_LIST',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ad8f55b6538efca43bb8d530789c87f3c',1,'p3lib::ngt::YesNoDialog']]],
+  ['valid_5fthemes_1',['VALID_THEMES',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#ae4e991b5d866c737dbfef4f96e51df8e',1,'p3lib::table_plot::Table2DPlotServer']]],
+  ['valid_5fx_5faxis_5ftypes_2',['VALID_X_AXIS_TYPES',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a067a31bb700c6ac4f9ebed8cf0136b8f',1,'p3lib::table_plot::Table2DPlotServer']]],
+  ['value_3',['value',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'p3lib.bokeh_gui.TimeSeriesPoint.value'],['../classbokeh__demo_1_1TimeSeriesPoint.html#afcc7a4b78ecd8fa7e713f8cfa0f51017',1,'bokeh_demo.TimeSeriesPoint.value']]],
+  ['value_5fkey_4',['VALUE_KEY',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a86bee01fce47ddad792418cf134fc31b',1,'p3lib::ngt::YesNoDialog']]]
 ];

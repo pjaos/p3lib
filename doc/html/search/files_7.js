@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['helper_2epy_0',['helper.py',['../helper_8py.html',1,'']]]
+  ['guimodel_5fa_5fexample_2epy_0',['GUIModel_A_example.py',['../GUIModel__A__example_8py.html',1,'']]]
 ];
