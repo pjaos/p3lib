@@ -7,7 +7,7 @@ var searchData=
   ['id_5fstr3_4',['ID_STR3',['../classp3lib_1_1netif_1_1NetIF.html#a5f4cabd501cea9964547c64ca0881749',1,'p3lib::netif::NetIF']]],
   ['id_5fstr4_5',['ID_STR4',['../classp3lib_1_1netif_1_1NetIF.html#ab5c35711b530d8f5a1e37c10fdc5ed56',1,'p3lib::netif::NetIF']]],
   ['index_5fhtml_5ffile_6',['INDEX_HTML_FILE',['../classp3lib_1_1netplotly_1_1NetPlotly.html#a68417576fa3ab30625964f78fbedf0f3',1,'p3lib::netplotly::NetPlotly']]],
-  ['info_7',['info',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a794664bf8191321fa916605cd117a216',1,'p3lib.table_plot.Table2DPlotServer.info()'],['../classp3lib_1_1uio_1_1UIO.html#a79d775091d697353a9b29689e913fe74',1,'p3lib.uio.UIO.info()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a794664bf8191321fa916605cd117a216',1,'p3lib.ngt.TabbedNiceGui.info()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#a794664bf8191321fa916605cd117a216',1,'p3lib.netplotly.NetPlotly.info()'],['../classp3lib_1_1uio_1_1PRIORITY.html#a5ccbba8803c4e08f1a8d52cc79abe68f',1,'p3lib.uio.PRIORITY.INFO']]],
+  ['info_7',['info',['../classp3lib_1_1uio_1_1UIO.html#a79d775091d697353a9b29689e913fe74',1,'p3lib.uio.UIO.info()'],['../classp3lib_1_1uio_1_1PRIORITY.html#a5ccbba8803c4e08f1a8d52cc79abe68f',1,'p3lib.uio.PRIORITY.INFO'],['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a794664bf8191321fa916605cd117a216',1,'p3lib.table_plot.Table2DPlotServer.info()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a794664bf8191321fa916605cd117a216',1,'p3lib.ngt.TabbedNiceGui.info()'],['../classp3lib_1_1netplotly_1_1NetPlotly.html#a794664bf8191321fa916605cd117a216',1,'p3lib.netplotly.NetPlotly.info()']]],
   ['info_5fmessage_8',['INFO_MESSAGE',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a8ca49a7c67fc5a4d731e0b3629028bca',1,'p3lib::ngt::TabbedNiceGui']]],
   ['infodialog_9',['infoDialog',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a747cb6c6a4c24502ebf699c8f19f3d39',1,'p3lib::ngt::TabbedNiceGui']]],
   ['initargs_10',['initArgs',['../namespacep3lib_1_1helper.html#a8d06d9c6b9b5874e3fb4798d89fbb59a',1,'p3lib::helper']]],
@@ -27,9 +27,10 @@ var searchData=
   ['isaddressinnetwork_24',['IsAddressInNetwork',['../classp3lib_1_1netif_1_1NetIF.html#ae39788b63666ff01891c3852a148e6e0',1,'p3lib::netif::NetIF']]],
   ['isconnected_25',['isConnected',['../classp3lib_1_1ssh_1_1SSH.html#a4e8c2d21704465c2bfbf60edc9ad8d8f',1,'p3lib::ssh::SSH']]],
   ['isdebugenabled_26',['isDebugEnabled',['../classp3lib_1_1uio_1_1UIO.html#afa8abacb3e3791ab775289a7acd0ba21',1,'p3lib::uio::UIO']]],
-  ['ismodified_27',['isModified',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a0da9aebeeddde08e037eb72e2c5162bd',1,'p3lib::pconfig::ConfigManager']]],
-  ['isserverrunning_28',['isserverrunning',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#a342ea893281fe327b3481a23cff869cf',1,'p3lib.bokeh_gui.TabbedGUI.isServerRunning()'],['../classbokeh__demo_1_1TimeSeriesGUI.html#a342ea893281fe327b3481a23cff869cf',1,'bokeh_demo.TimeSeriesGUI.isServerRunning()']]],
-  ['isusernameavailable_29',['isUsernameAvailable',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasher.html#a3fde6637b3ffc56dc8fff89f3b9c9fe8',1,'p3lib::bokeh_auth::CredentialsHasher']]],
-  ['isvaliddate_30',['IsValidDate',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a9aa80a0b769a394339c7411c1bc2c889',1,'p3lib::pconfig::ConfigManager']]],
-  ['isvalidtime_31',['IsValidTime',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a6e07f514f106a20bca5f61e858792ef8',1,'p3lib::pconfig::ConfigManager']]]
+  ['islinux_27',['IsLinux',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#ac07a740208b05a06f497e320a0db6c87',1,'p3lib::gnome_desktop_app::GnomeDesktopApp']]],
+  ['ismodified_28',['isModified',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a0da9aebeeddde08e037eb72e2c5162bd',1,'p3lib::pconfig::ConfigManager']]],
+  ['isserverrunning_29',['isserverrunning',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#a342ea893281fe327b3481a23cff869cf',1,'p3lib.bokeh_gui.TabbedGUI.isServerRunning()'],['../classbokeh__demo_1_1TimeSeriesGUI.html#a342ea893281fe327b3481a23cff869cf',1,'bokeh_demo.TimeSeriesGUI.isServerRunning()']]],
+  ['isusernameavailable_30',['isUsernameAvailable',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasher.html#a3fde6637b3ffc56dc8fff89f3b9c9fe8',1,'p3lib::bokeh_auth::CredentialsHasher']]],
+  ['isvaliddate_31',['IsValidDate',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a9aa80a0b769a394339c7411c1bc2c889',1,'p3lib::pconfig::ConfigManager']]],
+  ['isvalidtime_32',['IsValidTime',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a6e07f514f106a20bca5f61e858792ef8',1,'p3lib::pconfig::ConfigManager']]]
 ];

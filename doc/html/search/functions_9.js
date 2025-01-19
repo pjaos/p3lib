@@ -17,9 +17,10 @@ var searchData=
   ['isaddressinnetwork_14',['IsAddressInNetwork',['../classp3lib_1_1netif_1_1NetIF.html#ae39788b63666ff01891c3852a148e6e0',1,'p3lib::netif::NetIF']]],
   ['isconnected_15',['isConnected',['../classp3lib_1_1ssh_1_1SSH.html#a4e8c2d21704465c2bfbf60edc9ad8d8f',1,'p3lib::ssh::SSH']]],
   ['isdebugenabled_16',['isDebugEnabled',['../classp3lib_1_1uio_1_1UIO.html#afa8abacb3e3791ab775289a7acd0ba21',1,'p3lib::uio::UIO']]],
-  ['ismodified_17',['isModified',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a0da9aebeeddde08e037eb72e2c5162bd',1,'p3lib::pconfig::ConfigManager']]],
-  ['isserverrunning_18',['isserverrunning',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#a342ea893281fe327b3481a23cff869cf',1,'p3lib.bokeh_gui.TabbedGUI.isServerRunning()'],['../classbokeh__demo_1_1TimeSeriesGUI.html#a342ea893281fe327b3481a23cff869cf',1,'bokeh_demo.TimeSeriesGUI.isServerRunning()']]],
-  ['isusernameavailable_19',['isUsernameAvailable',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasher.html#a3fde6637b3ffc56dc8fff89f3b9c9fe8',1,'p3lib::bokeh_auth::CredentialsHasher']]],
-  ['isvaliddate_20',['IsValidDate',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a9aa80a0b769a394339c7411c1bc2c889',1,'p3lib::pconfig::ConfigManager']]],
-  ['isvalidtime_21',['IsValidTime',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a6e07f514f106a20bca5f61e858792ef8',1,'p3lib::pconfig::ConfigManager']]]
+  ['islinux_17',['IsLinux',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#ac07a740208b05a06f497e320a0db6c87',1,'p3lib::gnome_desktop_app::GnomeDesktopApp']]],
+  ['ismodified_18',['isModified',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a0da9aebeeddde08e037eb72e2c5162bd',1,'p3lib::pconfig::ConfigManager']]],
+  ['isserverrunning_19',['isserverrunning',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#a342ea893281fe327b3481a23cff869cf',1,'p3lib.bokeh_gui.TabbedGUI.isServerRunning()'],['../classbokeh__demo_1_1TimeSeriesGUI.html#a342ea893281fe327b3481a23cff869cf',1,'bokeh_demo.TimeSeriesGUI.isServerRunning()']]],
+  ['isusernameavailable_20',['isUsernameAvailable',['../classp3lib_1_1bokeh__auth_1_1CredentialsHasher.html#a3fde6637b3ffc56dc8fff89f3b9c9fe8',1,'p3lib::bokeh_auth::CredentialsHasher']]],
+  ['isvaliddate_21',['IsValidDate',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a9aa80a0b769a394339c7411c1bc2c889',1,'p3lib::pconfig::ConfigManager']]],
+  ['isvalidtime_22',['IsValidTime',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a6e07f514f106a20bca5f61e858792ef8',1,'p3lib::pconfig::ConfigManager']]]
 ];
