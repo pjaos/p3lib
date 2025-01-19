@@ -117,9 +117,13 @@ class GnomeDesktopApp(object):
         self._create_gnome_desktop_file()
 
     def delete(self):
-        """@brief Delete the gnome desktop file if present"""
+        """@brief Delete the gnome desktop file if present.
+           @return True if a desktop file was deleted."""
+        deleted = False
         if os.path.isfile(self._gnome_desktop_file):
             os.remove(self._gnome_desktop_file)
+            deleted = True
+        return deleted
 
 """
     Example usage
