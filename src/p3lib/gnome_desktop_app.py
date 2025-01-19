@@ -3,7 +3,6 @@
 import os
 import sys
 import platform
-import site
 
 class GnomeDesktopApp(object):
     """@brief Responsible for adding and removing gnome desktop files for launching applications on a Linux system."""
@@ -73,11 +72,16 @@ class GnomeDesktopApp(object):
                 path2 = os.path.join(startup_parent_path, 'assets')
                 self._abs_icon_file = os.path.join(path2, icon_file)
                 if not os.path.isfile(self._abs_icon_file):
-                    site_packages_folder = site.getusersitepackages()
-                    path3 = os.path.join(site_packages_folder, 'assets')
-                    self._abs_icon_file = os.path.join(path3, icon_file)
-                    if not os.path.isfile(self._abs_icon_file):
-                        raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
+                    # Try all the site packages folders we know about.
+                    for path in sys.path:
+                        if 'site-packages' in path:
+                            site_packages_path = path
+                            path3 = os.path.join(site_packages_path, 'assets')
+                            self._abs_icon_file = os.path.join(path3, icon_file)
+                            if os.path.isfile(self._abs_icon_file):
+                                return self._abs_icon_file
+
+                    raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
 
     def _get_gnome_desktop_file(self):
         """@brief Determine and return the name of the gnome desktop file.
@@ -105,7 +109,7 @@ class GnomeDesktopApp(object):
         lines.append(f'Name={self._app_name}')
         lines.append(f'Comment={self._comment}')
         lines.append(f'Icon={self._abs_icon_file}')
-        lines.append(f'Exec=python3 {self._startup_file}')
+        lines.append(f'Exec={self._startup_file}')
         lines.append('Terminal=false')
         lines.append(f'Categories={self._categories}')
 
