@@ -3,6 +3,7 @@
 import os
 import sys
 import platform
+import site
 
 class GnomeDesktopApp(object):
     """@brief Responsible for adding and removing gnome desktop files for launching applications on a Linux system."""
@@ -19,7 +20,8 @@ class GnomeDesktopApp(object):
         """@brief Constructor.
            @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
                              If just a filename is passed then the icon file must sit in a folder named 'assets'.
-                             This assets folder must be in the same folder as the startup file or it's parent.
+                             This assets folder must be in the same folder as the startup file, it's parent or
+                             the python3 site packages folder.
            @param app_name   The name of the application.
                              If not defined then the name of the program executed at startup is used.
                              This name has _ and - character replace with space characters and each
@@ -71,7 +73,11 @@ class GnomeDesktopApp(object):
                 path2 = os.path.join(startup_parent_path, 'assets')
                 self._abs_icon_file = os.path.join(path2, icon_file)
                 if not os.path.isfile(self._abs_icon_file):
-                    raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
+                    site_packages_folder = site.getusersitepackages()
+                    path3 = os.path.join(site_packages_folder, 'assets')
+                    self._abs_icon_file = os.path.join(path3, icon_file)
+                    if not os.path.isfile(self._abs_icon_file):
+                        raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
 
     def _get_gnome_desktop_file(self):
         """@brief Determine and return the name of the gnome desktop file.
