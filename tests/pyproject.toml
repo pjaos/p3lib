@@ -3,7 +3,7 @@ name = "p3lib_test_env"
 version = "0.1"
 description = ""
 authors = ["Paul Austen <pjaos@gmail.com>"]
-
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.10.12"
