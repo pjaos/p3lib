@@ -377,3 +377,44 @@ def appendCreateFile(uio, aFile, quiet=False):
         fd.close()
         if not quiet:
             uio.info("Created {}".format(aFile))
+
+def getAbsFile(filename):
+    """@brief Check that the file exists in several places.
+                1 - The startup folder
+                2 - An 'assets' folder in the startup folder
+                3 - An 'assets' folder in the startup parent folder
+                3 - In an 'assets' folder in a python site-packages folder.
+        @param filename The name of the icon file.
+        @return The abs path of the file or None if not found."""
+    file_found = None
+    abs_filename = os.path.abspath(filename)
+    if os.path.isfile(abs_filename):
+        file_found = abs_filename
+
+    else:
+        startup_file = os.path.abspath(sys.argv[0])
+        startup_path = os.path.dirname(startup_file)
+        path1 = os.path.join(startup_path, 'assets')
+        abs_filename = os.path.join(path1, filename)
+        if os.path.isfile(abs_filename):
+            file_found = abs_filename
+
+        else:
+            startup_parent_path = os.path.join(startup_path, '..')
+            path2 = os.path.join(startup_parent_path, 'assets')
+            abs_filename = os.path.join(path2, filename)
+            if os.path.isfile(abs_filename):
+                file_found = abs_filename
+
+            else:
+                # Try all the site packages folders we know about.
+                for path in sys.path:
+                    if 'site-packages' in path:
+                        site_packages_path = path
+                        path3 = os.path.join(site_packages_path, 'assets')
+                        abs_filename = os.path.join(path3, filename)
+                        if os.path.isfile(abs_filename):
+                            file_found = abs_filename
+                            break
+
+    return file_found
