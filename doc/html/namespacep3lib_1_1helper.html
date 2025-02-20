@@ -89,6 +89,8 @@ Functions</h2></td></tr>
 <tr class="separator:af867b288cca6b5d943d5b42b93724317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb77038d7e117c4c02eddcc1c00d4f9" id="r_afbb77038d7e117c4c02eddcc1c00d4f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#afbb77038d7e117c4c02eddcc1c00d4f9">ensureBoolInt</a> (value, arg)</td></tr>
 <tr class="separator:afbb77038d7e117c4c02eddcc1c00d4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae840ae14de7575582a27fb9059a2d663" id="r_ae840ae14de7575582a27fb9059a2d663"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#ae840ae14de7575582a27fb9059a2d663">getAbsFile</a> (filename)</td></tr>
+<tr class="separator:ae840ae14de7575582a27fb9059a2d663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac048004cac00ef5f142e60aed04f2cbe" id="r_ac048004cac00ef5f142e60aed04f2cbe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#ac048004cac00ef5f142e60aed04f2cbe">getAddrPort</a> (host)</td></tr>
 <tr class="separator:ac048004cac00ef5f142e60aed04f2cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a220c49896a248e2f7781846d2665a3d4" id="r_a220c49896a248e2f7781846d2665a3d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#a220c49896a248e2f7781846d2665a3d4">getBoolUserResponse</a> (uio, prompt, allowQuit=True)</td></tr>
@@ -276,6 +278,7 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">  377</span>        fd.close()</div>
 <div class="line"><span class="lineno">  378</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
 <div class="line"><span class="lineno">  379</span>            uio.info(<span class="stringliteral">&quot;Created {}&quot;</span>.format(aFile))</div>
+<div class="line"><span class="lineno">  380</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -316,6 +319,72 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">   46</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The %s arg should be followed by 0 or 1. Was %s.&quot;</span> % (str(arg), str(value)))</div>
 <div class="line"><span class="lineno">   47</span> </div>
 <div class="line"><span class="lineno">   48</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae840ae14de7575582a27fb9059a2d663" name="ae840ae14de7575582a27fb9059a2d663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae840ae14de7575582a27fb9059a2d663">&#9670;&#160;</a></span>getAbsFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getAbsFile </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Check that the file exists in several places.
+            1 - The startup folder
+            2 - An 'assets' folder in the startup folder
+            3 - An 'assets' folder in the startup parent folder
+            3 - In an 'assets' folder in a python site-packages folder.
+    @param filename The name of the icon file.
+    @return The abs path of the file or None if not found.</pre> 
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00381">381</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  381</span><span class="keyword">def </span>getAbsFile(filename):</div>
+<div class="line"><span class="lineno">  382</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Check that the file exists in several places.</span></div>
+<div class="line"><span class="lineno">  383</span><span class="stringliteral">                1 - The startup folder</span></div>
+<div class="line"><span class="lineno">  384</span><span class="stringliteral">                2 - An &#39;assets&#39; folder in the startup folder</span></div>
+<div class="line"><span class="lineno">  385</span><span class="stringliteral">                3 - An &#39;assets&#39; folder in the startup parent folder</span></div>
+<div class="line"><span class="lineno">  386</span><span class="stringliteral">                3 - In an &#39;assets&#39; folder in a python site-packages folder.</span></div>
+<div class="line"><span class="lineno">  387</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
+<div class="line"><span class="lineno">  388</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  389</span>    file_found = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  390</span>    abs_filename = os.path.abspath(filename)</div>
+<div class="line"><span class="lineno">  391</span>    <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  392</span>        file_found = abs_filename</div>
+<div class="line"><span class="lineno">  393</span> </div>
+<div class="line"><span class="lineno">  394</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  395</span>        startup_file = os.path.abspath(sys.argv[0])</div>
+<div class="line"><span class="lineno">  396</span>        startup_path = os.path.dirname(startup_file)</div>
+<div class="line"><span class="lineno">  397</span>        path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  398</span>        abs_filename = os.path.join(path1, filename)</div>
+<div class="line"><span class="lineno">  399</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  400</span>            file_found = abs_filename</div>
+<div class="line"><span class="lineno">  401</span> </div>
+<div class="line"><span class="lineno">  402</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  403</span>            startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  404</span>            path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  405</span>            abs_filename = os.path.join(path2, filename)</div>
+<div class="line"><span class="lineno">  406</span>            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  407</span>                file_found = abs_filename</div>
+<div class="line"><span class="lineno">  408</span> </div>
+<div class="line"><span class="lineno">  409</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  410</span>                <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  411</span>                <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  412</span>                    <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><span class="lineno">  413</span>                        site_packages_path = path</div>
+<div class="line"><span class="lineno">  414</span>                        path3 = os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  415</span>                        abs_filename = os.path.join(path3, filename)</div>
+<div class="line"><span class="lineno">  416</span>                        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  417</span>                            file_found = abs_filename</div>
+<div class="line"><span class="lineno">  418</span>                            <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  419</span> </div>
+<div class="line"><span class="lineno">  420</span>    <span class="keywordflow">return</span> file_found</div>
 </div><!-- fragment -->
 </div>
 </div>
