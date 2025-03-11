@@ -1,26 +1,18 @@
 [tool.poetry]
-name = "p3lib_test_env"
-version = "0.1"
-description = ""
-authors = ["Paul Austen <pjaos@gmail.com>"]
-package-mode = false
+name = "p3lib"
+version = "1.1.107"
 
 [tool.poetry.dependencies]
-python = "^3.10.12"
-tornado = "^6.4.2"
-pillow = "^10.3.0"
-pytest = "*"
-cryptography = "*"
-paramiko = "^3.4.0"
-plotly = "*"
-pandas = "*"
-bokeh = "^3.1.0"
-argon2-cffi = "*"
-jinja2 = "^3.1.5"
+python = "^3.10"
+click = "*"
+requests = "*"
 nicegui = "*"
-python-multipart = "^0.0.20"
-#ip2geotools = "*"
+plotly = "*"
+
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
