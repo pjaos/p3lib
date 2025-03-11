@@ -339,7 +339,15 @@ class ConfigManager(object):
 
         return join( configPath, cfgFilename )
 
-    def __init__(self, uio, cfgFilename, defaultConfig, addDotToFilename=True, encrypt=False, cfgPath=None):
+    def __init__(self,
+                 uio,
+                 cfgFilename,
+                 defaultConfig,
+                 addDotToFilename=True,
+                 encrypt=False,
+                 cfgPath=None,
+                 stripUnknownKeys=True,
+                 addNewKeys=True):
         """@brief Constructor
            @param uio A UIO (User Input Output) instance. May be set to None if no user messages are required.
            @param cfgFilename   The name of the config file. If this is None then the default config filename is used.
@@ -351,13 +359,17 @@ class ConfigManager(object):
                           probably the best we can do. Therefore if encrypt is set True then the
                           an ssh key must be present in the ~/.ssh folder named id_rsa.
            @param cfgPath The config path when the config file will be stored. By default this is unset and the
-                          current users home folder is the location of the config file."""
+                          current users home folder is the location of the config file.
+           @param stripUnknownKeys If True then keys in the dict but not in the default config dict are stripped from the config.
+           @param addNewKeys If keys are found in the default config that are not in the config dict, add them."""
         self._uio               = uio
         self._cfgFilename       = cfgFilename
         self._defaultConfig     = defaultConfig
         self._addDotToFilename  = addDotToFilename
         self._encrypt           = encrypt
         self._cfgPath           = cfgPath
+        self._stripUnknownKeys  = stripUnknownKeys
+        self._addNewKeys        = addNewKeys
         self._configDict        = {}
 
         # If the user passed None in as the cfg filename then generate the default config file.
@@ -463,7 +475,8 @@ class ConfigManager(object):
       return dictLoaded
 
     def load(self, showLoadedMsg=True):
-        """@brief Load the config."""
+        """@brief Load the config.
+           @param showLoadedMsg If True load messages are displayed."""
 
         if not isfile(self._cfgFile):
 
@@ -483,17 +496,19 @@ class ConfigManager(object):
             # Config parameters may be added or dropped over time. We use the default config to
             # check for parameters that should be added/removed.
 
-            # Add any missing keys to the loaded config from the default config.
-            for defaultKey in defaultConfigKeys:
-                if defaultKey not in loadedConfigKeys:
-                    loadedConfig[defaultKey] = self._defaultConfig[defaultKey]
-                    self._debug("----------> DEFAULT VALUE ADDED: {} = {}".format(defaultKey, loadedConfig[defaultKey]))
+            if self._addNewKeys:
+                # Add any missing keys to the loaded config from the default config.
+                for defaultKey in defaultConfigKeys:
+                    if defaultKey not in loadedConfigKeys:
+                        loadedConfig[defaultKey] = self._defaultConfig[defaultKey]
+                        self._debug("----------> DEFAULT VALUE ADDED: {} = {}".format(defaultKey, loadedConfig[defaultKey]))
 
-            # If some keys have been dropped from the config, remove them.
-            for loadedConfigKey in loadedConfigKeys:
-                if loadedConfigKey not in defaultConfigKeys:
-                    self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(loadedConfigKey, loadedConfig[loadedConfigKey]))
-                    loadedConfig.pop(loadedConfigKey, None)
+            if self._stripUnknownKeys:
+                # If some keys have been dropped from the config, remove them.
+                for loadedConfigKey in loadedConfigKeys:
+                    if loadedConfigKey not in defaultConfigKeys:
+                        self._debug("----------> DROPPED FROM CONFIG: {} = {}".format(loadedConfigKey, loadedConfig[loadedConfigKey]))
+                        loadedConfig.pop(loadedConfigKey, None)
 
             self._configDict = loadedConfig
         self._info("Loaded config from %s" % (self._cfgFile) )
@@ -760,10 +775,12 @@ class DotConfigManager(ConfigManager):
     KEY_EDIT_ORDER_LIST = None
 
     @staticmethod
-    def GetDefaultConfigFilename():
+    def GetDefaultConfigFilename(filenameOverride=None):
         """@brief Get the default name of the config file for this app. This will be the program name
                   (file that started up initially) without the .py extension. A .cfg extension is added
-                  and it will be found in the ~/.config folder."""
+                  and it will be found in the ~/.config folder.
+           @param filenameOverride The name for the config file in the .config folder. If left as None then the program name ise used
+                                   as the config filename."""
         dotConfigFolder = '.config'
         if platform.system() == 'Linux' and os.geteuid() == 0:
             homePath = "/root"
@@ -779,10 +796,13 @@ class DotConfigManager(ConfigManager):
             # Create the ~/.config folder
             os.makedirs(configFolder)
 
-        progName = sys.argv[0]
-        if progName.endswith('.py'):
-            progName = progName[0:-3]
-        progName = os.path.basename(progName).strip()
+        if filenameOverride:
+            progName = filenameOverride
+        else:
+            progName = sys.argv[0]
+            if progName.endswith('.py'):
+                progName = progName[0:-3]
+            progName = os.path.basename(progName).strip()
 
         # Note that we assume that addDotToFilename in the ConfigManager constructor is set True
         # as this will prefix the filename with the . character.
@@ -794,7 +814,14 @@ class DotConfigManager(ConfigManager):
 
         return configFilename
 
-    def __init__(self, defaultConfig, keyEditOrderList=None, uio=None, encrypt=False):
+    def __init__(self,
+                 defaultConfig,
+                 keyEditOrderList=None,
+                 uio=None,
+                 encrypt=False,
+                 stripUnknownKeys=True,
+                 addNewKeys=True,
+                 filenameOverride=None):
         """@brief Constructor
            @param defaultConfig A default config instance containing all the default key-value pairs.
            @param keyEditOrderList A list of all the dict keys in the order that the caller wishes them to be displayed top the user.
@@ -804,8 +831,17 @@ class DotConfigManager(ConfigManager):
                           This is not secure but assuming the private key has not been compromised it's
                           probably the best we can do.
                           !!! Therefore if encrypt is set True then the an ssh key must be present !!!
-                          ||| in the ~/.ssh folder named id_rsa.                                   !!!"""
-        super().__init__(uio, DotConfigManager.GetDefaultConfigFilename(), defaultConfig, encrypt=encrypt)
+                          ||| in the ~/.ssh folder named id_rsa.                                   !!!
+           @param stripUnknownKeys If True then keys in the dict but not in the default config dict are stripped from the config.
+           @param addNewKeys If keys are found in the default config that are not in the config dict, add them.
+           @param filenameOverride The name for the config file in the .config folder. If left as None then the program name ise used
+                                   as the config filename."""
+        super().__init__(uio,
+                         DotConfigManager.GetDefaultConfigFilename(filenameOverride),
+                         defaultConfig,
+                         encrypt=encrypt,
+                         stripUnknownKeys=stripUnknownKeys,
+                         addNewKeys=addNewKeys)
         self._keyEditOrderList = keyEditOrderList
         # Ensure the config file is present and loaded into the internal dict.
         self.load()
