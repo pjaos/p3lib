@@ -133,3 +133,6 @@ dist.done/
 
 src/p3lib/deploy.sh
 todel
+
+upload_package_to_pypi.sh
+upload_package_to_testpypi.sh
