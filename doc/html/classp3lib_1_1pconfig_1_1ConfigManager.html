@@ -113,8 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2281a8ceafef5c07ff1d7d9a2f92d947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8b940f052acd085a08304b26efd40d0" id="r_af8b940f052acd085a08304b26efd40d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#af8b940f052acd085a08304b26efd40d0">addAttr</a> (self, key, value)</td></tr>
 <tr class="separator:af8b940f052acd085a08304b26efd40d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f91e982d617182a461ed9fce1ef168d" id="r_a6f91e982d617182a461ed9fce1ef168d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#a6f91e982d617182a461ed9fce1ef168d">configure</a> (self, editConfigMethod)</td></tr>
-<tr class="separator:a6f91e982d617182a461ed9fce1ef168d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa480ee4f74068cf90ce800f5442f2221" id="r_aa480ee4f74068cf90ce800f5442f2221"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#aa480ee4f74068cf90ce800f5442f2221">configure</a> (self, editConfigMethod, prompt=&quot;Enter 'E' to <a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#ad8ce256457e909f464e4cc35999c9793">edit</a> a parameter, or 'Q' to quit&quot;, editCharacters='E', quitCharacters='Q')</td></tr>
+<tr class="separator:aa480ee4f74068cf90ce800f5442f2221"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8ce256457e909f464e4cc35999c9793" id="r_ad8ce256457e909f464e4cc35999c9793"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#ad8ce256457e909f464e4cc35999c9793">edit</a> (self, configAttrDetailsDict)</td></tr>
 <tr class="separator:ad8ce256457e909f464e4cc35999c9793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c92cc35da5af1391932657d3e785653" id="r_a5c92cc35da5af1391932657d3e785653"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#a5c92cc35da5af1391932657d3e785653">getAttr</a> (self, key, allowModify=True)</td></tr>
@@ -938,8 +938,8 @@ Protected Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a6f91e982d617182a461ed9fce1ef168d" name="a6f91e982d617182a461ed9fce1ef168d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f91e982d617182a461ed9fce1ef168d">&#9670;&#160;</a></span>configure()</h2>
+<a id="aa480ee4f74068cf90ce800f5442f2221" name="aa480ee4f74068cf90ce800f5442f2221"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa480ee4f74068cf90ce800f5442f2221">&#9670;&#160;</a></span>configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -954,7 +954,25 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>editConfigMethod</em>&#160;</td>
+          <td class="paramname"><em>editConfigMethod</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>prompt</em> = <code>&quot;Enter&#160;'E'&#160;to&#160;<a class="el" href="classp3lib_1_1pconfig_1_1ConfigManager.html#ad8ce256457e909f464e4cc35999c9793">edit</a>&#160;a&#160;parameter,&#160;or&#160;'Q'&#160;to&#160;quit&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>editCharacters</em> = <code>'E'</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>quitCharacters</em> = <code>'Q'</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -967,16 +985,16 @@ Protected Attributes</h2></td></tr>
    @param editConfigMethod The method to call to edit configuration.
    @return None</pre> 
 <p class="definition">Definition at line <a class="el" href="pconfig_8py_source.html#l00722">722</a> of file <a class="el" href="pconfig_8py_source.html">pconfig.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  722</span>    <span class="keyword">def </span>configure(self, editConfigMethod):</div>
+<div class="fragment"><div class="line"><span class="lineno">  722</span>    <span class="keyword">def </span>configure(self, editConfigMethod, prompt=&quot;Enter &#39;E&#39; to edit a parameter, or &#39;Q&#39; to quit&quot;, editCharacters = &#39;E&#39;, quitCharacters= &#39;Q&#39;):</div>
 <div class="line"><span class="lineno">  723</span>        <span class="stringliteral">&quot;&quot;&quot;@brief A helper method to edit the dictionary config.</span></div>
 <div class="line"><span class="lineno">  724</span><span class="stringliteral">           @param editConfigMethod The method to call to edit configuration.</span></div>
 <div class="line"><span class="lineno">  725</span><span class="stringliteral">           @return None&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  726</span>        running=<span class="keyword">True</span></div>
 <div class="line"><span class="lineno">  727</span>        <span class="keywordflow">while</span> running:</div>
 <div class="line"><span class="lineno">  728</span>            idKeyDict=self.show()</div>
-<div class="line"><span class="lineno">  729</span>            response = self._uio.getInput(<span class="stringliteral">&quot;Enter &#39;E&#39; to edit a parameter, or &#39;Q&#39; to quit&quot;</span>)</div>
+<div class="line"><span class="lineno">  729</span>            response = self._uio.getInput(prompt)</div>
 <div class="line"><span class="lineno">  730</span>            response=response.upper()</div>
-<div class="line"><span class="lineno">  731</span>            <span class="keywordflow">if</span> response == <span class="stringliteral">&#39;E&#39;</span>:</div>
+<div class="line"><span class="lineno">  731</span>            <span class="keywordflow">if</span> response <span class="keywordflow">in</span> editCharacters:</div>
 <div class="line"><span class="lineno">  732</span>                id = self._uio.getIntInput(<span class="stringliteral">&quot;Enter the ID of the parameter to change&quot;</span>)</div>
 <div class="line"><span class="lineno">  733</span>                <span class="keywordflow">if</span> id <span class="keywordflow">not</span> <span class="keywordflow">in</span> idKeyDict:</div>
 <div class="line"><span class="lineno">  734</span>                    self._uio.error(<span class="stringliteral">&quot;Configuration ID {} is invalid.&quot;</span>.format(id))</div>
@@ -985,7 +1003,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  737</span>                    editConfigMethod(key)</div>
 <div class="line"><span class="lineno">  738</span>                    self.store()</div>
 <div class="line"><span class="lineno">  739</span> </div>
-<div class="line"><span class="lineno">  740</span>            <span class="keywordflow">elif</span> response == <span class="stringliteral">&#39;Q&#39;</span>:</div>
+<div class="line"><span class="lineno">  740</span>            <span class="keywordflow">elif</span> response <span class="keywordflow">in</span> quitCharacters:</div>
 <div class="line"><span class="lineno">  741</span>                running = <span class="keyword">False</span></div>
 <div class="line"><span class="lineno">  742</span> </div>
 </div><!-- fragment -->

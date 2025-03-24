@@ -890,16 +890,16 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span> </div>
 </div>
 <div class="foldopen" id="foldopen00722" data-start="" data-end="">
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1ConfigManager.html#a6f91e982d617182a461ed9fce1ef168d">  722</a></span>    def configure(self, editConfigMethod):</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno"><a class="line" href="classp3lib_1_1pconfig_1_1ConfigManager.html#aa480ee4f74068cf90ce800f5442f2221">  722</a></span>    def configure(self, editConfigMethod, prompt=&quot;Enter &#39;E&#39; to edit a parameter, or &#39;Q&#39; to quit&quot;, editCharacters = &#39;E&#39;, quitCharacters= &#39;Q&#39;):</div>
 <div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>        &quot;&quot;&quot;@brief A helper method to edit the dictionary config.</div>
 <div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>           @param editConfigMethod The method to call to edit configuration.</div>
 <div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>           @return None&quot;&quot;&quot;</div>
 <div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        running=True</div>
 <div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        while running:</div>
 <div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>            idKeyDict=self.show()</div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>            response = self._uio.getInput(&quot;Enter &#39;E&#39; to edit a parameter, or &#39;Q&#39; to quit&quot;)</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>            response = self._uio.getInput(prompt)</div>
 <div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>            response=response.upper()</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>            if response == &#39;E&#39;:</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>            if response in editCharacters:</div>
 <div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>                id = self._uio.getIntInput(&quot;Enter the ID of the parameter to change&quot;)</div>
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>                if id not in idKeyDict:</div>
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>                    self._uio.error(&quot;Configuration ID {} is invalid.&quot;.format(id))</div>
@@ -908,7 +908,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>                    editConfigMethod(key)</div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>                    self.store()</div>
 <div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>            elif response == &#39;Q&#39;:</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>            elif response in quitCharacters:</div>
 <div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>                running = False</div>
 <div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span> </div>
 </div>

@@ -719,16 +719,16 @@ class ConfigManager(object):
                 self._info("{} has been removed.".format(configFile))
                 self._info("The default configuration will be loaded next time..")
 
-    def configure(self, editConfigMethod):
+    def configure(self, editConfigMethod, prompt="Enter 'E' to edit a parameter, or 'Q' to quit", editCharacters = 'E', quitCharacters= 'Q'):
         """@brief A helper method to edit the dictionary config.
            @param editConfigMethod The method to call to edit configuration.
            @return None"""
         running=True
         while running:
             idKeyDict=self.show()
-            response = self._uio.getInput("Enter 'E' to edit a parameter, or 'Q' to quit")
+            response = self._uio.getInput(prompt)
             response=response.upper()
-            if response == 'E':
+            if response in editCharacters:
                 id = self._uio.getIntInput("Enter the ID of the parameter to change")
                 if id not in idKeyDict:
                     self._uio.error("Configuration ID {} is invalid.".format(id))
@@ -737,7 +737,7 @@ class ConfigManager(object):
                     editConfigMethod(key)
                     self.store()
 
-            elif response == 'Q':
+            elif response in quitCharacters:
                 running = False
 
     def show(self):
