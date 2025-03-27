@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from pconfig import ConfigManager, ConfigAttrDetails
-from uio import UIO
+from p3lib.pconfig import ConfigManager, ConfigAttrDetails
+from p3lib.uio import UIO
 
 def example1():#
     """@brief This example uses a high level interface to populate the config dict."""
@@ -92,6 +92,6 @@ def example3():
     configManager.store()
 
 if __name__ == '__main__':
-    #example1()
+    example1()
     #example2()
-    example3()
+    #example3()
