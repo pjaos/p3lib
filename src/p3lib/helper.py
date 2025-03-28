@@ -273,7 +273,7 @@ def getHomePath():
     if platform.system() == 'Linux' and os.geteuid() == 0:
         # Fix for os.environ["HOME"] returning /home/root sometimes.
         return '/root/'
-    
+
     elif "HOME" in os.environ:
         return os.environ["HOME"]
 
@@ -418,3 +418,24 @@ def getAbsFile(filename):
                             break
 
     return file_found
+
+PYPROJECT_FILE = "pyproject.toml"
+
+def getProgramVersion():
+    """@return The program/package version. This comes from the pyproject.toml file.
+               If this file is not found an exception is thrown.  """
+    poetryConfigFile = getAbsFile(PYPROJECT_FILE)
+    programVersion = None
+    with open(poetryConfigFile, 'r') as fd:
+        lines = fd.readlines()
+        for line in lines:
+            line=line.strip("\r\n")
+            if line.startswith('version'):
+                elems = line.split("=")
+                if len(elems) == 2:
+                    programVersion = elems[1].strip('" ')
+                    break
+    if programVersion is None:
+        raise Exception(f"Failed to extract program version from '{line}' line of {poetryConfigFile} file.")
+    return programVersion
+
