@@ -507,67 +507,73 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="stringliteral">                1 - The startup folder</span></div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="stringliteral">                2 - An &#39;assets&#39; folder in the startup folder</span></div>
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="stringliteral">                3 - An &#39;assets&#39; folder in the startup parent folder</span></div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="stringliteral">                3 - In an &#39;assets&#39; folder in a python site-packages folder.</span></div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    file_found = <span class="keywordtype">None</span></div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    abs_filename = os.path.abspath(filename)</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>        file_found = abs_filename</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        startup_file = os.path.abspath(sys.argv[0])</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        startup_path = os.path.dirname(startup_file)</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        abs_filename = os.path.join(path1, filename)</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>            file_found = abs_filename</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>            startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>            abs_filename = os.path.join(path2, filename)</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>                file_found = abs_filename</div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>                <span class="comment"># Try all the site packages folders we know about.</span></div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>                <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>                    <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>                        site_packages_path = path</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>                        path3 = os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>                        abs_filename = os.path.join(path3, filename)</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>                        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>                            file_found = abs_filename</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>                            <span class="keywordflow">break</span></div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="stringliteral">                4 - In a site-packages folder.</span></div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span><span class="stringliteral">                5 - In an &#39;assets&#39; folder in a python site-packages folder.</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    file_found = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    abs_filename = os.path.abspath(filename)</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>        file_found = abs_filename</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        startup_file = os.path.abspath(sys.argv[0])</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        startup_path = os.path.dirname(startup_file)</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        abs_filename = os.path.join(path1, filename)</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>            file_found = abs_filename</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>            startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>            path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>            abs_filename = os.path.join(path2, filename)</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>                file_found = abs_filename</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>                <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>                <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>                    <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>                        site_packages_path = path</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>                        abs_filename = os.path.join(site_packages_path, filename)</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>                        print(f<span class="stringliteral">&quot;PJA: abs_filename={abs_filename}, FOUND={os.path.isfile(abs_filename)}&quot;</span>)</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>                        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>                            file_found = abs_filename</div>
 <div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    <span class="keywordflow">return</span> file_found</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>                            path3 = os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>                            abs_filename = os.path.join(path3, filename)</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>                            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>                                file_found = abs_filename</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>                                <span class="keywordflow">break</span></div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <span class="keywordflow">return</span> file_found</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span> </div>
 </div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno"><a class="line" href="namespacep3lib_1_1helper.html#af0a654cf00393f20ac2e9b45efe41763">  423</a></span>PYPROJECT_FILE = <span class="stringliteral">&quot;pyproject.toml&quot;</span></div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span> </div>
-<div class="foldopen" id="foldopen00425" data-start="" data-end="">
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno"><a class="line" href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">  425</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">getProgramVersion</a>():</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    poetryConfigFile = <a class="code hl_function" href="namespacep3lib_1_1helper.html#ae840ae14de7575582a27fb9059a2d663">getAbsFile</a>(PYPROJECT_FILE)</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    programVersion = <span class="keywordtype">None</span></div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        lines = fd.readlines()</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>            line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>            <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>                elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>                <span class="keywordflow">if</span> len(elems) == 2:</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>                    programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>    <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    <span class="keywordflow">return</span> programVersion</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span> </div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno"><a class="line" href="namespacep3lib_1_1helper.html#af0a654cf00393f20ac2e9b45efe41763">  429</a></span>PYPROJECT_FILE = <span class="stringliteral">&quot;pyproject.toml&quot;</span></div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="foldopen" id="foldopen00431" data-start="" data-end="">
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">  431</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">getProgramVersion</a>():</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    poetryConfigFile = <a class="code hl_function" href="namespacep3lib_1_1helper.html#ae840ae14de7575582a27fb9059a2d663">getAbsFile</a>(PYPROJECT_FILE)</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    programVersion = <span class="keywordtype">None</span></div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>        lines = fd.readlines()</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>            line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>            <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                <span class="keywordflow">if</span> len(elems) == 2:</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>                    programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    <span class="keywordflow">return</span> programVersion</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span> </div>
 </div>
-<div class="ttc" id="anamespacep3lib_1_1helper_html_a0299dff54d1f40de737d1c8195b03f3f"><div class="ttname"><a href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">p3lib.helper.getProgramVersion</a></div><div class="ttdeci">getProgramVersion()</div><div class="ttdef"><b>Definition</b> <a href="helper_8py_source.html#l00425">helper.py:425</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1helper_html_a0299dff54d1f40de737d1c8195b03f3f"><div class="ttname"><a href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">p3lib.helper.getProgramVersion</a></div><div class="ttdeci">getProgramVersion()</div><div class="ttdef"><b>Definition</b> <a href="helper_8py_source.html#l00431">helper.py:431</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1helper_html_a07d099d45ce7cce351b93ac8a553471b"><div class="ttname"><a href="namespacep3lib_1_1helper.html#a07d099d45ce7cce351b93ac8a553471b">p3lib.helper.getIntListUserResponse</a></div><div class="ttdeci">getIntListUserResponse(uio, prompt, minValue=None, maxValue=None, allowQuit=True)</div><div class="ttdef"><b>Definition</b> <a href="helper_8py_source.html#l00240">helper.py:240</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1helper_html_a0cc0ffe12d63f01d1844d8676dcaba6b"><div class="ttname"><a href="namespacep3lib_1_1helper.html#a0cc0ffe12d63f01d1844d8676dcaba6b">p3lib.helper._removeInvalidChars</a></div><div class="ttdeci">_removeInvalidChars(line)</div><div class="ttdef"><b>Definition</b> <a href="helper_8py_source.html#l00076">helper.py:76</a></div></div>
 <div class="ttc" id="anamespacep3lib_1_1helper_html_a0e8f0ab1247c636e8362d37b9c998374"><div class="ttname"><a href="namespacep3lib_1_1helper.html#a0e8f0ab1247c636e8362d37b9c998374">p3lib.helper.stripEOL</a></div><div class="ttdeci">stripEOL(lines)</div><div class="ttdef"><b>Definition</b> <a href="helper_8py_source.html#l00058">helper.py:58</a></div></div>

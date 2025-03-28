@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "p3lib"
-version = "1.1.110"
+version = "1.1.111"
 description = "A group of python modules for networking, plotting data, config storage, automating boot scripts, ssh access and user input output."
 authors = ["Paul Austen <pjaos@gmail.com>"]
 license = "MIT License"
