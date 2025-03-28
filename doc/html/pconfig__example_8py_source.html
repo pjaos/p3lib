@@ -83,13 +83,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="contents">
 <a href="pconfig__example_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacepconfig__example.html">    1</a></span><span class="comment">#!/usr/bin/env python3</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> pconfig <span class="keyword">import</span> ConfigManager, ConfigAttrDetails</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> uio <span class="keyword">import</span> UIO</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacep3lib_1_1pconfig.html">p3lib.pconfig</a> <span class="keyword">import</span> ConfigManager, ConfigAttrDetails</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">from</span> <a class="code hl_namespace" href="namespacep3lib_1_1uio.html">p3lib.uio</a> <span class="keyword">import</span> UIO</div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="foldopen" id="foldopen00006" data-start="" data-end="">
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespacepconfig__example.html#a476a79ed1c3c2a2d2445a38f41f3dbe1">    6</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacepconfig__example.html#a476a79ed1c3c2a2d2445a38f41f3dbe1">example1</a>():<span class="comment">#</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="stringliteral">&quot;&quot;&quot;@brief This example uses a high level interface to populate the config dict.&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    uio = UIO()</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    uio = <a class="code hl_class" href="classp3lib_1_1uio_1_1UIO.html">UIO</a>()</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    LOW_CHARGE_BAT_VOLTAGE_FLOAT        =   <span class="stringliteral">&quot;LOW_CHARGE_BAT_VOLTAGE_FLOAT&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    FULL_CHARGE_BAT_VOLTAGE_FLOAT       =   <span class="stringliteral">&quot;FULL_CHARGE_BAT_VOLTAGE_FLOAT&quot;</span></div>
@@ -106,21 +106,21 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    configAttrDetailsDict = {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        LOW_CHARGE_BAT_VOLTAGE_FLOAT:   ConfigAttrDetails(<span class="stringliteral">&quot;Enter the low charge battery voltage&quot;</span>, 10.0, 15.0),</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        FULL_CHARGE_BAT_VOLTAGE_FLOAT:  ConfigAttrDetails(<span class="stringliteral">&quot;Enter the battery full charge voltage&quot;</span>, 10, 15),</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        MAX_CURRENT_AMPS_INT:           ConfigAttrDetails(<span class="stringliteral">&quot;Enter the max amps&quot;</span>),</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        A_STRING_VALUE_STR:             ConfigAttrDetails(<span class="stringliteral">&quot;Enter a string&quot;</span>, allowEmpty=<span class="keyword">True</span>),</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        THE_ADDRESS_HEXINT:             ConfigAttrDetails(<span class="stringliteral">&quot;Enter the address (hex)&quot;</span>)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        LOW_CHARGE_BAT_VOLTAGE_FLOAT:   <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigAttrDetails.html">ConfigAttrDetails</a>(<span class="stringliteral">&quot;Enter the low charge battery voltage&quot;</span>, 10.0, 15.0),</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        FULL_CHARGE_BAT_VOLTAGE_FLOAT:  <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigAttrDetails.html">ConfigAttrDetails</a>(<span class="stringliteral">&quot;Enter the battery full charge voltage&quot;</span>, 10, 15),</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        MAX_CURRENT_AMPS_INT:           <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigAttrDetails.html">ConfigAttrDetails</a>(<span class="stringliteral">&quot;Enter the max amps&quot;</span>),</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        A_STRING_VALUE_STR:             <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigAttrDetails.html">ConfigAttrDetails</a>(<span class="stringliteral">&quot;Enter a string&quot;</span>, allowEmpty=<span class="keyword">True</span>),</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        THE_ADDRESS_HEXINT:             <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigAttrDetails.html">ConfigAttrDetails</a>(<span class="stringliteral">&quot;Enter the address (hex)&quot;</span>)</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        }</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    configManager = ConfigManager(uio, <span class="stringliteral">&quot;example_1_config.txt&quot;</span>, defaultConfig)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    configManager = <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigManager.html">ConfigManager</a>(uio, <span class="stringliteral">&quot;example_1_config.txt&quot;</span>, defaultConfig)</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    configManager.edit(configAttrDetailsDict)</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 </div>
 <div class="foldopen" id="foldopen00035" data-start="" data-end="">
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacepconfig__example.html#ae2ff847356fedb39fd4f635ae14cb965">   35</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacepconfig__example.html#ae2ff847356fedb39fd4f635ae14cb965">example2</a>():</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="stringliteral">&quot;&quot;&quot;@brief This example uses a lower level interface that allows more control of the user interface..&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    uio = UIO()</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    uio = <a class="code hl_class" href="classp3lib_1_1uio_1_1UIO.html">UIO</a>()</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    LOW_CHARGE_BAT_VOLTAGE=<span class="stringliteral">&quot;LOW_CHARGE_BAT_VOLTAGE&quot;</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    FULL_CHARGE_BAT_VOLTAGE=<span class="stringliteral">&quot;FULL_CHARGE_BAT_VOLTAGE&quot;</span></div>
@@ -136,7 +136,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        THE_ADDRESS: 0x1234</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    configManager = ConfigManager(uio, <span class="stringliteral">&quot;example_2_config.txt&quot;</span>, defaultConfig)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    configManager = <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigManager.html">ConfigManager</a>(uio, <span class="stringliteral">&quot;example_2_config.txt&quot;</span>, defaultConfig)</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    lowBatVoltage = ConfigManager.GetFloat(uio, <span class="stringliteral">&quot;Enter the low charge battery voltage&quot;</span>, minValue=10.0,</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                                           maxValue=15.0)</div>
@@ -160,7 +160,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespacepconfig__example.html#a7fb3c34362011898d4e102640746f09a">   72</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacepconfig__example.html#a7fb3c34362011898d4e102640746f09a">example3</a>():</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="stringliteral">&quot;&quot;&quot;@brief This example uses a lower level interface and stores encrypted data in the fiel.</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral">              Note that this is not secure only obfuscated as the key to the data is stored locally as well.&quot;&quot;&quot;</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    uio = UIO()</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    uio = <a class="code hl_class" href="classp3lib_1_1uio_1_1UIO.html">UIO</a>()</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    LOW_CHARGE_BAT_VOLTAGE=<span class="stringliteral">&quot;LOW_CHARGE_BAT_VOLTAGE&quot;</span></div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    A_STRING_VALUE=<span class="stringliteral">&quot;A_STRING_VALUE&quot;</span></div>
@@ -170,7 +170,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        A_STRING_VALUE: <span class="stringliteral">&quot;ANYSTRING&quot;</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    configManager = ConfigManager(uio, <span class="stringliteral">&quot;example_3_config.txt&quot;</span>, defaultConfig, encrypt=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    configManager = <a class="code hl_class" href="classp3lib_1_1pconfig_1_1ConfigManager.html">ConfigManager</a>(uio, <span class="stringliteral">&quot;example_3_config.txt&quot;</span>, defaultConfig, encrypt=<span class="keyword">True</span>)</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    configManager.load()</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    configManager.inputFloat(LOW_CHARGE_BAT_VOLTAGE, <span class="stringliteral">&quot;Enter the low charge battery voltage&quot;</span>, minValue=10.0,</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                                           maxValue=15.0)</div>
@@ -181,9 +181,14 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
 </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordflow">if</span> __name__ == <span class="stringliteral">&#39;__main__&#39;</span>:</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">#example1()</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="namespacepconfig__example.html#a476a79ed1c3c2a2d2445a38f41f3dbe1">example1</a>()</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">#example2()</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="namespacepconfig__example.html#a7fb3c34362011898d4e102640746f09a">example3</a>()</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="comment">#example3()</span></div>
+<div class="ttc" id="aclassp3lib_1_1pconfig_1_1ConfigAttrDetails_html"><div class="ttname"><a href="classp3lib_1_1pconfig_1_1ConfigAttrDetails.html">p3lib.pconfig.ConfigAttrDetails</a></div><div class="ttdef"><b>Definition</b> <a href="pconfig_8py_source.html#l00759">pconfig.py:759</a></div></div>
+<div class="ttc" id="aclassp3lib_1_1pconfig_1_1ConfigManager_html"><div class="ttname"><a href="classp3lib_1_1pconfig_1_1ConfigManager.html">p3lib.pconfig.ConfigManager</a></div><div class="ttdef"><b>Definition</b> <a href="pconfig_8py_source.html#l00016">pconfig.py:16</a></div></div>
+<div class="ttc" id="aclassp3lib_1_1uio_1_1UIO_html"><div class="ttname"><a href="classp3lib_1_1uio_1_1UIO.html">p3lib.uio.UIO</a></div><div class="ttdef"><b>Definition</b> <a href="uio_8py_source.html#l00016">uio.py:16</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1pconfig_html"><div class="ttname"><a href="namespacep3lib_1_1pconfig.html">p3lib.pconfig</a></div><div class="ttdef"><b>Definition</b> <a href="pconfig_8py_source.html#l00001">pconfig.py:1</a></div></div>
+<div class="ttc" id="anamespacep3lib_1_1uio_html"><div class="ttname"><a href="namespacep3lib_1_1uio.html">p3lib.uio</a></div><div class="ttdef"><b>Definition</b> <a href="uio_8py_source.html#l00001">uio.py:1</a></div></div>
 <div class="ttc" id="anamespacepconfig__example_html_a476a79ed1c3c2a2d2445a38f41f3dbe1"><div class="ttname"><a href="namespacepconfig__example.html#a476a79ed1c3c2a2d2445a38f41f3dbe1">pconfig_example.example1</a></div><div class="ttdeci">example1()</div><div class="ttdef"><b>Definition</b> <a href="pconfig__example_8py_source.html#l00006">pconfig_example.py:6</a></div></div>
 <div class="ttc" id="anamespacepconfig__example_html_a7fb3c34362011898d4e102640746f09a"><div class="ttname"><a href="namespacepconfig__example.html#a7fb3c34362011898d4e102640746f09a">pconfig_example.example3</a></div><div class="ttdeci">example3()</div><div class="ttdef"><b>Definition</b> <a href="pconfig__example_8py_source.html#l00072">pconfig_example.py:72</a></div></div>
 <div class="ttc" id="anamespacepconfig__example_html_ae2ff847356fedb39fd4f635ae14cb965"><div class="ttname"><a href="namespacepconfig__example.html#ae2ff847356fedb39fd4f635ae14cb965">pconfig_example.example2</a></div><div class="ttdeci">example2()</div><div class="ttdef"><b>Definition</b> <a href="pconfig__example_8py_source.html#l00035">pconfig_example.py:35</a></div></div>

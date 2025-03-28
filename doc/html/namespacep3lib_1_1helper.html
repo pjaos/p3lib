@@ -74,7 +74,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">p3lib.helper Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -111,6 +112,8 @@ Functions</h2></td></tr>
 <tr class="separator:ad76c3305d144352c5b5511b766a7c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab032b2fe4c6edd7479d2fefd2293f321" id="r_ab032b2fe4c6edd7479d2fefd2293f321"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#ab032b2fe4c6edd7479d2fefd2293f321">getProgramName</a> ()</td></tr>
 <tr class="separator:ab032b2fe4c6edd7479d2fefd2293f321"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0299dff54d1f40de737d1c8195b03f3f" id="r_a0299dff54d1f40de737d1c8195b03f3f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f">getProgramVersion</a> ()</td></tr>
+<tr class="separator:a0299dff54d1f40de737d1c8195b03f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d06d9c6b9b5874e3fb4798d89fbb59a" id="r_a8d06d9c6b9b5874e3fb4798d89fbb59a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#a8d06d9c6b9b5874e3fb4798d89fbb59a">initArgs</a> (parser, lastCmdLineArg=None, checkHostArg=True)</td></tr>
 <tr class="separator:a8d06d9c6b9b5874e3fb4798d89fbb59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1168ebf46dcc2e424c28dac7b8e0fa9" id="r_ad1168ebf46dcc2e424c28dac7b8e0fa9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#ad1168ebf46dcc2e424c28dac7b8e0fa9">logTraceBack</a> (uio)</td></tr>
@@ -123,6 +126,11 @@ Functions</h2></td></tr>
 <tr class="separator:a5810e416a9f78f06a12e97f54d31fcc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e8f0ab1247c636e8362d37b9c998374" id="r_a0e8f0ab1247c636e8362d37b9c998374"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#a0e8f0ab1247c636e8362d37b9c998374">stripEOL</a> (lines)</td></tr>
 <tr class="separator:a0e8f0ab1247c636e8362d37b9c998374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af0a654cf00393f20ac2e9b45efe41763" id="r_af0a654cf00393f20ac2e9b45efe41763"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#af0a654cf00393f20ac2e9b45efe41763">PYPROJECT_FILE</a> = &quot;pyproject.toml&quot;</td></tr>
+<tr class="separator:af0a654cf00393f20ac2e9b45efe41763"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">This file is responsible for providing general helper functionality not
@@ -385,6 +393,8 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">  418</span>                            <span class="keywordflow">break</span></div>
 <div class="line"><span class="lineno">  419</span> </div>
 <div class="line"><span class="lineno">  420</span>    <span class="keywordflow">return</span> file_found</div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -622,7 +632,7 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">  273</span>    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Linux&#39;</span> <span class="keywordflow">and</span> os.geteuid() == 0:</div>
 <div class="line"><span class="lineno">  274</span>        <span class="comment"># Fix for os.environ[&quot;HOME&quot;] returning /home/root sometimes.</span></div>
 <div class="line"><span class="lineno">  275</span>        <span class="keywordflow">return</span> <span class="stringliteral">&#39;/root/&#39;</span></div>
-<div class="line"><span class="lineno">  276</span>    </div>
+<div class="line"><span class="lineno">  276</span> </div>
 <div class="line"><span class="lineno">  277</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;HOME&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
 <div class="line"><span class="lineno">  278</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
 <div class="line"><span class="lineno">  279</span> </div>
@@ -863,6 +873,44 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">  205</span>    <span class="keywordflow">return</span> pName</div>
 <div class="line"><span class="lineno">  206</span> </div>
 <div class="line"><span class="lineno">  207</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0299dff54d1f40de737d1c8195b03f3f" name="a0299dff54d1f40de737d1c8195b03f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0299dff54d1f40de737d1c8195b03f3f">&#9670;&#160;</a></span>getProgramVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getProgramVersion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@return The program/package version. This comes from the pyproject.toml file.
+           If this file is not found an exception is thrown.  </pre> 
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00425">425</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  425</span><span class="keyword">def </span>getProgramVersion():</div>
+<div class="line"><span class="lineno">  426</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
+<div class="line"><span class="lineno">  427</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  428</span>    poetryConfigFile = getAbsFile(PYPROJECT_FILE)</div>
+<div class="line"><span class="lineno">  429</span>    programVersion = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  430</span>    <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
+<div class="line"><span class="lineno">  431</span>        lines = fd.readlines()</div>
+<div class="line"><span class="lineno">  432</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  433</span>            line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  434</span>            <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
+<div class="line"><span class="lineno">  435</span>                elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
+<div class="line"><span class="lineno">  436</span>                <span class="keywordflow">if</span> len(elems) == 2:</div>
+<div class="line"><span class="lineno">  437</span>                    programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
+<div class="line"><span class="lineno">  438</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  439</span>    <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  440</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
+<div class="line"><span class="lineno">  441</span>    <span class="keywordflow">return</span> programVersion</div>
+<div class="line"><span class="lineno">  442</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1179,6 +1227,23 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">   66</span> </div>
 <div class="line"><span class="lineno">   67</span> </div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="af0a654cf00393f20ac2e9b45efe41763" name="af0a654cf00393f20ac2e9b45efe41763"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0a654cf00393f20ac2e9b45efe41763">&#9670;&#160;</a></span>PYPROJECT_FILE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">str PYPROJECT_FILE = &quot;pyproject.toml&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00423">423</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
