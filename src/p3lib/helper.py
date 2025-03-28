@@ -383,7 +383,8 @@ def getAbsFile(filename):
                 1 - The startup folder
                 2 - An 'assets' folder in the startup folder
                 3 - An 'assets' folder in the startup parent folder
-                3 - In an 'assets' folder in a python site-packages folder.
+                4 - In a site-packages folder.
+                5 - In an 'assets' folder in a python site-packages folder.
         @param filename The name of the icon file.
         @return The abs path of the file or None if not found."""
     file_found = None
@@ -411,11 +412,17 @@ def getAbsFile(filename):
                 for path in sys.path:
                     if 'site-packages' in path:
                         site_packages_path = path
-                        path3 = os.path.join(site_packages_path, 'assets')
-                        abs_filename = os.path.join(path3, filename)
+                        abs_filename = os.path.join(site_packages_path, filename)
+                        print(f"PJA: abs_filename={abs_filename}, FOUND={os.path.isfile(abs_filename)}")
                         if os.path.isfile(abs_filename):
                             file_found = abs_filename
-                            break
+
+                        else:
+                            path3 = os.path.join(site_packages_path, 'assets')
+                            abs_filename = os.path.join(path3, filename)
+                            if os.path.isfile(abs_filename):
+                                file_found = abs_filename
+                                break
 
     return file_found
 
