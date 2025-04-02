@@ -28,7 +28,8 @@ class TabbedNiceGui(object):
     # than normal.
     DESCRIP_STYLE               = '<span style="font-size:1.2em;">'
     ENABLE_BUTTONS              = "ENABLE_BUTTONS"
-    NOTIFY_DIALOG               = "NOTIFY_DIALOG"
+    NOTIFY_DIALOG_INFO          = "NOTIFY_DIALOG_INFO"
+    NOTIFY_DIALOG_ERROR         = "NOTIFY_DIALOG_ERROR"
     UPDATE_SECONDS              = "UPDATE_SECONDS"
     INFO_MESSAGE                = "INFO:  "
     WARN_MESSAGE                = "WARN:  "
@@ -168,11 +169,23 @@ class TabbedNiceGui(object):
         msgDict = {TabbedNiceGui.ERROR_MESSAGE: str(msg)}
         self.updateGUI(msgDict)
 
-    def infoDialog(self, msg):
+    def infoDialog(self, msg, addToMessageLog=True):
         """@brief Display an info level dialog.
-           @param msg The message dialog."""
-        msgDict = {TabbedNiceGui.NOTIFY_DIALOG: str(msg)}
+           @param msg The message dialog.
+           @param addToMessageLog If True the message will also be added to the message log."""
+        msgDict = {TabbedNiceGui.NOTIFY_DIALOG_INFO: str(msg)}
         self.updateGUI(msgDict)
+        if addToMessageLog:
+            self.info(msg)
+
+    def errorDialog(self, msg, addToMessageLog=True):
+        """@brief Display an error level dialog.
+           @param msg The message dialog.
+           @param addToMessageLog If True the message will also be added to the message log."""
+        msgDict = {TabbedNiceGui.NOTIFY_DIALOG_ERROR: str(msg)}
+        self.updateGUI(msgDict)
+        if addToMessageLog:
+            self.error(msg)
 
     def debug(self, msg):
         """@brief Send a debug message to be displayed in the GUI.
@@ -562,9 +575,13 @@ class TabbedNiceGui(object):
             state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]
             self._enableAllButtons(state)
 
-        elif TabbedNiceGui.NOTIFY_DIALOG in rxDict:
-            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG]
+        elif TabbedNiceGui.NOTIFY_DIALOG_INFO in rxDict:
+            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG_INFO]
             ui.notify(message, close_button='OK', type="positive", position="center")
+
+        elif TabbedNiceGui.NOTIFY_DIALOG_ERROR in rxDict:
+            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG_ERROR]
+            ui.notify(message, close_button='OK', type="negative", position="center")
 
         else:
 
