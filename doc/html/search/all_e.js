@@ -15,6 +15,7 @@ var searchData=
   ['ngt_5fexamples_12',['ngt_examples',['../namespacengt__examples.html',1,'ngt_examples'],['../classngt__examples_1_1NGT__Examples.html',1,'NGT_Examples']]],
   ['ngt_5fexamples_2epy_13',['ngt_examples.py',['../ngt__examples_8py.html',1,'']]],
   ['notice_14',['NOTICE',['../classp3lib_1_1uio_1_1PRIORITY.html#ac281a75cef19fe84c6e2b17d0badb709',1,'p3lib::uio::PRIORITY']]],
-  ['notify_5fdialog_15',['NOTIFY_DIALOG',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#af382827808c9be286f7dd97f1a73ae44',1,'p3lib::ngt::TabbedNiceGui']]],
-  ['number_5finput_5ffield_5ftype_16',['NUMBER_INPUT_FIELD_TYPE',['../classp3lib_1_1ngt_1_1YesNoDialog.html#af7a47e887faeacb950eb48cbf37546fd',1,'p3lib::ngt::YesNoDialog']]]
+  ['notify_5fdialog_5ferror_15',['NOTIFY_DIALOG_ERROR',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a625f677bc552d9f152d0af25cc1e73bd',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['notify_5fdialog_5finfo_16',['NOTIFY_DIALOG_INFO',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#af5a7336af31cc90db85943acbf50c430',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['number_5finput_5ffield_5ftype_17',['NUMBER_INPUT_FIELD_TYPE',['../classp3lib_1_1ngt_1_1YesNoDialog.html#af7a47e887faeacb950eb48cbf37546fd',1,'p3lib::ngt::YesNoDialog']]]
 ];
