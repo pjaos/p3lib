@@ -775,12 +775,8 @@ class DotConfigManager(ConfigManager):
     KEY_EDIT_ORDER_LIST = None
 
     @staticmethod
-    def GetDefaultConfigFilename(filenameOverride=None):
-        """@brief Get the default name of the config file for this app. This will be the program name
-                  (file that started up initially) without the .py extension. A .cfg extension is added
-                  and it will be found in the ~/.config folder.
-           @param filenameOverride The name for the config file in the .config folder. If left as None then the program name ise used
-                                   as the config filename."""
+    def GetDefaultConfigFolder():
+        """@brief Get the default config folder.."""
         dotConfigFolder = '.config'
         if platform.system() == 'Linux' and os.geteuid() == 0:
             homePath = "/root"
@@ -795,6 +791,25 @@ class DotConfigManager(ConfigManager):
         if not os.path.isdir(configFolder):
             # Create the ~/.config folder
             os.makedirs(configFolder)
+
+        return configFolder
+
+    @staticmethod
+    def GetDefaultConfigFilename(filenameOverride=None):
+        """@brief Get the default name of the config file for this app. This will be the program name
+                  (file that started up initially) without the .py extension. A .cfg extension is added
+                  and it will be found in the ~/.config folder.
+
+                  This will not work if no python file was started
+
+                  E.G
+                  A command line as shown below
+
+                  python -m poetry run python -c "import python_module.python_file; python_module.python_file.main()
+
+           @param filenameOverride The name for the config file in the .config folder. If left as None then the program name ise used
+                                   as the config filename."""
+        configFolder = DotConfigManager.GetDefaultConfigFolder()
 
         if filenameOverride:
             progName = filenameOverride
