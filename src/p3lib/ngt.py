@@ -13,6 +13,8 @@ from time import sleep
 from queue import Queue
 from time import time, strftime, localtime
 
+from p3lib.helper import getProgramVersion
+
 from nicegui import ui
 
 class TabbedNiceGui(object):
@@ -78,29 +80,7 @@ class TabbedNiceGui(object):
     def GetProgramVersion():
         """@brief Get the program version from the poetry pyproject.toml file.
            @return The version of the installed program (string value)."""
-        poetryConfigFile = os.path.join(TabbedNiceGui.LOCAL_PATH, TabbedNiceGui.POETRY_CONFIG_FILE)
-        if not os.path.isfile(poetryConfigFile):
-            poetryConfigFile = os.path.join(TabbedNiceGui.LOCAL_PATH, ".." + os.sep + TabbedNiceGui.POETRY_CONFIG_FILE)
-            poetryConfigFile2 = poetryConfigFile
-            if not os.path.isfile(poetryConfigFile):
-                cwd = os.getcwd()
-                poetryConfigFile = os.path.join(cwd, TabbedNiceGui.POETRY_CONFIG_FILE)
-                if not os.path.isfile(poetryConfigFile):
-                    raise Exception(f"{poetryConfigFile}, {poetryConfigFile2} and {poetryConfigFile} not found.")
-
-        programVersion = None
-        with open(poetryConfigFile, 'r') as fd:
-            lines = fd.readlines()
-            for line in lines:
-                line=line.strip("\r\n")
-                if line.startswith('version'):
-                    elems = line.split("=")
-                    if len(elems) == 2:
-                        programVersion = elems[1].strip('" ')
-                        break
-        if programVersion is None:
-            raise Exception(f"Failed to extract program version from '{line}' line of {poetryConfigFile} file.")
-        return programVersion
+        return getProgramVersion()
 
     def __init__(self, debugEnabled, logPath=None):
         """@brief Constructor
