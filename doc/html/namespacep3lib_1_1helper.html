@@ -90,6 +90,10 @@ Functions</h2></td></tr>
 <tr class="separator:af867b288cca6b5d943d5b42b93724317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb77038d7e117c4c02eddcc1c00d4f9" id="r_afbb77038d7e117c4c02eddcc1c00d4f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#afbb77038d7e117c4c02eddcc1c00d4f9">ensureBoolInt</a> (value, arg)</td></tr>
 <tr class="separator:afbb77038d7e117c4c02eddcc1c00d4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47846ac669e576489efc0d87adbed1cd" id="r_a47846ac669e576489efc0d87adbed1cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#a47846ac669e576489efc0d87adbed1cd">get_assets_folder</a> (raise_error=True)</td></tr>
+<tr class="separator:a47846ac669e576489efc0d87adbed1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9975c3746f0b0c04cd2d5c0eba7ea981" id="r_a9975c3746f0b0c04cd2d5c0eba7ea981"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#a9975c3746f0b0c04cd2d5c0eba7ea981">get_assets_folders</a> ()</td></tr>
+<tr class="separator:a9975c3746f0b0c04cd2d5c0eba7ea981"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae840ae14de7575582a27fb9059a2d663" id="r_ae840ae14de7575582a27fb9059a2d663"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#ae840ae14de7575582a27fb9059a2d663">getAbsFile</a> (filename)</td></tr>
 <tr class="separator:ae840ae14de7575582a27fb9059a2d663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac048004cac00ef5f142e60aed04f2cbe" id="r_ac048004cac00ef5f142e60aed04f2cbe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacep3lib_1_1helper.html#ac048004cac00ef5f142e60aed04f2cbe">getAddrPort</a> (host)</td></tr>
@@ -170,20 +174,20 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">Parse line into a key and value, adding the result to dict, as in
 getDict.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00086">86</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span><span class="keyword">def </span>_addEntry(line, dict):</div>
-<div class="line"><span class="lineno">   87</span>    <span class="stringliteral">&quot;&quot;&quot;Parse line into a key and value, adding the result to dict, as in</span></div>
-<div class="line"><span class="lineno">   88</span><span class="stringliteral">    getDict.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   89</span>    <span class="comment"># check for a parameter</span></div>
-<div class="line"><span class="lineno">   90</span>    fields = line.split(<span class="stringliteral">&#39;=&#39;</span>)</div>
-<div class="line"><span class="lineno">   91</span>    <span class="comment"># if at least 2 fields exist</span></div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> len(fields) &gt; 1:</div>
-<div class="line"><span class="lineno">   93</span>        <span class="comment"># add the key,value pair to the dictionary</span></div>
-<div class="line"><span class="lineno">   94</span>        key = _removeInvalidChars(fields[0])</div>
-<div class="line"><span class="lineno">   95</span>        value = _removeInvalidChars(fields[1])</div>
-<div class="line"><span class="lineno">   96</span>        dict[key] = value</div>
-<div class="line"><span class="lineno">   97</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00087">87</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span><span class="keyword">def </span>_addEntry(line, dict):</div>
+<div class="line"><span class="lineno">   88</span>    <span class="stringliteral">&quot;&quot;&quot;Parse line into a key and value, adding the result to dict, as in</span></div>
+<div class="line"><span class="lineno">   89</span><span class="stringliteral">    getDict.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   90</span>    <span class="comment"># check for a parameter</span></div>
+<div class="line"><span class="lineno">   91</span>    fields = line.split(<span class="stringliteral">&#39;=&#39;</span>)</div>
+<div class="line"><span class="lineno">   92</span>    <span class="comment"># if at least 2 fields exist</span></div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">if</span> len(fields) &gt; 1:</div>
+<div class="line"><span class="lineno">   94</span>        <span class="comment"># add the key,value pair to the dictionary</span></div>
+<div class="line"><span class="lineno">   95</span>        key = _removeInvalidChars(fields[0])</div>
+<div class="line"><span class="lineno">   96</span>        value = _removeInvalidChars(fields[1])</div>
+<div class="line"><span class="lineno">   97</span>        dict[key] = value</div>
 <div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -212,17 +216,17 @@ getDict.</pre>
 </div><div class="memdoc">
 <pre class="fragment">Return a copy of line with each ASCII control character (0-31),
 and each double quote, removed.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00076">76</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   76</span><span class="keyword">def </span>_removeInvalidChars(line):</div>
-<div class="line"><span class="lineno">   77</span>    <span class="stringliteral">&quot;&quot;&quot;Return a copy of line with each ASCII control character (0-31),</span></div>
-<div class="line"><span class="lineno">   78</span><span class="stringliteral">    and each double quote, removed.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   79</span>    output = <span class="stringliteral">&#39;&#39;</span></div>
-<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">for</span> c <span class="keywordflow">in</span> line:</div>
-<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">if</span> c &gt;= <span class="stringliteral">&#39; &#39;</span> <span class="keywordflow">and</span> c != <span class="stringliteral">&#39;&quot;&#39;</span>:</div>
-<div class="line"><span class="lineno">   82</span>            output = output + c</div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> output</div>
-<div class="line"><span class="lineno">   84</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00077">77</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span><span class="keyword">def </span>_removeInvalidChars(line):</div>
+<div class="line"><span class="lineno">   78</span>    <span class="stringliteral">&quot;&quot;&quot;Return a copy of line with each ASCII control character (0-31),</span></div>
+<div class="line"><span class="lineno">   79</span><span class="stringliteral">    and each double quote, removed.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   80</span>    output = <span class="stringliteral">&#39;&#39;</span></div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">for</span> c <span class="keywordflow">in</span> line:</div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">if</span> c &gt;= <span class="stringliteral">&#39; &#39;</span> <span class="keywordflow">and</span> c != <span class="stringliteral">&#39;&quot;&#39;</span>:</div>
+<div class="line"><span class="lineno">   83</span>            output = output + c</div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">return</span> output</div>
 <div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -261,32 +265,32 @@ and each double quote, removed.</pre>
    @param uio A UIO instance.
    @param quiet If True do not show uio messages (apart from overwrite prompt.
    @param aFile The file to append or delete.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00356">356</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  356</span><span class="keyword">def </span>appendCreateFile(uio, aFile, quiet=False):</div>
-<div class="line"><span class="lineno">  357</span>    <span class="stringliteral">&quot;&quot;&quot;@brief USer interaction to append or create a file.</span></div>
-<div class="line"><span class="lineno">  358</span><span class="stringliteral">       @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">  359</span><span class="stringliteral">       @param quiet If True do not show uio messages (apart from overwrite prompt.</span></div>
-<div class="line"><span class="lineno">  360</span><span class="stringliteral">       @param aFile The file to append or delete.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  361</span>    createFile = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  362</span>    <span class="keywordflow">if</span> os.path.isfile(aFile):</div>
-<div class="line"><span class="lineno">  363</span>        <span class="keywordflow">if</span> uio.getBoolInput(<span class="stringliteral">&quot;Overwrite {} y/n&quot;</span>.format(aFile)):</div>
-<div class="line"><span class="lineno">  364</span>            os.remove(aFile)</div>
-<div class="line"><span class="lineno">  365</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
-<div class="line"><span class="lineno">  366</span>                uio.info(<span class="stringliteral">&quot;Deleted {}&quot;</span>.format(aFile))</div>
-<div class="line"><span class="lineno">  367</span>            createFile = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  368</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  369</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
-<div class="line"><span class="lineno">  370</span>                uio.info(<span class="stringliteral">&quot;Appending to {}&quot;</span>.format(aFile))</div>
-<div class="line"><span class="lineno">  371</span> </div>
-<div class="line"><span class="lineno">  372</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  373</span>        createFile = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  374</span> </div>
-<div class="line"><span class="lineno">  375</span>    <span class="keywordflow">if</span> createFile:</div>
-<div class="line"><span class="lineno">  376</span>        fd = open(aFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><span class="lineno">  377</span>        fd.close()</div>
-<div class="line"><span class="lineno">  378</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
-<div class="line"><span class="lineno">  379</span>            uio.info(<span class="stringliteral">&quot;Created {}&quot;</span>.format(aFile))</div>
-<div class="line"><span class="lineno">  380</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00357">357</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  357</span><span class="keyword">def </span>appendCreateFile(uio, aFile, quiet=False):</div>
+<div class="line"><span class="lineno">  358</span>    <span class="stringliteral">&quot;&quot;&quot;@brief USer interaction to append or create a file.</span></div>
+<div class="line"><span class="lineno">  359</span><span class="stringliteral">       @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">  360</span><span class="stringliteral">       @param quiet If True do not show uio messages (apart from overwrite prompt.</span></div>
+<div class="line"><span class="lineno">  361</span><span class="stringliteral">       @param aFile The file to append or delete.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  362</span>    createFile = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  363</span>    <span class="keywordflow">if</span> os.path.isfile(aFile):</div>
+<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">if</span> uio.getBoolInput(<span class="stringliteral">&quot;Overwrite {} y/n&quot;</span>.format(aFile)):</div>
+<div class="line"><span class="lineno">  365</span>            os.remove(aFile)</div>
+<div class="line"><span class="lineno">  366</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
+<div class="line"><span class="lineno">  367</span>                uio.info(<span class="stringliteral">&quot;Deleted {}&quot;</span>.format(aFile))</div>
+<div class="line"><span class="lineno">  368</span>            createFile = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  369</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  370</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
+<div class="line"><span class="lineno">  371</span>                uio.info(<span class="stringliteral">&quot;Appending to {}&quot;</span>.format(aFile))</div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  374</span>        createFile = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  375</span> </div>
+<div class="line"><span class="lineno">  376</span>    <span class="keywordflow">if</span> createFile:</div>
+<div class="line"><span class="lineno">  377</span>        fd = open(aFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><span class="lineno">  378</span>        fd.close()</div>
+<div class="line"><span class="lineno">  379</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> quiet:</div>
+<div class="line"><span class="lineno">  380</span>            uio.info(<span class="stringliteral">&quot;Created {}&quot;</span>.format(aFile))</div>
+<div class="line"><span class="lineno">  381</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -318,15 +322,123 @@ and each double quote, removed.</pre>
 <pre class="fragment">We expect value to be a boolean (0 or 1)
    raise an error if not
 </pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00041">41</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span><span class="keyword">def </span>ensureBoolInt(value, arg):</div>
-<div class="line"><span class="lineno">   42</span>    <span class="stringliteral">&quot;&quot;&quot;We expect value to be a boolean (0 or 1)</span></div>
-<div class="line"><span class="lineno">   43</span><span class="stringliteral">       raise an error if not</span></div>
-<div class="line"><span class="lineno">   44</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">if</span> value <span class="keywordflow">not</span> <span class="keywordflow">in</span> [0, 1]:</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The %s arg should be followed by 0 or 1. Was %s.&quot;</span> % (str(arg), str(value)))</div>
-<div class="line"><span class="lineno">   47</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00042">42</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span><span class="keyword">def </span>ensureBoolInt(value, arg):</div>
+<div class="line"><span class="lineno">   43</span>    <span class="stringliteral">&quot;&quot;&quot;We expect value to be a boolean (0 or 1)</span></div>
+<div class="line"><span class="lineno">   44</span><span class="stringliteral">       raise an error if not</span></div>
+<div class="line"><span class="lineno">   45</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> value <span class="keywordflow">not</span> <span class="keywordflow">in</span> [0, 1]:</div>
+<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;The %s arg should be followed by 0 or 1. Was %s.&quot;</span> % (str(arg), str(value)))</div>
 <div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a47846ac669e576489efc0d87adbed1cd" name="a47846ac669e576489efc0d87adbed1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47846ac669e576489efc0d87adbed1cd">&#9670;&#160;</a></span>get_assets_folder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">get_assets_folder </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>raise_error</em> = <code>True</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Get the assests folder.
+   @param raise_error If True then raise an error if the assets folder is not found.
+   @return The abs assets folder path string.</pre> 
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00482">482</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  482</span><span class="keyword">def </span>get_assets_folder(raise_error=True):</div>
+<div class="line"><span class="lineno">  483</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the assests folder.</span></div>
+<div class="line"><span class="lineno">  484</span><span class="stringliteral">       @param raise_error If True then raise an error if the assets folder is not found.</span></div>
+<div class="line"><span class="lineno">  485</span><span class="stringliteral">       @return The abs assets folder path string.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  486</span>    searchFolders = []</div>
+<div class="line"><span class="lineno">  487</span>    assetsFolder = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  488</span>    calling_file = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  489</span>    <span class="comment"># Get the full path to the python file that called this get_assets_folder() function.</span></div>
+<div class="line"><span class="lineno">  490</span>    frame = inspect.stack()[1]</div>
+<div class="line"><span class="lineno">  491</span>    module = inspect.getmodule(frame[0])</div>
+<div class="line"><span class="lineno">  492</span>    <span class="keywordflow">if</span> module <span class="keywordflow">and</span> hasattr(module, <span class="stringliteral">&#39;__file__&#39;</span>):</div>
+<div class="line"><span class="lineno">  493</span>        calling_file = os.path.abspath(module.__file__)</div>
+<div class="line"><span class="lineno">  494</span> </div>
+<div class="line"><span class="lineno">  495</span>    <span class="keywordflow">if</span> calling_file:</div>
+<div class="line"><span class="lineno">  496</span>        startup_path = os.path.dirname(calling_file)</div>
+<div class="line"><span class="lineno">  497</span>        searchFolders.append( os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  498</span>        pp1 = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  499</span>        searchFolders.append( os.path.join(pp1, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  500</span>        pp2 = os.path.join(pp1, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  501</span>        searchFolders.append( os.path.join(pp2, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  502</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  503</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  504</span>            <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><span class="lineno">  505</span>                site_packages_path = path</div>
+<div class="line"><span class="lineno">  506</span>                searchFolders.append( os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  507</span> </div>
+<div class="line"><span class="lineno">  508</span>        <span class="keywordflow">for</span> folder <span class="keywordflow">in</span> searchFolders:</div>
+<div class="line"><span class="lineno">  509</span>            absPath = os.path.abspath(folder)</div>
+<div class="line"><span class="lineno">  510</span>            <span class="keywordflow">if</span> os.path.isdir(absPath):</div>
+<div class="line"><span class="lineno">  511</span>                assetsFolder = absPath</div>
+<div class="line"><span class="lineno">  512</span> </div>
+<div class="line"><span class="lineno">  513</span>    <span class="keywordflow">if</span> raise_error <span class="keywordflow">and</span> assetsFolder <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  514</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Failed to find assets folder.&#39;</span>)</div>
+<div class="line"><span class="lineno">  515</span> </div>
+<div class="line"><span class="lineno">  516</span>    <span class="keywordflow">return</span> assetsFolder</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9975c3746f0b0c04cd2d5c0eba7ea981" name="a9975c3746f0b0c04cd2d5c0eba7ea981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9975c3746f0b0c04cd2d5c0eba7ea981">&#9670;&#160;</a></span>get_assets_folders()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">get_assets_folders </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@return A list of all the assets folders found.</pre> 
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00450">450</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  450</span><span class="keyword">def </span>get_assets_folders():</div>
+<div class="line"><span class="lineno">  451</span>    <span class="stringliteral">&quot;&quot;&quot;@return A list of all the assets folders found.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  452</span>    searchFolders = []</div>
+<div class="line"><span class="lineno">  453</span>    assetsFolders = []</div>
+<div class="line"><span class="lineno">  454</span>    calling_file = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  455</span>    <span class="comment"># Get the full path to the python file that called this get_assets_folders() function.</span></div>
+<div class="line"><span class="lineno">  456</span>    frame = inspect.stack()[1]</div>
+<div class="line"><span class="lineno">  457</span>    module = inspect.getmodule(frame[0])</div>
+<div class="line"><span class="lineno">  458</span>    <span class="keywordflow">if</span> module <span class="keywordflow">and</span> hasattr(module, <span class="stringliteral">&#39;__file__&#39;</span>):</div>
+<div class="line"><span class="lineno">  459</span>        calling_file = os.path.abspath(module.__file__)</div>
+<div class="line"><span class="lineno">  460</span> </div>
+<div class="line"><span class="lineno">  461</span>    <span class="keywordflow">if</span> calling_file:</div>
+<div class="line"><span class="lineno">  462</span>        startup_path = os.path.dirname(calling_file)</div>
+<div class="line"><span class="lineno">  463</span>        searchFolders.append( os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  464</span>        pp1 = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  465</span>        searchFolders.append( os.path.join(pp1, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  466</span>        pp2 = os.path.join(pp1, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  467</span>        searchFolders.append( os.path.join(pp2, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  468</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  469</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  470</span>            <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><span class="lineno">  471</span>                site_packages_path = path</div>
+<div class="line"><span class="lineno">  472</span>                searchFolders.append( os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  473</span> </div>
+<div class="line"><span class="lineno">  474</span>        <span class="keywordflow">for</span> folder <span class="keywordflow">in</span> searchFolders:</div>
+<div class="line"><span class="lineno">  475</span>            absPath = os.path.abspath(folder)</div>
+<div class="line"><span class="lineno">  476</span>            <span class="keywordflow">if</span> os.path.isdir(absPath):</div>
+<div class="line"><span class="lineno">  477</span>                assetsFolders.append(absPath)</div>
+<div class="line"><span class="lineno">  478</span> </div>
+<div class="line"><span class="lineno">  479</span>    <span class="keywordflow">return</span> assetsFolders</div>
+<div class="line"><span class="lineno">  480</span> </div>
+<div class="line"><span class="lineno">  481</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -353,55 +465,55 @@ and each double quote, removed.</pre>
             5 - In an 'assets' folder in a python site-packages folder.
     @param filename The name of the icon file.
     @return The abs path of the file or None if not found.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00381">381</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  381</span><span class="keyword">def </span>getAbsFile(filename):</div>
-<div class="line"><span class="lineno">  382</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Check that the file exists in several places.</span></div>
-<div class="line"><span class="lineno">  383</span><span class="stringliteral">                1 - The startup folder</span></div>
-<div class="line"><span class="lineno">  384</span><span class="stringliteral">                2 - An &#39;assets&#39; folder in the startup folder</span></div>
-<div class="line"><span class="lineno">  385</span><span class="stringliteral">                3 - An &#39;assets&#39; folder in the startup parent folder</span></div>
-<div class="line"><span class="lineno">  386</span><span class="stringliteral">                4 - In a site-packages folder.</span></div>
-<div class="line"><span class="lineno">  387</span><span class="stringliteral">                5 - In an &#39;assets&#39; folder in a python site-packages folder.</span></div>
-<div class="line"><span class="lineno">  388</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
-<div class="line"><span class="lineno">  389</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  390</span>    file_found = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  391</span>    abs_filename = os.path.abspath(filename)</div>
-<div class="line"><span class="lineno">  392</span>    <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><span class="lineno">  393</span>        file_found = abs_filename</div>
-<div class="line"><span class="lineno">  394</span> </div>
-<div class="line"><span class="lineno">  395</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  396</span>        startup_file = os.path.abspath(sys.argv[0])</div>
-<div class="line"><span class="lineno">  397</span>        startup_path = os.path.dirname(startup_file)</div>
-<div class="line"><span class="lineno">  398</span>        path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><span class="lineno">  399</span>        abs_filename = os.path.join(path1, filename)</div>
-<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><span class="lineno">  401</span>            file_found = abs_filename</div>
-<div class="line"><span class="lineno">  402</span> </div>
-<div class="line"><span class="lineno">  403</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  404</span>            startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  405</span>            path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><span class="lineno">  406</span>            abs_filename = os.path.join(path2, filename)</div>
-<div class="line"><span class="lineno">  407</span>            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><span class="lineno">  408</span>                file_found = abs_filename</div>
-<div class="line"><span class="lineno">  409</span> </div>
-<div class="line"><span class="lineno">  410</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  411</span>                <span class="comment"># Try all the site packages folders we know about.</span></div>
-<div class="line"><span class="lineno">  412</span>                <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
-<div class="line"><span class="lineno">  413</span>                    <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
-<div class="line"><span class="lineno">  414</span>                        site_packages_path = path</div>
-<div class="line"><span class="lineno">  415</span>                        abs_filename = os.path.join(site_packages_path, filename)</div>
-<div class="line"><span class="lineno">  416</span>                        print(f<span class="stringliteral">&quot;PJA: abs_filename={abs_filename}, FOUND={os.path.isfile(abs_filename)}&quot;</span>)</div>
-<div class="line"><span class="lineno">  417</span>                        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><span class="lineno">  418</span>                            file_found = abs_filename</div>
-<div class="line"><span class="lineno">  419</span> </div>
-<div class="line"><span class="lineno">  420</span>                        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  421</span>                            path3 = os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><span class="lineno">  422</span>                            abs_filename = os.path.join(path3, filename)</div>
-<div class="line"><span class="lineno">  423</span>                            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><span class="lineno">  424</span>                                file_found = abs_filename</div>
-<div class="line"><span class="lineno">  425</span>                                <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  426</span> </div>
-<div class="line"><span class="lineno">  427</span>    <span class="keywordflow">return</span> file_found</div>
-<div class="line"><span class="lineno">  428</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00382">382</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  382</span><span class="keyword">def </span>getAbsFile(filename):</div>
+<div class="line"><span class="lineno">  383</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Check that the file exists in several places.</span></div>
+<div class="line"><span class="lineno">  384</span><span class="stringliteral">                1 - The startup folder</span></div>
+<div class="line"><span class="lineno">  385</span><span class="stringliteral">                2 - An &#39;assets&#39; folder in the startup folder</span></div>
+<div class="line"><span class="lineno">  386</span><span class="stringliteral">                3 - An &#39;assets&#39; folder in the startup parent folder</span></div>
+<div class="line"><span class="lineno">  387</span><span class="stringliteral">                4 - In a site-packages folder.</span></div>
+<div class="line"><span class="lineno">  388</span><span class="stringliteral">                5 - In an &#39;assets&#39; folder in a python site-packages folder.</span></div>
+<div class="line"><span class="lineno">  389</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
+<div class="line"><span class="lineno">  390</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  391</span>    file_found = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  392</span>    abs_filename = os.path.abspath(filename)</div>
+<div class="line"><span class="lineno">  393</span>    <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  394</span>        file_found = abs_filename</div>
+<div class="line"><span class="lineno">  395</span> </div>
+<div class="line"><span class="lineno">  396</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  397</span>        startup_file = os.path.abspath(sys.argv[0])</div>
+<div class="line"><span class="lineno">  398</span>        startup_path = os.path.dirname(startup_file)</div>
+<div class="line"><span class="lineno">  399</span>        path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  400</span>        abs_filename = os.path.join(path1, filename)</div>
+<div class="line"><span class="lineno">  401</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  402</span>            file_found = abs_filename</div>
+<div class="line"><span class="lineno">  403</span> </div>
+<div class="line"><span class="lineno">  404</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  405</span>            startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  406</span>            path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  407</span>            abs_filename = os.path.join(path2, filename)</div>
+<div class="line"><span class="lineno">  408</span>            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  409</span>                file_found = abs_filename</div>
+<div class="line"><span class="lineno">  410</span> </div>
+<div class="line"><span class="lineno">  411</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  412</span>                <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  413</span>                <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  414</span>                    <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><span class="lineno">  415</span>                        site_packages_path = path</div>
+<div class="line"><span class="lineno">  416</span>                        abs_filename = os.path.join(site_packages_path, filename)</div>
+<div class="line"><span class="lineno">  417</span>                        print(f<span class="stringliteral">&quot;PJA: abs_filename={abs_filename}, FOUND={os.path.isfile(abs_filename)}&quot;</span>)</div>
+<div class="line"><span class="lineno">  418</span>                        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  419</span>                            file_found = abs_filename</div>
+<div class="line"><span class="lineno">  420</span> </div>
+<div class="line"><span class="lineno">  421</span>                        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  422</span>                            path3 = os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  423</span>                            abs_filename = os.path.join(path3, filename)</div>
+<div class="line"><span class="lineno">  424</span>                            <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  425</span>                                file_found = abs_filename</div>
+<div class="line"><span class="lineno">  426</span>                                <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  427</span> </div>
+<div class="line"><span class="lineno">  428</span>    <span class="keywordflow">return</span> file_found</div>
+<div class="line"><span class="lineno">  429</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -422,21 +534,21 @@ and each double quote, removed.</pre>
 </div><div class="memdoc">
 <pre class="fragment">The host address may be entered in the format &lt;address&gt;:&lt;port&gt;
    Return a tuple with host and port</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00179">179</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  179</span><span class="keyword">def </span>getAddrPort(host):</div>
-<div class="line"><span class="lineno">  180</span>    <span class="stringliteral">&quot;&quot;&quot;The host address may be entered in the format &lt;address&gt;:&lt;port&gt;</span></div>
-<div class="line"><span class="lineno">  181</span><span class="stringliteral">       Return a tuple with host and port&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  182</span>    elems = host.split(<span class="stringliteral">&quot;:&quot;</span>)</div>
-<div class="line"><span class="lineno">  183</span> </div>
-<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">if</span> len(elems) &gt; 1:</div>
-<div class="line"><span class="lineno">  185</span>        host = elems[0]</div>
-<div class="line"><span class="lineno">  186</span>        port = int(elems[1])</div>
-<div class="line"><span class="lineno">  187</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  188</span>        port = 22</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>    <span class="keywordflow">return</span> [host, port]</div>
-<div class="line"><span class="lineno">  191</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00180">180</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  180</span><span class="keyword">def </span>getAddrPort(host):</div>
+<div class="line"><span class="lineno">  181</span>    <span class="stringliteral">&quot;&quot;&quot;The host address may be entered in the format &lt;address&gt;:&lt;port&gt;</span></div>
+<div class="line"><span class="lineno">  182</span><span class="stringliteral">       Return a tuple with host and port&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  183</span>    elems = host.split(<span class="stringliteral">&quot;:&quot;</span>)</div>
+<div class="line"><span class="lineno">  184</span> </div>
+<div class="line"><span class="lineno">  185</span>    <span class="keywordflow">if</span> len(elems) &gt; 1:</div>
+<div class="line"><span class="lineno">  186</span>        host = elems[0]</div>
+<div class="line"><span class="lineno">  187</span>        port = int(elems[1])</div>
+<div class="line"><span class="lineno">  188</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  189</span>        port = 22</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>    <span class="keywordflow">return</span> [host, port]</div>
 <div class="line"><span class="lineno">  192</span> </div>
+<div class="line"><span class="lineno">  193</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -473,20 +585,20 @@ and each double quote, removed.</pre>
 </div><div class="memdoc">
 <pre class="fragment">Get boolean (Y/N) repsonse from user.
    If allowQuit is True and the user enters q then the program will exit.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00208">208</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  208</span><span class="keyword">def </span>getBoolUserResponse(uio, prompt, allowQuit=True):</div>
-<div class="line"><span class="lineno">  209</span>    <span class="stringliteral">&quot;&quot;&quot;Get boolean (Y/N) repsonse from user.</span></div>
-<div class="line"><span class="lineno">  210</span><span class="stringliteral">       If allowQuit is True and the user enters q then the program will exit.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  212</span>        response = uio.getInput(prompt=prompt)</div>
-<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">if</span> response.lower() == <span class="stringliteral">&#39;y&#39;</span>:</div>
-<div class="line"><span class="lineno">  214</span>            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  215</span>        <span class="keywordflow">elif</span> response.lower() == <span class="stringliteral">&#39;n&#39;</span>:</div>
-<div class="line"><span class="lineno">  216</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  217</span>        <span class="keywordflow">elif</span> allowQuit <span class="keywordflow">and</span> response.lower() == <span class="stringliteral">&#39;q&#39;</span>:</div>
-<div class="line"><span class="lineno">  218</span>            sys.exit(0)</div>
-<div class="line"><span class="lineno">  219</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00209">209</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  209</span><span class="keyword">def </span>getBoolUserResponse(uio, prompt, allowQuit=True):</div>
+<div class="line"><span class="lineno">  210</span>    <span class="stringliteral">&quot;&quot;&quot;Get boolean (Y/N) repsonse from user.</span></div>
+<div class="line"><span class="lineno">  211</span><span class="stringliteral">       If allowQuit is True and the user enters q then the program will exit.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  212</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  213</span>        response = uio.getInput(prompt=prompt)</div>
+<div class="line"><span class="lineno">  214</span>        <span class="keywordflow">if</span> response.lower() == <span class="stringliteral">&#39;y&#39;</span>:</div>
+<div class="line"><span class="lineno">  215</span>            <span class="keywordflow">return</span> <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">elif</span> response.lower() == <span class="stringliteral">&#39;n&#39;</span>:</div>
+<div class="line"><span class="lineno">  217</span>            <span class="keywordflow">return</span> <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  218</span>        <span class="keywordflow">elif</span> allowQuit <span class="keywordflow">and</span> response.lower() == <span class="stringliteral">&#39;q&#39;</span>:</div>
+<div class="line"><span class="lineno">  219</span>            sys.exit(0)</div>
 <div class="line"><span class="lineno">  220</span> </div>
+<div class="line"><span class="lineno">  221</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -534,51 +646,51 @@ and each double quote, removed.</pre>
         equals sign it contains.
 
    @return Return the dict loaded from the file.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00099">99</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   99</span><span class="keyword">def </span>getDict(filename, jsonFmt=False):</div>
-<div class="line"><span class="lineno">  100</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Load dict from file</span></div>
-<div class="line"><span class="lineno">  101</span><span class="stringliteral">       @param jsonFmt If True then we expect the file to be in json format.</span></div>
-<div class="line"><span class="lineno">  102</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  103</span><span class="stringliteral">           if json is True we expect the file to be in json format</span></div>
-<div class="line"><span class="lineno">  104</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  105</span><span class="stringliteral">           if json is False</span></div>
-<div class="line"><span class="lineno">  106</span><span class="stringliteral">            We key=value pairs (= is the separate character).</span></div>
-<div class="line"><span class="lineno">  107</span><span class="stringliteral">            Lines containing a hash sign as the first non-whitespace character are</span></div>
-<div class="line"><span class="lineno">  108</span><span class="stringliteral">            ignored. Leading and trailing whitespace is ignored.</span></div>
-<div class="line"><span class="lineno">  109</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  110</span><span class="stringliteral">            Lines not containing an equals sign are also silently ignored.</span></div>
-<div class="line"><span class="lineno">  111</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  112</span><span class="stringliteral">            Lines not ignored are assumed to be in the form key=value, where key</span></div>
-<div class="line"><span class="lineno">  113</span><span class="stringliteral">            does not contain an equals sign;</span></div>
-<div class="line"><span class="lineno">  114</span><span class="stringliteral">            Control characters and double quotes in both key and value are silently</span></div>
-<div class="line"><span class="lineno">  115</span><span class="stringliteral">            discarded. value is also truncated just before the first whitespace or</span></div>
-<div class="line"><span class="lineno">  116</span><span class="stringliteral">            equals sign it contains.</span></div>
-<div class="line"><span class="lineno">  117</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  118</span><span class="stringliteral">       @return Return the dict loaded from the file.</span></div>
-<div class="line"><span class="lineno">  119</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  120</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  121</span>    dictLoaded = {}</div>
-<div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span> jsonFmt:</div>
-<div class="line"><span class="lineno">  124</span>        fp = open(filename, <span class="stringliteral">&#39;r&#39;</span>)</div>
-<div class="line"><span class="lineno">  125</span>        dictLoaded = json.load(fp)</div>
-<div class="line"><span class="lineno">  126</span>        fp.close()</div>
-<div class="line"><span class="lineno">  127</span> </div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>        lines = getLinesFromFile(filename)</div>
-<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  132</span>            <span class="comment"># strip leading and trailing whitespaces</span></div>
-<div class="line"><span class="lineno">  133</span>            line = line.strip()</div>
-<div class="line"><span class="lineno">  134</span>            <span class="comment"># if a comment line then ignore</span></div>
-<div class="line"><span class="lineno">  135</span>            <span class="keywordflow">if</span> line.find(<span class="stringliteral">&#39;#&#39;</span>) == 0:</div>
-<div class="line"><span class="lineno">  136</span>                <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  137</span>            <span class="comment"># add an entry to the dict</span></div>
-<div class="line"><span class="lineno">  138</span>            _addEntry(line, dictLoaded)</div>
-<div class="line"><span class="lineno">  139</span> </div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span> dictLoaded</div>
-<div class="line"><span class="lineno">  141</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00100">100</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  100</span><span class="keyword">def </span>getDict(filename, jsonFmt=False):</div>
+<div class="line"><span class="lineno">  101</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Load dict from file</span></div>
+<div class="line"><span class="lineno">  102</span><span class="stringliteral">       @param jsonFmt If True then we expect the file to be in json format.</span></div>
+<div class="line"><span class="lineno">  103</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  104</span><span class="stringliteral">           if json is True we expect the file to be in json format</span></div>
+<div class="line"><span class="lineno">  105</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  106</span><span class="stringliteral">           if json is False</span></div>
+<div class="line"><span class="lineno">  107</span><span class="stringliteral">            We key=value pairs (= is the separate character).</span></div>
+<div class="line"><span class="lineno">  108</span><span class="stringliteral">            Lines containing a hash sign as the first non-whitespace character are</span></div>
+<div class="line"><span class="lineno">  109</span><span class="stringliteral">            ignored. Leading and trailing whitespace is ignored.</span></div>
+<div class="line"><span class="lineno">  110</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  111</span><span class="stringliteral">            Lines not containing an equals sign are also silently ignored.</span></div>
+<div class="line"><span class="lineno">  112</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  113</span><span class="stringliteral">            Lines not ignored are assumed to be in the form key=value, where key</span></div>
+<div class="line"><span class="lineno">  114</span><span class="stringliteral">            does not contain an equals sign;</span></div>
+<div class="line"><span class="lineno">  115</span><span class="stringliteral">            Control characters and double quotes in both key and value are silently</span></div>
+<div class="line"><span class="lineno">  116</span><span class="stringliteral">            discarded. value is also truncated just before the first whitespace or</span></div>
+<div class="line"><span class="lineno">  117</span><span class="stringliteral">            equals sign it contains.</span></div>
+<div class="line"><span class="lineno">  118</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  119</span><span class="stringliteral">       @return Return the dict loaded from the file.</span></div>
+<div class="line"><span class="lineno">  120</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  121</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  122</span>    dictLoaded = {}</div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">if</span> jsonFmt:</div>
+<div class="line"><span class="lineno">  125</span>        fp = open(filename, <span class="stringliteral">&#39;r&#39;</span>)</div>
+<div class="line"><span class="lineno">  126</span>        dictLoaded = json.load(fp)</div>
+<div class="line"><span class="lineno">  127</span>        fp.close()</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  130</span> </div>
+<div class="line"><span class="lineno">  131</span>        lines = getLinesFromFile(filename)</div>
+<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  133</span>            <span class="comment"># strip leading and trailing whitespaces</span></div>
+<div class="line"><span class="lineno">  134</span>            line = line.strip()</div>
+<div class="line"><span class="lineno">  135</span>            <span class="comment"># if a comment line then ignore</span></div>
+<div class="line"><span class="lineno">  136</span>            <span class="keywordflow">if</span> line.find(<span class="stringliteral">&#39;#&#39;</span>) == 0:</div>
+<div class="line"><span class="lineno">  137</span>                <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  138</span>            <span class="comment"># add an entry to the dict</span></div>
+<div class="line"><span class="lineno">  139</span>            _addEntry(line, dictLoaded)</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">return</span> dictLoaded</div>
 <div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -599,22 +711,22 @@ and each double quote, removed.</pre>
 <pre class="fragment">@brief Get a free port and return to the client. If no port is available
           then -1 is returned.
    @return the free TCP port number or -1 if no port is available.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00341">341</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  341</span><span class="keyword">def </span>GetFreeTCPPort():</div>
-<div class="line"><span class="lineno">  342</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get a free port and return to the client. If no port is available</span></div>
-<div class="line"><span class="lineno">  343</span><span class="stringliteral">              then -1 is returned.</span></div>
-<div class="line"><span class="lineno">  344</span><span class="stringliteral">       @return the free TCP port number or -1 if no port is available.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  345</span>    tcpPort=-1</div>
-<div class="line"><span class="lineno">  346</span>    <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  347</span>        <span class="comment">#Bind to a local port to find a free TTCP port</span></div>
-<div class="line"><span class="lineno">  348</span>        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</div>
-<div class="line"><span class="lineno">  349</span>        sock.bind((<span class="stringliteral">&#39;&#39;</span>, 0))</div>
-<div class="line"><span class="lineno">  350</span>        tcpPort = sock.getsockname()[1]</div>
-<div class="line"><span class="lineno">  351</span>        sock.close()</div>
-<div class="line"><span class="lineno">  352</span>    <span class="keywordflow">except</span> socket.error:</div>
-<div class="line"><span class="lineno">  353</span>        <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  354</span>    <span class="keywordflow">return</span> tcpPort</div>
-<div class="line"><span class="lineno">  355</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00342">342</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  342</span><span class="keyword">def </span>GetFreeTCPPort():</div>
+<div class="line"><span class="lineno">  343</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get a free port and return to the client. If no port is available</span></div>
+<div class="line"><span class="lineno">  344</span><span class="stringliteral">              then -1 is returned.</span></div>
+<div class="line"><span class="lineno">  345</span><span class="stringliteral">       @return the free TCP port number or -1 if no port is available.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  346</span>    tcpPort=-1</div>
+<div class="line"><span class="lineno">  347</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  348</span>        <span class="comment">#Bind to a local port to find a free TTCP port</span></div>
+<div class="line"><span class="lineno">  349</span>        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</div>
+<div class="line"><span class="lineno">  350</span>        sock.bind((<span class="stringliteral">&#39;&#39;</span>, 0))</div>
+<div class="line"><span class="lineno">  351</span>        tcpPort = sock.getsockname()[1]</div>
+<div class="line"><span class="lineno">  352</span>        sock.close()</div>
+<div class="line"><span class="lineno">  353</span>    <span class="keywordflow">except</span> socket.error:</div>
+<div class="line"><span class="lineno">  354</span>        <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  355</span>    <span class="keywordflow">return</span> tcpPort</div>
+<div class="line"><span class="lineno">  356</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -633,25 +745,25 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Get the user home path as this will be used to store config files</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00271">271</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  271</span><span class="keyword">def </span>getHomePath():</div>
-<div class="line"><span class="lineno">  272</span>    <span class="stringliteral">&quot;&quot;&quot;Get the user home path as this will be used to store config files&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  273</span>    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Linux&#39;</span> <span class="keywordflow">and</span> os.geteuid() == 0:</div>
-<div class="line"><span class="lineno">  274</span>        <span class="comment"># Fix for os.environ[&quot;HOME&quot;] returning /home/root sometimes.</span></div>
-<div class="line"><span class="lineno">  275</span>        <span class="keywordflow">return</span> <span class="stringliteral">&#39;/root/&#39;</span></div>
-<div class="line"><span class="lineno">  276</span> </div>
-<div class="line"><span class="lineno">  277</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;HOME&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
-<div class="line"><span class="lineno">  278</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
-<div class="line"><span class="lineno">  279</span> </div>
-<div class="line"><span class="lineno">  280</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;HOMEDRIVE&quot;</span> <span class="keywordflow">in</span> os.environ <span class="keywordflow">and</span> <span class="stringliteral">&quot;HOMEPATH&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
-<div class="line"><span class="lineno">  281</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;HOMEDRIVE&quot;</span>] + os.environ[<span class="stringliteral">&quot;HOMEPATH&quot;</span>]</div>
-<div class="line"><span class="lineno">  282</span> </div>
-<div class="line"><span class="lineno">  283</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;USERPROFILE&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
-<div class="line"><span class="lineno">  284</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;USERPROFILE&quot;</span>]</div>
-<div class="line"><span class="lineno">  285</span> </div>
-<div class="line"><span class="lineno">  286</span>    <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  287</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00272">272</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  272</span><span class="keyword">def </span>getHomePath():</div>
+<div class="line"><span class="lineno">  273</span>    <span class="stringliteral">&quot;&quot;&quot;Get the user home path as this will be used to store config files&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  274</span>    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Linux&#39;</span> <span class="keywordflow">and</span> os.geteuid() == 0:</div>
+<div class="line"><span class="lineno">  275</span>        <span class="comment"># Fix for os.environ[&quot;HOME&quot;] returning /home/root sometimes.</span></div>
+<div class="line"><span class="lineno">  276</span>        <span class="keywordflow">return</span> <span class="stringliteral">&#39;/root/&#39;</span></div>
+<div class="line"><span class="lineno">  277</span> </div>
+<div class="line"><span class="lineno">  278</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;HOME&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
+<div class="line"><span class="lineno">  279</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
+<div class="line"><span class="lineno">  280</span> </div>
+<div class="line"><span class="lineno">  281</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;HOMEDRIVE&quot;</span> <span class="keywordflow">in</span> os.environ <span class="keywordflow">and</span> <span class="stringliteral">&quot;HOMEPATH&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
+<div class="line"><span class="lineno">  282</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;HOMEDRIVE&quot;</span>] + os.environ[<span class="stringliteral">&quot;HOMEPATH&quot;</span>]</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>    <span class="keywordflow">elif</span> <span class="stringliteral">&quot;USERPROFILE&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
+<div class="line"><span class="lineno">  285</span>        <span class="keywordflow">return</span> os.environ[<span class="stringliteral">&quot;USERPROFILE&quot;</span>]</div>
+<div class="line"><span class="lineno">  286</span> </div>
+<div class="line"><span class="lineno">  287</span>    <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
 <div class="line"><span class="lineno">  288</span> </div>
+<div class="line"><span class="lineno">  289</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -700,38 +812,38 @@ and each double quote, removed.</pre>
 </div><div class="memdoc">
 <pre class="fragment">Get int repsonse from user as a list of int's
    If allowQuit is True and the user enters q then the program will exit.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00240">240</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  240</span><span class="keyword">def </span>getIntListUserResponse(uio, prompt, minValue=None, maxValue=None, allowQuit=True):</div>
-<div class="line"><span class="lineno">  241</span>    <span class="stringliteral">&quot;&quot;&quot;Get int repsonse from user as a list of int&#39;s</span></div>
-<div class="line"><span class="lineno">  242</span><span class="stringliteral">       If allowQuit is True and the user enters q then the program will exit.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  244</span>        response = uio.getInput(prompt=prompt)</div>
-<div class="line"><span class="lineno">  245</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  246</span>            elems = response.split(<span class="stringliteral">&quot;,&quot;</span>)</div>
-<div class="line"><span class="lineno">  247</span>            <span class="keywordflow">if</span> len(elems) &gt; 0:</div>
-<div class="line"><span class="lineno">  248</span>                intList = []</div>
-<div class="line"><span class="lineno">  249</span>                errorStr = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  250</span>                <span class="keywordflow">for</span> vStr <span class="keywordflow">in</span> elems:</div>
-<div class="line"><span class="lineno">  251</span>                    v = int(vStr)</div>
-<div class="line"><span class="lineno">  252</span>                    <span class="keywordflow">if</span> minValue != <span class="keywordtype">None</span> <span class="keywordflow">and</span> v &lt; minValue:</div>
-<div class="line"><span class="lineno">  253</span>                        errorStr = <span class="stringliteral">&quot;The min value that may be entered is %d.&quot;</span> % (minValue)</div>
-<div class="line"><span class="lineno">  254</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  255</span>                    <span class="keywordflow">elif</span> maxValue != <span class="keywordtype">None</span> <span class="keywordflow">and</span> v &gt; maxValue:</div>
-<div class="line"><span class="lineno">  256</span>                        errorStr = <span class="stringliteral">&quot;The max value that may be entered is %d.&quot;</span> % (maxValue)</div>
-<div class="line"><span class="lineno">  257</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  258</span>                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  259</span>                        intList.append(v)</div>
-<div class="line"><span class="lineno">  260</span> </div>
-<div class="line"><span class="lineno">  261</span>                <span class="keywordflow">if</span> errorStr != <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  262</span>                    uio.error(errorStr)</div>
-<div class="line"><span class="lineno">  263</span> </div>
-<div class="line"><span class="lineno">  264</span>            <span class="keywordflow">return</span> intList</div>
-<div class="line"><span class="lineno">  265</span>        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><span class="lineno">  266</span>            <span class="keywordflow">pass</span></div>
-<div class="line"><span class="lineno">  267</span>        <span class="keywordflow">if</span> allowQuit <span class="keywordflow">and</span> response.lower() == <span class="stringliteral">&#39;q&#39;</span>:</div>
-<div class="line"><span class="lineno">  268</span>            sys.exit(0)</div>
-<div class="line"><span class="lineno">  269</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00241">241</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  241</span><span class="keyword">def </span>getIntListUserResponse(uio, prompt, minValue=None, maxValue=None, allowQuit=True):</div>
+<div class="line"><span class="lineno">  242</span>    <span class="stringliteral">&quot;&quot;&quot;Get int repsonse from user as a list of int&#39;s</span></div>
+<div class="line"><span class="lineno">  243</span><span class="stringliteral">       If allowQuit is True and the user enters q then the program will exit.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  244</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  245</span>        response = uio.getInput(prompt=prompt)</div>
+<div class="line"><span class="lineno">  246</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  247</span>            elems = response.split(<span class="stringliteral">&quot;,&quot;</span>)</div>
+<div class="line"><span class="lineno">  248</span>            <span class="keywordflow">if</span> len(elems) &gt; 0:</div>
+<div class="line"><span class="lineno">  249</span>                intList = []</div>
+<div class="line"><span class="lineno">  250</span>                errorStr = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  251</span>                <span class="keywordflow">for</span> vStr <span class="keywordflow">in</span> elems:</div>
+<div class="line"><span class="lineno">  252</span>                    v = int(vStr)</div>
+<div class="line"><span class="lineno">  253</span>                    <span class="keywordflow">if</span> minValue != <span class="keywordtype">None</span> <span class="keywordflow">and</span> v &lt; minValue:</div>
+<div class="line"><span class="lineno">  254</span>                        errorStr = <span class="stringliteral">&quot;The min value that may be entered is %d.&quot;</span> % (minValue)</div>
+<div class="line"><span class="lineno">  255</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  256</span>                    <span class="keywordflow">elif</span> maxValue != <span class="keywordtype">None</span> <span class="keywordflow">and</span> v &gt; maxValue:</div>
+<div class="line"><span class="lineno">  257</span>                        errorStr = <span class="stringliteral">&quot;The max value that may be entered is %d.&quot;</span> % (maxValue)</div>
+<div class="line"><span class="lineno">  258</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  259</span>                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  260</span>                        intList.append(v)</div>
+<div class="line"><span class="lineno">  261</span> </div>
+<div class="line"><span class="lineno">  262</span>                <span class="keywordflow">if</span> errorStr != <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  263</span>                    uio.error(errorStr)</div>
+<div class="line"><span class="lineno">  264</span> </div>
+<div class="line"><span class="lineno">  265</span>            <span class="keywordflow">return</span> intList</div>
+<div class="line"><span class="lineno">  266</span>        <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><span class="lineno">  267</span>            <span class="keywordflow">pass</span></div>
+<div class="line"><span class="lineno">  268</span>        <span class="keywordflow">if</span> allowQuit <span class="keywordflow">and</span> response.lower() == <span class="stringliteral">&#39;q&#39;</span>:</div>
+<div class="line"><span class="lineno">  269</span>            sys.exit(0)</div>
 <div class="line"><span class="lineno">  270</span> </div>
+<div class="line"><span class="lineno">  271</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -769,26 +881,26 @@ and each double quote, removed.</pre>
 <pre class="fragment">Get int repsonse from user.
    If allowQuit is True and the user enters q then None is returned to
    indicate that the user selected quit.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00221">221</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  221</span><span class="keyword">def </span>getIntUserResponse(uio, prompt, allowQuit=True):</div>
-<div class="line"><span class="lineno">  222</span>    <span class="stringliteral">&quot;&quot;&quot;Get int repsonse from user.</span></div>
-<div class="line"><span class="lineno">  223</span><span class="stringliteral">       If allowQuit is True and the user enters q then None is returned to</span></div>
-<div class="line"><span class="lineno">  224</span><span class="stringliteral">       indicate that the user selected quit.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  225</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  226</span>        response = uio.getInput(prompt=prompt)</div>
-<div class="line"><span class="lineno">  227</span> </div>
-<div class="line"><span class="lineno">  228</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  229</span> </div>
-<div class="line"><span class="lineno">  230</span>            <span class="keywordflow">return</span> int(response)</div>
-<div class="line"><span class="lineno">  231</span> </div>
-<div class="line"><span class="lineno">  232</span>        <span class="keywordflow">except</span> ValueError:</div>
-<div class="line"><span class="lineno">  233</span> </div>
-<div class="line"><span class="lineno">  234</span>            uio.info(<span class="stringliteral">&quot;%s is not a valid integer value.&quot;</span> % (response))</div>
-<div class="line"><span class="lineno">  235</span> </div>
-<div class="line"><span class="lineno">  236</span>        <span class="keywordflow">if</span> allowQuit <span class="keywordflow">and</span> response.lower() == <span class="stringliteral">&#39;q&#39;</span>:</div>
-<div class="line"><span class="lineno">  237</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  238</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00222">222</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span><span class="keyword">def </span>getIntUserResponse(uio, prompt, allowQuit=True):</div>
+<div class="line"><span class="lineno">  223</span>    <span class="stringliteral">&quot;&quot;&quot;Get int repsonse from user.</span></div>
+<div class="line"><span class="lineno">  224</span><span class="stringliteral">       If allowQuit is True and the user enters q then None is returned to</span></div>
+<div class="line"><span class="lineno">  225</span><span class="stringliteral">       indicate that the user selected quit.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  227</span>        response = uio.getInput(prompt=prompt)</div>
+<div class="line"><span class="lineno">  228</span> </div>
+<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  230</span> </div>
+<div class="line"><span class="lineno">  231</span>            <span class="keywordflow">return</span> int(response)</div>
+<div class="line"><span class="lineno">  232</span> </div>
+<div class="line"><span class="lineno">  233</span>        <span class="keywordflow">except</span> ValueError:</div>
+<div class="line"><span class="lineno">  234</span> </div>
+<div class="line"><span class="lineno">  235</span>            uio.info(<span class="stringliteral">&quot;%s is not a valid integer value.&quot;</span> % (response))</div>
+<div class="line"><span class="lineno">  236</span> </div>
+<div class="line"><span class="lineno">  237</span>        <span class="keywordflow">if</span> allowQuit <span class="keywordflow">and</span> response.lower() == <span class="stringliteral">&#39;q&#39;</span>:</div>
+<div class="line"><span class="lineno">  238</span>            <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
 <div class="line"><span class="lineno">  239</span> </div>
+<div class="line"><span class="lineno">  240</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -808,16 +920,16 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Split the text into lines</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00049">49</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span><span class="keyword">def </span>getLines(text):</div>
-<div class="line"><span class="lineno">   50</span>    <span class="stringliteral">&quot;&quot;&quot;Split the text into lines&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   51</span>    lines = []</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">if</span> len(text) &gt; 0:</div>
-<div class="line"><span class="lineno">   53</span>        elems = text.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><span class="lineno">   54</span>        lines = stripEOL(elems)</div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> lines</div>
-<div class="line"><span class="lineno">   56</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00050">50</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span><span class="keyword">def </span>getLines(text):</div>
+<div class="line"><span class="lineno">   51</span>    <span class="stringliteral">&quot;&quot;&quot;Split the text into lines&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   52</span>    lines = []</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> len(text) &gt; 0:</div>
+<div class="line"><span class="lineno">   54</span>        elems = text.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><span class="lineno">   55</span>        lines = stripEOL(elems)</div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> lines</div>
 <div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -837,15 +949,15 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Get Lines from file</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00068">68</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span><span class="keyword">def </span>getLinesFromFile(f):</div>
-<div class="line"><span class="lineno">   69</span>    <span class="stringliteral">&quot;&quot;&quot;Get Lines from file&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   70</span>    fd = open(f, <span class="stringliteral">&quot;r&quot;</span>)</div>
-<div class="line"><span class="lineno">   71</span>    lines = fd.readlines()</div>
-<div class="line"><span class="lineno">   72</span>    fd.close()</div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">return</span> stripEOL(lines)</div>
-<div class="line"><span class="lineno">   74</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00069">69</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span><span class="keyword">def </span>getLinesFromFile(f):</div>
+<div class="line"><span class="lineno">   70</span>    <span class="stringliteral">&quot;&quot;&quot;Get Lines from file&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   71</span>    fd = open(f, <span class="stringliteral">&quot;r&quot;</span>)</div>
+<div class="line"><span class="lineno">   72</span>    lines = fd.readlines()</div>
+<div class="line"><span class="lineno">   73</span>    fd.close()</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> stripEOL(lines)</div>
 <div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -864,22 +976,22 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Get the name of the currently running program.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00193">193</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  193</span><span class="keyword">def </span>getProgramName():</div>
-<div class="line"><span class="lineno">  194</span>    <span class="stringliteral">&quot;&quot;&quot;Get the name of the currently running program.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  195</span>    progName = sys.argv[0].strip()</div>
-<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">if</span> progName.startswith(<span class="stringliteral">&#39;./&#39;</span>):</div>
-<div class="line"><span class="lineno">  197</span>        progName = progName[2:]</div>
-<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
-<div class="line"><span class="lineno">  199</span>        progName = progName[:-3]</div>
-<div class="line"><span class="lineno">  200</span> </div>
-<div class="line"><span class="lineno">  201</span>    <span class="comment"># Only return the name of the program not the path</span></div>
-<div class="line"><span class="lineno">  202</span>    pName = os.path.split(progName)[-1]</div>
-<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">if</span> pName.endswith(<span class="stringliteral">&#39;.exe&#39;</span>):</div>
-<div class="line"><span class="lineno">  204</span>        pName = pName[:-4]</div>
-<div class="line"><span class="lineno">  205</span>    <span class="keywordflow">return</span> pName</div>
-<div class="line"><span class="lineno">  206</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00194">194</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  194</span><span class="keyword">def </span>getProgramName():</div>
+<div class="line"><span class="lineno">  195</span>    <span class="stringliteral">&quot;&quot;&quot;Get the name of the currently running program.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  196</span>    progName = sys.argv[0].strip()</div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordflow">if</span> progName.startswith(<span class="stringliteral">&#39;./&#39;</span>):</div>
+<div class="line"><span class="lineno">  198</span>        progName = progName[2:]</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> progName.endswith(<span class="stringliteral">&#39;.py&#39;</span>):</div>
+<div class="line"><span class="lineno">  200</span>        progName = progName[:-3]</div>
+<div class="line"><span class="lineno">  201</span> </div>
+<div class="line"><span class="lineno">  202</span>    <span class="comment"># Only return the name of the program not the path</span></div>
+<div class="line"><span class="lineno">  203</span>    pName = os.path.split(progName)[-1]</div>
+<div class="line"><span class="lineno">  204</span>    <span class="keywordflow">if</span> pName.endswith(<span class="stringliteral">&#39;.exe&#39;</span>):</div>
+<div class="line"><span class="lineno">  205</span>        pName = pName[:-4]</div>
+<div class="line"><span class="lineno">  206</span>    <span class="keywordflow">return</span> pName</div>
 <div class="line"><span class="lineno">  207</span> </div>
+<div class="line"><span class="lineno">  208</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -899,25 +1011,25 @@ and each double quote, removed.</pre>
 </div><div class="memdoc">
 <pre class="fragment">@return The program/package version. This comes from the pyproject.toml file.
            If this file is not found an exception is thrown.  </pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00431">431</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  431</span><span class="keyword">def </span>getProgramVersion():</div>
-<div class="line"><span class="lineno">  432</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
-<div class="line"><span class="lineno">  433</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  434</span>    poetryConfigFile = getAbsFile(PYPROJECT_FILE)</div>
-<div class="line"><span class="lineno">  435</span>    programVersion = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  436</span>    <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
-<div class="line"><span class="lineno">  437</span>        lines = fd.readlines()</div>
-<div class="line"><span class="lineno">  438</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  439</span>            line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  440</span>            <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
-<div class="line"><span class="lineno">  441</span>                elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
-<div class="line"><span class="lineno">  442</span>                <span class="keywordflow">if</span> len(elems) == 2:</div>
-<div class="line"><span class="lineno">  443</span>                    programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
-<div class="line"><span class="lineno">  444</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  445</span>    <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  446</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
-<div class="line"><span class="lineno">  447</span>    <span class="keywordflow">return</span> programVersion</div>
-<div class="line"><span class="lineno">  448</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00432">432</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  432</span><span class="keyword">def </span>getProgramVersion():</div>
+<div class="line"><span class="lineno">  433</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
+<div class="line"><span class="lineno">  434</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  435</span>    poetryConfigFile = getAbsFile(PYPROJECT_FILE)</div>
+<div class="line"><span class="lineno">  436</span>    programVersion = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  437</span>    <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
+<div class="line"><span class="lineno">  438</span>        lines = fd.readlines()</div>
+<div class="line"><span class="lineno">  439</span>        <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  440</span>            line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  441</span>            <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
+<div class="line"><span class="lineno">  442</span>                elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
+<div class="line"><span class="lineno">  443</span>                <span class="keywordflow">if</span> len(elems) == 2:</div>
+<div class="line"><span class="lineno">  444</span>                    programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
+<div class="line"><span class="lineno">  445</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  446</span>    <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  447</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
+<div class="line"><span class="lineno">  448</span>    <span class="keywordflow">return</span> programVersion</div>
+<div class="line"><span class="lineno">  449</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -961,35 +1073,35 @@ and each double quote, removed.</pre>
       the arguments are processed in sequence the args following the action
       arg will not be used.
 </pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00013">13</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   13</span><span class="keyword">def </span>initArgs(parser, lastCmdLineArg=None, checkHostArg=True):</div>
-<div class="line"><span class="lineno">   14</span>    <span class="stringliteral">&quot;&quot;&quot;This method is responsible for</span></div>
-<div class="line"><span class="lineno">   15</span><span class="stringliteral">        - Ensure that the host argument has been defined by the user on the command line</span></div>
-<div class="line"><span class="lineno">   16</span><span class="stringliteral">        - Set the debug level as defined on the command line.</span></div>
-<div class="line"><span class="lineno">   17</span><span class="stringliteral">        - If lastCmdLineArg is defined then ensure that this is the last arguemnt on the</span></div>
-<div class="line"><span class="lineno">   18</span><span class="stringliteral">          command line. If we don&#39;t do this then the user may define some arguments on</span></div>
-<div class="line"><span class="lineno">   19</span><span class="stringliteral">          the command line after the action (callback) command line option but as</span></div>
-<div class="line"><span class="lineno">   20</span><span class="stringliteral">          the arguments are processed in sequence the args following the action</span></div>
-<div class="line"><span class="lineno">   21</span><span class="stringliteral">          arg will not be used.</span></div>
-<div class="line"><span class="lineno">   22</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">if</span> checkHostArg:</div>
-<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">if</span> parser.values.host == <span class="keywordtype">None</span> <span class="keywordflow">or</span> len(parser.values.host) == 0:</div>
-<div class="line"><span class="lineno">   26</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Please define the RFeye host on the command line.&quot;</span>)</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    parser.uio.debugLevel = parser.values.debug</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <span class="comment"># Check that the argument that invoked tha action (callback) is the last on the command line</span></div>
-<div class="line"><span class="lineno">   31</span>    argOk = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordflow">if</span> len(sys.argv) &gt; 0:</div>
-<div class="line"><span class="lineno">   33</span>        lastArg = sys.argv[len(sys.argv) - 1]</div>
-<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">if</span> lastArg == lastCmdLineArg:</div>
-<div class="line"><span class="lineno">   35</span>            argOk = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> argOk:</div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Please ensure %s (if used) is the last argument on the command line.&quot;</span> % (lastCmdLineArg))</div>
-<div class="line"><span class="lineno">   39</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00014">14</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span><span class="keyword">def </span>initArgs(parser, lastCmdLineArg=None, checkHostArg=True):</div>
+<div class="line"><span class="lineno">   15</span>    <span class="stringliteral">&quot;&quot;&quot;This method is responsible for</span></div>
+<div class="line"><span class="lineno">   16</span><span class="stringliteral">        - Ensure that the host argument has been defined by the user on the command line</span></div>
+<div class="line"><span class="lineno">   17</span><span class="stringliteral">        - Set the debug level as defined on the command line.</span></div>
+<div class="line"><span class="lineno">   18</span><span class="stringliteral">        - If lastCmdLineArg is defined then ensure that this is the last arguemnt on the</span></div>
+<div class="line"><span class="lineno">   19</span><span class="stringliteral">          command line. If we don&#39;t do this then the user may define some arguments on</span></div>
+<div class="line"><span class="lineno">   20</span><span class="stringliteral">          the command line after the action (callback) command line option but as</span></div>
+<div class="line"><span class="lineno">   21</span><span class="stringliteral">          the arguments are processed in sequence the args following the action</span></div>
+<div class="line"><span class="lineno">   22</span><span class="stringliteral">          arg will not be used.</span></div>
+<div class="line"><span class="lineno">   23</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">if</span> checkHostArg:</div>
+<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">if</span> parser.values.host == <span class="keywordtype">None</span> <span class="keywordflow">or</span> len(parser.values.host) == 0:</div>
+<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Please define the RFeye host on the command line.&quot;</span>)</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>    parser.uio.debugLevel = parser.values.debug</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    <span class="comment"># Check that the argument that invoked tha action (callback) is the last on the command line</span></div>
+<div class="line"><span class="lineno">   32</span>    argOk = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">if</span> len(sys.argv) &gt; 0:</div>
+<div class="line"><span class="lineno">   34</span>        lastArg = sys.argv[len(sys.argv) - 1]</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">if</span> lastArg == lastCmdLineArg:</div>
+<div class="line"><span class="lineno">   36</span>            argOk = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> argOk:</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Please ensure %s (if used) is the last argument on the command line.&quot;</span> % (lastCmdLineArg))</div>
 <div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1011,17 +1123,17 @@ and each double quote, removed.</pre>
 <pre class="fragment">@brief Log a traceback using the uio instance to the debug file.
    @param uio A UIO instance
    @return None</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00331">331</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  331</span><span class="keyword">def </span>logTraceBack(uio):</div>
-<div class="line"><span class="lineno">  332</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Log a traceback using the uio instance to the debug file.</span></div>
-<div class="line"><span class="lineno">  333</span><span class="stringliteral">       @param uio A UIO instance</span></div>
-<div class="line"><span class="lineno">  334</span><span class="stringliteral">       @return None&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  335</span>    <span class="comment"># Always store the exception traceback in the logfile as this makes</span></div>
-<div class="line"><span class="lineno">  336</span>    <span class="comment"># it easier to diagnose problems with the testing</span></div>
-<div class="line"><span class="lineno">  337</span>    lines = traceback.format_exc().split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  338</span>    <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  339</span>        uio.storeToDebugLog(line)</div>
-<div class="line"><span class="lineno">  340</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00332">332</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  332</span><span class="keyword">def </span>logTraceBack(uio):</div>
+<div class="line"><span class="lineno">  333</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Log a traceback using the uio instance to the debug file.</span></div>
+<div class="line"><span class="lineno">  334</span><span class="stringliteral">       @param uio A UIO instance</span></div>
+<div class="line"><span class="lineno">  335</span><span class="stringliteral">       @return None&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  336</span>    <span class="comment"># Always store the exception traceback in the logfile as this makes</span></div>
+<div class="line"><span class="lineno">  337</span>    <span class="comment"># it easier to diagnose problems with the testing</span></div>
+<div class="line"><span class="lineno">  338</span>    lines = traceback.format_exc().split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  339</span>    <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  340</span>        uio.storeToDebugLog(line)</div>
+<div class="line"><span class="lineno">  341</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1060,20 +1172,20 @@ and each double quote, removed.</pre>
    @param theDict The dictionary
    @param indent Number of tab indents
    @return None</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00318">318</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  318</span><span class="keyword">def </span>printDict(uio, theDict, indent=0):</div>
-<div class="line"><span class="lineno">  319</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Show the details of a dictionary contents</span></div>
-<div class="line"><span class="lineno">  320</span><span class="stringliteral">       @param theDict The dictionary</span></div>
-<div class="line"><span class="lineno">  321</span><span class="stringliteral">       @param indent Number of tab indents</span></div>
-<div class="line"><span class="lineno">  322</span><span class="stringliteral">       @return None&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  323</span>    <span class="keywordflow">for</span> key <span class="keywordflow">in</span> theDict:</div>
-<div class="line"><span class="lineno">  324</span>        uio.info(<span class="stringliteral">&#39;\t&#39;</span> * indent + str(key))</div>
-<div class="line"><span class="lineno">  325</span>        value = theDict[key]</div>
-<div class="line"><span class="lineno">  326</span>        <span class="keywordflow">if</span> isinstance(value, dict):</div>
-<div class="line"><span class="lineno">  327</span>            printDict(uio, value, indent + 1)</div>
-<div class="line"><span class="lineno">  328</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  329</span>            uio.info(<span class="stringliteral">&#39;\t&#39;</span> * (indent + 1) + str(value))</div>
-<div class="line"><span class="lineno">  330</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00319">319</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  319</span><span class="keyword">def </span>printDict(uio, theDict, indent=0):</div>
+<div class="line"><span class="lineno">  320</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Show the details of a dictionary contents</span></div>
+<div class="line"><span class="lineno">  321</span><span class="stringliteral">       @param theDict The dictionary</span></div>
+<div class="line"><span class="lineno">  322</span><span class="stringliteral">       @param indent Number of tab indents</span></div>
+<div class="line"><span class="lineno">  323</span><span class="stringliteral">       @return None&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  324</span>    <span class="keywordflow">for</span> key <span class="keywordflow">in</span> theDict:</div>
+<div class="line"><span class="lineno">  325</span>        uio.info(<span class="stringliteral">&#39;\t&#39;</span> * indent + str(key))</div>
+<div class="line"><span class="lineno">  326</span>        value = theDict[key]</div>
+<div class="line"><span class="lineno">  327</span>        <span class="keywordflow">if</span> isinstance(value, dict):</div>
+<div class="line"><span class="lineno">  328</span>            printDict(uio, value, indent + 1)</div>
+<div class="line"><span class="lineno">  329</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  330</span>            uio.info(<span class="stringliteral">&#39;\t&#39;</span> * (indent + 1) + str(value))</div>
+<div class="line"><span class="lineno">  331</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1117,43 +1229,43 @@ and each double quote, removed.</pre>
    Each key in dict produces a line of the form key=value. Output will be
    ambiguous if any keys contain equals signs or if any values contain
    newlines.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00143">143</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span><span class="keyword">def </span>saveDict(dictToSave, filename, jsonFmt=False):</div>
-<div class="line"><span class="lineno">  144</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Save dict to a file.</span></div>
-<div class="line"><span class="lineno">  145</span><span class="stringliteral">       @param jsonFmt If True then we expect the file to be in json format.</span></div>
-<div class="line"><span class="lineno">  146</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  147</span><span class="stringliteral">       if json is True we expect the file to be in json format</span></div>
-<div class="line"><span class="lineno">  148</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  149</span><span class="stringliteral">       if json is False the file is saved as key = value pairs</span></div>
-<div class="line"><span class="lineno">  150</span><span class="stringliteral">       Each key in dict produces a line of the form key=value. Output will be</span></div>
-<div class="line"><span class="lineno">  151</span><span class="stringliteral">       ambiguous if any keys contain equals signs or if any values contain</span></div>
-<div class="line"><span class="lineno">  152</span><span class="stringliteral">       newlines.</span></div>
-<div class="line"><span class="lineno">  153</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  154</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>    <span class="keywordflow">if</span> jsonFmt:</div>
-<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>            <span class="keyword">with</span> open(filename, <span class="stringliteral">&quot;w&quot;</span>) <span class="keyword">as</span> write_file:</div>
-<div class="line"><span class="lineno">  160</span>                json.dump(dictToSave, write_file)</div>
-<div class="line"><span class="lineno">  161</span> </div>
-<div class="line"><span class="lineno">  162</span>        <span class="keywordflow">except</span> IOError <span class="keyword">as</span> i:</div>
-<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">raise</span> IOError(i.errno, <span class="stringliteral">&#39;Failed to write file \&#39;%s\&#39;: %s&#39;</span></div>
-<div class="line"><span class="lineno">  164</span>                          % (filename, i.strerror), i.filename).with_traceback(sys.exc_info()[2])</div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  166</span>        lines = []</div>
-<div class="line"><span class="lineno">  167</span>        <span class="comment"># build config file lines</span></div>
-<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> list(dictToSave.keys()):</div>
-<div class="line"><span class="lineno">  169</span>            lines.append(str(key) + <span class="stringliteral">&#39;=&#39;</span> + str(dictToSave.get(key)) + <span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  171</span>            f = open(filename, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><span class="lineno">  172</span>            f.writelines(lines)</div>
-<div class="line"><span class="lineno">  173</span>            f.close()</div>
-<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">except</span> IOError <span class="keyword">as</span> i:</div>
-<div class="line"><span class="lineno">  175</span>            <span class="keywordflow">raise</span> IOError(i.errno, <span class="stringliteral">&#39;Failed to write file \&#39;%s\&#39;: %s&#39;</span></div>
-<div class="line"><span class="lineno">  176</span>                          % (filename, i.strerror), i.filename).with_traceback(sys.exc_info()[2])</div>
-<div class="line"><span class="lineno">  177</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00144">144</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  144</span><span class="keyword">def </span>saveDict(dictToSave, filename, jsonFmt=False):</div>
+<div class="line"><span class="lineno">  145</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Save dict to a file.</span></div>
+<div class="line"><span class="lineno">  146</span><span class="stringliteral">       @param jsonFmt If True then we expect the file to be in json format.</span></div>
+<div class="line"><span class="lineno">  147</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  148</span><span class="stringliteral">       if json is True we expect the file to be in json format</span></div>
+<div class="line"><span class="lineno">  149</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  150</span><span class="stringliteral">       if json is False the file is saved as key = value pairs</span></div>
+<div class="line"><span class="lineno">  151</span><span class="stringliteral">       Each key in dict produces a line of the form key=value. Output will be</span></div>
+<div class="line"><span class="lineno">  152</span><span class="stringliteral">       ambiguous if any keys contain equals signs or if any values contain</span></div>
+<div class="line"><span class="lineno">  153</span><span class="stringliteral">       newlines.</span></div>
+<div class="line"><span class="lineno">  154</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  155</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  156</span> </div>
+<div class="line"><span class="lineno">  157</span>    <span class="keywordflow">if</span> jsonFmt:</div>
+<div class="line"><span class="lineno">  158</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  159</span> </div>
+<div class="line"><span class="lineno">  160</span>            <span class="keyword">with</span> open(filename, <span class="stringliteral">&quot;w&quot;</span>) <span class="keyword">as</span> write_file:</div>
+<div class="line"><span class="lineno">  161</span>                json.dump(dictToSave, write_file)</div>
+<div class="line"><span class="lineno">  162</span> </div>
+<div class="line"><span class="lineno">  163</span>        <span class="keywordflow">except</span> IOError <span class="keyword">as</span> i:</div>
+<div class="line"><span class="lineno">  164</span>            <span class="keywordflow">raise</span> IOError(i.errno, <span class="stringliteral">&#39;Failed to write file \&#39;%s\&#39;: %s&#39;</span></div>
+<div class="line"><span class="lineno">  165</span>                          % (filename, i.strerror), i.filename).with_traceback(sys.exc_info()[2])</div>
+<div class="line"><span class="lineno">  166</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  167</span>        lines = []</div>
+<div class="line"><span class="lineno">  168</span>        <span class="comment"># build config file lines</span></div>
+<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">for</span> key <span class="keywordflow">in</span> list(dictToSave.keys()):</div>
+<div class="line"><span class="lineno">  170</span>            lines.append(str(key) + <span class="stringliteral">&#39;=&#39;</span> + str(dictToSave.get(key)) + <span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  171</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  172</span>            f = open(filename, <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><span class="lineno">  173</span>            f.writelines(lines)</div>
+<div class="line"><span class="lineno">  174</span>            f.close()</div>
+<div class="line"><span class="lineno">  175</span>        <span class="keywordflow">except</span> IOError <span class="keyword">as</span> i:</div>
+<div class="line"><span class="lineno">  176</span>            <span class="keywordflow">raise</span> IOError(i.errno, <span class="stringliteral">&#39;Failed to write file \&#39;%s\&#39;: %s&#39;</span></div>
+<div class="line"><span class="lineno">  177</span>                          % (filename, i.strerror), i.filename).with_traceback(sys.exc_info()[2])</div>
 <div class="line"><span class="lineno">  178</span> </div>
+<div class="line"><span class="lineno">  179</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1173,36 +1285,36 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Seth the env variable HOME</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00289">289</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  289</span><span class="keyword">def </span>setHomePath(homePath):</div>
-<div class="line"><span class="lineno">  290</span>    <span class="stringliteral">&quot;&quot;&quot;Seth the env variable HOME&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  291</span>    <span class="comment"># Do some sanity/defensive stuff</span></div>
-<div class="line"><span class="lineno">  292</span>    <span class="keywordflow">if</span> homePath == <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  293</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;homePath=None.&quot;</span>)</div>
-<div class="line"><span class="lineno">  294</span>    <span class="keywordflow">elif</span> len(homePath) == 0:</div>
-<div class="line"><span class="lineno">  295</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;len(homePath)=0.&quot;</span>)</div>
-<div class="line"><span class="lineno">  296</span> </div>
-<div class="line"><span class="lineno">  297</span>    <span class="comment"># We do some special stuff on windows</span></div>
-<div class="line"><span class="lineno">  298</span>    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
-<div class="line"><span class="lineno">  299</span> </div>
-<div class="line"><span class="lineno">  300</span>        os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] = homePath</div>
-<div class="line"><span class="lineno">  301</span> </div>
-<div class="line"><span class="lineno">  302</span>        <span class="keywordflow">if</span> <span class="stringliteral">&quot;USERPROFILE&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
-<div class="line"><span class="lineno">  303</span>            os.environ[<span class="stringliteral">&quot;USERPROFILE&quot;</span>] = os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
-<div class="line"><span class="lineno">  304</span> </div>
-<div class="line"><span class="lineno">  305</span>        <span class="keywordflow">if</span> <span class="stringliteral">&quot;HOMEPATH&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
-<div class="line"><span class="lineno">  306</span>            os.environ[<span class="stringliteral">&quot;HOMEPATH&quot;</span>] = os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
-<div class="line"><span class="lineno">  307</span> </div>
-<div class="line"><span class="lineno">  308</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]):</div>
-<div class="line"><span class="lineno">  309</span>            <span class="keywordflow">raise</span> Exception(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] + <span class="stringliteral">&quot; path not found.&quot;</span>)</div>
-<div class="line"><span class="lineno">  310</span> </div>
-<div class="line"><span class="lineno">  311</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  312</span>        <span class="comment"># Not windows set HOME env var</span></div>
-<div class="line"><span class="lineno">  313</span>        os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] = homePath</div>
-<div class="line"><span class="lineno">  314</span> </div>
-<div class="line"><span class="lineno">  315</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]):</div>
-<div class="line"><span class="lineno">  316</span>            <span class="keywordflow">raise</span> Exception(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] + <span class="stringliteral">&quot; path not found.&quot;</span>)</div>
-<div class="line"><span class="lineno">  317</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00290">290</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  290</span><span class="keyword">def </span>setHomePath(homePath):</div>
+<div class="line"><span class="lineno">  291</span>    <span class="stringliteral">&quot;&quot;&quot;Seth the env variable HOME&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  292</span>    <span class="comment"># Do some sanity/defensive stuff</span></div>
+<div class="line"><span class="lineno">  293</span>    <span class="keywordflow">if</span> homePath == <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  294</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;homePath=None.&quot;</span>)</div>
+<div class="line"><span class="lineno">  295</span>    <span class="keywordflow">elif</span> len(homePath) == 0:</div>
+<div class="line"><span class="lineno">  296</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;len(homePath)=0.&quot;</span>)</div>
+<div class="line"><span class="lineno">  297</span> </div>
+<div class="line"><span class="lineno">  298</span>    <span class="comment"># We do some special stuff on windows</span></div>
+<div class="line"><span class="lineno">  299</span>    <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&quot;Windows&quot;</span>:</div>
+<div class="line"><span class="lineno">  300</span> </div>
+<div class="line"><span class="lineno">  301</span>        os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] = homePath</div>
+<div class="line"><span class="lineno">  302</span> </div>
+<div class="line"><span class="lineno">  303</span>        <span class="keywordflow">if</span> <span class="stringliteral">&quot;USERPROFILE&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
+<div class="line"><span class="lineno">  304</span>            os.environ[<span class="stringliteral">&quot;USERPROFILE&quot;</span>] = os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
+<div class="line"><span class="lineno">  305</span> </div>
+<div class="line"><span class="lineno">  306</span>        <span class="keywordflow">if</span> <span class="stringliteral">&quot;HOMEPATH&quot;</span> <span class="keywordflow">in</span> os.environ:</div>
+<div class="line"><span class="lineno">  307</span>            os.environ[<span class="stringliteral">&quot;HOMEPATH&quot;</span>] = os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]</div>
+<div class="line"><span class="lineno">  308</span> </div>
+<div class="line"><span class="lineno">  309</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]):</div>
+<div class="line"><span class="lineno">  310</span>            <span class="keywordflow">raise</span> Exception(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] + <span class="stringliteral">&quot; path not found.&quot;</span>)</div>
+<div class="line"><span class="lineno">  311</span> </div>
+<div class="line"><span class="lineno">  312</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  313</span>        <span class="comment"># Not windows set HOME env var</span></div>
+<div class="line"><span class="lineno">  314</span>        os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] = homePath</div>
+<div class="line"><span class="lineno">  315</span> </div>
+<div class="line"><span class="lineno">  316</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>]):</div>
+<div class="line"><span class="lineno">  317</span>            <span class="keywordflow">raise</span> Exception(os.environ[<span class="stringliteral">&quot;HOME&quot;</span>] + <span class="stringliteral">&quot; path not found.&quot;</span>)</div>
+<div class="line"><span class="lineno">  318</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1222,17 +1334,17 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">Strip the end of line characters from the list of lines of text</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00058">58</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span><span class="keyword">def </span>stripEOL(lines):</div>
-<div class="line"><span class="lineno">   59</span>    <span class="stringliteral">&quot;&quot;&quot;Strip the end of line characters from the list of lines of text&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   60</span>    noEOLLines = []</div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">   62</span>        l = l.rstrip(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><span class="lineno">   63</span>        l = l.rstrip(<span class="stringliteral">&quot;\r&quot;</span>)</div>
-<div class="line"><span class="lineno">   64</span>        noEOLLines.append(l)</div>
-<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> noEOLLines</div>
-<div class="line"><span class="lineno">   66</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00059">59</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span><span class="keyword">def </span>stripEOL(lines):</div>
+<div class="line"><span class="lineno">   60</span>    <span class="stringliteral">&quot;&quot;&quot;Strip the end of line characters from the list of lines of text&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   61</span>    noEOLLines = []</div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">   63</span>        l = l.rstrip(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><span class="lineno">   64</span>        l = l.rstrip(<span class="stringliteral">&quot;\r&quot;</span>)</div>
+<div class="line"><span class="lineno">   65</span>        noEOLLines.append(l)</div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">return</span> noEOLLines</div>
 <div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1249,7 +1361,7 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00429">429</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00430">430</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
 
 </div>
 </div>
