@@ -11,7 +11,7 @@ var searchData=
   ['date_5finput_5ffield_8',['DATE_INPUT_FIELD',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a7412012f90c3fe1cb15ff7dbbb942659',1,'p3lib::ngt::YesNoDialog']]],
   ['datetime_5fx_5faxis_5ftype_9',['DATETIME_X_AXIS_TYPE',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a5d54af0ad8a8112644aba063eb663416',1,'p3lib::table_plot::Table2DPlotServer']]],
   ['dbconfig_10',['DBConfig',['../classp3lib_1_1database__if_1_1DBConfig.html',1,'p3lib::database_if']]],
-  ['debug_11',['debug',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a23bdd6adbe0bdc292276dbf83f5f2497',1,'p3lib.ngt.TabbedNiceGui.debug()'],['../classp3lib_1_1uio_1_1UIO.html#a5c13982319d42081ed1f4c7125a5fea3',1,'p3lib.uio.UIO.debug()'],['../classp3lib_1_1database__if_1_1DatabaseIF.html#a117352cc494cc62c6b2f1882786a332c',1,'p3lib.database_if.DatabaseIF.DEBUG'],['../classp3lib_1_1uio_1_1PRIORITY.html#a48f76a8c0dc23567f303ed6aa221e078',1,'p3lib.uio.PRIORITY.DEBUG']]],
+  ['debug_11',['debug',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a117352cc494cc62c6b2f1882786a332c',1,'p3lib.database_if.DatabaseIF.DEBUG'],['../classp3lib_1_1uio_1_1PRIORITY.html#a48f76a8c0dc23567f303ed6aa221e078',1,'p3lib.uio.PRIORITY.DEBUG'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a23bdd6adbe0bdc292276dbf83f5f2497',1,'p3lib.ngt.TabbedNiceGui.debug()'],['../classp3lib_1_1uio_1_1UIO.html#a5c13982319d42081ed1f4c7125a5fea3',1,'p3lib.uio.UIO.debug(self, text)']]],
   ['debug_5flog_5fsym_5flink_12',['DEBUG_LOG_SYM_LINK',['../classp3lib_1_1uio_1_1UIO.html#a28135d1608d7f9aba83aadc0e8b79466',1,'p3lib::uio::UIO']]],
   ['debug_5fmessage_13',['DEBUG_MESSAGE',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a0201213f9e53f8c80f76079093a2a38f',1,'p3lib::ngt::TabbedNiceGui']]],
   ['decimal_5fint_5fnumber_5ftype_14',['DECIMAL_INT_NUMBER_TYPE',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a00326e3d13ca890859c96737204aa21e',1,'p3lib::pconfig::ConfigManager']]],
@@ -71,10 +71,11 @@ var searchData=
   ['display_5freset_5fescape_5fseq_68',['DISPLAY_RESET_ESCAPE_SEQ',['../classp3lib_1_1uio_1_1UIO.html#af078ac77884794802fb990787440d605',1,'p3lib::uio::UIO']]],
   ['doctitle_69',['docTitle',['../classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html#aed8cdcda1606e112e37a48b4c5022c76',1,'p3lib::table_plot::Bokeh2DTablePlotter']]],
   ['dotconfigmanager_70',['DotConfigManager',['../classp3lib_1_1pconfig_1_1DotConfigManager.html',1,'p3lib::pconfig']]],
-  ['dropbear_5fauth_5fkeys_5ffile_71',['DROPBEAR_AUTH_KEYS_FILE',['../classp3lib_1_1ssh_1_1SSH.html#a5c42d3641c2405880ffcb7549be909ce',1,'p3lib::ssh::SSH']]],
-  ['dropbear_5fdir_72',['DROPBEAR_DIR',['../classp3lib_1_1ssh_1_1SSH.html#ad3851228185ba73f03b6cba3060b6ff4',1,'p3lib::ssh::SSH']]],
-  ['dropdatabase_73',['dropDatabase',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ac65c08416c446ee434cfe8a8d773c6c7',1,'p3lib::database_if::DatabaseIF']]],
-  ['dropdown_5finput_5ffield_74',['DROPDOWN_INPUT_FIELD',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ab37cd043b35fee6c3a9b78c411323d8a',1,'p3lib::ngt::YesNoDialog']]],
-  ['droptable_75',['dropTable',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a9731a0e4687fd835554bb29477afdb42',1,'p3lib::database_if::DatabaseIF']]],
-  ['dynamicplotexample_76',['DynamicPlotExample',['../classGUIModel__A__example_1_1DynamicPlotExample.html',1,'GUIModel_A_example']]]
+  ['drives_5ftoggle_71',['drives_toggle',['../classp3lib_1_1ngt_1_1local__file__picker.html#a763d274c622bb1edaa7bbb89f852f892',1,'p3lib::ngt::local_file_picker']]],
+  ['dropbear_5fauth_5fkeys_5ffile_72',['DROPBEAR_AUTH_KEYS_FILE',['../classp3lib_1_1ssh_1_1SSH.html#a5c42d3641c2405880ffcb7549be909ce',1,'p3lib::ssh::SSH']]],
+  ['dropbear_5fdir_73',['DROPBEAR_DIR',['../classp3lib_1_1ssh_1_1SSH.html#ad3851228185ba73f03b6cba3060b6ff4',1,'p3lib::ssh::SSH']]],
+  ['dropdatabase_74',['dropDatabase',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ac65c08416c446ee434cfe8a8d773c6c7',1,'p3lib::database_if::DatabaseIF']]],
+  ['dropdown_5finput_5ffield_75',['DROPDOWN_INPUT_FIELD',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ab37cd043b35fee6c3a9b78c411323d8a',1,'p3lib::ngt::YesNoDialog']]],
+  ['droptable_76',['dropTable',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a9731a0e4687fd835554bb29477afdb42',1,'p3lib::database_if::DatabaseIF']]],
+  ['dynamicplotexample_77',['DynamicPlotExample',['../classGUIModel__A__example_1_1DynamicPlotExample.html',1,'GUIModel_A_example']]]
 ];

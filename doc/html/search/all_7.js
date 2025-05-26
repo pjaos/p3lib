@@ -110,10 +110,11 @@ var searchData=
   ['getyesno_107',['getYesNo',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a37aebb3896362083e5cf3bc89ecea7eb',1,'p3lib::pconfig::ConfigManager']]],
   ['gnome_5fdesktop_5fapp_2epy_108',['gnome_desktop_app.py',['../gnome__desktop__app_8py.html',1,'']]],
   ['gnomedesktopapp_109',['GnomeDesktopApp',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html',1,'p3lib::gnome_desktop_app']]],
-  ['gui_5ftimer_5fseconds_110',['GUI_TIMER_SECONDS',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a365e37a04723db660e8d0f54b6ad3fc3',1,'p3lib::ngt::TabbedNiceGui']]],
-  ['guimessage_111',['GUIMessage',['../classp3lib_1_1table__plot_1_1GUIMessage.html',1,'p3lib::table_plot']]],
-  ['guimodel_5fa_112',['GUIModel_A',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html',1,'p3lib::bokeh_gui']]],
-  ['guimodel_5fa_5fexample_113',['GUIModel_A_example',['../namespaceGUIModel__A__example.html',1,'']]],
-  ['guimodel_5fa_5fexample_2epy_114',['GUIModel_A_example.py',['../GUIModel__A__example_8py.html',1,'']]],
-  ['guitimercallback_115',['guiTimerCallback',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib::ngt::TabbedNiceGui']]]
+  ['grid_110',['grid',['../classp3lib_1_1ngt_1_1local__file__picker.html#a52bdd18b63ba2ec1780aecd91679ee4a',1,'p3lib::ngt::local_file_picker']]],
+  ['gui_5ftimer_5fseconds_111',['GUI_TIMER_SECONDS',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a365e37a04723db660e8d0f54b6ad3fc3',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['guimessage_112',['GUIMessage',['../classp3lib_1_1table__plot_1_1GUIMessage.html',1,'p3lib::table_plot']]],
+  ['guimodel_5fa_113',['GUIModel_A',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html',1,'p3lib::bokeh_gui']]],
+  ['guimodel_5fa_5fexample_114',['GUIModel_A_example',['../namespaceGUIModel__A__example.html',1,'']]],
+  ['guimodel_5fa_5fexample_2epy_115',['GUIModel_A_example.py',['../GUIModel__A__example_8py.html',1,'']]],
+  ['guitimercallback_116',['guiTimerCallback',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib::ngt::TabbedNiceGui']]]
 ];
