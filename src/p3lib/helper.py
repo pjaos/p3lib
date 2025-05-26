@@ -446,3 +446,70 @@ def getProgramVersion():
         raise Exception(f"Failed to extract program version from '{line}' line of {poetryConfigFile} file.")
     return programVersion
 
+def get_assets_folders():
+    """@return A list of all the assets folders found."""
+    searchFolders = []
+    assetsFolders = []
+    calling_file = None
+    # Get the full path to the python file that called this get_assets_folders() function.
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    if module and hasattr(module, '__file__'):
+        calling_file = os.path.abspath(module.__file__)
+
+    if calling_file:
+        startup_path = os.path.dirname(calling_file)
+        searchFolders.append( os.path.join(startup_path, 'assets') )
+        pp1 = os.path.join(startup_path, '..')
+        searchFolders.append( os.path.join(pp1, 'assets') )
+        pp2 = os.path.join(pp1, '..')
+        searchFolders.append( os.path.join(pp2, 'assets') )
+        # Try all the site packages folders we know about.
+        for path in sys.path:
+            if 'site-packages' in path:
+                site_packages_path = path
+                searchFolders.append( os.path.join(site_packages_path, 'assets') )
+
+        for folder in searchFolders:
+            absPath = os.path.abspath(folder)
+            if os.path.isdir(absPath):
+                assetsFolders.append(absPath)
+
+    return assetsFolders
+
+
+def get_assets_folder(raise_error=True):
+    """@brief Get the assests folder.
+       @param raise_error If True then raise an error if the assets folder is not found.
+       @return The abs assets folder path string."""
+    searchFolders = []
+    assetsFolder = None
+    calling_file = None
+    # Get the full path to the python file that called this get_assets_folder() function.
+    frame = inspect.stack()[1]
+    module = inspect.getmodule(frame[0])
+    if module and hasattr(module, '__file__'):
+        calling_file = os.path.abspath(module.__file__)
+
+    if calling_file:
+        startup_path = os.path.dirname(calling_file)
+        searchFolders.append( os.path.join(startup_path, 'assets') )
+        pp1 = os.path.join(startup_path, '..')
+        searchFolders.append( os.path.join(pp1, 'assets') )
+        pp2 = os.path.join(pp1, '..')
+        searchFolders.append( os.path.join(pp2, 'assets') )
+        # Try all the site packages folders we know about.
+        for path in sys.path:
+            if 'site-packages' in path:
+                site_packages_path = path
+                searchFolders.append( os.path.join(site_packages_path, 'assets') )
+
+        for folder in searchFolders:
+            absPath = os.path.abspath(folder)
+            if os.path.isdir(absPath):
+                assetsFolder = absPath
+
+    if raise_error and assetsFolder is None:
+        raise Exception('Failed to find assets folder.')
+
+    return assetsFolder
