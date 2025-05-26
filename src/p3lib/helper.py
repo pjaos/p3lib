@@ -9,6 +9,7 @@ import platform
 import json
 import traceback
 import socket
+import inspect
 
 def initArgs(parser, lastCmdLineArg=None, checkHostArg=True):
     """This method is responsible for
