@@ -389,7 +389,8 @@ def getAbsFile(filename):
         @param filename The name of the icon file.
         @return The abs path of the file or None if not found."""
     file_found = None
-    abs_filename = os.path.abspath(filename)
+    startup_path = os.getenv("PWD", os.getcwd())
+    abs_filename = os.path.join(startup_path, filename)
     if os.path.isfile(abs_filename):
         file_found = abs_filename
 
@@ -414,7 +415,6 @@ def getAbsFile(filename):
                     if 'site-packages' in path:
                         site_packages_path = path
                         abs_filename = os.path.join(site_packages_path, filename)
-                        print(f"PJA: abs_filename={abs_filename}, FOUND={os.path.isfile(abs_filename)}")
                         if os.path.isfile(abs_filename):
                             file_found = abs_filename
 
