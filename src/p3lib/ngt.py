@@ -863,7 +863,7 @@ class local_file_picker(ui.dialog):
         if platform.system() == 'Windows' and directory and len(directory) >= 2:
             if directory[0].isalpha() and directory[1] == ':':
                 self._selected_drive = directory[:2]
-                directory = directory[2:] + "\\\\"
+                directory = directory[2:]
 
         self.path = Path(directory).expanduser()
         if upper_limit is None:
