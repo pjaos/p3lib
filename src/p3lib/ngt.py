@@ -858,6 +858,12 @@ class local_file_picker(ui.dialog):
         :param show_hidden_files: Whether to show hidden files.
         """
         super().__init__()
+        self._selected_drive = None
+        # If on a Windows platform attempt to separate the drive and the directory
+        if platform.system() == 'Windows' and directory and len(directory) >= 2:
+            if directory[0].isalpha() and directory[1] == ':':
+                self._selected_drive = directory[:2]
+                directory = directory[2:] + "\\\\"
 
         self.path = Path(directory).expanduser()
         if upper_limit is None:
@@ -884,7 +890,13 @@ class local_file_picker(ui.dialog):
         if platform.system() == 'Windows':
             import win32api
             drives = win32api.GetLogicalDriveStrings().split('\000')[:-1]
-            self.drives_toggle = ui.toggle(drives, value=drives[0], on_change=self.update_drive)
+            drive = drives[0]
+            # If the caller passed a drive letter select this drive
+            if self._selected_drive:
+                for drive in drives:
+                    if drive.startswith(self._selected_drive):
+                        break
+            self.drives_toggle = ui.toggle(drives, value=drive, on_change=self.update_drive)
 
     def update_drive(self):
         self.path = Path(self.drives_toggle.value).expanduser()
@@ -917,4 +929,11 @@ class local_file_picker(ui.dialog):
         if self.path.is_dir() and not self._select_folder_checkbox.value:
             self.update_grid()
         else:
-            self.submit([str(self.path)])
+            selected = str(self.path)
+            # If Windows platform add the drive letter to the path
+            if platform.system() == 'Windows':
+                if selected.startswith('\\'):
+                    selected=selected[1:]
+                    selected = self.drives_toggle.value + selected
+
+            self.submit([selected])
