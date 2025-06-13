@@ -1074,7 +1074,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span>        if platform.system() == &#39;Windows&#39; and directory and len(directory) &gt;= 2:</div>
 <div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span>            if directory[0].isalpha() and directory[1] == &#39;:&#39;:</div>
 <div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>                self._selected_drive = directory[:2]</div>
-<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>                directory = directory[2:] + &quot;\\\\&quot;</div>
+<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>                directory = directory[2:]</div>
 <div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span> </div>
 <div class="line"><a id="l00868" name="l00868"></a><span class="lineno"><a class="line" href="classp3lib_1_1ngt_1_1local__file__picker.html#aa28dc103258589d9cb421197fe2de90b">  868</a></span>        self.path = Path(directory).expanduser()</div>
 <div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span>        if upper_limit is None:</div>
