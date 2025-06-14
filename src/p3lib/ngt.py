@@ -274,6 +274,9 @@ class TabbedNiceGui(object):
     def setLogFile(self, logFile):
         pass
 
+    def storeToDebugLog(self, msg):
+        pass
+
     # End ------------------------------
 
     def _saveLogMsg(self, msg):
