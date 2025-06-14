@@ -2,7 +2,7 @@ var searchData=
 [
   ['debug_0',['debug',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a23bdd6adbe0bdc292276dbf83f5f2497',1,'p3lib.ngt.TabbedNiceGui.debug()'],['../classp3lib_1_1uio_1_1UIO.html#a5c13982319d42081ed1f4c7125a5fea3',1,'p3lib.uio.UIO.debug()']]],
   ['decrypt_1',['Decrypt',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a7e195e1ed8e15d40b0a53274184d33d4',1,'p3lib::pconfig::ConfigManager']]],
-  ['delete_2',['delete',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'p3lib::gnome_desktop_app::GnomeDesktopApp']]],
+  ['delete_2',['delete',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'p3lib.gnome_desktop_app.GnomeDesktopApp.delete()'],['../classp3lib_1_1windows__app_1_1WindowsApp.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'p3lib.windows_app.WindowsApp.delete()']]],
   ['deleteallplots_3',['deleteAllPlots',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a18e47f1d299d27d3d0a70fd2d819e3ee',1,'netplotly_demo::NetPlotlyDemo']]],
   ['deleterows_4',['deleteRows',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a52b2cbc9f0e292a1a78ffa27b5c0781d',1,'p3lib::database_if::DatabaseIF']]],
   ['delplot_5',['delPlot',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a4060ba4eed05f6b2dbfdcf52078fd826',1,'netplotly_demo::NetPlotlyDemo']]],

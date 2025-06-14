@@ -19,6 +19,7 @@ var searchData=
   ['p3lib_3a_3assh_16',['ssh',['../namespacep3lib_1_1ssh.html',1,'p3lib']]],
   ['p3lib_3a_3atable_5fplot_17',['table_plot',['../namespacep3lib_1_1table__plot.html',1,'p3lib']]],
   ['p3lib_3a_3auio_18',['uio',['../namespacep3lib_1_1uio.html',1,'p3lib']]],
-  ['pconfig_5fexample_19',['pconfig_example',['../namespacepconfig__example.html',1,'']]],
-  ['pytest3_20',['pytest3',['../namespacepytest3.html',1,'']]]
+  ['p3lib_3a_3awindows_5fapp_19',['windows_app',['../namespacep3lib_1_1windows__app.html',1,'p3lib']]],
+  ['pconfig_5fexample_20',['pconfig_example',['../namespacepconfig__example.html',1,'']]],
+  ['pytest3_21',['pytest3',['../namespacepytest3.html',1,'']]]
 ];

@@ -33,7 +33,7 @@ var searchData=
   ['default_5fsrv_5fid_30',['DEFAULT_SRV_ID',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a30433a1ca0d625781b714991c2dedaae',1,'p3lib::mqtt_rpc::MQTTRPCClient']]],
   ['default_5fssh_5fconnection_5ftimeout_31',['DEFAULT_SSH_CONNECTION_TIMEOUT',['../classp3lib_1_1ssh_1_1SSH.html#a65c4819af45274af22b9d86b5ed867bf',1,'p3lib::ssh::SSH']]],
   ['default_5ftcp_5fport_32',['DEFAULT_TCP_PORT',['../classp3lib_1_1database__if_1_1DBConfig.html#aca1594356167030d8a5db17ca90d68a6',1,'p3lib::database_if::DBConfig']]],
-  ['delete_33',['delete',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'p3lib::gnome_desktop_app::GnomeDesktopApp']]],
+  ['delete_33',['delete',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'p3lib.gnome_desktop_app.GnomeDesktopApp.delete()'],['../classp3lib_1_1windows__app_1_1WindowsApp.html#abdc24d676a4e66c0aed3ec61fdcb5435',1,'p3lib.windows_app.WindowsApp.delete()']]],
   ['deleteallplots_34',['deleteAllPlots',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a18e47f1d299d27d3d0a70fd2d819e3ee',1,'netplotly_demo::NetPlotlyDemo']]],
   ['deleterows_35',['deleteRows',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a52b2cbc9f0e292a1a78ffa27b5c0781d',1,'p3lib::database_if::DatabaseIF']]],
   ['delplot_36',['delPlot',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a4060ba4eed05f6b2dbfdcf52078fd826',1,'netplotly_demo::NetPlotlyDemo']]],

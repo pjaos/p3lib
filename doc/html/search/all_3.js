@@ -26,7 +26,7 @@ var searchData=
   ['connectnodb_23',['connectNoDB',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a267646f3474b97247e613a4ca3f73189',1,'p3lib::database_if::DatabaseIF']]],
   ['consolemenu_24',['ConsoleMenu',['../classp3lib_1_1uio_1_1ConsoleMenu.html',1,'p3lib::uio']]],
   ['count_25',['count',['../namespacebokeh__multiple__app__example.html#ad43c3812e6d13e0518d9f8b8f463ffcf',1,'bokeh_multiple_app_example']]],
-  ['create_26',['create',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#a0b54406e407b2c288dae3cc94a52924f',1,'p3lib::gnome_desktop_app::GnomeDesktopApp']]],
+  ['create_26',['create',['../classp3lib_1_1gnome__desktop__app_1_1GnomeDesktopApp.html#a0b54406e407b2c288dae3cc94a52924f',1,'p3lib.gnome_desktop_app.GnomeDesktopApp.create()'],['../classp3lib_1_1windows__app_1_1WindowsApp.html#a0811529ebd991519786e893f95c309dd',1,'p3lib.windows_app.WindowsApp.create()']]],
   ['createdatabase_27',['createDatabase',['../classp3lib_1_1database__if_1_1DatabaseIF.html#ac5dde703e0bb84212ccdb08138a433c2',1,'p3lib::database_if::DatabaseIF']]],
   ['createnewplot_28',['createNewPlot',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a0215eccd733d29b15e179c482c532511',1,'p3lib::table_plot::Table2DPlotServer']]],
   ['createplot_29',['createplot',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#a810c8bf572d410e341e38f4dfe0a8137',1,'p3lib.bokeh_gui.TimeSeriesPlotter.createPlot()'],['../classbokeh__demo_1_1BokehDemoA.html#a810c8bf572d410e341e38f4dfe0a8137',1,'bokeh_demo.BokehDemoA.createPlot()'],['../classbokeh__demo_1_1BokehDemoB.html#a810c8bf572d410e341e38f4dfe0a8137',1,'bokeh_demo.BokehDemoB.createPlot()']]],
