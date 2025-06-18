@@ -309,7 +309,7 @@ class TabbedNiceGui(object):
     def _handleMsg(self, msg):
         """@brief Log a message.
            @param msg the message to the log window and the log file."""
-        self._log.push(msg)
+         self._log.push(msg)
         self._saveLogMsg(msg)
         self._logMessageCount += 1
         # We've received a log message so update progress bar if required.
@@ -379,7 +379,13 @@ class TabbedNiceGui(object):
             if isinstance(rxMessage, dict):
                 self._processRXDict(rxMessage)
 
-    def initGUI(self, tabNameList, tabMethodInitList, reload=True, address="0.0.0.0", port=DEFAULT_SERVER_PORT, pageTitle="NiceGUI"):
+    def initGUI(self,
+                tabNameList,
+                tabMethodInitList,
+                reload=True,
+                address="0.0.0.0",
+                port=DEFAULT_SERVER_PORT,
+                pageTitle="NiceGUI"):
         """@brief Init the tabbed GUI.
            @param tabNameList A list of the names of each tab to be created.
            @param tabMethodInitList A list of the methods to be called to init each of the above tabs.
@@ -387,47 +393,53 @@ class TabbedNiceGui(object):
            @param reload If reload is set False then changes to python files will not cause the server to be restarted.
            @param address The address to bind the server to.
            @param The TCP port to bind the server to.
-           @param pageTitle The page title that appears in the browser."""
-        # A bit of defensive programming.
-        if len(tabNameList) != len(tabMethodInitList):
-            raise Exception(f"initGUI: BUG: tabNameList ({len(tabNameList)}) and tabMethodInitList ({len(tabMethodInitList)}) are not the same length.")
-        tabObjList = []
-        with ui.row():
-            with ui.tabs().classes('w-full') as tabs:
-                for tabName in tabNameList:
-                    tabObj = ui.tab(tabName)
-                    tabObjList.append(tabObj)
+           @param pageTitle The page title that appears in the browser.
+           @param maxLogLines The maximum number of lines to be displayed in the log. Be aware setting this higher will cause the browser to use more memory."""
+        with ui.column().classes('h-screen w-screen p4'):
+            # A bit of defensive programming.
+            if len(tabNameList) != len(tabMethodInitList):
+                raise Exception(f"initGUI: BUG: tabNameList ({len(tabNameList)}) and tabMethodInitList ({len(tabMethodInitList)}) are not the same length.")
+            tabObjList = []
+            with ui.row():
+                with ui.tabs().classes('w-full') as tabs:
+                    for tabName in tabNameList:
+                        tabObj = ui.tab(tabName)
+                        tabObjList.append(tabObj)
 
-            with ui.tab_panels(tabs, value=tabObjList[0]).classes('w-full'):
-                for tabObj in tabObjList:
-                    with ui.tab_panel(tabObj):
-                        tabIndex = tabObjList.index(tabObj)
-                        tabMethodInitList[tabIndex]()
+                with ui.tab_panels(tabs, value=tabObjList[0]).classes('w-full'):
+                    for tabObj in tabObjList:
+                        with ui.tab_panel(tabObj):
+                            tabIndex = tabObjList.index(tabObj)
+                            tabMethodInitList[tabIndex]()
 
-        guiLogLevel = "warning"
-        if self._debugEnabled:
-            guiLogLevel = "debug"
+            guiLogLevel = "warning"
+            if self._debugEnabled:
+                guiLogLevel = "debug"
 
-        ui.label("Message Log")
-        self._progress = ui.slider(min=0,max=TabbedNiceGui.MAX_PROGRESS_VALUE,step=1)
-        self._progress.set_visibility(False)
-        self._progress.min = 0
-        # Don't allow user to adjust progress bar thumb
-        self._progress.disable()
-        self._log = ui.log(max_lines=2000).classes('my-log')
-        self._log.set_visibility(True)
+            ui.label("Message Log")
+            self._progress = ui.slider(min=0,max=TabbedNiceGui.MAX_PROGRESS_VALUE,step=1)
+            self._progress.set_visibility(False)
+            self._progress.min = 0
+            # Don't allow user to adjust progress bar thumb
+            self._progress.disable()
+            # Setup the log area to fill the available space in the page vertically and horizontally
+            # The 32px is to make space for the vertical scrollbar within the page or it will be
+            # shifted out of sight to the right.
+            # Previously used self._log = ui.log(max_lines=2000) but the ui.log() does not currently limit data in the log.
+            self._log = ui.log().classes('my-log grow w-full max-w-[calc(100%-32px)] overflow-auto box-border')
+            self._log.set_visibility(True)
 
-        with ui.row():
-            ui.button('Clear Log', on_click=self._clearLog)
-            ui.button('Log Message Count', on_click=self._showLogMsgCount)
-            ui.button('Quit', on_click=self.close)
+            with ui.row():
+                ui.button('Clear Log', on_click=self._clearLog)
+                ui.button('Log Message Count', on_click=self._showLogMsgCount)
+                ui.button('Quit', on_click=self.close)
 
-        with ui.row():
-            ui.label(f"Software Version: {self._programVersion}")
+            with ui.row():
+                ui.label(f"Software Version: {self._programVersion}")
 
-        ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)
-        ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)
-        ui.run(host=address, port=port, title=pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=reload)
+            ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)
+            ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)
+            ui.run(host=address, port=port, title=pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=reload)
 
     def progressTimerCallback(self):
         """@brief Time to update the progress bar. We run the timer all the time because there appears to be a
