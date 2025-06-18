@@ -309,7 +309,7 @@ class TabbedNiceGui(object):
     def _handleMsg(self, msg):
         """@brief Log a message.
            @param msg the message to the log window and the log file."""
-         self._log.push(msg)
+        self._log.push(msg)
         self._saveLogMsg(msg)
         self._logMessageCount += 1
         # We've received a log message so update progress bar if required.
