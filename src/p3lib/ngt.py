@@ -314,6 +314,14 @@ class TabbedNiceGui(object):
         self._logMessageCount += 1
         # We've received a log message so update progress bar if required.
         self._updateProgressBar(msg)
+        # Wait a moment for DOM to update, then scroll to the end of the log
+        # so that the message just added is visible.
+        ui.timer(0.05, lambda: ui.run_javascript("""
+            const el = document.querySelector('.my-log');
+            if (el) {
+                el.scrollTop = el.scrollHeight;
+            }
+        """), once=True)
 
     def _infoGT(self, msg):
         """@brief Update an info level message. This must be called from the GUI thread.
@@ -406,7 +414,7 @@ class TabbedNiceGui(object):
         self._progress.min = 0
         # Don't allow user to adjust progress bar thumb
         self._progress.disable()
-        self._log = ui.log(max_lines=2000)
+        self._log = ui.log(max_lines=2000).classes('my-log')
         self._log.set_visibility(True)
 
         with ui.row():
