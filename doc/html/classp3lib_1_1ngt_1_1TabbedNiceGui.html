@@ -401,12 +401,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add to the button list. These buttons are disabled during the progress of a task.
    @param button The button instance.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00542">542</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  542</span>    <span class="keyword">def </span>_appendButtonList(self, button):</div>
-<div class="line"><span class="lineno">  543</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add to the button list. These buttons are disabled during the progress of a task.</span></div>
-<div class="line"><span class="lineno">  544</span><span class="stringliteral">           @param button The button instance.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  545</span>        self._buttonList.append(button)</div>
-<div class="line"><span class="lineno">  546</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00554">554</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  554</span>    <span class="keyword">def </span>_appendButtonList(self, button):</div>
+<div class="line"><span class="lineno">  555</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add to the button list. These buttons are disabled during the progress of a task.</span></div>
+<div class="line"><span class="lineno">  556</span><span class="stringliteral">           @param button The button instance.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  557</span>        self._buttonList.append(button)</div>
+<div class="line"><span class="lineno">  558</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -434,12 +434,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Clear the log text</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00526">526</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  526</span>    <span class="keyword">def </span>_clearLog(self):</div>
-<div class="line"><span class="lineno">  527</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Clear the log text&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  528</span>        <span class="keywordflow">if</span> self._log:</div>
-<div class="line"><span class="lineno">  529</span>            self._log.clear()</div>
-<div class="line"><span class="lineno">  530</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00538">538</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  538</span>    <span class="keyword">def </span>_clearLog(self):</div>
+<div class="line"><span class="lineno">  539</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Clear the log text&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  540</span>        <span class="keywordflow">if</span> self._log:</div>
+<div class="line"><span class="lineno">  541</span>            self._log.clear()</div>
+<div class="line"><span class="lineno">  542</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -781,14 +781,14 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Process the dicts received from the GUI message queue
           that were not handled by the parent class.
    @param rxDict The dict received from the GUI message queue.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00620">620</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  620</span>    <span class="keyword">def </span>_handleGUIUpdate(self, rxDict):</div>
-<div class="line"><span class="lineno">  621</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Process the dicts received from the GUI message queue</span></div>
-<div class="line"><span class="lineno">  622</span><span class="stringliteral">                  that were not handled by the parent class.</span></div>
-<div class="line"><span class="lineno">  623</span><span class="stringliteral">           @param rxDict The dict received from the GUI message queue.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  624</span>        <span class="keywordflow">raise</span> NotImplementedError(<span class="stringliteral">&quot;_handleGUIUpdate() is not implemented. Implement this method in a subclass of TabbedNiceGUI&quot;</span>)</div>
-<div class="line"><span class="lineno">  625</span> </div>
-<div class="line"><span class="lineno">  626</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00632">632</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  632</span>    <span class="keyword">def </span>_handleGUIUpdate(self, rxDict):</div>
+<div class="line"><span class="lineno">  633</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Process the dicts received from the GUI message queue</span></div>
+<div class="line"><span class="lineno">  634</span><span class="stringliteral">                  that were not handled by the parent class.</span></div>
+<div class="line"><span class="lineno">  635</span><span class="stringliteral">           @param rxDict The dict received from the GUI message queue.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  636</span>        <span class="keywordflow">raise</span> NotImplementedError(<span class="stringliteral">&quot;_handleGUIUpdate() is not implemented. Implement this method in a subclass of TabbedNiceGUI&quot;</span>)</div>
+<div class="line"><span class="lineno">  637</span> </div>
+<div class="line"><span class="lineno">  638</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -917,12 +917,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Should be called before a task is started.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00521">521</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  521</span>    <span class="keyword">def </span>_initTask(self):</div>
-<div class="line"><span class="lineno">  522</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Should be called before a task is started.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  523</span>        self._enableAllButtons(<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  524</span>        self._clearMessages()</div>
-<div class="line"><span class="lineno">  525</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00533">533</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  533</span>    <span class="keyword">def </span>_initTask(self):</div>
+<div class="line"><span class="lineno">  534</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Should be called before a task is started.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  535</span>        self._enableAllButtons(<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  536</span>        self._clearMessages()</div>
+<div class="line"><span class="lineno">  537</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -961,42 +961,42 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Process the dicts received from the GUI message queue.
    @param rxDict The dict received from the GUI message queue.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00547">547</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  547</span>    <span class="keyword">def </span>_processRXDict(self, rxDict):</div>
-<div class="line"><span class="lineno">  548</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Process the dicts received from the GUI message queue.</span></div>
-<div class="line"><span class="lineno">  549</span><span class="stringliteral">           @param rxDict The dict received from the GUI message queue.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  550</span>        <span class="keywordflow">if</span> TabbedNiceGui.INFO_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  551</span>            msg = rxDict[TabbedNiceGui.INFO_MESSAGE]</div>
-<div class="line"><span class="lineno">  552</span>            self._infoGT(msg)</div>
-<div class="line"><span class="lineno">  553</span> </div>
-<div class="line"><span class="lineno">  554</span>        <span class="keywordflow">elif</span> TabbedNiceGui.WARN_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  555</span>            msg = rxDict[TabbedNiceGui.WARN_MESSAGE]</div>
-<div class="line"><span class="lineno">  556</span>            self._warnGT(msg)</div>
-<div class="line"><span class="lineno">  557</span> </div>
-<div class="line"><span class="lineno">  558</span>        <span class="keywordflow">elif</span> TabbedNiceGui.ERROR_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  559</span>            msg = rxDict[TabbedNiceGui.ERROR_MESSAGE]</div>
-<div class="line"><span class="lineno">  560</span>            self._errorGT(msg)</div>
-<div class="line"><span class="lineno">  561</span> </div>
-<div class="line"><span class="lineno">  562</span>        <span class="keywordflow">elif</span> TabbedNiceGui.DEBUG_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  563</span>            msg = rxDict[TabbedNiceGui.DEBUG_MESSAGE]</div>
-<div class="line"><span class="lineno">  564</span>            self._debugGT(msg)</div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00559">559</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  559</span>    <span class="keyword">def </span>_processRXDict(self, rxDict):</div>
+<div class="line"><span class="lineno">  560</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Process the dicts received from the GUI message queue.</span></div>
+<div class="line"><span class="lineno">  561</span><span class="stringliteral">           @param rxDict The dict received from the GUI message queue.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  562</span>        <span class="keywordflow">if</span> TabbedNiceGui.INFO_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  563</span>            msg = rxDict[TabbedNiceGui.INFO_MESSAGE]</div>
+<div class="line"><span class="lineno">  564</span>            self._infoGT(msg)</div>
 <div class="line"><span class="lineno">  565</span> </div>
-<div class="line"><span class="lineno">  566</span>        <span class="keywordflow">elif</span> TabbedNiceGui.ENABLE_BUTTONS <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  567</span>            state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]</div>
-<div class="line"><span class="lineno">  568</span>            self._enableAllButtons(state)</div>
+<div class="line"><span class="lineno">  566</span>        <span class="keywordflow">elif</span> TabbedNiceGui.WARN_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  567</span>            msg = rxDict[TabbedNiceGui.WARN_MESSAGE]</div>
+<div class="line"><span class="lineno">  568</span>            self._warnGT(msg)</div>
 <div class="line"><span class="lineno">  569</span> </div>
-<div class="line"><span class="lineno">  570</span>        <span class="keywordflow">elif</span> TabbedNiceGui.NOTIFY_DIALOG_INFO <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  571</span>            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG_INFO]</div>
-<div class="line"><span class="lineno">  572</span>            ui.notify(message, close_button=<span class="stringliteral">&#39;OK&#39;</span>, type=<span class="stringliteral">&quot;positive&quot;</span>, position=<span class="stringliteral">&quot;center&quot;</span>)</div>
+<div class="line"><span class="lineno">  570</span>        <span class="keywordflow">elif</span> TabbedNiceGui.ERROR_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  571</span>            msg = rxDict[TabbedNiceGui.ERROR_MESSAGE]</div>
+<div class="line"><span class="lineno">  572</span>            self._errorGT(msg)</div>
 <div class="line"><span class="lineno">  573</span> </div>
-<div class="line"><span class="lineno">  574</span>        <span class="keywordflow">elif</span> TabbedNiceGui.NOTIFY_DIALOG_ERROR <span class="keywordflow">in</span> rxDict:</div>
-<div class="line"><span class="lineno">  575</span>            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG_ERROR]</div>
-<div class="line"><span class="lineno">  576</span>            ui.notify(message, close_button=<span class="stringliteral">&#39;OK&#39;</span>, type=<span class="stringliteral">&quot;negative&quot;</span>, position=<span class="stringliteral">&quot;center&quot;</span>)</div>
+<div class="line"><span class="lineno">  574</span>        <span class="keywordflow">elif</span> TabbedNiceGui.DEBUG_MESSAGE <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  575</span>            msg = rxDict[TabbedNiceGui.DEBUG_MESSAGE]</div>
+<div class="line"><span class="lineno">  576</span>            self._debugGT(msg)</div>
 <div class="line"><span class="lineno">  577</span> </div>
-<div class="line"><span class="lineno">  578</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  579</span> </div>
-<div class="line"><span class="lineno">  580</span>            self._handleGUIUpdate(rxDict)</div>
+<div class="line"><span class="lineno">  578</span>        <span class="keywordflow">elif</span> TabbedNiceGui.ENABLE_BUTTONS <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  579</span>            state = rxDict[TabbedNiceGui.ENABLE_BUTTONS]</div>
+<div class="line"><span class="lineno">  580</span>            self._enableAllButtons(state)</div>
 <div class="line"><span class="lineno">  581</span> </div>
+<div class="line"><span class="lineno">  582</span>        <span class="keywordflow">elif</span> TabbedNiceGui.NOTIFY_DIALOG_INFO <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  583</span>            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG_INFO]</div>
+<div class="line"><span class="lineno">  584</span>            ui.notify(message, close_button=<span class="stringliteral">&#39;OK&#39;</span>, type=<span class="stringliteral">&quot;positive&quot;</span>, position=<span class="stringliteral">&quot;center&quot;</span>)</div>
+<div class="line"><span class="lineno">  585</span> </div>
+<div class="line"><span class="lineno">  586</span>        <span class="keywordflow">elif</span> TabbedNiceGui.NOTIFY_DIALOG_ERROR <span class="keywordflow">in</span> rxDict:</div>
+<div class="line"><span class="lineno">  587</span>            message = rxDict[TabbedNiceGui.NOTIFY_DIALOG_ERROR]</div>
+<div class="line"><span class="lineno">  588</span>            ui.notify(message, close_button=<span class="stringliteral">&#39;OK&#39;</span>, type=<span class="stringliteral">&quot;negative&quot;</span>, position=<span class="stringliteral">&quot;center&quot;</span>)</div>
+<div class="line"><span class="lineno">  589</span> </div>
+<div class="line"><span class="lineno">  590</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  591</span> </div>
+<div class="line"><span class="lineno">  592</span>            self._handleGUIUpdate(rxDict)</div>
+<div class="line"><span class="lineno">  593</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1124,11 +1124,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Show the number of log messages</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00531">531</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  531</span>    <span class="keyword">def </span>_showLogMsgCount(self):</div>
-<div class="line"><span class="lineno">  532</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the number of log messages&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  533</span>        ui.notify(f<span class="stringliteral">&quot;{self._getLogMessageCount()} messages in the log.&quot;</span>)</div>
-<div class="line"><span class="lineno">  534</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00543">543</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  543</span>    <span class="keyword">def </span>_showLogMsgCount(self):</div>
+<div class="line"><span class="lineno">  544</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the number of log messages&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  545</span>        ui.notify(f<span class="stringliteral">&quot;{self._getLogMessageCount()} messages in the log.&quot;</span>)</div>
+<div class="line"><span class="lineno">  546</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1201,59 +1201,59 @@ Protected Attributes</h2></td></tr>
     @param expectedMsgList A list of the expected log file messages.
     @param expectedMsgCount A int value that defines the number of log messages we expect to receive for normal progress
                             completion.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00439">439</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  439</span>    <span class="keyword">def </span>_startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0):</div>
-<div class="line"><span class="lineno">  440</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start a timer that will update the progress bar.</span></div>
-<div class="line"><span class="lineno">  441</span><span class="stringliteral">                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length</span></div>
-<div class="line"><span class="lineno">  442</span><span class="stringliteral">                  of the task.</span></div>
-<div class="line"><span class="lineno">  443</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  444</span><span class="stringliteral">                  If startMessage is set to a text string the progress time will not start until the log message area contains</span></div>
-<div class="line"><span class="lineno">  445</span><span class="stringliteral">                  the start message.</span></div>
-<div class="line"><span class="lineno">  446</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  447</span><span class="stringliteral">                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is</span></div>
-<div class="line"><span class="lineno">  448</span><span class="stringliteral">                  updated as each message is received. The messages may be the entire line of a log message or parts of a</span></div>
-<div class="line"><span class="lineno">  449</span><span class="stringliteral">                  log message line.</span></div>
-<div class="line"><span class="lineno">  450</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  451</span><span class="stringliteral">                  Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is</span></div>
-<div class="line"><span class="lineno">  452</span><span class="stringliteral">                  added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.</span></div>
-<div class="line"><span class="lineno">  453</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  454</span><span class="stringliteral">            @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.</span></div>
-<div class="line"><span class="lineno">  455</span><span class="stringliteral">            @param expectedMsgList A list of the expected log file messages.</span></div>
-<div class="line"><span class="lineno">  456</span><span class="stringliteral">            @param expectedMsgCount A int value that defines the number of log messages we expect to receive for normal progress</span></div>
-<div class="line"><span class="lineno">  457</span><span class="stringliteral">                                    completion.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  458</span>        self._progressValue                     = 0</div>
-<div class="line"><span class="lineno">  459</span>        self._progressBarStartMessage           = <span class="stringliteral">&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  460</span>        self._progressBarExpectedMessageList    = []</div>
-<div class="line"><span class="lineno">  461</span>        self._expectedProgressBarMessageIndex   = 0</div>
-<div class="line"><span class="lineno">  462</span>        self._expectedProgressBarMsgCount       = 0</div>
-<div class="line"><span class="lineno">  463</span>        self._updateProgressOnTimer             = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  464</span>        self._progress.set_value( self._progressValue )</div>
-<div class="line"><span class="lineno">  465</span>        <span class="comment"># If the caller wants to the progress bar to update as the log file message count increases.</span></div>
-<div class="line"><span class="lineno">  466</span>        <span class="keywordflow">if</span> expectedMsgCount &gt; 0:</div>
-<div class="line"><span class="lineno">  467</span>            self._expectedProgressBarMsgCount = expectedMsgCount</div>
-<div class="line"><span class="lineno">  468</span>            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(self._expectedProgressBarMsgCount)</div>
-<div class="line"><span class="lineno">  469</span> </div>
-<div class="line"><span class="lineno">  470</span>        <span class="comment"># If the caller wants to update the progress bar on expected messages.</span></div>
-<div class="line"><span class="lineno">  471</span>        <span class="keywordflow">elif</span> len(expectedMsgList):</div>
-<div class="line"><span class="lineno">  472</span>            <span class="comment">#Use the text of log messages to increment the progress bar.</span></div>
-<div class="line"><span class="lineno">  473</span>            self._expectedProgressBarMessageIndex = 0</div>
-<div class="line"><span class="lineno">  474</span>            self._progressBarExpectedMessageList = expectedMsgList</div>
-<div class="line"><span class="lineno">  475</span>            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(len(expectedMsgList))</div>
-<div class="line"><span class="lineno">  476</span> </div>
-<div class="line"><span class="lineno">  477</span>        <span class="keywordflow">elif</span> durationSeconds &gt; 0:</div>
-<div class="line"><span class="lineno">  478</span>            <span class="comment"># Calc the step size required to give the required duration</span></div>
-<div class="line"><span class="lineno">  479</span>            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(durationSeconds)</div>
-<div class="line"><span class="lineno">  480</span>            <span class="keywordflow">if</span> startMessage:</div>
-<div class="line"><span class="lineno">  481</span>                self._progressBarStartMessage = startMessage</div>
-<div class="line"><span class="lineno">  482</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  483</span>                <span class="comment"># Start updating the progress bar now.</span></div>
-<div class="line"><span class="lineno">  484</span>                self._updateProgressOnTimer = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  485</span> </div>
-<div class="line"><span class="lineno">  486</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  487</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;BUG: _startProgressTimer() called. len(expectedMsgList)=0 and durationSeconds&lt;=0.&quot;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00451">451</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  451</span>    <span class="keyword">def </span>_startProgress(self, durationSeconds=0, startMessage=None, expectedMsgList=[], expectedMsgCount=0):</div>
+<div class="line"><span class="lineno">  452</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Start a timer that will update the progress bar.</span></div>
+<div class="line"><span class="lineno">  453</span><span class="stringliteral">                  The progress bar can simply update on a timer every second with durationSeconds set to the expected length</span></div>
+<div class="line"><span class="lineno">  454</span><span class="stringliteral">                  of the task.</span></div>
+<div class="line"><span class="lineno">  455</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  456</span><span class="stringliteral">                  If startMessage is set to a text string the progress time will not start until the log message area contains</span></div>
+<div class="line"><span class="lineno">  457</span><span class="stringliteral">                  the start message.</span></div>
+<div class="line"><span class="lineno">  458</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  459</span><span class="stringliteral">                  Alternatively if expectedMsgList contains a list of strings we expect to receive then the progress bar is</span></div>
+<div class="line"><span class="lineno">  460</span><span class="stringliteral">                  updated as each message is received. The messages may be the entire line of a log message or parts of a</span></div>
+<div class="line"><span class="lineno">  461</span><span class="stringliteral">                  log message line.</span></div>
+<div class="line"><span class="lineno">  462</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  463</span><span class="stringliteral">                  Alternatively if expectedMsgCount is set to a value &gt; 0 then the progress bar is updated as each message is</span></div>
+<div class="line"><span class="lineno">  464</span><span class="stringliteral">                  added to the log and reaches 100% when the number of messages added to the log file reaches the expectedMsgCount.</span></div>
+<div class="line"><span class="lineno">  465</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  466</span><span class="stringliteral">            @param startMessage The text of the log message we expect to receive to trigger the progress bar timer start.</span></div>
+<div class="line"><span class="lineno">  467</span><span class="stringliteral">            @param expectedMsgList A list of the expected log file messages.</span></div>
+<div class="line"><span class="lineno">  468</span><span class="stringliteral">            @param expectedMsgCount A int value that defines the number of log messages we expect to receive for normal progress</span></div>
+<div class="line"><span class="lineno">  469</span><span class="stringliteral">                                    completion.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  470</span>        self._progressValue                     = 0</div>
+<div class="line"><span class="lineno">  471</span>        self._progressBarStartMessage           = <span class="stringliteral">&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  472</span>        self._progressBarExpectedMessageList    = []</div>
+<div class="line"><span class="lineno">  473</span>        self._expectedProgressBarMessageIndex   = 0</div>
+<div class="line"><span class="lineno">  474</span>        self._expectedProgressBarMsgCount       = 0</div>
+<div class="line"><span class="lineno">  475</span>        self._updateProgressOnTimer             = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  476</span>        self._progress.set_value( self._progressValue )</div>
+<div class="line"><span class="lineno">  477</span>        <span class="comment"># If the caller wants to the progress bar to update as the log file message count increases.</span></div>
+<div class="line"><span class="lineno">  478</span>        <span class="keywordflow">if</span> expectedMsgCount &gt; 0:</div>
+<div class="line"><span class="lineno">  479</span>            self._expectedProgressBarMsgCount = expectedMsgCount</div>
+<div class="line"><span class="lineno">  480</span>            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(self._expectedProgressBarMsgCount)</div>
+<div class="line"><span class="lineno">  481</span> </div>
+<div class="line"><span class="lineno">  482</span>        <span class="comment"># If the caller wants to update the progress bar on expected messages.</span></div>
+<div class="line"><span class="lineno">  483</span>        <span class="keywordflow">elif</span> len(expectedMsgList):</div>
+<div class="line"><span class="lineno">  484</span>            <span class="comment">#Use the text of log messages to increment the progress bar.</span></div>
+<div class="line"><span class="lineno">  485</span>            self._expectedProgressBarMessageIndex = 0</div>
+<div class="line"><span class="lineno">  486</span>            self._progressBarExpectedMessageList = expectedMsgList</div>
+<div class="line"><span class="lineno">  487</span>            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(len(expectedMsgList))</div>
 <div class="line"><span class="lineno">  488</span> </div>
-<div class="line"><span class="lineno">  489</span>        self._progress.set_visibility(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  490</span> </div>
+<div class="line"><span class="lineno">  489</span>        <span class="keywordflow">elif</span> durationSeconds &gt; 0:</div>
+<div class="line"><span class="lineno">  490</span>            <span class="comment"># Calc the step size required to give the required duration</span></div>
+<div class="line"><span class="lineno">  491</span>            self._progressStepValue = TabbedNiceGui.MAX_PROGRESS_VALUE/float(durationSeconds)</div>
+<div class="line"><span class="lineno">  492</span>            <span class="keywordflow">if</span> startMessage:</div>
+<div class="line"><span class="lineno">  493</span>                self._progressBarStartMessage = startMessage</div>
+<div class="line"><span class="lineno">  494</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  495</span>                <span class="comment"># Start updating the progress bar now.</span></div>
+<div class="line"><span class="lineno">  496</span>                self._updateProgressOnTimer = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  497</span> </div>
+<div class="line"><span class="lineno">  498</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  499</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;BUG: _startProgressTimer() called. len(expectedMsgList)=0 and durationSeconds&lt;=0.&quot;</span>)</div>
+<div class="line"><span class="lineno">  500</span> </div>
+<div class="line"><span class="lineno">  501</span>        self._progress.set_visibility(<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  502</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1281,12 +1281,12 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop the progress bar being updated and hide it.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00491">491</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  491</span>    <span class="keyword">def </span>_stopProgress(self):</div>
-<div class="line"><span class="lineno">  492</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop the progress bar being updated and hide it.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  493</span>        self._updateProgressOnTimer = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">  494</span>        self._progress.set_visibility(<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  495</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00503">503</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  503</span>    <span class="keyword">def </span>_stopProgress(self):</div>
+<div class="line"><span class="lineno">  504</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop the progress bar being updated and hide it.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  505</span>        self._updateProgressOnTimer = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">  506</span>        self._progress.set_visibility(<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  507</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1325,14 +1325,14 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Send a message from the GUI thread to an external (non GUI thread).
    @param msgDict A dict containing messages to be sent to the external thread.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00589">589</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  589</span>    <span class="keyword">def </span>_updateExeThread(self, msgDict):</div>
-<div class="line"><span class="lineno">  590</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message from the GUI thread to an external (non GUI thread).</span></div>
-<div class="line"><span class="lineno">  591</span><span class="stringliteral">           @param msgDict A dict containing messages to be sent to the external thread.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  592</span>        <span class="comment"># Record the seconds when we received the message</span></div>
-<div class="line"><span class="lineno">  593</span>        msgDict[TabbedNiceGui.UPDATE_SECONDS]=time()</div>
-<div class="line"><span class="lineno">  594</span>        self._fromGUIQueue.put(msgDict)</div>
-<div class="line"><span class="lineno">  595</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00601">601</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  601</span>    <span class="keyword">def </span>_updateExeThread(self, msgDict):</div>
+<div class="line"><span class="lineno">  602</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message from the GUI thread to an external (non GUI thread).</span></div>
+<div class="line"><span class="lineno">  603</span><span class="stringliteral">           @param msgDict A dict containing messages to be sent to the external thread.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  604</span>        <span class="comment"># Record the seconds when we received the message</span></div>
+<div class="line"><span class="lineno">  605</span>        msgDict[TabbedNiceGui.UPDATE_SECONDS]=time()</div>
+<div class="line"><span class="lineno">  606</span>        self._fromGUIQueue.put(msgDict)</div>
+<div class="line"><span class="lineno">  607</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1371,14 +1371,14 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Send a message to the GUI so that it updates itself.
    @param msgDict A dict containing details of how to update the GUI.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00582">582</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  582</span>    <span class="keyword">def </span>_updateGUI(self, msgDict):</div>
-<div class="line"><span class="lineno">  583</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message to the GUI so that it updates itself.</span></div>
-<div class="line"><span class="lineno">  584</span><span class="stringliteral">           @param msgDict A dict containing details of how to update the GUI.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  585</span>        <span class="comment"># Record the seconds when we received the message</span></div>
-<div class="line"><span class="lineno">  586</span>        msgDict[TabbedNiceGui.UPDATE_SECONDS]=time()</div>
-<div class="line"><span class="lineno">  587</span>        self._toGUIQueue.put(msgDict)</div>
-<div class="line"><span class="lineno">  588</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00594">594</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  594</span>    <span class="keyword">def </span>_updateGUI(self, msgDict):</div>
+<div class="line"><span class="lineno">  595</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message to the GUI so that it updates itself.</span></div>
+<div class="line"><span class="lineno">  596</span><span class="stringliteral">           @param msgDict A dict containing details of how to update the GUI.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  597</span>        <span class="comment"># Record the seconds when we received the message</span></div>
+<div class="line"><span class="lineno">  598</span>        msgDict[TabbedNiceGui.UPDATE_SECONDS]=time()</div>
+<div class="line"><span class="lineno">  599</span>        self._toGUIQueue.put(msgDict)</div>
+<div class="line"><span class="lineno">  600</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1425,31 +1425,31 @@ Protected Attributes</h2></td></tr>
    @param msgDict The message dictionary to be sent to the GUI.
    @param timeout The number of seconds to wait for a response.
    @return The return dict.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00596">596</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  596</span>    <span class="keyword">def </span>_updateGUIAndWaitForResponse(self, msgDict, timeout=DEFAULT_GUI_RESPONSE_TIMEOUT):</div>
-<div class="line"><span class="lineno">  597</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message to the GUI and wait for a response.</span></div>
-<div class="line"><span class="lineno">  598</span><span class="stringliteral">           @param msgDict The message dictionary to be sent to the GUI.</span></div>
-<div class="line"><span class="lineno">  599</span><span class="stringliteral">           @param timeout The number of seconds to wait for a response.</span></div>
-<div class="line"><span class="lineno">  600</span><span class="stringliteral">           @return The return dict.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  601</span>        timeoutT = time()+timeout</div>
-<div class="line"><span class="lineno">  602</span>        rxDict = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  603</span>        self._updateGUI(msgDict)</div>
-<div class="line"><span class="lineno">  604</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
-<div class="line"><span class="lineno">  605</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> self._fromGUIQueue.empty():</div>
-<div class="line"><span class="lineno">  606</span>                rxMessage = self._fromGUIQueue.get()</div>
-<div class="line"><span class="lineno">  607</span>                <span class="keywordflow">if</span> isinstance(rxMessage, dict):</div>
-<div class="line"><span class="lineno">  608</span>                    rxDict = rxMessage</div>
-<div class="line"><span class="lineno">  609</span>                    <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  610</span> </div>
-<div class="line"><span class="lineno">  611</span>            <span class="keywordflow">elif</span> time() &gt;= timeoutT:</div>
-<div class="line"><span class="lineno">  612</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{timeout} second GUI response timeout.&quot;</span>)</div>
-<div class="line"><span class="lineno">  613</span> </div>
-<div class="line"><span class="lineno">  614</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  615</span>                <span class="comment"># Don&#39;t spin to fast</span></div>
-<div class="line"><span class="lineno">  616</span>                sleep(0.1)</div>
-<div class="line"><span class="lineno">  617</span> </div>
-<div class="line"><span class="lineno">  618</span>        <span class="keywordflow">return</span> rxDict</div>
-<div class="line"><span class="lineno">  619</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00608">608</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  608</span>    <span class="keyword">def </span>_updateGUIAndWaitForResponse(self, msgDict, timeout=DEFAULT_GUI_RESPONSE_TIMEOUT):</div>
+<div class="line"><span class="lineno">  609</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Send a message to the GUI and wait for a response.</span></div>
+<div class="line"><span class="lineno">  610</span><span class="stringliteral">           @param msgDict The message dictionary to be sent to the GUI.</span></div>
+<div class="line"><span class="lineno">  611</span><span class="stringliteral">           @param timeout The number of seconds to wait for a response.</span></div>
+<div class="line"><span class="lineno">  612</span><span class="stringliteral">           @return The return dict.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  613</span>        timeoutT = time()+timeout</div>
+<div class="line"><span class="lineno">  614</span>        rxDict = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  615</span>        self._updateGUI(msgDict)</div>
+<div class="line"><span class="lineno">  616</span>        <span class="keywordflow">while</span> <span class="keyword">True</span>:</div>
+<div class="line"><span class="lineno">  617</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> self._fromGUIQueue.empty():</div>
+<div class="line"><span class="lineno">  618</span>                rxMessage = self._fromGUIQueue.get()</div>
+<div class="line"><span class="lineno">  619</span>                <span class="keywordflow">if</span> isinstance(rxMessage, dict):</div>
+<div class="line"><span class="lineno">  620</span>                    rxDict = rxMessage</div>
+<div class="line"><span class="lineno">  621</span>                    <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  622</span> </div>
+<div class="line"><span class="lineno">  623</span>            <span class="keywordflow">elif</span> time() &gt;= timeoutT:</div>
+<div class="line"><span class="lineno">  624</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{timeout} second GUI response timeout.&quot;</span>)</div>
+<div class="line"><span class="lineno">  625</span> </div>
+<div class="line"><span class="lineno">  626</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  627</span>                <span class="comment"># Don&#39;t spin to fast</span></div>
+<div class="line"><span class="lineno">  628</span>                sleep(0.1)</div>
+<div class="line"><span class="lineno">  629</span> </div>
+<div class="line"><span class="lineno">  630</span>        <span class="keywordflow">return</span> rxDict</div>
+<div class="line"><span class="lineno">  631</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1488,32 +1488,32 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Update the progress bar if required when a log message is received. This is called as each message is added to the log.
    @param msg The log message received.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00496">496</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  496</span>    <span class="keyword">def </span>_updateProgressBar(self, msg):</div>
-<div class="line"><span class="lineno">  497</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Update the progress bar if required when a log message is received. This is called as each message is added to the log.</span></div>
-<div class="line"><span class="lineno">  498</span><span class="stringliteral">           @param msg The log message received.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  499</span>        <span class="comment"># If we update the progress bar as each message is received until we have a log with self._expectedProgressBarMsgCount many messages.</span></div>
-<div class="line"><span class="lineno">  500</span>        <span class="keywordflow">if</span> self._expectedProgressBarMsgCount &gt; 0:</div>
-<div class="line"><span class="lineno">  501</span>            self._progressValue = self._progressValue + self._progressStepValue</div>
-<div class="line"><span class="lineno">  502</span>            self._progress.set_value( self._progressValue )</div>
-<div class="line"><span class="lineno">  503</span> </div>
-<div class="line"><span class="lineno">  504</span>        <span class="comment"># If we have a list of log messages to update the progress bar.</span></div>
-<div class="line"><span class="lineno">  505</span>        <span class="keywordflow">elif</span> len(self._progressBarExpectedMessageList) &gt; 0:</div>
-<div class="line"><span class="lineno">  506</span>            <span class="keywordflow">if</span> self._expectedProgressBarMessageIndex &lt; len(self._progressBarExpectedMessageList):</div>
-<div class="line"><span class="lineno">  507</span>                <span class="comment"># Get the message we expect to receive next</span></div>
-<div class="line"><span class="lineno">  508</span>                expectedMsg = self._progressBarExpectedMessageList[self._expectedProgressBarMessageIndex]</div>
-<div class="line"><span class="lineno">  509</span>                <span class="keywordflow">if</span> msg.find(expectedMsg) != -1:</div>
-<div class="line"><span class="lineno">  510</span>                    self._progressValue = self._progressValue + self._progressStepValue</div>
-<div class="line"><span class="lineno">  511</span>                    self._progress.set_value( self._progressValue )</div>
-<div class="line"><span class="lineno">  512</span>                    self._expectedProgressBarMessageIndex += 1</div>
-<div class="line"><span class="lineno">  513</span> </div>
-<div class="line"><span class="lineno">  514</span>        <span class="comment"># If we have a message that we expect to receive to start the progress bar timer.</span></div>
-<div class="line"><span class="lineno">  515</span>        <span class="keywordflow">elif</span> self._progressBarStartMessage <span class="keywordflow">and</span> len(self._progressBarStartMessage):</div>
-<div class="line"><span class="lineno">  516</span>            <span class="comment"># If we found the start message in the message received.</span></div>
-<div class="line"><span class="lineno">  517</span>            <span class="keywordflow">if</span> msg.find(self._progressBarStartMessage) != -1:</div>
-<div class="line"><span class="lineno">  518</span>                <span class="comment"># Start updating the progress bar now on the timer.</span></div>
-<div class="line"><span class="lineno">  519</span>                self._updateProgressOnTimer = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">  520</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00508">508</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  508</span>    <span class="keyword">def </span>_updateProgressBar(self, msg):</div>
+<div class="line"><span class="lineno">  509</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Update the progress bar if required when a log message is received. This is called as each message is added to the log.</span></div>
+<div class="line"><span class="lineno">  510</span><span class="stringliteral">           @param msg The log message received.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  511</span>        <span class="comment"># If we update the progress bar as each message is received until we have a log with self._expectedProgressBarMsgCount many messages.</span></div>
+<div class="line"><span class="lineno">  512</span>        <span class="keywordflow">if</span> self._expectedProgressBarMsgCount &gt; 0:</div>
+<div class="line"><span class="lineno">  513</span>            self._progressValue = self._progressValue + self._progressStepValue</div>
+<div class="line"><span class="lineno">  514</span>            self._progress.set_value( self._progressValue )</div>
+<div class="line"><span class="lineno">  515</span> </div>
+<div class="line"><span class="lineno">  516</span>        <span class="comment"># If we have a list of log messages to update the progress bar.</span></div>
+<div class="line"><span class="lineno">  517</span>        <span class="keywordflow">elif</span> len(self._progressBarExpectedMessageList) &gt; 0:</div>
+<div class="line"><span class="lineno">  518</span>            <span class="keywordflow">if</span> self._expectedProgressBarMessageIndex &lt; len(self._progressBarExpectedMessageList):</div>
+<div class="line"><span class="lineno">  519</span>                <span class="comment"># Get the message we expect to receive next</span></div>
+<div class="line"><span class="lineno">  520</span>                expectedMsg = self._progressBarExpectedMessageList[self._expectedProgressBarMessageIndex]</div>
+<div class="line"><span class="lineno">  521</span>                <span class="keywordflow">if</span> msg.find(expectedMsg) != -1:</div>
+<div class="line"><span class="lineno">  522</span>                    self._progressValue = self._progressValue + self._progressStepValue</div>
+<div class="line"><span class="lineno">  523</span>                    self._progress.set_value( self._progressValue )</div>
+<div class="line"><span class="lineno">  524</span>                    self._expectedProgressBarMessageIndex += 1</div>
+<div class="line"><span class="lineno">  525</span> </div>
+<div class="line"><span class="lineno">  526</span>        <span class="comment"># If we have a message that we expect to receive to start the progress bar timer.</span></div>
+<div class="line"><span class="lineno">  527</span>        <span class="keywordflow">elif</span> self._progressBarStartMessage <span class="keywordflow">and</span> len(self._progressBarStartMessage):</div>
+<div class="line"><span class="lineno">  528</span>            <span class="comment"># If we found the start message in the message received.</span></div>
+<div class="line"><span class="lineno">  529</span>            <span class="keywordflow">if</span> msg.find(self._progressBarStartMessage) != -1:</div>
+<div class="line"><span class="lineno">  530</span>                <span class="comment"># Start updating the progress bar now on the timer.</span></div>
+<div class="line"><span class="lineno">  531</span>                self._updateProgressOnTimer = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">  532</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1615,14 +1615,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Close down the app server.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00535">535</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  535</span>    <span class="keyword">def </span>close(self):</div>
-<div class="line"><span class="lineno">  536</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close down the app server.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  537</span>        ui.notify(<span class="stringliteral">&quot;Press &#39;CTRL C&#39; at command line or close the terminal window to quit.&quot;</span>)</div>
-<div class="line"><span class="lineno">  538</span>        <span class="comment"># A subclass close() method can call</span></div>
-<div class="line"><span class="lineno">  539</span>        <span class="comment"># app.shutdown()</span></div>
-<div class="line"><span class="lineno">  540</span>        <span class="comment"># if reload=False on ui.run()</span></div>
-<div class="line"><span class="lineno">  541</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00547">547</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  547</span>    <span class="keyword">def </span>close(self):</div>
+<div class="line"><span class="lineno">  548</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close down the app server.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  549</span>        ui.notify(<span class="stringliteral">&quot;Press &#39;CTRL C&#39; at command line or close the terminal window to quit.&quot;</span>)</div>
+<div class="line"><span class="lineno">  550</span>        <span class="comment"># A subclass close() method can call</span></div>
+<div class="line"><span class="lineno">  551</span>        <span class="comment"># app.shutdown()</span></div>
+<div class="line"><span class="lineno">  552</span>        <span class="comment"># if reload=False on ui.run()</span></div>
+<div class="line"><span class="lineno">  553</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2134,58 +2134,65 @@ Protected Attributes</h2></td></tr>
    @param reload If reload is set False then changes to python files will not cause the server to be restarted.
    @param address The address to bind the server to.
    @param The TCP port to bind the server to.
-   @param pageTitle The page title that appears in the browser.</pre> 
+   @param pageTitle The page title that appears in the browser.
+   @param maxLogLines The maximum number of lines to be displayed in the log. Be aware setting this higher will cause the browser to use more memory.</pre> 
 <p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00382">382</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  382</span>    <span class="keyword">def </span>initGUI(self, tabNameList, tabMethodInitList, reload=True, address=&quot;0.0.0.0&quot;, port=DEFAULT_SERVER_PORT, pageTitle=&quot;NiceGUI&quot;):</div>
-<div class="line"><span class="lineno">  383</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Init the tabbed GUI.</span></div>
-<div class="line"><span class="lineno">  384</span><span class="stringliteral">           @param tabNameList A list of the names of each tab to be created.</span></div>
-<div class="line"><span class="lineno">  385</span><span class="stringliteral">           @param tabMethodInitList A list of the methods to be called to init each of the above tabs.</span></div>
-<div class="line"><span class="lineno">  386</span><span class="stringliteral">                                    The two lists must be the same size.</span></div>
-<div class="line"><span class="lineno">  387</span><span class="stringliteral">           @param reload If reload is set False then changes to python files will not cause the server to be restarted.</span></div>
-<div class="line"><span class="lineno">  388</span><span class="stringliteral">           @param address The address to bind the server to.</span></div>
-<div class="line"><span class="lineno">  389</span><span class="stringliteral">           @param The TCP port to bind the server to.</span></div>
-<div class="line"><span class="lineno">  390</span><span class="stringliteral">           @param pageTitle The page title that appears in the browser.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  391</span>        <span class="comment"># A bit of defensive programming.</span></div>
-<div class="line"><span class="lineno">  392</span>        <span class="keywordflow">if</span> len(tabNameList) != len(tabMethodInitList):</div>
-<div class="line"><span class="lineno">  393</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;initGUI: BUG: tabNameList ({len(tabNameList)}) and tabMethodInitList ({len(tabMethodInitList)}) are not the same length.&quot;</span>)</div>
-<div class="line"><span class="lineno">  394</span>        tabObjList = []</div>
-<div class="line"><span class="lineno">  395</span>        <span class="keyword">with</span> ui.row():</div>
-<div class="line"><span class="lineno">  396</span>            <span class="keyword">with</span> ui.tabs().classes(<span class="stringliteral">&#39;w-full&#39;</span>) <span class="keyword">as</span> tabs:</div>
-<div class="line"><span class="lineno">  397</span>                <span class="keywordflow">for</span> tabName <span class="keywordflow">in</span> tabNameList:</div>
-<div class="line"><span class="lineno">  398</span>                    tabObj = ui.tab(tabName)</div>
-<div class="line"><span class="lineno">  399</span>                    tabObjList.append(tabObj)</div>
-<div class="line"><span class="lineno">  400</span> </div>
-<div class="line"><span class="lineno">  401</span>            <span class="keyword">with</span> ui.tab_panels(tabs, value=tabObjList[0]).classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
-<div class="line"><span class="lineno">  402</span>                <span class="keywordflow">for</span> tabObj <span class="keywordflow">in</span> tabObjList:</div>
-<div class="line"><span class="lineno">  403</span>                    <span class="keyword">with</span> ui.tab_panel(tabObj):</div>
-<div class="line"><span class="lineno">  404</span>                        tabIndex = tabObjList.index(tabObj)</div>
-<div class="line"><span class="lineno">  405</span>                        tabMethodInitList[tabIndex]()</div>
-<div class="line"><span class="lineno">  406</span> </div>
-<div class="line"><span class="lineno">  407</span>        guiLogLevel = <span class="stringliteral">&quot;warning&quot;</span></div>
-<div class="line"><span class="lineno">  408</span>        <span class="keywordflow">if</span> self._debugEnabled:</div>
-<div class="line"><span class="lineno">  409</span>            guiLogLevel = <span class="stringliteral">&quot;debug&quot;</span></div>
-<div class="line"><span class="lineno">  410</span> </div>
-<div class="line"><span class="lineno">  411</span>        ui.label(<span class="stringliteral">&quot;Message Log&quot;</span>)</div>
-<div class="line"><span class="lineno">  412</span>        self._progress = ui.slider(min=0,max=TabbedNiceGui.MAX_PROGRESS_VALUE,step=1)</div>
-<div class="line"><span class="lineno">  413</span>        self._progress.set_visibility(<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">  414</span>        self._progress.min = 0</div>
-<div class="line"><span class="lineno">  415</span>        <span class="comment"># Don&#39;t allow user to adjust progress bar thumb</span></div>
-<div class="line"><span class="lineno">  416</span>        self._progress.disable()</div>
-<div class="line"><span class="lineno">  417</span>        self._log = ui.log(max_lines=2000).classes(<span class="stringliteral">&#39;my-log&#39;</span>)</div>
-<div class="line"><span class="lineno">  418</span>        self._log.set_visibility(<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  419</span> </div>
-<div class="line"><span class="lineno">  420</span>        <span class="keyword">with</span> ui.row():</div>
-<div class="line"><span class="lineno">  421</span>            ui.button(<span class="stringliteral">&#39;Clear Log&#39;</span>, on_click=self._clearLog)</div>
-<div class="line"><span class="lineno">  422</span>            ui.button(<span class="stringliteral">&#39;Log Message Count&#39;</span>, on_click=self._showLogMsgCount)</div>
-<div class="line"><span class="lineno">  423</span>            ui.button(<span class="stringliteral">&#39;Quit&#39;</span>, on_click=self.close)</div>
-<div class="line"><span class="lineno">  424</span> </div>
-<div class="line"><span class="lineno">  425</span>        <span class="keyword">with</span> ui.row():</div>
-<div class="line"><span class="lineno">  426</span>            ui.label(f<span class="stringliteral">&quot;Software Version: {self._programVersion}&quot;</span>)</div>
-<div class="line"><span class="lineno">  427</span> </div>
-<div class="line"><span class="lineno">  428</span>        ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)</div>
-<div class="line"><span class="lineno">  429</span>        ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)</div>
-<div class="line"><span class="lineno">  430</span>        ui.run(host=address, port=port, title=pageTitle, dark=<span class="keyword">True</span>, uvicorn_logging_level=guiLogLevel, reload=reload)</div>
+<div class="fragment"><div class="line"><span class="lineno">  388</span>                pageTitle=<span class="stringliteral">&quot;NiceGUI&quot;</span>):</div>
+<div class="line"><span class="lineno">  389</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Init the tabbed GUI.</span></div>
+<div class="line"><span class="lineno">  390</span><span class="stringliteral">           @param tabNameList A list of the names of each tab to be created.</span></div>
+<div class="line"><span class="lineno">  391</span><span class="stringliteral">           @param tabMethodInitList A list of the methods to be called to init each of the above tabs.</span></div>
+<div class="line"><span class="lineno">  392</span><span class="stringliteral">                                    The two lists must be the same size.</span></div>
+<div class="line"><span class="lineno">  393</span><span class="stringliteral">           @param reload If reload is set False then changes to python files will not cause the server to be restarted.</span></div>
+<div class="line"><span class="lineno">  394</span><span class="stringliteral">           @param address The address to bind the server to.</span></div>
+<div class="line"><span class="lineno">  395</span><span class="stringliteral">           @param The TCP port to bind the server to.</span></div>
+<div class="line"><span class="lineno">  396</span><span class="stringliteral">           @param pageTitle The page title that appears in the browser.</span></div>
+<div class="line"><span class="lineno">  397</span><span class="stringliteral">           @param maxLogLines The maximum number of lines to be displayed in the log. Be aware setting this higher will cause the browser to use more memory.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  398</span>        <span class="keyword">with</span> ui.column().classes(<span class="stringliteral">&#39;h-screen w-screen p4&#39;</span>):</div>
+<div class="line"><span class="lineno">  399</span>            <span class="comment"># A bit of defensive programming.</span></div>
+<div class="line"><span class="lineno">  400</span>            <span class="keywordflow">if</span> len(tabNameList) != len(tabMethodInitList):</div>
+<div class="line"><span class="lineno">  401</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;initGUI: BUG: tabNameList ({len(tabNameList)}) and tabMethodInitList ({len(tabMethodInitList)}) are not the same length.&quot;</span>)</div>
+<div class="line"><span class="lineno">  402</span>            tabObjList = []</div>
+<div class="line"><span class="lineno">  403</span>            <span class="keyword">with</span> ui.row():</div>
+<div class="line"><span class="lineno">  404</span>                <span class="keyword">with</span> ui.tabs().classes(<span class="stringliteral">&#39;w-full&#39;</span>) <span class="keyword">as</span> tabs:</div>
+<div class="line"><span class="lineno">  405</span>                    <span class="keywordflow">for</span> tabName <span class="keywordflow">in</span> tabNameList:</div>
+<div class="line"><span class="lineno">  406</span>                        tabObj = ui.tab(tabName)</div>
+<div class="line"><span class="lineno">  407</span>                        tabObjList.append(tabObj)</div>
+<div class="line"><span class="lineno">  408</span> </div>
+<div class="line"><span class="lineno">  409</span>                <span class="keyword">with</span> ui.tab_panels(tabs, value=tabObjList[0]).classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
+<div class="line"><span class="lineno">  410</span>                    <span class="keywordflow">for</span> tabObj <span class="keywordflow">in</span> tabObjList:</div>
+<div class="line"><span class="lineno">  411</span>                        <span class="keyword">with</span> ui.tab_panel(tabObj):</div>
+<div class="line"><span class="lineno">  412</span>                            tabIndex = tabObjList.index(tabObj)</div>
+<div class="line"><span class="lineno">  413</span>                            tabMethodInitList[tabIndex]()</div>
+<div class="line"><span class="lineno">  414</span> </div>
+<div class="line"><span class="lineno">  415</span>            guiLogLevel = <span class="stringliteral">&quot;warning&quot;</span></div>
+<div class="line"><span class="lineno">  416</span>            <span class="keywordflow">if</span> self._debugEnabled:</div>
+<div class="line"><span class="lineno">  417</span>                guiLogLevel = <span class="stringliteral">&quot;debug&quot;</span></div>
+<div class="line"><span class="lineno">  418</span> </div>
+<div class="line"><span class="lineno">  419</span>            ui.label(<span class="stringliteral">&quot;Message Log&quot;</span>)</div>
+<div class="line"><span class="lineno">  420</span>            self._progress = ui.slider(min=0,max=TabbedNiceGui.MAX_PROGRESS_VALUE,step=1)</div>
+<div class="line"><span class="lineno">  421</span>            self._progress.set_visibility(<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">  422</span>            self._progress.min = 0</div>
+<div class="line"><span class="lineno">  423</span>            <span class="comment"># Don&#39;t allow user to adjust progress bar thumb</span></div>
+<div class="line"><span class="lineno">  424</span>            self._progress.disable()</div>
+<div class="line"><span class="lineno">  425</span>            <span class="comment"># Setup the log area to fill the available space in the page vertically and horizontally</span></div>
+<div class="line"><span class="lineno">  426</span>            <span class="comment"># The 32px is to make space for the vertical scrollbar within the page or it will be</span></div>
+<div class="line"><span class="lineno">  427</span>            <span class="comment"># shifted out of sight to the right.</span></div>
+<div class="line"><span class="lineno">  428</span>            <span class="comment"># Previously used self._log = ui.log(max_lines=2000) but the ui.log() does not currently limit data in the log.</span></div>
+<div class="line"><span class="lineno">  429</span>            self._log = ui.log().classes(<span class="stringliteral">&#39;my-log grow w-full max-w-[calc(100%-32px)] overflow-auto box-border&#39;</span>)</div>
+<div class="line"><span class="lineno">  430</span>            self._log.set_visibility(<span class="keyword">True</span>)</div>
 <div class="line"><span class="lineno">  431</span> </div>
+<div class="line"><span class="lineno">  432</span>            <span class="keyword">with</span> ui.row():</div>
+<div class="line"><span class="lineno">  433</span>                ui.button(<span class="stringliteral">&#39;Clear Log&#39;</span>, on_click=self._clearLog)</div>
+<div class="line"><span class="lineno">  434</span>                ui.button(<span class="stringliteral">&#39;Log Message Count&#39;</span>, on_click=self._showLogMsgCount)</div>
+<div class="line"><span class="lineno">  435</span>                ui.button(<span class="stringliteral">&#39;Quit&#39;</span>, on_click=self.close)</div>
+<div class="line"><span class="lineno">  436</span> </div>
+<div class="line"><span class="lineno">  437</span>            <span class="keyword">with</span> ui.row():</div>
+<div class="line"><span class="lineno">  438</span>                ui.label(f<span class="stringliteral">&quot;Software Version: {self._programVersion}&quot;</span>)</div>
+<div class="line"><span class="lineno">  439</span> </div>
+<div class="line"><span class="lineno">  440</span>            ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)</div>
+<div class="line"><span class="lineno">  441</span>            ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)</div>
+<div class="line"><span class="lineno">  442</span>            ui.run(host=address, port=port, title=pageTitle, dark=<span class="keyword">True</span>, uvicorn_logging_level=guiLogLevel, reload=reload)</div>
+<div class="line"><span class="lineno">  443</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2239,14 +2246,14 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Time to update the progress bar. We run the timer all the time because there appears to be a
           bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00432">432</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  432</span>    <span class="keyword">def </span>progressTimerCallback(self):</div>
-<div class="line"><span class="lineno">  433</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Time to update the progress bar. We run the timer all the time because there appears to be a</span></div>
-<div class="line"><span class="lineno">  434</span><span class="stringliteral">                  bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  435</span>        <span class="keywordflow">if</span> self._updateProgressOnTimer <span class="keywordflow">and</span> self._progress.visible:</div>
-<div class="line"><span class="lineno">  436</span>            <span class="comment"># Increment the progress bar</span></div>
-<div class="line"><span class="lineno">  437</span>            self._progress.set_value( self._progress.value + self._progressStepValue )</div>
-<div class="line"><span class="lineno">  438</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00444">444</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  444</span>    <span class="keyword">def </span>progressTimerCallback(self):</div>
+<div class="line"><span class="lineno">  445</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Time to update the progress bar. We run the timer all the time because there appears to be a</span></div>
+<div class="line"><span class="lineno">  446</span><span class="stringliteral">                  bug in the ui.timer instance. Calling cancel() does not appear to cancel the timer.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  447</span>        <span class="keywordflow">if</span> self._updateProgressOnTimer <span class="keywordflow">and</span> self._progress.visible:</div>
+<div class="line"><span class="lineno">  448</span>            <span class="comment"># Increment the progress bar</span></div>
+<div class="line"><span class="lineno">  449</span>            self._progress.set_value( self._progress.value + self._progressStepValue )</div>
+<div class="line"><span class="lineno">  450</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2722,7 +2729,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00417">417</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00429">429</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
 
 </div>
 </div>
@@ -2842,7 +2849,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00412">412</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00420">420</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
 
 </div>
 </div>
@@ -2938,7 +2945,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00458">458</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt_8py_source.html#l00470">470</a> of file <a class="el" href="ngt_8py_source.html">ngt.py</a>.</p>
 
 </div>
 </div>
