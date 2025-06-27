@@ -9,7 +9,6 @@ import platform
 import json
 import traceback
 import socket
-import inspect
 
 def initArgs(parser, lastCmdLineArg=None, checkHostArg=True):
     """This method is responsible for
@@ -389,8 +388,7 @@ def getAbsFile(filename):
         @param filename The name of the icon file.
         @return The abs path of the file or None if not found."""
     file_found = None
-    startup_path = os.getenv("PWD", os.getcwd())
-    abs_filename = os.path.join(startup_path, filename)
+    abs_filename = os.path.abspath(filename)
     if os.path.isfile(abs_filename):
         file_found = abs_filename
 
@@ -412,18 +410,18 @@ def getAbsFile(filename):
             else:
                 # Try all the site packages folders we know about.
                 for path in sys.path:
-                    if 'site-packages' in path:
-                        site_packages_path = path
-                        abs_filename = os.path.join(site_packages_path, filename)
+                    if os.path.isdir(path):
+                        abs_filename = os.path.join(path, filename)
                         if os.path.isfile(abs_filename):
                             file_found = abs_filename
-
                         else:
-                            path3 = os.path.join(site_packages_path, 'assets')
-                            abs_filename = os.path.join(path3, filename)
+                            path2 = os.path.join(path, 'assets')
+                            abs_filename = os.path.join(path2, filename)
                             if os.path.isfile(abs_filename):
                                 file_found = abs_filename
                                 break
+                    if file_found:
+                        break
 
     return file_found
 
@@ -433,84 +431,23 @@ def getProgramVersion():
     """@return The program/package version. This comes from the pyproject.toml file.
                If this file is not found an exception is thrown.  """
     poetryConfigFile = getAbsFile(PYPROJECT_FILE)
-    programVersion = None
-    with open(poetryConfigFile, 'r') as fd:
-        lines = fd.readlines()
-        for line in lines:
-            line=line.strip("\r\n")
-            if line.startswith('version'):
-                elems = line.split("=")
-                if len(elems) == 2:
-                    programVersion = elems[1].strip('" ')
-                    break
-    if programVersion is None:
-        raise Exception(f"Failed to extract program version from '{line}' line of {poetryConfigFile} file.")
+    if poetryConfigFile:
+        programVersion = None
+        with open(poetryConfigFile, 'r') as fd:
+            lines = fd.readlines()
+            for line in lines:
+                line=line.strip("\r\n")
+                if line.startswith('version'):
+                    elems = line.split("=")
+                    if len(elems) == 2:
+                        programVersion = elems[1].strip('" ')
+                        break
+        if programVersion is None:
+            raise Exception(f"Failed to extract program version from '{line}' line of {poetryConfigFile} file.")
+    else:
+        # In the event we can't find the PYPROJECT_FILE file return an invalid verion (hopefully)
+        # to indicate this. This can happen if the pyproject.toml file is not included or can't be
+        # found.
+        return -999.99
     return programVersion
 
-def get_assets_folders():
-    """@return A list of all the assets folders found."""
-    searchFolders = []
-    assetsFolders = []
-    calling_file = None
-    # Get the full path to the python file that called this get_assets_folders() function.
-    frame = inspect.stack()[1]
-    module = inspect.getmodule(frame[0])
-    if module and hasattr(module, '__file__'):
-        calling_file = os.path.abspath(module.__file__)
-
-    if calling_file:
-        startup_path = os.path.dirname(calling_file)
-        searchFolders.append( os.path.join(startup_path, 'assets') )
-        pp1 = os.path.join(startup_path, '..')
-        searchFolders.append( os.path.join(pp1, 'assets') )
-        pp2 = os.path.join(pp1, '..')
-        searchFolders.append( os.path.join(pp2, 'assets') )
-        # Try all the site packages folders we know about.
-        for path in sys.path:
-            if 'site-packages' in path:
-                site_packages_path = path
-                searchFolders.append( os.path.join(site_packages_path, 'assets') )
-
-        for folder in searchFolders:
-            absPath = os.path.abspath(folder)
-            if os.path.isdir(absPath):
-                assetsFolders.append(absPath)
-
-    return assetsFolders
-
-
-def get_assets_folder(raise_error=True):
-    """@brief Get the assests folder.
-       @param raise_error If True then raise an error if the assets folder is not found.
-       @return The abs assets folder path string."""
-    searchFolders = []
-    assetsFolder = None
-    calling_file = None
-    # Get the full path to the python file that called this get_assets_folder() function.
-    frame = inspect.stack()[1]
-    module = inspect.getmodule(frame[0])
-    if module and hasattr(module, '__file__'):
-        calling_file = os.path.abspath(module.__file__)
-
-    if calling_file:
-        startup_path = os.path.dirname(calling_file)
-        searchFolders.append( os.path.join(startup_path, 'assets') )
-        pp1 = os.path.join(startup_path, '..')
-        searchFolders.append( os.path.join(pp1, 'assets') )
-        pp2 = os.path.join(pp1, '..')
-        searchFolders.append( os.path.join(pp2, 'assets') )
-        # Try all the site packages folders we know about.
-        for path in sys.path:
-            if 'site-packages' in path:
-                site_packages_path = path
-                searchFolders.append( os.path.join(site_packages_path, 'assets') )
-
-        for folder in searchFolders:
-            absPath = os.path.abspath(folder)
-            if os.path.isdir(absPath):
-                assetsFolder = absPath
-
-    if raise_error and assetsFolder is None:
-        raise Exception('Failed to find assets folder.')
-
-    return assetsFolder
