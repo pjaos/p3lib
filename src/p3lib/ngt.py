@@ -863,7 +863,7 @@ class YesNoDialog(object):
 
 class local_file_picker(ui.dialog):
     """@brief Allows the user to select local files and folders.
-       This is is a slight change on https://github.com/zauberzeug/nicegui/blob/main/examples/local_file_picker/local_file_picker.py"""
+       This is is a change to https://github.com/zauberzeug/nicegui/blob/main/examples/local_file_picker/local_file_picker.py"""
 
     def __init__(self,
                  directory: str,
@@ -895,12 +895,13 @@ class local_file_picker(ui.dialog):
             self.upper_limit = Path(directory if upper_limit == ... else upper_limit).expanduser()
         self.show_hidden_files = show_hidden_files
 
-        with self, ui.card():
+        with self, ui.card().style('overflow-x: auto; max-width: 100%;'):
             self.add_drives_toggle()
             self.grid = ui.aggrid({
                 'columnDefs': [{'field': 'name', 'headerName': 'File'}],
                 'rowSelection': 'multiple' if multiple else 'single',
-            }, html_columns=[0]).classes('w-96').classes('h-96').on('cellDoubleClicked', self.handle_double_click)
+            }, html_columns=[0]).style('min-width: 600px')
+            self.grid.on('cellDoubleClicked', self.handle_double_click)
             with ui.row().classes('w-full justify-end'):
                 self._select_folder_checkbox = ui.switch('Select Folder')
                 #self._select_folder_checkbox = ui.checkbox('Folder')
@@ -920,6 +921,9 @@ class local_file_picker(ui.dialog):
                     if drive.startswith(self._selected_drive):
                         break
             self.drives_toggle = ui.toggle(drives, value=drive, on_change=self.update_drive)
+
+        # Display the current path
+        self._path_label = ui.label(str(self.path))
 
     def update_drive(self):
         self.path = Path(self.drives_toggle.value).expanduser()
@@ -960,3 +964,6 @@ class local_file_picker(ui.dialog):
                     selected = self.drives_toggle.value + selected
 
             self.submit([selected])
+
+        # Update the displayed path
+        self._path_label.set_text(str(self.path))
