@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "test_launcher"
+version = "1.1.108"
+description = "A group of python modules for networking, plotting data, config storage, automating boot scripts, ssh access and user input output."
+authors = ["Paul Austen <pjaos@gmail.com>"]
+packages = [
+    { include = "test_launcher.py" , from = "."}
+]
+include = [
+    { path = "assets", format = ["sdist", "wheel"] }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Jinja2 = "^3.1.6"
+click = "*"
+requests = "*"
+nicegui = "*"
+plotly = "*"
+h11 = "^0.16.0"
+p3lib = "1.1.127"
+
+# Windows-only dependencies
+pywin32 = { version = "*", markers = "sys_platform == 'win32'" }
+pyreadline3 = { version = "*", markers = "sys_platform == 'win32'" }
+
+[tool.poetry.scripts]
+test_launcher = "test_launcher:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
