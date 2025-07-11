@@ -1,0 +1,8 @@
+<map id="LauncherBase" name="LauncherBase">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,111,104"/>
+<area shape="rect" id="Node000003" href="$classp3lib_1_1launcher_1_1Launcher.html" title=" " alt="" coords="21,152,95,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="52,118,54,152,48,152,47,118"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="69,118,68,152,62,152,64,118"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="29,5,87,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,44,61,79,55,79,55,44"/>
+</map>
