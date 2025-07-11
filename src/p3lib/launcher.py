@@ -219,7 +219,7 @@ if _platform == 'Linux':
 
             self._update_permissions(self._gnome_desktop_file)
 
-        def create(self, overwrite=False):
+        def create(self, overwrite=True):
             """@brief Create a desktop icon.
             @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             # If this file not found error
