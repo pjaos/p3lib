@@ -275,6 +275,13 @@ elif _platform == 'Windows':
             """
             super().__init__(icon_file, app_name)
 
+        def _get_exe_name(self):
+            """@return The name of the running program with a .exe extension."""
+            app_name = self._get_startup_file()
+            app_name = os.path.basename(app_name)
+            app_name = app_name.replace(".py", "")
+            return app_name + ".exe"
+
         def _get_shortcut_folder(self):
             temp_dir = os.path.join(os.getenv("TEMP"), "my_temp_shortcuts")
             os.makedirs(temp_dir, exist_ok=True)
@@ -300,8 +307,7 @@ elif _platform == 'Windows':
             """@brief Create a start menu item to launch a program.
                @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             from win32com.client import Dispatch
-            package_name = self._app_name
-            exe_name = f"{package_name}.exe"
+            exe_name = self._get_exe_name()
 
             # Locate the pipx-installed executable
             pipx_venv_path = os.path.expanduser(f"~\\.local\\bin\\{exe_name}")
