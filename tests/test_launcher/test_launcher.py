@@ -35,7 +35,7 @@ def main():
     uio = UIO()
     parser = argparse.ArgumentParser(description="Example to create and delete app launcher.",
                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    launcher = Launcher("icon.icns", app_name="NiceGUI App")
+    launcher = Launcher("icon.png", app_name="NiceGUI App")
     launcher.addLauncherArgs(parser)
     args = parser.parse_args()
     handled = launcher.handleLauncherArgs(args, uio=uio)
