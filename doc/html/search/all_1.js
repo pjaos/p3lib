@@ -10,7 +10,7 @@ var searchData=
   ['addexampledata_7',['AddExampleData',['../classGUIModel__A__example_1_1StaticPlotExample.html#a36faf48b083cf5258d638c6f502a1966',1,'GUIModel_A_example::StaticPlotExample']]],
   ['addfield_8',['addField',['../classp3lib_1_1ngt_1_1YesNoDialog.html#aab276d6458709e0f9927953b072c1bfa',1,'p3lib::ngt::YesNoDialog']]],
   ['addkey_9',['AddKey',['../classp3lib_1_1ssh_1_1SSH.html#a6d4d7ec5f3ff534a86abad2503116b67',1,'p3lib::ssh::SSH']]],
-  ['addlauncherargs_10',['addLauncherArgs',['../classp3lib_1_1launcher_1_1LauncherBase.html#ae71fd6a6ee05609c9ee453a9901df298',1,'p3lib::launcher::LauncherBase']]],
+  ['addlauncherargs_10',['addlauncherargs',['../classp3lib_1_1launcher_1_1LauncherBase.html#ae71fd6a6ee05609c9ee453a9901df298',1,'p3lib.launcher.LauncherBase.addLauncherArgs()'],['../classp3lib_1_1launcher__macos_1_1LauncherBase.html#ae71fd6a6ee05609c9ee453a9901df298',1,'p3lib.launcher_macos.LauncherBase.addLauncherArgs()']]],
   ['addonclickmethod_11',['addOnClickMethod',['../classp3lib_1_1bokeh__gui_1_1AlertButtonWrapper.html#a86f139c90820f00d51bbe04c38e3f1eb',1,'p3lib::bokeh_gui::AlertButtonWrapper']]],
   ['addrow_12',['addrow',['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPlotter.html#a7d3cf566283cbede2a99e29440c4809b',1,'p3lib.bokeh_gui.TimeSeriesPlotter.addRow()'],['../classbokeh__demo_1_1BokehDemoA.html#a7d3cf566283cbede2a99e29440c4809b',1,'bokeh_demo.BokehDemoA.addRow()'],['../classbokeh__demo_1_1BokehDemoB.html#a7d3cf566283cbede2a99e29440c4809b',1,'bokeh_demo.BokehDemoB.addRow()']]],
   ['addtestcase_13',['addTestCase',['../classp3lib_1_1ate_1_1TestCaseBase.html#ae979b1fd855db227e306da379eecf5bf',1,'p3lib::ate::TestCaseBase']]],
