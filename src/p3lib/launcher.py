@@ -11,6 +11,11 @@ from PIL import Image
 import subprocess
 from time import sleep
 
+"""
+This class contains functionality that allows launcher icons to be created on Linux, Windows and MacOS platforms.
+See tests/test_launcher as an example of how this functionality is used.
+"""
+
 class LauncherBase(object):
     """@brief The base class for the Launcher class. Defines methods and vars that are generic."""
 
