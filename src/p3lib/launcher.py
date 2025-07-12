@@ -7,6 +7,7 @@ import platform
 from pathlib import Path
 import shutil
 import plistlib
+from PIL import Image
 
 from p3lib.helper import getAbsFile
 
@@ -56,6 +57,8 @@ class LauncherBase(object):
         """@brief Check that the icon file exists as this is required for the gnome desktop entry.
         @param icon_file The name of the icon file.
         return None"""
+        if not icon_file.endswith('.png'):
+            raise Exception(f"{icon_file} icon file must have .png extension.")
         self._abs_icon_file = os.path.abspath(icon_file)
         if not os.path.isfile(self._abs_icon_file):
             startup_path = os.path.dirname(self._startup_file)
@@ -155,16 +158,17 @@ if _platform == 'Linux':
 
         def __init__(self, icon_file, app_name=None, comment='', categories='Utility'):
             """@brief Constructor.
-            @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
-                                If just a filename is passed then the icon file must sit in a folder named 'assets'.
-                                This assets folder must be in the same folder as the startup file, it's parent or
-                                the python3 site packages folder.
+            @param icon_file  The name of the icon file (must be a png file). 
+                              This can be an absolute file name the filename on it's own.
+                              If just a filename is passed then the icon file must sit in a folder named 'assets'.
+                              This assets folder must be in the same folder as the startup file, it's parent or
+                              the python3 site packages folder where it is deployed when a python wheel is built.
             @param app_name   The name of the application.
-                                If not defined then the name of the program executed at startup is used.
-                                This name has _ and - character replace with space characters and each
-                                word starts with a capital letter.
+                              If not defined then the name of the program executed at startup is used.
+                              This name has _ and - character replace with space characters and each
+                              word starts with a capital letter.
             @param comment    This comment should detail what the program does and is stored
-                                in the gnome desktop file that is created.
+                              in the gnome desktop file that is created.
             @param categories The debian app categories. default='Utility;'.
                               Options
                                 Utility
@@ -303,12 +307,11 @@ elif _platform == 'Windows':
             if overwrite:
                 self.delete()
 
-            icon_path = self._abs_icon_file
-            if icon_path:
-                if os.path.isfile(icon_path):
-                    self.info(f"{icon_path} icon file found.")
-                else:
-                    raise Exception(f"{icon_path} file not found.")
+            # Convert the png file to an ico file for use in the Windows shortcut
+            img = Image.open(self._abs_icon_file)
+            ico_icon_file = self._abs_icon_file.lower().replace(".png", '.ico')
+            img.save(ico_icon_file, sizes=[(16,16), (32,32), (48,48), (64,64), (128,128), (256,256)])
+            self.info(f"Converted png file to ico file: {ico_icon_file}")
             
             shortcut_path = self._get_shortcut()
 
@@ -317,7 +320,7 @@ elif _platform == 'Windows':
             shortcut = shell.CreateShortcut(shortcut_path)
             shortcut.TargetPath = pipx_venv_path  # Path to your executable or script
             shortcut.WorkingDirectory = os.path.dirname(pipx_venv_path)
-            shortcut.IconLocation = icon_path
+            shortcut.IconLocation = ico_icon_file
             shortcut.Save()
 
             if not os.path.isfile(shortcut_path):
