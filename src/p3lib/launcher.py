@@ -8,7 +8,8 @@ from pathlib import Path
 import shutil
 import plistlib
 from PIL import Image
-
+import subprocess
+from time import sleep
 from p3lib.helper import getAbsFile
 
 class LauncherBase(object):
@@ -28,9 +29,10 @@ class LauncherBase(object):
 
     def _set_app_name(self, app_name=None):
         """@brief Set the name of the app.
-        @param app_name The name of the app or None. If None then the name of the app is the
-                basename of the startup file minus it's extension."""
+           @param app_name The name of the app or None. If None then the name of the app is the
+                           basename of the startup file minus it's extension."""
         if app_name:
+            app_name = app_name.replace(' ', '_')
             self._app_name = app_name
 
         else:
@@ -274,7 +276,7 @@ elif _platform == 'Windows':
             """
             super().__init__(icon_file, app_name)
 
-        """PJA rationalise this"""
+        """PJA rationalise this ???"""
         def _get_app_name(self):
             """@return The name of the running program without the .py extension."""
             app_name = self._get_startup_file()
@@ -292,6 +294,16 @@ elif _platform == 'Windows':
             shortcut_path = os.path.join(desktop, f"{package_name}.lnk")
             return shortcut_path
 
+        def _convert_png_to_ico(self):
+            """@brief Convert the iniital png file to a windows ico file.
+            @return The abs path of the converted ico file."""
+            # Convert the png file to an ico file for use in the Windows shortcut
+            img = Image.open(self._abs_icon_file)
+            ico_icon_file = self._abs_icon_file.lower().replace(".png", '.ico')
+            img.save(ico_icon_file, sizes=[(16,16), (32,32), (48,48), (64,64), (128,128), (256,256)])
+            self.info(f"Converted png file to ico file: {ico_icon_file}")
+            return ico_icon_file
+    
         def create(self, overwrite=True):
             """@brief Create a start menu item to launch a program.
                @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
@@ -308,10 +320,7 @@ elif _platform == 'Windows':
                 self.delete()
 
             # Convert the png file to an ico file for use in the Windows shortcut
-            img = Image.open(self._abs_icon_file)
-            ico_icon_file = self._abs_icon_file.lower().replace(".png", '.ico')
-            img.save(ico_icon_file, sizes=[(16,16), (32,32), (48,48), (64,64), (128,128), (256,256)])
-            self.info(f"Converted png file to ico file: {ico_icon_file}")
+            self._convert_png_to_ico()
             
             shortcut_path = self._get_shortcut()
 
@@ -358,6 +367,31 @@ elif _platform == 'Darwin':
             self._macos = self._contents / "MacOS"
             self._resources = self._contents / "Resources"
 
+        def _convert_png_to_icns(self):
+            """@brief Convert the iniital png file to an isnc file for use on MacOS.
+                    This method can only be called on MacOS
+            @return The abs path of the converted icns file."""
+            base = Image.open(self._abs_icon_file)
+            sizes = [16, 32, 128, 256, 512, 1024]
+
+            icon_folder = os.path.dirname(self._abs_icon_file)
+            iconset = Path(icon_folder, 'my.iconset')
+            iconset.mkdir(exist_ok=True)
+
+            for size in sizes:
+                img = base.resize((size, size))
+                filename = iconset / f'icon_{size}x{size}.png'
+                img.save(filename)
+
+            # use iconutil MacOS util program to create the icns files
+            subprocess.run(['iconutil', '--convert', 'icns', '--output', 'my.icns', iconset])
+
+            # Clean the png files created
+            if iconset.exists():
+                shutil.rmtree(iconset)
+            
+            return str(iconset).replace('.iconset', '.icns')
+    
         def _create_app(self):
             """@brief Create a MacOS app folder with the required files to launch an app."""
             self.delete()
@@ -377,13 +411,22 @@ elif _platform == 'Darwin':
                 'CFBundleVersion': '1.0',
                 'CFBundlePackageType': 'APPL',
                 'CFBundleExecutable': self._app_name,
-                'CFBundleIconFile': 'app_icon.icns',
+                'CFBundleIconFile': 'app_icon',
             }
             with open(self._contents / 'Info.plist', 'wb') as f:
                 plistlib.dump(plist, f)
 
+            # Convert the png file to an icns file for use on MacOS
+            icns_file = self._convert_png_to_icns()
+
             # Copy icon (must be .icns format)
-            shutil.copy(self._abs_icon_file, self._resources / 'app_icon.icns')
+            destfile = self._resources / 'app_icon.icns'
+            shutil.copy(icns_file, destfile)
+            # Finder may not update the icon unless we update the folder once created.
+            sleep(.1)
+            subprocess.run(['touch', self._app_path])
+            # Stop finder, it will relaunch as sometimes it shows two icons on the desktop !!!
+            subprocess.run(['killall', 'Finder'])
             self.info(f"Created {self._app_path}")
     
         def create(self, overwrite=False):
