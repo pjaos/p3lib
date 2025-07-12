@@ -19,7 +19,7 @@ nicegui = "*"
 plotly = "*"
 h11 = "^0.16.0"
 pillow = "*"
-p3lib = "1.1.129"
+p3lib = "1.1.130"
 
 # Windows-only dependencies
 pywin32 = { version = "*", markers = "sys_platform == 'win32'" }
