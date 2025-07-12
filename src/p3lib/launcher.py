@@ -43,7 +43,7 @@ class LauncherBase(object):
             app_name = app_name.replace('-', ' ')
             app_name = app_name.title()
             self._app_name = app_name
-    
+
     def _get_startup_file(self):
         """@return Get the abs name of the program first started."""
         return os.path.abspath(sys.argv[0])
@@ -159,7 +159,7 @@ if _platform == 'Linux':
 
         def __init__(self, icon_file, app_name=None, comment='', categories='Utility'):
             """@brief Constructor.
-            @param icon_file  The name of the icon file (must be a png file). 
+            @param icon_file  The name of the icon file (must be a png file).
                               This can be an absolute file name the filename on it's own.
                               If just a filename is passed then the icon file must sit in a folder named 'assets'.
                               This assets folder must be in the same folder as the startup file, it's parent or
@@ -302,7 +302,7 @@ elif _platform == 'Windows':
             img.save(ico_icon_file, sizes=[(16,16), (32,32), (48,48), (64,64), (128,128), (256,256)])
             self.info(f"Converted png file to ico file: {ico_icon_file}")
             return ico_icon_file
-    
+
         def create(self, overwrite=True):
             """@brief Create a start menu item to launch a program.
                @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
@@ -313,13 +313,13 @@ elif _platform == 'Windows':
             pipx_venv_path = os.path.expanduser(f"~\\.local\\bin\\{exe_name}")
             if not os.path.isfile(pipx_venv_path):
                 raise Exception(f"{pipx_venv_path} file not found.")
-            
+
             if overwrite:
                 self.delete()
 
             # Convert the png file to an ico file for use in the Windows shortcut
             ico_icon_file = self._convert_png_to_ico()
-            
+
             shortcut_path = self._get_shortcut()
 
             # Create the shortcut
@@ -382,14 +382,14 @@ elif _platform == 'Darwin':
                 img.save(filename)
 
             # use iconutil MacOS util program to create the icns files
-            subprocess.run(['iconutil', '--convert', 'icns', '--output', 'my.icns', iconset])
+            subprocess.run(['iconutil', '--convert', 'icns', iconset])
 
             # Clean the png files created
             if iconset.exists():
                 shutil.rmtree(iconset)
-            
+
             return str(iconset).replace('.iconset', '.icns')
-    
+
         def _create_app(self):
             """@brief Create a MacOS app folder with the required files to launch an app."""
             self.delete()
@@ -426,12 +426,12 @@ elif _platform == 'Darwin':
             # Stop finder, it will relaunch as sometimes it shows two icons on the desktop
             subprocess.run(['killall', 'Finder'])
             self.info(f"Created {self._app_path}")
-    
+
         def create(self, overwrite=False):
             """@brief Create a desktop icon.
             @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             self._create_app()
-                        
+
         def delete(self):
             """@brief Delete the gnome desktop file if present.
             @return True if a desktop file was deleted."""
