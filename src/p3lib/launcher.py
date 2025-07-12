@@ -7,10 +7,6 @@ import platform
 from pathlib import Path
 import shutil
 import plistlib
-from PIL import Image
-import subprocess
-from time import sleep
-from p3lib.helper import getAbsFile
 
 class LauncherBase(object):
     """@brief The base class for the Launcher class. Defines methods and vars that are generic."""
@@ -29,10 +25,9 @@ class LauncherBase(object):
 
     def _set_app_name(self, app_name=None):
         """@brief Set the name of the app.
-           @param app_name The name of the app or None. If None then the name of the app is the
-                           basename of the startup file minus it's extension."""
+        @param app_name The name of the app or None. If None then the name of the app is the
+                basename of the startup file minus it's extension."""
         if app_name:
-            app_name = app_name.replace(' ', '_')
             self._app_name = app_name
 
         else:
@@ -44,7 +39,7 @@ class LauncherBase(object):
             app_name = app_name.replace('-', ' ')
             app_name = app_name.title()
             self._app_name = app_name
-    
+
     def _get_startup_file(self):
         """@return Get the abs name of the program first started."""
         return os.path.abspath(sys.argv[0])
@@ -59,8 +54,6 @@ class LauncherBase(object):
         """@brief Check that the icon file exists as this is required for the gnome desktop entry.
         @param icon_file The name of the icon file.
         return None"""
-        if not icon_file.endswith('.png'):
-            raise Exception(f"{icon_file} icon file must have .png extension.")
         self._abs_icon_file = os.path.abspath(icon_file)
         if not os.path.isfile(self._abs_icon_file):
             startup_path = os.path.dirname(self._startup_file)
@@ -160,17 +153,16 @@ if _platform == 'Linux':
 
         def __init__(self, icon_file, app_name=None, comment='', categories='Utility'):
             """@brief Constructor.
-            @param icon_file  The name of the icon file (must be a png file). 
-                              This can be an absolute file name the filename on it's own.
-                              If just a filename is passed then the icon file must sit in a folder named 'assets'.
-                              This assets folder must be in the same folder as the startup file, it's parent or
-                              the python3 site packages folder where it is deployed when a python wheel is built.
+            @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
+                                If just a filename is passed then the icon file must sit in a folder named 'assets'.
+                                This assets folder must be in the same folder as the startup file, it's parent or
+                                the python3 site packages folder.
             @param app_name   The name of the application.
-                              If not defined then the name of the program executed at startup is used.
-                              This name has _ and - character replace with space characters and each
-                              word starts with a capital letter.
+                                If not defined then the name of the program executed at startup is used.
+                                This name has _ and - character replace with space characters and each
+                                word starts with a capital letter.
             @param comment    This comment should detail what the program does and is stored
-                              in the gnome desktop file that is created.
+                                in the gnome desktop file that is created.
             @param categories The debian app categories. default='Utility;'.
                               Options
                                 Utility
@@ -276,7 +268,7 @@ elif _platform == 'Windows':
             """
             super().__init__(icon_file, app_name)
 
-        """PJA rationalise this ???"""
+        """PJA rationalise this"""
         def _get_app_name(self):
             """@return The name of the running program without the .py extension."""
             app_name = self._get_startup_file()
@@ -294,16 +286,6 @@ elif _platform == 'Windows':
             shortcut_path = os.path.join(desktop, f"{package_name}.lnk")
             return shortcut_path
 
-        def _convert_png_to_ico(self):
-            """@brief Convert the iniital png file to a windows ico file.
-            @return The abs path of the converted ico file."""
-            # Convert the png file to an ico file for use in the Windows shortcut
-            img = Image.open(self._abs_icon_file)
-            ico_icon_file = self._abs_icon_file.lower().replace(".png", '.ico')
-            img.save(ico_icon_file, sizes=[(16,16), (32,32), (48,48), (64,64), (128,128), (256,256)])
-            self.info(f"Converted png file to ico file: {ico_icon_file}")
-            return ico_icon_file
-    
         def create(self, overwrite=True):
             """@brief Create a start menu item to launch a program.
                @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
@@ -315,13 +297,17 @@ elif _platform == 'Windows':
             pipx_venv_path = os.path.expanduser(f"~\\.local\\bin\\{exe_name}")
             if not os.path.isfile(pipx_venv_path):
                 raise Exception(f"{pipx_venv_path} file not found.")
-            
+
             if overwrite:
                 self.delete()
 
-            # Convert the png file to an ico file for use in the Windows shortcut
-            self._convert_png_to_ico()
-            
+            icon_path = self._abs_icon_file
+            if icon_path:
+                if os.path.isfile(icon_path):
+                    self.info(f"{icon_path} icon file found.")
+                else:
+                    raise Exception(f"{icon_path} file not found.")
+
             shortcut_path = self._get_shortcut()
 
             # Create the shortcut
@@ -329,7 +315,7 @@ elif _platform == 'Windows':
             shortcut = shell.CreateShortcut(shortcut_path)
             shortcut.TargetPath = pipx_venv_path  # Path to your executable or script
             shortcut.WorkingDirectory = os.path.dirname(pipx_venv_path)
-            shortcut.IconLocation = ico_icon_file
+            shortcut.IconLocation = icon_path
             shortcut.Save()
 
             if not os.path.isfile(shortcut_path):
@@ -367,31 +353,6 @@ elif _platform == 'Darwin':
             self._macos = self._contents / "MacOS"
             self._resources = self._contents / "Resources"
 
-        def _convert_png_to_icns(self):
-            """@brief Convert the iniital png file to an isnc file for use on MacOS.
-                    This method can only be called on MacOS
-            @return The abs path of the converted icns file."""
-            base = Image.open(self._abs_icon_file)
-            sizes = [16, 32, 128, 256, 512, 1024]
-
-            icon_folder = os.path.dirname(self._abs_icon_file)
-            iconset = Path(icon_folder, 'my.iconset')
-            iconset.mkdir(exist_ok=True)
-
-            for size in sizes:
-                img = base.resize((size, size))
-                filename = iconset / f'icon_{size}x{size}.png'
-                img.save(filename)
-
-            # use iconutil MacOS util program to create the icns files
-            subprocess.run(['iconutil', '--convert', 'icns', '--output', 'my.icns', iconset])
-
-            # Clean the png files created
-            if iconset.exists():
-                shutil.rmtree(iconset)
-            
-            return str(iconset).replace('.iconset', '.icns')
-    
         def _create_app(self):
             """@brief Create a MacOS app folder with the required files to launch an app."""
             self.delete()
@@ -411,29 +372,20 @@ elif _platform == 'Darwin':
                 'CFBundleVersion': '1.0',
                 'CFBundlePackageType': 'APPL',
                 'CFBundleExecutable': self._app_name,
-                'CFBundleIconFile': 'app_icon',
+                'CFBundleIconFile': 'app_icon.icns',
             }
             with open(self._contents / 'Info.plist', 'wb') as f:
                 plistlib.dump(plist, f)
 
-            # Convert the png file to an icns file for use on MacOS
-            icns_file = self._convert_png_to_icns()
-
             # Copy icon (must be .icns format)
-            destfile = self._resources / 'app_icon.icns'
-            shutil.copy(icns_file, destfile)
-            # Finder may not update the icon unless we update the folder once created.
-            sleep(.1)
-            subprocess.run(['touch', self._app_path])
-            # Stop finder, it will relaunch as sometimes it shows two icons on the desktop !!!
-            subprocess.run(['killall', 'Finder'])
+            shutil.copy(self._abs_icon_file, self._resources / 'app_icon.icns')
             self.info(f"Created {self._app_path}")
-    
+
         def create(self, overwrite=False):
             """@brief Create a desktop icon.
             @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             self._create_app()
-                        
+
         def delete(self):
             """@brief Delete the gnome desktop file if present.
             @return True if a desktop file was deleted."""
