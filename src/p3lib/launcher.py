@@ -221,7 +221,7 @@ if _platform == 'Linux':
 
         def create(self, overwrite=True):
             """@brief Create a desktop icon.
-            @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
+               @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             # If this file not found error
             if not os.path.isfile(self._startup_file):
                 raise Exception(f"{self._startup_file} file not found.")
@@ -247,9 +247,14 @@ elif _platform == 'Windows':
     class Launcher(LauncherBase):
         """@brief Responsible for adding and removing Windows app shortcuts to the desktop for launching applications on a Windows system."""
 
-        def __init__(self, uio=None):
-            super().__init__(uio=uio)
-            self._uio = uio
+        def __init__(self, icon_file):
+            """@brief Constructor.
+            @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
+                                If just a filename is passed then the icon file must sit in a folder named 'assets'.
+                                This assets folder must be in the same folder as the startup file, it's parent or
+                                the python3 site packages folder.
+            """
+            super().__init__(icon_file)
 
         def _get_app_name(self):
             """@return The name of the running program without the .py extension."""
@@ -268,10 +273,9 @@ elif _platform == 'Windows':
             shortcut_path = os.path.join(desktop, f"{package_name}.lnk")
             return shortcut_path
 
-        def create(self, icon_filename=None):
+        def create(self, overwrite=True):
             """@brief Create a start menu item to launch a program.
-            @param package_name The name of the package.
-            @param icon_filename The name of the icon file."""
+               @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             from win32com.client import Dispatch
             package_name = self._get_app_name()
             exe_name = f"{package_name}.exe"
@@ -280,16 +284,17 @@ elif _platform == 'Windows':
             pipx_venv_path = os.path.expanduser(f"~\\.local\\bin\\{exe_name}")
             if not os.path.isfile(pipx_venv_path):
                 raise Exception(f"{pipx_venv_path} file not found.")
+            
+            if overwrite:
+                self.delete()
 
-            icon_path = None
-            if icon_filename:
-                icon_path = getAbsFile(icon_filename)
+            icon_path = self._abs_icon_file
             if icon_path:
                 if os.path.isfile(icon_path):
                     self.info(f"{icon_path} icon file found.")
                 else:
                     raise Exception(f"{icon_path} file not found.")
-
+            
             shortcut_path = self._get_shortcut()
 
             # Create the shortcut
@@ -297,7 +302,7 @@ elif _platform == 'Windows':
             shortcut = shell.CreateShortcut(shortcut_path)
             shortcut.TargetPath = pipx_venv_path  # Path to your executable or script
             shortcut.WorkingDirectory = os.path.dirname(pipx_venv_path)
-            shortcut.IconLocation = icon_path  # Optional: Set an icon
+            shortcut.IconLocation = icon_path
             shortcut.Save()
 
             if not os.path.isfile(shortcut_path):
@@ -311,8 +316,6 @@ elif _platform == 'Windows':
             if os.path.exists(shortcut_path):
                 os.remove(shortcut_path)
                 self.info(f"Removed '{shortcut_path}' shortcut.")
-            else:
-                raise Exception(f"{shortcut_path} file not found.")
 
 elif _platform == 'Darwin':
 
