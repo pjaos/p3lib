@@ -35,14 +35,14 @@ def main():
     uio = UIO()
     parser = argparse.ArgumentParser(description="Example to create and delete app launcher.",
                                     formatter_class=argparse.RawDescriptionHelpFormatter)
-    launcher = Launcher("icon.ico")
+    launcher = Launcher("icon.icns", app_name="NiceGUI App")
     launcher.addLauncherArgs(parser)
     args = parser.parse_args()
     handled = launcher.handleLauncherArgs(args, uio=uio)
     if not handled:
         # Typically you would handle other cmd line options here...
 
-        # For purposes of this example we show a gui that shows an incrementing count to indicate it is running
+        # For purposes of this example we show a gui that shows an incrementing count to indicate it is running.
         # The GUI can be closed by the user selecting the Quit button.
         show_running_gui()
 

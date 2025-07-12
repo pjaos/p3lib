@@ -4,19 +4,44 @@ import os
 import stat
 import sys
 import platform
+from pathlib import Path
+import shutil
+import plistlib
 
 from p3lib.helper import getAbsFile
 
 class LauncherBase(object):
     """@brief The base class for the Launcher class. Defines methods and vars that are generic."""
 
-    def __init__(self, icon_file):
-        """@brief Constructor"""
+    def __init__(self, icon_file, app_name):
+        """@brief Constructor
+           @param icon_file The icon file for the launcher.
+           @param app_name The name of the application.
+                           If not defined then the name of the program executed at startup is used.
+                           This name has _ and - character replace with space characters and each
+                           word starts with a capital letter."""
         self._uio = None
         self._startup_file = self._get_startup_file()
-        self._app_name = self._get_app_name()
+        self._set_app_name(app_name)
         self._check_icon(icon_file)
 
+    def _set_app_name(self, app_name=None):
+        """@brief Set the name of the app.
+        @param app_name The name of the app or None. If None then the name of the app is the
+                basename of the startup file minus it's extension."""
+        if app_name:
+            self._app_name = app_name
+
+        else:
+            # Get just the name of the file
+            app_name = os.path.basename(self._startup_file)
+            # Remove file extension
+            app_name = os.path.splitext(app_name)[0]
+            app_name = app_name.replace('_', ' ')
+            app_name = app_name.replace('-', ' ')
+            app_name = app_name.title()
+            self._app_name = app_name
+    
     def _get_startup_file(self):
         """@return Get the abs name of the program first started."""
         return os.path.abspath(sys.argv[0])
@@ -51,21 +76,6 @@ class LauncherBase(object):
                                 return self._abs_icon_file
 
                     raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
-
-    def _get_app_name(self, app_name=None):
-        """@brief Get the name of the app.
-        @param app_name The name of the app or None. If None then the name of the app is the
-                basename of the startup file minus it's extension.
-        @return The name of the app."""
-        if not app_name:
-            # Get just the name of the file
-            app_name = os.path.basename(self._startup_file)
-            # Remove file extension
-            app_name = os.path.splitext(app_name)[0]
-            app_name = app_name.replace('_', ' ')
-            app_name = app_name.replace('-', ' ')
-            app_name = app_name.upper() # Set Launcher name to upprt case
-        return app_name
 
     def addLauncherArgs(self,
                         parser,
@@ -167,7 +177,7 @@ if _platform == 'Linux':
                                 Settings
                                 System
             """
-            super().__init__(icon_file)
+            super().__init__(icon_file, app_name)
             self._gnome_desktop_file = None
             self._comment = comment
             self._categories = categories
@@ -247,15 +257,20 @@ elif _platform == 'Windows':
     class Launcher(LauncherBase):
         """@brief Responsible for adding and removing Windows app shortcuts to the desktop for launching applications on a Windows system."""
 
-        def __init__(self, icon_file):
+        def __init__(self, icon_file, app_name=None):
             """@brief Constructor.
             @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
                                 If just a filename is passed then the icon file must sit in a folder named 'assets'.
                                 This assets folder must be in the same folder as the startup file, it's parent or
                                 the python3 site packages folder.
+            @param app_name   The name of the application.
+                                If not defined then the name of the program executed at startup is used.
+                                This name has _ and - character replace with space characters and each
+                                word starts with a capital letter.
             """
-            super().__init__(icon_file)
+            super().__init__(icon_file, app_name)
 
+        """PJA rationalise this"""
         def _get_app_name(self):
             """@return The name of the running program without the .py extension."""
             app_name = self._get_startup_file()
@@ -319,26 +334,67 @@ elif _platform == 'Windows':
 
 elif _platform == 'Darwin':
 
-    class Launcher(object):
+    class Launcher(LauncherBase):
         """@brief Responsible for adding and removing shortcuts to the desktop for launching applications on a MacOS system."""
 
-        def __init__(self, icon_file):
-                """@brief Constructor.
-                @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
-                                    If just a filename is passed then the icon file must sit in a folder named 'assets'.
-                                    This assets folder must be in the same folder as the startup file, it's parent or
-                                    the python3 site packages folder.
-                """
+        def __init__(self, icon_file, app_name=None):
+            """@brief Constructor.
+            @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
+                                If just a filename is passed then the icon file must sit in a folder named 'assets'.
+                                This assets folder must be in the same folder as the startup file, it's parent or
+                                the python3 site packages folder.
+            @param app_name   The name of the application.
+                                If not defined then the name of the program executed at startup is used.
+                                This name has _ and - character replace with space characters and each
+                                word starts with a capital letter."""
+            super().__init__(icon_file, app_name)
+            self._app_name
+            desktop = Path.home() / "Desktop"
+            self._app_path = desktop / f"{self._app_name}.app"
+            self._contents = self._app_path / "Contents"
+            self._macos = self._contents / "MacOS"
+            self._resources = self._contents / "Resources"
 
+        def _create_app(self):
+            """@brief Create a MacOS app folder with the required files to launch an app."""
+            self.delete()
+            # Create app structure
+            self._macos.mkdir(parents=True)
+            self._resources.mkdir()
+
+            # Executable script
+            exec_path = self._macos / self._app_name
+            exec_path.write_text(f"#!/bin/bash\nopen {self._startup_file}\n")
+            exec_path.chmod(0x755)
+
+            # Info.plist
+            plist = {
+                'CFBundleName': self._app_name,
+                'CFBundleIdentifier': f'com.example.{self._app_name.lower()}',
+                'CFBundleVersion': '1.0',
+                'CFBundlePackageType': 'APPL',
+                'CFBundleExecutable': self._app_name,
+                'CFBundleIconFile': 'app_icon.icns',
+            }
+            with open(self._contents / 'Info.plist', 'wb') as f:
+                plistlib.dump(plist, f)
+
+            # Copy icon (must be .icns format)
+            shutil.copy(self._abs_icon_file, self._resources / 'app_icon.icns')
+            self.info(f"Created {self._app_path}")
+    
         def create(self, overwrite=False):
             """@brief Create a desktop icon.
             @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
-            pass
-
+            self._create_app()
+                        
         def delete(self):
             """@brief Delete the gnome desktop file if present.
             @return True if a desktop file was deleted."""
-            pass
+            # Clean old app if exists
+            if self._app_path.exists():
+                shutil.rmtree(self._app_path)
+                self.info(f"Removed '{self._app_path}'")
 
 else:
     raise Exception("{_platform} platform is not supported by Launcher.")
