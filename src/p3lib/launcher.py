@@ -10,11 +10,7 @@ import plistlib
 from PIL import Image
 import subprocess
 from time import sleep
-
-"""
-This class contains functionality that allows launcher icons to be created on Linux, Windows and MacOS platforms.
-See tests/test_launcher as an example of how this functionality is used.
-"""
+from p3lib.helper import getAbsFile
 
 class LauncherBase(object):
     """@brief The base class for the Launcher class. Defines methods and vars that are generic."""
@@ -65,26 +61,11 @@ class LauncherBase(object):
         return None"""
         if not icon_file.endswith('.png'):
             raise Exception(f"{icon_file} icon file must have .png extension.")
-        self._abs_icon_file = os.path.abspath(icon_file)
-        if not os.path.isfile(self._abs_icon_file):
-            startup_path = os.path.dirname(self._startup_file)
-            path1 = os.path.join(startup_path, 'assets')
-            self._abs_icon_file = os.path.join(path1, icon_file)
-            if not os.path.isfile(self._abs_icon_file):
-                startup_parent_path = os.path.join(startup_path, '..')
-                path2 = os.path.join(startup_parent_path, 'assets')
-                self._abs_icon_file = os.path.join(path2, icon_file)
-                if not os.path.isfile(self._abs_icon_file):
-                    # Try all the site packages folders we know about.
-                    for path in sys.path:
-                        if 'site-packages' in path:
-                            site_packages_path = path
-                            path3 = os.path.join(site_packages_path, 'assets')
-                            self._abs_icon_file = os.path.join(path3, icon_file)
-                            if os.path.isfile(self._abs_icon_file):
-                                return self._abs_icon_file
-
-                    raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
+        # Search for the file
+        self._abs_icon_file = getAbsFile(icon_file)
+        if self._abs_icon_file is None:
+            raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
+        return self._abs_icon_file
 
     def addLauncherArgs(self,
                         parser,
