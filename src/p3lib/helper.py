@@ -379,50 +379,64 @@ def appendCreateFile(uio, aFile, quiet=False):
         if not quiet:
             uio.info("Created {}".format(aFile))
 
-def getAbsFile(filename):
+def getAbsFile(filename,
+               uio=None,
+               include_parent=True,
+               include_parents_parent=True,
+               include_site_packages=True):
     """@brief Check that the file exists in several places.
                 1 - The startup folder
                 2 - An 'assets' folder in the startup folder
-                3 - An 'assets' folder in the startup parent folder
-                4 - In a site-packages folder.
-                5 - In an 'assets' folder in a python site-packages folder.
+                3 - An 'assets' folder in the startup parent folder if include_parent = True.
+                4 - An 'assets' folder in the startup parents parents folder if include_parents_parent = True
+                5 - In a site-packages folder if include_site_packages = True.
+                6 - In an 'assets' folder in a python site-packages folder if include_site_packages = True.
         @param filename The name of the icon file.
+        @param uio A p3lib.uio.UIO instance. If defined debug messages are displayed showing the paths
+                   searched up to the one it was found in.
+        @param include_parent Detailed above.
+        @param include_parents_parent Detailed above.
+        @param include_site_packages Detailed above.
         @return The abs path of the file or None if not found."""
     file_found = None
+    file_list = []
     abs_filename = os.path.abspath(filename)
-    if os.path.isfile(abs_filename):
-        file_found = abs_filename
+    file_list.append(abs_filename)
 
-    else:
-        startup_file = os.path.abspath(sys.argv[0])
-        startup_path = os.path.dirname(startup_file)
-        path1 = os.path.join(startup_path, 'assets')
-        abs_filename = os.path.join(path1, filename)
+    startup_file = os.path.abspath(sys.argv[0])
+    startup_path = os.path.dirname(startup_file)
+    path1 = os.path.join(startup_path, 'assets')
+    abs_filename = os.path.join(path1, filename)
+    file_list.append(abs_filename)
+
+    if include_parent:
+        startup_parent_path = os.path.join(startup_path, '..')
+        path2 = os.path.join(startup_parent_path, 'assets')
+        abs_filename = os.path.join(path2, filename)
+        file_list.append(abs_filename)
+
+    if include_parents_parent:
+        startup_parent_parent_path = os.path.join(startup_parent_path, '..')
+        path2 = os.path.join(startup_parent_parent_path, 'assets')
+        abs_filename = os.path.join(path2, filename)
+        file_list.append(abs_filename)
+
+    if include_site_packages:
+        # Try all the site packages folders we know about.
+        for path in sys.path:
+            abs_filename = os.path.join(path, filename)
+            file_list.append(abs_filename)
+            path2 = os.path.join(path, 'assets')
+            abs_filename = os.path.join(path2, filename)
+            file_list.append(abs_filename)
+
+    file_found = None
+    for abs_filename in file_list:
+        if uio:
+            uio.debug(f"Checking: {abs_filename}")
         if os.path.isfile(abs_filename):
             file_found = abs_filename
-
-        else:
-            startup_parent_path = os.path.join(startup_path, '..')
-            path2 = os.path.join(startup_parent_path, 'assets')
-            abs_filename = os.path.join(path2, filename)
-            if os.path.isfile(abs_filename):
-                file_found = abs_filename
-
-            else:
-                # Try all the site packages folders we know about.
-                for path in sys.path:
-                    if os.path.isdir(path):
-                        abs_filename = os.path.join(path, filename)
-                        if os.path.isfile(abs_filename):
-                            file_found = abs_filename
-                        else:
-                            path2 = os.path.join(path, 'assets')
-                            abs_filename = os.path.join(path2, filename)
-                            if os.path.isfile(abs_filename):
-                                file_found = abs_filename
-                                break
-                    if file_found:
-                        break
+            break
 
     return file_found
 
