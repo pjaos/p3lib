@@ -169,14 +169,13 @@ if _platform == 'Linux':
                                 System
             """
             super().__init__(icon_file, app_name)
-            self._gnome_desktop_file = None
             self._comment = comment
             self._categories = categories
-            self._gnome_desktop_file = self._get_gnome_desktop_file()
+            self._gnome_desktop_files = self._get_gnome_desktop_files()
 
-        def _get_gnome_desktop_file(self):
-            """@brief Determine and return the name of the gnome desktop file.
-            @return The gnome desktop file."""
+        def _get_gnome_desktop_files(self):
+            """@brief Determine and return a list of the gnome desktop files.
+               @return A list of gnome desktop files."""
             # Get just the name of the file
             desktop_file_name = os.path.basename(self._startup_file)
             # Remove file extension
@@ -188,9 +187,17 @@ if _platform == 'Linux':
             if not desktop_file_name.endswith('.desktop'):
                 desktop_file_name = desktop_file_name + '.desktop'
             home_folder = os.path.expanduser("~")
-            gnome_desktop_apps_folder = os.path.join(home_folder, '.local/share/applications')
-            gnome_desktop_file = os.path.join(gnome_desktop_apps_folder, desktop_file_name)
-            return gnome_desktop_file
+            gnome_desktop_apps_folder1 = os.path.join(home_folder, '.local/share/applications')
+            gnome_desktop_file1 = os.path.join(gnome_desktop_apps_folder1, desktop_file_name)
+
+            gnome_desktop_apps_folder2 = os.path.join(home_folder, 'Desktop')
+            if os.path.isdir(gnome_desktop_apps_folder2):
+                gnome_desktop_file2 = os.path.join(gnome_desktop_apps_folder2, desktop_file_name)
+                gnome_desktop_files = (gnome_desktop_file1, gnome_desktop_file2)
+            else:
+                gnome_desktop_files = (gnome_desktop_file1)
+
+            return gnome_desktop_files
 
         def _update_permissions(self, path):
             path = os.path.expanduser(path)
@@ -198,27 +205,29 @@ if _platform == 'Linux':
             mode = os.stat(path).st_mode
             os.chmod(path, mode | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
 
-        def _create_gnome_desktop_file(self):
+        def _create_gnome_desktop_files(self):
             """@brief Create the gnome desktop file for this app."""
-            if os.path.isfile(self._gnome_desktop_file):
-                raise Exception(f"{self._gnome_desktop_file} file already exists.")
-            lines = []
-            lines.append('[Desktop Entry]')
-            lines.append('Version=1.0')
-            lines.append('Type=Application')
-            lines.append(f'Name={self._app_name}')
-            lines.append(f'Comment={self._comment}')
-            lines.append(f'Icon={self._abs_icon_file}')
-            lines.append(f'Exec={self._startup_file}')
-            lines.append('Terminal=false')
-            if not self._categories.endswith(';'):
-                self._categories = self._categories + ';'
-            lines.append(f'Categories={self._categories}')
+            for gnome_desktop_file in self._gnome_desktop_files:
+                if os.path.isfile(gnome_desktop_file):
+                    raise Exception(f"{gnome_desktop_file} file already exists.")
+                lines = []
+                lines.append('[Desktop Entry]')
+                lines.append('Version=1.0')
+                lines.append('Type=Application')
+                lines.append(f'Name={self._app_name}')
+                lines.append(f'Comment={self._comment}')
+                lines.append(f'Icon={self._abs_icon_file}')
+                lines.append(f'Exec={self._startup_file}')
+                lines.append('Terminal=false')
+                if not self._categories.endswith(';'):
+                    self._categories = self._categories + ';'
+                lines.append(f'Categories={self._categories}')
 
-            with open(self._gnome_desktop_file, "w", encoding="utf-8") as fd:
-                fd.write("\n".join(lines))
+                with open(gnome_desktop_file, "w", encoding="utf-8") as fd:
+                    fd.write("\n".join(lines))
 
-            self._update_permissions(self._gnome_desktop_file)
+                self._update_permissions(gnome_desktop_file)
+                self.info(f"Created {gnome_desktop_file} file.")
 
         def create(self, overwrite=True):
             """@brief Create a desktop icon.
@@ -228,19 +237,22 @@ if _platform == 'Linux':
                 raise Exception(f"{self._startup_file} file not found.")
             if overwrite:
                 self.delete()
-            self._create_gnome_desktop_file()
-            self.info(f"Created {self._gnome_desktop_file} file.")
+            self._create_gnome_desktop_files()
             self.info(f"The {self._app_name} gnome launcher was successfully created.")
 
         def delete(self):
-            """@brief Delete the gnome desktop file if present.
-            @return True if a desktop file was deleted."""
+            """@brief Delete the gnome desktop files if present.
+               @return True if a desktop files were deleted."""
+            del_count = 0
+            for gnome_desktop_file in self._gnome_desktop_files:
+                if os.path.isfile(gnome_desktop_file):
+                    os.remove(gnome_desktop_file)
+                    self.info(f"Removed {gnome_desktop_file} file.")
+                    del_count += 1
+
             deleted = False
-            if os.path.isfile(self._gnome_desktop_file):
-                os.remove(self._gnome_desktop_file)
+            if del_count == len(self._gnome_desktop_files):
                 deleted = True
-            if deleted:
-                self.info(f"Removed {self._gnome_desktop_file} file.")
             return deleted
 
 elif _platform == 'Windows':
