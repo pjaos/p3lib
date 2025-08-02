@@ -402,6 +402,8 @@ def getAbsFile(filename,
     file_list = []
     abs_filename = os.path.abspath(filename)
     file_list.append(abs_filename)
+    if uio:
+        uio.debug(f"getAbsFile(): filename = {filename}")
 
     startup_file = os.path.abspath(sys.argv[0])
     startup_path = os.path.dirname(startup_file)
@@ -433,10 +435,13 @@ def getAbsFile(filename,
     file_found = None
     for abs_filename in file_list:
         if uio:
-            uio.debug(f"Checking: {abs_filename}")
+            uio.debug(f"getAbsFile(): abs_filename = {abs_filename}")
         if os.path.isfile(abs_filename):
             file_found = abs_filename
             break
+
+    if uio:
+        uio.debug(f"getAbsFile(): file_found = {file_found}")
 
     return file_found
 
@@ -466,8 +471,11 @@ def getProgramVersion():
         return -999.99
     return programVersion
 
-def get_assets_folders():
-    """@return A list of all the assets folders found."""
+def get_assets_folders(uio=None):
+    """@brief Get the assets folders.
+       @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed
+                  detailing the search paths.
+       @return A list of all the assets folders found."""
     searchFolders = []
     assetsFolders = []
     calling_file = None
@@ -476,6 +484,8 @@ def get_assets_folders():
     module = inspect.getmodule(frame[0])
     if module and hasattr(module, '__file__'):
         calling_file = os.path.abspath(module.__file__)
+    if uio:
+        uio.debug(f"get_assets_folder(): calling_file = {calling_file}")
 
     if calling_file:
         startup_path = os.path.dirname(calling_file)
@@ -491,15 +501,22 @@ def get_assets_folders():
                 searchFolders.append( os.path.join(site_packages_path, 'assets') )
 
         for folder in searchFolders:
+            if uio:
+                uio.debug(f"get_assets_folder(): folder = {folder}")
             absPath = os.path.abspath(folder)
             if os.path.isdir(absPath):
                 assetsFolders.append(absPath)
 
+    if uio:
+        uio.debug(f"get_assets_folder(): assetsFolders = {assetsFolders}")
+
     return assetsFolders
 
-def get_assets_folder(raise_error=True):
+def get_assets_folder(raise_error=True, uio=None):
     """@brief Get the assets folder.
        @param raise_error If True then raise an error if the assets folder is not found.
+       @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed
+                  detailing the search paths.
        @return The abs assets folder path string."""
     searchFolders = []
     assetsFolder = None
@@ -509,6 +526,8 @@ def get_assets_folder(raise_error=True):
     module = inspect.getmodule(frame[0])
     if module and hasattr(module, '__file__'):
         calling_file = os.path.abspath(module.__file__)
+    if uio:
+        uio.debug(f"get_assets_folder(): calling_file = {calling_file}")
 
     if calling_file:
         startup_path = os.path.dirname(calling_file)
@@ -524,6 +543,8 @@ def get_assets_folder(raise_error=True):
                 searchFolders.append( os.path.join(site_packages_path, 'assets') )
 
         for folder in searchFolders:
+            if uio:
+                uio.debug(f"get_assets_folder(): folder = {folder}")
             absPath = os.path.abspath(folder)
             if os.path.isdir(absPath):
                 assetsFolder = absPath
@@ -531,4 +552,6 @@ def get_assets_folder(raise_error=True):
     if raise_error and assetsFolder is None:
         raise Exception('Failed to find assets folder.')
 
+    if uio:
+        uio.debug(f"get_assets_folder(): assetsFolder = {assetsFolder}")
     return assetsFolder
