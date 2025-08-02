@@ -484,6 +484,10 @@ def get_assets_folders(uio=None):
     module = inspect.getmodule(frame[0])
     if module and hasattr(module, '__file__'):
         calling_file = os.path.abspath(module.__file__)
+
+    if not calling_file:
+        calling_file = os.path.abspath(sys.argv[0])
+
     if uio:
         uio.debug(f"get_assets_folder(): calling_file = {calling_file}")
 
@@ -526,6 +530,10 @@ def get_assets_folder(raise_error=True, uio=None):
     module = inspect.getmodule(frame[0])
     if module and hasattr(module, '__file__'):
         calling_file = os.path.abspath(module.__file__)
+
+    if not calling_file:
+        calling_file = os.path.abspath(sys.argv[0])
+
     if uio:
         uio.debug(f"get_assets_folder(): calling_file = {calling_file}")
 
