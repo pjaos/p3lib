@@ -2,8 +2,8 @@ var searchData=
 [
   ['genplotdata_0',['genPlotData',['../classGUIModel__A__example_1_1DynamicPlotExample.html#a8e1d3ae2f41cfa80eac92b619544deed',1,'GUIModel_A_example::DynamicPlotExample']]],
   ['get_1',['get',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.bokeh_auth.LoginHandler.get()'],['../classp3lib_1_1bokeh__auth_1_1LogoutHandler.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.bokeh_auth.LogoutHandler.get()']]],
-  ['get_5fassets_5ffolder_2',['get_assets_folder',['../namespacep3lib_1_1helper.html#a47846ac669e576489efc0d87adbed1cd',1,'p3lib::helper']]],
-  ['get_5fassets_5ffolders_3',['get_assets_folders',['../namespacep3lib_1_1helper.html#a9975c3746f0b0c04cd2d5c0eba7ea981',1,'p3lib::helper']]],
+  ['get_5fassets_5ffolder_2',['get_assets_folder',['../namespacep3lib_1_1helper.html#a6059d471cb98ae0f33bcf8ca6b87c09f',1,'p3lib::helper']]],
+  ['get_5fassets_5ffolders_3',['get_assets_folders',['../namespacep3lib_1_1helper.html#a6fffbeb4427ed2fd646c53007a248a6a',1,'p3lib::helper']]],
   ['get_5ffile_4',['get_file',['../classp3lib_1_1file__io_1_1CryptFile.html#a92f8e9cdf11992c768dc74baa4f3b5fc',1,'p3lib::file_io::CryptFile']]],
   ['get_5fuser_5',['get_user',['../namespacep3lib_1_1bokeh__auth.html#a44b46cae3713c44593bb6e38bbb8e4e0',1,'p3lib::bokeh_auth']]],
   ['geta_6',['geta',['../classp3lib_1_1conduit_1_1Conduit.html#a6bf38a927e55de393f4d77acfe38a804',1,'p3lib.conduit.Conduit.getA()'],['../classp3lib_1_1conduit_1_1QueueConduit.html#aed948769f88581e20c689b83f3d8f35e',1,'p3lib.conduit.QueueConduit.getA()']]],
