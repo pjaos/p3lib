@@ -861,6 +861,9 @@ class YesNoDialog(object):
         """@brief Close the boolean dialog."""
         self._dialog.close()
 
+
+# This has been left in for legacy reasons but is very similar to FileAndFolderChooser.
+# It differs in the way it is used. See examples at the bottom of this file for details.
 class local_file_picker(ui.dialog):
     """@brief Allows the user to select local files and folders.
        This is is a change to https://github.com/zauberzeug/nicegui/blob/main/examples/local_file_picker/local_file_picker.py"""
@@ -904,7 +907,6 @@ class local_file_picker(ui.dialog):
             self.grid.on('cellDoubleClicked', self.handle_double_click)
             with ui.row().classes('w-full justify-end'):
                 self._select_folder_checkbox = ui.switch('Select Folder')
-                #self._select_folder_checkbox = ui.checkbox('Folder')
                 self._select_folder_checkbox.tooltip("Select this if you wish to select a folder.")
                 ui.button('Cancel', on_click=self.close).props('outline')
 
@@ -960,10 +962,281 @@ class local_file_picker(ui.dialog):
             # If Windows platform add the drive letter to the path
             if platform.system() == 'Windows':
                 if selected.startswith('\\'):
-                    selected=selected[1:]
+                    selected = selected[1:]
                     selected = self.drives_toggle.value + selected
 
             self.submit([selected])
 
         # Update the displayed path
         self._path_label.set_text(str(self.path))
+
+
+class FSChooserBase(ui.dialog):
+    """@brief Allows the user to select local files and folders."""
+
+    def __init__(self):
+        super().__init__()
+        self._selected_drive = None
+        self.drives_toggle = None
+        self._path_label = None
+        self.path = None
+        self.show_hidden_files = False
+
+    async def open(self):
+        super().open()
+        return await self
+
+    def add_drives_toggle(self):
+        if platform.system() == 'Windows':
+            import win32api
+            drives = win32api.GetLogicalDriveStrings().split('\000')[:-1]
+            drive = drives[0]
+            # If the caller passed a drive letter select this drive
+            if self._selected_drive:
+                for drive in drives:
+                    if drive.startswith(self._selected_drive):
+                        break
+            self.drives_toggle = ui.toggle(drives, value=drive, on_change=self.update_drive)
+
+        # Display the current path
+        self._path_label = ui.label(str(self.path))
+
+    def update_drive(self):
+        self.path = Path(self.drives_toggle.value).expanduser()
+        self.update_grid()
+
+    def update_grid(self) -> None:
+        paths = list(self.path.glob('*'))
+        if not self.show_hidden_files:
+            paths = [p for p in paths if not p.name.startswith('.')]
+        paths.sort(key=lambda p: p.name.lower())
+        paths.sort(key=lambda p: not p.is_dir())
+
+        self.grid.options['rowData'] = [
+            {
+                'name': f'📁 <strong>{p.name}</strong>' if p.is_dir() else p.name,
+                'path': str(p),
+            }
+            for p in paths
+        ]
+        if (self.upper_limit is None and self.path != self.path.parent) or \
+                (self.upper_limit is not None and self.path != self.upper_limit):
+            self.grid.options['rowData'].insert(0, {
+                'name': '📁 <strong>..</strong>',
+                'path': str(self.path.parent),
+            })
+        self.grid.update()
+
+
+class FileAndFolderChooser(FSChooserBase):
+    """@brief Allows the user to select local files and folders.
+       This is is a change to https://github.com/zauberzeug/nicegui/blob/main/examples/local_file_picker/local_file_picker.py"""
+
+    def __init__(self,
+                 directory: str,
+                 upper_limit: str = None,
+                 multiple: bool = False,
+                 show_hidden_files: bool = False) -> None:
+        """GUI file or folder chooser.
+
+        This is a simple file picker that allows you to select a file from the local filesystem where NiceGUI is running.
+
+        :param directory: The directory to start in.
+        :param upper_limit: The directory to stop at (None: no limit, default: same as the starting directory).
+        :param multiple: Whether to allow multiple files to be selected.
+        :param show_hidden_files: Whether to show hidden files.
+        """
+        super().__init__()
+        # If on a Windows platform attempt to separate the drive and the directory
+        if platform.system() == 'Windows' and directory and len(directory) >= 2:
+            if directory[0].isalpha() and directory[1] == ':':
+                self._selected_drive = directory[:2]
+                directory = directory[2:]
+
+        self.path = Path(directory).expanduser()
+        if upper_limit is None:
+            self.upper_limit = None
+        else:
+            self.upper_limit = Path(directory if upper_limit == ... else upper_limit).expanduser()
+        self.show_hidden_files = show_hidden_files
+
+        with self, ui.card().style('overflow-x: auto; max-width: 100%;'):
+            self.add_drives_toggle()
+            self.grid = ui.aggrid({
+                'columnDefs': [{'field': 'name', 'headerName': 'File'}],
+                'rowSelection': 'multiple' if multiple else 'single',
+            }, html_columns=[0]).style('min-width: 600px')
+            self.grid.on('cellDoubleClicked', self.handle_double_click)
+            with ui.row().classes('w-full justify-end'):
+                self._select_folder_checkbox = ui.switch('Select Folder')
+                self._select_folder_checkbox.tooltip("Select this if you wish to select a folder. Leave unselected to select a file.")
+                ui.button('Cancel', on_click=self.close).props('outline')
+
+        self.update_grid()
+
+    def handle_double_click(self, e) -> None:
+        self.path = Path(e.args['data']['path'])
+        if self.path.is_dir() and not self._select_folder_checkbox.value:
+            self.update_grid()
+
+        else:
+            selected = str(self.path)
+            # If Windows platform add the drive letter to the path
+            if platform.system() == 'Windows':
+                if selected.startswith('\\'):
+                    selected = selected[1:]
+                    selected = self.drives_toggle.value + selected
+
+            self.submit([selected])
+
+        # Update the displayed path
+        self._path_label.set_text(str(self.path))
+
+
+class FileSaveChooser(FSChooserBase):
+    """@brief Allows the user to save a file to local storage."""
+
+    def __init__(self,
+                 directory: str,
+                 upper_limit: str = None,
+                 show_hidden_files: bool = False) -> None:
+        """Local File save dialog with the ability to create and delete folders.
+
+        :param directory: The directory to start in.
+        :param upper_limit: The directory to stop at (None: no limit, default: same as the starting directory).
+        :param show_hidden_files: Whether to show hidden files.
+        """
+        super().__init__()
+        self._selected_drive = None
+        # If on a Windows platform attempt to separate the drive and the directory
+        if platform.system() == 'Windows' and directory and len(directory) >= 2:
+            if directory[0].isalpha() and directory[1] == ':':
+                self._selected_drive = directory[:2]
+                directory = directory[2:]
+
+        self.path = Path(directory).expanduser()
+        if upper_limit is None:
+            self.upper_limit = None
+        else:
+            self.upper_limit = Path(directory if upper_limit == ... else upper_limit).expanduser()
+        self.show_hidden_files = show_hidden_files
+
+        self._dialog = ui.dialog()
+        with self._dialog:
+            with ui.card().classes('w-96'):
+                self._folder_input_field = ui.input(label='Folder name to create').props('autofocus')  # focus on open
+                with ui.row():
+                    ui.button('OK', on_click=self._create_new_folder)
+                    ui.button('Cancel', on_click=self._close_dialog)
+
+        with self, ui.card().style('overflow-x: auto; max-width: 100%;'):
+            self.add_drives_toggle()
+            self.grid = ui.aggrid({
+                'columnDefs': [{'field': 'name', 'headerName': 'File'}],
+                'rowSelection': 'single',
+            }, html_columns=[0]).style('min-width: 600px')
+            self.grid.on('cellDoubleClicked', self.handle_double_click)
+            with ui.row().classes('w-full justify-end'):
+                self._save_filename_input = ui.input("Filename").style('width: 300px;')
+                self._delete_folder_button = ui.button(icon='folder').props('color=negative').tooltip("Delete this folder. The folder must be empty.")
+                self._delete_folder_button.on('click', self._delete_folder)
+                self._create_folder_button = ui.button(icon='folder').props('color=primary').tooltip("Create a new folder.")
+                self._create_folder_button.on('click', self._dialog.open)
+                self._save_button = ui.button('Save').props('outline; color=primary').tooltip("Save the file in this folder.")
+                self._save_button.on('click', self._save)
+                ui.button('Cancel', on_click=self._cancel).props('outline; color=primary').tooltip("Close this dialog.")
+
+        self.update_grid()
+
+    async def _delete_folder(self):
+        if self.path.exists() and self.path.is_dir():
+            try:
+                self.path.rmdir()
+                self.path = self.path.parent
+                self._path_label.set_text(str(self.path))
+
+            except OSError as ex:
+                ui.notify(str(ex), type='warning')
+
+        self.update_grid()
+
+    def _create_new_folder(self):
+        if self._folder_input_field.value:
+            self.path = Path(self.path, self._folder_input_field.value)
+            self._dialog.close()
+            try:
+                self.path.mkdir()
+                self.update_grid()
+                self._path_label.set_text(str(self.path))
+
+            except FileExistsError:
+                ui.notify(f'The {self._folder_input_field.value} folder already exists.', type='warning')
+
+        else:
+            ui.notify('Please enter the folder name.', type='warning')
+
+    def _close_dialog(self):
+        self._dialog.close()
+
+    async def _create_folder(self):
+        self._dialog.open()
+
+    async def _save(self):
+        if self._save_filename_input.value:
+            _file = Path(self.path, self._save_filename_input.value)
+            if _file.exists() and not hasattr(self, '_overwrite_confirmed'):
+                self._overwrite_confirmed = True  # flag to skip on next click
+                ui.notify(f'"{_file}" already exists. Click Save again to overwrite.', type='warning')
+                return
+
+            self.submit([_file])
+
+        else:
+            if self._save_filename_input.label == "Filename":
+                ui.notify('No filename has been entered.', type='warning')
+            else:
+                ui.notify('No folder name has been entered.', type='warning')
+
+    def _cancel(self):
+        self.close()
+
+    def handle_double_click(self, e) -> None:
+        _path = Path(e.args['data']['path'])
+
+        if _path.is_dir():
+            self.path = _path
+            # Update the displayed path
+            self._path_label.set_text(str(self.path))
+            self.update_grid()
+
+        else:
+            self._save_filename_input.value = _path.name
+            # Update the displayed path
+            self._path_label.set_text(str(_path.parent))
+
+"""
+# File/Folder selection/save examples
+
+async def file_and_folder_chooser():
+    ffc = FileAndFolderChooser('/tmp')
+    result = await ffc.open()
+    print(f"PJA: result = {result}")
+
+
+async def legacy_file_and_folder_chooser():
+    result = await local_file_picker('/tmp')
+    print(f"PJA: result = {result}")
+
+
+async def file_save_chooser():
+    ffc = FileSaveChooser('/tmp')
+    result = await ffc.open()
+    print(f"PJA: result = {result}")
+
+ui.button('Save A File', on_click=file_save_chooser)
+ui.button('Select An Existing File or Folder', on_click=file_and_folder_chooser)
+ui.button('Legacy Select An Existing File or Folder', on_click=legacy_file_and_folder_chooser)
+
+ui.run()
+
+"""
