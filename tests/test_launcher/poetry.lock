@@ -962,14 +962,14 @@ sqlframe = ["sqlframe (>=3.22.0)"]
 
 [[package]]
 name = "nicegui"
-version = "2.21.1"
+version = "3.0.0"
 description = "Create web-based user interfaces with Python. The nice way."
 optional = false
-python-versions = "<4.0,>=3.8"
+python-versions = "<4.0,>=3.9"
 groups = ["main"]
 files = [
-    {file = "nicegui-2.21.1-py3-none-any.whl", hash = "sha256:3c26b628b6384f859e2f6044fbc398b2b0c7fd0feb50a51ce72a233157f77d34"},
-    {file = "nicegui-2.21.1.tar.gz", hash = "sha256:1063ea5f6ba696a8240835ff635157a8af11470c7e12dd34bfb7620d0355a2bd"},
+    {file = "nicegui-3.0.0-py3-none-any.whl", hash = "sha256:abe958c99d75a2e9ab19de75f60130e70a098046b6cde5520c518a697b6167bc"},
+    {file = "nicegui-3.0.0.tar.gz", hash = "sha256:081248bc61f874ef0d40ffe8d0dc79da7b853bb2b8b2c2bfc7a52202760c7c1d"},
 ]
 
 [package.dependencies]
@@ -989,7 +989,7 @@ Pygments = ">=2.15.1,<3.0.0"
 python-engineio = ">=4.12.0"
 python-multipart = ">=0.0.18"
 python-socketio = {version = ">=5.10.0", extras = ["asyncio-client"]}
-starlette = {version = ">=0.45.3", markers = "python_version >= \"3.9\""}
+starlette = ">=0.45.3"
 typing-extensions = ">=4.0.0"
 uvicorn = {version = ">=0.22.0", extras = ["standard"]}
 vbuild = ">=0.8.2"
