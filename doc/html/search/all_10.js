@@ -25,7 +25,7 @@ var searchData=
   ['password1_22',['PASSWORD1',['../classbokeh__auth__test_1_1CredentialsHasherTester.html#a2398d4adcf51701458ba8cc15f3e057c',1,'bokeh_auth_test::CredentialsHasherTester']]],
   ['password2_23',['PASSWORD2',['../classbokeh__auth__test_1_1CredentialsHasherTester.html#af5e3fe2710afbd6c87d4e8a5d2b18e8f',1,'bokeh_auth_test::CredentialsHasherTester']]],
   ['password3_24',['PASSWORD3',['../classbokeh__auth__test_1_1CredentialsHasherTester.html#a6f7e0d4f7ff756f7cf8dcfc8bdf77835',1,'bokeh_auth_test::CredentialsHasherTester']]],
-  ['path_25',['path',['../classp3lib_1_1ngt_1_1local__file__picker.html#aa28dc103258589d9cb421197fe2de90b',1,'p3lib::ngt::local_file_picker']]],
+  ['path_25',['path',['../classp3lib_1_1ngt_1_1local__file__picker.html#aa28dc103258589d9cb421197fe2de90b',1,'p3lib.ngt.local_file_picker.path'],['../classp3lib_1_1ngt_1_1FSChooserBase.html#aa28dc103258589d9cb421197fe2de90b',1,'p3lib.ngt.FSChooserBase.path'],['../classp3lib_1_1ngt_1_1FileAndFolderChooser.html#aa28dc103258589d9cb421197fe2de90b',1,'p3lib.ngt.FileAndFolderChooser.path'],['../classp3lib_1_1ngt_1_1FileSaveChooser.html#aa28dc103258589d9cb421197fe2de90b',1,'p3lib.ngt.FileSaveChooser.path']]],
   ['pconfig_2epy_26',['pconfig.py',['../pconfig_8py.html',1,'']]],
   ['pconfig_5fexample_27',['pconfig_example',['../namespacepconfig__example.html',1,'']]],
   ['pconfig_5fexample_2epy_28',['pconfig_example.py',['../pconfig__example_8py.html',1,'']]],
