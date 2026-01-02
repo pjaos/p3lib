@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# !!!
+# To use this example code the pyproject.toml file must be updated to replace
+# nicegui = "^3.4.1"
+# with
+# nicegui = "2.24.2"
+#
+# Once this has been done run ./create_python_env.sh in this folder to create the
+# python env using the old nicegui code.
+
 import argparse
 
 from p3lib.uio import UIO
 from p3lib.helper import logTraceBack
 
-from p3lib.ngt3 import TabbedNiceGui, YesNoDialog
+from p3lib.ngt import TabbedNiceGui, YesNoDialog
 
 from nicegui import ui
 
