@@ -386,7 +386,8 @@ class TabbedNiceGui(object):
                           port=DEFAULT_SERVER_PORT,
                           pageTitle="NiceGUI",
                           showLog=True,
-                          quitButton=True):
+                          quitButton=True,
+                          do_ui_run=True):
         """@brief Set the arguments required to init this TabbedNiceGUI instance when init_gui() is called.
            @param tabNameList A list of the names of each tab to be created.
            @param tabMethodInitList A list of the methods to be called to init each of the above tabs.
@@ -397,7 +398,8 @@ class TabbedNiceGui(object):
            @param pageTitle The page title that appears in the browser.
            @param maxLogLines The maximum number of lines to be displayed in the log. Be aware setting this higher will cause the browser to use more memory.
            @param showLog If True then a text message log window is displayed along with a clear log and log message count buttons.
-           @param quitButton If True a Quit button is displayed allowing the user to shut down the nicegui application."""
+           @param quitButton If True a Quit button is displayed allowing the user to shut down the nicegui application.
+           @param do_ui_run If True then ui.run() is executed when init_gui() is called. If False then the caller must execute ui.run()."""
         self._tabNameList = tabNameList
         self._tabMethodInitList = tabMethodInitList
         self._reload = reload
@@ -406,6 +408,7 @@ class TabbedNiceGui(object):
         self._pageTitle = pageTitle
         self._showLog = showLog
         self._quitButton = quitButton
+        self._do_ui_run = do_ui_run
 
     def init_gui(self):
         """@brief Init the tabbed GUI.
@@ -461,7 +464,8 @@ class TabbedNiceGui(object):
 
             ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)
             ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)
-            ui.run(host=self._address, port=self._port, title=self._pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=self._reload)
+            if self._do_ui_run:
+                ui.run(host=self._address, port=self._port, title=self._pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=self._reload)
 
     def progressTimerCallback(self):
         """@brief Time to update the progress bar. We run the timer all the time because there appears to be a
