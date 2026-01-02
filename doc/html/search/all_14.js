@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tabbedgui_0',['tabbedgui',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html',1,'TabbedGUI'],['../classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt_examples.NGT_Examples.tabbedGUI()']]],
+  ['tabbedgui_0',['tabbedgui',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html',1,'TabbedGUI'],['../classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt_examples.NGT_Examples.tabbedGUI()'],['../classngt3__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt3_examples.NGT_Examples.tabbedGUI()']]],
   ['tabbednicegui_1',['tabbednicegui',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html',1,'TabbedNiceGui'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html',1,'TabbedNiceGui']]],
   ['table2dplotserver_2',['Table2DPlotServer',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html',1,'p3lib::table_plot']]],
   ['table_5fcolumns_3',['TABLE_COLUMNS',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a38a24e2f37a1d5060c3d2d0f3b1a551d',1,'p3lib::table_plot::Table2DPlotServer']]],
@@ -70,7 +70,7 @@ var searchData=
   ['testclass_67',['testclass',['../classtest__json__networking_1_1TestClass.html',1,'TestClass'],['../classtest__netif_1_1TestClass.html',1,'TestClass']]],
   ['tests_68',['p3lib tests',['../md_tests_2README.html',1,'']]],
   ['text_5finput_5ffield_5ftype_69',['text_input_field_type',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a98115ec86b1ac448c4eac53c27a07c66',1,'p3lib.ngt.YesNoDialog.TEXT_INPUT_FIELD_TYPE'],['../classp3lib_1_1ngt3_1_1YesNoDialog.html#a98115ec86b1ac448c4eac53c27a07c66',1,'p3lib.ngt3.YesNoDialog.TEXT_INPUT_FIELD_TYPE']]],
-  ['theme_70',['theme',['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a53d9759116527e34443d82453b97f415',1,'p3lib.table_plot.StaticPlotParams.theme'],['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a317d38a32797d7be419ff2f231d48519',1,'p3lib.table_plot.Table2DPlotServer.THEME']]],
+  ['theme_70',['theme',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a317d38a32797d7be419ff2f231d48519',1,'p3lib.table_plot.Table2DPlotServer.THEME'],['../classp3lib_1_1table__plot_1_1StaticPlotParams.html#a53d9759116527e34443d82453b97f415',1,'p3lib.table_plot.StaticPlotParams.theme']]],
   ['threetracestwoplot_71',['threeTracesTwoPlot',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a2035d9dbfb277d1726b1190ec748a8a7',1,'netplotly_demo::NetPlotlyDemo']]],
   ['time_72',['time',['../classbokeh__demo_1_1TimeSeriesPoint.html#a70c092a6aebace0b1ea406e14da78a40',1,'bokeh_demo.TimeSeriesPoint.time'],['../classp3lib_1_1bokeh__gui_1_1TimeSeriesPoint.html#a70c092a6aebace0b1ea406e14da78a40',1,'p3lib.bokeh_gui.TimeSeriesPoint.time']]],
   ['time_5finput_5ffield_73',['time_input_field',['../classp3lib_1_1ngt3_1_1YesNoDialog.html#aa15d5b9a261bf901d5eba04414cd53d7',1,'p3lib.ngt3.YesNoDialog.TIME_INPUT_FIELD'],['../classp3lib_1_1ngt_1_1YesNoDialog.html#aa15d5b9a261bf901d5eba04414cd53d7',1,'p3lib.ngt.YesNoDialog.TIME_INPUT_FIELD']]],

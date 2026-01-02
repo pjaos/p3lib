@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tabbedgui_0',['tabbedGUI',['../classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt_examples::NGT_Examples']]],
-  ['teardown_1',['teardown',['../classtest__conduit_1_1ConduitTester.html#a8a31d90b8598f609fad4582512f6822f',1,'test_conduit.ConduitTester.tearDown()'],['../classuio__test_1_1UIOTester.html#a8a31d90b8598f609fad4582512f6822f',1,'uio_test.UIOTester.tearDown()'],['../classtest__ssh_1_1SSHTester.html#a8a31d90b8598f609fad4582512f6822f',1,'test_ssh.SSHTester.tearDown()']]],
+  ['tabbedgui_0',['tabbedgui',['../classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt_examples.NGT_Examples.tabbedGUI()'],['../classngt3__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt3_examples.NGT_Examples.tabbedGUI()']]],
+  ['teardown_1',['teardown',['../classtest__ssh_1_1SSHTester.html#a8a31d90b8598f609fad4582512f6822f',1,'test_ssh.SSHTester.tearDown()'],['../classuio__test_1_1UIOTester.html#a8a31d90b8598f609fad4582512f6822f',1,'uio_test.UIOTester.tearDown()'],['../classtest__conduit_1_1ConduitTester.html#a8a31d90b8598f609fad4582512f6822f',1,'test_conduit.ConduitTester.tearDown()']]],
   ['test0_5fadd_5fhash_2',['test0_add_hash',['../classbokeh__auth__test_1_1CredentialsHasherTester.html#af590eceea9ad6d8b912d6d20cf7b3d6e',1,'bokeh_auth_test::CredentialsHasherTester']]],
   ['test0_5finfo_3',['test0_info',['../classuio__test_1_1UIOTester.html#a374bf07a5f57e5427081867edafda30c',1,'uio_test::UIOTester']]],
   ['test10_5ftable_4',['test10_table',['../classuio__test_1_1UIOTester.html#ac78afd38671a1d15a347b74c535413a6',1,'uio_test::UIOTester']]],

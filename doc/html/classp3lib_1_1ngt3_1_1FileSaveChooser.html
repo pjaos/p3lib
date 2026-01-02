@@ -188,7 +188,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Allows the user to save a file to local storage.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01108">1108</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01120">1120</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af0f64aeebe5029641cfc04c2aee3e941" name="af0f64aeebe5029641cfc04c2aee3e941"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0f64aeebe5029641cfc04c2aee3e941">&#9670;&#160;</a></span>__init__()</h2>
@@ -235,56 +235,56 @@ Protected Attributes</h2></td></tr>
 </pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1ngt3_1_1FSChooserBase.html#abdd362d5f799ad16b5d6700efe590290">FSChooserBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01111">1111</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1114</span>                 show_hidden_files: bool = <span class="keyword">False</span>) -&gt; <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno"> 1115</span>        <span class="stringliteral">&quot;&quot;&quot;Local File save dialog with the ability to create and delete folders.</span></div>
-<div class="line"><span class="lineno"> 1116</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1117</span><span class="stringliteral">        :param directory: The directory to start in.</span></div>
-<div class="line"><span class="lineno"> 1118</span><span class="stringliteral">        :param upper_limit: The directory to stop at (None: no limit, default: same as the starting directory).</span></div>
-<div class="line"><span class="lineno"> 1119</span><span class="stringliteral">        :param show_hidden_files: Whether to show hidden files.</span></div>
-<div class="line"><span class="lineno"> 1120</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno"> 1121</span>        super().__init__()</div>
-<div class="line"><span class="lineno"> 1122</span>        self._selected_drive = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno"> 1123</span>        <span class="comment"># If on a Windows platform attempt to separate the drive and the directory</span></div>
-<div class="line"><span class="lineno"> 1124</span>        <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Windows&#39;</span> <span class="keywordflow">and</span> directory <span class="keywordflow">and</span> len(directory) &gt;= 2:</div>
-<div class="line"><span class="lineno"> 1125</span>            <span class="keywordflow">if</span> directory[0].isalpha() <span class="keywordflow">and</span> directory[1] == <span class="stringliteral">&#39;:&#39;</span>:</div>
-<div class="line"><span class="lineno"> 1126</span>                self._selected_drive = directory[:2]</div>
-<div class="line"><span class="lineno"> 1127</span>                directory = directory[2:]</div>
-<div class="line"><span class="lineno"> 1128</span> </div>
-<div class="line"><span class="lineno"> 1129</span>        self.path = Path(directory).expanduser()</div>
-<div class="line"><span class="lineno"> 1130</span>        <span class="keywordflow">if</span> upper_limit <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno"> 1131</span>            self.upper_limit = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno"> 1132</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno"> 1133</span>            self.upper_limit = Path(directory <span class="keywordflow">if</span> upper_limit == ... <span class="keywordflow">else</span> upper_limit).expanduser()</div>
-<div class="line"><span class="lineno"> 1134</span>        self.show_hidden_files = show_hidden_files</div>
-<div class="line"><span class="lineno"> 1135</span> </div>
-<div class="line"><span class="lineno"> 1136</span>        self._dialog = ui.dialog()</div>
-<div class="line"><span class="lineno"> 1137</span>        <span class="keyword">with</span> self._dialog:</div>
-<div class="line"><span class="lineno"> 1138</span>            <span class="keyword">with</span> ui.card().classes(<span class="stringliteral">&#39;w-96&#39;</span>):</div>
-<div class="line"><span class="lineno"> 1139</span>                self._folder_input_field = ui.input(label=<span class="stringliteral">&#39;Folder name to create&#39;</span>).props(<span class="stringliteral">&#39;autofocus&#39;</span>)  <span class="comment"># focus on open</span></div>
-<div class="line"><span class="lineno"> 1140</span>                <span class="keyword">with</span> ui.row():</div>
-<div class="line"><span class="lineno"> 1141</span>                    ui.button(<span class="stringliteral">&#39;OK&#39;</span>, on_click=self._create_new_folder)</div>
-<div class="line"><span class="lineno"> 1142</span>                    ui.button(<span class="stringliteral">&#39;Cancel&#39;</span>, on_click=self._close_dialog)</div>
-<div class="line"><span class="lineno"> 1143</span> </div>
-<div class="line"><span class="lineno"> 1144</span>        <span class="keyword">with</span> self, ui.card().style(<span class="stringliteral">&#39;overflow-x: auto; max-width: 100%;&#39;</span>):</div>
-<div class="line"><span class="lineno"> 1145</span>            self.add_drives_toggle()</div>
-<div class="line"><span class="lineno"> 1146</span>            self.grid = ui.aggrid({</div>
-<div class="line"><span class="lineno"> 1147</span>                <span class="stringliteral">&#39;columnDefs&#39;</span>: [{<span class="stringliteral">&#39;field&#39;</span>: <span class="stringliteral">&#39;name&#39;</span>, <span class="stringliteral">&#39;headerName&#39;</span>: <span class="stringliteral">&#39;File&#39;</span>}],</div>
-<div class="line"><span class="lineno"> 1148</span>                <span class="stringliteral">&#39;rowSelection&#39;</span>: <span class="stringliteral">&#39;single&#39;</span>,</div>
-<div class="line"><span class="lineno"> 1149</span>            }, html_columns=[0]).style(<span class="stringliteral">&#39;min-width: 600px&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1150</span>            self.grid.on(<span class="stringliteral">&#39;cellDoubleClicked&#39;</span>, self.handle_double_click)</div>
-<div class="line"><span class="lineno"> 1151</span>            <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;w-full justify-end&#39;</span>):</div>
-<div class="line"><span class="lineno"> 1152</span>                self._save_filename_input = ui.input(<span class="stringliteral">&quot;Filename&quot;</span>).style(<span class="stringliteral">&#39;width: 300px;&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1153</span>                self._delete_folder_button = ui.button(icon=<span class="stringliteral">&#39;folder&#39;</span>).props(<span class="stringliteral">&#39;color=negative&#39;</span>).tooltip(<span class="stringliteral">&quot;Delete this folder. The folder must be empty.&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1154</span>                self._delete_folder_button.on(<span class="stringliteral">&#39;click&#39;</span>, self._delete_folder)</div>
-<div class="line"><span class="lineno"> 1155</span>                self._create_folder_button = ui.button(icon=<span class="stringliteral">&#39;folder&#39;</span>).props(<span class="stringliteral">&#39;color=primary&#39;</span>).tooltip(<span class="stringliteral">&quot;Create a new folder.&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1156</span>                self._create_folder_button.on(<span class="stringliteral">&#39;click&#39;</span>, self._dialog.open)</div>
-<div class="line"><span class="lineno"> 1157</span>                self._save_button = ui.button(<span class="stringliteral">&#39;Save&#39;</span>).props(<span class="stringliteral">&#39;outline; color=primary&#39;</span>).tooltip(<span class="stringliteral">&quot;Save the file in this folder.&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1158</span>                self._save_button.on(<span class="stringliteral">&#39;click&#39;</span>, self._save)</div>
-<div class="line"><span class="lineno"> 1159</span>                ui.button(<span class="stringliteral">&#39;Cancel&#39;</span>, on_click=self._cancel).props(<span class="stringliteral">&#39;outline; color=primary&#39;</span>).tooltip(<span class="stringliteral">&quot;Close this dialog.&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1160</span> </div>
-<div class="line"><span class="lineno"> 1161</span>        self.update_grid()</div>
-<div class="line"><span class="lineno"> 1162</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01123">1123</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1126</span>                 show_hidden_files: bool = <span class="keyword">False</span>) -&gt; <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno"> 1127</span>        <span class="stringliteral">&quot;&quot;&quot;Local File save dialog with the ability to create and delete folders.</span></div>
+<div class="line"><span class="lineno"> 1128</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1129</span><span class="stringliteral">        :param directory: The directory to start in.</span></div>
+<div class="line"><span class="lineno"> 1130</span><span class="stringliteral">        :param upper_limit: The directory to stop at (None: no limit, default: same as the starting directory).</span></div>
+<div class="line"><span class="lineno"> 1131</span><span class="stringliteral">        :param show_hidden_files: Whether to show hidden files.</span></div>
+<div class="line"><span class="lineno"> 1132</span><span class="stringliteral">        &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno"> 1133</span>        super().__init__()</div>
+<div class="line"><span class="lineno"> 1134</span>        self._selected_drive = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno"> 1135</span>        <span class="comment"># If on a Windows platform attempt to separate the drive and the directory</span></div>
+<div class="line"><span class="lineno"> 1136</span>        <span class="keywordflow">if</span> platform.system() == <span class="stringliteral">&#39;Windows&#39;</span> <span class="keywordflow">and</span> directory <span class="keywordflow">and</span> len(directory) &gt;= 2:</div>
+<div class="line"><span class="lineno"> 1137</span>            <span class="keywordflow">if</span> directory[0].isalpha() <span class="keywordflow">and</span> directory[1] == <span class="stringliteral">&#39;:&#39;</span>:</div>
+<div class="line"><span class="lineno"> 1138</span>                self._selected_drive = directory[:2]</div>
+<div class="line"><span class="lineno"> 1139</span>                directory = directory[2:]</div>
+<div class="line"><span class="lineno"> 1140</span> </div>
+<div class="line"><span class="lineno"> 1141</span>        self.path = Path(directory).expanduser()</div>
+<div class="line"><span class="lineno"> 1142</span>        <span class="keywordflow">if</span> upper_limit <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno"> 1143</span>            self.upper_limit = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno"> 1144</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1145</span>            self.upper_limit = Path(directory <span class="keywordflow">if</span> upper_limit == ... <span class="keywordflow">else</span> upper_limit).expanduser()</div>
+<div class="line"><span class="lineno"> 1146</span>        self.show_hidden_files = show_hidden_files</div>
+<div class="line"><span class="lineno"> 1147</span> </div>
+<div class="line"><span class="lineno"> 1148</span>        self._dialog = ui.dialog()</div>
+<div class="line"><span class="lineno"> 1149</span>        <span class="keyword">with</span> self._dialog:</div>
+<div class="line"><span class="lineno"> 1150</span>            <span class="keyword">with</span> ui.card().classes(<span class="stringliteral">&#39;w-96&#39;</span>):</div>
+<div class="line"><span class="lineno"> 1151</span>                self._folder_input_field = ui.input(label=<span class="stringliteral">&#39;Folder name to create&#39;</span>).props(<span class="stringliteral">&#39;autofocus&#39;</span>)  <span class="comment"># focus on open</span></div>
+<div class="line"><span class="lineno"> 1152</span>                <span class="keyword">with</span> ui.row():</div>
+<div class="line"><span class="lineno"> 1153</span>                    ui.button(<span class="stringliteral">&#39;OK&#39;</span>, on_click=self._create_new_folder)</div>
+<div class="line"><span class="lineno"> 1154</span>                    ui.button(<span class="stringliteral">&#39;Cancel&#39;</span>, on_click=self._close_dialog)</div>
+<div class="line"><span class="lineno"> 1155</span> </div>
+<div class="line"><span class="lineno"> 1156</span>        <span class="keyword">with</span> self, ui.card().style(<span class="stringliteral">&#39;overflow-x: auto; max-width: 100%;&#39;</span>):</div>
+<div class="line"><span class="lineno"> 1157</span>            self.add_drives_toggle()</div>
+<div class="line"><span class="lineno"> 1158</span>            self.grid = ui.aggrid({</div>
+<div class="line"><span class="lineno"> 1159</span>                <span class="stringliteral">&#39;columnDefs&#39;</span>: [{<span class="stringliteral">&#39;field&#39;</span>: <span class="stringliteral">&#39;name&#39;</span>, <span class="stringliteral">&#39;headerName&#39;</span>: <span class="stringliteral">&#39;File&#39;</span>}],</div>
+<div class="line"><span class="lineno"> 1160</span>                <span class="stringliteral">&#39;rowSelection&#39;</span>: <span class="stringliteral">&#39;single&#39;</span>,</div>
+<div class="line"><span class="lineno"> 1161</span>            }, html_columns=[0]).style(<span class="stringliteral">&#39;min-width: 600px&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1162</span>            self.grid.on(<span class="stringliteral">&#39;cellDoubleClicked&#39;</span>, self.handle_double_click)</div>
+<div class="line"><span class="lineno"> 1163</span>            <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;w-full justify-end&#39;</span>):</div>
+<div class="line"><span class="lineno"> 1164</span>                self._save_filename_input = ui.input(<span class="stringliteral">&quot;Filename&quot;</span>).style(<span class="stringliteral">&#39;width: 300px;&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1165</span>                self._delete_folder_button = ui.button(icon=<span class="stringliteral">&#39;folder&#39;</span>).props(<span class="stringliteral">&#39;color=negative&#39;</span>).tooltip(<span class="stringliteral">&quot;Delete this folder. The folder must be empty.&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1166</span>                self._delete_folder_button.on(<span class="stringliteral">&#39;click&#39;</span>, self._delete_folder)</div>
+<div class="line"><span class="lineno"> 1167</span>                self._create_folder_button = ui.button(icon=<span class="stringliteral">&#39;folder&#39;</span>).props(<span class="stringliteral">&#39;color=primary&#39;</span>).tooltip(<span class="stringliteral">&quot;Create a new folder.&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1168</span>                self._create_folder_button.on(<span class="stringliteral">&#39;click&#39;</span>, self._dialog.open)</div>
+<div class="line"><span class="lineno"> 1169</span>                self._save_button = ui.button(<span class="stringliteral">&#39;Save&#39;</span>).props(<span class="stringliteral">&#39;outline; color=primary&#39;</span>).tooltip(<span class="stringliteral">&quot;Save the file in this folder.&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1170</span>                self._save_button.on(<span class="stringliteral">&#39;click&#39;</span>, self._save)</div>
+<div class="line"><span class="lineno"> 1171</span>                ui.button(<span class="stringliteral">&#39;Cancel&#39;</span>, on_click=self._cancel).props(<span class="stringliteral">&#39;outline; color=primary&#39;</span>).tooltip(<span class="stringliteral">&quot;Close this dialog.&quot;</span>)</div>
+<div class="line"><span class="lineno"> 1172</span> </div>
+<div class="line"><span class="lineno"> 1173</span>        self.update_grid()</div>
+<div class="line"><span class="lineno"> 1174</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -313,10 +313,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01212">1212</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1212</span>    <span class="keyword">def </span>_cancel(self):</div>
-<div class="line"><span class="lineno"> 1213</span>        self.close()</div>
-<div class="line"><span class="lineno"> 1214</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01224">1224</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1224</span>    <span class="keyword">def </span>_cancel(self):</div>
+<div class="line"><span class="lineno"> 1225</span>        self.close()</div>
+<div class="line"><span class="lineno"> 1226</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -344,10 +344,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01190">1190</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1190</span>    <span class="keyword">def </span>_close_dialog(self):</div>
-<div class="line"><span class="lineno"> 1191</span>        self._dialog.close()</div>
-<div class="line"><span class="lineno"> 1192</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01202">1202</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1202</span>    <span class="keyword">def </span>_close_dialog(self):</div>
+<div class="line"><span class="lineno"> 1203</span>        self._dialog.close()</div>
+<div class="line"><span class="lineno"> 1204</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -375,10 +375,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01193">1193</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1193</span>    <span class="keyword">async def </span>_create_folder(self):</div>
-<div class="line"><span class="lineno"> 1194</span>        self._dialog.open()</div>
-<div class="line"><span class="lineno"> 1195</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01205">1205</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1205</span>    <span class="keyword">async def </span>_create_folder(self):</div>
+<div class="line"><span class="lineno"> 1206</span>        self._dialog.open()</div>
+<div class="line"><span class="lineno"> 1207</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -406,22 +406,22 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01175">1175</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1175</span>    <span class="keyword">def </span>_create_new_folder(self):</div>
-<div class="line"><span class="lineno"> 1176</span>        <span class="keywordflow">if</span> self._folder_input_field.value:</div>
-<div class="line"><span class="lineno"> 1177</span>            self.path = Path(self.path, self._folder_input_field.value)</div>
-<div class="line"><span class="lineno"> 1178</span>            self._dialog.close()</div>
-<div class="line"><span class="lineno"> 1179</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno"> 1180</span>                self.path.mkdir()</div>
-<div class="line"><span class="lineno"> 1181</span>                self.update_grid()</div>
-<div class="line"><span class="lineno"> 1182</span>                self._path_label.set_text(str(self.path))</div>
-<div class="line"><span class="lineno"> 1183</span> </div>
-<div class="line"><span class="lineno"> 1184</span>            <span class="keywordflow">except</span> FileExistsError:</div>
-<div class="line"><span class="lineno"> 1185</span>                ui.notify(f<span class="stringliteral">&#39;The {self._folder_input_field.value} folder already exists.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1186</span> </div>
-<div class="line"><span class="lineno"> 1187</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno"> 1188</span>            ui.notify(<span class="stringliteral">&#39;Please enter the folder name.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1189</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01187">1187</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1187</span>    <span class="keyword">def </span>_create_new_folder(self):</div>
+<div class="line"><span class="lineno"> 1188</span>        <span class="keywordflow">if</span> self._folder_input_field.value:</div>
+<div class="line"><span class="lineno"> 1189</span>            self.path = Path(self.path, self._folder_input_field.value)</div>
+<div class="line"><span class="lineno"> 1190</span>            self._dialog.close()</div>
+<div class="line"><span class="lineno"> 1191</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno"> 1192</span>                self.path.mkdir()</div>
+<div class="line"><span class="lineno"> 1193</span>                self.update_grid()</div>
+<div class="line"><span class="lineno"> 1194</span>                self._path_label.set_text(str(self.path))</div>
+<div class="line"><span class="lineno"> 1195</span> </div>
+<div class="line"><span class="lineno"> 1196</span>            <span class="keywordflow">except</span> FileExistsError:</div>
+<div class="line"><span class="lineno"> 1197</span>                ui.notify(f<span class="stringliteral">&#39;The {self._folder_input_field.value} folder already exists.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1198</span> </div>
+<div class="line"><span class="lineno"> 1199</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1200</span>            ui.notify(<span class="stringliteral">&#39;Please enter the folder name.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1201</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -449,19 +449,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01163">1163</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1163</span>    <span class="keyword">async def </span>_delete_folder(self):</div>
-<div class="line"><span class="lineno"> 1164</span>        <span class="keywordflow">if</span> self.path.exists() <span class="keywordflow">and</span> self.path.is_dir():</div>
-<div class="line"><span class="lineno"> 1165</span>            <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno"> 1166</span>                self.path.rmdir()</div>
-<div class="line"><span class="lineno"> 1167</span>                self.path = self.path.parent</div>
-<div class="line"><span class="lineno"> 1168</span>                self._path_label.set_text(str(self.path))</div>
-<div class="line"><span class="lineno"> 1169</span> </div>
-<div class="line"><span class="lineno"> 1170</span>            <span class="keywordflow">except</span> OSError <span class="keyword">as</span> ex:</div>
-<div class="line"><span class="lineno"> 1171</span>                ui.notify(str(ex), type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1172</span> </div>
-<div class="line"><span class="lineno"> 1173</span>        self.update_grid()</div>
-<div class="line"><span class="lineno"> 1174</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01175">1175</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1175</span>    <span class="keyword">async def </span>_delete_folder(self):</div>
+<div class="line"><span class="lineno"> 1176</span>        <span class="keywordflow">if</span> self.path.exists() <span class="keywordflow">and</span> self.path.is_dir():</div>
+<div class="line"><span class="lineno"> 1177</span>            <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno"> 1178</span>                self.path.rmdir()</div>
+<div class="line"><span class="lineno"> 1179</span>                self.path = self.path.parent</div>
+<div class="line"><span class="lineno"> 1180</span>                self._path_label.set_text(str(self.path))</div>
+<div class="line"><span class="lineno"> 1181</span> </div>
+<div class="line"><span class="lineno"> 1182</span>            <span class="keywordflow">except</span> OSError <span class="keyword">as</span> ex:</div>
+<div class="line"><span class="lineno"> 1183</span>                ui.notify(str(ex), type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1184</span> </div>
+<div class="line"><span class="lineno"> 1185</span>        self.update_grid()</div>
+<div class="line"><span class="lineno"> 1186</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -489,23 +489,23 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01196">1196</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1196</span>    <span class="keyword">async def </span>_save(self):</div>
-<div class="line"><span class="lineno"> 1197</span>        <span class="keywordflow">if</span> self._save_filename_input.value:</div>
-<div class="line"><span class="lineno"> 1198</span>            _file = Path(self.path, self._save_filename_input.value)</div>
-<div class="line"><span class="lineno"> 1199</span>            <span class="keywordflow">if</span> _file.exists() <span class="keywordflow">and</span> <span class="keywordflow">not</span> hasattr(self, <span class="stringliteral">&#39;_overwrite_confirmed&#39;</span>):</div>
-<div class="line"><span class="lineno"> 1200</span>                self._overwrite_confirmed = <span class="keyword">True</span>  <span class="comment"># flag to skip on next click</span></div>
-<div class="line"><span class="lineno"> 1201</span>                ui.notify(f<span class="stringliteral">&#39;&quot;{_file}&quot; already exists. Click Save again to overwrite.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1202</span>                <span class="keywordflow">return</span></div>
-<div class="line"><span class="lineno"> 1203</span> </div>
-<div class="line"><span class="lineno"> 1204</span>            self.submit([_file])</div>
-<div class="line"><span class="lineno"> 1205</span> </div>
-<div class="line"><span class="lineno"> 1206</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno"> 1207</span>            <span class="keywordflow">if</span> self._save_filename_input.label == <span class="stringliteral">&quot;Filename&quot;</span>:</div>
-<div class="line"><span class="lineno"> 1208</span>                ui.notify(<span class="stringliteral">&#39;No filename has been entered.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1209</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno"> 1210</span>                ui.notify(<span class="stringliteral">&#39;No folder name has been entered.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
-<div class="line"><span class="lineno"> 1211</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01208">1208</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1208</span>    <span class="keyword">async def </span>_save(self):</div>
+<div class="line"><span class="lineno"> 1209</span>        <span class="keywordflow">if</span> self._save_filename_input.value:</div>
+<div class="line"><span class="lineno"> 1210</span>            _file = Path(self.path, self._save_filename_input.value)</div>
+<div class="line"><span class="lineno"> 1211</span>            <span class="keywordflow">if</span> _file.exists() <span class="keywordflow">and</span> <span class="keywordflow">not</span> hasattr(self, <span class="stringliteral">&#39;_overwrite_confirmed&#39;</span>):</div>
+<div class="line"><span class="lineno"> 1212</span>                self._overwrite_confirmed = <span class="keyword">True</span>  <span class="comment"># flag to skip on next click</span></div>
+<div class="line"><span class="lineno"> 1213</span>                ui.notify(f<span class="stringliteral">&#39;&quot;{_file}&quot; already exists. Click Save again to overwrite.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1214</span>                <span class="keywordflow">return</span></div>
+<div class="line"><span class="lineno"> 1215</span> </div>
+<div class="line"><span class="lineno"> 1216</span>            self.submit([_file])</div>
+<div class="line"><span class="lineno"> 1217</span> </div>
+<div class="line"><span class="lineno"> 1218</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1219</span>            <span class="keywordflow">if</span> self._save_filename_input.label == <span class="stringliteral">&quot;Filename&quot;</span>:</div>
+<div class="line"><span class="lineno"> 1220</span>                ui.notify(<span class="stringliteral">&#39;No filename has been entered.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1221</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1222</span>                ui.notify(<span class="stringliteral">&#39;No folder name has been entered.&#39;</span>, type=<span class="stringliteral">&#39;warning&#39;</span>)</div>
+<div class="line"><span class="lineno"> 1223</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -535,47 +535,47 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01215">1215</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1215</span>    <span class="keyword">def </span>handle_double_click(self, e) -&gt; None:</div>
-<div class="line"><span class="lineno"> 1216</span>        _path = Path(e.args[<span class="stringliteral">&#39;data&#39;</span>][<span class="stringliteral">&#39;path&#39;</span>])</div>
-<div class="line"><span class="lineno"> 1217</span> </div>
-<div class="line"><span class="lineno"> 1218</span>        <span class="keywordflow">if</span> _path.is_dir():</div>
-<div class="line"><span class="lineno"> 1219</span>            self.path = _path</div>
-<div class="line"><span class="lineno"> 1220</span>            <span class="comment"># Update the displayed path</span></div>
-<div class="line"><span class="lineno"> 1221</span>            self._path_label.set_text(str(self.path))</div>
-<div class="line"><span class="lineno"> 1222</span>            self.update_grid()</div>
-<div class="line"><span class="lineno"> 1223</span> </div>
-<div class="line"><span class="lineno"> 1224</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno"> 1225</span>            self._save_filename_input.value = _path.name</div>
-<div class="line"><span class="lineno"> 1226</span>            <span class="comment"># Update the displayed path</span></div>
-<div class="line"><span class="lineno"> 1227</span>            self._path_label.set_text(str(_path.parent))</div>
-<div class="line"><span class="lineno"> 1228</span> </div>
-<div class="line"><span class="lineno"> 1229</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno"> 1230</span><span class="stringliteral"># File/Folder selection/save examples</span></div>
-<div class="line"><span class="lineno"> 1231</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1232</span><span class="stringliteral">async def file_and_folder_chooser():</span></div>
-<div class="line"><span class="lineno"> 1233</span><span class="stringliteral">    ffc = FileAndFolderChooser(&#39;/tmp&#39;)</span></div>
-<div class="line"><span class="lineno"> 1234</span><span class="stringliteral">    result = await ffc.open()</span></div>
-<div class="line"><span class="lineno"> 1235</span><span class="stringliteral">    print(f&quot;PJA: result = {result}&quot;)</span></div>
-<div class="line"><span class="lineno"> 1236</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1237</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1238</span><span class="stringliteral">async def legacy_file_and_folder_chooser():</span></div>
-<div class="line"><span class="lineno"> 1239</span><span class="stringliteral">    result = await local_file_picker(&#39;/tmp&#39;)</span></div>
-<div class="line"><span class="lineno"> 1240</span><span class="stringliteral">    print(f&quot;PJA: result = {result}&quot;)</span></div>
-<div class="line"><span class="lineno"> 1241</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1242</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1243</span><span class="stringliteral">async def file_save_chooser():</span></div>
-<div class="line"><span class="lineno"> 1244</span><span class="stringliteral">    ffc = FileSaveChooser(&#39;/tmp&#39;)</span></div>
-<div class="line"><span class="lineno"> 1245</span><span class="stringliteral">    result = await ffc.open()</span></div>
-<div class="line"><span class="lineno"> 1246</span><span class="stringliteral">    print(f&quot;PJA: result = {result}&quot;)</span></div>
-<div class="line"><span class="lineno"> 1247</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1248</span><span class="stringliteral">ui.button(&#39;Save A File&#39;, on_click=file_save_chooser)</span></div>
-<div class="line"><span class="lineno"> 1249</span><span class="stringliteral">ui.button(&#39;Select An Existing File or Folder&#39;, on_click=file_and_folder_chooser)</span></div>
-<div class="line"><span class="lineno"> 1250</span><span class="stringliteral">ui.button(&#39;Legacy Select An Existing File or Folder&#39;, on_click=legacy_file_and_folder_chooser)</span></div>
-<div class="line"><span class="lineno"> 1251</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1252</span><span class="stringliteral">ui.run()</span></div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01227">1227</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1227</span>    <span class="keyword">def </span>handle_double_click(self, e) -&gt; None:</div>
+<div class="line"><span class="lineno"> 1228</span>        _path = Path(e.args[<span class="stringliteral">&#39;data&#39;</span>][<span class="stringliteral">&#39;path&#39;</span>])</div>
+<div class="line"><span class="lineno"> 1229</span> </div>
+<div class="line"><span class="lineno"> 1230</span>        <span class="keywordflow">if</span> _path.is_dir():</div>
+<div class="line"><span class="lineno"> 1231</span>            self.path = _path</div>
+<div class="line"><span class="lineno"> 1232</span>            <span class="comment"># Update the displayed path</span></div>
+<div class="line"><span class="lineno"> 1233</span>            self._path_label.set_text(str(self.path))</div>
+<div class="line"><span class="lineno"> 1234</span>            self.update_grid()</div>
+<div class="line"><span class="lineno"> 1235</span> </div>
+<div class="line"><span class="lineno"> 1236</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno"> 1237</span>            self._save_filename_input.value = _path.name</div>
+<div class="line"><span class="lineno"> 1238</span>            <span class="comment"># Update the displayed path</span></div>
+<div class="line"><span class="lineno"> 1239</span>            self._path_label.set_text(str(_path.parent))</div>
+<div class="line"><span class="lineno"> 1240</span> </div>
+<div class="line"><span class="lineno"> 1241</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno"> 1242</span><span class="stringliteral"># File/Folder selection/save examples</span></div>
+<div class="line"><span class="lineno"> 1243</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1244</span><span class="stringliteral">async def file_and_folder_chooser():</span></div>
+<div class="line"><span class="lineno"> 1245</span><span class="stringliteral">    ffc = FileAndFolderChooser(&#39;/tmp&#39;)</span></div>
+<div class="line"><span class="lineno"> 1246</span><span class="stringliteral">    result = await ffc.open()</span></div>
+<div class="line"><span class="lineno"> 1247</span><span class="stringliteral">    print(f&quot;PJA: result = {result}&quot;)</span></div>
+<div class="line"><span class="lineno"> 1248</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1249</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1250</span><span class="stringliteral">async def legacy_file_and_folder_chooser():</span></div>
+<div class="line"><span class="lineno"> 1251</span><span class="stringliteral">    result = await local_file_picker(&#39;/tmp&#39;)</span></div>
+<div class="line"><span class="lineno"> 1252</span><span class="stringliteral">    print(f&quot;PJA: result = {result}&quot;)</span></div>
 <div class="line"><span class="lineno"> 1253</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno"> 1254</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno"> 1254</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1255</span><span class="stringliteral">async def file_save_chooser():</span></div>
+<div class="line"><span class="lineno"> 1256</span><span class="stringliteral">    ffc = FileSaveChooser(&#39;/tmp&#39;)</span></div>
+<div class="line"><span class="lineno"> 1257</span><span class="stringliteral">    result = await ffc.open()</span></div>
+<div class="line"><span class="lineno"> 1258</span><span class="stringliteral">    print(f&quot;PJA: result = {result}&quot;)</span></div>
+<div class="line"><span class="lineno"> 1259</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1260</span><span class="stringliteral">ui.button(&#39;Save A File&#39;, on_click=file_save_chooser)</span></div>
+<div class="line"><span class="lineno"> 1261</span><span class="stringliteral">ui.button(&#39;Select An Existing File or Folder&#39;, on_click=file_and_folder_chooser)</span></div>
+<div class="line"><span class="lineno"> 1262</span><span class="stringliteral">ui.button(&#39;Legacy Select An Existing File or Folder&#39;, on_click=legacy_file_and_folder_chooser)</span></div>
+<div class="line"><span class="lineno"> 1263</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1264</span><span class="stringliteral">ui.run()</span></div>
+<div class="line"><span class="lineno"> 1265</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno"> 1266</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -600,7 +600,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01155">1155</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01167">1167</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -624,7 +624,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01154">1154</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01166">1166</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -648,7 +648,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01153">1153</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01165">1165</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -672,7 +672,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01136">1136</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01148">1148</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -696,7 +696,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01139">1139</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01151">1151</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -720,7 +720,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01200">1200</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01212">1212</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -744,7 +744,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01158">1158</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01170">1170</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -768,7 +768,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01157">1157</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01169">1169</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -792,7 +792,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01152">1152</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01164">1164</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -816,7 +816,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01122">1122</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01134">1134</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -832,7 +832,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01146">1146</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01158">1158</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -848,7 +848,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01150">1150</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01162">1162</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -864,7 +864,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01129">1129</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01141">1141</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -880,7 +880,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01134">1134</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01146">1146</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -896,7 +896,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01131">1131</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l01143">1143</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
