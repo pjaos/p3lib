@@ -14,7 +14,7 @@ var searchData=
   ['serverport_11',['serverPort',['../classp3lib_1_1database__if_1_1DBConfig.html#a87077d7e45375c78fff735d5f5addba8',1,'p3lib::database_if::DBConfig']]],
   ['serversessionhandler_12',['serversessionhandler',['../classtest__json__networking_1_1ServerSessionHandler.html',1,'ServerSessionHandler'],['../classp3lib_1_1table__plot_1_1Table2DPlotServer_1_1ServerSessionHandler.html',1,'Table2DPlotServer.ServerSessionHandler']]],
   ['set_5fcurrent_5fuser_13',['set_current_user',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#af2066d627cc22935e68a55b3f04c755b',1,'p3lib::bokeh_auth::LoginHandler']]],
-  ['set_5finit_5fgui_5fargs_14',['set_init_gui_args',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a3752c2758e0a34a556b04f7f11f688e1',1,'p3lib::ngt3::TabbedNiceGui']]],
+  ['set_5finit_5fgui_5fargs_14',['set_init_gui_args',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a42b77060b0755be993a698e739b47d94',1,'p3lib::ngt3::TabbedNiceGui']]],
   ['set_5fresult_15',['SET_RESULT',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a9f42e04813ef77e80bc99d73d6c95ded',1,'p3lib::table_plot::Table2DPlotServer']]],
   ['setbokehauthattrs_16',['SetBokehAuthAttrs',['../namespacep3lib_1_1bokeh__auth.html#ab0eb2c1d47bb7195bac0a9efb8b57afe',1,'p3lib::bokeh_auth']]],
   ['setdefaultconfig_17',['setDefaultConfig',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a3efa669c6801e75211eb37330ac68f32',1,'p3lib::pconfig::ConfigManager']]],

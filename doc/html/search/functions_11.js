@@ -7,7 +7,7 @@ var searchData=
   ['send_4',['send',['../classp3lib_1_1bokeh__gui_1_1GUIModel__A.html#adf8f7cda380f495cf444d323db363ecf',1,'p3lib::bokeh_gui::GUIModel_A']]],
   ['sendmessage_5',['sendMessage',['../classp3lib_1_1table__plot_1_1Bokeh2DTablePlotter.html#a88ae3c68f00e4820f71cf94882ee031c',1,'p3lib::table_plot::Bokeh2DTablePlotter']]],
   ['set_5fcurrent_5fuser_6',['set_current_user',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#af2066d627cc22935e68a55b3f04c755b',1,'p3lib::bokeh_auth::LoginHandler']]],
-  ['set_5finit_5fgui_5fargs_7',['set_init_gui_args',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a3752c2758e0a34a556b04f7f11f688e1',1,'p3lib::ngt3::TabbedNiceGui']]],
+  ['set_5finit_5fgui_5fargs_7',['set_init_gui_args',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a42b77060b0755be993a698e739b47d94',1,'p3lib::ngt3::TabbedNiceGui']]],
   ['setbokehauthattrs_8',['SetBokehAuthAttrs',['../namespacep3lib_1_1bokeh__auth.html#ab0eb2c1d47bb7195bac0a9efb8b57afe',1,'p3lib::bokeh_auth']]],
   ['setdefaultconfig_9',['setDefaultConfig',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a3efa669c6801e75211eb37330ac68f32',1,'p3lib::pconfig::ConfigManager']]],
   ['setfailurebuttonlabel_10',['setfailurebuttonlabel',['../classp3lib_1_1ngt_1_1YesNoDialog.html#acf2c1100d221bd2f4054e9e97d562e01',1,'p3lib.ngt.YesNoDialog.setFailureButtonLabel()'],['../classp3lib_1_1ngt3_1_1YesNoDialog.html#acf2c1100d221bd2f4054e9e97d562e01',1,'p3lib.ngt3.YesNoDialog.setFailureButtonLabel()']]],

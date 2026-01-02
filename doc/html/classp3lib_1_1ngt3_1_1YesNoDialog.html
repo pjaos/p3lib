@@ -195,7 +195,7 @@ Protected Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><pre class="fragment">@brief Responsible for displaying a dialog box to the user with a boolean (I.E yes/no, ok/cancel) response.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00663">663</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00667">667</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a37d1b9d644fbbf1795e129cfc7a6658e" name="a37d1b9d644fbbf1795e129cfc7a6658e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37d1b9d644fbbf1795e129cfc7a6658e">&#9670;&#160;</a></span>__init__()</h2>
@@ -247,27 +247,27 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Constructor</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00692">692</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  697</span>                 failureButtonText=<span class="stringliteral">&quot;No&quot;</span>):</div>
-<div class="line"><span class="lineno">  698</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  699</span><span class="stringliteral">        self._dialog                 = None</span></div>
-<div class="line"><span class="lineno">  700</span><span class="stringliteral">        self._selectedFile           = None</span></div>
-<div class="line"><span class="lineno">  701</span><span class="stringliteral">        self._successButtonText      = None          # The dialogs success button text</span></div>
-<div class="line"><span class="lineno">  702</span><span class="stringliteral">        self._failureButtonText      = None          # The dialogs failure button text</span></div>
-<div class="line"><span class="lineno">  703</span><span class="stringliteral">        self._prompt                 = None          # The prompt to be displayed in the dialog</span></div>
-<div class="line"><span class="lineno">  704</span><span class="stringliteral">        self._successMethod          = None          # The method to be called when the success button is selected.</span></div>
-<div class="line"><span class="lineno">  705</span><span class="stringliteral">        self._failureMethod          = None          # The method to be called when the failure button is selected.</span></div>
-<div class="line"><span class="lineno">  706</span><span class="stringliteral">        self._inputFieldDict         = {}            # A dict of input field details to be included in the dialog. Can be left as an empty dict if no input fields are required.</span></div>
-<div class="line"><span class="lineno">  707</span><span class="stringliteral">                                                     # The key in this dict is the name of the input field that the user sees.</span></div>
-<div class="line"><span class="lineno">  708</span><span class="stringliteral">                                                     # The value in this dict is another dict containing details of the input field which may be</span></div>
-<div class="line"><span class="lineno">  709</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  710</span><span class="stringliteral">        self.setPrompt(prompt)</span></div>
-<div class="line"><span class="lineno">  711</span><span class="stringliteral">        self.setSuccessMethod(successMethod)</span></div>
-<div class="line"><span class="lineno">  712</span><span class="stringliteral">        self.setFailureMethod(failureMethod)</span></div>
-<div class="line"><span class="lineno">  713</span><span class="stringliteral">        self.setSuccessButtonLabel(successButtonText)</span></div>
-<div class="line"><span class="lineno">  714</span><span class="stringliteral">        self.setFailureButtonLabel(failureButtonText)</span></div>
-<div class="line"><span class="lineno">  715</span><span class="stringliteral"></span> </div>
-<div class="line"><span class="lineno">  716</span><span class="stringliteral"></span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00696">696</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  701</span>                 failureButtonText=<span class="stringliteral">&quot;No&quot;</span>):</div>
+<div class="line"><span class="lineno">  702</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  703</span><span class="stringliteral">        self._dialog                 = None</span></div>
+<div class="line"><span class="lineno">  704</span><span class="stringliteral">        self._selectedFile           = None</span></div>
+<div class="line"><span class="lineno">  705</span><span class="stringliteral">        self._successButtonText      = None          # The dialogs success button text</span></div>
+<div class="line"><span class="lineno">  706</span><span class="stringliteral">        self._failureButtonText      = None          # The dialogs failure button text</span></div>
+<div class="line"><span class="lineno">  707</span><span class="stringliteral">        self._prompt                 = None          # The prompt to be displayed in the dialog</span></div>
+<div class="line"><span class="lineno">  708</span><span class="stringliteral">        self._successMethod          = None          # The method to be called when the success button is selected.</span></div>
+<div class="line"><span class="lineno">  709</span><span class="stringliteral">        self._failureMethod          = None          # The method to be called when the failure button is selected.</span></div>
+<div class="line"><span class="lineno">  710</span><span class="stringliteral">        self._inputFieldDict         = {}            # A dict of input field details to be included in the dialog. Can be left as an empty dict if no input fields are required.</span></div>
+<div class="line"><span class="lineno">  711</span><span class="stringliteral">                                                     # The key in this dict is the name of the input field that the user sees.</span></div>
+<div class="line"><span class="lineno">  712</span><span class="stringliteral">                                                     # The value in this dict is another dict containing details of the input field which may be</span></div>
+<div class="line"><span class="lineno">  713</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  714</span><span class="stringliteral">        self.setPrompt(prompt)</span></div>
+<div class="line"><span class="lineno">  715</span><span class="stringliteral">        self.setSuccessMethod(successMethod)</span></div>
+<div class="line"><span class="lineno">  716</span><span class="stringliteral">        self.setFailureMethod(failureMethod)</span></div>
+<div class="line"><span class="lineno">  717</span><span class="stringliteral">        self.setSuccessButtonLabel(successButtonText)</span></div>
+<div class="line"><span class="lineno">  718</span><span class="stringliteral">        self.setFailureButtonLabel(failureButtonText)</span></div>
+<div class="line"><span class="lineno">  719</span><span class="stringliteral"></span> </div>
+<div class="line"><span class="lineno">  720</span><span class="stringliteral"></span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -308,26 +308,26 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Add a control to allow the user to enter the time as an hour and min.
    @param label The label for the time field.
    @return The input field containing the hour and minute entered.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00804">804</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  804</span>    <span class="keyword">def </span>_get_input_time_field(self, label):</div>
-<div class="line"><span class="lineno">  805</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a control to allow the user to enter the time as an hour and min.</span></div>
-<div class="line"><span class="lineno">  806</span><span class="stringliteral">           @param label The label for the time field.</span></div>
-<div class="line"><span class="lineno">  807</span><span class="stringliteral">           @return The input field containing the hour and minute entered.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  808</span>        <span class="comment"># Put this off the bottom of the mobile screen as most times it will not be needed</span></div>
-<div class="line"><span class="lineno">  809</span>        <span class="comment"># and there is not enough room on the mobile screen above the plot pane.</span></div>
-<div class="line"><span class="lineno">  810</span>        <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
-<div class="line"><span class="lineno">  811</span>            ui.label(label)</div>
-<div class="line"><span class="lineno">  812</span>            <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
-<div class="line"><span class="lineno">  813</span>                time_input = ui.input(<span class="stringliteral">&quot;Time (HH:MM)&quot;</span>)</div>
-<div class="line"><span class="lineno">  814</span>                <span class="keyword">with</span> time_input <span class="keyword">as</span> time:</div>
-<div class="line"><span class="lineno">  815</span>                    <span class="keyword">with</span> ui.menu().props(<span class="stringliteral">&#39;no-parent-event&#39;</span>) <span class="keyword">as</span> menu:</div>
-<div class="line"><span class="lineno">  816</span>                        <span class="keyword">with</span> ui.time().bind_value(time):</div>
-<div class="line"><span class="lineno">  817</span>                            <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;justify-end&#39;</span>):</div>
-<div class="line"><span class="lineno">  818</span>                                ui.button(<span class="stringliteral">&#39;Close&#39;</span>, on_click=menu.close).props(<span class="stringliteral">&#39;flat&#39;</span>)</div>
-<div class="line"><span class="lineno">  819</span>                    <span class="keyword">with</span> time.add_slot(<span class="stringliteral">&#39;append&#39;</span>):</div>
-<div class="line"><span class="lineno">  820</span>                        ui.icon(<span class="stringliteral">&#39;access_time&#39;</span>).on(<span class="stringliteral">&#39;click&#39;</span>, menu.open).classes(<span class="stringliteral">&#39;cursor-pointer&#39;</span>)</div>
-<div class="line"><span class="lineno">  821</span>        <span class="keywordflow">return</span> time_input</div>
-<div class="line"><span class="lineno">  822</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00808">808</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  808</span>    <span class="keyword">def </span>_get_input_time_field(self, label):</div>
+<div class="line"><span class="lineno">  809</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a control to allow the user to enter the time as an hour and min.</span></div>
+<div class="line"><span class="lineno">  810</span><span class="stringliteral">           @param label The label for the time field.</span></div>
+<div class="line"><span class="lineno">  811</span><span class="stringliteral">           @return The input field containing the hour and minute entered.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  812</span>        <span class="comment"># Put this off the bottom of the mobile screen as most times it will not be needed</span></div>
+<div class="line"><span class="lineno">  813</span>        <span class="comment"># and there is not enough room on the mobile screen above the plot pane.</span></div>
+<div class="line"><span class="lineno">  814</span>        <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
+<div class="line"><span class="lineno">  815</span>            ui.label(label)</div>
+<div class="line"><span class="lineno">  816</span>            <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;w-full&#39;</span>):</div>
+<div class="line"><span class="lineno">  817</span>                time_input = ui.input(<span class="stringliteral">&quot;Time (HH:MM)&quot;</span>)</div>
+<div class="line"><span class="lineno">  818</span>                <span class="keyword">with</span> time_input <span class="keyword">as</span> time:</div>
+<div class="line"><span class="lineno">  819</span>                    <span class="keyword">with</span> ui.menu().props(<span class="stringliteral">&#39;no-parent-event&#39;</span>) <span class="keyword">as</span> menu:</div>
+<div class="line"><span class="lineno">  820</span>                        <span class="keyword">with</span> ui.time().bind_value(time):</div>
+<div class="line"><span class="lineno">  821</span>                            <span class="keyword">with</span> ui.row().classes(<span class="stringliteral">&#39;justify-end&#39;</span>):</div>
+<div class="line"><span class="lineno">  822</span>                                ui.button(<span class="stringliteral">&#39;Close&#39;</span>, on_click=menu.close).props(<span class="stringliteral">&#39;flat&#39;</span>)</div>
+<div class="line"><span class="lineno">  823</span>                    <span class="keyword">with</span> time.add_slot(<span class="stringliteral">&#39;append&#39;</span>):</div>
+<div class="line"><span class="lineno">  824</span>                        ui.icon(<span class="stringliteral">&#39;access_time&#39;</span>).on(<span class="stringliteral">&#39;click&#39;</span>, menu.open).classes(<span class="stringliteral">&#39;cursor-pointer&#39;</span>)</div>
+<div class="line"><span class="lineno">  825</span>        <span class="keywordflow">return</span> time_input</div>
+<div class="line"><span class="lineno">  826</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -355,70 +355,70 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Init the dialog.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00741">741</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  741</span>    <span class="keyword">def </span>_init(self):</div>
-<div class="line"><span class="lineno">  742</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Init the dialog.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  743</span>        <span class="keyword">with</span> ui.dialog() <span class="keyword">as</span> self._dialog, ui.card():</div>
-<div class="line"><span class="lineno">  744</span>            ui.label(self._prompt)</div>
-<div class="line"><span class="lineno">  745</span>            <span class="keywordflow">for</span> fieldName <span class="keywordflow">in</span> self._inputFieldDict:</div>
-<div class="line"><span class="lineno">  746</span>                fieldType = self._inputFieldDict[fieldName][YesNoDialog.FIELD_TYPE_KEY]</div>
-<div class="line"><span class="lineno">  747</span>                <span class="keywordflow">if</span> fieldType == YesNoDialog.TEXT_INPUT_FIELD_TYPE:</div>
-<div class="line"><span class="lineno">  748</span>                    widget = ui.input(label=fieldName).style(<span class="stringliteral">&#39;width: 200px;&#39;</span>)</div>
-<div class="line"><span class="lineno">  749</span> </div>
-<div class="line"><span class="lineno">  750</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.NUMBER_INPUT_FIELD_TYPE:</div>
-<div class="line"><span class="lineno">  751</span>                    value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
-<div class="line"><span class="lineno">  752</span>                    min = self._inputFieldDict[fieldName][YesNoDialog.MIN_NUMBER_KEY]</div>
-<div class="line"><span class="lineno">  753</span>                    max = self._inputFieldDict[fieldName][YesNoDialog.MAX_NUMBER_KEY]</div>
-<div class="line"><span class="lineno">  754</span>                    step = self._inputFieldDict[fieldName][YesNoDialog.STEP_KEY]</div>
-<div class="line"><span class="lineno">  755</span>                    widget = ui.number(label=fieldName,</div>
-<div class="line"><span class="lineno">  756</span>                                        value=value,</div>
-<div class="line"><span class="lineno">  757</span>                                        min=min,</div>
-<div class="line"><span class="lineno">  758</span>                                        max=max,</div>
-<div class="line"><span class="lineno">  759</span>                                        step=step).style(<span class="stringliteral">&#39;width: 200px;&#39;</span>)</div>
-<div class="line"><span class="lineno">  760</span> </div>
-<div class="line"><span class="lineno">  761</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.SWITCH_INPUT_FIELD_TYPE:</div>
-<div class="line"><span class="lineno">  762</span>                    widget = ui.switch(fieldName)</div>
-<div class="line"><span class="lineno">  763</span> </div>
-<div class="line"><span class="lineno">  764</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.DROPDOWN_INPUT_FIELD:</div>
-<div class="line"><span class="lineno">  765</span>                    <span class="comment">#ui.label(fieldName)</span></div>
-<div class="line"><span class="lineno">  766</span>                    options = self._inputFieldDict[fieldName][YesNoDialog.OPTIONS_KEY]</div>
-<div class="line"><span class="lineno">  767</span>                    <span class="keywordflow">if</span> options:</div>
-<div class="line"><span class="lineno">  768</span>                        widget = ui.select(options)</div>
-<div class="line"><span class="lineno">  769</span>                        widget.tooltip(fieldName)</div>
-<div class="line"><span class="lineno">  770</span>                    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  771</span>                        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;BUG: DROPDOWN_INPUT_FIELD defined without defining the options.&quot;</span>)</div>
-<div class="line"><span class="lineno">  772</span> </div>
-<div class="line"><span class="lineno">  773</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.COLOR_INPUT_FIELD:</div>
-<div class="line"><span class="lineno">  774</span>                    widget = ui.color_input(label=fieldName)</div>
-<div class="line"><span class="lineno">  775</span> </div>
-<div class="line"><span class="lineno">  776</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.DATE_INPUT_FIELD:</div>
-<div class="line"><span class="lineno">  777</span>                    widget = ui.date()</div>
-<div class="line"><span class="lineno">  778</span>                    widget.tooltip(fieldName)</div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00745">745</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  745</span>    <span class="keyword">def </span>_init(self):</div>
+<div class="line"><span class="lineno">  746</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Init the dialog.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  747</span>        <span class="keyword">with</span> ui.dialog() <span class="keyword">as</span> self._dialog, ui.card():</div>
+<div class="line"><span class="lineno">  748</span>            ui.label(self._prompt)</div>
+<div class="line"><span class="lineno">  749</span>            <span class="keywordflow">for</span> fieldName <span class="keywordflow">in</span> self._inputFieldDict:</div>
+<div class="line"><span class="lineno">  750</span>                fieldType = self._inputFieldDict[fieldName][YesNoDialog.FIELD_TYPE_KEY]</div>
+<div class="line"><span class="lineno">  751</span>                <span class="keywordflow">if</span> fieldType == YesNoDialog.TEXT_INPUT_FIELD_TYPE:</div>
+<div class="line"><span class="lineno">  752</span>                    widget = ui.input(label=fieldName).style(<span class="stringliteral">&#39;width: 200px;&#39;</span>)</div>
+<div class="line"><span class="lineno">  753</span> </div>
+<div class="line"><span class="lineno">  754</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.NUMBER_INPUT_FIELD_TYPE:</div>
+<div class="line"><span class="lineno">  755</span>                    value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
+<div class="line"><span class="lineno">  756</span>                    min = self._inputFieldDict[fieldName][YesNoDialog.MIN_NUMBER_KEY]</div>
+<div class="line"><span class="lineno">  757</span>                    max = self._inputFieldDict[fieldName][YesNoDialog.MAX_NUMBER_KEY]</div>
+<div class="line"><span class="lineno">  758</span>                    step = self._inputFieldDict[fieldName][YesNoDialog.STEP_KEY]</div>
+<div class="line"><span class="lineno">  759</span>                    widget = ui.number(label=fieldName,</div>
+<div class="line"><span class="lineno">  760</span>                                        value=value,</div>
+<div class="line"><span class="lineno">  761</span>                                        min=min,</div>
+<div class="line"><span class="lineno">  762</span>                                        max=max,</div>
+<div class="line"><span class="lineno">  763</span>                                        step=step).style(<span class="stringliteral">&#39;width: 200px;&#39;</span>)</div>
+<div class="line"><span class="lineno">  764</span> </div>
+<div class="line"><span class="lineno">  765</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.SWITCH_INPUT_FIELD_TYPE:</div>
+<div class="line"><span class="lineno">  766</span>                    widget = ui.switch(fieldName)</div>
+<div class="line"><span class="lineno">  767</span> </div>
+<div class="line"><span class="lineno">  768</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.DROPDOWN_INPUT_FIELD:</div>
+<div class="line"><span class="lineno">  769</span>                    <span class="comment">#ui.label(fieldName)</span></div>
+<div class="line"><span class="lineno">  770</span>                    options = self._inputFieldDict[fieldName][YesNoDialog.OPTIONS_KEY]</div>
+<div class="line"><span class="lineno">  771</span>                    <span class="keywordflow">if</span> options:</div>
+<div class="line"><span class="lineno">  772</span>                        widget = ui.select(options)</div>
+<div class="line"><span class="lineno">  773</span>                        widget.tooltip(fieldName)</div>
+<div class="line"><span class="lineno">  774</span>                    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  775</span>                        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;BUG: DROPDOWN_INPUT_FIELD defined without defining the options.&quot;</span>)</div>
+<div class="line"><span class="lineno">  776</span> </div>
+<div class="line"><span class="lineno">  777</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.COLOR_INPUT_FIELD:</div>
+<div class="line"><span class="lineno">  778</span>                    widget = ui.color_input(label=fieldName)</div>
 <div class="line"><span class="lineno">  779</span> </div>
-<div class="line"><span class="lineno">  780</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.TIME_INPUT_FIELD:</div>
-<div class="line"><span class="lineno">  781</span>                    widget = ui.time()</div>
+<div class="line"><span class="lineno">  780</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.DATE_INPUT_FIELD:</div>
+<div class="line"><span class="lineno">  781</span>                    widget = ui.date()</div>
 <div class="line"><span class="lineno">  782</span>                    widget.tooltip(fieldName)</div>
 <div class="line"><span class="lineno">  783</span> </div>
-<div class="line"><span class="lineno">  784</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.KNOB_INPUT_FIELD:</div>
-<div class="line"><span class="lineno">  785</span>                    widget = ui.knob(show_value=<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  784</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.TIME_INPUT_FIELD:</div>
+<div class="line"><span class="lineno">  785</span>                    widget = ui.time()</div>
 <div class="line"><span class="lineno">  786</span>                    widget.tooltip(fieldName)</div>
 <div class="line"><span class="lineno">  787</span> </div>
-<div class="line"><span class="lineno">  788</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.HOUR_MIN_INPUT_FIELD_TYPE:</div>
-<div class="line"><span class="lineno">  789</span>                    widget = self._get_input_time_field(fieldName)</div>
+<div class="line"><span class="lineno">  788</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.KNOB_INPUT_FIELD:</div>
+<div class="line"><span class="lineno">  789</span>                    widget = ui.knob(show_value=<span class="keyword">True</span>)</div>
 <div class="line"><span class="lineno">  790</span>                    widget.tooltip(fieldName)</div>
 <div class="line"><span class="lineno">  791</span> </div>
-<div class="line"><span class="lineno">  792</span>                <span class="comment"># Save a ref to the widet in the field dict</span></div>
-<div class="line"><span class="lineno">  793</span>                self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY] = widget</div>
-<div class="line"><span class="lineno">  794</span> </div>
-<div class="line"><span class="lineno">  795</span>                <span class="comment"># If we have an initial value then set it</span></div>
-<div class="line"><span class="lineno">  796</span>                value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
-<div class="line"><span class="lineno">  797</span>                <span class="keywordflow">if</span> value:</div>
-<div class="line"><span class="lineno">  798</span>                    widget.value = value</div>
-<div class="line"><span class="lineno">  799</span> </div>
-<div class="line"><span class="lineno">  800</span>            <span class="keyword">with</span> ui.row():</div>
-<div class="line"><span class="lineno">  801</span>                ui.button(self._successButtonText, on_click=self._internalSuccessMethod)</div>
-<div class="line"><span class="lineno">  802</span>                ui.button(self._failureButtonText,  on_click=self._internalFailureMethod)</div>
+<div class="line"><span class="lineno">  792</span>                <span class="keywordflow">elif</span> fieldType == YesNoDialog.HOUR_MIN_INPUT_FIELD_TYPE:</div>
+<div class="line"><span class="lineno">  793</span>                    widget = self._get_input_time_field(fieldName)</div>
+<div class="line"><span class="lineno">  794</span>                    widget.tooltip(fieldName)</div>
+<div class="line"><span class="lineno">  795</span> </div>
+<div class="line"><span class="lineno">  796</span>                <span class="comment"># Save a ref to the widet in the field dict</span></div>
+<div class="line"><span class="lineno">  797</span>                self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY] = widget</div>
+<div class="line"><span class="lineno">  798</span> </div>
+<div class="line"><span class="lineno">  799</span>                <span class="comment"># If we have an initial value then set it</span></div>
+<div class="line"><span class="lineno">  800</span>                value = self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY]</div>
+<div class="line"><span class="lineno">  801</span>                <span class="keywordflow">if</span> value:</div>
+<div class="line"><span class="lineno">  802</span>                    widget.value = value</div>
 <div class="line"><span class="lineno">  803</span> </div>
+<div class="line"><span class="lineno">  804</span>            <span class="keyword">with</span> ui.row():</div>
+<div class="line"><span class="lineno">  805</span>                ui.button(self._successButtonText, on_click=self._internalSuccessMethod)</div>
+<div class="line"><span class="lineno">  806</span>                ui.button(self._failureButtonText,  on_click=self._internalFailureMethod)</div>
+<div class="line"><span class="lineno">  807</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -446,13 +446,13 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Called when the user selects the failure button.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00878">878</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  878</span>    <span class="keyword">def </span>_internalFailureMethod(self):</div>
-<div class="line"><span class="lineno">  879</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when the user selects the failure button.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  880</span>        self.close()</div>
-<div class="line"><span class="lineno">  881</span>        <span class="keywordflow">if</span> self._failureMethod:</div>
-<div class="line"><span class="lineno">  882</span>            self._failureMethod()</div>
-<div class="line"><span class="lineno">  883</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00882">882</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  882</span>    <span class="keyword">def </span>_internalFailureMethod(self):</div>
+<div class="line"><span class="lineno">  883</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when the user selects the failure button.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  884</span>        self.close()</div>
+<div class="line"><span class="lineno">  885</span>        <span class="keywordflow">if</span> self._failureMethod:</div>
+<div class="line"><span class="lineno">  886</span>            self._failureMethod()</div>
+<div class="line"><span class="lineno">  887</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -480,19 +480,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Called when the user selects the success button.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00866">866</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  866</span>    <span class="keyword">def </span>_internalSuccessMethod(self):</div>
-<div class="line"><span class="lineno">  867</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when the user selects the success button.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  868</span>        self.close()</div>
-<div class="line"><span class="lineno">  869</span>        <span class="comment"># Save the entered values for all fields</span></div>
-<div class="line"><span class="lineno">  870</span>        <span class="keywordflow">for</span> fieldName <span class="keywordflow">in</span> self._inputFieldDict:</div>
-<div class="line"><span class="lineno">  871</span>            widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
-<div class="line"><span class="lineno">  872</span>            <span class="keywordflow">if</span> hasattr(widget, <span class="stringliteral">&#39;value&#39;</span>):</div>
-<div class="line"><span class="lineno">  873</span>                self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY] = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY].value</div>
-<div class="line"><span class="lineno">  874</span>        <span class="comment"># If defined call the method</span></div>
-<div class="line"><span class="lineno">  875</span>        <span class="keywordflow">if</span> self._successMethod:</div>
-<div class="line"><span class="lineno">  876</span>            self._successMethod()</div>
-<div class="line"><span class="lineno">  877</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00870">870</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  870</span>    <span class="keyword">def </span>_internalSuccessMethod(self):</div>
+<div class="line"><span class="lineno">  871</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Called when the user selects the success button.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  872</span>        self.close()</div>
+<div class="line"><span class="lineno">  873</span>        <span class="comment"># Save the entered values for all fields</span></div>
+<div class="line"><span class="lineno">  874</span>        <span class="keywordflow">for</span> fieldName <span class="keywordflow">in</span> self._inputFieldDict:</div>
+<div class="line"><span class="lineno">  875</span>            widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
+<div class="line"><span class="lineno">  876</span>            <span class="keywordflow">if</span> hasattr(widget, <span class="stringliteral">&#39;value&#39;</span>):</div>
+<div class="line"><span class="lineno">  877</span>                self._inputFieldDict[fieldName][YesNoDialog.VALUE_KEY] = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY].value</div>
+<div class="line"><span class="lineno">  878</span>        <span class="comment"># If defined call the method</span></div>
+<div class="line"><span class="lineno">  879</span>        <span class="keywordflow">if</span> self._successMethod:</div>
+<div class="line"><span class="lineno">  880</span>            self._successMethod()</div>
+<div class="line"><span class="lineno">  881</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -564,31 +564,31 @@ Protected Attributes</h2></td></tr>
    @param minNumber     The optional min value if the fieldType = NUMBER_INPUT_FIELD_TYPE.
    @param maxNumber     The optional max value if the fieldType = NUMBER_INPUT_FIELD_TYPE.
    @param step          The step size for numerical input fields.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00717">717</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  717</span>    <span class="keyword">def </span>addField(self, name, fieldType, value=None, minNumber=None, maxNumber=None, options=None, step=1):</div>
-<div class="line"><span class="lineno">  718</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a field to the dialog.</span></div>
-<div class="line"><span class="lineno">  719</span><span class="stringliteral">           @param name          The name of the field to be added.</span></div>
-<div class="line"><span class="lineno">  720</span><span class="stringliteral">           @param fieldType     The type of field to be entered.</span></div>
-<div class="line"><span class="lineno">  721</span><span class="stringliteral">           @param value         The optional initial value for the field when the dialog is displayed.</span></div>
-<div class="line"><span class="lineno">  722</span><span class="stringliteral">           @param minNumber     The optional min value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</span></div>
-<div class="line"><span class="lineno">  723</span><span class="stringliteral">           @param maxNumber     The optional max value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</span></div>
-<div class="line"><span class="lineno">  724</span><span class="stringliteral">           @param step          The step size for numerical input fields.</span></div>
-<div class="line"><span class="lineno">  725</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  726</span>        <span class="keywordflow">if</span> name <span class="keywordflow">and</span> len(name) &gt; 0:</div>
-<div class="line"><span class="lineno">  727</span>            <span class="keywordflow">if</span> fieldType <span class="keywordflow">in</span> YesNoDialog.VALID_FIELD_TYPE_LIST:</div>
-<div class="line"><span class="lineno">  728</span>                self._inputFieldDict[name] = {YesNoDialog.FIELD_TYPE_KEY:     fieldType,</div>
-<div class="line"><span class="lineno">  729</span>                                              YesNoDialog.VALUE_KEY:          value,</div>
-<div class="line"><span class="lineno">  730</span>                                              YesNoDialog.MIN_NUMBER_KEY:     minNumber,</div>
-<div class="line"><span class="lineno">  731</span>                                              YesNoDialog.MAX_NUMBER_KEY:     maxNumber,</div>
-<div class="line"><span class="lineno">  732</span>                                              YesNoDialog.OPTIONS_KEY:        options,</div>
-<div class="line"><span class="lineno">  733</span>                                              YesNoDialog.STEP_KEY:           step}</div>
-<div class="line"><span class="lineno">  734</span> </div>
-<div class="line"><span class="lineno">  735</span>            <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  736</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;YesNoDialog.addField() {fieldType} is an invalid field type.&quot;</span>)</div>
-<div class="line"><span class="lineno">  737</span> </div>
-<div class="line"><span class="lineno">  738</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  739</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;YesNoDialog.addField() name not set.&quot;</span>)</div>
-<div class="line"><span class="lineno">  740</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00721">721</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  721</span>    <span class="keyword">def </span>addField(self, name, fieldType, value=None, minNumber=None, maxNumber=None, options=None, step=1):</div>
+<div class="line"><span class="lineno">  722</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add a field to the dialog.</span></div>
+<div class="line"><span class="lineno">  723</span><span class="stringliteral">           @param name          The name of the field to be added.</span></div>
+<div class="line"><span class="lineno">  724</span><span class="stringliteral">           @param fieldType     The type of field to be entered.</span></div>
+<div class="line"><span class="lineno">  725</span><span class="stringliteral">           @param value         The optional initial value for the field when the dialog is displayed.</span></div>
+<div class="line"><span class="lineno">  726</span><span class="stringliteral">           @param minNumber     The optional min value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</span></div>
+<div class="line"><span class="lineno">  727</span><span class="stringliteral">           @param maxNumber     The optional max value if the fieldType = NUMBER_INPUT_FIELD_TYPE.</span></div>
+<div class="line"><span class="lineno">  728</span><span class="stringliteral">           @param step          The step size for numerical input fields.</span></div>
+<div class="line"><span class="lineno">  729</span><span class="stringliteral">           &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  730</span>        <span class="keywordflow">if</span> name <span class="keywordflow">and</span> len(name) &gt; 0:</div>
+<div class="line"><span class="lineno">  731</span>            <span class="keywordflow">if</span> fieldType <span class="keywordflow">in</span> YesNoDialog.VALID_FIELD_TYPE_LIST:</div>
+<div class="line"><span class="lineno">  732</span>                self._inputFieldDict[name] = {YesNoDialog.FIELD_TYPE_KEY:     fieldType,</div>
+<div class="line"><span class="lineno">  733</span>                                              YesNoDialog.VALUE_KEY:          value,</div>
+<div class="line"><span class="lineno">  734</span>                                              YesNoDialog.MIN_NUMBER_KEY:     minNumber,</div>
+<div class="line"><span class="lineno">  735</span>                                              YesNoDialog.MAX_NUMBER_KEY:     maxNumber,</div>
+<div class="line"><span class="lineno">  736</span>                                              YesNoDialog.OPTIONS_KEY:        options,</div>
+<div class="line"><span class="lineno">  737</span>                                              YesNoDialog.STEP_KEY:           step}</div>
+<div class="line"><span class="lineno">  738</span> </div>
+<div class="line"><span class="lineno">  739</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  740</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;YesNoDialog.addField() {fieldType} is an invalid field type.&quot;</span>)</div>
+<div class="line"><span class="lineno">  741</span> </div>
+<div class="line"><span class="lineno">  742</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  743</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;YesNoDialog.addField() name not set.&quot;</span>)</div>
+<div class="line"><span class="lineno">  744</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -608,14 +608,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Close the boolean dialog.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00884">884</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  884</span>    <span class="keyword">def </span>close(self):</div>
-<div class="line"><span class="lineno">  885</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close the boolean dialog.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  886</span>        self._dialog.close()</div>
-<div class="line"><span class="lineno">  887</span> </div>
-<div class="line"><span class="lineno">  888</span> </div>
-<div class="line"><span class="lineno">  889</span><span class="comment"># This has been left in for legacy reasons but is very similar to FileAndFolderChooser.</span></div>
-<div class="line"><span class="lineno">  890</span><span class="comment"># It differs in the way it is used. See examples at the bottom of this file for details.</span></div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00888">888</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  888</span>    <span class="keyword">def </span>close(self):</div>
+<div class="line"><span class="lineno">  889</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Close the boolean dialog.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  890</span>        self._dialog.close()</div>
+<div class="line"><span class="lineno">  891</span> </div>
+<div class="line"><span class="lineno">  892</span> </div>
+<div class="line"><span class="lineno">  893</span><span class="comment"># This has been left in for legacy reasons but is very similar to FileAndFolderChooser.</span></div>
+<div class="line"><span class="lineno">  894</span><span class="comment"># It differs in the way it is used. See examples at the bottom of this file for details.</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -646,20 +646,20 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get the value entered by the user.
    @param fieldName The name of the field entered.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00853">853</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  853</span>    <span class="keyword">def </span>getValue(self, fieldName):</div>
-<div class="line"><span class="lineno">  854</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the value entered by the user.</span></div>
-<div class="line"><span class="lineno">  855</span><span class="stringliteral">           @param fieldName The name of the field entered.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  856</span>        value = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  857</span>        widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
-<div class="line"><span class="lineno">  858</span>        <span class="keywordflow">if</span> hasattr(widget, <span class="stringliteral">&#39;value&#39;</span>):</div>
-<div class="line"><span class="lineno">  859</span>            value = widget.value</div>
-<div class="line"><span class="lineno">  860</span> </div>
-<div class="line"><span class="lineno">  861</span>        <span class="keywordflow">elif</span> isinstance(widget, ui.upload):</div>
-<div class="line"><span class="lineno">  862</span>            value = self._selectedFile</div>
-<div class="line"><span class="lineno">  863</span> </div>
-<div class="line"><span class="lineno">  864</span>        <span class="keywordflow">return</span> value</div>
-<div class="line"><span class="lineno">  865</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00857">857</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  857</span>    <span class="keyword">def </span>getValue(self, fieldName):</div>
+<div class="line"><span class="lineno">  858</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get the value entered by the user.</span></div>
+<div class="line"><span class="lineno">  859</span><span class="stringliteral">           @param fieldName The name of the field entered.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  860</span>        value = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  861</span>        widget = self._inputFieldDict[fieldName][YesNoDialog.WIDGET_KEY]</div>
+<div class="line"><span class="lineno">  862</span>        <span class="keywordflow">if</span> hasattr(widget, <span class="stringliteral">&#39;value&#39;</span>):</div>
+<div class="line"><span class="lineno">  863</span>            value = widget.value</div>
+<div class="line"><span class="lineno">  864</span> </div>
+<div class="line"><span class="lineno">  865</span>        <span class="keywordflow">elif</span> isinstance(widget, ui.upload):</div>
+<div class="line"><span class="lineno">  866</span>            value = self._selectedFile</div>
+<div class="line"><span class="lineno">  867</span> </div>
+<div class="line"><span class="lineno">  868</span>        <span class="keywordflow">return</span> value</div>
+<div class="line"><span class="lineno">  869</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -690,12 +690,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the text of the failure button.
    @param label The failure button text.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00843">843</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  843</span>    <span class="keyword">def </span>setFailureButtonLabel(self, label):</div>
-<div class="line"><span class="lineno">  844</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the failure button.</span></div>
-<div class="line"><span class="lineno">  845</span><span class="stringliteral">           @param label The failure button text.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  846</span>        self._failureButtonText = label</div>
-<div class="line"><span class="lineno">  847</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00847">847</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  847</span>    <span class="keyword">def </span>setFailureButtonLabel(self, label):</div>
+<div class="line"><span class="lineno">  848</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the failure button.</span></div>
+<div class="line"><span class="lineno">  849</span><span class="stringliteral">           @param label The failure button text.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  850</span>        self._failureButtonText = label</div>
+<div class="line"><span class="lineno">  851</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -726,12 +726,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the text of the success button.
    @param failureMethod The method called when the user selects the failure button.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00833">833</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  833</span>    <span class="keyword">def </span>setFailureMethod(self, failureMethod):</div>
-<div class="line"><span class="lineno">  834</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the success button.</span></div>
-<div class="line"><span class="lineno">  835</span><span class="stringliteral">           @param failureMethod The method called when the user selects the failure button.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  836</span>        self._failureMethod = failureMethod</div>
-<div class="line"><span class="lineno">  837</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00837">837</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  837</span>    <span class="keyword">def </span>setFailureMethod(self, failureMethod):</div>
+<div class="line"><span class="lineno">  838</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the success button.</span></div>
+<div class="line"><span class="lineno">  839</span><span class="stringliteral">           @param failureMethod The method called when the user selects the failure button.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  840</span>        self._failureMethod = failureMethod</div>
+<div class="line"><span class="lineno">  841</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -762,12 +762,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the user prompt.
    @param prompt The user prompt.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00823">823</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  823</span>    <span class="keyword">def </span>setPrompt(self, prompt):</div>
-<div class="line"><span class="lineno">  824</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the user prompt.</span></div>
-<div class="line"><span class="lineno">  825</span><span class="stringliteral">           @param prompt The user prompt.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  826</span>        self._prompt = prompt</div>
-<div class="line"><span class="lineno">  827</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00827">827</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  827</span>    <span class="keyword">def </span>setPrompt(self, prompt):</div>
+<div class="line"><span class="lineno">  828</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the user prompt.</span></div>
+<div class="line"><span class="lineno">  829</span><span class="stringliteral">           @param prompt The user prompt.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  830</span>        self._prompt = prompt</div>
+<div class="line"><span class="lineno">  831</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -798,12 +798,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the text of the success button.
    @param label The success button text.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00838">838</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  838</span>    <span class="keyword">def </span>setSuccessButtonLabel(self, label):</div>
-<div class="line"><span class="lineno">  839</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the success button.</span></div>
-<div class="line"><span class="lineno">  840</span><span class="stringliteral">           @param label The success button text.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  841</span>        self._successButtonText = label</div>
-<div class="line"><span class="lineno">  842</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00842">842</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  842</span>    <span class="keyword">def </span>setSuccessButtonLabel(self, label):</div>
+<div class="line"><span class="lineno">  843</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the success button.</span></div>
+<div class="line"><span class="lineno">  844</span><span class="stringliteral">           @param label The success button text.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  845</span>        self._successButtonText = label</div>
+<div class="line"><span class="lineno">  846</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -834,12 +834,12 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Set the text of the success button.
    @param successMethod The method called when the user selects the success button.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00828">828</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  828</span>    <span class="keyword">def </span>setSuccessMethod(self, successMethod):</div>
-<div class="line"><span class="lineno">  829</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the success button.</span></div>
-<div class="line"><span class="lineno">  830</span><span class="stringliteral">           @param successMethod The method called when the user selects the success button.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  831</span>        self._successMethod = successMethod</div>
-<div class="line"><span class="lineno">  832</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00832">832</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  832</span>    <span class="keyword">def </span>setSuccessMethod(self, successMethod):</div>
+<div class="line"><span class="lineno">  833</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Set the text of the success button.</span></div>
+<div class="line"><span class="lineno">  834</span><span class="stringliteral">           @param successMethod The method called when the user selects the success button.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  835</span>        self._successMethod = successMethod</div>
+<div class="line"><span class="lineno">  836</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -859,12 +859,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Allow the user to select yes/no, ok/cancel etc in response to a question.</pre> 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00848">848</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  848</span>    <span class="keyword">def </span>show(self):</div>
-<div class="line"><span class="lineno">  849</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Allow the user to select yes/no, ok/cancel etc in response to a question.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  850</span>        self._init()</div>
-<div class="line"><span class="lineno">  851</span>        self._dialog.open()</div>
-<div class="line"><span class="lineno">  852</span> </div>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00852">852</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  852</span>    <span class="keyword">def </span>show(self):</div>
+<div class="line"><span class="lineno">  853</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Allow the user to select yes/no, ok/cancel etc in response to a question.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  854</span>        self._init()</div>
+<div class="line"><span class="lineno">  855</span>        self._dialog.open()</div>
+<div class="line"><span class="lineno">  856</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -889,7 +889,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00699">699</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00703">703</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -913,7 +913,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00702">702</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00706">706</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -937,7 +937,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00705">705</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00709">709</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -961,7 +961,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00706">706</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00710">710</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -985,7 +985,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00703">703</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00707">707</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1009,7 +1009,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00700">700</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00704">704</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1033,7 +1033,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00701">701</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00705">705</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1057,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00704">704</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00708">708</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1081,7 +1081,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00669">669</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00673">673</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1105,7 +1105,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00670">670</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00674">674</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1129,7 +1129,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00668">668</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00672">672</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1153,7 +1153,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00684">684</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00688">688</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1177,7 +1177,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00673">673</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00677">677</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1201,7 +1201,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00672">672</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00676">676</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1225,7 +1225,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00687">687</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00691">691</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1249,7 +1249,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00686">686</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00690">690</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1273,7 +1273,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00666">666</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00670">670</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1297,7 +1297,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00689">689</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00693">693</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1321,7 +1321,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00690">690</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00694">694</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1345,7 +1345,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00667">667</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00671">671</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1369,7 +1369,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00665">665</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00669">669</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1393,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00671">671</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00675">675</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1426,7 +1426,7 @@ Protected Attributes</h2></td></tr>
 <div class="line">                               KNOB_INPUT_FIELD,</div>
 <div class="line">                               HOUR_MIN_INPUT_FIELD_TYPE)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00674">674</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00678">678</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1450,7 +1450,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00685">685</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00689">689</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
@@ -1474,7 +1474,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00688">688</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ngt3_8py_source.html#l00692">692</a> of file <a class="el" href="ngt3_8py_source.html">ngt3.py</a>.</p>
 
 </div>
 </div>
