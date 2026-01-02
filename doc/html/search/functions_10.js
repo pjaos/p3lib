@@ -5,7 +5,7 @@ var searchData=
   ['removeauthkey_2',['removeAuthKey',['../classp3lib_1_1ssh_1_1SSH.html#afe7399b846da4d2a04ca597e7142bf3a',1,'p3lib::ssh::SSH']]],
   ['removeescapeseq_3',['RemoveEscapeSeq',['../classp3lib_1_1uio_1_1UIO.html#a02bbcfd6a285192722f1657dcac609f7',1,'p3lib::uio::UIO']]],
   ['removelocalroot_4',['removeLocalRoot',['../classp3lib_1_1netplotly_1_1NetPlotly.html#ad9fcfaf23ac313fbe3b8e6af3fd12aaf',1,'p3lib::netplotly::NetPlotly']]],
-  ['reportexception_5',['reportException',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a37b058446c274adcfe3bd2ad5af88480',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['reportexception_5',['reportexception',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a37b058446c274adcfe3bd2ad5af88480',1,'p3lib.ngt.TabbedNiceGui.reportException()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a37b058446c274adcfe3bd2ad5af88480',1,'p3lib.ngt3.TabbedNiceGui.reportException()']]],
   ['rpccall_6',['rpcCall',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCCallerClient.html#a5278fb89437d091d1962652434062141',1,'p3lib::mqtt_rpc::MQTTRPCCallerClient']]],
   ['run_7',['run',['../classtime__series__plot__example_1_1TimeSeriesPlotExample.html#a08060e0924949738f75a0cdd8b49cef4',1,'time_series_plot_example::TimeSeriesPlotExample']]],
   ['runblockingbokehserver_8',['runblockingbokehserver',['../classp3lib_1_1bokeh__gui_1_1SingleAppServer.html#aab9d6df489843fe7f65cbfa60d08a723',1,'p3lib.bokeh_gui.SingleAppServer.runBlockingBokehServer()'],['../classp3lib_1_1bokeh__gui_1_1MultiAppServer.html#a99140cd920bb69ea15960721a3c5a401',1,'p3lib.bokeh_gui.MultiAppServer.runBlockingBokehServer()']]],

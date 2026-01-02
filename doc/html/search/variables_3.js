@@ -7,7 +7,7 @@ var searchData=
   ['cjf_4',['cjf',['../namespacep3lib_1_1file__io.html#a325e51def6c77c50dad23b4c2b8e9afd',1,'p3lib::file_io']]],
   ['client_5fid_5fdict_5fkey_5',['CLIENT_ID_DICT_KEY',['../classp3lib_1_1mqtt__rpc_1_1MQTTRPCClient.html#a9dc39b6c92a5bad480dcb928beed0b78',1,'p3lib::mqtt_rpc::MQTTRPCClient']]],
   ['cmd_5fpoll_5fseconds_6',['CMD_POLL_SECONDS',['../classp3lib_1_1ssh_1_1ExtendedSSHClient.html#a9a547c8051a3979f45abde32c7ddd961',1,'p3lib::ssh::ExtendedSSHClient']]],
-  ['color_5finput_5ffield_7',['COLOR_INPUT_FIELD',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a709b67c314c7fedf0822b1b9de1f7f4f',1,'p3lib::ngt::YesNoDialog']]],
+  ['color_5finput_5ffield_7',['color_input_field',['../classp3lib_1_1ngt_1_1YesNoDialog.html#a709b67c314c7fedf0822b1b9de1f7f4f',1,'p3lib.ngt.YesNoDialog.COLOR_INPUT_FIELD'],['../classp3lib_1_1ngt3_1_1YesNoDialog.html#a709b67c314c7fedf0822b1b9de1f7f4f',1,'p3lib.ngt3.YesNoDialog.COLOR_INPUT_FIELD']]],
   ['conduit_8',['conduit',['../classtest__conduit_1_1ConduitTester.html#a89fcb3a5fc3a73fa4eeac70adb5ccac5',1,'test_conduit::ConduitTester']]],
   ['conduit_5ftype_5fqueue_9',['CONDUIT_TYPE_QUEUE',['../classp3lib_1_1conduit_1_1Conduit.html#a78fed40bf7590a6ef7b030ea7dbfb5d0',1,'p3lib::conduit::Conduit']]],
   ['conduit_5ftype_5ftcp_5fconnection_10',['CONDUIT_TYPE_TCP_CONNECTION',['../classp3lib_1_1conduit_1_1Conduit.html#a1b4bbd17bb6cd2a30a04159e6fcc8523',1,'p3lib::conduit::Conduit']]],

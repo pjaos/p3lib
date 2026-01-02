@@ -1,11 +1,19 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,55,61,80"/>
-<area shape="rect" id="Node000001" href="$classp3lib_1_1ngt_1_1FSChooserBase.html" title=" " alt="" coords="109,29,228,55"/>
-<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="74,57,109,50,110,56,75,62"/>
-<area shape="rect" id="Node000004" href="$classp3lib_1_1ngt_1_1local__file__picker.html" title=" " alt="" coords="111,79,226,104"/>
-<area shape="poly" id="edge8_Node000000_Node000004" title=" " alt="" coords="75,72,111,79,110,84,74,77"/>
-<area shape="rect" id="Node000002" href="$classp3lib_1_1ngt_1_1FileAndFolderChooser.html" title=" " alt="" coords="276,5,427,31"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,104,61,129"/>
+<area shape="rect" id="Node000001" href="$classp3lib_1_1ngt3_1_1FSChooserBase.html" title=" " alt="" coords="109,29,228,55"/>
+<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="61,94,108,64,132,52,134,57,111,68,64,98"/>
+<area shape="rect" id="Node000004" href="$classp3lib_1_1ngt3_1_1local__file__picker.html" title=" " alt="" coords="111,79,226,104"/>
+<area shape="poly" id="edge8_Node000000_Node000004" title=" " alt="" coords="74,106,110,99,111,105,75,112"/>
+<area shape="rect" id="Node000005" href="$classp3lib_1_1ngt_1_1FSChooserBase.html" title=" " alt="" coords="109,128,228,153"/>
+<area shape="poly" id="edge9_Node000000_Node000005" title=" " alt="" coords="75,121,110,128,109,133,75,127"/>
+<area shape="rect" id="Node000008" href="$classp3lib_1_1ngt_1_1local__file__picker.html" title=" " alt="" coords="111,177,226,203"/>
+<area shape="poly" id="edge12_Node000000_Node000008" title=" " alt="" coords="65,135,111,162,137,175,134,180,108,167,62,139"/>
+<area shape="rect" id="Node000002" href="$classp3lib_1_1ngt3_1_1FileAndFolderChooser.html" title=" " alt="" coords="276,5,427,31"/>
 <area shape="poly" id="edge6_Node000001_Node000002" title=" " alt="" coords="241,30,275,25,276,31,242,35"/>
-<area shape="rect" id="Node000003" href="$classp3lib_1_1ngt_1_1FileSaveChooser.html" title=" " alt="" coords="290,55,413,80"/>
+<area shape="rect" id="Node000003" href="$classp3lib_1_1ngt3_1_1FileSaveChooser.html" title=" " alt="" coords="290,55,413,80"/>
 <area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="242,49,290,56,289,61,242,55"/>
+<area shape="rect" id="Node000006" href="$classp3lib_1_1ngt_1_1FileAndFolderChooser.html" title=" " alt="" coords="276,128,427,153"/>
+<area shape="poly" id="edge10_Node000005_Node000006" title=" " alt="" coords="242,138,275,138,275,143,242,143"/>
+<area shape="rect" id="Node000007" href="$classp3lib_1_1ngt_1_1FileSaveChooser.html" title=" " alt="" coords="290,177,413,203"/>
+<area shape="poly" id="edge11_Node000005_Node000007" title=" " alt="" coords="230,154,304,175,302,180,229,159"/>
 </map>

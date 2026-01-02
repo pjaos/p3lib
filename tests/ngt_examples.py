@@ -6,39 +6,41 @@ import argparse
 from p3lib.uio import UIO
 from p3lib.helper import logTraceBack
 
-from p3lib.ngt import TabbedNiceGui, YesNoDialog
+from p3lib.ngt3 import TabbedNiceGui, YesNoDialog
 
 from nicegui import ui
 
 class NGT_Examples(object):
 
     def tabbedGUI(self, debugEnabled):
-            tabNameList = ('TAB 0 NAME', 
-                           'TAB 1 NAME', 
+            tabNameList = ('TAB 0 NAME',
+                           'TAB 1 NAME',
                            'TAB 2 NAME')
             # This must have the same number of elements as the above list
-            tabMethodInitList = [self._initTab0, 
-                                 self._initTab1, 
+            tabMethodInitList = [self._initTab0,
+                                 self._initTab1,
                                  self._initTab2]
 
             tabbedNiceGui = TabbedNiceGui(debugEnabled=debugEnabled)
-            tabbedNiceGui.initGUI(tabNameList, 
-                                  tabMethodInitList, 
+            tabbedNiceGui.initGUI(tabNameList,
+                                  tabMethodInitList,
                                   pageTitle="Application Name",
-                                  reload=False)
+                                  reload=True,
+                                  showLog=True,
+                                  quitButton=True)
 
     def _initTab0(self):
         with ui.row():
             self.yesNoDialog1()
             self.yesNoDialog2()
             self.yesNoDialog3()
-    
+
     def _initTab1(self):
         pass
-    
+
     def _initTab2(self):
         pass
-    
+
     def yesNoDialog1(self):
         """@brief Show a dialog with a prompt and yes/no buttons."""
         self._dialog1 = YesNoDialog("The dialog message asking for a yes/no selection.", self.successMethod1, failureMethod=self.failureMethod1)
@@ -95,7 +97,7 @@ def main():
                                          formatter_class=argparse.RawDescriptionHelpFormatter)
         parser.add_argument("-d", "--debug",  action='store_true', help="Enable debugging.")
         parser.add_argument("-enable_syslog", action='store_true', help="Enable syslog.")
- 
+
         options = parser.parse_args()
         uio.enableDebug(options.debug)
         uio.logAll(True)
@@ -104,7 +106,7 @@ def main():
             uio.info("Syslog enabled")
 
         ngtExamples = NGT_Examples()
-        
+
         ngtExamples.tabbedGUI(options.debug)
 
     #If the program throws a system exit exception

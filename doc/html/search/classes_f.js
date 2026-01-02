@@ -1,7 +1,7 @@
 var searchData=
 [
   ['tabbedgui_0',['TabbedGUI',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html',1,'p3lib::bokeh_gui']]],
-  ['tabbednicegui_1',['TabbedNiceGui',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html',1,'p3lib::ngt']]],
+  ['tabbednicegui_1',['tabbednicegui',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html',1,'TabbedNiceGui'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html',1,'TabbedNiceGui']]],
   ['table2dplotserver_2',['Table2DPlotServer',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html',1,'p3lib::table_plot']]],
   ['testcase_3',['TestCase',['../classp3lib_1_1ate_1_1TestCase.html',1,'p3lib::ate']]],
   ['testcasebase_4',['TestCaseBase',['../classp3lib_1_1ate_1_1TestCaseBase.html',1,'p3lib::ate']]],

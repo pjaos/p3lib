@@ -12,7 +12,7 @@ var searchData=
   ['local5_9',['LOCAL5',['../classp3lib_1_1uio_1_1FACILITY.html#a90b6307f312f6bc23045e09ba7cfd8a4',1,'p3lib::uio::FACILITY']]],
   ['local6_10',['LOCAL6',['../classp3lib_1_1uio_1_1FACILITY.html#adf48a62e94295826e541ef78e13b2ccf',1,'p3lib::uio::FACILITY']]],
   ['local7_11',['LOCAL7',['../classp3lib_1_1uio_1_1FACILITY.html#a17f46e74e644f0e1f8e5f26c48bedd63',1,'p3lib::uio::FACILITY']]],
-  ['local_5fpath_12',['LOCAL_PATH',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#acd0e9a085fcf9796a6dcead370df13b9',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['local_5fpath_12',['local_path',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#acd0e9a085fcf9796a6dcead370df13b9',1,'p3lib.ngt.TabbedNiceGui.LOCAL_PATH'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#acd0e9a085fcf9796a6dcead370df13b9',1,'p3lib.ngt3.TabbedNiceGui.LOCAL_PATH']]],
   ['local_5fssh_5fconfig_5fpath_13',['LOCAL_SSH_CONFIG_PATH',['../classp3lib_1_1ssh_1_1SSH.html#aa4ca93ae6d3ea99d367ba0114ad22772',1,'p3lib::ssh::SSH']]],
   ['lock_14',['lock',['../namespacep3lib_1_1uio.html#af1b662fe6ae53fbcd5a505235805d788',1,'p3lib::uio']]],
   ['log_5fpath_15',['LOG_PATH',['../classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a014d4e02d963f074c8cd45cdaaf850df',1,'p3lib::boot_manager::LinuxBootManager']]],

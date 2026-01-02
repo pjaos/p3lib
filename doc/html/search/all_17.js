@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['warn_0',['warn',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a6e676c53964da3289be5052d002594c5',1,'p3lib.ngt.TabbedNiceGui.warn()'],['../classp3lib_1_1uio_1_1UIO.html#a50dc03524e8b1f8285f37262a70e4544',1,'p3lib.uio.UIO.warn()']]],
-  ['warn_5fmessage_1',['WARN_MESSAGE',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#afbfea46ef6a23181194ff20bd2cc758e',1,'p3lib::ngt::TabbedNiceGui']]],
+  ['warn_0',['warn',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a6e676c53964da3289be5052d002594c5',1,'p3lib.ngt.TabbedNiceGui.warn()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a6e676c53964da3289be5052d002594c5',1,'p3lib.ngt3.TabbedNiceGui.warn()'],['../classp3lib_1_1uio_1_1UIO.html#a50dc03524e8b1f8285f37262a70e4544',1,'p3lib.uio.UIO.warn()']]],
+  ['warn_5fmessage_1',['warn_message',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#afbfea46ef6a23181194ff20bd2cc758e',1,'p3lib.ngt.TabbedNiceGui.WARN_MESSAGE'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#afbfea46ef6a23181194ff20bd2cc758e',1,'p3lib.ngt3.TabbedNiceGui.WARN_MESSAGE']]],
   ['warning_2',['WARNING',['../classp3lib_1_1uio_1_1PRIORITY.html#a6d56d31dc98daa7e6566f14350e580f9',1,'p3lib::uio::PRIORITY']]],
-  ['widget_5fkey_3',['WIDGET_KEY',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240',1,'p3lib::ngt::YesNoDialog']]],
+  ['widget_5fkey_3',['widget_key',['../classp3lib_1_1ngt_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240',1,'p3lib.ngt.YesNoDialog.WIDGET_KEY'],['../classp3lib_1_1ngt3_1_1YesNoDialog.html#ac9e49922daad37ee48591b6133d10240',1,'p3lib.ngt3.YesNoDialog.WIDGET_KEY']]],
   ['window_5fttle_4',['WINDOW_TTLE',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#ad4136487d7e9548b01df7dafb5f37b91',1,'p3lib::table_plot::Table2DPlotServer']]],
   ['windows_5fapp_2epy_5',['windows_app.py',['../windows__app_8py.html',1,'']]],
   ['windowsapp_6',['WindowsApp',['../classp3lib_1_1windows__app_1_1WindowsApp.html',1,'p3lib::windows_app']]],
