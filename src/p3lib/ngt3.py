@@ -378,16 +378,16 @@ class TabbedNiceGui(object):
             if isinstance(rxMessage, dict):
                 self._processRXDict(rxMessage)
 
-    def initGUI(self,
-                tabNameList,
-                tabMethodInitList,
-                reload=True,
-                address="0.0.0.0",
-                port=DEFAULT_SERVER_PORT,
-                pageTitle="NiceGUI",
-                showLog=True,
-                quitButton=True):
-        """@brief Init the tabbed GUI.
+    def set_init_gui_args(self,
+                          tabNameList,
+                          tabMethodInitList,
+                          reload=True,
+                          address="0.0.0.0",
+                          port=DEFAULT_SERVER_PORT,
+                          pageTitle="NiceGUI",
+                          showLog=True,
+                          quitButton=True):
+        """@brief Set the arguments required to init this TabbedNiceGUI instance when init_gui() is called.
            @param tabNameList A list of the names of each tab to be created.
            @param tabMethodInitList A list of the methods to be called to init each of the above tabs.
                                     The two lists must be the same size.
@@ -398,14 +398,26 @@ class TabbedNiceGui(object):
            @param maxLogLines The maximum number of lines to be displayed in the log. Be aware setting this higher will cause the browser to use more memory.
            @param showLog If True then a text message log window is displayed along with a clear log and log message count buttons.
            @param quitButton If True a Quit button is displayed allowing the user to shut down the nicegui application."""
+        self._tabNameList = tabNameList
+        self._tabMethodInitList = tabMethodInitList
+        self._reload = reload
+        self._address = address
+        self._port = port
+        self._pageTitle = pageTitle
+        self._showLog = showLog
+        self._quitButton = quitButton
+
+    def init_gui(self):
+        """@brief Init the tabbed GUI.
+                  set_init_gui_args() must be called before this is called to set the required arguments."""
         with ui.column().classes('h-screen w-screen p4'):
             # A bit of defensive programming.
-            if len(tabNameList) != len(tabMethodInitList):
-                raise Exception(f"initGUI: BUG: tabNameList ({len(tabNameList)}) and tabMethodInitList ({len(tabMethodInitList)}) are not the same length.")
+            if len(self._tabNameList) != len(self._tabMethodInitList):
+                raise Exception(f"initGUI: BUG: tabNameList ({len(self._tabNameList)}) and tabMethodInitList ({len(self._tabMethodInitList)}) are not the same length.")
             tabObjList = []
             with ui.row():
                 with ui.tabs().classes('w-full') as tabs:
-                    for tabName in tabNameList:
+                    for tabName in self._tabNameList:
                         tabObj = ui.tab(tabName)
                         tabObjList.append(tabObj)
 
@@ -413,13 +425,13 @@ class TabbedNiceGui(object):
                     for tabObj in tabObjList:
                         with ui.tab_panel(tabObj):
                             tabIndex = tabObjList.index(tabObj)
-                            tabMethodInitList[tabIndex]()
+                            self._tabMethodInitList[tabIndex]()
 
             guiLogLevel = "warning"
             if self._debugEnabled:
                 guiLogLevel = "debug"
 
-            if showLog:
+            if self._showLog:
                 ui.label("Message Log")
 
             # We leave the progress bar as it's hidden by default
@@ -429,7 +441,7 @@ class TabbedNiceGui(object):
             # Don't allow user to adjust progress bar thumb
             self._progress.disable()
 
-            if showLog:
+            if self._showLog:
                 # Setup the log area to fill the available space in the page vertically and horizontally
                 # The 32px is to make space for the vertical scrollbar within the page or it will be
                 # shifted out of sight to the right.
@@ -438,10 +450,10 @@ class TabbedNiceGui(object):
                 self._log.set_visibility(True)
 
             with ui.row():
-                if showLog:
+                if self._showLog:
                     ui.button('Clear Log', on_click=self._clearLog)
                     ui.button('Log Message Count', on_click=self._showLogMsgCount)
-                if quitButton:
+                if self._quitButton:
                     ui.button('Quit', on_click=self.close)
 
             with ui.row():
@@ -449,7 +461,7 @@ class TabbedNiceGui(object):
 
             ui.timer(interval=TabbedNiceGui.GUI_TIMER_SECONDS, callback=self.guiTimerCallback)
             ui.timer(interval=TabbedNiceGui.PROGRESS_TIMER_SECONDS, callback=self.progressTimerCallback)
-            ui.run(host=address, port=port, title=pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=reload)
+            ui.run(host=self._address, port=self._port, title=self._pageTitle, dark=True, uvicorn_logging_level=guiLogLevel, reload=self._reload)
 
     def progressTimerCallback(self):
         """@brief Time to update the progress bar. We run the timer all the time because there appears to be a
