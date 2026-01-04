@@ -280,6 +280,16 @@ elif _platform == 'Windows':
             app_name = app_name.replace(".py", "")
             return app_name + ".exe"
 
+        def _get_python_module_file(self):
+            """@return The name of the python module and filename without the .py extension."""
+            app_name = self._get_startup_file()
+            p = Path(app_name)
+            filename = p.name
+            filename = filename.replace('.py', '')
+            module = p.parent.name
+            module_file = module + '.' + filename
+            return module_file
+
         def _get_shortcut_folder(self):
             temp_dir = os.path.join(os.getenv("TEMP"), "my_temp_shortcuts")
             os.makedirs(temp_dir, exist_ok=True)
@@ -305,12 +315,21 @@ elif _platform == 'Windows':
             """@brief Create a start menu item to launch a program.
                @param overwrite If True overwrite any existing file. If False raise an error if the file is already present."""
             from win32com.client import Dispatch
+            args = None
             exe_name = self._get_exe_name()
 
             # Locate the pipx-installed executable
             pipx_venv_path = os.path.expanduser(f"~\\.local\\bin\\{exe_name}")
             if not os.path.isfile(pipx_venv_path):
-                raise Exception(f"{pipx_venv_path} file not found.")
+                # Get the full path to the python.exe that we launched ths file from
+                python_exe = sys.executable
+                if os.path.isfile(python_exe):
+                    # Use this python file.
+                    pipx_venv_path = python_exe
+                    #Set the args required
+                    args = f'-m {self._get_python_module_file()}'
+                else:
+                    raise Exception(f"{pipx_venv_path} and {python_exe} files not found .")
 
             if overwrite:
                 self.delete()
@@ -324,6 +343,8 @@ elif _platform == 'Windows':
             shell = Dispatch("WScript.Shell")
             shortcut = shell.CreateShortcut(shortcut_path)
             shortcut.TargetPath = pipx_venv_path  # Path to your executable or script
+            if args:
+                shortcut.Arguments = args
             shortcut.WorkingDirectory = os.path.dirname(pipx_venv_path)
             shortcut.IconLocation = ico_icon_file
             shortcut.Save()
