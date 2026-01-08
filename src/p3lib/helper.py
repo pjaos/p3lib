@@ -10,6 +10,32 @@ import json
 import traceback
 import socket
 import inspect
+import functools
+import traceback
+import warnings
+
+from importlib.resources import files
+from pathlib import Path
+
+def deprecated(reason: str):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            # Standard deprecation warning (for tooling)
+            warnings.warn(
+                f"{func.__name__} is deprecated: {reason}",
+                DeprecationWarning,
+                stacklevel=2,
+            )
+
+            # Print full call stack to stdout
+            print(f"\nDEPRECATED CALL: {reason}")
+            print(f"CALL STACK: {func.__name__}", file=sys.stdout)
+            traceback.print_stack(limit=None, file=sys.stdout)
+
+            return func(*args, **kwargs)
+        return wrapper
+    return decorator
 
 def initArgs(parser, lastCmdLineArg=None, checkHostArg=True):
     """This method is responsible for
@@ -379,6 +405,82 @@ def appendCreateFile(uio, aFile, quiet=False):
         if not quiet:
             uio.info("Created {}".format(aFile))
 
+def get_entry_point_path() -> Path | None:
+    main = sys.modules.get("__main__")
+    if not main:
+        return None
+
+    file = getattr(main, "__file__", None)
+    if not file:
+        return None
+
+    return Path(file).resolve()
+
+def get_assets_dir(module_name=None):
+    """@brief Get a file from the assets folder.
+       @param module_name The name of the python module containing the assets folder. If left at None
+                          then an attempt to find the entry point module (where the asssets dir should be)
+                          is made. However this may not work in all circumstances under pipx.
+       @return The assets folder string."""
+    # If not defined by the caller we try to find the startup module.
+    if not module_name:
+        entry_point_path = get_entry_point_path()
+        if entry_point_path:
+            _entry_point_path = Path(entry_point_path)
+            startup_path = _entry_point_path.parent
+            if os.path.isdir(startup_path):
+                module_name = startup_path.name
+
+    if not module_name:
+        raise Exception("Unable to find startup module name. Fix this by passing the startup module name to get_assets_dir()")
+
+    module_dir = files(f"{module_name}")
+    assets_dir = os.path.join(module_dir, "assets")
+    if not os.path.isdir(assets_dir):
+        raise Exception("{assets_dir} folder not found.")
+    return assets_dir
+
+def get_assets_file(filename, module_name=None):
+    """@brief Get the file in the assets folder.
+       @param filename The name of the file to find.
+       @param module_name The name of the python module containing the assets folder.
+       @return The path of the file as a string or None if not found."""
+    assets_dir = get_assets_dir(module_name)
+    for dirpath, _, filenames in os.walk(assets_dir):
+        if filename in filenames:
+            return str(Path(dirpath) / filename)
+
+    return None
+
+PYPROJECT_FILE = "pyproject.toml"
+
+def get_program_version(module_name=None):
+    """@brief Get the program version.
+       @param module_name The name of the python module containing the assets folder.
+       @return The program/package version. This comes from the pyproject.toml file
+               which must be inside the assets folder at the top level."""
+    poetryConfigFile = get_assets_file(PYPROJECT_FILE)
+    if poetryConfigFile:
+        programVersion = None
+        with open(poetryConfigFile, 'r') as fd:
+            lines = fd.readlines()
+            for line in lines:
+                line=line.strip("\r\n")
+                if line.startswith('version'):
+                    elems = line.split("=")
+                    if len(elems) == 2:
+                        programVersion = elems[1].strip('" ')
+                        break
+        if programVersion is None:
+            raise Exception(f"Failed to extract program version from the {poetryConfigFile} file.")
+
+    else:
+        raise Exception(f"{poetryConfigFile} file not found.")
+
+    return programVersion
+
+
+@deprecated("getAbsFile() is deprecated. Use get_assets_file() instead.")
 def getAbsFile(filename,
                uio=None,
                include_parent=True,
@@ -445,8 +547,7 @@ def getAbsFile(filename,
 
     return file_found
 
-PYPROJECT_FILE = "pyproject.toml"
-
+@deprecated("getProgramVersion() is deprecated. Use get_program_version() instead.")
 def getProgramVersion():
     """@return The program/package version. This comes from the pyproject.toml file.
                If this file is not found an exception is thrown.  """
@@ -471,6 +572,7 @@ def getProgramVersion():
         return -999.99
     return programVersion
 
+@deprecated("get_assets_folders() is deprecated. Use get_assets_dir() instead and use the single path returned.")
 def get_assets_folders(uio=None):
     """@brief Get the assets folders.
        @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed
@@ -516,6 +618,7 @@ def get_assets_folders(uio=None):
 
     return assetsFolders
 
+@deprecated("get_assets_folder() is deprecated. Use get_assets_dir() instead.")
 def get_assets_folder(raise_error=True, uio=None):
     """@brief Get the assets folder.
        @param raise_error If True then raise an error if the assets folder is not found.

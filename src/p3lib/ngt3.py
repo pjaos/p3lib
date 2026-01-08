@@ -17,7 +17,7 @@ from queue import Queue
 from time import time, strftime, localtime
 from pathlib import Path
 
-from p3lib.helper import getProgramVersion
+from p3lib.helper import get_program_version
 
 from nicegui import ui
 
@@ -84,7 +84,7 @@ class TabbedNiceGui(object):
     def GetProgramVersion():
         """@brief Get the program version from the poetry pyproject.toml file.
            @return The version of the installed program (string value)."""
-        return getProgramVersion()
+        return get_program_version()
 
     def __init__(self, debugEnabled, logPath=None):
         """@brief Constructor

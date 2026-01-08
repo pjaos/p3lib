@@ -10,7 +10,7 @@ import plistlib
 from PIL import Image
 import subprocess
 from time import sleep
-from p3lib.helper import getAbsFile
+from p3lib.helper import get_assets_file
 
 class LauncherBase(object):
     """@brief The base class for the Launcher class. Defines methods and vars that are generic."""
@@ -62,7 +62,7 @@ class LauncherBase(object):
         if not icon_file.endswith('.png'):
             raise Exception(f"{icon_file} icon file must have .png extension.")
         # Search for the file
-        self._abs_icon_file = getAbsFile(icon_file)
+        self._abs_icon_file = get_assets_file(icon_file)
         if self._abs_icon_file is None:
             raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
         return self._abs_icon_file
