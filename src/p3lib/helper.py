@@ -434,6 +434,12 @@ def get_assets_dir(module_name=None):
         raise Exception("Unable to find startup module name. Fix this by passing the startup module name to get_assets_dir()")
 
     module_dir = files(f"{module_name}")
+    children = list(module_dir.iterdir())
+    for child in children:
+        # Use the first entry in the folder as we're after the folder name
+        if child:
+            module_dir = child.parent
+            break
     assets_dir = os.path.join(module_dir, "assets")
     if not os.path.isdir(assets_dir):
         raise Exception("{assets_dir} folder not found.")
