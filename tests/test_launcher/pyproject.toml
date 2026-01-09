@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "test_launcher"
-version = "0.0.1"
+version = "0.0.2"
 description = "A group of python modules for networking, plotting data, config storage, automating boot scripts, ssh access and user input output."
 authors = ["Paul Austen <pjaos@gmail.com>"]
 packages = [
