@@ -424,11 +424,17 @@ and each double quote, removed.</pre>
 <div class="line"><span class="lineno">  434</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;Unable to find startup module name. Fix this by passing the startup module name to get_assets_dir()&quot;</span>)</div>
 <div class="line"><span class="lineno">  435</span> </div>
 <div class="line"><span class="lineno">  436</span>    module_dir = files(f<span class="stringliteral">&quot;{module_name}&quot;</span>)</div>
-<div class="line"><span class="lineno">  437</span>    assets_dir = os.path.join(module_dir, <span class="stringliteral">&quot;assets&quot;</span>)</div>
-<div class="line"><span class="lineno">  438</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(assets_dir):</div>
-<div class="line"><span class="lineno">  439</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;{assets_dir} folder not found.&quot;</span>)</div>
-<div class="line"><span class="lineno">  440</span>    <span class="keywordflow">return</span> assets_dir</div>
-<div class="line"><span class="lineno">  441</span> </div>
+<div class="line"><span class="lineno">  437</span>    children = list(module_dir.iterdir())</div>
+<div class="line"><span class="lineno">  438</span>    <span class="keywordflow">for</span> child <span class="keywordflow">in</span> children:</div>
+<div class="line"><span class="lineno">  439</span>        <span class="comment"># Use the first entry in the folder as we&#39;re after the folder name</span></div>
+<div class="line"><span class="lineno">  440</span>        <span class="keywordflow">if</span> child:</div>
+<div class="line"><span class="lineno">  441</span>            module_dir = child.parent</div>
+<div class="line"><span class="lineno">  442</span>            <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  443</span>    assets_dir = os.path.join(module_dir, <span class="stringliteral">&quot;assets&quot;</span>)</div>
+<div class="line"><span class="lineno">  444</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isdir(assets_dir):</div>
+<div class="line"><span class="lineno">  445</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;{assets_dir} folder not found.&quot;</span>)</div>
+<div class="line"><span class="lineno">  446</span>    <span class="keywordflow">return</span> assets_dir</div>
+<div class="line"><span class="lineno">  447</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -461,19 +467,19 @@ and each double quote, removed.</pre>
    @param filename The name of the file to find.
    @param module_name The name of the python module containing the assets folder.
    @return The path of the file as a string or None if not found.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00442">442</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  442</span><span class="keyword">def </span>get_assets_file(filename, module_name=None):</div>
-<div class="line"><span class="lineno">  443</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the file in the assets folder.</span></div>
-<div class="line"><span class="lineno">  444</span><span class="stringliteral">       @param filename The name of the file to find.</span></div>
-<div class="line"><span class="lineno">  445</span><span class="stringliteral">       @param module_name The name of the python module containing the assets folder.</span></div>
-<div class="line"><span class="lineno">  446</span><span class="stringliteral">       @return The path of the file as a string or None if not found.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  447</span>    assets_dir = get_assets_dir(module_name)</div>
-<div class="line"><span class="lineno">  448</span>    <span class="keywordflow">for</span> dirpath, _, filenames <span class="keywordflow">in</span> os.walk(assets_dir):</div>
-<div class="line"><span class="lineno">  449</span>        <span class="keywordflow">if</span> filename <span class="keywordflow">in</span> filenames:</div>
-<div class="line"><span class="lineno">  450</span>            <span class="keywordflow">return</span> str(Path(dirpath) / filename)</div>
-<div class="line"><span class="lineno">  451</span> </div>
-<div class="line"><span class="lineno">  452</span>    <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  453</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00448">448</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  448</span><span class="keyword">def </span>get_assets_file(filename, module_name=None):</div>
+<div class="line"><span class="lineno">  449</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the file in the assets folder.</span></div>
+<div class="line"><span class="lineno">  450</span><span class="stringliteral">       @param filename The name of the file to find.</span></div>
+<div class="line"><span class="lineno">  451</span><span class="stringliteral">       @param module_name The name of the python module containing the assets folder.</span></div>
+<div class="line"><span class="lineno">  452</span><span class="stringliteral">       @return The path of the file as a string or None if not found.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  453</span>    assets_dir = get_assets_dir(module_name)</div>
+<div class="line"><span class="lineno">  454</span>    <span class="keywordflow">for</span> dirpath, _, filenames <span class="keywordflow">in</span> os.walk(assets_dir):</div>
+<div class="line"><span class="lineno">  455</span>        <span class="keywordflow">if</span> filename <span class="keywordflow">in</span> filenames:</div>
+<div class="line"><span class="lineno">  456</span>            <span class="keywordflow">return</span> str(Path(dirpath) / filename)</div>
+<div class="line"><span class="lineno">  457</span> </div>
+<div class="line"><span class="lineno">  458</span>    <span class="keywordflow">return</span> <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  459</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -507,54 +513,54 @@ and each double quote, removed.</pre>
    @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed
               detailing the search paths.
    @return The abs assets folder path string.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00621">621</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  621</span><span class="keyword">def </span>get_assets_folder(raise_error=True, uio=None):</div>
-<div class="line"><span class="lineno">  622</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the assets folder.</span></div>
-<div class="line"><span class="lineno">  623</span><span class="stringliteral">       @param raise_error If True then raise an error if the assets folder is not found.</span></div>
-<div class="line"><span class="lineno">  624</span><span class="stringliteral">       @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed</span></div>
-<div class="line"><span class="lineno">  625</span><span class="stringliteral">                  detailing the search paths.</span></div>
-<div class="line"><span class="lineno">  626</span><span class="stringliteral">       @return The abs assets folder path string.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  627</span>    searchFolders = []</div>
-<div class="line"><span class="lineno">  628</span>    assetsFolder = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  629</span>    calling_file = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  630</span>    <span class="comment"># Get the full path to the python file that called this get_assets_folder() function.</span></div>
-<div class="line"><span class="lineno">  631</span>    frame = inspect.stack()[1]</div>
-<div class="line"><span class="lineno">  632</span>    module = inspect.getmodule(frame[0])</div>
-<div class="line"><span class="lineno">  633</span>    <span class="keywordflow">if</span> module <span class="keywordflow">and</span> hasattr(module, <span class="stringliteral">&#39;__file__&#39;</span>):</div>
-<div class="line"><span class="lineno">  634</span>        calling_file = os.path.abspath(module.__file__)</div>
-<div class="line"><span class="lineno">  635</span> </div>
-<div class="line"><span class="lineno">  636</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> calling_file:</div>
-<div class="line"><span class="lineno">  637</span>        calling_file = os.path.abspath(sys.argv[0])</div>
-<div class="line"><span class="lineno">  638</span> </div>
-<div class="line"><span class="lineno">  639</span>    <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  640</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): calling_file = {calling_file}&quot;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00627">627</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  627</span><span class="keyword">def </span>get_assets_folder(raise_error=True, uio=None):</div>
+<div class="line"><span class="lineno">  628</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the assets folder.</span></div>
+<div class="line"><span class="lineno">  629</span><span class="stringliteral">       @param raise_error If True then raise an error if the assets folder is not found.</span></div>
+<div class="line"><span class="lineno">  630</span><span class="stringliteral">       @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed</span></div>
+<div class="line"><span class="lineno">  631</span><span class="stringliteral">                  detailing the search paths.</span></div>
+<div class="line"><span class="lineno">  632</span><span class="stringliteral">       @return The abs assets folder path string.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  633</span>    searchFolders = []</div>
+<div class="line"><span class="lineno">  634</span>    assetsFolder = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  635</span>    calling_file = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  636</span>    <span class="comment"># Get the full path to the python file that called this get_assets_folder() function.</span></div>
+<div class="line"><span class="lineno">  637</span>    frame = inspect.stack()[1]</div>
+<div class="line"><span class="lineno">  638</span>    module = inspect.getmodule(frame[0])</div>
+<div class="line"><span class="lineno">  639</span>    <span class="keywordflow">if</span> module <span class="keywordflow">and</span> hasattr(module, <span class="stringliteral">&#39;__file__&#39;</span>):</div>
+<div class="line"><span class="lineno">  640</span>        calling_file = os.path.abspath(module.__file__)</div>
 <div class="line"><span class="lineno">  641</span> </div>
-<div class="line"><span class="lineno">  642</span>    <span class="keywordflow">if</span> calling_file:</div>
-<div class="line"><span class="lineno">  643</span>        startup_path = os.path.dirname(calling_file)</div>
-<div class="line"><span class="lineno">  644</span>        searchFolders.append( os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  645</span>        pp1 = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  646</span>        searchFolders.append( os.path.join(pp1, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  647</span>        pp2 = os.path.join(pp1, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  648</span>        searchFolders.append( os.path.join(pp2, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  649</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
-<div class="line"><span class="lineno">  650</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
-<div class="line"><span class="lineno">  651</span>            <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
-<div class="line"><span class="lineno">  652</span>                site_packages_path = path</div>
-<div class="line"><span class="lineno">  653</span>                searchFolders.append( os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  654</span> </div>
-<div class="line"><span class="lineno">  655</span>        <span class="keywordflow">for</span> folder <span class="keywordflow">in</span> searchFolders:</div>
-<div class="line"><span class="lineno">  656</span>            <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  657</span>                uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): folder = {folder}&quot;</span>)</div>
-<div class="line"><span class="lineno">  658</span>            absPath = os.path.abspath(folder)</div>
-<div class="line"><span class="lineno">  659</span>            <span class="keywordflow">if</span> os.path.isdir(absPath):</div>
-<div class="line"><span class="lineno">  660</span>                assetsFolder = absPath</div>
-<div class="line"><span class="lineno">  661</span> </div>
-<div class="line"><span class="lineno">  662</span>    <span class="keywordflow">if</span> raise_error <span class="keywordflow">and</span> assetsFolder <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  663</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Failed to find assets folder.&#39;</span>)</div>
-<div class="line"><span class="lineno">  664</span> </div>
-<div class="line"><span class="lineno">  665</span>    <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  666</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): assetsFolder = {assetsFolder}&quot;</span>)</div>
-<div class="line"><span class="lineno">  667</span>    <span class="keywordflow">return</span> assetsFolder</div>
+<div class="line"><span class="lineno">  642</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> calling_file:</div>
+<div class="line"><span class="lineno">  643</span>        calling_file = os.path.abspath(sys.argv[0])</div>
+<div class="line"><span class="lineno">  644</span> </div>
+<div class="line"><span class="lineno">  645</span>    <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  646</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): calling_file = {calling_file}&quot;</span>)</div>
+<div class="line"><span class="lineno">  647</span> </div>
+<div class="line"><span class="lineno">  648</span>    <span class="keywordflow">if</span> calling_file:</div>
+<div class="line"><span class="lineno">  649</span>        startup_path = os.path.dirname(calling_file)</div>
+<div class="line"><span class="lineno">  650</span>        searchFolders.append( os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  651</span>        pp1 = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  652</span>        searchFolders.append( os.path.join(pp1, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  653</span>        pp2 = os.path.join(pp1, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  654</span>        searchFolders.append( os.path.join(pp2, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  655</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  656</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  657</span>            <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><span class="lineno">  658</span>                site_packages_path = path</div>
+<div class="line"><span class="lineno">  659</span>                searchFolders.append( os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  660</span> </div>
+<div class="line"><span class="lineno">  661</span>        <span class="keywordflow">for</span> folder <span class="keywordflow">in</span> searchFolders:</div>
+<div class="line"><span class="lineno">  662</span>            <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  663</span>                uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): folder = {folder}&quot;</span>)</div>
+<div class="line"><span class="lineno">  664</span>            absPath = os.path.abspath(folder)</div>
+<div class="line"><span class="lineno">  665</span>            <span class="keywordflow">if</span> os.path.isdir(absPath):</div>
+<div class="line"><span class="lineno">  666</span>                assetsFolder = absPath</div>
+<div class="line"><span class="lineno">  667</span> </div>
+<div class="line"><span class="lineno">  668</span>    <span class="keywordflow">if</span> raise_error <span class="keywordflow">and</span> assetsFolder <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  669</span>        <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&#39;Failed to find assets folder.&#39;</span>)</div>
+<div class="line"><span class="lineno">  670</span> </div>
+<div class="line"><span class="lineno">  671</span>    <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  672</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): assetsFolder = {assetsFolder}&quot;</span>)</div>
+<div class="line"><span class="lineno">  673</span>    <span class="keywordflow">return</span> assetsFolder</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -577,53 +583,53 @@ and each double quote, removed.</pre>
    @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed
               detailing the search paths.
    @return A list of all the assets folders found.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00575">575</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  575</span><span class="keyword">def </span>get_assets_folders(uio=None):</div>
-<div class="line"><span class="lineno">  576</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the assets folders.</span></div>
-<div class="line"><span class="lineno">  577</span><span class="stringliteral">       @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed</span></div>
-<div class="line"><span class="lineno">  578</span><span class="stringliteral">                  detailing the search paths.</span></div>
-<div class="line"><span class="lineno">  579</span><span class="stringliteral">       @return A list of all the assets folders found.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  580</span>    searchFolders = []</div>
-<div class="line"><span class="lineno">  581</span>    assetsFolders = []</div>
-<div class="line"><span class="lineno">  582</span>    calling_file = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  583</span>    <span class="comment"># Get the full path to the python file that called this get_assets_folders() function.</span></div>
-<div class="line"><span class="lineno">  584</span>    frame = inspect.stack()[1]</div>
-<div class="line"><span class="lineno">  585</span>    module = inspect.getmodule(frame[0])</div>
-<div class="line"><span class="lineno">  586</span>    <span class="keywordflow">if</span> module <span class="keywordflow">and</span> hasattr(module, <span class="stringliteral">&#39;__file__&#39;</span>):</div>
-<div class="line"><span class="lineno">  587</span>        calling_file = os.path.abspath(module.__file__)</div>
-<div class="line"><span class="lineno">  588</span> </div>
-<div class="line"><span class="lineno">  589</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> calling_file:</div>
-<div class="line"><span class="lineno">  590</span>        calling_file = os.path.abspath(sys.argv[0])</div>
-<div class="line"><span class="lineno">  591</span> </div>
-<div class="line"><span class="lineno">  592</span>    <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  593</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): calling_file = {calling_file}&quot;</span>)</div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00581">581</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  581</span><span class="keyword">def </span>get_assets_folders(uio=None):</div>
+<div class="line"><span class="lineno">  582</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the assets folders.</span></div>
+<div class="line"><span class="lineno">  583</span><span class="stringliteral">       @param uio A UIO instance. If provided and debug is enabled then debugging data is displayed</span></div>
+<div class="line"><span class="lineno">  584</span><span class="stringliteral">                  detailing the search paths.</span></div>
+<div class="line"><span class="lineno">  585</span><span class="stringliteral">       @return A list of all the assets folders found.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  586</span>    searchFolders = []</div>
+<div class="line"><span class="lineno">  587</span>    assetsFolders = []</div>
+<div class="line"><span class="lineno">  588</span>    calling_file = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  589</span>    <span class="comment"># Get the full path to the python file that called this get_assets_folders() function.</span></div>
+<div class="line"><span class="lineno">  590</span>    frame = inspect.stack()[1]</div>
+<div class="line"><span class="lineno">  591</span>    module = inspect.getmodule(frame[0])</div>
+<div class="line"><span class="lineno">  592</span>    <span class="keywordflow">if</span> module <span class="keywordflow">and</span> hasattr(module, <span class="stringliteral">&#39;__file__&#39;</span>):</div>
+<div class="line"><span class="lineno">  593</span>        calling_file = os.path.abspath(module.__file__)</div>
 <div class="line"><span class="lineno">  594</span> </div>
-<div class="line"><span class="lineno">  595</span>    <span class="keywordflow">if</span> calling_file:</div>
-<div class="line"><span class="lineno">  596</span>        startup_path = os.path.dirname(calling_file)</div>
-<div class="line"><span class="lineno">  597</span>        searchFolders.append( os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  598</span>        pp1 = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  599</span>        searchFolders.append( os.path.join(pp1, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  600</span>        pp2 = os.path.join(pp1, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  601</span>        searchFolders.append( os.path.join(pp2, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  602</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
-<div class="line"><span class="lineno">  603</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
-<div class="line"><span class="lineno">  604</span>            <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
-<div class="line"><span class="lineno">  605</span>                site_packages_path = path</div>
-<div class="line"><span class="lineno">  606</span>                searchFolders.append( os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
-<div class="line"><span class="lineno">  607</span> </div>
-<div class="line"><span class="lineno">  608</span>        <span class="keywordflow">for</span> folder <span class="keywordflow">in</span> searchFolders:</div>
-<div class="line"><span class="lineno">  609</span>            <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  610</span>                uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): folder = {folder}&quot;</span>)</div>
-<div class="line"><span class="lineno">  611</span>            absPath = os.path.abspath(folder)</div>
-<div class="line"><span class="lineno">  612</span>            <span class="keywordflow">if</span> os.path.isdir(absPath):</div>
-<div class="line"><span class="lineno">  613</span>                assetsFolders.append(absPath)</div>
-<div class="line"><span class="lineno">  614</span> </div>
-<div class="line"><span class="lineno">  615</span>    <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  616</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): assetsFolders = {assetsFolders}&quot;</span>)</div>
-<div class="line"><span class="lineno">  617</span> </div>
-<div class="line"><span class="lineno">  618</span>    <span class="keywordflow">return</span> assetsFolders</div>
-<div class="line"><span class="lineno">  619</span> </div>
-<div class="line"><span class="lineno">  620</span><span class="preprocessor">@deprecated(&quot;get_assets_folder()</span> <span class="keywordflow">is</span> deprecated. Use get_assets_dir() instead.<span class="stringliteral">&quot;)</span></div>
+<div class="line"><span class="lineno">  595</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> calling_file:</div>
+<div class="line"><span class="lineno">  596</span>        calling_file = os.path.abspath(sys.argv[0])</div>
+<div class="line"><span class="lineno">  597</span> </div>
+<div class="line"><span class="lineno">  598</span>    <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  599</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): calling_file = {calling_file}&quot;</span>)</div>
+<div class="line"><span class="lineno">  600</span> </div>
+<div class="line"><span class="lineno">  601</span>    <span class="keywordflow">if</span> calling_file:</div>
+<div class="line"><span class="lineno">  602</span>        startup_path = os.path.dirname(calling_file)</div>
+<div class="line"><span class="lineno">  603</span>        searchFolders.append( os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  604</span>        pp1 = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  605</span>        searchFolders.append( os.path.join(pp1, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  606</span>        pp2 = os.path.join(pp1, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  607</span>        searchFolders.append( os.path.join(pp2, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  608</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  609</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  610</span>            <span class="keywordflow">if</span> <span class="stringliteral">&#39;site-packages&#39;</span> <span class="keywordflow">in</span> path:</div>
+<div class="line"><span class="lineno">  611</span>                site_packages_path = path</div>
+<div class="line"><span class="lineno">  612</span>                searchFolders.append( os.path.join(site_packages_path, <span class="stringliteral">&#39;assets&#39;</span>) )</div>
+<div class="line"><span class="lineno">  613</span> </div>
+<div class="line"><span class="lineno">  614</span>        <span class="keywordflow">for</span> folder <span class="keywordflow">in</span> searchFolders:</div>
+<div class="line"><span class="lineno">  615</span>            <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  616</span>                uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): folder = {folder}&quot;</span>)</div>
+<div class="line"><span class="lineno">  617</span>            absPath = os.path.abspath(folder)</div>
+<div class="line"><span class="lineno">  618</span>            <span class="keywordflow">if</span> os.path.isdir(absPath):</div>
+<div class="line"><span class="lineno">  619</span>                assetsFolders.append(absPath)</div>
+<div class="line"><span class="lineno">  620</span> </div>
+<div class="line"><span class="lineno">  621</span>    <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  622</span>        uio.debug(f<span class="stringliteral">&quot;get_assets_folder(): assetsFolders = {assetsFolders}&quot;</span>)</div>
+<div class="line"><span class="lineno">  623</span> </div>
+<div class="line"><span class="lineno">  624</span>    <span class="keywordflow">return</span> assetsFolders</div>
+<div class="line"><span class="lineno">  625</span> </div>
+<div class="line"><span class="lineno">  626</span><span class="preprocessor">@deprecated(&quot;get_assets_folder()</span> <span class="keywordflow">is</span> deprecated. Use get_assets_dir() instead.<span class="stringliteral">&quot;)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -676,34 +682,34 @@ and each double quote, removed.</pre>
    @param module_name The name of the python module containing the assets folder.
    @return The program/package version. This comes from the pyproject.toml file
            which must be inside the assets folder at the top level.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00456">456</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  456</span><span class="keyword">def </span>get_program_version(module_name=None):</div>
-<div class="line"><span class="lineno">  457</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the program version.</span></div>
-<div class="line"><span class="lineno">  458</span><span class="stringliteral">       @param module_name The name of the python module containing the assets folder.</span></div>
-<div class="line"><span class="lineno">  459</span><span class="stringliteral">       @return The program/package version. This comes from the pyproject.toml file</span></div>
-<div class="line"><span class="lineno">  460</span><span class="stringliteral">               which must be inside the assets folder at the top level.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  461</span>    poetryConfigFile = get_assets_file(PYPROJECT_FILE)</div>
-<div class="line"><span class="lineno">  462</span>    <span class="keywordflow">if</span> poetryConfigFile:</div>
-<div class="line"><span class="lineno">  463</span>        programVersion = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  464</span>        <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
-<div class="line"><span class="lineno">  465</span>            lines = fd.readlines()</div>
-<div class="line"><span class="lineno">  466</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  467</span>                line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  468</span>                <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
-<div class="line"><span class="lineno">  469</span>                    elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
-<div class="line"><span class="lineno">  470</span>                    <span class="keywordflow">if</span> len(elems) == 2:</div>
-<div class="line"><span class="lineno">  471</span>                        programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
-<div class="line"><span class="lineno">  472</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  473</span>        <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  474</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from the {poetryConfigFile} file.&quot;</span>)</div>
-<div class="line"><span class="lineno">  475</span> </div>
-<div class="line"><span class="lineno">  476</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  477</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{poetryConfigFile} file not found.&quot;</span>)</div>
-<div class="line"><span class="lineno">  478</span> </div>
-<div class="line"><span class="lineno">  479</span>    <span class="keywordflow">return</span> programVersion</div>
-<div class="line"><span class="lineno">  480</span> </div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00462">462</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  462</span><span class="keyword">def </span>get_program_version(module_name=None):</div>
+<div class="line"><span class="lineno">  463</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Get the program version.</span></div>
+<div class="line"><span class="lineno">  464</span><span class="stringliteral">       @param module_name The name of the python module containing the assets folder.</span></div>
+<div class="line"><span class="lineno">  465</span><span class="stringliteral">       @return The program/package version. This comes from the pyproject.toml file</span></div>
+<div class="line"><span class="lineno">  466</span><span class="stringliteral">               which must be inside the assets folder at the top level.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  467</span>    poetryConfigFile = get_assets_file(PYPROJECT_FILE)</div>
+<div class="line"><span class="lineno">  468</span>    <span class="keywordflow">if</span> poetryConfigFile:</div>
+<div class="line"><span class="lineno">  469</span>        programVersion = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  470</span>        <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
+<div class="line"><span class="lineno">  471</span>            lines = fd.readlines()</div>
+<div class="line"><span class="lineno">  472</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  473</span>                line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  474</span>                <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
+<div class="line"><span class="lineno">  475</span>                    elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
+<div class="line"><span class="lineno">  476</span>                    <span class="keywordflow">if</span> len(elems) == 2:</div>
+<div class="line"><span class="lineno">  477</span>                        programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
+<div class="line"><span class="lineno">  478</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  479</span>        <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  480</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from the {poetryConfigFile} file.&quot;</span>)</div>
 <div class="line"><span class="lineno">  481</span> </div>
-<div class="line"><span class="lineno">  482</span><span class="preprocessor">@deprecated(&quot;getAbsFile()</span> <span class="keywordflow">is</span> deprecated. Use get_assets_file() instead.<span class="stringliteral">&quot;)</span></div>
+<div class="line"><span class="lineno">  482</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  483</span>        <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{poetryConfigFile} file not found.&quot;</span>)</div>
+<div class="line"><span class="lineno">  484</span> </div>
+<div class="line"><span class="lineno">  485</span>    <span class="keywordflow">return</span> programVersion</div>
+<div class="line"><span class="lineno">  486</span> </div>
+<div class="line"><span class="lineno">  487</span> </div>
+<div class="line"><span class="lineno">  488</span><span class="preprocessor">@deprecated(&quot;getAbsFile()</span> <span class="keywordflow">is</span> deprecated. Use get_assets_file() instead.<span class="stringliteral">&quot;)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -764,70 +770,70 @@ and each double quote, removed.</pre>
     @param include_parents_parent Detailed above.
     @param include_site_packages Detailed above.
     @return The abs path of the file or None if not found.</pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00483">483</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  487</span>               include_site_packages=<span class="keyword">True</span>):</div>
-<div class="line"><span class="lineno">  488</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Check that the file exists in several places.</span></div>
-<div class="line"><span class="lineno">  489</span><span class="stringliteral">                1 - The startup folder</span></div>
-<div class="line"><span class="lineno">  490</span><span class="stringliteral">                2 - An &#39;assets&#39; folder in the startup folder</span></div>
-<div class="line"><span class="lineno">  491</span><span class="stringliteral">                3 - An &#39;assets&#39; folder in the startup parent folder if include_parent = True.</span></div>
-<div class="line"><span class="lineno">  492</span><span class="stringliteral">                4 - An &#39;assets&#39; folder in the startup parents parents folder if include_parents_parent = True</span></div>
-<div class="line"><span class="lineno">  493</span><span class="stringliteral">                5 - In a site-packages folder if include_site_packages = True.</span></div>
-<div class="line"><span class="lineno">  494</span><span class="stringliteral">                6 - In an &#39;assets&#39; folder in a python site-packages folder if include_site_packages = True.</span></div>
-<div class="line"><span class="lineno">  495</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
-<div class="line"><span class="lineno">  496</span><span class="stringliteral">        @param uio A p3lib.uio.UIO instance. If defined debug messages are displayed showing the paths</span></div>
-<div class="line"><span class="lineno">  497</span><span class="stringliteral">                   searched up to the one it was found in.</span></div>
-<div class="line"><span class="lineno">  498</span><span class="stringliteral">        @param include_parent Detailed above.</span></div>
-<div class="line"><span class="lineno">  499</span><span class="stringliteral">        @param include_parents_parent Detailed above.</span></div>
-<div class="line"><span class="lineno">  500</span><span class="stringliteral">        @param include_site_packages Detailed above.</span></div>
-<div class="line"><span class="lineno">  501</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  502</span>    file_found = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  503</span>    file_list = []</div>
-<div class="line"><span class="lineno">  504</span>    abs_filename = os.path.abspath(filename)</div>
-<div class="line"><span class="lineno">  505</span>    file_list.append(abs_filename)</div>
-<div class="line"><span class="lineno">  506</span>    <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  507</span>        uio.debug(f<span class="stringliteral">&quot;getAbsFile(): filename = {filename}&quot;</span>)</div>
-<div class="line"><span class="lineno">  508</span> </div>
-<div class="line"><span class="lineno">  509</span>    startup_file = os.path.abspath(sys.argv[0])</div>
-<div class="line"><span class="lineno">  510</span>    startup_path = os.path.dirname(startup_file)</div>
-<div class="line"><span class="lineno">  511</span>    path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><span class="lineno">  512</span>    abs_filename = os.path.join(path1, filename)</div>
-<div class="line"><span class="lineno">  513</span>    file_list.append(abs_filename)</div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00489">489</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  493</span>               include_site_packages=<span class="keyword">True</span>):</div>
+<div class="line"><span class="lineno">  494</span>    <span class="stringliteral">&quot;&quot;&quot;@brief Check that the file exists in several places.</span></div>
+<div class="line"><span class="lineno">  495</span><span class="stringliteral">                1 - The startup folder</span></div>
+<div class="line"><span class="lineno">  496</span><span class="stringliteral">                2 - An &#39;assets&#39; folder in the startup folder</span></div>
+<div class="line"><span class="lineno">  497</span><span class="stringliteral">                3 - An &#39;assets&#39; folder in the startup parent folder if include_parent = True.</span></div>
+<div class="line"><span class="lineno">  498</span><span class="stringliteral">                4 - An &#39;assets&#39; folder in the startup parents parents folder if include_parents_parent = True</span></div>
+<div class="line"><span class="lineno">  499</span><span class="stringliteral">                5 - In a site-packages folder if include_site_packages = True.</span></div>
+<div class="line"><span class="lineno">  500</span><span class="stringliteral">                6 - In an &#39;assets&#39; folder in a python site-packages folder if include_site_packages = True.</span></div>
+<div class="line"><span class="lineno">  501</span><span class="stringliteral">        @param filename The name of the icon file.</span></div>
+<div class="line"><span class="lineno">  502</span><span class="stringliteral">        @param uio A p3lib.uio.UIO instance. If defined debug messages are displayed showing the paths</span></div>
+<div class="line"><span class="lineno">  503</span><span class="stringliteral">                   searched up to the one it was found in.</span></div>
+<div class="line"><span class="lineno">  504</span><span class="stringliteral">        @param include_parent Detailed above.</span></div>
+<div class="line"><span class="lineno">  505</span><span class="stringliteral">        @param include_parents_parent Detailed above.</span></div>
+<div class="line"><span class="lineno">  506</span><span class="stringliteral">        @param include_site_packages Detailed above.</span></div>
+<div class="line"><span class="lineno">  507</span><span class="stringliteral">        @return The abs path of the file or None if not found.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  508</span>    file_found = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  509</span>    file_list = []</div>
+<div class="line"><span class="lineno">  510</span>    abs_filename = os.path.abspath(filename)</div>
+<div class="line"><span class="lineno">  511</span>    file_list.append(abs_filename)</div>
+<div class="line"><span class="lineno">  512</span>    <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  513</span>        uio.debug(f<span class="stringliteral">&quot;getAbsFile(): filename = {filename}&quot;</span>)</div>
 <div class="line"><span class="lineno">  514</span> </div>
-<div class="line"><span class="lineno">  515</span>    <span class="keywordflow">if</span> include_parent:</div>
-<div class="line"><span class="lineno">  516</span>        startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  517</span>        path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><span class="lineno">  518</span>        abs_filename = os.path.join(path2, filename)</div>
-<div class="line"><span class="lineno">  519</span>        file_list.append(abs_filename)</div>
+<div class="line"><span class="lineno">  515</span>    startup_file = os.path.abspath(sys.argv[0])</div>
+<div class="line"><span class="lineno">  516</span>    startup_path = os.path.dirname(startup_file)</div>
+<div class="line"><span class="lineno">  517</span>    path1 = os.path.join(startup_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  518</span>    abs_filename = os.path.join(path1, filename)</div>
+<div class="line"><span class="lineno">  519</span>    file_list.append(abs_filename)</div>
 <div class="line"><span class="lineno">  520</span> </div>
-<div class="line"><span class="lineno">  521</span>    <span class="keywordflow">if</span> include_parents_parent:</div>
-<div class="line"><span class="lineno">  522</span>        startup_parent_parent_path = os.path.join(startup_parent_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
-<div class="line"><span class="lineno">  523</span>        path2 = os.path.join(startup_parent_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  521</span>    <span class="keywordflow">if</span> include_parent:</div>
+<div class="line"><span class="lineno">  522</span>        startup_parent_path = os.path.join(startup_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  523</span>        path2 = os.path.join(startup_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
 <div class="line"><span class="lineno">  524</span>        abs_filename = os.path.join(path2, filename)</div>
 <div class="line"><span class="lineno">  525</span>        file_list.append(abs_filename)</div>
 <div class="line"><span class="lineno">  526</span> </div>
-<div class="line"><span class="lineno">  527</span>    <span class="keywordflow">if</span> include_site_packages:</div>
-<div class="line"><span class="lineno">  528</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
-<div class="line"><span class="lineno">  529</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
-<div class="line"><span class="lineno">  530</span>            abs_filename = os.path.join(path, filename)</div>
-<div class="line"><span class="lineno">  531</span>            file_list.append(abs_filename)</div>
-<div class="line"><span class="lineno">  532</span>            path2 = os.path.join(path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
-<div class="line"><span class="lineno">  533</span>            abs_filename = os.path.join(path2, filename)</div>
-<div class="line"><span class="lineno">  534</span>            file_list.append(abs_filename)</div>
-<div class="line"><span class="lineno">  535</span> </div>
-<div class="line"><span class="lineno">  536</span>    file_found = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  537</span>    <span class="keywordflow">for</span> abs_filename <span class="keywordflow">in</span> file_list:</div>
-<div class="line"><span class="lineno">  538</span>        <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  539</span>            uio.debug(f<span class="stringliteral">&quot;getAbsFile(): abs_filename = {abs_filename}&quot;</span>)</div>
-<div class="line"><span class="lineno">  540</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
-<div class="line"><span class="lineno">  541</span>            file_found = abs_filename</div>
-<div class="line"><span class="lineno">  542</span>            <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  543</span> </div>
-<div class="line"><span class="lineno">  544</span>    <span class="keywordflow">if</span> uio:</div>
-<div class="line"><span class="lineno">  545</span>        uio.debug(f<span class="stringliteral">&quot;getAbsFile(): file_found = {file_found}&quot;</span>)</div>
-<div class="line"><span class="lineno">  546</span> </div>
-<div class="line"><span class="lineno">  547</span>    <span class="keywordflow">return</span> file_found</div>
-<div class="line"><span class="lineno">  548</span> </div>
-<div class="line"><span class="lineno">  549</span><span class="preprocessor">@deprecated(&quot;getProgramVersion()</span> <span class="keywordflow">is</span> deprecated. Use get_program_version() instead.<span class="stringliteral">&quot;)</span></div>
+<div class="line"><span class="lineno">  527</span>    <span class="keywordflow">if</span> include_parents_parent:</div>
+<div class="line"><span class="lineno">  528</span>        startup_parent_parent_path = os.path.join(startup_parent_path, <span class="stringliteral">&#39;..&#39;</span>)</div>
+<div class="line"><span class="lineno">  529</span>        path2 = os.path.join(startup_parent_parent_path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  530</span>        abs_filename = os.path.join(path2, filename)</div>
+<div class="line"><span class="lineno">  531</span>        file_list.append(abs_filename)</div>
+<div class="line"><span class="lineno">  532</span> </div>
+<div class="line"><span class="lineno">  533</span>    <span class="keywordflow">if</span> include_site_packages:</div>
+<div class="line"><span class="lineno">  534</span>        <span class="comment"># Try all the site packages folders we know about.</span></div>
+<div class="line"><span class="lineno">  535</span>        <span class="keywordflow">for</span> path <span class="keywordflow">in</span> sys.path:</div>
+<div class="line"><span class="lineno">  536</span>            abs_filename = os.path.join(path, filename)</div>
+<div class="line"><span class="lineno">  537</span>            file_list.append(abs_filename)</div>
+<div class="line"><span class="lineno">  538</span>            path2 = os.path.join(path, <span class="stringliteral">&#39;assets&#39;</span>)</div>
+<div class="line"><span class="lineno">  539</span>            abs_filename = os.path.join(path2, filename)</div>
+<div class="line"><span class="lineno">  540</span>            file_list.append(abs_filename)</div>
+<div class="line"><span class="lineno">  541</span> </div>
+<div class="line"><span class="lineno">  542</span>    file_found = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  543</span>    <span class="keywordflow">for</span> abs_filename <span class="keywordflow">in</span> file_list:</div>
+<div class="line"><span class="lineno">  544</span>        <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  545</span>            uio.debug(f<span class="stringliteral">&quot;getAbsFile(): abs_filename = {abs_filename}&quot;</span>)</div>
+<div class="line"><span class="lineno">  546</span>        <span class="keywordflow">if</span> os.path.isfile(abs_filename):</div>
+<div class="line"><span class="lineno">  547</span>            file_found = abs_filename</div>
+<div class="line"><span class="lineno">  548</span>            <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  549</span> </div>
+<div class="line"><span class="lineno">  550</span>    <span class="keywordflow">if</span> uio:</div>
+<div class="line"><span class="lineno">  551</span>        uio.debug(f<span class="stringliteral">&quot;getAbsFile(): file_found = {file_found}&quot;</span>)</div>
+<div class="line"><span class="lineno">  552</span> </div>
+<div class="line"><span class="lineno">  553</span>    <span class="keywordflow">return</span> file_found</div>
+<div class="line"><span class="lineno">  554</span> </div>
+<div class="line"><span class="lineno">  555</span><span class="preprocessor">@deprecated(&quot;getProgramVersion()</span> <span class="keywordflow">is</span> deprecated. Use get_program_version() instead.<span class="stringliteral">&quot;)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1325,32 +1331,32 @@ and each double quote, removed.</pre>
 </div><div class="memdoc">
 <pre class="fragment">@return The program/package version. This comes from the pyproject.toml file.
            If this file is not found an exception is thrown.  </pre> 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00550">550</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  550</span><span class="keyword">def </span>getProgramVersion():</div>
-<div class="line"><span class="lineno">  551</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
-<div class="line"><span class="lineno">  552</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  553</span>    poetryConfigFile = getAbsFile(PYPROJECT_FILE)</div>
-<div class="line"><span class="lineno">  554</span>    <span class="keywordflow">if</span> poetryConfigFile:</div>
-<div class="line"><span class="lineno">  555</span>        programVersion = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  556</span>        <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
-<div class="line"><span class="lineno">  557</span>            lines = fd.readlines()</div>
-<div class="line"><span class="lineno">  558</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  559</span>                line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  560</span>                <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
-<div class="line"><span class="lineno">  561</span>                    elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
-<div class="line"><span class="lineno">  562</span>                    <span class="keywordflow">if</span> len(elems) == 2:</div>
-<div class="line"><span class="lineno">  563</span>                        programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
-<div class="line"><span class="lineno">  564</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  565</span>        <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><span class="lineno">  566</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
-<div class="line"><span class="lineno">  567</span>    <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  568</span>        <span class="comment"># In the event we can&#39;t find the PYPROJECT_FILE file return an invalid verion (hopefully)</span></div>
-<div class="line"><span class="lineno">  569</span>        <span class="comment"># to indicate this. This can happen if the pyproject.toml file is not included or can&#39;t be</span></div>
-<div class="line"><span class="lineno">  570</span>        <span class="comment"># found.</span></div>
-<div class="line"><span class="lineno">  571</span>        <span class="keywordflow">return</span> -999.99</div>
-<div class="line"><span class="lineno">  572</span>    <span class="keywordflow">return</span> programVersion</div>
-<div class="line"><span class="lineno">  573</span> </div>
-<div class="line"><span class="lineno">  574</span><span class="preprocessor">@deprecated(&quot;get_assets_folders()</span> <span class="keywordflow">is</span> deprecated. Use get_assets_dir() instead <span class="keywordflow">and</span> use the single path returned.<span class="stringliteral">&quot;)</span></div>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00556">556</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  556</span><span class="keyword">def </span>getProgramVersion():</div>
+<div class="line"><span class="lineno">  557</span>    <span class="stringliteral">&quot;&quot;&quot;@return The program/package version. This comes from the pyproject.toml file.</span></div>
+<div class="line"><span class="lineno">  558</span><span class="stringliteral">               If this file is not found an exception is thrown.  &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  559</span>    poetryConfigFile = getAbsFile(PYPROJECT_FILE)</div>
+<div class="line"><span class="lineno">  560</span>    <span class="keywordflow">if</span> poetryConfigFile:</div>
+<div class="line"><span class="lineno">  561</span>        programVersion = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  562</span>        <span class="keyword">with</span> open(poetryConfigFile, <span class="stringliteral">&#39;r&#39;</span>) <span class="keyword">as</span> fd:</div>
+<div class="line"><span class="lineno">  563</span>            lines = fd.readlines()</div>
+<div class="line"><span class="lineno">  564</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  565</span>                line=line.strip(<span class="stringliteral">&quot;\r\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  566</span>                <span class="keywordflow">if</span> line.startswith(<span class="stringliteral">&#39;version&#39;</span>):</div>
+<div class="line"><span class="lineno">  567</span>                    elems = line.split(<span class="stringliteral">&quot;=&quot;</span>)</div>
+<div class="line"><span class="lineno">  568</span>                    <span class="keywordflow">if</span> len(elems) == 2:</div>
+<div class="line"><span class="lineno">  569</span>                        programVersion = elems[1].strip(<span class="stringliteral">&#39;&quot; &#39;</span>)</div>
+<div class="line"><span class="lineno">  570</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  571</span>        <span class="keywordflow">if</span> programVersion <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><span class="lineno">  572</span>            <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to extract program version from &#39;{line}&#39; line of {poetryConfigFile} file.&quot;</span>)</div>
+<div class="line"><span class="lineno">  573</span>    <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  574</span>        <span class="comment"># In the event we can&#39;t find the PYPROJECT_FILE file return an invalid verion (hopefully)</span></div>
+<div class="line"><span class="lineno">  575</span>        <span class="comment"># to indicate this. This can happen if the pyproject.toml file is not included or can&#39;t be</span></div>
+<div class="line"><span class="lineno">  576</span>        <span class="comment"># found.</span></div>
+<div class="line"><span class="lineno">  577</span>        <span class="keywordflow">return</span> -999.99</div>
+<div class="line"><span class="lineno">  578</span>    <span class="keywordflow">return</span> programVersion</div>
+<div class="line"><span class="lineno">  579</span> </div>
+<div class="line"><span class="lineno">  580</span><span class="preprocessor">@deprecated(&quot;get_assets_folders()</span> <span class="keywordflow">is</span> deprecated. Use get_assets_dir() instead <span class="keywordflow">and</span> use the single path returned.<span class="stringliteral">&quot;)</span></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1682,7 +1688,7 @@ and each double quote, removed.</pre>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00454">454</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helper_8py_source.html#l00460">460</a> of file <a class="el" href="helper_8py_source.html">helper.py</a>.</p>
 
 </div>
 </div>
