@@ -4,10 +4,7 @@ version = "0.0.1"
 description = "A group of python modules for networking, plotting data, config storage, automating boot scripts, ssh access and user input output."
 authors = ["Paul Austen <pjaos@gmail.com>"]
 packages = [
-    { include = "test_launcher.py" , from = "."}
-]
-include = [
-    { path = "assets", format = ["sdist", "wheel"] }
+    { include = "test_launcher", from = "src" },
 ]
 
 [tool.poetry.dependencies]
@@ -19,7 +16,7 @@ nicegui = "^3.5"
 plotly = "*"
 h11 = "^0.16.0"
 pillow = "*"
-p3lib = "1.1.132"
+p3lib = "1.1.142"
 aiohttp = "^3.13.3"
 
 # Windows-only dependencies
