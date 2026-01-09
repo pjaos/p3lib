@@ -75,7 +75,6 @@ class LauncherBase(object):
                 exec_cmd = local_bin_exec_cmd
 
         elif _platform == 'Darwin':
-            library_folder = os.path.join(home_folder, "Library")
             app_support_folder = os.path.join(home_folder, "Application Support")
             module_dir = os.path.join(app_support_folder, module_name)
             module_bin_dir = os.path.join(module_dir, 'bin')
