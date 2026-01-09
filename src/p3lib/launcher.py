@@ -49,6 +49,42 @@ class LauncherBase(object):
         """@return Get the abs name of the program first started."""
         return os.path.abspath(sys.argv[0])
 
+    def _get_exec_cmd(self):
+        """@brief Get the command to execute the app."""
+        # We use this exec cmd if we can't find others installed in platform local paths
+        exec_cmd = self._get_startup_file()
+        exec_cmd_path = Path(exec_cmd)
+        filename = exec_cmd_path.name.replace('.py','')
+        module_name = exec_cmd_path.parent.name
+        _platform = platform.system()
+        home_folder = os.path.expanduser("~")
+        if _platform == 'Linux':
+            local_folder = os.path.join(home_folder, ".local")
+            local_bin_folder = os.path.join(local_folder, "bin")
+            local_bin_exec_cmd = os.path.join(local_bin_folder, filename)
+            if os.path.isfile(local_bin_exec_cmd):
+                exec_cmd = local_bin_exec_cmd
+
+        elif _platform == 'Windows':
+            local_appdata = os.environ["LOCALAPPDATA"]
+            programs_dir = os.path.join(local_appdata, 'Programs')
+            module_dir = os.path.join(programs_dir, module_name)
+            module_bin_dir = os.path.join(module_dir, 'bin')
+            local_bin_exec_cmd = os.path.join(module_bin_dir, filename)
+            if os.path.isfile(local_bin_exec_cmd):
+                exec_cmd = local_bin_exec_cmd
+
+        elif _platform == 'Darwin':
+            library_folder = os.path.join(home_folder, "Library")
+            app_support_folder = os.path.join(home_folder, "Application Support")
+            module_dir = os.path.join(app_support_folder, module_name)
+            module_bin_dir = os.path.join(module_dir, 'bin')
+            local_bin_exec_cmd = os.path.join(module_bin_dir, filename)
+            if os.path.isfile(local_bin_exec_cmd):
+                exec_cmd = local_bin_exec_cmd
+
+        return exec_cmd
+
     def info(self, msg):
         """@brief Show an info level message to the user.
         @param msg The msessage text."""
@@ -207,6 +243,7 @@ if _platform == 'Linux':
 
         def _create_gnome_desktop_files(self):
             """@brief Create the gnome desktop file for this app."""
+            exec_cmd = self._get_exec_cmd()
             for gnome_desktop_file in self._gnome_desktop_files:
                 if os.path.isfile(gnome_desktop_file):
                     raise Exception(f"{gnome_desktop_file} file already exists.")
@@ -217,7 +254,7 @@ if _platform == 'Linux':
                 lines.append(f'Name={self._app_name}')
                 lines.append(f'Comment={self._comment}')
                 lines.append(f'Icon={self._abs_icon_file}')
-                lines.append(f'Exec={self._startup_file}')
+                lines.append(f'Exec={exec_cmd}')
                 lines.append('Terminal=false')
                 if not self._categories.endswith(';'):
                     self._categories = self._categories + ';'
