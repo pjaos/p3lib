@@ -445,6 +445,23 @@ elif _platform == 'Darwin':
 
             return str(iconset).replace('.iconset', '.icns')
 
+        def _get_python_path(self):
+            """@brief Get the python file inside the venv."""
+            pos = self._startup_file.find('/venv/')
+            if pos:
+                python_path = self._startup_file[:pos+6] + 'bin/python'
+                if not os.path.isfile(python_path):
+                    raise Exception(f"{python_path} file not found.")
+                return python_path
+            else:
+                raise Exception(f"Failed to find the venv in {self._startup_file}")
+            
+        def _get_main_module(self):
+            """@brief Get the python module to run."""
+            path = Path(self._startup_file)
+            filename = path.name
+            return f"{path.parent.name}.{filename.replace('.py','')}"
+        
         def _create_app(self):
             """@brief Create a MacOS app folder with the required files to launch an app."""
             self.delete()
@@ -454,7 +471,9 @@ elif _platform == 'Darwin':
 
             # Executable script
             exec_path = self._macos / self._app_name
-            exec_path.write_text(f"#!/bin/bash\nopen {self._startup_file}\n")
+            python_path = self._get_python_path()
+            main_module = self._get_main_module()
+            exec_path.write_text(f"#!/bin/bash\nexec {python_path} -m {main_module}\n")
             exec_path.chmod(0x755)
 
             # Info.plist

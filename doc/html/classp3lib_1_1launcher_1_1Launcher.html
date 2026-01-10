@@ -152,8 +152,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:add23fe7ca8fe534237e08ad30503ae23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a198e6cf489e53c1601bffe3f0a504c74" id="r_a198e6cf489e53c1601bffe3f0a504c74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1launcher_1_1Launcher.html#a198e6cf489e53c1601bffe3f0a504c74">_get_gnome_desktop_files</a> (self)</td></tr>
 <tr class="separator:a198e6cf489e53c1601bffe3f0a504c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb60a1b8eda7d2c0f4773d1a58cdf793" id="r_afb60a1b8eda7d2c0f4773d1a58cdf793"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1launcher_1_1Launcher.html#afb60a1b8eda7d2c0f4773d1a58cdf793">_get_main_module</a> (self)</td></tr>
+<tr class="separator:afb60a1b8eda7d2c0f4773d1a58cdf793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9259f8b68b65e816065de7a91cb56dec" id="r_a9259f8b68b65e816065de7a91cb56dec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1launcher_1_1Launcher.html#a9259f8b68b65e816065de7a91cb56dec">_get_python_module_file</a> (self)</td></tr>
 <tr class="separator:a9259f8b68b65e816065de7a91cb56dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad62139723990eff9b29a56fa1e39f217" id="r_ad62139723990eff9b29a56fa1e39f217"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1launcher_1_1Launcher.html#ad62139723990eff9b29a56fa1e39f217">_get_python_path</a> (self)</td></tr>
+<tr class="separator:ad62139723990eff9b29a56fa1e39f217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd9630800822fa0a027dd239b61c18f8" id="r_acd9630800822fa0a027dd239b61c18f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1launcher_1_1Launcher.html#acd9630800822fa0a027dd239b61c18f8">_get_shortcut</a> (self)</td></tr>
 <tr class="separator:acd9630800822fa0a027dd239b61c18f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba3bb80eea4b11dca9e41cec7c2609d9" id="r_aba3bb80eea4b11dca9e41cec7c2609d9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1launcher_1_1Launcher.html#aba3bb80eea4b11dca9e41cec7c2609d9">_get_shortcut_folder</a> (self)</td></tr>
@@ -550,44 +554,46 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Create a MacOS app folder with the required files to launch an app.</pre> 
-<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00448">448</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  448</span>        <span class="keyword">def </span>_create_app(self):</div>
-<div class="line"><span class="lineno">  449</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Create a MacOS app folder with the required files to launch an app.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  450</span>            self.delete()</div>
-<div class="line"><span class="lineno">  451</span>            <span class="comment"># Create app structure</span></div>
-<div class="line"><span class="lineno">  452</span>            self._macos.mkdir(parents=<span class="keyword">True</span>)</div>
-<div class="line"><span class="lineno">  453</span>            self._resources.mkdir()</div>
-<div class="line"><span class="lineno">  454</span> </div>
-<div class="line"><span class="lineno">  455</span>            <span class="comment"># Executable script</span></div>
-<div class="line"><span class="lineno">  456</span>            exec_path = self._macos / self._app_name</div>
-<div class="line"><span class="lineno">  457</span>            exec_path.write_text(f<span class="stringliteral">&quot;#!/bin/bash\nopen {self._startup_file}\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  458</span>            exec_path.chmod(0x755)</div>
-<div class="line"><span class="lineno">  459</span> </div>
-<div class="line"><span class="lineno">  460</span>            <span class="comment"># Info.plist</span></div>
-<div class="line"><span class="lineno">  461</span>            plist = {</div>
-<div class="line"><span class="lineno">  462</span>                <span class="stringliteral">&#39;CFBundleName&#39;</span>: self._app_name,</div>
-<div class="line"><span class="lineno">  463</span>                <span class="stringliteral">&#39;CFBundleIdentifier&#39;</span>: f<span class="stringliteral">&#39;com.example.{self._app_name.lower()}&#39;</span>,</div>
-<div class="line"><span class="lineno">  464</span>                <span class="stringliteral">&#39;CFBundleVersion&#39;</span>: <span class="stringliteral">&#39;1.0&#39;</span>,</div>
-<div class="line"><span class="lineno">  465</span>                <span class="stringliteral">&#39;CFBundlePackageType&#39;</span>: <span class="stringliteral">&#39;APPL&#39;</span>,</div>
-<div class="line"><span class="lineno">  466</span>                <span class="stringliteral">&#39;CFBundleExecutable&#39;</span>: self._app_name,</div>
-<div class="line"><span class="lineno">  467</span>                <span class="stringliteral">&#39;CFBundleIconFile&#39;</span>: <span class="stringliteral">&#39;app_icon&#39;</span>,</div>
-<div class="line"><span class="lineno">  468</span>            }</div>
-<div class="line"><span class="lineno">  469</span>            <span class="keyword">with</span> open(self._contents / <span class="stringliteral">&#39;Info.plist&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> f:</div>
-<div class="line"><span class="lineno">  470</span>                plistlib.dump(plist, f)</div>
+<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00465">465</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  465</span>        <span class="keyword">def </span>_create_app(self):</div>
+<div class="line"><span class="lineno">  466</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Create a MacOS app folder with the required files to launch an app.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  467</span>            self.delete()</div>
+<div class="line"><span class="lineno">  468</span>            <span class="comment"># Create app structure</span></div>
+<div class="line"><span class="lineno">  469</span>            self._macos.mkdir(parents=<span class="keyword">True</span>)</div>
+<div class="line"><span class="lineno">  470</span>            self._resources.mkdir()</div>
 <div class="line"><span class="lineno">  471</span> </div>
-<div class="line"><span class="lineno">  472</span>            <span class="comment"># Convert the png file to an icns file for use on MacOS</span></div>
-<div class="line"><span class="lineno">  473</span>            icns_file = self._convert_png_to_icns()</div>
-<div class="line"><span class="lineno">  474</span> </div>
-<div class="line"><span class="lineno">  475</span>            <span class="comment"># Copy icon (must be .icns format)</span></div>
-<div class="line"><span class="lineno">  476</span>            destfile = self._resources / <span class="stringliteral">&#39;app_icon.icns&#39;</span></div>
-<div class="line"><span class="lineno">  477</span>            shutil.copy(icns_file, destfile)</div>
-<div class="line"><span class="lineno">  478</span>            <span class="comment"># Finder does not update the icon unless we update the folder once created.</span></div>
-<div class="line"><span class="lineno">  479</span>            sleep(.1)</div>
-<div class="line"><span class="lineno">  480</span>            subprocess.run([<span class="stringliteral">&#39;touch&#39;</span>, self._app_path])</div>
-<div class="line"><span class="lineno">  481</span>            <span class="comment"># Stop finder, it will relaunch as sometimes it shows two icons on the desktop</span></div>
-<div class="line"><span class="lineno">  482</span>            subprocess.run([<span class="stringliteral">&#39;killall&#39;</span>, <span class="stringliteral">&#39;Finder&#39;</span>])</div>
-<div class="line"><span class="lineno">  483</span>            self.info(f<span class="stringliteral">&quot;Created {self._app_path}&quot;</span>)</div>
-<div class="line"><span class="lineno">  484</span> </div>
+<div class="line"><span class="lineno">  472</span>            <span class="comment"># Executable script</span></div>
+<div class="line"><span class="lineno">  473</span>            exec_path = self._macos / self._app_name</div>
+<div class="line"><span class="lineno">  474</span>            python_path = self._get_python_path()</div>
+<div class="line"><span class="lineno">  475</span>            main_module = self._get_main_module()</div>
+<div class="line"><span class="lineno">  476</span>            exec_path.write_text(f<span class="stringliteral">&quot;#!/bin/bash\nexec {python_path} -m {main_module}\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  477</span>            exec_path.chmod(0x755)</div>
+<div class="line"><span class="lineno">  478</span> </div>
+<div class="line"><span class="lineno">  479</span>            <span class="comment"># Info.plist</span></div>
+<div class="line"><span class="lineno">  480</span>            plist = {</div>
+<div class="line"><span class="lineno">  481</span>                <span class="stringliteral">&#39;CFBundleName&#39;</span>: self._app_name,</div>
+<div class="line"><span class="lineno">  482</span>                <span class="stringliteral">&#39;CFBundleIdentifier&#39;</span>: f<span class="stringliteral">&#39;com.example.{self._app_name.lower()}&#39;</span>,</div>
+<div class="line"><span class="lineno">  483</span>                <span class="stringliteral">&#39;CFBundleVersion&#39;</span>: <span class="stringliteral">&#39;1.0&#39;</span>,</div>
+<div class="line"><span class="lineno">  484</span>                <span class="stringliteral">&#39;CFBundlePackageType&#39;</span>: <span class="stringliteral">&#39;APPL&#39;</span>,</div>
+<div class="line"><span class="lineno">  485</span>                <span class="stringliteral">&#39;CFBundleExecutable&#39;</span>: self._app_name,</div>
+<div class="line"><span class="lineno">  486</span>                <span class="stringliteral">&#39;CFBundleIconFile&#39;</span>: <span class="stringliteral">&#39;app_icon&#39;</span>,</div>
+<div class="line"><span class="lineno">  487</span>            }</div>
+<div class="line"><span class="lineno">  488</span>            <span class="keyword">with</span> open(self._contents / <span class="stringliteral">&#39;Info.plist&#39;</span>, <span class="stringliteral">&#39;wb&#39;</span>) <span class="keyword">as</span> f:</div>
+<div class="line"><span class="lineno">  489</span>                plistlib.dump(plist, f)</div>
+<div class="line"><span class="lineno">  490</span> </div>
+<div class="line"><span class="lineno">  491</span>            <span class="comment"># Convert the png file to an icns file for use on MacOS</span></div>
+<div class="line"><span class="lineno">  492</span>            icns_file = self._convert_png_to_icns()</div>
+<div class="line"><span class="lineno">  493</span> </div>
+<div class="line"><span class="lineno">  494</span>            <span class="comment"># Copy icon (must be .icns format)</span></div>
+<div class="line"><span class="lineno">  495</span>            destfile = self._resources / <span class="stringliteral">&#39;app_icon.icns&#39;</span></div>
+<div class="line"><span class="lineno">  496</span>            shutil.copy(icns_file, destfile)</div>
+<div class="line"><span class="lineno">  497</span>            <span class="comment"># Finder does not update the icon unless we update the folder once created.</span></div>
+<div class="line"><span class="lineno">  498</span>            sleep(.1)</div>
+<div class="line"><span class="lineno">  499</span>            subprocess.run([<span class="stringliteral">&#39;touch&#39;</span>, self._app_path])</div>
+<div class="line"><span class="lineno">  500</span>            <span class="comment"># Stop finder, it will relaunch as sometimes it shows two icons on the desktop</span></div>
+<div class="line"><span class="lineno">  501</span>            subprocess.run([<span class="stringliteral">&#39;killall&#39;</span>, <span class="stringliteral">&#39;Finder&#39;</span>])</div>
+<div class="line"><span class="lineno">  502</span>            self.info(f<span class="stringliteral">&quot;Created {self._app_path}&quot;</span>)</div>
+<div class="line"><span class="lineno">  503</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -734,6 +740,40 @@ Protected Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="afb60a1b8eda7d2c0f4773d1a58cdf793" name="afb60a1b8eda7d2c0f4773d1a58cdf793"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb60a1b8eda7d2c0f4773d1a58cdf793">&#9670;&#160;</a></span>_get_main_module()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_get_main_module </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Get the python module to run.</pre> 
+<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00459">459</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  459</span>        <span class="keyword">def </span>_get_main_module(self):</div>
+<div class="line"><span class="lineno">  460</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Get the python module to run.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  461</span>            path = Path(self._startup_file)</div>
+<div class="line"><span class="lineno">  462</span>            filename = path.name</div>
+<div class="line"><span class="lineno">  463</span>            <span class="keywordflow">return</span> f<span class="stringliteral">&quot;{path.parent.name}.{filename.replace(&#39;.py&#39;,&#39;&#39;)}&quot;</span></div>
+<div class="line"><span class="lineno">  464</span>        </div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a9259f8b68b65e816065de7a91cb56dec" name="a9259f8b68b65e816065de7a91cb56dec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9259f8b68b65e816065de7a91cb56dec">&#9670;&#160;</a></span>_get_python_module_file()</h2>
 
@@ -769,6 +809,45 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  326</span>            module_file = module + <span class="stringliteral">&#39;.&#39;</span> + filename</div>
 <div class="line"><span class="lineno">  327</span>            <span class="keywordflow">return</span> module_file</div>
 <div class="line"><span class="lineno">  328</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad62139723990eff9b29a56fa1e39f217" name="ad62139723990eff9b29a56fa1e39f217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad62139723990eff9b29a56fa1e39f217">&#9670;&#160;</a></span>_get_python_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_get_python_path </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Get the python file inside the venv.</pre> 
+<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00448">448</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  448</span>        <span class="keyword">def </span>_get_python_path(self):</div>
+<div class="line"><span class="lineno">  449</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Get the python file inside the venv.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  450</span>            pos = self._startup_file.find(<span class="stringliteral">&#39;/venv/&#39;</span>)</div>
+<div class="line"><span class="lineno">  451</span>            <span class="keywordflow">if</span> pos:</div>
+<div class="line"><span class="lineno">  452</span>                python_path = self._startup_file[:pos+6] + <span class="stringliteral">&#39;bin/python&#39;</span></div>
+<div class="line"><span class="lineno">  453</span>                <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(python_path):</div>
+<div class="line"><span class="lineno">  454</span>                    <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;{python_path} file not found.&quot;</span>)</div>
+<div class="line"><span class="lineno">  455</span>                <span class="keywordflow">return</span> python_path</div>
+<div class="line"><span class="lineno">  456</span>            <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  457</span>                <span class="keywordflow">raise</span> Exception(f<span class="stringliteral">&quot;Failed to find the venv in {self._startup_file}&quot;</span>)</div>
+<div class="line"><span class="lineno">  458</span>            </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -912,12 +991,12 @@ Protected Attributes</h2></td></tr>
 @param overwrite If True overwrite any existing file. If False raise an error if the file is already present.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1launcher_1_1LauncherBase.html#a0bc53f6f03d61fd8189679903babf6ab">LauncherBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00485">485</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  485</span>        <span class="keyword">def </span>create(self, overwrite=False):</div>
-<div class="line"><span class="lineno">  486</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Create a desktop icon.</span></div>
-<div class="line"><span class="lineno">  487</span><span class="stringliteral">            @param overwrite If True overwrite any existing file. If False raise an error if the file is already present.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  488</span>            self._create_app()</div>
-<div class="line"><span class="lineno">  489</span> </div>
+<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00504">504</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  504</span>        <span class="keyword">def </span>create(self, overwrite=False):</div>
+<div class="line"><span class="lineno">  505</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Create a desktop icon.</span></div>
+<div class="line"><span class="lineno">  506</span><span class="stringliteral">            @param overwrite If True overwrite any existing file. If False raise an error if the file is already present.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  507</span>            self._create_app()</div>
+<div class="line"><span class="lineno">  508</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1127,15 +1206,15 @@ Protected Attributes</h2></td></tr>
 @return True if a desktop file was deleted.</pre> 
 <p>Reimplemented from <a class="el" href="classp3lib_1_1launcher_1_1LauncherBase.html#abdc24d676a4e66c0aed3ec61fdcb5435">LauncherBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00490">490</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  490</span>        <span class="keyword">def </span>delete(self):</div>
-<div class="line"><span class="lineno">  491</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Delete the gnome desktop file if present.</span></div>
-<div class="line"><span class="lineno">  492</span><span class="stringliteral">            @return True if a desktop file was deleted.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  493</span>            <span class="comment"># Clean old app if exists</span></div>
-<div class="line"><span class="lineno">  494</span>            <span class="keywordflow">if</span> self._app_path.exists():</div>
-<div class="line"><span class="lineno">  495</span>                shutil.rmtree(self._app_path)</div>
-<div class="line"><span class="lineno">  496</span>                self.info(f<span class="stringliteral">&quot;Removed &#39;{self._app_path}&#39;&quot;</span>)</div>
-<div class="line"><span class="lineno">  497</span> </div>
+<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00509">509</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  509</span>        <span class="keyword">def </span>delete(self):</div>
+<div class="line"><span class="lineno">  510</span>            <span class="stringliteral">&quot;&quot;&quot;@brief Delete the gnome desktop file if present.</span></div>
+<div class="line"><span class="lineno">  511</span><span class="stringliteral">            @return True if a desktop file was deleted.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  512</span>            <span class="comment"># Clean old app if exists</span></div>
+<div class="line"><span class="lineno">  513</span>            <span class="keywordflow">if</span> self._app_path.exists():</div>
+<div class="line"><span class="lineno">  514</span>                shutil.rmtree(self._app_path)</div>
+<div class="line"><span class="lineno">  515</span>                self.info(f<span class="stringliteral">&quot;Removed &#39;{self._app_path}&#39;&quot;</span>)</div>
+<div class="line"><span class="lineno">  516</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1160,7 +1239,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00462">462</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="launcher_8py_source.html#l00481">481</a> of file <a class="el" href="launcher_8py_source.html">launcher.py</a>.</p>
 
 </div>
 </div>
