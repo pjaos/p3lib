@@ -473,7 +473,7 @@ def get_program_version(module_name=None):
        @param module_name The name of the python module containing the assets folder.
        @return The program/package version. This comes from the pyproject.toml file
                which must be inside the assets folder at the top level."""
-    poetryConfigFile = get_assets_file(PYPROJECT_FILE)
+    poetryConfigFile = get_assets_file(PYPROJECT_FILE, module_name=module_name)
     if poetryConfigFile:
         programVersion = None
         with open(poetryConfigFile, 'r') as fd:
