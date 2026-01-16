@@ -15,14 +15,20 @@ from p3lib.helper import get_assets_file
 class LauncherBase(object):
     """@brief The base class for the Launcher class. Defines methods and vars that are generic."""
 
-    def __init__(self, icon_file, app_name):
+    def __init__(self, icon_file, app_name, module_name=None):
         """@brief Constructor
            @param icon_file The icon file for the launcher.
            @param app_name The name of the application.
                            If not defined then the name of the program executed at startup is used.
                            This name has _ and - character replace with space characters and each
-                           word starts with a capital letter."""
+                           word starts with a capital letter.
+           @param module_name The name of the python module containing the assets folder.
+                              The get_assets_file() method uses this to find the assets folder containing
+                              the launcher icon file. Attempts are made to determine this from the python
+                              startup env but this is dependant upon the startup env. It is more reliable
+                              to set this when creating the Launcher instance."""
         self._uio = None
+        self._module_name = module_name
         self._startup_file = self._get_startup_file()
         self._set_app_name(app_name)
         self._check_icon(icon_file)
@@ -97,7 +103,7 @@ class LauncherBase(object):
         if not icon_file.endswith('.png'):
             raise Exception(f"{icon_file} icon file must have .png extension.")
         # Search for the file
-        self._abs_icon_file = get_assets_file(icon_file)
+        self._abs_icon_file = get_assets_file(icon_file, module_name=self._module_name)
         if self._abs_icon_file is None:
             raise Exception(f"{self._app_name} icon file ({icon_file}) not found.")
         return self._abs_icon_file
@@ -455,13 +461,13 @@ elif _platform == 'Darwin':
                 return python_path
             else:
                 raise Exception(f"Failed to find the venv in {self._startup_file}")
-            
+
         def _get_main_module(self):
             """@brief Get the python module to run."""
             path = Path(self._startup_file)
             filename = path.name
             return f"{path.parent.name}.{filename.replace('.py','')}"
-        
+
         def _create_app(self):
             """@brief Create a MacOS app folder with the required files to launch an app."""
             self.delete()
