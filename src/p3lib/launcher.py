@@ -184,7 +184,7 @@ if _platform == 'Linux':
     class Launcher(LauncherBase):
         """@brief Responsible for adding and removing gnome desktop files for launching applications on a Linux system."""
 
-        def __init__(self, icon_file, app_name=None, comment='', categories='Utility'):
+        def __init__(self, icon_file, app_name=None, comment='', categories='Utility', module_name=None):
             """@brief Constructor.
             @param icon_file  The name of the icon file (must be a png file).
                               This can be an absolute file name the filename on it's own.
@@ -208,8 +208,13 @@ if _platform == 'Linux':
                                 Game
                                 Settings
                                 System
+            @param module_name The name of the python module containing the assets folder.
+                              The get_assets_file() method uses this to find the assets folder containing
+                              the launcher icon file. Attempts are made to determine this from the python
+                              startup env but this is dependant upon the startup env. It is more reliable
+                              to set this when creating the Launcher instance.
             """
-            super().__init__(icon_file, app_name)
+            super().__init__(icon_file, app_name, module_name=module_name)
             self._comment = comment
             self._categories = categories
             self._gnome_desktop_files = self._get_gnome_desktop_files()
@@ -302,7 +307,7 @@ elif _platform == 'Windows':
     class Launcher(LauncherBase):
         """@brief Responsible for adding and removing Windows app shortcuts to the desktop for launching applications on a Windows system."""
 
-        def __init__(self, icon_file, app_name=None):
+        def __init__(self, icon_file, app_name=None, module_name=None):
             """@brief Constructor.
             @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
                                 If just a filename is passed then the icon file must sit in a folder named 'assets'.
@@ -312,8 +317,13 @@ elif _platform == 'Windows':
                                 If not defined then the name of the program executed at startup is used.
                                 This name has _ and - character replace with space characters and each
                                 word starts with a capital letter.
+            @param module_name The name of the python module containing the assets folder.
+                              The get_assets_file() method uses this to find the assets folder containing
+                              the launcher icon file. Attempts are made to determine this from the python
+                              startup env but this is dependant upon the startup env. It is more reliable
+                              to set this when creating the Launcher instance.
             """
-            super().__init__(icon_file, app_name)
+            super().__init__(icon_file, app_name, module_name=module_name)
 
         def _get_exe_name(self):
             """@return The name of the running program with a .exe extension."""
@@ -408,7 +418,7 @@ elif _platform == 'Darwin':
     class Launcher(LauncherBase):
         """@brief Responsible for adding and removing shortcuts to the desktop for launching applications on a MacOS system."""
 
-        def __init__(self, icon_file, app_name=None):
+        def __init__(self, icon_file, app_name=None, module_name=None):
             """@brief Constructor.
             @param icon_file  The name of the icon file. This can be an absolute file name the filename on it's own.
                                 If just a filename is passed then the icon file must sit in a folder named 'assets'.
@@ -417,8 +427,13 @@ elif _platform == 'Darwin':
             @param app_name   The name of the application.
                                 If not defined then the name of the program executed at startup is used.
                                 This name has _ and - character replace with space characters and each
-                                word starts with a capital letter."""
-            super().__init__(icon_file, app_name)
+                                word starts with a capital letter.
+            @param module_name The name of the python module containing the assets folder.
+                              The get_assets_file() method uses this to find the assets folder containing
+                              the launcher icon file. Attempts are made to determine this from the python
+                              startup env but this is dependant upon the startup env. It is more reliable
+                              to set this when creating the Launcher instance."""
+            super().__init__(icon_file, app_name, module_name=module_name)
             self._app_name
             desktop = Path.home() / "Desktop"
             self._app_path = desktop / f"{self._app_name}.app"
