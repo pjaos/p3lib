@@ -1,7 +1,7 @@
 var searchData=
 [
   ['genplotdata_0',['genPlotData',['../classGUIModel__A__example_1_1DynamicPlotExample.html#a8e1d3ae2f41cfa80eac92b619544deed',1,'GUIModel_A_example::DynamicPlotExample']]],
-  ['get_1',['get',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.bokeh_auth.LoginHandler.get()'],['../classp3lib_1_1bokeh__auth_1_1LogoutHandler.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.bokeh_auth.LogoutHandler.get()']]],
+  ['get_1',['get',['../classp3lib_1_1bokeh__auth_1_1LoginHandler.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.bokeh_auth.LoginHandler.get()'],['../classp3lib_1_1bokeh__auth_1_1LogoutHandler.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.bokeh_auth.LogoutHandler.get()'],['../classp3lib_1_1helper_1_1EnvArgs.html#a632a98e835ccaf36640912aae57fdf2f',1,'p3lib.helper.EnvArgs.get()']]],
   ['get_5fassets_5fdir_2',['get_assets_dir',['../namespacep3lib_1_1helper.html#a3a95a0c9848c57128270e981b6856c2b',1,'p3lib::helper']]],
   ['get_5fassets_5ffile_3',['get_assets_file',['../namespacep3lib_1_1helper.html#a9e1fc957e0a43ce02c37a9a5d679ca35',1,'p3lib::helper']]],
   ['get_5fassets_5ffolder_4',['get_assets_folder',['../namespacep3lib_1_1helper.html#a6059d471cb98ae0f33bcf8ca6b87c09f',1,'p3lib::helper']]],
@@ -55,9 +55,9 @@ var searchData=
   ['getifname_52',['getIFName',['../classp3lib_1_1netif_1_1NetIF.html#abbbdc8e3a19555746801e6eca649148e',1,'p3lib::netif::NetIF']]],
   ['getifnetmask_53',['getIFNetmask',['../classp3lib_1_1netif_1_1NetIF.html#a8e943f9ee7ab0eacbde0775c3dc57c6b',1,'p3lib::netif::NetIF']]],
   ['getinfoescapeseq_54',['GetInfoEscapeSeq',['../classp3lib_1_1uio_1_1UIO.html#a43fff08db9f58fa78c9efaf1e24468c1',1,'p3lib::uio::UIO']]],
-  ['getinput_55',['getinput',['../classp3lib_1_1uio_1_1UIO.html#ab1728bb0d972efc2886c959349410169',1,'p3lib.uio.UIO.getInput()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a64422776785d5655f495b41c0a6ed3a1',1,'p3lib.ngt.TabbedNiceGui.getInput()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a64422776785d5655f495b41c0a6ed3a1',1,'p3lib.ngt3.TabbedNiceGui.getInput()']]],
+  ['getinput_55',['getinput',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a64422776785d5655f495b41c0a6ed3a1',1,'p3lib.ngt3.TabbedNiceGui.getInput()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a64422776785d5655f495b41c0a6ed3a1',1,'p3lib.ngt.TabbedNiceGui.getInput()'],['../classp3lib_1_1uio_1_1UIO.html#ab1728bb0d972efc2886c959349410169',1,'p3lib.uio.UIO.getInput()']]],
   ['getinsertabledict_56',['GetInsertableDict',['../classp3lib_1_1database__if_1_1DatabaseIF.html#a5f88a42cbbb05163e5cb4ac331988059',1,'p3lib::database_if::DatabaseIF']]],
-  ['getinstallfolder_57',['getinstallfolder',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a235a2a409cc0821e76647d933c34c4ea',1,'p3lib.ngt.TabbedNiceGui.GetInstallFolder()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a235a2a409cc0821e76647d933c34c4ea',1,'p3lib.ngt3.TabbedNiceGui.GetInstallFolder()']]],
+  ['getinstallfolder_57',['getinstallfolder',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a235a2a409cc0821e76647d933c34c4ea',1,'p3lib.ngt3.TabbedNiceGui.GetInstallFolder()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a235a2a409cc0821e76647d933c34c4ea',1,'p3lib.ngt.TabbedNiceGui.GetInstallFolder()']]],
   ['getintinput_58',['getIntInput',['../classp3lib_1_1uio_1_1UIO.html#a19d9d8d4982673f34aefebb797c811a6',1,'p3lib::uio::UIO']]],
   ['getintlistuserresponse_59',['getIntListUserResponse',['../namespacep3lib_1_1helper.html#a07d099d45ce7cce351b93ac8a553471b',1,'p3lib::helper']]],
   ['getintuserresponse_60',['getIntUserResponse',['../namespacep3lib_1_1helper.html#a237ebaa749ce5b6eae1883632f8c2387',1,'p3lib::helper']]],
@@ -83,7 +83,7 @@ var searchData=
   ['getprivatekeyfilelist_80',['GetPrivateKeyFileList',['../classp3lib_1_1ssh_1_1SSH.html#a7a6078236bd8921c9accd191f9d6a5aa',1,'p3lib::ssh::SSH']]],
   ['getprivatesshkeyfilecontents_81',['GetPrivateSSHKeyFileContents',['../classp3lib_1_1pconfig_1_1ConfigManager.html#aeae87db616fe856a6c5383f9de506cc5',1,'p3lib::pconfig::ConfigManager']]],
   ['getprogramname_82',['getProgramName',['../namespacep3lib_1_1helper.html#ab032b2fe4c6edd7479d2fefd2293f321',1,'p3lib::helper']]],
-  ['getprogramversion_83',['getprogramversion',['../namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f',1,'p3lib.helper.getProgramVersion()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt3.TabbedNiceGui.GetProgramVersion()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt.TabbedNiceGui.GetProgramVersion()']]],
+  ['getprogramversion_83',['getprogramversion',['../namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f',1,'p3lib.helper.getProgramVersion()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt.TabbedNiceGui.GetProgramVersion()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt3.TabbedNiceGui.GetProgramVersion()']]],
   ['getpublickey_84',['GetPublicKey',['../classp3lib_1_1ssh_1_1SSH.html#a782b004ddb94aa069aa316ae6d5d6481',1,'p3lib::ssh::SSH']]],
   ['getpublickeyfile_85',['GetPublicKeyFile',['../classp3lib_1_1ssh_1_1SSH.html#a5909ad321028baa2e63d4518b7684f23',1,'p3lib::ssh::SSH']]],
   ['getpublickeyfilelist_86',['GetPublicKeyFileList',['../classp3lib_1_1ssh_1_1SSH.html#a2bbf047da84d9fb8266ce002dc22d4af',1,'p3lib::ssh::SSH']]],
@@ -112,5 +112,5 @@ var searchData=
   ['getwarnescapeseq_109',['GetWarnEscapeSeq',['../classp3lib_1_1uio_1_1UIO.html#abd4aac3090d748d7d07635f683695703',1,'p3lib::uio::UIO']]],
   ['getwidget_110',['getwidget',['../classp3lib_1_1bokeh__gui_1_1StatusBarWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.StatusBarWrapper.getWidget()'],['../classp3lib_1_1bokeh__gui_1_1ReadOnlyTableWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.ReadOnlyTableWrapper.getWidget()'],['../classp3lib_1_1bokeh__gui_1_1AlertButtonWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.AlertButtonWrapper.getWidget()'],['../classp3lib_1_1bokeh__gui_1_1ShutdownButtonWrapper.html#a11818adaa1026f12b097c6db71cde403',1,'p3lib.bokeh_gui.ShutdownButtonWrapper.getWidget()']]],
   ['getyesno_111',['getYesNo',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a37aebb3896362083e5cf3bc89ecea7eb',1,'p3lib::pconfig::ConfigManager']]],
-  ['guitimercallback_112',['guitimercallback',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib.ngt.TabbedNiceGui.guiTimerCallback()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib.ngt3.TabbedNiceGui.guiTimerCallback()']]]
+  ['guitimercallback_112',['guitimercallback',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib.ngt3.TabbedNiceGui.guiTimerCallback()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#a9953a40487d2abf26d20a4aea030e971',1,'p3lib.ngt.TabbedNiceGui.guiTimerCallback()']]]
 ];

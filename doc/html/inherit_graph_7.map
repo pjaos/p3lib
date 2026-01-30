@@ -1,5 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,5,89,31"/>
-<area shape="rect" id="Node000001" href="$classp3lib_1_1ssh_1_1ExtendedSSHClient.html" title=" " alt="" coords="137,5,276,31"/>
-<area shape="poly" id="edge78_Node000000_Node000001" title=" " alt="" coords="103,15,137,15,137,21,103,21"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,121,56"/>
+<area shape="rect" id="Node000001" href="$classp3lib_1_1bokeh__auth_1_1LoginHandler.html" title=" " alt="" coords="173,5,272,31"/>
+<area shape="poly" id="edge76_Node000000_Node000001" title=" " alt="" coords="134,29,172,23,173,28,135,35"/>
+<area shape="rect" id="Node000002" href="$classp3lib_1_1bokeh__auth_1_1LogoutHandler.html" title=" " alt="" coords="169,55,276,80"/>
+<area shape="poly" id="edge77_Node000000_Node000002" title=" " alt="" coords="135,51,170,57,169,62,135,57"/>
 </map>
