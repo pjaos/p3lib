@@ -680,3 +680,52 @@ def get_assets_folder(raise_error=True, uio=None):
     if uio:
         uio.debug(f"get_assets_folder(): assetsFolder = {assetsFolder}")
     return assetsFolder
+
+
+class EnvArgs():
+    """@brief Provide the ability to pass args through the env.
+              This can only be used for args that can be converted to json. I.E not class instances."""
+
+    ENV_REF = None  # The ENV_REF must be set in a subclass
+
+    def __init__(self):
+        pass
+
+    def _check_env_ref_set(self):
+        if self.ENV_REF is None:
+            raise Exception("EnvArgs.ENV_REF must be set in subclass of EnvArgs")
+
+    def set(self, arg_list):
+        self._check_env_ref_set()
+        json_str = json.dumps(arg_list)
+        os.environ[self.ENV_REF] = json_str
+
+    def get(self):
+        json_obj = None
+        self._check_env_ref_set()
+        try:
+            json_obj = json.loads(os.environ[self.ENV_REF])
+        except KeyError:
+            pass
+        return json_obj
+
+# Usage of the EnvArgs class.
+#
+# Typically the above class would be extended setting the ENV_REF
+# E.G
+#
+#class AClassEnvArgs(EnvArgs):
+#    """@brief Provide the ability to pass args through the env. This only works for
+#              args that can be converted to json. I.E not class instances."""
+#    ENV_REF = AClass.__name__
+#
+#
+# We send args to all AClass instances as shown below.
+#        arg_list = [add,
+#                    config_password,
+#                    config_folder]
+        # Pass the args to BankAccountGUI instance using the env
+#        AClassEnvArgs().set(arg_list)
+
+# The receiving end can read the arg_list as shown below
+#env_args = AClassEnvArgs().get()
