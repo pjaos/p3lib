@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tabbedgui_0',['tabbedgui',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html',1,'TabbedGUI'],['../classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt_examples.NGT_Examples.tabbedGUI()'],['../classngt3__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt3_examples.NGT_Examples.tabbedGUI()']]],
+  ['tabbedgui_0',['tabbedgui',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html',1,'TabbedGUI'],['../classngt__examples_1_1NGT__Examples.html#ab0c38bcc48054d65e456b96b3afda6cb',1,'ngt_examples.NGT_Examples.tabbedGUI()']]],
   ['tabbednicegui_1',['tabbednicegui',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html',1,'TabbedNiceGui'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html',1,'TabbedNiceGui']]],
   ['table2dplotserver_2',['Table2DPlotServer',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html',1,'p3lib::table_plot']]],
   ['table_5fcolumns_3',['TABLE_COLUMNS',['../classp3lib_1_1table__plot_1_1Table2DPlotServer.html#a38a24e2f37a1d5060c3d2d0f3b1a551d',1,'p3lib::table_plot::Table2DPlotServer']]],

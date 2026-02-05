@@ -83,7 +83,7 @@ var searchData=
   ['getprivatekeyfilelist_80',['GetPrivateKeyFileList',['../classp3lib_1_1ssh_1_1SSH.html#a7a6078236bd8921c9accd191f9d6a5aa',1,'p3lib::ssh::SSH']]],
   ['getprivatesshkeyfilecontents_81',['GetPrivateSSHKeyFileContents',['../classp3lib_1_1pconfig_1_1ConfigManager.html#aeae87db616fe856a6c5383f9de506cc5',1,'p3lib::pconfig::ConfigManager']]],
   ['getprogramname_82',['getProgramName',['../namespacep3lib_1_1helper.html#ab032b2fe4c6edd7479d2fefd2293f321',1,'p3lib::helper']]],
-  ['getprogramversion_83',['getprogramversion',['../namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f',1,'p3lib.helper.getProgramVersion()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt.TabbedNiceGui.GetProgramVersion()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt3.TabbedNiceGui.GetProgramVersion()']]],
+  ['getprogramversion_83',['getprogramversion',['../namespacep3lib_1_1helper.html#a0299dff54d1f40de737d1c8195b03f3f',1,'p3lib.helper.getProgramVersion()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ada7e88f1a15f2b0be9b5f9628a68b652',1,'p3lib.ngt.TabbedNiceGui.GetProgramVersion()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#a5d31c2295ce6db3e3db74801762ded63',1,'p3lib.ngt3.TabbedNiceGui.GetProgramVersion()']]],
   ['getpublickey_84',['GetPublicKey',['../classp3lib_1_1ssh_1_1SSH.html#a782b004ddb94aa069aa316ae6d5d6481',1,'p3lib::ssh::SSH']]],
   ['getpublickeyfile_85',['GetPublicKeyFile',['../classp3lib_1_1ssh_1_1SSH.html#a5909ad321028baa2e63d4518b7684f23',1,'p3lib::ssh::SSH']]],
   ['getpublickeyfilelist_86',['GetPublicKeyFileList',['../classp3lib_1_1ssh_1_1SSH.html#a2bbf047da84d9fb8266ce002dc22d4af',1,'p3lib::ssh::SSH']]],
