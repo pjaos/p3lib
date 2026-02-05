@@ -81,12 +81,12 @@ class TabbedNiceGui(object):
             raise Exception("The maximum TCP port that you can bind the GUI server to is 65535.")
 
     @staticmethod
-    def GetProgramVersion():
+    def GetProgramVersion(module_name=None):
         """@brief Get the program version from the poetry pyproject.toml file.
            @return The version of the installed program (string value)."""
-        return get_program_version()
+        return get_program_version(module_name=module_name)
 
-    def __init__(self, debugEnabled, logPath=None):
+    def __init__(self, debugEnabled, logPath=None, module_name=None):
         """@brief Constructor
            @param debugEnabled True if debugging is enabled.
            @param logPath The path to store log files. If left as None then no log files are created."""
@@ -100,7 +100,7 @@ class TabbedNiceGui(object):
         self._progressBarExpectedMessageList    = []
         self._expectedProgressBarMessageIndex   = 0
         self._expectedProgressBarMsgCount       = 0
-        self._programVersion                    = TabbedNiceGui.GetProgramVersion()
+        self._programVersion                    = TabbedNiceGui.GetProgramVersion(module_name=module_name)
 
         self._logPath           = None
         if logPath:
