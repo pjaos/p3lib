@@ -24,17 +24,17 @@ class BootManager(object):
            @param parser An instance of argparse.ArgumentParser."""
         parser.add_argument(BootManager.ENABLE_CMD_OPT,  help="Auto start when this computer starts.", action="store_true", default=False)
         parser.add_argument(BootManager.DISABLE_CMD_OPT, help="Disable auto starting when this computer starts.", action="store_true", default=False)
-        parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the status of an auto started icons_gw instance.", action="store_true", default=False)
+        parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the running status.", action="store_true", default=False)
 
     @staticmethod
     def HandleOptions(uio, options, enable_syslog, serviceName=None, restartSeconds=1):
-        """@brief Handle one of the bot manager command line options if the 
+        """@brief Handle one of the bot manager command line options if the
                   user passed it on the cmd line.
            @param uio A UIO instance.
-           @param options As returned from parser.parse_args() where parser 
+           @param options As returned from parser.parse_args() where parser
                           is an instance of argparse.ArgumentParser.
            @param enable_syslog True to enable systemd syslog output.
-           @param serviceName The name of the service. If not set then the name of the initially executed 
+           @param serviceName The name of the service. If not set then the name of the initially executed
                               python file is used.
            @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).
            @return True if handled , False if not."""
@@ -42,11 +42,11 @@ class BootManager(object):
         if options.check_auto_start:
             BootManager.CheckAutoStartStatus(uio, serviceName)
             handled = True
-            
+
         elif options.enable_auto_start:
             BootManager.EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds)
             handled = True
-            
+
         elif options.disable_auto_start:
             BootManager.DisableAutoStart(uio, serviceName)
             handled = True
@@ -57,10 +57,10 @@ class BootManager(object):
     def EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds):
         """@brief Enable this program to auto start when the computer on which it is installed starts.
            @param uio A UIO instance.
-           @param options As returned from parser.parse_args() where parser 
+           @param options As returned from parser.parse_args() where parser
                           is an instance of argparse.ArgumentParser.
            @param enable_syslog True to enable systemd syslog output.
-           @param serviceName The name of the service. If not set then the name of the initially executed 
+           @param serviceName The name of the service. If not set then the name of the initially executed
                               python file is used.
            @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1)."""
         bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName, restartSeconds=restartSeconds)
@@ -71,34 +71,34 @@ class BootManager(object):
     def DisableAutoStart(uio, serviceName):
         """@brief Enable this program to auto start when the computer on which it is installed starts.
            @param uio A UIO instance.
-           @param serviceName The name of the service. If not set then the name of the initially executed 
+           @param serviceName The name of the service. If not set then the name of the initially executed
                               python file is used."""
         bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName)
         bootManager.remove()
-        
+
     @staticmethod
     def CheckAutoStartStatus(uio, serviceName):
         """@brief Check the status of a process previously set to auto start.
            @param uio A UIO instance.
-           @param serviceName The name of the service. If not set then the name of the initially executed 
+           @param serviceName The name of the service. If not set then the name of the initially executed
                               python file is used."""
         bootManager = BootManager(uio=uio, serviceName=serviceName)
         lines = bootManager.getStatus()
         if lines and len(lines) > 0:
             for line in lines:
                 uio.info(line)
-        
+
     def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output
                   is displayed to user.
            @param allowRootUser If True then allow root user to to auto start
-                  programs. Note that as the BootManager is responsible for 
-                  ensuring programs are started up when a machine boots up 
-                  the installed program should be installed for the root 
+                  programs. Note that as the BootManager is responsible for
+                  ensuring programs are started up when a machine boots up
+                  the installed program should be installed for the root
                   user on Linux systems.
            @param ensureRootUser If True the current user must be root user (Linux systems).
-           @param serviceName The name of the service. If not set then the name of the initially executed 
+           @param serviceName The name of the service. If not set then the name of the initially executed
                               python file is used.
            @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1)."""
         self._uio = uio
@@ -125,7 +125,7 @@ class BootManager(object):
            @param user The Linux user that will run the executable file."""
         if self._platformBootManager:
             self._platformBootManager.remove()
-            
+
     def getStatus(self):
         """@brief Get a status report.
            @return Lines of text indicating the status of a previously started process."""
@@ -133,7 +133,7 @@ class BootManager(object):
         if self._platformBootManager:
             statusLines = self._platformBootManager.getStatusLines()
         return statusLines
-        
+
 
 class LinuxBootManager(object):
     """@brief Responsible for adding/removing Linux services using systemd."""
@@ -179,7 +179,7 @@ class LinuxBootManager(object):
            @param uio A UIO instance to display user output. If unset then no output is displayed to user.
            @param allowRootUser If True then allow root user to to auto start programs.
            @param ensureRootUser If True the current user must be root user.
-           @param serviceName The name of the service. If not set then the name of the initially executed 
+           @param serviceName The name of the service. If not set then the name of the initially executed
                               python file is used.
            @param restartSeconds The number of seconds to sleep before restarting a service that has stopped."""
         self._uio = uio
@@ -347,7 +347,7 @@ class LinuxBootManager(object):
         if self._rootMode and user != 'root':
             lines.append("User={}".format(user))
 
-        #We add the home path env var so that config files (if stored in/under 
+        #We add the home path env var so that config files (if stored in/under
         # the users home dir) can be found by the prgram.
         if user and len(user) > 0:
             lines.append('Environment="HOME=/home/{}"'.format(user))
