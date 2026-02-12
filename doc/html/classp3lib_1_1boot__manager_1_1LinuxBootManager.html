@@ -236,7 +236,7 @@ Protected Attributes</h2></td></tr>
    @param uio A UIO instance to display user output. If unset then no output is displayed to user.
    @param allowRootUser If True then allow root user to to auto start programs.
    @param ensureRootUser If True the current user must be root user.
-   @param serviceName The name of the service. If not set then the name of the initially executed 
+   @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped.</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00177">177</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
@@ -245,7 +245,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  179</span><span class="stringliteral">           @param uio A UIO instance to display user output. If unset then no output is displayed to user.</span></div>
 <div class="line"><span class="lineno">  180</span><span class="stringliteral">           @param allowRootUser If True then allow root user to to auto start programs.</span></div>
 <div class="line"><span class="lineno">  181</span><span class="stringliteral">           @param ensureRootUser If True the current user must be root user.</span></div>
-<div class="line"><span class="lineno">  182</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><span class="lineno">  182</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><span class="lineno">  183</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><span class="lineno">  184</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  185</span>        self._uio = uio</div>
@@ -821,7 +821,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  347</span>        <span class="keywordflow">if</span> self._rootMode <span class="keywordflow">and</span> user != <span class="stringliteral">&#39;root&#39;</span>:</div>
 <div class="line"><span class="lineno">  348</span>            lines.append(<span class="stringliteral">&quot;User={}&quot;</span>.format(user))</div>
 <div class="line"><span class="lineno">  349</span> </div>
-<div class="line"><span class="lineno">  350</span>        <span class="comment">#We add the home path env var so that config files (if stored in/under </span></div>
+<div class="line"><span class="lineno">  350</span>        <span class="comment">#We add the home path env var so that config files (if stored in/under</span></div>
 <div class="line"><span class="lineno">  351</span>        <span class="comment"># the users home dir) can be found by the prgram.</span></div>
 <div class="line"><span class="lineno">  352</span>        <span class="keywordflow">if</span> user <span class="keywordflow">and</span> len(user) &gt; 0:</div>
 <div class="line"><span class="lineno">  353</span>            lines.append(<span class="stringliteral">&#39;Environment=&quot;HOME=/home/{}&quot;&#39;</span>.format(user))</div>

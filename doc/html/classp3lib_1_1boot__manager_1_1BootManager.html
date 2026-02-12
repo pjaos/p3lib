@@ -208,12 +208,12 @@ Protected Attributes</h2></td></tr>
    @param uio A UIO instance to display user output. If unset then no output
           is displayed to user.
    @param allowRootUser If True then allow root user to to auto start
-          programs. Note that as the BootManager is responsible for 
-          ensuring programs are started up when a machine boots up 
-          the installed program should be installed for the root 
+          programs. Note that as the BootManager is responsible for
+          ensuring programs are started up when a machine boots up
+          the installed program should be installed for the root
           user on Linux systems.
    @param ensureRootUser If True the current user must be root user (Linux systems).
-   @param serviceName The name of the service. If not set then the name of the initially executed 
+   @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00091">91</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
@@ -222,12 +222,12 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   93</span><span class="stringliteral">           @param uio A UIO instance to display user output. If unset then no output</span></div>
 <div class="line"><span class="lineno">   94</span><span class="stringliteral">                  is displayed to user.</span></div>
 <div class="line"><span class="lineno">   95</span><span class="stringliteral">           @param allowRootUser If True then allow root user to to auto start</span></div>
-<div class="line"><span class="lineno">   96</span><span class="stringliteral">                  programs. Note that as the BootManager is responsible for </span></div>
-<div class="line"><span class="lineno">   97</span><span class="stringliteral">                  ensuring programs are started up when a machine boots up </span></div>
-<div class="line"><span class="lineno">   98</span><span class="stringliteral">                  the installed program should be installed for the root </span></div>
+<div class="line"><span class="lineno">   96</span><span class="stringliteral">                  programs. Note that as the BootManager is responsible for</span></div>
+<div class="line"><span class="lineno">   97</span><span class="stringliteral">                  ensuring programs are started up when a machine boots up</span></div>
+<div class="line"><span class="lineno">   98</span><span class="stringliteral">                  the installed program should be installed for the root</span></div>
 <div class="line"><span class="lineno">   99</span><span class="stringliteral">                  user on Linux systems.</span></div>
 <div class="line"><span class="lineno">  100</span><span class="stringliteral">           @param ensureRootUser If True the current user must be root user (Linux systems).</span></div>
-<div class="line"><span class="lineno">  101</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><span class="lineno">  101</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><span class="lineno">  102</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><span class="lineno">  103</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  104</span>        self._uio = uio</div>
@@ -329,7 +329,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   24</span><span class="stringliteral">           @param parser An instance of argparse.ArgumentParser.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">   25</span>        parser.add_argument(BootManager.ENABLE_CMD_OPT,  help=<span class="stringliteral">&quot;Auto start when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
 <div class="line"><span class="lineno">   26</span>        parser.add_argument(BootManager.DISABLE_CMD_OPT, help=<span class="stringliteral">&quot;Disable auto starting when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">   27</span>        parser.add_argument(BootManager.CHECK_CMD_OPT,   help=<span class="stringliteral">&quot;Check the status of an auto started icons_gw instance.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">   27</span>        parser.add_argument(BootManager.CHECK_CMD_OPT,   help=<span class="stringliteral">&quot;Check the running status.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
 <div class="line"><span class="lineno">   28</span> </div>
 </div><!-- fragment -->
 </div>
@@ -369,20 +369,20 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Check the status of a process previously set to auto start.
    @param uio A UIO instance.
-   @param serviceName The name of the service. If not set then the name of the initially executed 
+   @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00080">80</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   80</span>    <span class="keyword">def </span>CheckAutoStartStatus(uio, serviceName):</div>
 <div class="line"><span class="lineno">   81</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check the status of a process previously set to auto start.</span></div>
 <div class="line"><span class="lineno">   82</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   83</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><span class="lineno">   83</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><span class="lineno">   84</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">   85</span>        bootManager = BootManager(uio=uio, serviceName=serviceName)</div>
 <div class="line"><span class="lineno">   86</span>        lines = bootManager.getStatus()</div>
 <div class="line"><span class="lineno">   87</span>        <span class="keywordflow">if</span> lines <span class="keywordflow">and</span> len(lines) &gt; 0:</div>
 <div class="line"><span class="lineno">   88</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
 <div class="line"><span class="lineno">   89</span>                uio.info(line)</div>
-<div class="line"><span class="lineno">   90</span>        </div>
+<div class="line"><span class="lineno">   90</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -421,17 +421,17 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Enable this program to auto start when the computer on which it is installed starts.
    @param uio A UIO instance.
-   @param serviceName The name of the service. If not set then the name of the initially executed 
+   @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00071">71</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   71</span>    <span class="keyword">def </span>DisableAutoStart(uio, serviceName):</div>
 <div class="line"><span class="lineno">   72</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
 <div class="line"><span class="lineno">   73</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   74</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><span class="lineno">   74</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><span class="lineno">   75</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">   76</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName)</div>
 <div class="line"><span class="lineno">   77</span>        bootManager.remove()</div>
-<div class="line"><span class="lineno">   78</span>        </div>
+<div class="line"><span class="lineno">   78</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -482,20 +482,20 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Enable this program to auto start when the computer on which it is installed starts.
    @param uio A UIO instance.
-   @param options As returned from parser.parse_args() where parser 
+   @param options As returned from parser.parse_args() where parser
                   is an instance of argparse.ArgumentParser.
    @param enable_syslog True to enable systemd syslog output.
-   @param serviceName The name of the service. If not set then the name of the initially executed 
+   @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00057">57</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   57</span>    <span class="keyword">def </span>EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds):</div>
 <div class="line"><span class="lineno">   58</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
 <div class="line"><span class="lineno">   59</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   60</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser </span></div>
+<div class="line"><span class="lineno">   60</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
 <div class="line"><span class="lineno">   61</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
 <div class="line"><span class="lineno">   62</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
-<div class="line"><span class="lineno">   63</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><span class="lineno">   63</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><span class="lineno">   64</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><span class="lineno">   65</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">   66</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName, restartSeconds=restartSeconds)</div>
@@ -530,7 +530,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  133</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
 <div class="line"><span class="lineno">  134</span>            statusLines = self._platformBootManager.getStatusLines()</div>
 <div class="line"><span class="lineno">  135</span>        <span class="keywordflow">return</span> statusLines</div>
-<div class="line"><span class="lineno">  136</span>        </div>
+<div class="line"><span class="lineno">  136</span> </div>
 <div class="line"><span class="lineno">  137</span> </div>
 </div><!-- fragment -->
 </div>
@@ -586,25 +586,25 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<pre class="fragment">@brief Handle one of the bot manager command line options if the 
+<pre class="fragment">@brief Handle one of the bot manager command line options if the
           user passed it on the cmd line.
    @param uio A UIO instance.
-   @param options As returned from parser.parse_args() where parser 
+   @param options As returned from parser.parse_args() where parser
                   is an instance of argparse.ArgumentParser.
    @param enable_syslog True to enable systemd syslog output.
-   @param serviceName The name of the service. If not set then the name of the initially executed 
+   @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).
    @return True if handled , False if not.</pre> 
 <p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00030">30</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   30</span>    <span class="keyword">def </span>HandleOptions(uio, options, enable_syslog, serviceName=None, restartSeconds=1):</div>
-<div class="line"><span class="lineno">   31</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle one of the bot manager command line options if the </span></div>
+<div class="line"><span class="lineno">   31</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle one of the bot manager command line options if the</span></div>
 <div class="line"><span class="lineno">   32</span><span class="stringliteral">                  user passed it on the cmd line.</span></div>
 <div class="line"><span class="lineno">   33</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   34</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser </span></div>
+<div class="line"><span class="lineno">   34</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
 <div class="line"><span class="lineno">   35</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
 <div class="line"><span class="lineno">   36</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
-<div class="line"><span class="lineno">   37</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><span class="lineno">   37</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><span class="lineno">   38</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><span class="lineno">   39</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</span></div>
 <div class="line"><span class="lineno">   40</span><span class="stringliteral">           @return True if handled , False if not.&quot;&quot;&quot;</span></div>
@@ -612,11 +612,11 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   42</span>        <span class="keywordflow">if</span> options.check_auto_start:</div>
 <div class="line"><span class="lineno">   43</span>            BootManager.CheckAutoStartStatus(uio, serviceName)</div>
 <div class="line"><span class="lineno">   44</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   45</span>            </div>
+<div class="line"><span class="lineno">   45</span> </div>
 <div class="line"><span class="lineno">   46</span>        <span class="keywordflow">elif</span> options.enable_auto_start:</div>
 <div class="line"><span class="lineno">   47</span>            BootManager.EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds)</div>
 <div class="line"><span class="lineno">   48</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   49</span>            </div>
+<div class="line"><span class="lineno">   49</span> </div>
 <div class="line"><span class="lineno">   50</span>        <span class="keywordflow">elif</span> options.disable_auto_start:</div>
 <div class="line"><span class="lineno">   51</span>            BootManager.DisableAutoStart(uio, serviceName)</div>
 <div class="line"><span class="lineno">   52</span>            handled = <span class="keyword">True</span></div>
@@ -651,7 +651,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  125</span><span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
 <div class="line"><span class="lineno">  126</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
 <div class="line"><span class="lineno">  127</span>            self._platformBootManager.remove()</div>
-<div class="line"><span class="lineno">  128</span>            </div>
+<div class="line"><span class="lineno">  128</span> </div>
 </div><!-- fragment -->
 </div>
 </div>

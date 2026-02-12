@@ -109,19 +109,19 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="stringliteral">           @param parser An instance of argparse.ArgumentParser.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        parser.add_argument(BootManager.ENABLE_CMD_OPT,  help=<span class="stringliteral">&quot;Auto start when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        parser.add_argument(BootManager.DISABLE_CMD_OPT, help=<span class="stringliteral">&quot;Disable auto starting when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        parser.add_argument(BootManager.CHECK_CMD_OPT,   help=<span class="stringliteral">&quot;Check the status of an auto started icons_gw instance.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        parser.add_argument(BootManager.CHECK_CMD_OPT,   help=<span class="stringliteral">&quot;Check the running status.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="preprocessor">@staticmethod</span></div>
 <div class="foldopen" id="foldopen00030" data-start="" data-end="">
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#aa9d674696f3249198e314f66784d0ba5">   30</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#aa9d674696f3249198e314f66784d0ba5">HandleOptions</a>(uio, options, enable_syslog, serviceName=None, restartSeconds=1):</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle one of the bot manager command line options if the </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle one of the bot manager command line options if the</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="stringliteral">                  user passed it on the cmd line.</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="stringliteral">           @return True if handled , False if not.&quot;&quot;&quot;</span></div>
@@ -129,11 +129,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">if</span> options.check_auto_start:</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            BootManager.CheckAutoStartStatus(uio, serviceName)</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">elif</span> options.enable_auto_start:</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            BootManager.EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds)</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">elif</span> options.disable_auto_start:</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            BootManager.DisableAutoStart(uio, serviceName)</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            handled = <span class="keyword">True</span></div>
@@ -146,10 +146,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#a05563ae598249f2e21ed6f38e59dc8e4">   57</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#a05563ae598249f2e21ed6f38e59dc8e4">EnableAutoStart</a>(uio, enable_syslog, serviceName, restartSeconds):</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser </span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        bootManager = <a class="code hl_class" href="classp3lib_1_1boot__manager_1_1BootManager.html">BootManager</a>(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName, restartSeconds=restartSeconds)</div>
@@ -162,25 +162,25 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#ae62d3594ee314d2e5f7db9bba6710b06">   71</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#ae62d3594ee314d2e5f7db9bba6710b06">DisableAutoStart</a>(uio, serviceName):</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        bootManager = <a class="code hl_class" href="classp3lib_1_1boot__manager_1_1BootManager.html">BootManager</a>(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName)</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        bootManager.remove()</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="preprocessor">@staticmethod</span></div>
 <div class="foldopen" id="foldopen00080" data-start="" data-end="">
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#ae2a5ea661f5d142d120158688de9f690">   80</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#ae2a5ea661f5d142d120158688de9f690">CheckAutoStartStatus</a>(uio, serviceName):</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check the status of a process previously set to auto start.</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        bootManager = <a class="code hl_class" href="classp3lib_1_1boot__manager_1_1BootManager.html">BootManager</a>(uio=uio, serviceName=serviceName)</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        lines = bootManager.getStatus()</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">if</span> lines <span class="keywordflow">and</span> len(lines) &gt; 0:</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                uio.info(line)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
 </div>
 <div class="foldopen" id="foldopen00091" data-start="" data-end="">
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#afa09481cf2c959b9e687ee729ada1a3d">   91</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#afa09481cf2c959b9e687ee729ada1a3d">__init__</a>(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):</div>
@@ -188,12 +188,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="stringliteral">           @param uio A UIO instance to display user output. If unset then no output</span></div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="stringliteral">                  is displayed to user.</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="stringliteral">           @param allowRootUser If True then allow root user to to auto start</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="stringliteral">                  programs. Note that as the BootManager is responsible for </span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="stringliteral">                  ensuring programs are started up when a machine boots up </span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="stringliteral">                  the installed program should be installed for the root </span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="stringliteral">                  programs. Note that as the BootManager is responsible for</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="stringliteral">                  ensuring programs are started up when a machine boots up</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="stringliteral">                  the installed program should be installed for the root</span></div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="stringliteral">                  user on Linux systems.</span></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="stringliteral">           @param ensureRootUser If True the current user must be root user (Linux systems).</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#a9ab44c94fcf59c01f8bc0502e35f8dde">  104</a></span>        self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1BootManager.html#a9ab44c94fcf59c01f8bc0502e35f8dde">_uio</a> = uio</div>
@@ -224,7 +224,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1BootManager.html#a870708bc2c7e94edbc24e340d3205e49">_platformBootManager</a>:</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1BootManager.html#a870708bc2c7e94edbc24e340d3205e49">_platformBootManager</a>.<a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#a4d7cd1c2c34050e73a70d90207ed2a67">remove</a>()</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 </div>
 <div class="foldopen" id="foldopen00129" data-start="" data-end="">
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1BootManager.html#ad1db151d86920b66800adeaca16c6e46">  129</a></span>    <span class="keyword">def </span><a class="code hl_function" href="classp3lib_1_1boot__manager_1_1BootManager.html#ad1db151d86920b66800adeaca16c6e46">getStatus</a>(self):</div>
@@ -234,7 +234,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1BootManager.html#a870708bc2c7e94edbc24e340d3205e49">_platformBootManager</a>:</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            statusLines = self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1BootManager.html#a870708bc2c7e94edbc24e340d3205e49">_platformBootManager</a>.getStatusLines()</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">return</span> statusLines</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
 </div>
 </div>
@@ -288,7 +288,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="stringliteral">           @param uio A UIO instance to display user output. If unset then no output is displayed to user.</span></div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="stringliteral">           @param allowRootUser If True then allow root user to to auto start programs.</span></div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="stringliteral">           @param ensureRootUser If True the current user must be root user.</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed </span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="stringliteral">                              python file is used.</span></div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped.&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a9ab44c94fcf59c01f8bc0502e35f8dde">  185</a></span>        self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a9ab44c94fcf59c01f8bc0502e35f8dde">_uio</a> = uio</div>
@@ -478,7 +478,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        <span class="keywordflow">if</span> self.<a class="code hl_variable" href="classp3lib_1_1boot__manager_1_1LinuxBootManager.html#a8cf59cdf0f20774ab22bf0a6a2a46609">_rootMode</a> <span class="keywordflow">and</span> user != <span class="stringliteral">&#39;root&#39;</span>:</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>            lines.append(<span class="stringliteral">&quot;User={}&quot;</span>.format(user))</div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="comment">#We add the home path env var so that config files (if stored in/under </span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="comment">#We add the home path env var so that config files (if stored in/under</span></div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="comment"># the users home dir) can be found by the prgram.</span></div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="keywordflow">if</span> user <span class="keywordflow">and</span> len(user) &gt; 0:</div>
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>            lines.append(<span class="stringliteral">&#39;Environment=&quot;HOME=/home/{}&quot;&#39;</span>.format(user))</div>
