@@ -77,9 +77,10 @@ class UIO(object):
         escapeSeq =re.compile(r'(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]')
         return escapeSeq.sub('', text)
 
-    def __init__(self, debug=False, colour=True):
+    def __init__(self, debug=False, colour=True, use_emojis=False):
         self._debug                         = debug
         self._colour                        = colour
+        self._use_emojis                    = use_emojis
         self._logFile                       = None
         self._progBarSize                   = 0
         self._progBarGrow                   = True
@@ -107,10 +108,14 @@ class UIO(object):
         """@brief Present an info level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            if highlight:
-                self._print('{}INFO:  {}{}'.format(UIO.GetInfoEscapeSeq(), text, UIO.DISPLAY_RESET_ESCAPE_SEQ))
+            if self._use_emojis:
+                self._print('{ℹ️} ' + text)
+
             else:
-                self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+                if highlight:
+                    self._print('{}INFO:  {}{}'.format(UIO.GetInfoEscapeSeq(), text, UIO.DISPLAY_RESET_ESCAPE_SEQ))
+                else:
+                    self._print('{}INFO{}:  {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('INFO:  {}'.format(text))
         self._update_syslog(PRIORITY.INFO, "INFO:  "+text)
@@ -120,7 +125,12 @@ class UIO(object):
            @param text The line of text to be presented to the user."""
         if self._debug:
             if self._colour:
-                self._print('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+                if self._use_emojis:
+                    self._print('{🔍} ' + text)
+
+                else:
+                    self._print('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+
             else:
                 self._print('DEBUG: {}'.format(text))
         elif self._debugLogEnabled and self._debugLogFile:
@@ -134,7 +144,11 @@ class UIO(object):
         """@brief Present a warning level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            self._print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            if self._use_emojis:
+                self._print('{⚠️} ' + text)
+
+            else:
+                self._print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('WARN:  {}'.format(text))
         self._update_syslog(PRIORITY.WARNING, "WARN:  "+text)
@@ -143,7 +157,11 @@ class UIO(object):
         """@brief Present an error level message to the user.
            @param text The line of text to be presented to the user."""
         if self._colour:
-            self._print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+            if self._use_emojis:
+                self._print('{❌} ' + text)
+
+            else:
+                self._print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
         else:
             self._print('ERROR: {}'.format(text))
         self._update_syslog(PRIORITY.ERROR, "ERROR: "+text)
@@ -162,12 +180,18 @@ class UIO(object):
            @return The line of text entered by the user."""
         if self._colour:
             if noEcho:
-                prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
+                if self._use_emojis:
+                    prompt('{⌨️} ' + prompt + ": ")
+                else:
+                    prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
                 self.storeToLog(prompt, False)
                 response = getpass(prompt, sys.stdout)
 
             else:
-                prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
+                if self._use_emojis:
+                    prompt('{⌨️} ' + prompt + ": ")
+                else:
+                    prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
                 self.storeToLog(prompt, False)
                 response = input(prompt)
 
@@ -217,22 +241,22 @@ class UIO(object):
                 value = float(response)
             else:
                 value = int(response, radix)
-                
+
             if minValue is not None and value < minValue:
                 self.warn(f"The minimum acceptable value is {minValue}")
-                
+
             if maxValue is not None and value > maxValue:
                 self.warn(f"The mximum acceptable value is {maxValue}")
-                
+
             return value
 
         except ValueError:
             if floatValue:
                 self.warn("%s is not a valid float value." % (response))
-                
+
             else:
                 self.warn("%s is not a valid integer value." % (response))
-                
+
         if allowQuit and response.lower() == 'q':
             return None
 
@@ -424,7 +448,7 @@ class UIO(object):
             #Ignore if se can't resolve address. We don't really syslog want errors to stop the user interface
             except:
                 pass
-        
+
     def showTable(self, table, rowSeparatorChar = "-", colSeparatorChar = "|"):
         """@brief Show the contents of a table to the user.
            @param table This must be a list. Each list element must be a table row (list).
@@ -435,18 +459,18 @@ class UIO(object):
         # Check we have a table to display
         if len(table) == 0:
             raise Exception("No table rows to display")
-        
+
         # Check all rows have the same number of columns in the table
         colCount = len(table[0])
         for row in table:
             if len(row) != colCount:
                 raise Exception(f"{str(row)} column count different from first row ({colCount})")
-        
+
         for row in table:
             for col in row:
                 if not isinstance(col, str):
                     raise Exception(f"Table column is not a string: {col} in {row}")
-                
+
         # Get the max width for each column
         for col in range(0,colCount):
             maxWidth=0
@@ -458,10 +482,10 @@ class UIO(object):
         tableWidth = 1
         for columnWidth in columnWidths:
             tableWidth += columnWidth + 3 # Space each side of the column + a column divider character
-                    
+
         # Add the top line of the table
         self.info(rowSeparatorChar*tableWidth)
-               
+
         # The starting row index
         for rowIndex in range(0, len(table)):
             rowText = colSeparatorChar
@@ -473,7 +497,7 @@ class UIO(object):
             self.info(rowText)
             # Add the row separator line
             self.info(rowSeparatorChar*tableWidth)
-            
+
 class ConsoleMenu(object):
     """@brief Responsible for presenting a list of options to the user on a
               console/terminal interface and allowing the user to select
@@ -508,10 +532,10 @@ class ConsoleMenu(object):
                     selectedMethod()
                 else:
                     selectedMethod(*args)
-          
-            
-        
-                
+
+
+
+
 
 # -------------------------------------------------------------------
 # @brief An implementation to allow syslog messages to be generated.
