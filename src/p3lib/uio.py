@@ -120,6 +120,22 @@ class UIO(object):
             self._print('INFO:  {}'.format(text))
         self._update_syslog(PRIORITY.INFO, "INFO:  "+text)
 
+    def success(self, text, highlight=False):
+        """@brief Present an success message to the user.
+           @param text The line of text to be presented to the user."""
+        if self._colour:
+            if self._use_emojis:
+                self._print('{✅} ' + text)
+
+            else:
+                if highlight:
+                    self._print('{}OK:      {}{}'.format(UIO.GetInfoEscapeSeq(), text, UIO.DISPLAY_RESET_ESCAPE_SEQ))
+                else:
+                    self._print('{}OK{}:    {}'.format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
+        else:
+            self._print('INFO:  {}'.format(text))
+        self._update_syslog(PRIORITY.INFO, "INFO:  "+text)
+
     def debug(self, text):
         """@brief Present a debug level message to the user if debuging is enabled.
            @param text The line of text to be presented to the user."""
@@ -152,6 +168,11 @@ class UIO(object):
         else:
             self._print('WARN:  {}'.format(text))
         self._update_syslog(PRIORITY.WARNING, "WARN:  "+text)
+
+    def failure(self, text):
+        """@brief Present a failure message to the user. This is the same as an error message.
+           @param text The line of text to be presented to the user."""
+        self.error(text)
 
     def error(self, text):
         """@brief Present an error level message to the user.
