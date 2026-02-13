@@ -109,7 +109,7 @@ class UIO(object):
            @param text The line of text to be presented to the user."""
         if self._colour:
             if self._use_emojis:
-                self._print('{ℹ️} ' + text)
+                self._print('{ℹ️}  ' + text)
 
             else:
                 if highlight:
@@ -125,7 +125,7 @@ class UIO(object):
            @param text The line of text to be presented to the user."""
         if self._colour:
             if self._use_emojis:
-                self._print('{✅} ' + text)
+                self._print('{✅}  ' + text)
 
             else:
                 if highlight:
@@ -142,7 +142,7 @@ class UIO(object):
         if self._debug:
             if self._colour:
                 if self._use_emojis:
-                    self._print('{🔍} ' + text)
+                    self._print('{🔍}  ' + text)
 
                 else:
                     self._print('{}DEBUG{}: {}'.format(UIO.GetDebugEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
@@ -161,7 +161,7 @@ class UIO(object):
            @param text The line of text to be presented to the user."""
         if self._colour:
             if self._use_emojis:
-                self._print('{⚠️} ' + text)
+                self._print('{⚠️}  ' + text)
 
             else:
                 self._print('{}WARN{}:  {}'.format(UIO.GetWarnEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
@@ -179,7 +179,7 @@ class UIO(object):
            @param text The line of text to be presented to the user."""
         if self._colour:
             if self._use_emojis:
-                self._print('{❌} ' + text)
+                self._print('{❌}  ' + text)
 
             else:
                 self._print('{}ERROR{}: {}'.format(UIO.GetErrorEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ, text))
@@ -202,7 +202,7 @@ class UIO(object):
         if self._colour:
             if noEcho:
                 if self._use_emojis:
-                    prompt('{⌨️} ' + prompt + ": ")
+                    prompt('{⌨️}  ' + prompt + ": ")
                 else:
                     prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
                 self.storeToLog(prompt, False)
@@ -210,7 +210,7 @@ class UIO(object):
 
             else:
                 if self._use_emojis:
-                    prompt('{⌨️} ' + prompt + ": ")
+                    prompt('{⌨️}  ' + prompt + ": ")
                 else:
                     prompt = "{}INPUT{}: ".format(UIO.GetInfoEscapeSeq(), UIO.DISPLAY_RESET_ESCAPE_SEQ) + prompt + ": "
                 self.storeToLog(prompt, False)
