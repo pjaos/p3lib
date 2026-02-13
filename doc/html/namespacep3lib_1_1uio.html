@@ -152,28 +152,28 @@ Variables</h2></td></tr>
   @param facility The syslog facility
   @param host The host address for the systlog server.
   @param port The syslog port.</pre> 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00578">578</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  578</span><span class="keyword">def </span>syslog(priority, message, facility=FACILITY.LOCAL0, host=&#39;localhost&#39;, port=514):</div>
-<div class="line"><span class="lineno">  579</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  580</span><span class="stringliteral">      @brief Send a syslog message.</span></div>
-<div class="line"><span class="lineno">  581</span><span class="stringliteral">      @param priority The syslog priority level.</span></div>
-<div class="line"><span class="lineno">  582</span><span class="stringliteral">      @param message The text message to be sent.</span></div>
-<div class="line"><span class="lineno">  583</span><span class="stringliteral">      @param facility The syslog facility</span></div>
-<div class="line"><span class="lineno">  584</span><span class="stringliteral">      @param host The host address for the systlog server.</span></div>
-<div class="line"><span class="lineno">  585</span><span class="stringliteral">      @param port The syslog port.</span></div>
-<div class="line"><span class="lineno">  586</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  587</span>    <span class="keyword">global</span> lock, timer, syslogSocket</div>
-<div class="line"><span class="lineno">  588</span> </div>
-<div class="line"><span class="lineno">  589</span>    <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  590</span>        lock.acquire()</div>
-<div class="line"><span class="lineno">  591</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> syslogSocket:</div>
-<div class="line"><span class="lineno">  592</span>            syslogSocket = socket(AF_INET, SOCK_DGRAM)</div>
-<div class="line"><span class="lineno">  593</span> </div>
-<div class="line"><span class="lineno">  594</span>        smsg = <span class="stringliteral">&#39;&lt;%05d&gt;%s&#39;</span> % ( (priority + facility*8), message )</div>
-<div class="line"><span class="lineno">  595</span>        syslogSocket.sendto(smsg.encode(<span class="stringliteral">&#39;ascii&#39;</span>, <span class="stringliteral">&#39;ignore&#39;</span>), (host, port))</div>
-<div class="line"><span class="lineno">  596</span> </div>
-<div class="line"><span class="lineno">  597</span>    <span class="keywordflow">finally</span>:</div>
-<div class="line"><span class="lineno">  598</span>        lock.release()</div>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00599">599</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  599</span><span class="keyword">def </span>syslog(priority, message, facility=FACILITY.LOCAL0, host=&#39;localhost&#39;, port=514):</div>
+<div class="line"><span class="lineno">  600</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  601</span><span class="stringliteral">      @brief Send a syslog message.</span></div>
+<div class="line"><span class="lineno">  602</span><span class="stringliteral">      @param priority The syslog priority level.</span></div>
+<div class="line"><span class="lineno">  603</span><span class="stringliteral">      @param message The text message to be sent.</span></div>
+<div class="line"><span class="lineno">  604</span><span class="stringliteral">      @param facility The syslog facility</span></div>
+<div class="line"><span class="lineno">  605</span><span class="stringliteral">      @param host The host address for the systlog server.</span></div>
+<div class="line"><span class="lineno">  606</span><span class="stringliteral">      @param port The syslog port.</span></div>
+<div class="line"><span class="lineno">  607</span><span class="stringliteral">    &quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  608</span>    <span class="keyword">global</span> lock, timer, syslogSocket</div>
+<div class="line"><span class="lineno">  609</span> </div>
+<div class="line"><span class="lineno">  610</span>    <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  611</span>        lock.acquire()</div>
+<div class="line"><span class="lineno">  612</span>        <span class="keywordflow">if</span> <span class="keywordflow">not</span> syslogSocket:</div>
+<div class="line"><span class="lineno">  613</span>            syslogSocket = socket(AF_INET, SOCK_DGRAM)</div>
+<div class="line"><span class="lineno">  614</span> </div>
+<div class="line"><span class="lineno">  615</span>        smsg = <span class="stringliteral">&#39;&lt;%05d&gt;%s&#39;</span> % ( (priority + facility*8), message )</div>
+<div class="line"><span class="lineno">  616</span>        syslogSocket.sendto(smsg.encode(<span class="stringliteral">&#39;ascii&#39;</span>, <span class="stringliteral">&#39;ignore&#39;</span>), (host, port))</div>
+<div class="line"><span class="lineno">  617</span> </div>
+<div class="line"><span class="lineno">  618</span>    <span class="keywordflow">finally</span>:</div>
+<div class="line"><span class="lineno">  619</span>        lock.release()</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -190,7 +190,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00576">576</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="uio_8py_source.html#l00597">597</a> of file <a class="el" href="uio_8py_source.html">uio.py</a>.</p>
 
 </div>
 </div>

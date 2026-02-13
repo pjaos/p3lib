@@ -46,15 +46,16 @@ var searchData=
   ['stopallsshtunnels_43',['stopAllSSHTunnels',['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a97b674521f3f54905c0c660a4ef40844',1,'p3lib::ssh::SSHTunnelManager']]],
   ['stopfwdsshtunnel_44',['stopFwdSSHTunnel',['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a10188de8b0439f7c0d6590c6808cc4dc',1,'p3lib::ssh::SSHTunnelManager']]],
   ['stoprevsshtunnel_45',['stopRevSSHTunnel',['../classp3lib_1_1ssh_1_1SSHTunnelManager.html#a716eb5fcc8a19fe27a50bfd7678c7e53',1,'p3lib::ssh::SSHTunnelManager']]],
-  ['stopserver_46',['stopserver',['../classbokeh__demo_1_1TimeSeriesGUI.html#a3906baf0cf8c43215da5266c95a48e60',1,'bokeh_demo.TimeSeriesGUI.stopServer()'],['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#a3906baf0cf8c43215da5266c95a48e60',1,'p3lib.bokeh_gui.TabbedGUI.stopServer()']]],
+  ['stopserver_46',['stopserver',['../classp3lib_1_1bokeh__gui_1_1TabbedGUI.html#a3906baf0cf8c43215da5266c95a48e60',1,'p3lib.bokeh_gui.TabbedGUI.stopServer()'],['../classbokeh__demo_1_1TimeSeriesGUI.html#a3906baf0cf8c43215da5266c95a48e60',1,'bokeh_demo.TimeSeriesGUI.stopServer()']]],
   ['store_47',['store',['../classp3lib_1_1pconfig_1_1ConfigManager.html#a4935e3c2f305304a271dd5ccb7aee929',1,'p3lib::pconfig::ConfigManager']]],
-  ['storetodebuglog_48',['storetodebuglog',['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ae47176ada6b9baee8b482e9125002657',1,'p3lib.ngt.TabbedNiceGui.storeToDebugLog()'],['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#ae47176ada6b9baee8b482e9125002657',1,'p3lib.ngt3.TabbedNiceGui.storeToDebugLog()'],['../classp3lib_1_1uio_1_1UIO.html#a2b26ca338191fe4d536c48a8b74ba444',1,'p3lib.uio.UIO.storeToDebugLog(self, text, addLF=True, addDateTime=True)']]],
+  ['storetodebuglog_48',['storetodebuglog',['../classp3lib_1_1ngt3_1_1TabbedNiceGui.html#ae47176ada6b9baee8b482e9125002657',1,'p3lib.ngt3.TabbedNiceGui.storeToDebugLog()'],['../classp3lib_1_1uio_1_1UIO.html#a2b26ca338191fe4d536c48a8b74ba444',1,'p3lib.uio.UIO.storeToDebugLog()'],['../classp3lib_1_1ngt_1_1TabbedNiceGui.html#ae47176ada6b9baee8b482e9125002657',1,'p3lib.ngt.TabbedNiceGui.storeToDebugLog()']]],
   ['storetolog_49',['storeToLog',['../classp3lib_1_1uio_1_1UIO.html#ada58526f3022afda5cd8b89a18f1114b',1,'p3lib::uio::UIO']]],
   ['stripeol_50',['stripeol',['../classp3lib_1_1ssh_1_1ExtendedSSHClient.html#aa36936bc4038458aa2bbd0d41e5999fb',1,'p3lib.ssh.ExtendedSSHClient.StripEOL()'],['../namespacep3lib_1_1helper.html#a0e8f0ab1247c636e8362d37b9c998374',1,'p3lib.helper.stripEOL()']]],
   ['subplots4types_51',['subPlots4Types',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a66d24db030c5e64fd37d900546a3aef2',1,'netplotly_demo::NetPlotlyDemo']]],
   ['subplotssharedaxis_52',['subPlotsSharedAxis',['../classnetplotly__demo_1_1NetPlotlyDemo.html#a5eca08cb432a38284b1b6b2814681c18',1,'netplotly_demo::NetPlotlyDemo']]],
-  ['successmethod1_53',['successMethod1',['../classngt__examples_1_1NGT__Examples.html#a10fc16570a659cc135bfbb0eb4dd2e83',1,'ngt_examples::NGT_Examples']]],
-  ['successmethod2_54',['successMethod2',['../classngt__examples_1_1NGT__Examples.html#a9e2b301e4e57b0942357c7e3eb50a455',1,'ngt_examples::NGT_Examples']]],
-  ['successmethod3_55',['successMethod3',['../classngt__examples_1_1NGT__Examples.html#aff5a2bd39fcfcfa83c87a215f6c324df',1,'ngt_examples::NGT_Examples']]],
-  ['syslog_56',['syslog',['../namespacep3lib_1_1uio.html#a2f35adc3b50ddd018e92ce6b2e6c26f1',1,'p3lib::uio']]]
+  ['success_53',['success',['../classp3lib_1_1uio_1_1UIO.html#a7992af2b0139eedb25b0d1538ac710c5',1,'p3lib::uio::UIO']]],
+  ['successmethod1_54',['successMethod1',['../classngt__examples_1_1NGT__Examples.html#a10fc16570a659cc135bfbb0eb4dd2e83',1,'ngt_examples::NGT_Examples']]],
+  ['successmethod2_55',['successMethod2',['../classngt__examples_1_1NGT__Examples.html#a9e2b301e4e57b0942357c7e3eb50a455',1,'ngt_examples::NGT_Examples']]],
+  ['successmethod3_56',['successMethod3',['../classngt__examples_1_1NGT__Examples.html#aff5a2bd39fcfcfa83c87a215f6c324df',1,'ngt_examples::NGT_Examples']]],
+  ['syslog_57',['syslog',['../namespacep3lib_1_1uio.html#a2f35adc3b50ddd018e92ce6b2e6c26f1',1,'p3lib::uio']]]
 ];
