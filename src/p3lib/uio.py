@@ -5,6 +5,8 @@ import os
 import re
 import traceback
 import platform
+import syslog as pysyslog
+
 from   threading import Lock
 from   socket import socket, AF_INET, SOCK_DGRAM
 from   getpass import getpass, getuser
@@ -606,6 +608,12 @@ def syslog(priority, message, facility=FACILITY.LOCAL0, host='localhost', port=5
       @param port The syslog port.
 	"""
     global lock, timer, syslogSocket
+
+    if host in ("localhost", "127.0.0.1", None):
+        # Use the system syslog socket (/dev/log)
+        pysyslog.openlog(ident="PJA", facility=facility)
+        pysyslog.syslog(priority, message)
+        return
 
     try:
         lock.acquire()
