@@ -390,7 +390,6 @@ class LinuxBootManager(object):
                   venv python version if present. If we don't do this the wrong python binary maybe executed
                   which may be missing python modules in the venv.
            @param python_file The python file to execute."""
-        print(f"PJA: python_file={python_file}")
         new_python_file = python_file
         venv_pos = python_file.find('venv')
         if python_file.endswith(".py") and venv_pos > 0:
