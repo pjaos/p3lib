@@ -732,20 +732,19 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  390</span><span class="stringliteral">                  venv python version if present. If we don&#39;t do this the wrong python binary maybe executed</span></div>
 <div class="line"><span class="lineno">  391</span><span class="stringliteral">                  which may be missing python modules in the venv.</span></div>
 <div class="line"><span class="lineno">  392</span><span class="stringliteral">           @param python_file The python file to execute.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  393</span>        print(f<span class="stringliteral">&quot;PJA: python_file={python_file}&quot;</span>)</div>
-<div class="line"><span class="lineno">  394</span>        new_python_file = python_file</div>
-<div class="line"><span class="lineno">  395</span>        venv_pos = python_file.find(<span class="stringliteral">&#39;venv&#39;</span>)</div>
-<div class="line"><span class="lineno">  396</span>        <span class="keywordflow">if</span> python_file.endswith(<span class="stringliteral">&quot;.py&quot;</span>) <span class="keywordflow">and</span> venv_pos &gt; 0:</div>
-<div class="line"><span class="lineno">  397</span>            bin_path = os.path.join(python_file[:venv_pos+4], <span class="stringliteral">&#39;bin&#39;</span>)</div>
-<div class="line"><span class="lineno">  398</span>            <span class="keywordflow">if</span> os.path.isdir(bin_path):</div>
-<div class="line"><span class="lineno">  399</span>                <span class="keywordflow">for</span> python_bin <span class="keywordflow">in</span> [<span class="stringliteral">&#39;python3&#39;</span>, <span class="stringliteral">&#39;python&#39;</span>]:</div>
-<div class="line"><span class="lineno">  400</span>                    python_bin_file = os.path.join(bin_path, python_bin)</div>
-<div class="line"><span class="lineno">  401</span>                    <span class="keywordflow">if</span> os.path.isfile(python_bin_file):</div>
-<div class="line"><span class="lineno">  402</span>                        new_python_file = python_bin_file + <span class="stringliteral">&quot; &quot;</span> + python_file</div>
-<div class="line"><span class="lineno">  403</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  404</span> </div>
-<div class="line"><span class="lineno">  405</span>        <span class="keywordflow">return</span> new_python_file</div>
-<div class="line"><span class="lineno">  406</span> </div>
+<div class="line"><span class="lineno">  393</span>        new_python_file = python_file</div>
+<div class="line"><span class="lineno">  394</span>        venv_pos = python_file.find(<span class="stringliteral">&#39;venv&#39;</span>)</div>
+<div class="line"><span class="lineno">  395</span>        <span class="keywordflow">if</span> python_file.endswith(<span class="stringliteral">&quot;.py&quot;</span>) <span class="keywordflow">and</span> venv_pos &gt; 0:</div>
+<div class="line"><span class="lineno">  396</span>            bin_path = os.path.join(python_file[:venv_pos+4], <span class="stringliteral">&#39;bin&#39;</span>)</div>
+<div class="line"><span class="lineno">  397</span>            <span class="keywordflow">if</span> os.path.isdir(bin_path):</div>
+<div class="line"><span class="lineno">  398</span>                <span class="keywordflow">for</span> python_bin <span class="keywordflow">in</span> [<span class="stringliteral">&#39;python3&#39;</span>, <span class="stringliteral">&#39;python&#39;</span>]:</div>
+<div class="line"><span class="lineno">  399</span>                    python_bin_file = os.path.join(bin_path, python_bin)</div>
+<div class="line"><span class="lineno">  400</span>                    <span class="keywordflow">if</span> os.path.isfile(python_bin_file):</div>
+<div class="line"><span class="lineno">  401</span>                        new_python_file = python_bin_file + <span class="stringliteral">&quot; &quot;</span> + python_file</div>
+<div class="line"><span class="lineno">  402</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  403</span> </div>
+<div class="line"><span class="lineno">  404</span>        <span class="keywordflow">return</span> new_python_file</div>
+<div class="line"><span class="lineno">  405</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -988,19 +987,19 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get a status report.
    @return Lines of text indicating the status of a previously started process.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00429">429</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  429</span>    <span class="keyword">def </span>getStatusLines(self):</div>
-<div class="line"><span class="lineno">  430</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
-<div class="line"><span class="lineno">  431</span><span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  432</span>        serviceName = self._getServiceName()</div>
-<div class="line"><span class="lineno">  433</span>        <span class="keywordflow">if</span> self._rootMode:</div>
-<div class="line"><span class="lineno">  434</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
-<div class="line"><span class="lineno">  435</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  436</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;--user&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
-<div class="line"><span class="lineno">  437</span>        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
-<div class="line"><span class="lineno">  438</span>        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
-<div class="line"><span class="lineno">  439</span>        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  440</span>        <span class="keywordflow">return</span> lines</div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00428">428</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  428</span>    <span class="keyword">def </span>getStatusLines(self):</div>
+<div class="line"><span class="lineno">  429</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
+<div class="line"><span class="lineno">  430</span><span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  431</span>        serviceName = self._getServiceName()</div>
+<div class="line"><span class="lineno">  432</span>        <span class="keywordflow">if</span> self._rootMode:</div>
+<div class="line"><span class="lineno">  433</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
+<div class="line"><span class="lineno">  434</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  435</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;--user&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
+<div class="line"><span class="lineno">  436</span>        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
+<div class="line"><span class="lineno">  437</span>        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
+<div class="line"><span class="lineno">  438</span>        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  439</span>        <span class="keywordflow">return</span> lines</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1062,29 +1061,29 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Remove the executable file to the processes started at boot time.
           Any running processes will be stopped.  The executable file must be
           named the same as the python file executed without the .py suffix.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00407">407</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  407</span>    <span class="keyword">def </span>remove(self):</div>
-<div class="line"><span class="lineno">  408</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove the executable file to the processes started at boot time.</span></div>
-<div class="line"><span class="lineno">  409</span><span class="stringliteral">                  Any running processes will be stopped.  The executable file must be</span></div>
-<div class="line"><span class="lineno">  410</span><span class="stringliteral">                  named the same as the python file executed without the .py suffix.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  411</span>        appName, _ = self._getApp()</div>
-<div class="line"><span class="lineno">  412</span> </div>
-<div class="line"><span class="lineno">  413</span>        serviceName = self._getServiceName()</div>
-<div class="line"><span class="lineno">  414</span>        serviceFile = self._getServiceFile(appName)</div>
-<div class="line"><span class="lineno">  415</span>        <span class="keywordflow">if</span> os.path.isfile(serviceFile):</div>
-<div class="line"><span class="lineno">  416</span>            cmd = <span class="stringliteral">&quot;{} disable {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  417</span>            self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  418</span>            self._info(<span class="stringliteral">&quot;Disabled {} on restart&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  419</span> </div>
-<div class="line"><span class="lineno">  420</span>            cmd = <span class="stringliteral">&quot;{} stop {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  421</span>            self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  422</span>            self._info(<span class="stringliteral">&quot;Stopped {}&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  423</span> </div>
-<div class="line"><span class="lineno">  424</span>            os.remove(serviceFile)</div>
-<div class="line"><span class="lineno">  425</span>            self._log(<span class="stringliteral">&quot;Removed {}&quot;</span>.format(serviceFile))</div>
-<div class="line"><span class="lineno">  426</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  427</span>            self._info(<span class="stringliteral">&quot;{} service not found&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  428</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00406">406</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  406</span>    <span class="keyword">def </span>remove(self):</div>
+<div class="line"><span class="lineno">  407</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove the executable file to the processes started at boot time.</span></div>
+<div class="line"><span class="lineno">  408</span><span class="stringliteral">                  Any running processes will be stopped.  The executable file must be</span></div>
+<div class="line"><span class="lineno">  409</span><span class="stringliteral">                  named the same as the python file executed without the .py suffix.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  410</span>        appName, _ = self._getApp()</div>
+<div class="line"><span class="lineno">  411</span> </div>
+<div class="line"><span class="lineno">  412</span>        serviceName = self._getServiceName()</div>
+<div class="line"><span class="lineno">  413</span>        serviceFile = self._getServiceFile(appName)</div>
+<div class="line"><span class="lineno">  414</span>        <span class="keywordflow">if</span> os.path.isfile(serviceFile):</div>
+<div class="line"><span class="lineno">  415</span>            cmd = <span class="stringliteral">&quot;{} disable {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  416</span>            self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  417</span>            self._info(<span class="stringliteral">&quot;Disabled {} on restart&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  418</span> </div>
+<div class="line"><span class="lineno">  419</span>            cmd = <span class="stringliteral">&quot;{} stop {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  420</span>            self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  421</span>            self._info(<span class="stringliteral">&quot;Stopped {}&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  422</span> </div>
+<div class="line"><span class="lineno">  423</span>            os.remove(serviceFile)</div>
+<div class="line"><span class="lineno">  424</span>            self._log(<span class="stringliteral">&quot;Removed {}&quot;</span>.format(serviceFile))</div>
+<div class="line"><span class="lineno">  425</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  426</span>            self._info(<span class="stringliteral">&quot;{} service not found&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  427</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
