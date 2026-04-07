@@ -359,6 +359,7 @@ class LinuxBootManager(object):
             if argString.find(BootManager.ENABLE_CMD_OPT):
                 argString = argString.replace(BootManager.ENABLE_CMD_OPT, "")
             argString = argString.strip()
+            absApp = self._prefix_with_venv_python(absApp)
             lines.append("ExecStart={} {}".format(absApp, argString))
         else:
             lines.append("ExecStart={}".format(absApp))
@@ -383,6 +384,25 @@ class LinuxBootManager(object):
         cmd = "{} start {}".format(self._cmdLinePrefix, serviceName)
         self._runLocalCmd(cmd)
         self._info("Started {}".format(serviceName))
+
+    def _prefix_with_venv_python(self, python_file):
+        """@brief Given the python file to execute. Check if it sits in a venv folder and prefix it with the
+                  venv python version if present. If we don't do this the wrong python binary maybe executed
+                  which may be missing python modules in the venv.
+           @param python_file The python file to execute."""
+        print(f"PJA: python_file={python_file}")
+        new_python_file = python_file
+        venv_pos = python_file.find('venv')
+        if python_file.endswith(".py") and venv_pos > 0:
+            bin_path = os.path.join(python_file[:venv_pos+4], 'bin')
+            if os.path.isdir(bin_path):
+                for python_bin in ['python3', 'python']:
+                    python_bin_file = os.path.join(bin_path, python_bin)
+                    if os.path.isfile(python_bin_file):
+                        new_python_file = python_bin_file + " " + python_file
+                        break
+
+        return new_python_file
 
     def remove(self):
         """@brief Remove the executable file to the processes started at boot time.
