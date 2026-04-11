@@ -16,6 +16,7 @@ class BootManager(object):
     LINUX_OS_NAME       = "Linux"
     ENABLE_CMD_OPT      = "--enable_auto_start"
     DISABLE_CMD_OPT     = "--disable_auto_start"
+    RESTART_CMD_OPT     = "--restart_service"
     CHECK_CMD_OPT       = "--check_auto_start"
 
     @staticmethod
@@ -24,6 +25,7 @@ class BootManager(object):
            @param parser An instance of argparse.ArgumentParser."""
         parser.add_argument(BootManager.ENABLE_CMD_OPT,  help="Auto start when this computer starts.", action="store_true", default=False)
         parser.add_argument(BootManager.DISABLE_CMD_OPT, help="Disable auto starting when this computer starts.", action="store_true", default=False)
+        parser.add_argument(BootManager.RESTART_CMD_OPT, help="Restart a running service.", action="store_true", default=False)
         parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the running status.", action="store_true", default=False)
 
     @staticmethod
@@ -49,6 +51,10 @@ class BootManager(object):
 
         elif options.disable_auto_start:
             BootManager.DisableAutoStart(uio, serviceName)
+            handled = True
+
+        elif options.restart_service:
+            BootManager.RestartService(uio, serviceName, restartSeconds)
             handled = True
 
         return handled
@@ -87,6 +93,18 @@ class BootManager(object):
         if lines and len(lines) > 0:
             for line in lines:
                 uio.info(line)
+
+    @staticmethod
+    def RestartService(uio, serviceName, restartSeconds):
+        """@brief Enable this program to auto start when the computer on which it is installed starts.
+           @param uio A UIO instance.
+           @param options As returned from parser.parse_args() where parser
+                          is an instance of argparse.ArgumentParser.
+           @param serviceName The name of the service. If not set then the name of the initially executed
+                              python file is used.
+           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1)."""
+        bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName, restartSeconds=restartSeconds)
+        bootManager.restart()
 
     def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):
         """@brief Constructor
@@ -134,6 +152,10 @@ class BootManager(object):
             statusLines = self._platformBootManager.getStatusLines()
         return statusLines
 
+    def restart(self):
+        """@brief Stop and start an existing service."""
+        if self._platformBootManager:
+            self._platformBootManager.restart()
 
 class LinuxBootManager(object):
     """@brief Responsible for adding/removing Linux services using systemd."""
@@ -402,6 +424,16 @@ class LinuxBootManager(object):
                         break
 
         return new_python_file
+
+    def restart(self):
+        """@brief Restart an existing service."""
+        serviceName = self._getServiceName()
+        cmd = "{} stop {}".format(self._cmdLinePrefix, serviceName)
+        self._runLocalCmd(cmd)
+        self._info("Stopped {}".format(serviceName))
+        cmd = "{} start {}".format(self._cmdLinePrefix, serviceName)
+        self._runLocalCmd(cmd)
+        self._info("Started {}".format(serviceName))
 
     def remove(self):
         """@brief Remove the executable file to the processes started at boot time.
