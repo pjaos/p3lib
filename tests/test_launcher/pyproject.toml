@@ -11,13 +11,13 @@ packages = [
 python = "^3.10"
 Jinja2 = "^3.1.6"
 click = "*"
-requests = "*"
-nicegui = "^3.8"
+requests = "^2.33.0"
+nicegui = "^3.10.0"
 plotly = "*"
 h11 = "^0.16.0"
 pillow = "*"
 p3lib = "1.1.144"
-aiohttp = "^3.13.3"
+aiohttp = "^3.13.4"
 
 # Windows-only dependencies
 pywin32 = { version = "*", markers = "sys_platform == 'win32'" }
