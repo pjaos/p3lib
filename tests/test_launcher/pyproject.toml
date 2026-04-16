@@ -18,6 +18,7 @@ h11 = "^0.16.0"
 pillow = "*"
 p3lib = "1.1.144"
 aiohttp = "^3.13.4"
+python-multipart = "^0.0.26"
 
 # Windows-only dependencies
 pywin32 = { version = "*", markers = "sys_platform == 'win32'" }

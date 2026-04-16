@@ -13,6 +13,7 @@ nicegui = "^3.10.0"
 plotly = "*"
 h11 = "^0.16.0"
 aiohttp = "^3.13.4"
+python-multipart = "^0.0.26"
 
 [build-system]
 requires = [
