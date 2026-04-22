@@ -729,3 +729,15 @@ class EnvArgs():
 
 # The receiving end can read the arg_list as shown below
 #env_args = AClassEnvArgs().get()
+
+
+def get_app_data_path(module_name: str) -> Path:
+    """@brief Get the location to store module/app files (config/data) in."""
+    home_path = Path(getHomePath())
+    cfg_path  = home_path / ".config"
+    if cfg_path.is_dir():
+        app_cfg_path = cfg_path / module_name
+    else:
+        app_cfg_path = home_path / f".{module_name}"
+    app_cfg_path.mkdir(parents=True, exist_ok=True)
+    return app_cfg_path
