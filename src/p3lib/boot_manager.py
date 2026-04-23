@@ -5,7 +5,8 @@ import  sys
 import  platform
 import  getpass
 
-from    subprocess import check_call, DEVNULL, STDOUT, Popen, PIPE
+from    subprocess import check_call, DEVNULL, STDOUT, Popen, PIPE, run
+
 from    datetime import datetime
 
 class BootManager(object):
@@ -18,6 +19,7 @@ class BootManager(object):
     DISABLE_CMD_OPT     = "--disable_auto_start"
     RESTART_CMD_OPT     = "--restart_service"
     CHECK_CMD_OPT       = "--check_auto_start"
+    SHOW_LOG_CMD_OPT    = "--show_service_log"
 
     @staticmethod
     def AddCmdArgs(parser):
@@ -27,6 +29,7 @@ class BootManager(object):
         parser.add_argument(BootManager.DISABLE_CMD_OPT, help="Disable auto starting when this computer starts.", action="store_true", default=False)
         parser.add_argument(BootManager.RESTART_CMD_OPT, help="Restart a running service.", action="store_true", default=False)
         parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the running status.", action="store_true", default=False)
+        parser.add_argument(BootManager.SHOW_LOG_CMD_OPT,help="Show the log for a running service.", action="store_true", default=False)
 
     @staticmethod
     def HandleOptions(uio, options, enable_syslog, serviceName=None, restartSeconds=1):
@@ -55,6 +58,10 @@ class BootManager(object):
 
         elif options.restart_service:
             BootManager.RestartService(uio, serviceName, restartSeconds)
+            handled = True
+
+        elif options.show_service_log:
+            BootManager.ShowServiceLog(uio, serviceName)
             handled = True
 
         return handled
@@ -106,6 +113,16 @@ class BootManager(object):
         bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName, restartSeconds=restartSeconds)
         bootManager.restart()
 
+    def ShowServiceLog(uio, serviceName):
+        """@brief Show the log for a running service.
+                @param uio A UIO instance.
+                @param options As returned from parser.parse_args() where parser
+                                is an instance of argparse.ArgumentParser.
+                @param serviceName The name of the service. If not set then the name of the initially executed
+                                    python file is used."""
+        bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName)
+        bootManager.show_log()
+
     def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):
         """@brief Constructor
            @param uio A UIO instance to display user output. If unset then no output
@@ -156,6 +173,12 @@ class BootManager(object):
         """@brief Stop and start an existing service."""
         if self._platformBootManager:
             self._platformBootManager.restart()
+
+    def show_log(self):
+        """@brief Show the log for a running service."""
+        if self._platformBootManager:
+            self._platformBootManager.show_log()
+
 
 class LinuxBootManager(object):
     """@brief Responsible for adding/removing Linux services using systemd."""
@@ -434,6 +457,20 @@ class LinuxBootManager(object):
         cmd = "{} start {}".format(self._cmdLinePrefix, serviceName)
         self._runLocalCmd(cmd)
         self._info("Started {}".format(serviceName))
+
+    def show_log(self):
+        serviceName = self._getServiceName()
+        cmd_list = ("journalctl", "-u", serviceName)
+        result = run(cmd_list, capture_output=True, text=True )
+        lines = result.stdout.split('\n')
+        for l in lines:
+            if l:
+                self._info(l)
+
+        lines = result.stderr.split('\n')
+        for l in lines:
+            if l:
+                self._error(l)
 
     def remove(self):
         """@brief Remove the executable file to the processes started at boot time.

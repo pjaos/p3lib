@@ -115,6 +115,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4d7cd1c2c34050e73a70d90207ed2a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19046d100c90df7bada2f70b8d8ad20a" id="r_a19046d100c90df7bada2f70b8d8ad20a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#a19046d100c90df7bada2f70b8d8ad20a">restart</a> (self)</td></tr>
 <tr class="separator:a19046d100c90df7bada2f70b8d8ad20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11ec21b3a76de7a6057bc477a5adcc9" id="r_ad11ec21b3a76de7a6057bc477a5adcc9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#ad11ec21b3a76de7a6057bc477a5adcc9">show_log</a> (self)</td></tr>
+<tr class="separator:ad11ec21b3a76de7a6057bc477a5adcc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe6f71814b859f9d8b651f4f20daca37" id="r_abe6f71814b859f9d8b651f4f20daca37"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#abe6f71814b859f9d8b651f4f20daca37">ShowServiceLog</a> (uio, serviceName)</td></tr>
+<tr class="separator:abe6f71814b859f9d8b651f4f20daca37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -143,6 +147,8 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:ac268e6638df8429032c2fcff1407a89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a697a5de90a17dc54b47bd7c463861478" id="r_a697a5de90a17dc54b47bd7c463861478"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#a697a5de90a17dc54b47bd7c463861478">RESTART_CMD_OPT</a> = &quot;--restart_service&quot;</td></tr>
 <tr class="separator:a697a5de90a17dc54b47bd7c463861478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab304eee4d64e044e885ed74b82efc704" id="r_ab304eee4d64e044e885ed74b82efc704"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classp3lib_1_1boot__manager_1_1BootManager.html#ab304eee4d64e044e885ed74b82efc704">SHOW_LOG_CMD_OPT</a> = &quot;--show_service_log&quot;</td></tr>
+<tr class="separator:ab304eee4d64e044e885ed74b82efc704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -159,7 +165,7 @@ Protected Attributes</h2></td></tr>
 <div class="textblock"><pre class="fragment">Responsible for adding and removing startup processes (python programs) when the computer boots.
    Currently supports the following platforms
    Linux</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00011">11</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00012">12</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afa09481cf2c959b9e687ee729ada1a3d" name="afa09481cf2c959b9e687ee729ada1a3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa09481cf2c959b9e687ee729ada1a3d">&#9670;&#160;</a></span>__init__()</h2>
@@ -222,29 +228,29 @@ Protected Attributes</h2></td></tr>
    @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00109">109</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>    <span class="keyword">def </span>__init__(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):</div>
-<div class="line"><span class="lineno">  110</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
-<div class="line"><span class="lineno">  111</span><span class="stringliteral">           @param uio A UIO instance to display user output. If unset then no output</span></div>
-<div class="line"><span class="lineno">  112</span><span class="stringliteral">                  is displayed to user.</span></div>
-<div class="line"><span class="lineno">  113</span><span class="stringliteral">           @param allowRootUser If True then allow root user to to auto start</span></div>
-<div class="line"><span class="lineno">  114</span><span class="stringliteral">                  programs. Note that as the BootManager is responsible for</span></div>
-<div class="line"><span class="lineno">  115</span><span class="stringliteral">                  ensuring programs are started up when a machine boots up</span></div>
-<div class="line"><span class="lineno">  116</span><span class="stringliteral">                  the installed program should be installed for the root</span></div>
-<div class="line"><span class="lineno">  117</span><span class="stringliteral">                  user on Linux systems.</span></div>
-<div class="line"><span class="lineno">  118</span><span class="stringliteral">           @param ensureRootUser If True the current user must be root user (Linux systems).</span></div>
-<div class="line"><span class="lineno">  119</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
-<div class="line"><span class="lineno">  120</span><span class="stringliteral">                              python file is used.</span></div>
-<div class="line"><span class="lineno">  121</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  122</span>        self._uio = uio</div>
-<div class="line"><span class="lineno">  123</span>        self._allowRootUser=allowRootUser</div>
-<div class="line"><span class="lineno">  124</span>        self._osName = platform.system()</div>
-<div class="line"><span class="lineno">  125</span>        self._platformBootManager = <span class="keywordtype">None</span></div>
-<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">if</span> self._osName == BootManager.LINUX_OS_NAME:</div>
-<div class="line"><span class="lineno">  127</span>            self._platformBootManager = LinuxBootManager(uio, self._allowRootUser, ensureRootUser, serviceName, restartSeconds)</div>
-<div class="line"><span class="lineno">  128</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  129</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;{} is an unsupported OS.&quot;</span>.format(self._osName) )</div>
-<div class="line"><span class="lineno">  130</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00126">126</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  126</span>    <span class="keyword">def </span>__init__(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):</div>
+<div class="line"><span class="lineno">  127</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Constructor</span></div>
+<div class="line"><span class="lineno">  128</span><span class="stringliteral">           @param uio A UIO instance to display user output. If unset then no output</span></div>
+<div class="line"><span class="lineno">  129</span><span class="stringliteral">                  is displayed to user.</span></div>
+<div class="line"><span class="lineno">  130</span><span class="stringliteral">           @param allowRootUser If True then allow root user to to auto start</span></div>
+<div class="line"><span class="lineno">  131</span><span class="stringliteral">                  programs. Note that as the BootManager is responsible for</span></div>
+<div class="line"><span class="lineno">  132</span><span class="stringliteral">                  ensuring programs are started up when a machine boots up</span></div>
+<div class="line"><span class="lineno">  133</span><span class="stringliteral">                  the installed program should be installed for the root</span></div>
+<div class="line"><span class="lineno">  134</span><span class="stringliteral">                  user on Linux systems.</span></div>
+<div class="line"><span class="lineno">  135</span><span class="stringliteral">           @param ensureRootUser If True the current user must be root user (Linux systems).</span></div>
+<div class="line"><span class="lineno">  136</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">  137</span><span class="stringliteral">                              python file is used.</span></div>
+<div class="line"><span class="lineno">  138</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  139</span>        self._uio = uio</div>
+<div class="line"><span class="lineno">  140</span>        self._allowRootUser=allowRootUser</div>
+<div class="line"><span class="lineno">  141</span>        self._osName = platform.system()</div>
+<div class="line"><span class="lineno">  142</span>        self._platformBootManager = <span class="keywordtype">None</span></div>
+<div class="line"><span class="lineno">  143</span>        <span class="keywordflow">if</span> self._osName == BootManager.LINUX_OS_NAME:</div>
+<div class="line"><span class="lineno">  144</span>            self._platformBootManager = LinuxBootManager(uio, self._allowRootUser, ensureRootUser, serviceName, restartSeconds)</div>
+<div class="line"><span class="lineno">  145</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  146</span>            <span class="keywordflow">raise</span> Exception(<span class="stringliteral">&quot;{} is an unsupported OS.&quot;</span>.format(self._osName) )</div>
+<div class="line"><span class="lineno">  147</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -291,16 +297,16 @@ Protected Attributes</h2></td></tr>
    @param user The user that will run the executable file. If left as None then the current user will be used.
    @param argString The argument string that the program is to be launched with.
    @param enableSyslog If True enable stdout and stderr to be sent to syslog.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00131">131</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  131</span>    <span class="keyword">def </span>add(self, user=None, argString=None, enableSyslog=False):</div>
-<div class="line"><span class="lineno">  132</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add an executable file to the processes started at boot time.</span></div>
-<div class="line"><span class="lineno">  133</span><span class="stringliteral">           @param exeFile The file/program to be executed. This should be an absolute path.</span></div>
-<div class="line"><span class="lineno">  134</span><span class="stringliteral">           @param user The user that will run the executable file. If left as None then the current user will be used.</span></div>
-<div class="line"><span class="lineno">  135</span><span class="stringliteral">           @param argString The argument string that the program is to be launched with.</span></div>
-<div class="line"><span class="lineno">  136</span><span class="stringliteral">           @param enableSyslog If True enable stdout and stderr to be sent to syslog.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
-<div class="line"><span class="lineno">  138</span>            self._platformBootManager.add(user, argString, enableSyslog)</div>
-<div class="line"><span class="lineno">  139</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00148">148</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>    <span class="keyword">def </span>add(self, user=None, argString=None, enableSyslog=False):</div>
+<div class="line"><span class="lineno">  149</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add an executable file to the processes started at boot time.</span></div>
+<div class="line"><span class="lineno">  150</span><span class="stringliteral">           @param exeFile The file/program to be executed. This should be an absolute path.</span></div>
+<div class="line"><span class="lineno">  151</span><span class="stringliteral">           @param user The user that will run the executable file. If left as None then the current user will be used.</span></div>
+<div class="line"><span class="lineno">  152</span><span class="stringliteral">           @param argString The argument string that the program is to be launched with.</span></div>
+<div class="line"><span class="lineno">  153</span><span class="stringliteral">           @param enableSyslog If True enable stdout and stderr to be sent to syslog.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  154</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><span class="lineno">  155</span>            self._platformBootManager.add(user, argString, enableSyslog)</div>
+<div class="line"><span class="lineno">  156</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -329,15 +335,16 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Add cmd line arguments to enable, disable and show the systemd boot state.
    @param parser An instance of argparse.ArgumentParser.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00023">23</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>    <span class="keyword">def </span>AddCmdArgs(parser):</div>
-<div class="line"><span class="lineno">   24</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add cmd line arguments to enable, disable and show the systemd boot state.</span></div>
-<div class="line"><span class="lineno">   25</span><span class="stringliteral">           @param parser An instance of argparse.ArgumentParser.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   26</span>        parser.add_argument(BootManager.ENABLE_CMD_OPT,  help=<span class="stringliteral">&quot;Auto start when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">   27</span>        parser.add_argument(BootManager.DISABLE_CMD_OPT, help=<span class="stringliteral">&quot;Disable auto starting when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">   28</span>        parser.add_argument(BootManager.RESTART_CMD_OPT, help=<span class="stringliteral">&quot;Restart a running service.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">   29</span>        parser.add_argument(BootManager.CHECK_CMD_OPT,   help=<span class="stringliteral">&quot;Check the running status.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
-<div class="line"><span class="lineno">   30</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00025">25</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>    <span class="keyword">def </span>AddCmdArgs(parser):</div>
+<div class="line"><span class="lineno">   26</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Add cmd line arguments to enable, disable and show the systemd boot state.</span></div>
+<div class="line"><span class="lineno">   27</span><span class="stringliteral">           @param parser An instance of argparse.ArgumentParser.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   28</span>        parser.add_argument(BootManager.ENABLE_CMD_OPT,  help=<span class="stringliteral">&quot;Auto start when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">   29</span>        parser.add_argument(BootManager.DISABLE_CMD_OPT, help=<span class="stringliteral">&quot;Disable auto starting when this computer starts.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">   30</span>        parser.add_argument(BootManager.RESTART_CMD_OPT, help=<span class="stringliteral">&quot;Restart a running service.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">   31</span>        parser.add_argument(BootManager.CHECK_CMD_OPT,   help=<span class="stringliteral">&quot;Check the running status.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">   32</span>        parser.add_argument(BootManager.SHOW_LOG_CMD_OPT,help=<span class="stringliteral">&quot;Show the log for a running service.&quot;</span>, action=<span class="stringliteral">&quot;store_true&quot;</span>, default=<span class="keyword">False</span>)</div>
+<div class="line"><span class="lineno">   33</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -378,18 +385,18 @@ Protected Attributes</h2></td></tr>
    @param uio A UIO instance.
    @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00086">86</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   86</span>    <span class="keyword">def </span>CheckAutoStartStatus(uio, serviceName):</div>
-<div class="line"><span class="lineno">   87</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check the status of a process previously set to auto start.</span></div>
-<div class="line"><span class="lineno">   88</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   89</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
-<div class="line"><span class="lineno">   90</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   91</span>        bootManager = BootManager(uio=uio, serviceName=serviceName)</div>
-<div class="line"><span class="lineno">   92</span>        lines = bootManager.getStatus()</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">if</span> lines <span class="keywordflow">and</span> len(lines) &gt; 0:</div>
-<div class="line"><span class="lineno">   94</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">   95</span>                uio.info(line)</div>
-<div class="line"><span class="lineno">   96</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00093">93</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   93</span>    <span class="keyword">def </span>CheckAutoStartStatus(uio, serviceName):</div>
+<div class="line"><span class="lineno">   94</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Check the status of a process previously set to auto start.</span></div>
+<div class="line"><span class="lineno">   95</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">   96</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">   97</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   98</span>        bootManager = BootManager(uio=uio, serviceName=serviceName)</div>
+<div class="line"><span class="lineno">   99</span>        lines = bootManager.getStatus()</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">if</span> lines <span class="keywordflow">and</span> len(lines) &gt; 0:</div>
+<div class="line"><span class="lineno">  101</span>            <span class="keywordflow">for</span> line <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  102</span>                uio.info(line)</div>
+<div class="line"><span class="lineno">  103</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -430,15 +437,15 @@ Protected Attributes</h2></td></tr>
    @param uio A UIO instance.
    @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00077">77</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   77</span>    <span class="keyword">def </span>DisableAutoStart(uio, serviceName):</div>
-<div class="line"><span class="lineno">   78</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
-<div class="line"><span class="lineno">   79</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   80</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
-<div class="line"><span class="lineno">   81</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   82</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName)</div>
-<div class="line"><span class="lineno">   83</span>        bootManager.remove()</div>
-<div class="line"><span class="lineno">   84</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00084">84</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>    <span class="keyword">def </span>DisableAutoStart(uio, serviceName):</div>
+<div class="line"><span class="lineno">   85</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
+<div class="line"><span class="lineno">   86</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">   87</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">   88</span><span class="stringliteral">                              python file is used.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   89</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName)</div>
+<div class="line"><span class="lineno">   90</span>        bootManager.remove()</div>
+<div class="line"><span class="lineno">   91</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -495,20 +502,20 @@ Protected Attributes</h2></td></tr>
    @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00063">63</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>    <span class="keyword">def </span>EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds):</div>
-<div class="line"><span class="lineno">   64</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
-<div class="line"><span class="lineno">   65</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   66</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
-<div class="line"><span class="lineno">   67</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
-<div class="line"><span class="lineno">   68</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
-<div class="line"><span class="lineno">   69</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
-<div class="line"><span class="lineno">   70</span><span class="stringliteral">                              python file is used.</span></div>
-<div class="line"><span class="lineno">   71</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   72</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName, restartSeconds=restartSeconds)</div>
-<div class="line"><span class="lineno">   73</span>        arsString = <span class="stringliteral">&quot; &quot;</span>.join(sys.argv)</div>
-<div class="line"><span class="lineno">   74</span>        bootManager.add(argString=arsString, enableSyslog=enable_syslog)</div>
-<div class="line"><span class="lineno">   75</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00070">70</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>    <span class="keyword">def </span>EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds):</div>
+<div class="line"><span class="lineno">   71</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
+<div class="line"><span class="lineno">   72</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">   73</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
+<div class="line"><span class="lineno">   74</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
+<div class="line"><span class="lineno">   75</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
+<div class="line"><span class="lineno">   76</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">   77</span><span class="stringliteral">                              python file is used.</span></div>
+<div class="line"><span class="lineno">   78</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   79</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName, restartSeconds=restartSeconds)</div>
+<div class="line"><span class="lineno">   80</span>        arsString = <span class="stringliteral">&quot; &quot;</span>.join(sys.argv)</div>
+<div class="line"><span class="lineno">   81</span>        bootManager.add(argString=arsString, enableSyslog=enable_syslog)</div>
+<div class="line"><span class="lineno">   82</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -529,15 +536,15 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get a status report.
    @return Lines of text indicating the status of a previously started process.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00147">147</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  147</span>    <span class="keyword">def </span>getStatus(self):</div>
-<div class="line"><span class="lineno">  148</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
-<div class="line"><span class="lineno">  149</span><span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  150</span>        statusLines = []</div>
-<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
-<div class="line"><span class="lineno">  152</span>            statusLines = self._platformBootManager.getStatusLines()</div>
-<div class="line"><span class="lineno">  153</span>        <span class="keywordflow">return</span> statusLines</div>
-<div class="line"><span class="lineno">  154</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00164">164</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  164</span>    <span class="keyword">def </span>getStatus(self):</div>
+<div class="line"><span class="lineno">  165</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
+<div class="line"><span class="lineno">  166</span><span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  167</span>        statusLines = []</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><span class="lineno">  169</span>            statusLines = self._platformBootManager.getStatusLines()</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">return</span> statusLines</div>
+<div class="line"><span class="lineno">  171</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -602,37 +609,41 @@ Protected Attributes</h2></td></tr>
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).
    @return True if handled , False if not.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00032">32</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   32</span>    <span class="keyword">def </span>HandleOptions(uio, options, enable_syslog, serviceName=None, restartSeconds=1):</div>
-<div class="line"><span class="lineno">   33</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle one of the bot manager command line options if the</span></div>
-<div class="line"><span class="lineno">   34</span><span class="stringliteral">                  user passed it on the cmd line.</span></div>
-<div class="line"><span class="lineno">   35</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">   36</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
-<div class="line"><span class="lineno">   37</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
-<div class="line"><span class="lineno">   38</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
-<div class="line"><span class="lineno">   39</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
-<div class="line"><span class="lineno">   40</span><span class="stringliteral">                              python file is used.</span></div>
-<div class="line"><span class="lineno">   41</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</span></div>
-<div class="line"><span class="lineno">   42</span><span class="stringliteral">           @return True if handled , False if not.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">   43</span>        handled = <span class="keyword">False</span></div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">if</span> options.check_auto_start:</div>
-<div class="line"><span class="lineno">   45</span>            BootManager.CheckAutoStartStatus(uio, serviceName)</div>
-<div class="line"><span class="lineno">   46</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">elif</span> options.enable_auto_start:</div>
-<div class="line"><span class="lineno">   49</span>            BootManager.EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds)</div>
-<div class="line"><span class="lineno">   50</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">elif</span> options.disable_auto_start:</div>
-<div class="line"><span class="lineno">   53</span>            BootManager.DisableAutoStart(uio, serviceName)</div>
-<div class="line"><span class="lineno">   54</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">elif</span> options.restart_service:</div>
-<div class="line"><span class="lineno">   57</span>            BootManager.RestartService(uio, serviceName, restartSeconds)</div>
-<div class="line"><span class="lineno">   58</span>            handled = <span class="keyword">True</span></div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">return</span> handled</div>
-<div class="line"><span class="lineno">   61</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00035">35</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>    <span class="keyword">def </span>HandleOptions(uio, options, enable_syslog, serviceName=None, restartSeconds=1):</div>
+<div class="line"><span class="lineno">   36</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Handle one of the bot manager command line options if the</span></div>
+<div class="line"><span class="lineno">   37</span><span class="stringliteral">                  user passed it on the cmd line.</span></div>
+<div class="line"><span class="lineno">   38</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">   39</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
+<div class="line"><span class="lineno">   40</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
+<div class="line"><span class="lineno">   41</span><span class="stringliteral">           @param enable_syslog True to enable systemd syslog output.</span></div>
+<div class="line"><span class="lineno">   42</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">   43</span><span class="stringliteral">                              python file is used.</span></div>
+<div class="line"><span class="lineno">   44</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</span></div>
+<div class="line"><span class="lineno">   45</span><span class="stringliteral">           @return True if handled , False if not.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">   46</span>        handled = <span class="keyword">False</span></div>
+<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">if</span> options.check_auto_start:</div>
+<div class="line"><span class="lineno">   48</span>            BootManager.CheckAutoStartStatus(uio, serviceName)</div>
+<div class="line"><span class="lineno">   49</span>            handled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>        <span class="keywordflow">elif</span> options.enable_auto_start:</div>
+<div class="line"><span class="lineno">   52</span>            BootManager.EnableAutoStart(uio, enable_syslog, serviceName, restartSeconds)</div>
+<div class="line"><span class="lineno">   53</span>            handled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">elif</span> options.disable_auto_start:</div>
+<div class="line"><span class="lineno">   56</span>            BootManager.DisableAutoStart(uio, serviceName)</div>
+<div class="line"><span class="lineno">   57</span>            handled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">elif</span> options.restart_service:</div>
+<div class="line"><span class="lineno">   60</span>            BootManager.RestartService(uio, serviceName, restartSeconds)</div>
+<div class="line"><span class="lineno">   61</span>            handled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">elif</span> options.show_service_log:</div>
+<div class="line"><span class="lineno">   64</span>            BootManager.ShowServiceLog(uio, serviceName)</div>
+<div class="line"><span class="lineno">   65</span>            handled = <span class="keyword">True</span></div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">return</span> handled</div>
+<div class="line"><span class="lineno">   68</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -654,14 +665,14 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Remove an executable file to the processes started at boot time.
    @param exeFile The file/program to be removed. This should be an absolute path.
    @param user The Linux user that will run the executable file.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00140">140</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  140</span>    <span class="keyword">def </span>remove(self):</div>
-<div class="line"><span class="lineno">  141</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove an executable file to the processes started at boot time.</span></div>
-<div class="line"><span class="lineno">  142</span><span class="stringliteral">           @param exeFile The file/program to be removed. This should be an absolute path.</span></div>
-<div class="line"><span class="lineno">  143</span><span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
-<div class="line"><span class="lineno">  145</span>            self._platformBootManager.remove()</div>
-<div class="line"><span class="lineno">  146</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00157">157</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  157</span>    <span class="keyword">def </span>remove(self):</div>
+<div class="line"><span class="lineno">  158</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove an executable file to the processes started at boot time.</span></div>
+<div class="line"><span class="lineno">  159</span><span class="stringliteral">           @param exeFile The file/program to be removed. This should be an absolute path.</span></div>
+<div class="line"><span class="lineno">  160</span><span class="stringliteral">           @param user The Linux user that will run the executable file.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><span class="lineno">  162</span>            self._platformBootManager.remove()</div>
+<div class="line"><span class="lineno">  163</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -681,12 +692,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Stop and start an existing service.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00155">155</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  155</span>    <span class="keyword">def </span>restart(self):</div>
-<div class="line"><span class="lineno">  156</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop and start an existing service.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
-<div class="line"><span class="lineno">  158</span>            self._platformBootManager.restart()</div>
-<div class="line"><span class="lineno">  159</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00172">172</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  172</span>    <span class="keyword">def </span>restart(self):</div>
+<div class="line"><span class="lineno">  173</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Stop and start an existing service.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><span class="lineno">  175</span>            self._platformBootManager.restart()</div>
+<div class="line"><span class="lineno">  176</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -736,18 +747,89 @@ Protected Attributes</h2></td></tr>
    @param serviceName The name of the service. If not set then the name of the initially executed
                       python file is used.
    @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00098">98</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   98</span>    <span class="keyword">def </span>RestartService(uio, serviceName, restartSeconds):</div>
-<div class="line"><span class="lineno">   99</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
-<div class="line"><span class="lineno">  100</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
-<div class="line"><span class="lineno">  101</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
-<div class="line"><span class="lineno">  102</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
-<div class="line"><span class="lineno">  103</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
-<div class="line"><span class="lineno">  104</span><span class="stringliteral">                              python file is used.</span></div>
-<div class="line"><span class="lineno">  105</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  106</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName, restartSeconds=restartSeconds)</div>
-<div class="line"><span class="lineno">  107</span>        bootManager.restart()</div>
-<div class="line"><span class="lineno">  108</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00105">105</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  105</span>    <span class="keyword">def </span>RestartService(uio, serviceName, restartSeconds):</div>
+<div class="line"><span class="lineno">  106</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Enable this program to auto start when the computer on which it is installed starts.</span></div>
+<div class="line"><span class="lineno">  107</span><span class="stringliteral">           @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">  108</span><span class="stringliteral">           @param options As returned from parser.parse_args() where parser</span></div>
+<div class="line"><span class="lineno">  109</span><span class="stringliteral">                          is an instance of argparse.ArgumentParser.</span></div>
+<div class="line"><span class="lineno">  110</span><span class="stringliteral">           @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">  111</span><span class="stringliteral">                              python file is used.</span></div>
+<div class="line"><span class="lineno">  112</span><span class="stringliteral">           @param restartSeconds The number of seconds to sleep before restarting a service that has stopped (default=1).&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  113</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName, restartSeconds=restartSeconds)</div>
+<div class="line"><span class="lineno">  114</span>        bootManager.restart()</div>
+<div class="line"><span class="lineno">  115</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ad11ec21b3a76de7a6057bc477a5adcc9" name="ad11ec21b3a76de7a6057bc477a5adcc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11ec21b3a76de7a6057bc477a5adcc9">&#9670;&#160;</a></span>show_log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">show_log </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Show the log for a running service.</pre> 
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00177">177</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  177</span>    <span class="keyword">def </span>show_log(self):</div>
+<div class="line"><span class="lineno">  178</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the log for a running service.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  179</span>        <span class="keywordflow">if</span> self._platformBootManager:</div>
+<div class="line"><span class="lineno">  180</span>            self._platformBootManager.show_log()</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span> </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="abe6f71814b859f9d8b651f4f20daca37" name="abe6f71814b859f9d8b651f4f20daca37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6f71814b859f9d8b651f4f20daca37">&#9670;&#160;</a></span>ShowServiceLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ShowServiceLog </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>uio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>serviceName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">@brief Show the log for a running service.
+        @param uio A UIO instance.
+        @param options As returned from parser.parse_args() where parser
+                        is an instance of argparse.ArgumentParser.
+        @param serviceName The name of the service. If not set then the name of the initially executed
+                            python file is used.</pre> 
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00116">116</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>    <span class="keyword">def </span>ShowServiceLog(uio, serviceName):</div>
+<div class="line"><span class="lineno">  117</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Show the log for a running service.</span></div>
+<div class="line"><span class="lineno">  118</span><span class="stringliteral">                @param uio A UIO instance.</span></div>
+<div class="line"><span class="lineno">  119</span><span class="stringliteral">                @param options As returned from parser.parse_args() where parser</span></div>
+<div class="line"><span class="lineno">  120</span><span class="stringliteral">                                is an instance of argparse.ArgumentParser.</span></div>
+<div class="line"><span class="lineno">  121</span><span class="stringliteral">                @param serviceName The name of the service. If not set then the name of the initially executed</span></div>
+<div class="line"><span class="lineno">  122</span><span class="stringliteral">                                    python file is used.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  123</span>        bootManager = BootManager(uio=uio, ensureRootUser=<span class="keyword">True</span>, serviceName=serviceName)</div>
+<div class="line"><span class="lineno">  124</span>        bootManager.show_log()</div>
+<div class="line"><span class="lineno">  125</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -772,7 +854,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00123">123</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00140">140</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -796,7 +878,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00124">124</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00141">141</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -820,7 +902,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00125">125</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00142">142</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -844,7 +926,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00122">122</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00139">139</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -868,7 +950,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00020">20</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00021">21</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -892,7 +974,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00018">18</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00019">19</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -916,7 +998,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00017">17</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00018">18</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -940,7 +1022,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00016">16</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00017">17</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
@@ -964,7 +1046,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00019">19</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00020">20</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+
+</div>
+</div>
+<a id="ab304eee4d64e044e885ed74b82efc704" name="ab304eee4d64e044e885ed74b82efc704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab304eee4d64e044e885ed74b82efc704">&#9670;&#160;</a></span>SHOW_LOG_CMD_OPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">str SHOW_LOG_CMD_OPT = &quot;--show_service_log&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00022">22</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
 
 </div>
 </div>
