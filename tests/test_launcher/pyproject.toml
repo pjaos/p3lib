@@ -19,8 +19,8 @@ pillow = "^12.2.0"
 p3lib = "1.1.144"
 aiohttp = "^3.13.4"
 python-multipart = "^0.0.27"
-lxml = "^6.1.0"
 python-dotenv = "^1.2.2"
+lxml = "^6.1.0"
 
 # Windows-only dependencies
 pywin32 = { version = "*", markers = "sys_platform == 'win32'" }
