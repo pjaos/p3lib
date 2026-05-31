@@ -440,15 +440,29 @@ def get_assets_dir(module_name=None):
         assets_dir = os.path.join(sys._MEIPASS, 'assets')
 
     else:
-        module_dir = files(f"{module_name}")
-        children = list(module_dir.iterdir())
-        for child in children:
-            # Use the first entry in the folder as we're after the folder name
-            if child:
-                module_dir = child.parent
-                break
-        assets_dir = os.path.join(module_dir, "assets")
+        try:
+            module_dir = files(f"{module_name}")
+            children = list(module_dir.iterdir())
+            for child in children:
+                # Use the first entry in the folder as we're after the folder name
+                if child:
+                    module_dir = child.parent
+                    break
 
+        except TypeError:
+            mod = sys.modules.get(module_name)
+            if mod and hasattr(mod, '__file__') and mod.__file__:
+                module_dir = Path(mod.__file__).parent
+            else:
+                # Last resort: search sys.path
+                import importlib.util
+                spec = importlib.util.find_spec(module_name)
+                if spec and spec.origin:
+                    module_dir = Path(spec.origin).parent
+                else:
+                    raise
+
+        assets_dir = os.path.join(module_dir, "assets")
     if not os.path.isdir(assets_dir):
         raise Exception(f"{assets_dir} folder not found.")
 
