@@ -450,6 +450,8 @@ def get_assets_dir(module_name=None):
                     break
 
         except TypeError:
+            # files() fails when called during the module's own import (mid-import)
+            # Fall back to locating the package via sys.modules or sys.path
             mod = sys.modules.get(module_name)
             if mod and hasattr(mod, '__file__') and mod.__file__:
                 module_dir = Path(mod.__file__).parent
