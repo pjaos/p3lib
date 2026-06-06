@@ -376,7 +376,8 @@ class LinuxBootManager(object):
 
         lines = []
         lines.append("[Unit]")
-        lines.append("After=network.target")
+        lines.append("After=network-online.target")
+        lines.append("Wants=network-online.target")
         lines.append("StartLimitIntervalSec=0")
         lines.append("")
         lines.append("[Service]")
