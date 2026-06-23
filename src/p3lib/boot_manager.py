@@ -461,7 +461,11 @@ class LinuxBootManager(object):
 
     def show_log(self):
         serviceName = self._getServiceName()
-        cmd_list = ("journalctl", "-u", serviceName)
+        # Show log and wait for any new messages to arrive.
+        # User must enter Crtl C to quit.
+        cmd_list = ("journalctl", "-fu", serviceName)
+        cmd_msg = " ".join(cmd_list)
+        self._info(f"CMD: {cmd_msg}")
         result = run(cmd_list, capture_output=True, text=True )
         lines = result.stdout.split('\n')
         for l in lines:
