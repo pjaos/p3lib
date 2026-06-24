@@ -1143,7 +1143,7 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  463</span>        serviceName = self._getServiceName()</div>
 <div class="line"><span class="lineno">  464</span>        <span class="comment"># Show log and wait for any new messages to arrive.</span></div>
 <div class="line"><span class="lineno">  465</span>        <span class="comment"># User must enter Crtl C to quit.</span></div>
-<div class="line"><span class="lineno">  466</span>        cmd_list = (<span class="stringliteral">&quot;journalctl&quot;</span>, <span class="stringliteral">&quot;-fu&quot;</span>, serviceName)</div>
+<div class="line"><span class="lineno">  466</span>        cmd_list = (<span class="stringliteral">&quot;journalctl&quot;</span>, <span class="stringliteral">&quot;-u&quot;</span>, serviceName)</div>
 <div class="line"><span class="lineno">  467</span>        cmd_msg = <span class="stringliteral">&quot; &quot;</span>.join(cmd_list)</div>
 <div class="line"><span class="lineno">  468</span>        self._info(f<span class="stringliteral">&quot;CMD: {cmd_msg}&quot;</span>)</div>
 <div class="line"><span class="lineno">  469</span>        result = run(cmd_list, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span> )</div>
