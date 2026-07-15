@@ -465,7 +465,6 @@ class LinuxBootManager(object):
         # User must enter Crtl C to quit.
         cmd_list = ("journalctl", "-u", serviceName)
         cmd_msg = " ".join(cmd_list)
-        self._info(f"CMD: {cmd_msg}")
         result = run(cmd_list, capture_output=True, text=True )
         lines = result.stdout.split('\n')
         for l in lines:
@@ -476,6 +475,8 @@ class LinuxBootManager(object):
         for l in lines:
             if l:
                 self._error(l)
+        # Add cmd at end of output so that user can see and modify the cmd as required.
+        self._info(f"CMD for above output: '{cmd_msg}'")
 
     def remove(self):
         """@brief Remove the executable file to the processes started at boot time.
