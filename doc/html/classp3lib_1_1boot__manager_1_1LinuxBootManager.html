@@ -730,25 +730,25 @@ Protected Attributes</h2></td></tr>
           venv python version if present. If we don't do this the wrong python binary maybe executed
           which may be missing python modules in the venv.
    @param python_file The python file to execute.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00434">434</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  434</span>    <span class="keyword">def </span>_prefix_with_venv_python(self, python_file):</div>
-<div class="line"><span class="lineno">  435</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Given the python file to execute. Check if it sits in a venv folder and prefix it with the</span></div>
-<div class="line"><span class="lineno">  436</span><span class="stringliteral">                  venv python version if present. If we don&#39;t do this the wrong python binary maybe executed</span></div>
-<div class="line"><span class="lineno">  437</span><span class="stringliteral">                  which may be missing python modules in the venv.</span></div>
-<div class="line"><span class="lineno">  438</span><span class="stringliteral">           @param python_file The python file to execute.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  439</span>        new_python_file = python_file</div>
-<div class="line"><span class="lineno">  440</span>        venv_pos = python_file.find(<span class="stringliteral">&#39;venv&#39;</span>)</div>
-<div class="line"><span class="lineno">  441</span>        <span class="keywordflow">if</span> python_file.endswith(<span class="stringliteral">&quot;.py&quot;</span>) <span class="keywordflow">and</span> venv_pos &gt; 0:</div>
-<div class="line"><span class="lineno">  442</span>            bin_path = os.path.join(python_file[:venv_pos+4], <span class="stringliteral">&#39;bin&#39;</span>)</div>
-<div class="line"><span class="lineno">  443</span>            <span class="keywordflow">if</span> os.path.isdir(bin_path):</div>
-<div class="line"><span class="lineno">  444</span>                <span class="keywordflow">for</span> python_bin <span class="keywordflow">in</span> [<span class="stringliteral">&#39;python3&#39;</span>, <span class="stringliteral">&#39;python&#39;</span>]:</div>
-<div class="line"><span class="lineno">  445</span>                    python_bin_file = os.path.join(bin_path, python_bin)</div>
-<div class="line"><span class="lineno">  446</span>                    <span class="keywordflow">if</span> os.path.isfile(python_bin_file):</div>
-<div class="line"><span class="lineno">  447</span>                        new_python_file = python_bin_file + <span class="stringliteral">&quot; &quot;</span> + python_file</div>
-<div class="line"><span class="lineno">  448</span>                        <span class="keywordflow">break</span></div>
-<div class="line"><span class="lineno">  449</span> </div>
-<div class="line"><span class="lineno">  450</span>        <span class="keywordflow">return</span> new_python_file</div>
-<div class="line"><span class="lineno">  451</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00440">440</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  440</span>    <span class="keyword">def </span>_prefix_with_venv_python(self, python_file):</div>
+<div class="line"><span class="lineno">  441</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Given the python file to execute. Check if it sits in a venv folder and prefix it with the</span></div>
+<div class="line"><span class="lineno">  442</span><span class="stringliteral">                  venv python version if present. If we don&#39;t do this the wrong python binary maybe executed</span></div>
+<div class="line"><span class="lineno">  443</span><span class="stringliteral">                  which may be missing python modules in the venv.</span></div>
+<div class="line"><span class="lineno">  444</span><span class="stringliteral">           @param python_file The python file to execute.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  445</span>        new_python_file = python_file</div>
+<div class="line"><span class="lineno">  446</span>        venv_pos = python_file.find(<span class="stringliteral">&#39;venv&#39;</span>)</div>
+<div class="line"><span class="lineno">  447</span>        <span class="keywordflow">if</span> python_file.endswith(<span class="stringliteral">&quot;.py&quot;</span>) <span class="keywordflow">and</span> venv_pos &gt; 0:</div>
+<div class="line"><span class="lineno">  448</span>            bin_path = os.path.join(python_file[:venv_pos+4], <span class="stringliteral">&#39;bin&#39;</span>)</div>
+<div class="line"><span class="lineno">  449</span>            <span class="keywordflow">if</span> os.path.isdir(bin_path):</div>
+<div class="line"><span class="lineno">  450</span>                <span class="keywordflow">for</span> python_bin <span class="keywordflow">in</span> [<span class="stringliteral">&#39;python3&#39;</span>, <span class="stringliteral">&#39;python&#39;</span>]:</div>
+<div class="line"><span class="lineno">  451</span>                    python_bin_file = os.path.join(bin_path, python_bin)</div>
+<div class="line"><span class="lineno">  452</span>                    <span class="keywordflow">if</span> os.path.isfile(python_bin_file):</div>
+<div class="line"><span class="lineno">  453</span>                        new_python_file = python_bin_file + <span class="stringliteral">&quot; &quot;</span> + python_file</div>
+<div class="line"><span class="lineno">  454</span>                        <span class="keywordflow">break</span></div>
+<div class="line"><span class="lineno">  455</span> </div>
+<div class="line"><span class="lineno">  456</span>        <span class="keywordflow">return</span> new_python_file</div>
+<div class="line"><span class="lineno">  457</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -887,44 +887,50 @@ Protected Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  393</span>        <span class="keywordflow">if</span> self._rootMode <span class="keywordflow">and</span> user != <span class="stringliteral">&#39;root&#39;</span>:</div>
 <div class="line"><span class="lineno">  394</span>            lines.append(<span class="stringliteral">&quot;User={}&quot;</span>.format(user))</div>
 <div class="line"><span class="lineno">  395</span> </div>
-<div class="line"><span class="lineno">  396</span>        <span class="comment">#We add the home path env var so that config files (if stored in/under</span></div>
-<div class="line"><span class="lineno">  397</span>        <span class="comment"># the users home dir) can be found by the prgram.</span></div>
-<div class="line"><span class="lineno">  398</span>        <span class="keywordflow">if</span> user <span class="keywordflow">and</span> len(user) &gt; 0:</div>
-<div class="line"><span class="lineno">  399</span>            lines.append(<span class="stringliteral">&#39;Environment=&quot;HOME=/home/{}&quot;&#39;</span>.format(user))</div>
-<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">if</span> argString:</div>
-<div class="line"><span class="lineno">  401</span>            argString = argString.strip()</div>
-<div class="line"><span class="lineno">  402</span>            <span class="keywordflow">if</span> argString.startswith(absApp):</div>
-<div class="line"><span class="lineno">  403</span>                argString=argString.replace(absApp, <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  404</span>            <span class="comment"># We don&#39;t want the enable cmd opt in the cmd we add to the systemd file.</span></div>
-<div class="line"><span class="lineno">  405</span>            <span class="keywordflow">if</span> argString.find(BootManager.ENABLE_CMD_OPT):</div>
-<div class="line"><span class="lineno">  406</span>                argString = argString.replace(BootManager.ENABLE_CMD_OPT, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  396</span>        <span class="comment"># We set HOME so the service can find config files stored under the</span></div>
+<div class="line"><span class="lineno">  397</span>        <span class="comment"># target user&#39;s home directory. Resolve the account&#39;s *real* home from</span></div>
+<div class="line"><span class="lineno">  398</span>        <span class="comment"># the password database rather than assuming /home/&lt;user&gt; — root lives</span></div>
+<div class="line"><span class="lineno">  399</span>        <span class="comment"># in /root, and system/custom accounts may live elsewhere.</span></div>
+<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">if</span> user <span class="keywordflow">and</span> len(user) &gt; 0:</div>
+<div class="line"><span class="lineno">  401</span>            home_dir = os.path.expanduser(f<span class="stringliteral">&quot;~{user}&quot;</span>)</div>
+<div class="line"><span class="lineno">  402</span>            <span class="keywordflow">if</span> <span class="keywordflow">not</span> home_dir <span class="keywordflow">or</span> home_dir == f<span class="stringliteral">&quot;~{user}&quot;</span>:   <span class="comment"># unknown user: last-resort fallback</span></div>
+<div class="line"><span class="lineno">  403</span>                home_dir = f<span class="stringliteral">&quot;/home/{user}&quot;</span></div>
+<div class="line"><span class="lineno">  404</span>            lines.append(f<span class="stringliteral">&#39;Environment=&quot;HOME={home_dir}&quot;&#39;</span>)</div>
+<div class="line"><span class="lineno">  405</span> </div>
+<div class="line"><span class="lineno">  406</span>        <span class="keywordflow">if</span> argString:</div>
 <div class="line"><span class="lineno">  407</span>            argString = argString.strip()</div>
-<div class="line"><span class="lineno">  408</span>            absApp = self._prefix_with_venv_python(absApp)</div>
-<div class="line"><span class="lineno">  409</span>            lines.append(<span class="stringliteral">&quot;ExecStart={} {}&quot;</span>.format(absApp, argString))</div>
-<div class="line"><span class="lineno">  410</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  411</span>            lines.append(<span class="stringliteral">&quot;ExecStart={}&quot;</span>.format(absApp))</div>
-<div class="line"><span class="lineno">  412</span>        lines.append(<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  413</span>        lines.append(<span class="stringliteral">&quot;[Install]&quot;</span>)</div>
-<div class="line"><span class="lineno">  414</span>        lines.append(<span class="stringliteral">&quot;WantedBy=multi-user.target&quot;</span>)</div>
-<div class="line"><span class="lineno">  415</span>        lines.append(<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><span class="lineno">  416</span> </div>
-<div class="line"><span class="lineno">  417</span>        <span class="keywordflow">try</span>:</div>
-<div class="line"><span class="lineno">  418</span>            fd = open(serviceFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
-<div class="line"><span class="lineno">  419</span>            fd.write( <span class="stringliteral">&quot;\n&quot;</span>.join(lines) )</div>
-<div class="line"><span class="lineno">  420</span>            fd.close()</div>
-<div class="line"><span class="lineno">  421</span>            self._info(f<span class="stringliteral">&quot;Created {serviceFile}&quot;</span>)</div>
-<div class="line"><span class="lineno">  422</span>        <span class="keywordflow">except</span> IOError:</div>
-<div class="line"><span class="lineno">  423</span>            self._fatalError(<span class="stringliteral">&quot;Failed to create {}&quot;</span>.format(serviceFile) )</div>
-<div class="line"><span class="lineno">  424</span> </div>
-<div class="line"><span class="lineno">  425</span>        cmd = <span class="stringliteral">&quot;{} daemon-reload&quot;</span>.format(self._cmdLinePrefix)</div>
-<div class="line"><span class="lineno">  426</span>        self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  427</span>        cmd = <span class="stringliteral">&quot;{} enable {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  428</span>        self._info(<span class="stringliteral">&quot;Enabled {} on restart&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  429</span>        self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  430</span>        cmd = <span class="stringliteral">&quot;{} start {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  431</span>        self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  432</span>        self._info(<span class="stringliteral">&quot;Started {}&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  408</span>            <span class="keywordflow">if</span> argString.startswith(absApp):</div>
+<div class="line"><span class="lineno">  409</span>                argString=argString.replace(absApp, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  410</span>            <span class="comment"># We don&#39;t want the enable cmd opt in the cmd we add to the systemd file.</span></div>
+<div class="line"><span class="lineno">  411</span>            <span class="keywordflow">if</span> argString.find(BootManager.ENABLE_CMD_OPT):</div>
+<div class="line"><span class="lineno">  412</span>                argString = argString.replace(BootManager.ENABLE_CMD_OPT, <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  413</span>            argString = argString.strip()</div>
+<div class="line"><span class="lineno">  414</span>            absApp = self._prefix_with_venv_python(absApp)</div>
+<div class="line"><span class="lineno">  415</span>            lines.append(<span class="stringliteral">&quot;ExecStart={} {}&quot;</span>.format(absApp, argString))</div>
+<div class="line"><span class="lineno">  416</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  417</span>            lines.append(<span class="stringliteral">&quot;ExecStart={}&quot;</span>.format(absApp))</div>
+<div class="line"><span class="lineno">  418</span>        lines.append(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  419</span>        lines.append(<span class="stringliteral">&quot;[Install]&quot;</span>)</div>
+<div class="line"><span class="lineno">  420</span>        lines.append(<span class="stringliteral">&quot;WantedBy=multi-user.target&quot;</span>)</div>
+<div class="line"><span class="lineno">  421</span>        lines.append(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><span class="lineno">  422</span> </div>
+<div class="line"><span class="lineno">  423</span>        <span class="keywordflow">try</span>:</div>
+<div class="line"><span class="lineno">  424</span>            fd = open(serviceFile, <span class="stringliteral">&#39;w&#39;</span>)</div>
+<div class="line"><span class="lineno">  425</span>            fd.write( <span class="stringliteral">&quot;\n&quot;</span>.join(lines) )</div>
+<div class="line"><span class="lineno">  426</span>            fd.close()</div>
+<div class="line"><span class="lineno">  427</span>            self._info(f<span class="stringliteral">&quot;Created {serviceFile}&quot;</span>)</div>
+<div class="line"><span class="lineno">  428</span>        <span class="keywordflow">except</span> IOError:</div>
+<div class="line"><span class="lineno">  429</span>            self._fatalError(<span class="stringliteral">&quot;Failed to create {}&quot;</span>.format(serviceFile) )</div>
+<div class="line"><span class="lineno">  430</span> </div>
+<div class="line"><span class="lineno">  431</span>        cmd = <span class="stringliteral">&quot;{} daemon-reload&quot;</span>.format(self._cmdLinePrefix)</div>
+<div class="line"><span class="lineno">  432</span>        self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  433</span>        cmd = <span class="stringliteral">&quot;{} enable {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  434</span>        self._info(<span class="stringliteral">&quot;Enabled {} on restart&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  435</span>        self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  436</span>        cmd = <span class="stringliteral">&quot;{} start {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  437</span>        self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  438</span>        self._info(<span class="stringliteral">&quot;Started {}&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  439</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -992,19 +998,19 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <pre class="fragment">@brief Get a status report.
    @return Lines of text indicating the status of a previously started process.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00503">503</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  503</span>    <span class="keyword">def </span>getStatusLines(self):</div>
-<div class="line"><span class="lineno">  504</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
-<div class="line"><span class="lineno">  505</span><span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  506</span>        serviceName = self._getServiceName()</div>
-<div class="line"><span class="lineno">  507</span>        <span class="keywordflow">if</span> self._rootMode:</div>
-<div class="line"><span class="lineno">  508</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
-<div class="line"><span class="lineno">  509</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  510</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;--user&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
-<div class="line"><span class="lineno">  511</span>        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
-<div class="line"><span class="lineno">  512</span>        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
-<div class="line"><span class="lineno">  513</span>        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
-<div class="line"><span class="lineno">  514</span>        <span class="keywordflow">return</span> lines</div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00509">509</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  509</span>    <span class="keyword">def </span>getStatusLines(self):</div>
+<div class="line"><span class="lineno">  510</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Get a status report.</span></div>
+<div class="line"><span class="lineno">  511</span><span class="stringliteral">           @return Lines of text indicating the status of a previously started process.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  512</span>        serviceName = self._getServiceName()</div>
+<div class="line"><span class="lineno">  513</span>        <span class="keywordflow">if</span> self._rootMode:</div>
+<div class="line"><span class="lineno">  514</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
+<div class="line"><span class="lineno">  515</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  516</span>            p = Popen([self._systemCtlBin, <span class="stringliteral">&#39;--user&#39;</span>, <span class="stringliteral">&#39;status&#39;</span>, serviceName], stdin=PIPE, stdout=PIPE, stderr=PIPE)</div>
+<div class="line"><span class="lineno">  517</span>        output, err = p.communicate(b<span class="stringliteral">&quot;input data that is passed to subprocess&#39; stdin&quot;</span>)</div>
+<div class="line"><span class="lineno">  518</span>        response = output.decode() + <span class="stringliteral">&quot;\n&quot;</span> + err.decode()</div>
+<div class="line"><span class="lineno">  519</span>        lines = response.split(<span class="stringliteral">&quot;\n&quot;</span>)</div>
+<div class="line"><span class="lineno">  520</span>        <span class="keywordflow">return</span> lines</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1066,29 +1072,29 @@ Protected Attributes</h2></td></tr>
 <pre class="fragment">@brief Remove the executable file to the processes started at boot time.
           Any running processes will be stopped.  The executable file must be
           named the same as the python file executed without the .py suffix.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00481">481</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  481</span>    <span class="keyword">def </span>remove(self):</div>
-<div class="line"><span class="lineno">  482</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove the executable file to the processes started at boot time.</span></div>
-<div class="line"><span class="lineno">  483</span><span class="stringliteral">                  Any running processes will be stopped.  The executable file must be</span></div>
-<div class="line"><span class="lineno">  484</span><span class="stringliteral">                  named the same as the python file executed without the .py suffix.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  485</span>        appName, _ = self._getApp()</div>
-<div class="line"><span class="lineno">  486</span> </div>
-<div class="line"><span class="lineno">  487</span>        serviceName = self._getServiceName()</div>
-<div class="line"><span class="lineno">  488</span>        serviceFile = self._getServiceFile(appName)</div>
-<div class="line"><span class="lineno">  489</span>        <span class="keywordflow">if</span> os.path.isfile(serviceFile):</div>
-<div class="line"><span class="lineno">  490</span>            cmd = <span class="stringliteral">&quot;{} disable {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  491</span>            self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  492</span>            self._info(<span class="stringliteral">&quot;Disabled {} on restart&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  493</span> </div>
-<div class="line"><span class="lineno">  494</span>            cmd = <span class="stringliteral">&quot;{} stop {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  495</span>            self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  496</span>            self._info(<span class="stringliteral">&quot;Stopped {}&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  497</span> </div>
-<div class="line"><span class="lineno">  498</span>            os.remove(serviceFile)</div>
-<div class="line"><span class="lineno">  499</span>            self._log(<span class="stringliteral">&quot;Removed {}&quot;</span>.format(serviceFile))</div>
-<div class="line"><span class="lineno">  500</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  501</span>            self._info(<span class="stringliteral">&quot;{} service not found&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  502</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00487">487</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  487</span>    <span class="keyword">def </span>remove(self):</div>
+<div class="line"><span class="lineno">  488</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Remove the executable file to the processes started at boot time.</span></div>
+<div class="line"><span class="lineno">  489</span><span class="stringliteral">                  Any running processes will be stopped.  The executable file must be</span></div>
+<div class="line"><span class="lineno">  490</span><span class="stringliteral">                  named the same as the python file executed without the .py suffix.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  491</span>        appName, _ = self._getApp()</div>
+<div class="line"><span class="lineno">  492</span> </div>
+<div class="line"><span class="lineno">  493</span>        serviceName = self._getServiceName()</div>
+<div class="line"><span class="lineno">  494</span>        serviceFile = self._getServiceFile(appName)</div>
+<div class="line"><span class="lineno">  495</span>        <span class="keywordflow">if</span> os.path.isfile(serviceFile):</div>
+<div class="line"><span class="lineno">  496</span>            cmd = <span class="stringliteral">&quot;{} disable {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  497</span>            self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  498</span>            self._info(<span class="stringliteral">&quot;Disabled {} on restart&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  499</span> </div>
+<div class="line"><span class="lineno">  500</span>            cmd = <span class="stringliteral">&quot;{} stop {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  501</span>            self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  502</span>            self._info(<span class="stringliteral">&quot;Stopped {}&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  503</span> </div>
+<div class="line"><span class="lineno">  504</span>            os.remove(serviceFile)</div>
+<div class="line"><span class="lineno">  505</span>            self._log(<span class="stringliteral">&quot;Removed {}&quot;</span>.format(serviceFile))</div>
+<div class="line"><span class="lineno">  506</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  507</span>            self._info(<span class="stringliteral">&quot;{} service not found&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  508</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1108,17 +1114,17 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <pre class="fragment">@brief Restart an existing service.</pre> 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00452">452</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  452</span>    <span class="keyword">def </span>restart(self):</div>
-<div class="line"><span class="lineno">  453</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Restart an existing service.&quot;&quot;&quot;</span></div>
-<div class="line"><span class="lineno">  454</span>        serviceName = self._getServiceName()</div>
-<div class="line"><span class="lineno">  455</span>        cmd = <span class="stringliteral">&quot;{} stop {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  456</span>        self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  457</span>        self._info(<span class="stringliteral">&quot;Stopped {}&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  458</span>        cmd = <span class="stringliteral">&quot;{} start {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
-<div class="line"><span class="lineno">  459</span>        self._runLocalCmd(cmd)</div>
-<div class="line"><span class="lineno">  460</span>        self._info(<span class="stringliteral">&quot;Started {}&quot;</span>.format(serviceName))</div>
-<div class="line"><span class="lineno">  461</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00458">458</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  458</span>    <span class="keyword">def </span>restart(self):</div>
+<div class="line"><span class="lineno">  459</span>        <span class="stringliteral">&quot;&quot;&quot;@brief Restart an existing service.&quot;&quot;&quot;</span></div>
+<div class="line"><span class="lineno">  460</span>        serviceName = self._getServiceName()</div>
+<div class="line"><span class="lineno">  461</span>        cmd = <span class="stringliteral">&quot;{} stop {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  462</span>        self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  463</span>        self._info(<span class="stringliteral">&quot;Stopped {}&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  464</span>        cmd = <span class="stringliteral">&quot;{} start {}&quot;</span>.format(self._cmdLinePrefix, serviceName)</div>
+<div class="line"><span class="lineno">  465</span>        self._runLocalCmd(cmd)</div>
+<div class="line"><span class="lineno">  466</span>        self._info(<span class="stringliteral">&quot;Started {}&quot;</span>.format(serviceName))</div>
+<div class="line"><span class="lineno">  467</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1138,26 +1144,26 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00462">462</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  462</span>    <span class="keyword">def </span>show_log(self):</div>
-<div class="line"><span class="lineno">  463</span>        serviceName = self._getServiceName()</div>
-<div class="line"><span class="lineno">  464</span>        <span class="comment"># Show log and wait for any new messages to arrive.</span></div>
-<div class="line"><span class="lineno">  465</span>        <span class="comment"># User must enter Crtl C to quit.</span></div>
-<div class="line"><span class="lineno">  466</span>        cmd_list = (<span class="stringliteral">&quot;journalctl&quot;</span>, <span class="stringliteral">&quot;-u&quot;</span>, serviceName)</div>
-<div class="line"><span class="lineno">  467</span>        cmd_msg = <span class="stringliteral">&quot; &quot;</span>.join(cmd_list)</div>
-<div class="line"><span class="lineno">  468</span>        result = run(cmd_list, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span> )</div>
-<div class="line"><span class="lineno">  469</span>        lines = result.stdout.split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  470</span>        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  471</span>            <span class="keywordflow">if</span> l:</div>
-<div class="line"><span class="lineno">  472</span>                self._info(l)</div>
-<div class="line"><span class="lineno">  473</span> </div>
-<div class="line"><span class="lineno">  474</span>        lines = result.stderr.split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
-<div class="line"><span class="lineno">  475</span>        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
-<div class="line"><span class="lineno">  476</span>            <span class="keywordflow">if</span> l:</div>
-<div class="line"><span class="lineno">  477</span>                self._error(l)</div>
-<div class="line"><span class="lineno">  478</span>        <span class="comment"># Add cmd at end of output so that user can see and modify the cmd as required.</span></div>
-<div class="line"><span class="lineno">  479</span>        self._info(f<span class="stringliteral">&quot;CMD for above output: &#39;{cmd_msg}&#39;&quot;</span>)</div>
-<div class="line"><span class="lineno">  480</span> </div>
+<p class="definition">Definition at line <a class="el" href="boot__manager_8py_source.html#l00468">468</a> of file <a class="el" href="boot__manager_8py_source.html">boot_manager.py</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  468</span>    <span class="keyword">def </span>show_log(self):</div>
+<div class="line"><span class="lineno">  469</span>        serviceName = self._getServiceName()</div>
+<div class="line"><span class="lineno">  470</span>        <span class="comment"># Show log and wait for any new messages to arrive.</span></div>
+<div class="line"><span class="lineno">  471</span>        <span class="comment"># User must enter Crtl C to quit.</span></div>
+<div class="line"><span class="lineno">  472</span>        cmd_list = (<span class="stringliteral">&quot;journalctl&quot;</span>, <span class="stringliteral">&quot;-u&quot;</span>, serviceName)</div>
+<div class="line"><span class="lineno">  473</span>        cmd_msg = <span class="stringliteral">&quot; &quot;</span>.join(cmd_list)</div>
+<div class="line"><span class="lineno">  474</span>        result = run(cmd_list, capture_output=<span class="keyword">True</span>, text=<span class="keyword">True</span> )</div>
+<div class="line"><span class="lineno">  475</span>        lines = result.stdout.split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  476</span>        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  477</span>            <span class="keywordflow">if</span> l:</div>
+<div class="line"><span class="lineno">  478</span>                self._info(l)</div>
+<div class="line"><span class="lineno">  479</span> </div>
+<div class="line"><span class="lineno">  480</span>        lines = result.stderr.split(<span class="stringliteral">&#39;\n&#39;</span>)</div>
+<div class="line"><span class="lineno">  481</span>        <span class="keywordflow">for</span> l <span class="keywordflow">in</span> lines:</div>
+<div class="line"><span class="lineno">  482</span>            <span class="keywordflow">if</span> l:</div>
+<div class="line"><span class="lineno">  483</span>                self._error(l)</div>
+<div class="line"><span class="lineno">  484</span>        <span class="comment"># Add cmd at end of output so that user can see and modify the cmd as required.</span></div>
+<div class="line"><span class="lineno">  485</span>        self._info(f<span class="stringliteral">&quot;CMD for above output: &#39;{cmd_msg}&#39;&quot;</span>)</div>
+<div class="line"><span class="lineno">  486</span> </div>
 </div><!-- fragment -->
 </div>
 </div>
