@@ -393,10 +393,16 @@ class LinuxBootManager(object):
         if self._rootMode and user != 'root':
             lines.append("User={}".format(user))
 
-        #We add the home path env var so that config files (if stored in/under
-        # the users home dir) can be found by the prgram.
+        # We set HOME so the service can find config files stored under the
+        # target user's home directory. Resolve the account's *real* home from
+        # the password database rather than assuming /home/<user> — root lives
+        # in /root, and system/custom accounts may live elsewhere.
         if user and len(user) > 0:
-            lines.append('Environment="HOME=/home/{}"'.format(user))
+            home_dir = os.path.expanduser(f"~{user}")
+            if not home_dir or home_dir == f"~{user}":   # unknown user: last-resort fallback
+                home_dir = f"/home/{user}"
+            lines.append(f'Environment="HOME={home_dir}"')
+
         if argString:
             argString = argString.strip()
             if argString.startswith(absApp):
