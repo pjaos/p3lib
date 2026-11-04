@@ -241,7 +241,7 @@ if _platform == 'Linux':
                 gnome_desktop_file2 = os.path.join(gnome_desktop_apps_folder2, desktop_file_name)
                 gnome_desktop_files = (gnome_desktop_file1, gnome_desktop_file2)
             else:
-                gnome_desktop_files = (gnome_desktop_file1)
+                gnome_desktop_files = (gnome_desktop_file1,)
 
             return gnome_desktop_files
 
