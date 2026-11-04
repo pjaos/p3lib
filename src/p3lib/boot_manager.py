@@ -19,6 +19,7 @@ class BootManager(object):
     DISABLE_CMD_OPT     = "--disable_auto_start"
     RESTART_CMD_OPT     = "--restart_service"
     CHECK_CMD_OPT       = "--check_auto_start"
+    SHOW_LOG_END_CMD_OPT = "--show_service_log_end"
     SHOW_LOG_CMD_OPT    = "--show_service_log"
 
     @staticmethod
@@ -29,6 +30,7 @@ class BootManager(object):
         parser.add_argument(BootManager.DISABLE_CMD_OPT, help="Disable auto starting when this computer starts.", action="store_true", default=False)
         parser.add_argument(BootManager.RESTART_CMD_OPT, help="Restart a running service.", action="store_true", default=False)
         parser.add_argument(BootManager.CHECK_CMD_OPT,   help="Check the running status.", action="store_true", default=False)
+        parser.add_argument(BootManager.SHOW_LOG_END_CMD_OPT,help="Show the end of the log for a running service.", action="store_true", default=False)
         parser.add_argument(BootManager.SHOW_LOG_CMD_OPT,help="Show the log for a running service.", action="store_true", default=False)
 
     @staticmethod
@@ -60,8 +62,12 @@ class BootManager(object):
             BootManager.RestartService(uio, serviceName, restartSeconds)
             handled = True
 
+        elif options.show_service_log_end:
+            BootManager.ShowServiceLog(uio, serviceName, end=True)
+            handled = True
+
         elif options.show_service_log:
-            BootManager.ShowServiceLog(uio, serviceName)
+            BootManager.ShowServiceLog(uio, serviceName, end=False)
             handled = True
 
         return handled
@@ -113,15 +119,16 @@ class BootManager(object):
         bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName, restartSeconds=restartSeconds)
         bootManager.restart()
 
-    def ShowServiceLog(uio, serviceName):
+    def ShowServiceLog(uio, serviceName, end):
         """@brief Show the log for a running service.
                 @param uio A UIO instance.
                 @param options As returned from parser.parse_args() where parser
                                 is an instance of argparse.ArgumentParser.
                 @param serviceName The name of the service. If not set then the name of the initially executed
-                                    python file is used."""
+                                    python file is used.
+                @param end If True just show the end of the service log rather than the whole thing."""
         bootManager = BootManager(uio=uio, ensureRootUser=True, serviceName=serviceName)
-        bootManager.show_log()
+        bootManager.show_log(end=end)
 
     def __init__(self, uio=None, allowRootUser=True, ensureRootUser=False, serviceName=None, restartSeconds=1):
         """@brief Constructor
@@ -174,10 +181,11 @@ class BootManager(object):
         if self._platformBootManager:
             self._platformBootManager.restart()
 
-    def show_log(self):
-        """@brief Show the log for a running service."""
+    def show_log(self, end):
+        """@brief Show the log for a running service.
+           @param end If True show the end of the service log. If False show the whole log."""
         if self._platformBootManager:
-            self._platformBootManager.show_log()
+            self._platformBootManager.show_log(end)
 
 
 class LinuxBootManager(object):
@@ -468,11 +476,15 @@ class LinuxBootManager(object):
         self._runLocalCmd(cmd)
         self._info("Started {}".format(serviceName))
 
-    def show_log(self):
+    def show_log(self, end):
+        """@brief Show the log for a running service.
+           @param end If True show the end of the service log. If False show the whole log."""
         serviceName = self._getServiceName()
         # Show log and wait for any new messages to arrive.
         # User must enter Crtl C to quit.
         cmd_list = ("journalctl", "-u", serviceName)
+        if end:
+            cmd_list = ("journalctl", "-u", serviceName, "-n", "100")
         cmd_msg = " ".join(cmd_list)
         result = run(cmd_list, capture_output=True, text=True )
         lines = result.stdout.split('\n')
