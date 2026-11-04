@@ -403,18 +403,21 @@ class LinuxBootManager(object):
                 home_dir = f"/home/{user}"
             lines.append(f'Environment="HOME={home_dir}"')
 
+        # A .py file in a venv must be run with the venv python whether or not
+        # there are arguments (a .py file installed from a wheel is not executable).
+        execCmd = self._prefix_with_venv_python(absApp)
         if argString:
             argString = argString.strip()
             if argString.startswith(absApp):
                 argString=argString.replace(absApp, "")
             # We don't want the enable cmd opt in the cmd we add to the systemd file.
-            if argString.find(BootManager.ENABLE_CMD_OPT):
+            if BootManager.ENABLE_CMD_OPT in argString:
                 argString = argString.replace(BootManager.ENABLE_CMD_OPT, "")
             argString = argString.strip()
-            absApp = self._prefix_with_venv_python(absApp)
-            lines.append("ExecStart={} {}".format(absApp, argString))
+        if argString:
+            lines.append("ExecStart={} {}".format(execCmd, argString))
         else:
-            lines.append("ExecStart={}".format(absApp))
+            lines.append("ExecStart={}".format(execCmd))
         lines.append("")
         lines.append("[Install]")
         lines.append("WantedBy=multi-user.target")
